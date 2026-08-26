@@ -1,0 +1,25 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "OptiMind",
+  "description": "Vende por WhatsApp con un agente de ventas IA — y opéralo desde tu asistente.",
+  "colors": {
+    "primary": "#7C3AED",
+    "light": "#A78BFA",
+    "dark": "#5B21B6"
+  },
+  "navigation": {
+    "groups": [
+      { "group": "Empezar", "pages": ["index"] },
+      {
+        "group": "Conecta tu asistente",
+        "pages": ["quickstarts/claude-ai", "quickstarts/claude-code", "quickstarts/chatgpt"]
+      },
+      { "group": "Referencia", "pages": ["referencia/tools"] },
+      { "group": "Seguridad", "pages": ["seguridad"] }
+    ]
+  },
+  "footer": {
+    "socials": { "website": "https://darkfunnels.ai" }
+  }
+}

@@ -1,0 +1,53 @@
+---
+title: "Seguridad"
+description: "Cómo el puente MCP confina, delimita y audita — y por qué nunca mueve dinero."
+---
+
+## Tu cuenta es el perímetro
+
+El asistente se autentica por **OAuth con tu propia cuenta** de OptiMind y todo
+acceso a datos viaja con tu identidad: la separación entre negocios la aplica la
+base de datos en cada consulta (Row Level Security), no una convención del
+código. El servicio del puente **no tiene credenciales de plataforma** — un
+compromiso total del proceso no puede cruzar de un negocio a otro.
+
+## Revocación
+
+La conexión se elimina desde tu asistente (en Claude: Ajustes → Conectores →
+eliminar el conector). A partir de ahí ese cliente deja de poder llamar al
+puente. Si necesitas cortar el acceso de inmediato desde nuestro lado —por
+ejemplo si perdiste el control de la cuenta— escríbele al equipo de OptiMind:
+hoy la revocación desde el panel no está disponible todavía.
+
+## Los mensajes de tus clientes son DATOS, no órdenes
+
+Todo texto que escriben clientes finales llega al asistente **delimitado** con
+marcadores criptográficos frescos por respuesta y una nota fija: es contenido a
+analizar, no instrucciones a seguir. Además:
+
+- Sin parámetros, la conexión es de **lectura, con una única escritura**: las
+  etiquetas de clientes (`assign_client_tags`, que fija el conjunto completo de
+  etiquetas de un cliente). Ninguna acción destructiva viaja en el set base:
+  guardar el manual, editar el catálogo, enviar mensajes o simular
+  conversaciones exigen grupos opt-in explícitos en la URL (`?features=…`), y
+  una lista explícita **reemplaza** al set base en vez de ampliarlo.
+- `?read_only=true` desactiva toda escritura y manda sobre cualquier otra
+  opción.
+- Las acciones destructivas están anotadas como tales: tu cliente pide
+  confirmación antes de ejecutarlas.
+
+## Auditoría que no se puede borrar
+
+Cada llamada del asistente queda registrada (herramienta, resultado, momento) en
+una bitácora **append-only** que tú puedes leer y nadie —ni nosotros ni el
+asistente— puede editar o borrar. Del contenido de tus datos solo se guarda un
+hash: la bitácora dice *qué se hizo*, no duplica *lo que dijiste*.
+
+## Nunca mueve dinero
+
+Quien registra las ventas es tu agente de WhatsApp dentro de OptiMind; el puente
+solo las **lee** (`list_orders`, `get_order`). **No cobra, no transfiere, no
+emite links de pago, no toca tu pasarela ni tus tarjetas** — ninguna de sus
+herramientas puede hacerlo. Las funciones que consumen créditos de IA (generar
+manual, Copiloto, simulaciones) pasan por el mismo control de saldo del panel:
+sin créditos, se detienen — jamás cobran solas.

@@ -1,0 +1,33 @@
+---
+title: "Claude Code"
+description: "El conector de OptiMind en tu terminal."
+---
+
+<Steps>
+  <Step title="Añade el servidor">
+    ```bash
+    claude mcp add --transport http optimind "https://mcp.darkfunnels.ai/mcp?features=all"
+    ```
+    Las comillas importan: sin ellas el `?` dispara el glob de la shell.
+  </Step>
+  <Step title="Autoriza">
+    ```bash
+    claude mcp login optimind
+    ```
+    Se abre el navegador: entra con la **misma cuenta del panel de OptiMind**.
+  </Step>
+</Steps>
+
+<Note>
+Si iniciaste sesión en Claude Code con tu suscripción (no con API key), los
+conectores de claude.ai se sincronizan solos y puedes saltarte estos pasos.
+</Note>
+
+Si al autorizar ves un **403 «beta cerrada»**: o tu cuenta aún no tiene acceso a
+la beta (pídelo al equipo), o entraste con una cuenta distinta a la del panel.
+
+<Warning>
+El login OAuth desde terminal puede fallar hoy por una limitación del proveedor
+de identidad (puerto de callback dinámico). La vía alternativa paso a paso está
+en tu panel: **Personalizar → Asistentes IA**.
+</Warning>
