@@ -1,0 +1,52 @@
+---
+title: "Codex"
+description: "Conecta Codex (OpenAI) a OptiMind — app, extensión del editor o terminal."
+---
+
+Requiere una cuenta de OpenAI con acceso a Codex. La app, la extensión del
+editor y la terminal comparten la misma configuración (`~/.codex/config.toml`),
+así que lo conectas una sola vez.
+
+<Steps>
+  <Step title="Añade el servidor">
+    **Ajustes → MCP servers → Add server** y elige **Streamable HTTP**.
+  </Step>
+  <Step title="Pega la URL">
+    ```
+    https://mcp.darkfunnels.ai/mcp?features=all
+    ```
+    Deja **vacío** el campo del token portador: la autorización va por tu
+    cuenta, no por una clave.
+  </Step>
+  <Step title="Autoriza">
+    Con la **misma cuenta con la que entras al panel de OptiMind**. Se abre tu
+    navegador y pulsas «Autorizar».
+  </Step>
+</Steps>
+
+¿Prefieres la terminal? Dos comandos:
+
+```bash
+codex mcp add optimind --url "https://mcp.darkfunnels.ai/mcp?features=all"
+```
+
+```bash
+codex mcp login optimind
+```
+
+<Warning>
+Si autorizas correctamente pero las herramientas no aparecen en el hilo,
+actualiza Codex: hay un fallo conocido en una versión alpha de la app de
+escritorio ([openai/codex#20009](https://github.com/openai/codex/issues/20009)).
+Mientras tanto funcionan la terminal y la extensión del editor.
+</Warning>
+
+## Si algo falla
+
+- **No ve tus datos, o los ve vacíos** → autorizaste con otra cuenta.
+  Pregúntale «¿con qué cuenta de OptiMind estás conectado?»; si no es la tuya,
+  borra el servidor, entra a darkfunnels.ai con la cuenta correcta y vuelve a
+  conectarlo.
+- **No aparecen funciones nuevas** → empieza un hilo nuevo: cada conversación
+  se queda con la lista de funciones que había al abrirla.
+- **«Sin créditos»** → recarga en Facturación.

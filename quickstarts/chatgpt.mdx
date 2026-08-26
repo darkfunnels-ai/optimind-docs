@@ -3,12 +3,19 @@ title: "ChatGPT"
 description: "Conecta ChatGPT (modo desarrollador) a OptiMind."
 ---
 
-Requiere plan **Plus/Pro** con el **modo desarrollador** activo (Configuración →
-avanzada), solo en la web de ChatGPT.
+<Warning>
+El plan **gratis de ChatGPT no admite conectores personalizados**. Necesitas
+Plus, Pro, Team, Enterprise o Edu, con el **modo desarrollador** activo. Si solo
+tienes el gratis, ve a [claude.ai](/quickstarts/claude-ai): su plan gratis sí
+admite un conector, y es el mismo link.
+</Warning>
 
 <Steps>
+  <Step title="Activa el modo desarrollador">
+    **Ajustes → Apps y conectores → Avanzado → Modo desarrollador**.
+  </Step>
   <Step title="Crea el conector">
-    **Configuración → Conectores → Crear** conector personalizado.
+    Crea un conector personalizado nuevo.
   </Step>
   <Step title="Pega la URL">
     ```
@@ -23,8 +30,8 @@ avanzada), solo en la web de ChatGPT.
 Las escrituras (guardar manual, editar catálogo) piden confirmación dentro de
 ChatGPT antes de ejecutarse.
 
-Si al autorizar ves un **403 «beta cerrada»**: o tu cuenta aún no tiene acceso a
-la beta (pídelo al equipo), o entraste con una cuenta distinta a la del panel.
+Si el asistente no ve tu negocio (o lo ve vacío), autorizaste con una cuenta
+distinta a la del panel: borra el conector y vuelve a conectarlo con la correcta.
 
 <Note>
 ¿Solo tienes ChatGPT gratis? Usa [claude.ai](/quickstarts/claude-ai): su plan

@@ -13,7 +13,12 @@
       { "group": "Empezar", "pages": ["index"] },
       {
         "group": "Conecta tu asistente",
-        "pages": ["quickstarts/claude-ai", "quickstarts/claude-code", "quickstarts/chatgpt"]
+        "pages": [
+          "quickstarts/claude-ai",
+          "quickstarts/claude-code",
+          "quickstarts/codex",
+          "quickstarts/chatgpt"
+        ]
       },
       { "group": "Referencia", "pages": ["referencia/tools"] },
       { "group": "Seguridad", "pages": ["seguridad"] }
