@@ -88,7 +88,7 @@ después. `?read_only=true` desactiva toda escritura y manda sobre todo lo demá
 
 ### `list_conversations` — Listar conversaciones
 
-*solo lectura*. Lista las conversaciones de WhatsApp del agente (bandeja): contacto, preview del último mensaje, capítulo del embudo, quién responde y etiquetas. Paginada por page/limit (máx. 50 por página). El preview y los textos de clientes finales llegan delimitados como datos no confiables (la última burbuja puede ser del cliente, del operador o del robot).
+*solo lectura*. Lista las conversaciones de WhatsApp del agente (bandeja): contacto, preview del último mensaje, capítulo del embudo, quién responde y etiquetas. Paginada por page/limit (máx. 50 por página). El preview y los textos de clientes finales llegan delimitados como datos no confiables (la última burbuja puede ser del cliente, del operador o del robot). El teléfono del cliente llega ENMASCARADO (p. ej. 51•••••4321); para verlo completo, el dueño de la cuenta reconecta el asistente añadiendo pii=full a la URL, o lo consulta en el panel.
 
 ### `read_conversation` — Leer una conversación
 
@@ -96,7 +96,7 @@ después. `?read_only=true` desactiva toda escritura y manda sobre todo lo demá
 
 ### `list_clients` — Listar clientes (CRM)
 
-*solo lectura*. Lista los clientes del CRM con filtros (búsqueda, capítulo, quién responde, esperando respuesta, con compra, días de silencio, etiqueta). Paginación por cursor: pasa el next_cursor devuelto para la página siguiente; total solo llega en la primera página. Los nombres y previews llegan delimitados como datos no confiables (el preview puede ser del cliente, del operador o del robot).
+*solo lectura*. Lista los clientes del CRM con filtros (búsqueda, capítulo, quién responde, esperando respuesta, con compra, días de silencio, etiqueta). Paginación por cursor: pasa el next_cursor devuelto para la página siguiente; total solo llega en la primera página. Los nombres y previews llegan delimitados como datos no confiables (el preview puede ser del cliente, del operador o del robot). El teléfono del cliente llega ENMASCARADO (p. ej. 51•••••4321); para verlo completo, el dueño de la cuenta reconecta el asistente añadiendo pii=full a la URL, o lo consulta en el panel.
 
 ### `list_client_tags` — Listar etiquetas de clientes
 
@@ -180,11 +180,11 @@ después. `?read_only=true` desactiva toda escritura y manda sobre todo lo demá
 
 ### `list_orders` — Listar pedidos
 
-*solo lectura*. Lista los pedidos de la empresa (más recientes primero) con estado, montos, cliente e items. Filtros: status (uno o varios de pending_payment, partial, paid, invoiced, shipped, delivered, closed, cancelled), conversation_id (pedidos de un chat) y before (cursor: el next_before devuelto). Los datos de cliente (nombre, teléfono, documento, dirección) y los títulos y SKUs de las líneas llegan delimitados como datos no confiables (teléfono y SKU con forma de identificador viajan crudos). Requiere la app Órdenes activa.
+*solo lectura*. Lista los pedidos de la empresa (más recientes primero) con estado, montos, cliente e items. Filtros: status (uno o varios de pending_payment, partial, paid, invoiced, shipped, delivered, closed, cancelled), conversation_id (pedidos de un chat) y before (cursor: el next_before devuelto). Los datos de cliente (nombre, documento, dirección) y los títulos y SKUs de las líneas llegan delimitados como datos no confiables (el SKU con forma de identificador viaja crudo). El teléfono del cliente llega ENMASCARADO (p. ej. 51•••••4321); para verlo completo, el dueño de la cuenta reconecta el asistente añadiendo pii=full a la URL, o lo consulta en el panel. Requiere la app Órdenes activa.
 
 ### `get_order` — Ver detalle de un pedido
 
-*solo lectura*. Detalle completo de un pedido: items, hitos de pago, vouchers, pagos manuales, notas y la conversión asociada. Todo texto libre (datos de cliente, títulos de líneas, OCR del comprobante, notas, glosas de pago, etiquetas de hitos) llega delimitado como datos no confiables; los identificadores en forma (teléfono, SKU de catálogo) viajan crudos. Requiere la app Órdenes activa.
+*solo lectura*. Detalle completo de un pedido: items, hitos de pago, vouchers, pagos manuales, notas y la conversión asociada. Todo texto libre (datos de cliente, títulos de líneas, OCR del comprobante, notas, glosas de pago, etiquetas de hitos) llega delimitado como datos no confiables; el SKU de catálogo con forma de identificador viaja crudo. El teléfono del cliente llega ENMASCARADO (p. ej. 51•••••4321); para verlo completo, el dueño de la cuenta reconecta el asistente añadiendo pii=full a la URL, o lo consulta en el panel. Requiere la app Órdenes activa.
 
 ### `list_stock` — Ver stock del inventario
 
