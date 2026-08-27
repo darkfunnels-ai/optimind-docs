@@ -47,22 +47,28 @@ respuesta. Por eso el dato que más los identifica —el número— llega
 51•••••4321          12•••6789@lid
 ```
 
-Se conservan los últimos dígitos, suficientes para que reconozcas un número que
+Se conservan los últimos cuatro dígitos y una pista de país, suficiente para que reconozcas un número que
 ya conoces y para distinguir dos filas de tu bandeja. Si un valor no tiene forma
 de teléfono, no se enmascara a medias: sale `(oculto)`.
 
 Esto no te quita ninguna capacidad. **Ninguna herramienta necesita el número de
-un cliente para operar sobre su chat**: responder, cambiar el modo, crear
-recordatorios o abrir pedidos direccionan todos por la conversación. La única
-que pide un teléfono es `simulate_new_chat`, y ahí lo tecleas tú: es tu propio
-número de prueba, no uno que hayas leído de la bandeja.
+un cliente para operar sobre su chat**: responder, cambiar el modo y crear
+recordatorios direccionan todos por la conversación. La única que pide un
+teléfono es `simulate_new_chat`, y ahí lo tecleas tú: es tu propio número de
+prueba, no uno que hayas leído de la bandeja.
 
 Si de verdad necesitas los números completos, reconecta tu asistente añadiendo
 `pii=full` a la URL:
 
 ```
-https://mcp.darkfunnels.ai/mcp?pii=full
+https://mcp.darkfunnels.ai/mcp?features=all&pii=full
 ```
+
+<Warning>
+Añade `pii=full` a la URL que ya usabas, no lo pongas solo. `?features=` es
+independiente, pero si tenías `?features=all` y conectas con `?pii=full` a
+secas, vuelves al set base y pierdes pedidos, métricas y las escrituras.
+</Warning>
 
 Es una decisión tuya al conectar, no algo que el asistente pueda cambiar a mitad
 de una conversación. Y siempre los tienes en el panel.

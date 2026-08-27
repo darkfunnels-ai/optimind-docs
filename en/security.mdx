@@ -46,22 +46,28 @@ response. So the field that identifies them most directly — the number — arr
 51•••••4321          12•••6789@lid
 ```
 
-The last digits are kept, enough for you to recognize a number you already know
+The last four digits and a country hint are kept, enough for you to recognize a number you already know
 and to tell two rows of your inbox apart. A value that isn't shaped like a phone
 number is not half-masked: it comes back as `(oculto)` — hidden.
 
 This costs you nothing. **No tool needs a customer's number to act on their
-chat**: replying, switching a chat's mode, creating reminders or opening orders
-all address the conversation, not the number. The one tool that does take a
-phone number is `simulate_new_chat`, and there you type it yourself: it's your
-own test number, not one read out of the inbox.
+chat**: replying, switching a chat's mode and creating reminders all address the
+conversation, not the number. The one tool that does take a phone number is
+`simulate_new_chat`, and there you type it yourself: it's your own test number,
+not one read out of the inbox.
 
 If you really need full numbers, reconnect your assistant adding `pii=full` to
 the URL:
 
 ```
-https://mcp.darkfunnels.ai/mcp?pii=full
+https://mcp.darkfunnels.ai/mcp?features=all&pii=full
 ```
+
+<Warning>
+Add `pii=full` to the URL you were already using — don't use it on its own.
+`?features=` is independent, so if you had `?features=all` and connect with just
+`?pii=full`, you fall back to the base set and lose orders, metrics and writes.
+</Warning>
 
 That is your decision when connecting, not something the assistant can change
 mid-conversation. And they are always in the dashboard.
