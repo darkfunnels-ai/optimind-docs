@@ -1,0 +1,35 @@
+---
+title: "Claude Code"
+description: "The OptiMind connector in your terminal."
+---
+
+<Steps>
+  <Step title="Add the server">
+    ```bash
+    claude mcp add --transport http optimind "https://mcp.darkfunnels.ai/mcp?features=all"
+    ```
+    The quotes matter: without them the `?` triggers your shell's glob.
+  </Step>
+  <Step title="Authorize">
+    ```bash
+    claude mcp login optimind
+    ```
+    Your browser opens: sign in with the **same account as the OptiMind
+    dashboard**.
+  </Step>
+</Steps>
+
+<Note>
+If you signed in to Claude Code with your subscription rather than an API key,
+connectors from claude.ai sync automatically and you can skip these steps.
+</Note>
+
+If the assistant can't see your business, or sees it empty, you authorized with
+an account other than the dashboard's: remove the connector and connect again
+with the right one.
+
+<Warning>
+Today the terminal OAuth login can hang because of a limitation in the identity
+provider (dynamic callback port). If that happens, connect it in claude.ai —
+Claude Code inherits the connectors on your account.
+</Warning>

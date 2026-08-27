@@ -1,0 +1,35 @@
+---
+title: "ChatGPT"
+description: "Connect ChatGPT (developer mode) to OptiMind."
+---
+
+<Warning>
+ChatGPT's **free plan does not support custom connectors**. You need Plus, Pro,
+Team, Enterprise or Edu, with **developer mode** enabled. If free is all you
+have, go to [claude.ai](/en/quickstarts/claude-ai): its free plan does allow one
+connector, and it is the same link.
+</Warning>
+
+<Steps>
+  <Step title="Enable developer mode">
+    **Settings → Apps and connectors → Advanced → Developer mode**.
+  </Step>
+  <Step title="Create the connector">
+    Create a new custom connector.
+  </Step>
+  <Step title="Paste the URL">
+    ```
+    https://mcp.darkfunnels.ai/mcp?features=all
+    ```
+  </Step>
+  <Step title="Authorize">
+    With the **same account you use to sign in to the OptiMind dashboard**.
+  </Step>
+</Steps>
+
+Writes (saving the playbook, editing the catalog) ask for confirmation inside
+ChatGPT before they run.
+
+If the assistant can't see your business, or sees it empty, you authorized with
+an account other than the dashboard's: remove the connector and connect again
+with the right one.

@@ -9,33 +9,66 @@
     "dark": "#5B21B6"
   },
   "navigation": {
-    "groups": [
+    "languages": [
       {
-        "group": "Empezar",
-        "pages": [
-          "index"
+        "language": "es",
+        "default": true,
+        "groups": [
+          {
+            "group": "Empezar",
+            "pages": [
+              "index"
+            ]
+          },
+          {
+            "group": "Conecta tu asistente",
+            "pages": [
+              "quickstarts/claude-ai",
+              "quickstarts/claude-code",
+              "quickstarts/codex",
+              "quickstarts/chatgpt",
+              "quickstarts/otros-clientes"
+            ]
+          },
+          {
+            "group": "Referencia",
+            "pages": [
+              "referencia/tools"
+            ]
+          },
+          {
+            "group": "Seguridad",
+            "pages": [
+              "seguridad"
+            ]
+          }
         ]
       },
       {
-        "group": "Conecta tu asistente",
-        "pages": [
-          "quickstarts/claude-ai",
-          "quickstarts/claude-code",
-          "quickstarts/codex",
-          "quickstarts/chatgpt",
-          "quickstarts/otros-clientes"
-        ]
-      },
-      {
-        "group": "Referencia",
-        "pages": [
-          "referencia/tools"
-        ]
-      },
-      {
-        "group": "Seguridad",
-        "pages": [
-          "seguridad"
+        "language": "en",
+        "groups": [
+          {
+            "group": "Start",
+            "pages": [
+              "en/index"
+            ]
+          },
+          {
+            "group": "Connect your assistant",
+            "pages": [
+              "en/quickstarts/claude-ai",
+              "en/quickstarts/claude-code",
+              "en/quickstarts/codex",
+              "en/quickstarts/chatgpt",
+              "en/quickstarts/other-clients"
+            ]
+          },
+          {
+            "group": "Security",
+            "pages": [
+              "en/security"
+            ]
+          }
         ]
       }
     ]

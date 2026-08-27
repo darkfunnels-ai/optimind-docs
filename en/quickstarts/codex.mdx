@@ -1,0 +1,52 @@
+---
+title: "Codex"
+description: "Connect Codex (OpenAI) to OptiMind — app, editor extension or terminal."
+---
+
+Requires an OpenAI account with Codex access. The app, the editor extension and
+the terminal share one configuration (`~/.codex/config.toml`), so you connect
+once.
+
+<Steps>
+  <Step title="Add the server">
+    **Settings → MCP servers → Add server**, and pick **Streamable HTTP**.
+  </Step>
+  <Step title="Paste the URL">
+    ```
+    https://mcp.darkfunnels.ai/mcp?features=all
+    ```
+    Leave the bearer token field **empty**: authorization goes through your
+    account, not through a key.
+  </Step>
+  <Step title="Authorize">
+    With the **same account you use to sign in to the OptiMind dashboard**. Your
+    browser opens and you press "Authorize".
+  </Step>
+</Steps>
+
+Prefer the terminal? Two commands:
+
+```bash
+codex mcp add optimind --url "https://mcp.darkfunnels.ai/mcp?features=all"
+```
+
+```bash
+codex mcp login optimind
+```
+
+<Warning>
+If you authorize successfully but no tools show up in the thread, update Codex:
+there is a known bug in an alpha build of the desktop app
+([openai/codex#20009](https://github.com/openai/codex/issues/20009)). The
+terminal and the editor extension work in the meantime.
+</Warning>
+
+## If something goes wrong
+
+- **It can't see your data, or sees it empty** → you authorized with a different
+  account. Ask "which OptiMind account are you connected to?"; if it isn't
+  yours, remove the server, sign in to darkfunnels.ai with the right account and
+  connect again.
+- **New features don't show up** → start a new thread: each conversation keeps
+  the tool list it had when it opened.
+- **"Out of credits"** → top up in Billing.
