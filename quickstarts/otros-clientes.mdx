@@ -1,0 +1,121 @@
+---
+title: "Cursor, VS Code y otros"
+description: "El conector en cualquier cliente MCP: una URL y un fichero de configuración."
+---
+
+OptiMind habla MCP estándar, así que funciona en cualquier cliente que lo
+soporte. Siempre es la misma URL:
+
+```
+https://mcp.darkfunnels.ai/mcp?features=all
+```
+
+No hay que registrar nada ni pedir acceso: al conectar, el cliente descubre solo
+cómo autorizarte y te abre el navegador. Entra con **la misma cuenta con la que
+entras al panel**.
+
+## Cursor
+
+Edita `~/.cursor/mcp.json` (global) o `.cursor/mcp.json` (solo ese proyecto):
+
+```json
+{
+  "mcpServers": {
+    "optimind": {
+      "url": "https://mcp.darkfunnels.ai/mcp?features=all"
+    }
+  }
+}
+```
+
+Cursor abre el navegador solo la primera vez y guarda la sesión.
+
+## VS Code
+
+Edita `.vscode/mcp.json` en tu proyecto (o el del perfil de usuario):
+
+```json
+{
+  "servers": {
+    "optimind": {
+      "type": "http",
+      "url": "https://mcp.darkfunnels.ai/mcp?features=all"
+    }
+  }
+}
+```
+
+<Warning>
+VS Code es el que más se equivoca la gente, por dos detalles:
+
+- La clave de arriba es **`servers`**, no `mcpServers` como en Cursor. Con la
+  clave equivocada VS Code **ignora el fichero entero y no dice nada**.
+- Hace falta **`"type": "http"`**. Sin él no levanta la conexión remota.
+</Warning>
+
+## Gemini CLI
+
+Edita `~/.gemini/settings.json` (o `.gemini/settings.json` del proyecto). Ojo
+con el nombre del campo: aquí la URL va en **`httpUrl`**, no en `url`:
+
+```json
+{
+  "mcpServers": {
+    "optimind": {
+      "httpUrl": "https://mcp.darkfunnels.ai/mcp?features=all"
+    }
+  }
+}
+```
+
+Gemini CLI descubre la autorización solo y guarda el token en
+`~/.gemini/mcp-oauth-tokens.json`, renovándolo cuando caduca.
+
+## Cualquier otro cliente
+
+Windsurf, Zed, Claude Desktop y el resto siguen el mismo patrón; lo único que
+cambia entre unos y otros son tres detalles, y merece la pena mirarlos en la doc
+del cliente antes de pelearse con el fichero:
+
+1. **Cómo se llama la clave raíz** — `mcpServers` en casi todos, `servers` en
+   VS Code.
+2. **Cómo se llama el campo de la URL** — `url` en casi todos, `httpUrl` en
+   Gemini CLI.
+3. **Si hace falta declarar el tipo** — `"type": "http"` en VS Code.
+
+## Si tu cliente se queda sin sitio para las herramientas
+
+Algunos clientes limitan cuántas herramientas puede tener el modelo a la vez
+(Windsurf ronda las 100, VS Code las 128) contando **todos** tus servidores
+juntos. OptiMind trae 39 con `?features=all`, así que si ya tienes varios
+conectores puedes quedarte corto.
+
+La solución es pedir solo lo que vayas a usar. La lista **sustituye** al set
+base, no lo amplía:
+
+```
+https://mcp.darkfunnels.ai/mcp?features=conversations,orders
+```
+
+Los grupos están en la [referencia de herramientas](/referencia/tools). Y si
+quieres mirar sin poder tocar nada:
+
+```
+https://mcp.darkfunnels.ai/mcp?read_only=true
+```
+
+## Sin humano delante (headless)
+
+Hoy **no**. La conexión exige que una persona autorice en el navegador con su
+cuenta, así que un agente que corra solo —un cron, un worker, el Agents SDK de
+OpenAI o el Agent SDK de Claude— no puede conectarse por su cuenta.
+
+Estamos trabajando en claves de agente para eso. Mientras tanto, si necesitas
+automatizar algo sin humano delante, escríbenos y lo vemos caso por caso.
+
+<Note>
+Si tu cliente no ve tu negocio, o lo ve vacío, casi siempre es lo mismo:
+autorizaste con **otra cuenta** y estás conectado a un workspace distinto.
+Pregúntale a tu asistente «¿a qué cuenta estás conectado?» y, si no es la
+correcta, borra el conector y vuelve a conectarlo.
+</Note>
