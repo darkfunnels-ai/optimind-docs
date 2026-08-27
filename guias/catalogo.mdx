@@ -1,0 +1,286 @@
+---
+title: "El catálogo de productos"
+description: "Carga y mantén tu catálogo desde el asistente: alta masiva, precios y monedas, variantes, stock y qué es irreversible."
+---
+
+El catálogo es la lista de lo que vendes. Es **uno por negocio**: todos tus
+agentes buscan en la misma lista, no hay un catálogo por embudo ni por agente.
+
+Tu asistente puede leerlo entero, cargarlo de golpe y corregirlo. También puede
+romperlo, así que esta guía va sobre las dos cosas.
+
+<Note>
+Leer el catálogo funciona con la conexión básica. **Escribir no**: hace falta
+`catalog_write` en la URL con la que conectaste. El grupo de escritura arrastra
+el suyo de lectura, así que dentro del catálogo nunca escribes a ciegas — pero
+una lista explícita reemplaza al set por defecto, así que `?features=catalog_write`
+a secas te deja sin conversaciones ni manual. Con `?features=all` lo tienes todo.
+Los cuatro parámetros, en [La URL de conexión](/referencia/url-de-conexion).
+</Note>
+
+## Las cuatro herramientas
+
+| Herramienta | Qué hace |
+| --- | --- |
+| `list_products` | Lista paginada (20 por defecto, 100 como máximo). Filtra por texto, visibilidad, activo y tipo. |
+| `get_product` | Ficha completa de un producto: descripción, variantes, imágenes, tramos de precio. |
+| `upsert_products` | Crea o actualiza hasta 100 productos por llamada. **Destructiva.** |
+| `delete_product` | Borra un producto. **Definitivo, sin papelera.** |
+
+Eso es todo. No hay una herramienta que suba un CSV ni que se conecte a tu
+tienda: quien lee el fichero o la tienda es **tu asistente**, y luego escribe el
+resultado con `upsert_products`.
+
+## La regla que evita desastres
+
+`upsert_products` **no es un parche**. Cada producto que mandas es una fila
+completa que **reemplaza** a la que había, igual que la subida de un CSV: una
+celda que no mandas se escribe vacía.
+
+Por eso el orden correcto es siempre el mismo:
+
+<Steps>
+  <Step title="Leer">
+    `get_product` con el id del producto. Te devuelve la fila entera.
+  </Step>
+  <Step title="Cambiar solo lo tuyo">
+    Sobre esa fila, tocar únicamente lo que pediste cambiar.
+  </Step>
+  <Step title="Escribir">
+    `upsert_products` con la fila completa, no con el campo suelto.
+  </Step>
+  <Step title="Verificar">
+    Releer con `get_product` o `list_products` y comprobar el resultado.
+  </Step>
+</Steps>
+
+El puente te obliga a hacerlo. Antes de tocar nada, `upsert_products` revisa que
+cada fila declare:
+
+- `name`
+- `description` (vale `null`, pero la clave tiene que estar)
+- `active` y `visibility`
+- su forma: `has_variants` en `false` **con** `sku`, `price` y `currency`, o
+  `has_variants` en `true` **con todas** sus variantes completas.
+
+Si falta cualquiera de esas, la llamada rebota con un error que te dice qué
+falta y te manda a leer con `get_product`. No es burocracia: sin `description`
+el catálogo borraría la descripción, y sin `active` reactivaría un producto que
+tenías apagado.
+
+<Warning>
+Si mandas un producto **sin `id`**, el destino se busca por el nombre. Un nombre
+igual al de un producto que ya existe lo **sobrescribe** en vez de crear uno
+nuevo. Cuando actualices algo, que tu asistente use siempre el `id`.
+</Warning>
+
+## Frases para copiar y pegar
+
+Cargar un catálogo desde un fichero que le pasas al asistente:
+
+```text
+Te paso mi lista de productos. Antes de escribir nada, lista lo que ya hay
+en mi catálogo de OptiMind para no duplicar. Después súbelos con
+upsert_products en lotes de 100, cada fila completa, y enséñame el
+resumen de created / updated / errors.
+```
+
+Cambiar un precio sin romper nada:
+
+```text
+Sube el precio del Shampoo Anticaída a 69.90 soles. Lee la ficha con
+get_product primero y reenvía la fila entera con ese único cambio.
+Confírmame la moneda antes de escribir.
+```
+
+Dejar de ofrecer algo sin borrarlo:
+
+```text
+Pon el Combo Verano como inactivo. Lee su ficha, cambia solo active a
+false y reenvía la fila completa.
+```
+
+## Cargar un catálogo de cero
+
+- Máximo **100 productos por llamada**. Si tienes 400, son cuatro llamadas.
+- Los errores llegan **fila a fila**. La llamada puede responder que fue bien y
+  traer dentro cinco filas fallidas. Pide siempre `created`, `updated` y
+  `errors`.
+- Cada fila que sale bien te devuelve su `product_id` en `results`. Ese id vale
+  tal cual para `get_product`.
+- Nombres claros y **únicos**: el identificador interno sale del nombre.
+
+<Tip>
+Después de cargar, pídele: *«ábreme con `get_product` tres de los que acabas de
+subir y enséñame el precio y la moneda de cada variante»*. Que sea `get_product`
+importa: en el listado, el precio es el **mínimo** entre variantes y el SKU el de
+la más barata, así que un lote que subió la moneda equivocada en una variante
+puede parecer correcto de lejos.
+</Tip>
+
+### Si tu catálogo viene sincronizado de una tienda
+
+Los productos que entran a OptiMind sincronizados desde una tienda son de
+**solo lectura** para el puente. `upsert_products` los rechaza con
+`producto sincronizado (solo lectura)` y `delete_product` también. Se leen
+bien; no se editan desde aquí.
+
+## Precios y monedas
+
+La moneda vive **en cada variante**, no en el negocio. Un mismo catálogo puede
+tener productos en soles y productos en dólares.
+
+<Warning>
+La moneda es texto libre: no hay lista blanca, no se valida. Si tu asistente
+escribe `PEM` en lugar de `PEN`, se guarda `PEM` sin un solo error. Que copie
+siempre la moneda de la fila que acaba de leer, y que te **pregunte** cuando le
+des un precio sin moneda.
+</Warning>
+
+Al leer un producto con varias variantes, `get_product` te da un resumen, no la
+verdad completa:
+
+- `price` es el **mínimo** entre sus variantes.
+- `currency` es la de la **primera** variante. Si esa variante no tiene moneda
+  guardada, lees `PEN` aunque nadie lo haya escrito nunca.
+
+Para el precio real de cada variante, mira la lista `variants`.
+
+### Precio por cantidad
+
+Un producto puede llevar una escala de precios (`price_tiers`): tramos exactos
+`{qty, total}`, un tramo abierto `beyond` con `{min_qty, unit}` y una promoción
+con fecha de fin. Reglas que verifica el sistema al escribir:
+
+- La escala exige **moneda uniforme** entre las variantes del producto. Con dos
+  monedas, la fila rebota.
+- Un tramo exacto que quede tapado por el tramo abierto rebota con un mensaje
+  que te dice cuál.
+- Los precios por unidad con más de dos decimales rebotan: no se pueden cobrar.
+  El límite de dos decimales vale tanto para el `total` de cada tramo como para
+  el `unit` del tramo abierto.
+- Hace falta un tramo de **una unidad**, las cantidades no se repiten y los
+  totales tienen que crecer de tramo en tramo.
+- Mandar `price_tiers` en `null` **borra** la escala. No mandar la clave la deja
+  como estaba.
+
+La escala solo aparece en `get_product`. `list_products` no la trae, así que
+«no la veo en la lista» no significa que no exista.
+
+## Variantes
+
+Una variante es cada versión vendible: talla, sabor, presentación. Su identidad
+es un `id` propio, y ese id es lo que enlaza tus pedidos y tu stock.
+
+Cuando actualizas un producto con variantes, mandas **todas**:
+
+- Una variante que existe y **no mandas** se **elimina**.
+- Una variante que mandas **sin su `id`** crea otra nueva y borra la vieja: los
+  pedidos y el stock que apuntaban a ella se quedan sin referencia. Hay una sola
+  excepción: una única variante entrante contra un producto que tiene una sola
+  variante se adopta (es el reenvío del producto simple). Con dos o más, el `id`
+  es obligatorio.
+- Cada variante va completa: `sku`, `title`, `price`, `currency` y `options`.
+  `null` vale; ausente borra.
+
+<Warning>
+Decirle `has_variants: false` a un producto que sí tiene varias variantes
+**arrasa con todas** y las sustituye por una sola construida con los campos
+raíz. Es el error más caro del catálogo, y es exactamente el que se evita
+leyendo con `get_product` antes de escribir.
+</Warning>
+
+Un producto de una sola variante se lee como `has_variants: false`, con su SKU y
+su precio al nivel raíz. Reenviarlo así no rompe referencias —la variante se
+adopta y conserva su id—, **pero borra su título y sus opciones**: la fila simple
+no los lleva. Si esa variante tiene título u opciones que importan, reenvíala
+como `has_variants: true` con su `id`, `title` y `options` leídos de
+`get_product`.
+
+## Stock: el catálogo no lo escribe
+
+La cantidad **no se toca desde aquí**. Vive en el libro de Inventario y solo se
+mueve registrando un movimiento en el panel. Aunque mandes una cantidad en
+`upsert_products`, no se escribe.
+
+Lo que sí lees:
+
+- `inventory_qty` con número: la suma de las variantes que llevan control.
+- `inventory_qty` en `null`: **el producto no lleva control de stock**. Así se
+  representa el «stock infinito»: no es un cero, es la ausencia de control, y el
+  agente lo sigue ofreciendo igual.
+
+<Note>
+Encender o apagar el control de stock de un producto tampoco se puede hacer
+desde el asistente: `upsert_products` no tiene ese campo. Eso se declara en el
+panel, en Inventario.
+</Note>
+
+Si tienes la app Inventario activa y el grupo `orders` en tu conexión (con
+`?features=all`, o nombrándolo en una lista que incluya todo lo que uses), hay
+una lectura aparte, `list_stock`, con el saldo por almacén. Ojo: el contador del
+catálogo y el total del libro de inventario **pueden no coincidir**, y la
+herramienta te devuelve los dos precisamente para que lo veas.
+
+## Activo y visible no son lo mismo
+
+Son dos interruptores distintos, y solo uno hace lo que esperas:
+
+- **`active: false`** deja el producto fuera de lo que tu agente encuentra
+  cuando busca en el catálogo. Es la forma de retirar algo sin borrarlo.
+- **`visibility: hidden`** filtra la herramienta `list_products`, pero la
+  búsqueda del agente de WhatsApp **no mira ese campo**. Ocultar un producto no
+  impide que el agente lo ofrezca.
+
+Si quieres que deje de venderse, `active: false`.
+
+## Entrega digital
+
+Un infoproducto entrega por variante: un archivo de tu Librería
+(`access_file_id`) o un enlace (`access_url`). Aquí la regla de «lo que no
+mandas se borra» **no** aplica: si la fila no menciona esas dos claves, la
+entrega se conserva. Mandar `null` explícito sí la apaga.
+
+<Warning>
+El enlace de entrega **no se valida** cuando lo escribe el asistente: un
+`access_url` mal escrito se guarda tal cual, sin un solo error. Si cambias la
+entrega de un infoproducto, ábrelo y compruébalo tú.
+</Warning>
+
+## Imágenes
+
+`get_product` te las lista, pero `upsert_products` **no las toca**: subir un
+lote no borra ni cambia las fotos de tus productos. Las imágenes se gestionan
+en el panel.
+
+## Borrar es definitivo
+
+`delete_product` borra el producto con sus variantes e imágenes. **No hay
+papelera.** Consecuencias reales:
+
+- Si una variante está atada a un checkout activo, el borrado rebota con error.
+  Es una protección, no un fallo.
+- Las ventas y pedidos pasados que apuntaban a esas variantes **pierden la
+  referencia** a qué se vendió.
+
+Casi siempre lo que quieres es `active: false`, no borrar. Tu asistente te pedirá
+confirmación —la herramienta está marcada como destructiva—, y ese es el momento
+de pensarlo.
+
+## Trampas verificadas
+
+- **Un lote «exitoso» puede traer filas rotas.** Los errores viajan dentro de la
+  respuesta, no como fallo de la llamada. Revisa `errors` siempre.
+- **Un producto simple sin SKU no se puede reenviar tal cual.** `get_product` te
+  lo devuelve como `null`, pero la fila simple no acepta `null` ahí. Que tu
+  asistente mande una cadena vacía.
+- **El tipo de producto que no se reconoce se ignora en silencio.** Solo valen
+  `physical`, `service` y `digital` (o «físico», «servicio», «digital»,
+  «infoproducto»). Escribir «Colchón» no da error: simplemente no cambia nada.
+- **Los textos del catálogo llegan marcados como datos, no como órdenes.** Si un
+  nombre o una descripción puede confundirse con una instrucción, viaja entre
+  delimitadores tipo `<<<UNTRUSTED_DATA_…>>>`. Si tu asistente intenta
+  reescribirlos con esos delimitadores dentro, la escritura rebota: tiene que
+  mandar el texto de dentro, limpio. Es a propósito.
+- **El puente nunca cobra.** Editar el catálogo no emite links de pago ni toca tu
+  pasarela. Los detalles en [Seguridad](/seguridad).

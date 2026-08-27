@@ -27,7 +27,18 @@
               "quickstarts/claude-code",
               "quickstarts/codex",
               "quickstarts/chatgpt",
-              "quickstarts/otros-clientes"
+              "quickstarts/otros-clientes",
+              "referencia/url-de-conexion"
+            ]
+          },
+          {
+            "group": "Guías",
+            "pages": [
+              "guias/manual",
+              "guias/catalogo",
+              "guias/libreria",
+              "guias/conversaciones",
+              "guias/pedidos-y-metricas"
             ]
           },
           {

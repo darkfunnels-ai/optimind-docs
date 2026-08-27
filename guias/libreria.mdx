@@ -1,0 +1,251 @@
+---
+title: "La librería de archivos"
+description: "Las fotos de producto, catálogos y PDFs que tu agente manda por WhatsApp: cómo subirlos desde tu asistente, cómo vincularlos a un agente y cómo el manual los llama."
+---
+
+Tu agente no solo escribe: manda la foto del producto, el catálogo en PDF, la
+lista de precios, el audio de bienvenida. Todo eso vive en la **Librería**, y
+desde tu asistente puedes verla, subir archivos y decidir cuáles puede enviar
+cada agente.
+
+<Note>
+La Librería es un grupo **opt-in**: tiene que viajar en la URL de conexión, y
+esta guía además escribe en el manual, que necesita `manual_write`. Con
+`?features=all` los tienes todos; si vas con lista explícita, que incluya
+`library,manual,manual_write` — y recuerda que la lista **reemplaza** al set por
+defecto. Los detalles, en [La URL de conexión](/referencia/url-de-conexion).
+</Note>
+
+## Un archivo, dos oficios
+
+El archivo es **de la empresa**. Lo que pertenece a un agente es el *vínculo*, y
+un vínculo tiene una de estas dos capacidades:
+
+- **`sendable`** (enviable): el agente puede mandárselo al cliente por WhatsApp.
+  Es de lo que va esta guía.
+- **`knowledge`** (memoria): el agente no lo manda, lo *estudia*. El contenido
+  se indexa y queda disponible para responder preguntas.
+
+Un mismo archivo admite **un vínculo por agente y capacidad**. Puedes tener el
+catálogo enviable para el agente A y en memoria para el agente B; lo que no
+puedes es crear dos vínculos `sendable` del mismo archivo al mismo agente.
+
+## Sube el archivo
+
+Depende de tu cliente. Si tu asistente puede leer archivos de tu ordenador
+—Claude Code, Codex—, pásale la ruta: él lo codifica y llama a
+`upload_library_file`. Si conectaste desde claude.ai o ChatGPT, **sube el archivo
+por el panel**: el asistente no puede leer los bytes de un adjunto del chat. Una
+vez arriba, desde cualquier cliente puede vincularlo, listarlo y nombrarlo en el
+manual.
+
+<Steps>
+  <Step title="Dale el archivo y dile a qué agente va">
+    *«Sube esta foto a la librería como `catalogo_verano.jpg` y déjala enviable
+    para mi agente de ventas, con la frase de envío "catalogo_verano".»*
+  </Step>
+  <Step title="Comprueba lo que quedó">
+    *«Lista los archivos de la librería de ese agente y dime qué frase de envío
+    tiene cada uno.»* — es `list_library_files`, y te devuelve nombre, tipo,
+    tamaño, y por cada vínculo su `link_id`, su capacidad y su frase.
+  </Step>
+</Steps>
+
+Si subes dos veces el mismo archivo (byte a byte), no se duplica: se reutiliza
+el que ya existía y se añaden **solo los vínculos que aún no tenía**. Si el
+vínculo ya existía —mismo agente, misma capacidad—, no se crea otro ni se
+actualiza el que hay: la respuesta vuelve con `duplicate_of` y `created_links`
+vacío. Para cambiar la frase o el mensaje de ese vínculo, panel.
+
+### Tipos admitidos y tamaño
+
+Por el puente se aceptan exactamente estos tipos:
+
+| Familia | Formatos | `mime_type` |
+| --- | --- | --- |
+| Imagen | JPEG, PNG, GIF, WebP | `image/jpeg`, `image/png`, `image/gif`, `image/webp` |
+| Documento | PDF, DOCX, CSV | `application/pdf`, `application/vnd.openxmlformats-officedocument.wordprocessingml.document`, `text/csv` |
+| Audio | MP3, M4A, OGG, WAV, WebM | `audio/mpeg`, `audio/mp4`, `audio/ogg`, `audio/wav`, `audio/webm` |
+| Vídeo | MP4, MKV | `video/mp4`, `video/x-matroska` |
+
+La lista de la derecha es literal: es el valor que tu asistente pasa en
+`mime_type`, y la comprobación es por esa cadena exacta. Un alias que el panel sí
+admite —`audio/x-m4a`, `audio/aac`, `audio/opus`, `audio/x-wav`— el puente lo
+rechaza.
+
+**El tope por el puente es 2,5 MB.** No es capricho: el archivo viaja codificado
+en base64 dentro de la propia llamada, y eso lo infla. Si tu PDF pesa más, el
+asistente te dirá que lo subas por el panel, donde el límite es de 20 MB. El
+catálogo de 14 MB se sube por el panel; una vez arriba, el asistente ya puede
+vincularlo, listarlo y nombrarlo en el manual.
+
+<Warning>
+**SVG está excluido a propósito.** El panel lo acepta; el puente no. Un SVG
+puede llevar código dentro, y aquí quien sube el fichero puede ser un modelo
+que acaba de leer el mensaje de un desconocido. Un archivo con código y un
+enlace público es una combinación que no queremos crear desde una conversación.
+Si necesitas un SVG, súbelo tú por el panel.
+</Warning>
+
+## Vincula el archivo a un agente
+
+Si ya subiste el archivo (o lo subiste por el panel), el vínculo se crea aparte
+con `link_file_to_agent`. Necesita tres cosas: el `file_id` (sale de
+`list_library_files`), el agente, y la capacidad.
+
+*«Vincula el archivo 312 a mi agente como enviable, con la frase de envío
+"lista_precios" y el mensaje "Aquí tienes la lista completa".»*
+
+Dos campos importan cuando la capacidad es `sendable`:
+
+- **La frase de envío** (`trigger_condition`): es el nombre con el que el manual
+  llama a ese archivo. Sigue leyendo, porque es la pieza central.
+- **El mensaje** (`message`): el texto que acompaña al archivo, el pie de foto.
+  Si lo dejas vacío, el archivo viaja **sin texto ninguno**.
+
+Para quitar un vínculo, `unlink_file_from_agent` con el `link_id`. El archivo
+sigue en la Librería de la empresa; lo que desaparece es el permiso de ese
+agente para enviarlo.
+
+## Por qué el marcador resuelve por frase
+
+En el manual del agente, un archivo se pide con un marcador:
+
+```
+Te mando la lista completa. ###SEND_FILES: lista_precios### Dime si la abres bien.
+```
+
+Ese marcador es dos cosas a la vez: la orden de enviar el archivo y el **sitio
+exacto** donde debe caer. El cliente nunca lo ve; se sustituye por el archivo.
+Si no escribes el marcador y el archivo se envía igual, cae al final del turno.
+
+Lo que se guarda dentro del marcador es **una copia del texto de la frase de
+envío**. No hay un identificador escondido: el manual nombra al archivo con las
+mismas palabras que tú escribiste en el vínculo. De ahí salen las tres reglas
+que importan:
+
+1. **Escribe la frase exacta.** Y hazlo con cuidado, porque desde tu asistente
+   **nada valida el marcador**: `save_manual_chapters` —la única vía de escritura
+   del puente— guarda la frase que le des, exista el archivo o no. El validador
+   que rechaza el manual entero y te dice qué marcador falla es el del asistente
+   de creación **del panel**, y ahí no pasas tú. Por eso, desde el puente,
+   comprobarlo es cosa tuya: lista los archivos antes de escribir el marcador.
+2. **Dale una frase distinta a cada archivo.** Si dos archivos enviables del
+   mismo agente comparten frase, la frase deja de identificar a uno solo: al
+   entregar, el agente declara la ambigüedad y no manda nada hasta que se le
+   pida por el nombre exacto del fichero.
+3. **Renombrar la frase se arrastra al manual, pero solo desde el panel.**
+   Cuando cambias la frase de un vínculo en el panel, los marcadores ya escritos
+   se reapuntan solos al texto nuevo. El puente **no** puede editar un vínculo
+   existente: solo crear y quitar. Si lo quitas y lo vuelves a crear con otra
+   frase, los marcadores del manual **no** se reapuntan y quedan huérfanos.
+
+<Tip>
+A la hora de entregar, el agente es más tolerante que el validador: primero
+busca por el **nombre del fichero** (tolera mayúsculas, acentos, guiones y la
+extensión), luego por la **frase de envío**, y solo al final por parecido de
+palabras. Escribir la frase exacta es lo que funciona en los dos sitios.
+</Tip>
+
+<Warning>
+**Si el marcador nombra un archivo que no existe, no pasa nada visible.** El
+marcador se borra del texto —ningún `###` llega jamás al cliente— y el mensaje
+sale sin el archivo. El cliente no ve un error; ve una frase que promete una
+foto que nunca llega. Ese es el fallo caro de esta pieza, y es silencioso.
+
+Ocurre siempre que el archivo deja de ser enviable para ese agente: escribiste
+el marcador antes de crear el vínculo; quitaste el vínculo; desactivaste el
+vínculo desde el panel (en `list_library_files` lo verás como `enabled: false`);
+o mandaste el archivo a la papelera (`status: "trashed"`). La segunda la avisa
+la propia herramienta `unlink_file_from_agent`, que lo lleva escrito en su
+descripción; las otras tres no avisa nadie.
+</Warning>
+
+Por eso el orden correcto es: **primero el vínculo, después el marcador.**
+
+*«Antes de tocar el manual, lista los archivos enviables de este agente con sus
+frases de envío. Luego usa solo esas frases en los marcadores.»*
+
+## Cómo llega a WhatsApp
+
+El tipo de burbuja lo decide el formato del archivo, no tú:
+
+- Imagen y vídeo salen como foto o vídeo, con el mensaje del vínculo como pie.
+- El PDF y el DOCX salen como documento, con el nombre del fichero visible.
+- **El audio sale como nota de voz**, y tarda en enviarse lo que dura: el
+  cliente ve «grabando nota de voz» ese tiempo, como si lo hubiera grabado
+  alguien.
+
+<Note>
+Una nota de voz **no lleva pie de texto**: WhatsApp no lo pinta. Si un archivo
+de audio tiene mensaje en el vínculo, ese mensaje no se envía. Lo que quieras
+decir con el audio, dilo en el manual, alrededor del marcador.
+</Note>
+
+El nombre que le pusiste al archivo es lo que WhatsApp muestra como nombre de
+fichero en los documentos. Ponle un nombre que el cliente pueda leer.
+
+### El mismo archivo no se repite en 6 horas
+
+Si el agente ya envió ese archivo a esa conversación hace menos de **6 horas**,
+no lo repite: el cliente que insiste tres veces en cinco minutos recibe la
+cotización una sola vez. Pasadas las 6 horas, si vuelve a pedirla, sale otra vez.
+Y si la entrega se cayó a mitad de camino, el bloqueo no cuenta: el archivo que
+nunca llegó se puede volver a mandar.
+
+## La otra capacidad: memoria
+
+Con `knowledge` el archivo no se envía, se indexa. El proceso arranca solo al
+crear el vínculo y su avance se ve en `ingest_state` dentro de
+`list_library_files`.
+
+Se procesan **PDF, imágenes, CSV y DOCX**. El audio y el vídeo **no**: su
+vínculo de memoria termina en estado de error con el motivo. Es una limitación
+real, no un fallo de tu archivo.
+
+## Lo que el puente no hace
+
+Sé consciente de los bordes antes de pedirle imposibles a tu asistente:
+
+- **No edita un vínculo ya creado.** Cambiar la frase de envío o el mensaje de un
+  vínculo existente es cosa del panel. Desde el asistente solo puedes crear el
+  vínculo (con su frase) o quitarlo.
+- **No manda archivos a la papelera.** Puedes *listar* la papelera
+  (`status: "trashed"`), pero mandar un archivo a ella o restaurarlo se hace en
+  el panel.
+- **No adjunta archivos a un capítulo concreto.** Esa lista de adjuntos por
+  capítulo se gestiona en el panel; el asistente sí escribe el marcador dentro
+  del texto del capítulo, que es lo que dispara el envío.
+- **No envía un archivo por su cuenta a un cliente.** Quien envía es tu agente,
+  durante la conversación, cuando el manual se lo indica.
+- **La lista no pagina.** Si tienes muchos archivos, la respuesta llega recortada
+  y avisada (`truncated: true`). Filtra por agente, por capacidad o por búsqueda
+  de nombre.
+
+<Warning>
+El enlace del archivo subido es **público**: quien tenga esa URL lo abre sin
+iniciar sesión. Tiene que serlo para que WhatsApp pueda entregarlo. No subas a
+la Librería nada que no estarías dispuesto a mandarle a un cliente.
+</Warning>
+
+## Frases para copiar
+
+- *«Lista los archivos enviables de mi agente con su frase de envío y su
+  `link_id`.»*
+- *«Sube este PDF como `catalogo_2026.pdf`, enviable para mi agente, frase de
+  envío "catalogo", mensaje "Te dejo el catálogo completo".»*
+- *«Busca en el manual todos los marcadores de archivo y dime cuáles no
+  corresponden a ningún archivo enviable vivo.»*
+- *«El archivo 88 ya no se usa: quítale el vínculo con este agente y dime en qué
+  capítulos del manual queda nombrado.»*
+- *«Añade al capítulo de cierre la línea que manda la lista de precios, usando la
+  frase de envío exacta que ya tiene el archivo.»*
+
+<CardGroup cols={2}>
+  <Card title="Referencia de herramientas" icon="list" href="/referencia/tools">
+    Las cuatro tools de la Librería, con sus parámetros exactos.
+  </Card>
+  <Card title="Seguridad" icon="shield" href="/seguridad">
+    Qué ve tu asistente, qué queda auditado y qué nunca puede hacer.
+  </Card>
+</CardGroup>

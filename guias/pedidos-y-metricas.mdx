@@ -1,0 +1,308 @@
+---
+title: "Pedidos y métricas"
+description: "Pídele a tu asistente los pedidos, los hitos de pago, el consumo de IA y el saldo — y entiende qué mide de verdad cada número."
+---
+
+Esto es lo que miras para saber si el negocio va bien: qué se vendió, quién te
+debe cuánto, cuánto te está costando la IA y cuánto saldo te queda. Todo eso se
+lo pides a tu asistente en tu idioma; él llama a las herramientas del puente.
+
+<Warning>
+**El puente lee ventas. No las registra ni las cobra.**
+
+Quien registra una venta es **tu agente**, en el turno exacto en que el cliente
+cierra: ahí escribe la conversión y —si tienes la app Órdenes activa— abre el
+pedido de esa conversación. También puedes dar de alta un pedido a mano desde el
+panel. El puente solo enseña lo que ya existe: sus herramientas de pedidos son
+**las tres de lectura** (`list_orders`, `get_order`, `list_stock`) y ninguna
+crea, cobra ni concilia nada. El puente [nunca mueve dinero](/seguridad).
+</Warning>
+
+## Antes de empezar
+
+Pedidos y métricas son grupos **opt-in**: no viajan en la URL pelada. Lo cómodo
+es conectar con
+
+```
+https://mcp.darkfunnels.ai/mcp?features=all
+```
+
+y no volver a tocar la URL. Si prefieres nombrar los grupos a mano, lee antes
+[La URL de conexión](/referencia/url-de-conexion): una lista explícita no se
+comporta como la gente espera.
+
+Además:
+
+- `list_orders` y `get_order` exigen la **app Órdenes activa** en tu empresa. Si
+  no lo está, tu asistente recibe un mensaje claro: *«La app Órdenes no está
+  activa en esta empresa.»*
+- `list_stock` exige la **app Inventario activa**, con su aviso equivalente:
+  *«La app Inventario no está activa en esta empresa.»*
+- Las métricas y el saldo no dependen de ninguna app.
+
+<Note>
+Si acabas de encender un grupo, abre un chat **nuevo**: el catálogo de
+herramientas se fija por conversación
+([por qué](/referencia/url-de-conexion)).
+</Note>
+
+## Los pedidos
+
+### La lista
+
+`list_orders` devuelve tus pedidos, **del más reciente al más antiguo**. De cada
+uno viene el número de pedido, el estado, la forma de pago, la moneda, el
+subtotal, el envío, el total, **cuánto está pagado** (`amount_paid`), **cuánto
+falta** (`balance_due`), el cliente, la dirección, el origen (`agent` si lo abrió
+tu agente, `human` si lo tecleó una persona), la
+[conversación](/guias/conversaciones) de la que salió y las líneas con SKU,
+título, precio unitario, cantidad y total de línea.
+
+Los filtros que existen de verdad son cuatro, ni uno más:
+
+| Filtro | Qué hace |
+| --- | --- |
+| `status` | Uno o varios estados a la vez |
+| `conversation_id` | Solo los pedidos de un chat |
+| `before` | Tope superior por fecha: devuelve lo anterior a esa marca ISO. Es también el cursor de paginación |
+| `limit` | Filas por página: 25 por defecto, 50 como máximo |
+
+Los ocho estados posibles son `pending_payment`, `partial`, `paid`, `invoiced`,
+`shipped`, `delivered`, `closed` y `cancelled`.
+
+No hay filtro por cliente ni por importe. Por fecha solo hay **tope superior**:
+para una ventana con principio y fin —«esta semana», «julio»— tu asistente pide
+páginas hacia atrás y recorta él lo que sobra.
+
+Frases para copiar:
+
+> «Enséñame los pedidos que están en `pending_payment` o `partial` y dime cuánto
+> dinero suman en `balance_due`.»
+
+> «Trae los últimos 50 pedidos y agrúpalos por estado, con el total de cada
+> grupo.»
+
+> «De los pedidos entregados de esta semana, ¿cuáles salieron de un chat y
+> cuáles los abrió una persona a mano?»
+
+La paginación es honesta: la respuesta trae `has_more` y `next_before` —la marca
+`created_at` del último pedido de la página—. Si quieres más, tu asistente
+vuelve a llamar pasando ese `next_before` **tal cual** lo recibió: `before` solo
+se aplica si tiene forma de fecha ISO, y un valor con otra forma se ignora en
+silencio y te devolvería la primera página otra vez.
+
+### El detalle
+
+`get_order` pide el `order_id` de la lista y devuelve el pedido completo con
+cuatro anexos que la lista no trae:
+
+<CardGroup cols={2}>
+  <Card title="Hitos de pago" icon="flag">
+    El plan de cobro del pedido, hito por hito, con su importe y su estado.
+  </Card>
+  <Card title="Vouchers" icon="receipt">
+    Los comprobantes que mandó el cliente, con lo que el OCR leyó de la imagen.
+  </Card>
+  <Card title="Pagos manuales" icon="hand-holding-dollar">
+    Lo que un humano registró como cobrado, con su glosa.
+  </Card>
+  <Card title="Notas y conversión" icon="note-sticky">
+    Las notas del pedido y la venta con la que está ligado.
+  </Card>
+</CardGroup>
+
+> «Ábreme el pedido `<id>` y dime qué falta para darlo por cobrado.»
+
+## Los hitos de pago
+
+Un **hito** es un tramo del cobro. La forma de pago del pedido decide cuántos
+hay:
+
+- **`full_upfront`** — se paga todo antes.
+- **`cash_on_delivery`** — se cobra contra entrega.
+- **`advance_balance`** — adelanto y saldo. Aquí tu agente crea **dos** hitos:
+  «Adelanto» por lo que el cliente adelanta y «Saldo» por el resto.
+- **`milestones`** — el pedido se cobra en varios tramos, definidos uno a uno.
+  De aquí salen los hitos de tipo `on_arrival` y `custom`.
+
+Cada hito tiene un tipo (`advance`, `on_arrival`, `on_delivery` o `custom`), una
+etiqueta, un importe y un estado: `pending` (aún no toca), `due` (ya vence) o
+`paid` (cobrado). La suma de los hitos es el total del pedido.
+
+Ojo con la etiqueta: las del par que arma tu agente son **fijas y en español**,
+«Adelanto» y «Saldo», aunque tu negocio opere en otro idioma. Solo en el alta
+manual la escribe el operador.
+
+Los tipos `on_arrival` y `custom` existen en el sistema, pero hoy tu agente solo
+arma el par adelanto + saldo; los demás salen del alta manual en el panel.
+
+### Vouchers: por qué el monto llega vacío
+
+Cuando el cliente manda la captura de su Yape, Plin o transferencia, el
+comprobante entra como `pending_review` **con el monto en blanco a propósito**:
+nadie da por bueno un importe que leyó un modelo de una foto. Lo que el OCR
+extrajo viaja aparte, como dato a contrastar. Un humano concilia el voucher en
+el panel y ahí pasa a `matched` (con monto) o `rejected`.
+
+<Warning>
+El puente **no concilia vouchers ni registra pagos**. Puede enseñarte lo que hay
+pendiente de revisar y con qué monto dice el OCR; aprobarlo es tuyo, en el
+panel. Igual con los estados del pedido: el puente no marca despachado ni
+entregado.
+</Warning>
+
+> «Búscame los pedidos con saldo pendiente que ya tengan un voucher sin
+> conciliar, y dime qué monto leyó el OCR frente a lo que falta cobrar.»
+
+<Note>
+Los textos libres del pedido —nombre y dirección del cliente, títulos de línea,
+lo que leyó el OCR, las notas y las glosas— llegan **delimitados como datos no
+confiables**, y el teléfono del cliente llega enmascarado (`51•••••4321`). El
+porqué de las dos cosas, en [Seguridad](/seguridad).
+</Note>
+
+## El stock
+
+`list_stock` trae todas las variantes del [catálogo](/guias/catalogo) con dos
+números que **pueden no coincidir**: `catalog_stock`, el contador que vive en la
+ficha del producto, y `total`, el que sale del libro de inventario por almacén.
+Cuando difieren, ahí tienes un descuadre que mirar.
+
+No admite filtros del servidor: viene todo. Si tu catálogo es grande, la
+respuesta llega recortada con `truncated: true` — no es un error, es un tope de
+tamaño; el catálogo entero está en el panel.
+
+> «Compara el stock del catálogo contra el del inventario y dime qué variantes
+> no cuadran.»
+
+## Las métricas
+
+### Consumo de IA: `get_usage_metrics`
+
+Mide **lo que te cuesta la IA**, no lo que vendes. Devuelve una serie por día
+—tokens y gasto de Ventas y de Copiloto por separado— y, cuando se puede medir,
+el desglose por embudo: qué agente se llevó qué parte del gasto de Ventas (lo
+que no es de un agente cae junto en una entrada aparte).
+
+- Sin fechas cubre los **últimos 7 días**.
+- El rango máximo es de **400 días**.
+- Con detalle **por hora** el rango baja a **2 días**.
+- Los días se cortan en horario de **Lima** (el puente no manda zona horaria).
+
+Si el desglose por embudo llega como `funnels: null`, significa **«no se pudo
+medir»**, no «cero». El sistema prefiere no darte un desglose antes que darte
+uno que no cuadre con el total, así que ante el mínimo descuadre lo retira
+entero y te deja el total, que sí es de fiar.
+
+> «¿Cuánto me costó la IA los últimos 30 días, por día, y qué agente se llevó la
+> mayor parte?»
+
+### Resultados del agente: `get_agent_scorecard`
+
+Los resultados de **un** agente en un período —semana (de lunes a domingo) o
+mes— contra el período anterior, con una sparkline por bucket. Necesita el
+`agent_id`; si conectaste con `?agent=` en la URL
+([cómo](/referencia/url-de-conexion)), ya lo tiene.
+
+El **volumen** llega en su propio bloque, `volume`, con dos cifras:
+`conversations_current` (las conversaciones nuevas del período, por fecha de
+apertura) y `conversations_previous` (las del período anterior). No es un KPI y
+no viaja dentro de `kpis`.
+
+Los KPIs que hoy miden algo de verdad son cuatro:
+
+| KPI | Qué es |
+| --- | --- |
+| `conversions` | Ventas, citas, leads o servicios registrados en el período |
+| `revenue_usd` | La suma de los importes de esas conversiones |
+| `conversion_rate` | Conversiones divididas entre conversaciones nuevas |
+| `handoff_rate` | Qué parte de esas conversaciones acabó en manos de un humano |
+
+Y aquí van las letras pequeñas, que importan:
+
+- **Las dos tasas llegan como ratio de 0 a 1, no en porcentaje.** Un
+  `conversion_rate` de `0.057` es 5,7 %, no 0,057 %.
+- **Tres KPIs llegan siempre sin datos hoy**: `tool_success_rate`,
+  `response_latency_p50_sec` y `sale_quality`. El puente los aparta en una lista
+  de claves, `kpis_sin_datos`, justo para que tu asistente **no los lea como
+  ceros**.
+- **Los otros cuatro caen también en `kpis_sin_datos` cuando el período no tuvo
+  ninguna conversación ni ninguna conversión.** En un agente recién encendido o
+  una semana muerta, `kpis` puede llegar vacío del todo: eso significa período
+  sin actividad, no avería.
+- **Una venta anulada deja de contar.** Si un operador anula una conversión
+  desde el panel, desaparece del scorecard.
+- **`revenue_usd` no siempre es en dólares.** El nombre es histórico: el importe
+  va en la moneda de tus ventas, y el campo `currency` la dice. Si el período
+  cruza monedas, llega `MIXED` y `currency_mixed` en verdadero: esa suma no se
+  puede leer como un solo número. Y si el período no tuvo ninguna venta, la
+  moneda sale `PEN` por defecto — no significa que vendas en soles.
+- **Por cómo se cuenta, `conversion_rate` puede salir por encima de 1.** El
+  numerador cuenta las conversiones registradas dentro del período; el
+  denominador, las conversaciones **abiertas** dentro del período. Un chat de la
+  semana pasada que cierra hoy suma arriba y no abajo.
+- **En `grain=month` la sparkline no cubre el mes.** Son 4 bloques de 7 días
+  desde el día 1: 28 días. Lo que exceda de ahí queda fuera de la serie —dos o
+  tres días en los meses de 30 y 31—, aunque el valor del KPI sí es del mes
+  completo, así que los bloques no suman el total. Para leer el mes día a día,
+  pide semanas.
+- El corte de la semana y del mes se calcula en **UTC**; el campo `tz` que
+  acompaña al período es solo una etiqueta.
+
+> «Dame el scorecard de esta semana de mi agente y compáralo con la semana
+> pasada. Dime qué empeoró y qué día se torció.»
+
+## El saldo de créditos
+
+`get_credit_balance` está siempre disponible, sin encender ningún grupo. Trae el
+saldo en dólares, un estado, el **gasto medio diario de los últimos 7 días**, una
+estimación de días que te quedan a ese ritmo, si tienes la recarga automática
+activa y el link para recargar.
+
+Los cuatro estados no son adornos:
+
+| Estado | Cuándo |
+| --- | --- |
+| `ok` | Todo en orden |
+| `low` | Por debajo de 7 días de gasto, con un suelo de 5 dólares |
+| `critical` | Por debajo de 2 días de gasto, con un suelo de 2 dólares (y nunca por debajo de tu umbral de recarga automática, si la tienes) |
+| `empty` | Saldo en cero o menos |
+
+Los días restantes solo se calculan si hay gasto medido; si no, llegan vacíos —
+prefiere no dar un número a inventarlo. Y si el saldo no se puede leer en ese
+momento, el estado sale `unknown` con una nota pidiendo reintentar: **jamás se
+degrada a cero**.
+
+### Qué pasa cuando se acaba
+
+Con el saldo bajo, **cada respuesta** del puente arrastra un aviso informativo
+con el link de recarga y —mientras quede algo— la cifra del saldo: no hace falta
+preguntar. En cero, el aviso ya no trae importe: solo dice que las funciones de
+IA están detenidas hasta recargar.
+
+Y se detienen de verdad, tu agente incluido: deja de responder a los clientes
+hasta que recargues en el panel (Facturación). Ninguna herramienta cobra sola;
+las que consumen créditos —generar u [optimizar el manual](/guias/manual), el
+Copiloto, las simulaciones— pasan por el mismo control de saldo que el panel y
+se paran igual.
+
+> «¿Cómo va mi saldo y para cuántos días me alcanza al ritmo de esta semana?»
+
+## Lo que este grupo no hace
+
+Dicho sin adornos, para que no te lleves una sorpresa:
+
+- No registra ventas ni abre pedidos: eso lo hace tu agente en el chat, o tú a
+  mano en el panel.
+- No cobra, no emite links de pago y no toca tu pasarela. La lista de servicios
+  a los que el puente puede llamar está cerrada en el código: no hay pasarela ni
+  emisión de facturas. De facturación lee **una sola cosa**, y solo para leerla:
+  tu cuenta de créditos (el saldo y los ajustes de recarga automática).
+- No concilia vouchers, no registra pagos manuales, no cambia el estado de un
+  pedido ni marca despachos o entregas.
+- No anula una conversión ni corrige un importe mal registrado.
+- No filtra pedidos por cliente ni por importe —por fecha, solo tope superior—
+  ni el stock por nada.
+
+Todo eso vive en el panel. El puente es para **mirar, entender y decidir** — y
+para eso sí que está entero.

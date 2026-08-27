@@ -1,0 +1,327 @@
+---
+title: "El manual del vendedor"
+description: "El guion de tu agente de WhatsApp: capítulos, la línea que hace avanzar el embudo, y cómo se guarda con versiones y vuelta atrás."
+---
+
+El manual es el guion de tu agente. No es documentación interna: es lo que tu
+agente obedece, palabra por palabra, cada vez que un cliente escribe.
+
+Está partido en **capítulos** —saludar, calificar, ofertar, cerrar— y la
+conversación de cada cliente vive en uno solo a la vez.
+
+<Note>
+A tu agente le entra **el capítulo actual** —más el bloque de persona y estilo,
+si tu manual lo trae, que acompaña a todos los capítulos—, nunca los demás
+capítulos. Lo que escribiste en el capítulo 4 no existe para él mientras la
+conversación está en el 1. Si una regla tiene que valer siempre, escríbela en
+cada capítulo donde importe.
+</Note>
+
+## Qué lleva un capítulo
+
+Estos son los campos reales, con el nombre que verá tu asistente:
+
+- **`chapter_label`** — el título. Va **sin número** («Calificación», no
+  «2. Calificación»): el orden lo lleva otro campo.
+- **`role`** — quién es tu agente en este capítulo.
+- **`thought_chain`** — el guion. Es lo que tu agente ejecuta paso a paso. Aquí
+  vive todo lo importante.
+- **`context`** — información de apoyo y reglas del capítulo.
+- **`examples`** — ejemplos de conversación. La IA de OptiMind ya no los
+  escribe, pero si tu manual los trae, tu agente los sigue viendo.
+- **`display_order`** — el número del capítulo en el embudo. Empieza en **1**.
+- **`execute_once`** — capítulo de un solo disparo (el saludo, típicamente).
+- **`advance_to`** — a qué capítulo salta automáticamente un capítulo
+  `execute_once`.
+- **`advance_condition`** — cuándo toca pasar al siguiente, descrito como
+  conducta observable del cliente.
+
+El capítulo le llega a tu agente en este orden: primero el título y los avisos
+del sistema —desde qué paso entra, si es el último capítulo del manual—, y
+después rol, cadena de pensamiento, contexto, ejemplos, condición de avance, y
+al final las herramientas y los archivos del capítulo.
+
+### Dos números que no son el mismo
+
+Esta es la confusión que más manuales rompe:
+
+| | Qué es | El número |
+|---|---|---|
+| `display_order` | el número del capítulo **para el embudo**: el que escribes en la línea de avance | empieza en 1 |
+| `chapter_index` | la **clave interna** con la que se edita ese capítulo | lo asigna el sistema |
+
+Tu asistente lee ambos. Tú solo tienes que saber que **el número que pones en
+una línea de avance es el `display_order`**, y que el `chapter_index` no se
+calcula ni se deduce de la posición del capítulo: se copia tal cual del manual
+que se acaba de leer.
+
+## Cómo avanza el embudo
+
+Hay **una sola** forma de que tu agente decida cambiar de capítulo: una línea
+literal dentro del texto del capítulo. Lo natural es escribirla en
+`thought_chain`, pero funciona igual desde el rol, el contexto, los ejemplos o
+la condición de avance:
+
+```
+Llama a la herramienta advance_chapter con el capítulo 3
+```
+
+También vale condicionada:
+
+```
+Si el cliente acepta la recomendación, Llama a la herramienta advance_chapter con el capítulo 4
+```
+
+La otra vía de avance no la decide tu agente: es `execute_once`, más abajo.
+
+<Warning>
+Escribirlo en prosa —«avanza al capítulo 5», «pasa al siguiente»— **no ejecuta
+nada**. El embudo se queda clavado en ese capítulo para siempre y nadie te
+avisa. Es el fallo más caro y el más silencioso.
+</Warning>
+
+Detalles que conviene saber:
+
+- **El destino tiene que existir.** Si el manual no tiene un capítulo con ese
+  número, el avance se rechaza y la conversación se queda donde estaba.
+- **El avance se aplica al entregar la respuesta.** Un turno que se interrumpe
+  (el cliente escribe encima) no avanza.
+- **`advance_condition`** llega a tu agente con su rótulo y una instrucción
+  fija: cuando se cumpla, que llame a `advance_chapter`. Escríbela como algo que
+  se ve —«el cliente dio su distrito»—, nunca como una intención —«parece
+  interesado»—: una intención no se cumple nunca, o se cumple siempre.
+- **`execute_once`** hace que el capítulo se ejecute una vez y avance solo, sin
+  que haga falta ninguna línea, si tu agente no armó ya un avance en ese mismo
+  turno. El destino es su `advance_to`; si no lo tiene, el capítulo siguiente.
+- **El último capítulo no avanza.** Tu agente recibe un aviso explícito de que
+  es el final del manual, aunque el cliente cierre la compra ahí mismo.
+
+<Tip>
+Existe una variante: añadir **`y ejecútalo en este mismo mensaje`** al final de
+la línea de avance hace que tu agente ejecute el capítulo destino sin esperar la
+siguiente respuesta del cliente. El tope son **3 saltos encadenados** en un
+mismo mensaje.
+</Tip>
+
+## Enviar un archivo desde el manual
+
+Para que tu agente mande un archivo de tu Librería, se escribe un marcador en el
+punto exacto del guion donde debe salir. Dentro del marcador va la **frase de
+envío** del archivo, tal cual la escribiste al vincularlo:
+
+```
+PASO 2: Si pide ver el catálogo, envíalo aquí: ###SEND_FILES: catalogo###
+```
+
+- **Escribe la frase exacta.** Es la que exigen el validador del generador y el
+  editor del panel: un marcador que no nombre una frase viva se pinta como
+  mención rota. (A la hora de entregar, tu agente también acierta si escribes el
+  nombre exacto del fichero, pero esa tolerancia no te la reconoce el resto del
+  producto.)
+- **Ningún `###` llega al cliente.** Si la frase no resuelve, el marcador
+  desaparece del mensaje y no sale ningún archivo — sin error visible.
+- **Si desvinculas el archivo de tu agente**, los marcadores que lo nombraban se
+  quedan sin nada que resolver. El texto del manual no se toca solo.
+
+Por eso, antes de escribir un marcador, pídele a tu asistente la lista real
+(requiere la Librería activada en tu conexión):
+
+```
+Lista los archivos de la Librería de mi agente y dime cuáles son enviables y con qué frase.
+```
+
+Todo lo demás de esta pieza —cómo se sube un archivo, cómo se crea el vínculo,
+qué pasa si dos archivos comparten frase, y por qué el mismo archivo no se
+reenvía durante 6 horas— vive en
+[La librería de archivos](/guias/libreria).
+
+### Un pasaje que salga tal cual
+
+Tu agente reparte su respuesta en varias burbujas cortas. Si tienes un texto que
+debe salir entero y sin retocar —unos datos de pago, unas condiciones—,
+envuélvelo:
+
+```
+###BLOCK###
+Datos para el depósito:
+Banco — cuenta 000-0000000
+A nombre de: Tu Negocio S.A.C.
+###/BLOCK###
+```
+
+Ese pasaje sale en **una sola burbuja, literal**. El tope son 4.000 caracteres
+por bloque y 3 bloques por respuesta; lo que se pase, o un bloque que no cierre,
+sale como texto normal.
+
+<Note>
+Los precios no se escriben aquí: viven en el catálogo, y tu agente los lee de
+ahí. Ver [El catálogo de productos](/guias/catalogo).
+</Note>
+
+## Cómo se guarda: un lote, diez versiones
+
+Cada vez que se guarda el manual, OptiMind **inserta una versión nueva** y
+conserva **solo las 10 más recientes**. La número 11 empuja a la 1 fuera del
+Historial.
+
+<Warning>
+De ahí la regla que gobierna todo lo demás: **todos los cambios van en un solo
+guardado**. Cinco capítulos editados de uno en uno dejan cinco versiones nuevas
+en el Historial; contando el respaldo del que partiste, son seis de tus diez
+ranuras quemadas en una tarde, y te quedas casi sin sitio al que volver.
+</Warning>
+
+El guardado es atómico: o entran todos los cambios o no entra ninguno. No hay
+manuales a medio escribir. Y justo después de guardar, el puente **relee el
+manual y devuelve un resumen verificado** de los capítulos —clave, título,
+orden y el tamaño de cada campo—, para que el cambio quede confirmado por
+lectura y no de palabra. El texto nuevo, si quieres verlo, se pide aparte.
+
+<Note>
+Si esa relectura falla, la respuesta lo dice (`verified: false`) y significa
+una cosa concreta: **el guardado sí se aplicó**. Reintentar quemaría otra
+versión del Historial para nada.
+</Note>
+
+## El ciclo completo
+
+<Steps>
+  <Step title="Leer">
+    ```
+    Lee el manual de mi agente y resúmeme qué hace cada capítulo y cómo se avanza entre ellos.
+    ```
+    Si tu manual es muy largo, llega un resumen por capítulo en lugar del texto
+    completo — y lo dice. Entonces se pide el capítulo suelto:
+    ```
+    Enséñame el capítulo de cierre entero, tal como está escrito.
+    ```
+  </Step>
+  <Step title="Proponer">
+    ```
+    En el capítulo de calificación, mi agente hace tres preguntas de golpe. Propón una versión
+    con una sola pregunta por mensaje. Enséñamela ANTES de guardar nada.
+    ```
+    Léela tú. El manual es el prompt: lo que apruebes es lo que tu agente dirá
+    esta tarde.
+  </Step>
+  <Step title="Guardar">
+    ```
+    Apruebo el cambio. Guárdalo, y si tienes más cambios pendientes de los que hablamos,
+    mételos TODOS en el mismo guardado.
+    ```
+  </Step>
+  <Step title="Comprobar">
+    ```
+    Confírmame que quedó guardado y dime en qué número de versión estamos ahora.
+    ```
+    La respuesta del guardado trae el resumen verificado: confirma que el lote
+    entró y con qué claves quedó cada capítulo, no el texto. El Historial se
+    consulta aparte y muestra número de versión, cantidad de capítulos y fecha.
+  </Step>
+  <Step title="Volver atrás">
+    ```
+    Enséñame el historial de versiones del manual y restaura la anterior a la de hoy.
+    ```
+    Restaurar **no borra ninguna versión del Historial**: la restauración entra
+    como una versión nueva, así que la que tenías sigue ahí (dentro de las 10).
+    Lo que sí reemplaza es el manual **vivo**: los capítulos que hubieras creado
+    después de la versión que restauras desaparecen del manual actual.
+  </Step>
+</Steps>
+
+## Trampas reales
+
+<Warning>
+**No dejes que te «normalicen» el manual.** Al editar, solo se escriben los
+campos que se mandan; el resto queda intacto. Un asistente que reescriba
+capítulos enteros «para dejarlos consistentes» pisa texto que funcionaba. Pide
+cambios quirúrgicos: el capítulo que hablamos, el campo que hablamos.
+</Warning>
+
+- **El campo `context` va fusionado.** Los puntos clave dejaron de ser un campo
+  aparte: hoy viven **dentro** de `context`, marcados con los rótulos
+  `CONTEXTO:` y `PUNTOS CLAVE:`. Reescribir `context` sin conservar esos
+  rótulos borra el bloque de reglas sin avisar.
+- **Borrar un capítulo no renumera el resto.** Es normal quedarse con
+  capítulos 1, 2 y 4. Lo que no es normal es dejar líneas de avance apuntando
+  al capítulo que ya no existe: ese avance se rechaza y el embudo se para.
+  Cuando borres uno, revisa quién lo nombraba.
+- **Un capítulo nuevo sin número de embudo es invisible.** Si se crea sin
+  `display_order`, el embudo no puede llegar a él ni con una línea de avance —
+  y aun así, al leer el manual verás un número calculado por su posición, así
+  que a simple vista parece correcto. Pide siempre que el capítulo nuevo nazca
+  con su número.
+- **Conviven tres formas del documento por dentro** (el bloque de persona, el
+  formato completo y uno antiguo y comprimido de agentes migrados). El servidor
+  respeta la forma de cada capítulo al editarlo y funde los cambios sobre el
+  capítulo vivo — por eso los archivos, herramientas y el color del capítulo
+  sobreviven a una edición aunque el editor no los mande de vuelta. Reconstruir
+  el manual desde cero, en cambio, los perdería.
+- **Restaurar una versión antigua después de haber añadido o borrado
+  capítulos** puede dejar los adjuntos de un capítulo (archivos, herramientas,
+  color) colgando de otro. La restauración te lo advierte; conviene mirarlo en
+  el panel.
+- **Borrar un capítulo corre las claves internas de los que van detrás.** Crear
+  no: los capítulos nuevos se añaden al final y no mueven a nadie. Da igual si
+  tu asistente trabaja bien, porque releerá el manual antes de la siguiente
+  escritura. Si ves que edita «de memoria» dos veces seguidas, párale.
+
+## Con la IA de OptiMind
+
+Dos funciones escriben manual por ti y **consumen créditos** de tu saldo:
+
+- **Generar** un borrador completo desde la descripción de tu negocio.
+- **Optimizar** los capítulos que le indiques.
+
+Ninguna de las dos guarda nada. Devuelven material para que lo leas y lo
+apruebes; el guardado es un paso aparte, tuyo. Y en la optimización hay una
+red: si la versión «mejorada» de un capítulo pierde por el camino un marcador
+de archivo, una línea de avance, una herramienta o una variable, **ese capítulo
+vuelve sin cambios** en lugar de romperse.
+
+```
+Genera un borrador de manual para mi negocio (vendo X, ticket medio Y, entrego en Z),
+enséñamelo capítulo por capítulo y no guardes nada todavía.
+```
+
+## Probarlo antes de confiar
+
+Se puede simular un chat nuevo o un mensaje entrante y ver responder a tu agente
+por el pipeline real.
+
+<Warning>
+La simulación **sale por WhatsApp de verdad** y consume créditos. Usa un número
+tuyo de prueba, nunca el de un cliente.
+</Warning>
+
+```
+Simula un chat nuevo desde mi número de pruebas +51 999 111 222 con el mensaje
+«hola, precio?» y enséñame qué contesta el agente.
+```
+
+Para leer después lo que pasó —el turno completo, en qué capítulo estaba, dónde
+se atascó— ver [Revisar conversaciones](/guias/conversaciones).
+
+## Qué necesita tu conexión
+
+Leer el manual y su historial viene activado de serie. **Guardar** no: es una
+escritura destructiva y hay que pedirla en la URL con la que conectas. Lo mismo
+vale para generar y optimizar con IA, para las simulaciones y para la Librería
+de archivos.
+
+```
+https://mcp.darkfunnels.ai/mcp?features=all
+```
+
+Esa URL los activa todos. Si prefieres afinar grupo por grupo, la lista completa
+y las reglas de combinación están en
+[La URL de conexión](/referencia/url-de-conexion).
+
+<CardGroup cols={2}>
+  <Card title="Todas las herramientas" icon="wrench" href="/referencia/tools">
+    Qué hace exactamente cada una, y cuáles son destructivas.
+  </Card>
+  <Card title="Seguridad" icon="shield" href="/seguridad">
+    Qué ve tu asistente, qué queda auditado y qué nunca puede hacer.
+  </Card>
+</CardGroup>

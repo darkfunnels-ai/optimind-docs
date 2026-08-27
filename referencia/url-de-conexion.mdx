@@ -1,0 +1,98 @@
+---
+title: "La URL de conexión"
+description: "Los cuatro parámetros que deciden qué puede hacer tu asistente: features, read_only, pii y agent."
+---
+
+Toda la configuración del puente vive en la URL con la que conectas. No hay
+ajustes escondidos: lo que pone ahí es exactamente lo que tu asistente puede
+hacer.
+
+```
+https://mcp.darkfunnels.ai/mcp
+```
+
+Esa URL pelada ya sirve para trabajar: trae las **lecturas** del negocio (manual,
+catálogo, conversaciones, clientes y la base de la cuenta) y una sola escritura
+no destructiva, las etiquetas de clientes.
+
+<Note>
+Los parámetros se combinan con `&`, como en cualquier URL:
+`?features=all&pii=full`. Si añades uno, **conserva los que ya tenías** — es el
+error más común al reconectar.
+</Note>
+
+## `?features=` — qué grupos de herramientas viajan
+
+Sin este parámetro viajan cuatro grupos: `core`, `manual`, `catalog` y
+`conversations`. Todo lo demás es opt-in.
+
+| Grupo | Qué añade |
+|---|---|
+| `manual_write` | Guardar capítulos y restaurar versiones del manual |
+| `catalog_write` | Crear, editar y borrar productos |
+| `library` | Subir archivos y vincularlos a un agente |
+| `operations` | Responder como operador, cambiar el modo de un chat, recordatorios |
+| `manual_ai` | Generar y optimizar el manual con IA (gasta créditos) |
+| `testing` | Simular mensajes — **salen por WhatsApp de verdad** |
+| `orders` | Pedidos y stock (necesita las apps activas) |
+| `metrics` | Métricas de uso y scorecard del agente |
+| `copilot` | Preguntar al Copiloto (gasta créditos) |
+
+<Warning>
+**Una lista explícita SUSTITUYE al set base, no lo amplía.** Conectar con
+`?features=orders` te deja con `orders` y `core` **solamente**: pierdes manual,
+catálogo y conversaciones.
+
+Para sumar sin perder nada, nómbralos todos:
+`?features=manual,catalog,conversations,orders`.
+</Warning>
+
+Un grupo `_write` arrastra siempre su grupo de lectura: `?features=catalog_write`
+trae también `catalog`, porque para reescribir una fila entera hay que poder
+leerla primero.
+
+**`?features=all`** activa todo, incluidos los grupos que publiquemos más
+adelante. Es la URL que no hay que volver a tocar, y la que damos en los
+quickstarts. A cambio, conecta también las escrituras destructivas: si tu
+asistente solo va a leer, no la uses.
+
+## `?read_only=true` — el freno de mano
+
+Desactiva **toda** escritura y manda sobre cualquier otra opción, `all`
+incluido. Útil para dejar mirar sin poder tocar.
+
+```
+https://mcp.darkfunnels.ai/mcp?features=all&read_only=true
+```
+
+## `?pii=full` — teléfonos completos
+
+Por defecto el teléfono de tus clientes finales llega enmascarado
+(`51•••••4321`). Con `pii=full` llega entero. Ninguna herramienta necesita el
+número para operar sobre un chat, así que el enmascarado no cierra ninguna
+operación: es solo lo que tu asistente llega a leer. La única mella es de
+comodidad — la búsqueda de clientes admite teléfono, y tapado no se puede
+encadenar. Los detalles y el porqué, en [Seguridad](/seguridad).
+
+## `?agent=<uuid>` — fijar un agente
+
+Si tienes varios agentes de ventas, casi todas las herramientas piden a cuál te
+refieres. Este parámetro lo deja fijado para toda la conexión, y tu asistente
+deja de tener que preguntártelo.
+
+```
+https://mcp.darkfunnels.ai/mcp?features=all&agent=8f14e45f-ceea-467a-9c1d-2d4a6bcbb3f5
+```
+
+El identificador te lo da `list_agents`. Tiene que ser el UUID completo: si va
+mal escrito, se ignora sin avisar y vuelves al comportamiento normal (tu
+asistente te preguntará por el agente).
+
+## Cambiar la URL después
+
+Cambiar cualquiera de estos parámetros exige **reconectar** el conector: borra
+el que tenías y añádelo con la URL nueva.
+
+No confundas eso con las herramientas nuevas. La lista de herramientas se
+congela **por conversación**: si añadimos una y no te aparece, casi siempre basta
+con abrir un chat nuevo. Reconectar solo hace falta cuando cambia la URL.
