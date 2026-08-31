@@ -240,8 +240,11 @@ cambios quirúrgicos: el capítulo que hablamos, el campo que hablamos.
 
 - **El campo `context` va fusionado.** Los puntos clave dejaron de ser un campo
   aparte: hoy viven **dentro** de `context`, marcados con los rótulos
-  `CONTEXTO:` y `PUNTOS CLAVE:`. Reescribir `context` sin conservar esos
-  rótulos borra el bloque de reglas sin avisar.
+  `CONTEXTO:`, `RESPUESTAS ESPECÍFICAS:` y `PUNTOS CLAVE:`. Reescribir
+  `context` sin conservar esos rótulos borra el bloque de reglas —o las
+  respuestas aprobadas del bloque compartido— sin avisar. El bloque compartido
+  del embudo no se retoca capítulo a capítulo: se edita de una vez con
+  `set_shared_context`.
 - **Borrar un capítulo no renumera el resto.** Es normal quedarse con
   capítulos 1, 2 y 4. Lo que no es normal es dejar líneas de avance apuntando
   al capítulo que ya no existe: ese avance se rechaza y el embudo se para.
