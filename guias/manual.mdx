@@ -23,9 +23,17 @@ Estos son los campos reales, con el nombre que verá tu asistente:
 
 - **`chapter_label`** — el título. Va **sin número** («Calificación», no
   «2. Calificación»): el orden lo lleva otro campo.
-- **`role`** — quién es tu agente en este capítulo.
-- **`thought_chain`** — el guion. Es lo que tu agente ejecuta paso a paso. Aquí
-  vive todo lo importante.
+- **`role`** — quién es tu agente en este capítulo (el «Tu papel aquí» del
+  editor): abre con `Eres <nombre>, <papel> de <negocio>.` y sigue con el
+  objetivo de la etapa.
+- **`thought_chain`** — el guion. Es lo que tu agente ejecuta paso a paso, y
+  tiene una anatomía fija: encabezados **`PASO 1:`, `PASO 2:`…** secuenciales,
+  cada paso con su acción y su condicional de salida («Si …», «Cuando tengas X,
+  salta al PASO N», o la línea literal de avance en el paso que cierra). Si el
+  capítulo rutea según la situación del cliente (típico del primero), su
+  **`REGLA DE EJECUCIÓN:`** va antes del PASO 1 y dice qué paso ejecutar en
+  cada caso. Los guiones aprobados literales van con «dile esto:» o «dile esto
+  exactamente:».
 - **`context`** — información de apoyo y reglas del capítulo.
 - **`examples`** — ejemplos de conversación. La IA de OptiMind ya no los
   escribe, pero si tu manual los trae, tu agente los sigue viendo.
@@ -113,11 +121,17 @@ envío** del archivo, tal cual la escribiste al vincularlo:
 PASO 2: Si pide ver el catálogo, envíalo aquí: ###SEND_FILES: catalogo###
 ```
 
-- **Escribe la frase exacta.** Es la que exigen el validador del generador y el
-  editor del panel: un marcador que no nombre una frase viva se pinta como
-  mención rota. (A la hora de entregar, tu agente también acierta si escribes el
-  nombre exacto del fichero, pero esa tolerancia no te la reconoce el resto del
-  producto.)
+- **El estándar es condición de envío = NOMBRE del archivo** (sin extensión), y
+  es el default al subir o vincular sin escribir una condición: así el
+  marcador, el matcheo de tu agente y el menú @ del editor nombran lo mismo.
+  Los archivos vinculados ANTES de este estándar conservan su frase antigua
+  (se alinean con `set_file_trigger`).
+- **Dos validadores, dos catálogos.** El que rechaza el embudo entero
+  (`apply_funnel` y el asistente de creación) acepta el nombre del archivo o su
+  condición de envío viva. El subrayado rojo del EDITOR compara solo contra las
+  condiciones: un marcador por nombre con condición antigua divergente puede
+  salir pintado en el editor aunque el guardado lo acepte — la señal definitiva
+  es el validador, y alinear condición = nombre hace coincidir a los dos.
 - **Ningún `###` llega al cliente.** Si la frase no resuelve, el marcador
   desaparece del mensaje y no sale ningún archivo — sin error visible.
 - **Si desvinculas el archivo de tu agente**, los marcadores que lo nombraban se
@@ -222,10 +236,12 @@ versión del Historial para nada.
     ```
     Enséñame el historial de versiones del manual y restaura la anterior a la de hoy.
     ```
-    Restaurar **no borra ninguna versión del Historial**: la restauración entra
-    como una versión nueva, así que la que tenías sigue ahí (dentro de las 10).
-    Lo que sí reemplaza es el manual **vivo**: los capítulos que hubieras creado
-    después de la versión que restauras desaparecen del manual actual.
+    Restaurar entra como una versión **nueva** del Historial, así que la que
+    tenías sigue ahí — con un matiz: el Historial retiene las 10 más nuevas, y
+    cada versión que entra (también la de una restauración) **expulsa a la más
+    vieja** cuando ya hay 10. Lo que sí reemplaza es el manual **vivo**: los
+    capítulos que hubieras creado después de la versión que restauras
+    desaparecen del manual actual.
   </Step>
 </Steps>
 
@@ -249,11 +265,12 @@ cambios quirúrgicos: el capítulo que hablamos, el campo que hablamos.
   capítulos 1, 2 y 4. Lo que no es normal es dejar líneas de avance apuntando
   al capítulo que ya no existe: ese avance se rechaza y el embudo se para.
   Cuando borres uno, revisa quién lo nombraba.
-- **Un capítulo nuevo sin número de embudo es invisible.** Si se crea sin
-  `display_order`, el embudo no puede llegar a él ni con una línea de avance —
-  y aun así, al leer el manual verás un número calculado por su posición, así
-  que a simple vista parece correcto. Pide siempre que el capítulo nuevo nazca
-  con su número.
+- **El número del capítulo nuevo lo decide el servidor si no lo mandas.** Un
+  `posts` sin `display_order` nace con «capítulos existentes + 1» — no es
+  invisible, pero con huecos en la numeración (lo normal tras borrar un
+  capítulo: [1, 2, 4]) ese cálculo puede **duplicar el número de un capítulo
+  vivo**, y la línea de avance apunta por número. Mándalo explícito o relee el
+  manual tras crear y usa el número REAL que devolvió.
 - **Conviven tres formas del documento por dentro** (el bloque de persona, el
   formato completo y uno antiguo y comprimido de agentes migrados). El servidor
   respeta la forma de cada capítulo al editarlo y funde los cambios sobre el

@@ -69,11 +69,13 @@ https://mcp.darkfunnels.ai/mcp?features=all&read_only=true
 ## `?pii=full` — teléfonos completos
 
 Por defecto el teléfono de tus clientes finales llega enmascarado
-(`51•••••4321`). Con `pii=full` llega entero. Ninguna herramienta necesita el
-número para operar sobre un chat, así que el enmascarado no cierra ninguna
-operación: es solo lo que tu asistente llega a leer. La única mella es de
-comodidad — la búsqueda de clientes admite teléfono, y tapado no se puede
-encadenar. Los detalles y el porqué, en [Seguridad](/seguridad).
+(`51•••••4321`). Con `pii=full` llega entero. Las herramientas que operan
+sobre un chat existente direccionan por la conversación, así que el enmascarado
+no cierra esas operaciones: es solo lo que tu asistente llega a leer. La única
+que pide un número es `simulate_new_chat` (grupo de pruebas), y ahí lo tecleas
+tú. La otra mella es de comodidad — la búsqueda de clientes admite teléfono, y
+tapado no se puede encadenar. Los detalles y el porqué, en
+[Seguridad](/seguridad).
 
 ## `?agent=<uuid>` — fijar un agente
 

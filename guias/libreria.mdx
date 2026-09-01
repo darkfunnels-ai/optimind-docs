@@ -55,7 +55,8 @@ Si subes dos veces el mismo archivo (byte a byte), no se duplica: se reutiliza
 el que ya existía y se añaden **solo los vínculos que aún no tenía**. Si el
 vínculo ya existía —mismo agente, misma capacidad—, no se crea otro ni se
 actualiza el que hay: la respuesta vuelve con `duplicate_of` y `created_links`
-vacío. Para cambiar la frase o el mensaje de ese vínculo, panel.
+vacío. La condición de envío de ese vínculo se cambia con `set_file_trigger`;
+el mensaje que acompaña al archivo sí sigue siendo cosa del panel.
 
 ### Tipos admitidos y tamaño
 
@@ -98,8 +99,10 @@ con `link_file_to_agent`. Necesita tres cosas: el `file_id` (sale de
 
 Dos campos importan cuando la capacidad es `sendable`:
 
-- **La frase de envío** (`trigger_condition`): es el nombre con el que el manual
-  llama a ese archivo. Sigue leyendo, porque es la pieza central.
+- **La condición de envío** (`trigger_condition`): es el nombre con el que el
+  manual llama a ese archivo. **El estándar —y el default si no la escribes—
+  es el NOMBRE del archivo sin extensión**: archivo «lista_precios.pdf» ⇒
+  condición «lista_precios». Sigue leyendo, porque es la pieza central.
 - **El mensaje** (`message`): el texto que acompaña al archivo, el pie de foto.
   Si lo dejas vacío, el archivo viaja **sin texto ninguno**.
 
@@ -124,21 +127,30 @@ envío**. No hay un identificador escondido: el manual nombra al archivo con las
 mismas palabras que tú escribiste en el vínculo. De ahí salen las tres reglas
 que importan:
 
-1. **Escribe la frase exacta.** Y hazlo con cuidado, porque desde tu asistente
-   **nada valida el marcador**: `save_manual_chapters` —la única vía de escritura
-   del puente— guarda la frase que le des, exista el archivo o no. El validador
-   que rechaza el manual entero y te dice qué marcador falla es el del asistente
-   de creación **del panel**, y ahí no pasas tú. Por eso, desde el puente,
-   comprobarlo es cosa tuya: lista los archivos antes de escribir el marcador.
-2. **Dale una frase distinta a cada archivo.** Si dos archivos enviables del
-   mismo agente comparten frase, la frase deja de identificar a uno solo: al
-   entregar, el agente declara la ambigüedad y no manda nada hasta que se le
-   pida por el nombre exacto del fichero.
-3. **Renombrar la frase se arrastra al manual, pero solo desde el panel.**
-   Cuando cambias la frase de un vínculo en el panel, los marcadores ya escritos
-   se reapuntan solos al texto nuevo. El puente **no** puede editar un vínculo
-   existente: solo crear y quitar. Si lo quitas y lo vuelves a crear con otra
-   frase, los marcadores del manual **no** se reapuntan y quedan huérfanos.
+1. **Mantén condición = nombre y escribe el marcador con ese nombre.** Ojo:
+   `save_manual_chapters` —la vía de edición suelta del puente— guarda la frase
+   que le des, exista el archivo o no; el que rechaza el manual entero y te
+   dice qué marcador falla es `apply_funnel` (y el asistente de creación del
+   panel), que valida contra el nombre del archivo y contra su condición viva.
+   Desde el puente, antes de escribir un marcador, lista los archivos.
+2. **Dale una condición distinta a cada archivo.** Si dos archivos enviables
+   del mismo agente comparten frase, la frase deja de identificar a uno solo:
+   al entregar, el agente declara la ambigüedad y no manda nada hasta que se le
+   pida por el nombre exacto del fichero. Ojo: la Librería deduplica por
+   CONTENIDO, no por nombre — dos archivos distintos pueden llamarse casi igual
+   («catalogo.pdf» y «catalogo.jpg»), y con condición = nombre heredarían la
+   misma condición. Renombra uno de los dos antes de vincular ambos como
+   enviables al mismo agente.
+3. **Renombrar arrastra los marcadores — con un freno deliberado.** Cambiar la
+   condición de un vínculo (desde el panel o con `set_file_trigger` del puente)
+   reapunta los marcadores ya escritos, y renombrar el ARCHIVO, cuando su
+   condición era el nombre (el estándar), arrastra también la condición. El
+   freno: si OTRO vínculo vivo del agente conserva la condición vieja (el caso
+   de los homónimos de la regla 2), no se toca nada — el marcador seguiría
+   nombrando un archivo real y reapuntarlo se lo robaría. La respuesta dice
+   cuántos marcadores se movieron (`manual_retagged`); un `0` tras un rename es
+   la señal de revisar. Si en cambio quitas el vínculo y lo vuelves a crear con
+   otra frase, los marcadores **no** se reapuntan y quedan huérfanos.
 
 <Tip>
 A la hora de entregar, el agente es más tolerante que el validador: primero
@@ -207,9 +219,10 @@ real, no un fallo de tu archivo.
 
 Sé consciente de los bordes antes de pedirle imposibles a tu asistente:
 
-- **No edita un vínculo ya creado.** Cambiar la frase de envío o el mensaje de un
-  vínculo existente es cosa del panel. Desde el asistente solo puedes crear el
-  vínculo (con su frase) o quitarlo.
+- **De un vínculo ya creado solo edita la condición de envío.** Eso se hace con
+  `set_file_trigger`, que arrastra los marcadores que la nombraban — con el
+  mismo freno de la regla 3 de arriba (`manual_retagged` dice cuántos). El
+  mensaje que acompaña al archivo (`message`) se cambia en el panel.
 - **No manda archivos a la papelera.** Puedes *listar* la papelera
   (`status: "trashed"`), pero mandar un archivo a ella o restaurarlo se hace en
   el panel.

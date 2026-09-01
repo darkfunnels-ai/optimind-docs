@@ -1,6 +1,6 @@
 ---
 title: "Referencia de herramientas"
-description: "Las 44 tools del puente MCP, por grupo. Generado desde el código: no editar a mano."
+description: "Las 45 tools del puente MCP, por grupo. Generado desde el código: no editar a mano."
 ---
 
 {/* GENERADO por scripts/gen-tools-reference.mjs — editarlo a mano se pierde. */}
@@ -61,7 +61,7 @@ amplía. Eso y el resto de parámetros de la conexión están explicados en
 
 ### `save_manual_chapters` — Guardar capítulos del manual
 
-*🔴 destructiva*. Guarda cambios del manual del agente en UN solo lote (el Historial retiene las 10 versiones más nuevas; una llamada = una versión). chapter_index es la clave que devuelve read_manual (campo id / chapter_index), referida al estado PREVIO al lote. puts aplica solo las claves presentes del payload; posts crea capítulos al final, y conviene darles display_order explícito: es a lo que apunta la línea de avance, y el orden de la lista no lo sustituye. deletes elimina; advance_tos fija solo el avance. El campo context es fusionado: conserva los rótulos CONTEXTO:/RESPUESTAS ESPECÍFICAS:/PUNTOS CLAVE: si el capítulo los usa (RESPUESTAS ESPECÍFICAS: suele venir del bloque compartido — ese se edita con set_shared_context, no capítulo a capítulo). Un marcador ###SEND_FILES: frase### requiere la frase exacta de un archivo enviable vivo (ver list_library_files). Devuelve el manual releído con las claves nuevas; si la relectura falla, verified:false significa que el guardado SÍ se aplicó.
+*🔴 destructiva*. Guarda cambios del manual del agente en UN solo lote (el Historial retiene las 10 versiones más nuevas; una llamada = una versión). chapter_index es la clave que devuelve read_manual (campo id / chapter_index), referida al estado PREVIO al lote. puts aplica solo las claves presentes del payload; posts crea capítulos al final, y conviene darles display_order explícito: es a lo que apunta la línea de avance, y el orden de la lista no lo sustituye. deletes elimina; advance_tos fija solo el avance. El campo context es fusionado: conserva los rótulos CONTEXTO:/RESPUESTAS ESPECÍFICAS:/PUNTOS CLAVE: si el capítulo los usa (RESPUESTAS ESPECÍFICAS: suele venir del bloque compartido — ese se edita con set_shared_context, no capítulo a capítulo). OJO: esta ruta NO valida los marcadores ###SEND_FILES:### — guarda lo que le des (la muralla vive en apply_funnel); un marcador solo funciona si nombra el archivo (su NOMBRE sin extensión, el estándar) o su condición de envío viva: verifícalo tú con list_library_files antes de escribirlo. Devuelve el manual releído con las claves nuevas; si la relectura falla, verified:false significa que el guardado SÍ se aplicó.
 
 ### `restore_manual_version` — Restaurar una versión del manual
 
@@ -69,11 +69,11 @@ amplía. Eso y el resto de parámetros de la conexión están explicados en
 
 ### `apply_funnel` — Aplicar embudo completo
 
-*🔴 destructiva*. Escribe de una vez todos los capítulos de un embudo, junto con la persona del vendedor, en una sola transacción versionada. Los capítulos salen del proceso de venta REAL narrado por el dueño (uno por etapa, en su orden exacto), no de una plantilla. `shared_context` es el bloque compartido (CONTEXTO / RESPUESTAS ESPECÍFICAS / PUNTOS CLAVE): se copia idéntico al contexto de todos los capítulos y después se re-edita de una vez con set_shared_context. Si viaja `persona`, su personalidad queda ACTIVA por defecto (persona.enabled:false la deja guardada pero inactiva). REEMPLAZA los capítulos que hubiera: sobre un embudo recién creado es lo correcto, sobre uno que ya vende hay que confirmarlo con el dueño. Valida las referencias antes de guardar y devuelve el detalle de las que estén rotas, sin escribir nada; RECHAZA huecos de plantilla sin rellenar («ASI_ESCRITOS»), nombrándolos, y devuelve `warnings` no bloqueantes (roles que no abren «Eres &lt;nombre>…», bloque compartido ausente, activación de persona fallida). Para editar capítulos sueltos de un embudo vivo, save_manual_chapters es la herramienta adecuada.
+*🔴 destructiva*. Escribe de una vez todos los capítulos de un embudo, junto con la persona del vendedor, en una sola transacción versionada. Los capítulos salen del proceso de venta REAL narrado por el dueño (uno por etapa, en su orden exacto), no de una plantilla, y cumplen la anatomía: PASOS numerados «PASO 1:», «PASO 2:»… con su condicional cada uno, REGLA DE EJECUCIÓN antes del PASO 1 cuando el capítulo rutea, y el avance con la línea literal. `shared_context` es el bloque compartido ÚNICO y obligatorio, con sus TRES secciones (CONTEXTO / RESPUESTAS ESPECÍFICAS / PUNTOS CLAVE): se copia idéntico al contexto de todos los capítulos y después se re-edita de una vez con set_shared_context. `persona` es obligatoria (name + personality) y su personalidad queda ACTIVA por defecto (persona.enabled:false la deja guardada pero inactiva). REEMPLAZA los capítulos que hubiera: sobre un embudo recién creado es lo correcto, sobre uno que ya vende hay que confirmarlo con el dueño. RECHAZA sin escribir nada: capítulos sin PASOS o con PASOS fuera de orden, intermedios sin avance literal, bloque compartido ausente o incompleto, persona ausente o sin personality, huecos de plantilla sin rellenar («ASI_ESCRITOS») y referencias rotas — cada rechazo nombra el arreglo exacto. Devuelve `warnings` no bloqueantes. Para editar capítulos sueltos de un embudo vivo, save_manual_chapters es la herramienta adecuada.
 
 ### `set_shared_context` — Editar bloque compartido
 
-*🔴 destructiva*. Re-edita de una vez el bloque compartido del embudo (CONTEXTO / RESPUESTAS ESPECÍFICAS / PUNTOS CLAVE) en TODOS los capítulos, conservando lo específico de cada uno, en una sola versión del Historial. Detecta el bloque vigente como el prefijo común de los contextos; si los capítulos divergieron por ediciones sueltas, NO escribe nada y devuelve la comparación para decidir con el dueño (repetir con replace_all:true descarta los contextos por capítulo; se deshace con restore_manual_version). Rechaza huecos de plantilla sin rellenar. En el bloque no se nombran herramientas ni marcadores.
+*🔴 destructiva*. Re-edita de una vez el bloque compartido del embudo (CONTEXTO / RESPUESTAS ESPECÍFICAS / PUNTOS CLAVE) en TODOS los capítulos, conservando lo específico de cada uno, en una sola versión del Historial. Las TRES secciones son obligatorias: el bloque nuevo reemplaza al vigente entero, así que los cuerpos que no cambian también viajan (se recuperan del contexto de read_manual). Detecta el bloque vigente como el prefijo común de los contextos; si los capítulos divergieron por ediciones sueltas, NO escribe nada y devuelve la comparación para decidir con el dueño (repetir con replace_all:true descarta los contextos por capítulo; se deshace con restore_manual_version). Rechaza huecos de plantilla sin rellenar. En el bloque no se nombran herramientas ni marcadores.
 
 ## Catálogo — lectura
 
@@ -135,15 +135,19 @@ amplía. Eso y el resto de parámetros de la conexión están explicados en
 
 ### `upload_library_file` — Subir archivo a la Librería
 
-*escritura*. Sube un archivo a la Librería de la empresa (contenido en base64, máx. 2,5 MB por MCP; tipos: imagen, PDF, DOCX, CSV, audio, video). Con agent_id y capability el archivo queda vinculado al agente en el mismo paso: 'knowledge' dispara la indexación para su conocimiento; 'sendable' lo vuelve enviable por WhatsApp cuando el cliente cumple trigger_condition. Si ya existe un archivo idéntico se reutiliza (duplicate_of).
+*escritura*. Sube un archivo a la Librería de la empresa (contenido en base64, máx. 2,5 MB por MCP; tipos: imagen, PDF, DOCX, CSV, audio, video). Con agent_id y capability el archivo queda vinculado al agente en el mismo paso: 'knowledge' dispara la indexación para su conocimiento; 'sendable' lo vuelve enviable por WhatsApp. La condición de envío por defecto es el NOMBRE del archivo sin extensión (el estándar: condición = nombre, así el marcador ###SEND_FILES### nunca diverge del archivo); un trigger_condition explícito distinto se acepta con aviso. Si ya existe un archivo idéntico se reutiliza (duplicate_of).
 
 ### `link_file_to_agent` — Vincular archivo a un agente
 
-*escritura*. Vincula un archivo existente de la Librería a un agente. capability 'knowledge' lo suma al conocimiento del agente (la indexación arranca sola); 'sendable' lo vuelve enviable por WhatsApp con su trigger_condition. Un archivo admite UN vínculo por agente y capability.
+*escritura*. Vincula un archivo existente de la Librería a un agente. capability 'knowledge' lo suma al conocimiento del agente (la indexación arranca sola); 'sendable' lo vuelve enviable por WhatsApp — su condición de envío por defecto es el NOMBRE del archivo sin extensión (el estándar). Un archivo admite UN vínculo por agente y capability.
 
 ### `unlink_file_from_agent` — Desvincular archivo de un agente
 
 *escritura*. Quita un vínculo archivo↔agente por su link_id (de list_library_files). El archivo sigue en la Librería de la empresa; si el vínculo era sendable con marcadores ###SEND_FILES### en el manual, esos marcadores quedan sin archivo que resolver.
+
+### `set_file_trigger` — Renombrar condición de envío
+
+*escritura*. Cambia la condición de envío (trigger_condition) de un vínculo sendable existente y ARRASTRA el cambio a los marcadores ###SEND_FILES### del manual del agente (manual_retagged dice cuántos se reapuntaron). Úsala para alinear la condición con el NOMBRE del archivo sin extensión — el estándar que hace coincidir el marcador, el matcheo del agente y el menú @ del panel. El link_id sale de list_library_files (campo link_id dentro de links).
 
 ## Operaciones (`?features=operations`)
 
