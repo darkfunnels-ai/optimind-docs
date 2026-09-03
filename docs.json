@@ -38,7 +38,8 @@
               "guias/catalogo",
               "guias/libreria",
               "guias/conversaciones",
-              "guias/pedidos-y-metricas"
+              "guias/pedidos-y-metricas",
+              "guias/pixel-de-meta"
             ]
           },
           {

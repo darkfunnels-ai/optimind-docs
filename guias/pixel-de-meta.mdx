@@ -1,0 +1,406 @@
+---
+title: "Conecta tu píxel de Meta"
+description: "Qué es un píxel cuando vendes por WhatsApp, qué sacar del Administrador de eventos de Meta, cómo escribir las reglas que mandan compras y leads, y qué significa cada envío."
+---
+
+Es lo que cierra el círculo con tus anuncios. Hasta aquí tu agente vende por
+WhatsApp; a partir de aquí Meta se entera de quién compró de verdad, y con esa
+lista afina a quién le enseña tus anuncios.
+
+## Un píxel sin página web
+
+El píxel clásico es un trozo de código que vive en una web y avisa a Meta cada
+vez que alguien compra. En un embudo de WhatsApp no hay web ni navegador, así
+que ese código no existe. Lo que hay es esto: cuando un cliente cumple una de
+tus reglas —llega a un capítulo del manual, o tu agente registra una venta—,
+OptiMind le manda a Meta un aviso (Meta lo llama «evento») por su **API de
+conversiones**, el canal que Meta ofrece para avisos que no salen de una web.
+
+Con el aviso viajan los datos que Meta necesita para reconocer a la persona:
+el teléfono, el nombre y el país, siempre convertidos en una **huella** que no
+se puede deshacer (Meta nunca recibe el dato en claro). Lo que **no** viaja es
+la conversación.
+
+Para qué te sirve, en tres frases: Meta puede optimizar tus campañas por
+compras y no solo por conversaciones iniciadas, cuando habilita ese objetivo
+en tu cuenta (más abajo te contamos cuándo); normalmente puedes armar públicos
+de compradores reales y públicos similares a ellos; y en el Administrador de
+anuncios ves las compras junto a cada anuncio, no solo los chats.
+
+## Antes de empezar: las tres cosas que hay que saber
+
+<Warning>
+**1. Necesitas ser administrador o desarrollador del portfolio comercial que
+posee el píxel.** El portfolio comercial es la cuenta de empresa de Meta (el
+antiguo Business Manager); hoy esos permisos se llaman **Control total** y
+**Apps e integraciones**. Sin uno de los dos, el botón **Generar token de
+acceso** sale en gris con el aviso *«No se cumple un prerrequisito»*. Es la
+traba más frecuente, y no la arregla OptiMind: te lo da quien administra el
+portfolio, en **Configuración del negocio → Usuarios → Personas**.
+
+**2. Lo que pegas es el ID de un píxel o conjunto de datos, no el de una
+app.** En el Administrador de eventos salen mezclados. Si abres una app de
+Facebook no encontrarás el botón del token: los avisos de este panel van al
+conjunto de datos del píxel.
+
+**3. Solo cuentan las ventas que registra tu agente.** Las que das de alta a
+mano desde **Clientes** no se mandan, a propósito: el píxel existe para que
+Meta aprenda de las ventas que salieron de una conversación.
+</Warning>
+
+## Lo que tienes que sacar del Administrador de eventos
+
+Tres datos, los tres del mismo sitio: el **Administrador de eventos** de Meta
+(Events Manager, en `business.facebook.com/events_manager`). Si tu cuenta
+publicitaria ya tiene un píxel, salta al paso 2.
+
+<Steps>
+  <Step title="Crea el conjunto de datos, si no tienes ninguno">
+    En el menú lateral, **Conjuntos de datos** (en cuentas antiguas, **Orígenes
+    de datos**). Si la lista está vacía, pulsa **Conectar datos** y elige
+    **Web**: es lo que crea el píxel clásico, y es el que funciona para un
+    embudo de WhatsApp.
+
+    <Frame caption="«Conectar datos» ofrece Web, App, Offline, CRM y Mensajes. Para un número conectado por QR, la opción es Web.">
+      <img src="/images/pixel-de-meta/00-meta-conectar-datos.png" alt="Diálogo «Conectar un nuevo origen de datos» del Administrador de eventos" />
+    </Frame>
+
+    Ponle nombre, deja marcada la casilla de la API de conversiones y pulsa
+    **Crear**. Meta te pide qué cuentas publicitarias conectar (marca las que
+    anuncian tu WhatsApp) y luego cómo quieres enviar los datos: elige
+    **Configurar la API de conversiones** y, cuando te proponga un socio,
+    **Ver otras opciones de configuración → Configurar manualmente**. El
+    asistente de «implementación manual» que se abre después no hace falta
+    seguirlo: ciérralo, el conjunto de datos ya existe.
+
+    <Frame caption="Meta propone un socio de pago; «Ver otras opciones» destapa «Configurar manualmente», que es la vía sin código extra.">
+      <img src="/images/pixel-de-meta/04-meta-api-otras-opciones.png" alt="Opciones de configuración de la API de conversiones, con «Configurar manualmente» al final" />
+    </Frame>
+  </Step>
+  <Step title="Copia el ID del píxel">
+    En **Conjuntos de datos** → tu píxel → pestaña **Configuración**. El ID es el
+    número largo, de unas 16 cifras, que aparece como **Identificador del
+    conjunto de datos** (y bajo el nombre en la lista de la izquierda).
+
+    <Frame caption="La pestaña Configuración muestra el identificador que va en OptiMind.">
+      <img src="/images/pixel-de-meta/07-meta-configuracion-identificador.png" alt="Pestaña Configuración del conjunto de datos con el identificador" />
+    </Frame>
+  </Step>
+  <Step title="Genera el token de acceso">
+    En la misma pestaña, baja hasta **API de conversiones** → **Configurar
+    integración directa** → marca **Configurar sin Dataset Quality API** →
+    **Generar token de acceso**.
+
+    <Frame caption="El botón «Generar token de acceso». Si sale en gris, te falta el permiso en el portfolio comercial.">
+      <img src="/images/pixel-de-meta/08-meta-integracion-directa-generar-token.png" alt="Bloque «Configurar integración directa» con el botón Generar token de acceso" />
+    </Frame>
+
+    Cópialo entero: es largo, suele empezar por `EAA`, y Meta avisa que **no
+    lo almacena**: si cierras la página sin copiarlo, generas otro.
+
+    <Frame caption="El token aparece una sola vez, con el aviso de guardarlo en un lugar seguro (aquí, tapado).">
+      <img src="/images/pixel-de-meta/09-meta-token-generado.png" alt="Token de acceso generado, con el texto del token oculto" />
+    </Frame>
+  </Step>
+  <Step title="Copia el código de prueba">
+    Pestaña **Probar eventos** → en **Seleccionar canal** elige **Sitio web**
+    → despliega **Confirma que los eventos de tu servidor estén configurados
+    correctamente** y copia el `test_event_code` (empieza por `TEST`). Es lo
+    que te deja comprobar la conexión al instante. Puedes guardarlo en el
+    píxel o pegarlo solo cuando pruebes.
+
+    <Frame caption="El código de prueba vive dentro del canal «Sitio web», en el bloque de eventos del servidor.">
+      <img src="/images/pixel-de-meta/12-meta-probar-eventos-codigo-prueba.png" alt="Pestaña Probar eventos con el test_event_code visible" />
+    </Frame>
+  </Step>
+</Steps>
+
+<Tip>
+Ten los tres datos a mano antes de abrir el panel. El token se guarda como
+huella y no se puede consultar después: si te equivocas al pegarlo, la salida
+es eliminar el píxel y crearlo de nuevo.
+</Tip>
+
+## Conéctalo en OptiMind
+
+<Steps>
+  <Step title="Abre el panel de píxeles">
+    En el menú: **Personalizar → Píxeles** → **Añadir píxel**. La tarjeta de
+    arriba, **¿Dónde consigo estos datos?**, resume esta guía por si la
+    necesitas sin salir del panel.
+
+    <Frame caption="La pestaña Píxeles: la ayuda plegada arriba y, debajo, cada píxel con sus reglas y sus envíos.">
+      <img src="/images/pixel-de-meta/20-df-panel-pixeles.png" alt="Panel Personalizar → Píxeles con un píxel conectado y dos reglas" />
+    </Frame>
+  </Step>
+  <Step title="Rellena el formulario">
+    Un **Nombre** que reconozcas («Campañas Perú»), el **ID del píxel
+    (conjunto de datos)** y el **Token de acceso de la API de conversiones**.
+    El **Código de prueba** va en su casilla. El **ID de cuenta de WhatsApp
+    Business** déjalo vacío si conectaste tu número escaneando el QR (más
+    abajo te contamos cuándo sí ponerlo).
+
+    <Frame caption="El formulario de alta. El token se guarda cifrado y no vuelve a mostrarse.">
+      <img src="/images/pixel-de-meta/22-df-formulario-nuevo-pixel.png" alt="Formulario «Nuevo píxel de Meta» con sus cinco campos" />
+    </Frame>
+  </Step>
+  <Step title="Guarda y prueba la conexión">
+    **Guardar píxel** deja la tarjeta con la insignia **Token guardado**.
+    Pulsa **Probar conexión**: si no guardaste el código de prueba, te lo pide
+    en una casilla ahí mismo (pégalo y pulsa **Probar**; ese código se usa solo
+    para esa prueba y no queda guardado). Si Meta acepta, verás el aviso
+    *«Meta recibió el evento de prueba. Míralo en Events Manager → Probar
+    eventos.»* y una fila **Enviado · Lead · prueba** en **Últimos envíos**.
+
+    <Frame caption="«Probar conexión» pide el código si no está guardado; cada intento queda en «Últimos envíos».">
+      <img src="/images/pixel-de-meta/24-df-ultimos-envios-y-probar.png" alt="Bloque Envíos con la casilla del código de prueba y dos envíos de prueba recibidos" />
+    </Frame>
+  </Step>
+  <Step title="Quita el código de prueba al terminar">
+    Mientras el código esté guardado, los avisos reales también salen marcados
+    como prueba: Meta los cuenta igual, pero aparecen en **Probar eventos**
+    mezclados con tus pruebas. La tarjeta lo avisa con la insignia **Modo
+    prueba**; **Quitar código de prueba** lo retira sin tocar nada más.
+  </Step>
+</Steps>
+
+Hasta aquí Meta sabe que existes. Todavía no le has dicho **cuándo** avisarle:
+eso son las reglas, y sin ellas no se manda nada.
+
+## Las reglas: cuándo se manda cada evento
+
+Cada regla es una frase: *cuando un cliente de este embudo hace tal cosa, Meta
+recibe tal evento*. Se escribe con **Añadir regla**:
+
+<Steps>
+  <Step title="Elige el embudo">
+    En **Embudo**, el agente cuyos clientes cuentan para esta regla. Cada regla
+    nombra un solo embudo.
+  </Step>
+  <Step title="Di qué tiene que pasar">
+    En **Cuando el cliente**, elige entre llegar a un capítulo o registrar una
+    conversión. Si es un capítulo, elige cuál en **Capítulo**.
+  </Step>
+  <Step title="Deja el evento propuesto o cámbialo">
+    En **Evento que recibe Meta** ya viene el evento habitual para ese caso.
+    Debajo se arma la frase completa: léela y pulsa **Guardar regla**.
+  </Step>
+</Steps>
+
+<Frame caption="La regla se lee entera antes de guardarla: embudo, capítulo y evento.">
+  <img src="/images/pixel-de-meta/23-df-nueva-regla.png" alt="Editor «Nueva regla» con la frase que describe la regla" />
+</Frame>
+
+| Cuando el cliente… | Evento que se propone | Qué le dice a Meta |
+| --- | --- | --- |
+| **Llega a un capítulo** | Cliente potencial (`Lead`) | Alguien avanzó hasta ese punto del manual. |
+| **Registra una venta** | Compra (`Purchase`) | Alguien compró, con importe y moneda: Meta los exige en una compra. |
+| **Agenda una cita** | Cita agendada (`Schedule`) | Alguien reservó, por el chat o desde tu página de reservas. |
+| **Deja sus datos (lead)** | Cliente potencial (`Lead`) | Alguien dejó nombre y contacto. |
+| **Contrata un servicio** | Compra (`Purchase`) | Igual que una venta. |
+| **Cualquier conversión** | Compra (`Purchase`) | Cualquiera de las anteriores. Ojo: con esta regla una cita o un lead le llegan a Meta como compra. |
+
+El evento propuesto se puede cambiar por otro del catálogo o por uno
+**personalizado** con tu propio nombre. Para casi todos los negocios bastan
+dos reglas: **el capítulo donde el cliente ya mostró interés → Lead** y
+**registra una venta → Purchase**.
+
+Los detalles que conviene saber:
+
+- **El capítulo 1 no se puede elegir.** Todo contacto nace ahí, así que nadie
+  «llega». Las reglas empiezan en el 2.
+- **La regla apunta al número del capítulo, no a su nombre.** Si reordenas o
+  borras capítulos en el manual, la regla sigue apuntando al mismo número: el
+  panel te lo recuerda al crearla, y conviene revisar las reglas después de
+  tocar el manual.
+- **Un salto se salta los intermedios.** Si tu agente manda al cliente del
+  capítulo 2 al 4, la regla del 3 no dispara.
+- **Cada llegada se manda una vez.** El sistema anota lo que ya entregó y no
+  lo repite. Si el cliente sale del capítulo y vuelve a entrar más tarde, eso
+  es otra llegada y sale otro aviso. Si dos reglas del mismo píxel encajan con
+  el mismo hecho, gana la primera que escribiste.
+- **Mover al cliente de capítulo a mano también cuenta.** Si arrastras a un
+  cliente en el embudo o cambias su capítulo desde su ficha, la regla dispara
+  igual que si lo hubiera hecho tu agente.
+- **Anular una venta no resta nada.** La API de conversiones no tiene un aviso
+  de devolución ni acepta restar una compra: el `Purchase` ya enviado se queda.
+- **Con la atribución por clic, Meta entiende una lista corta de eventos**
+  (compra, lead, carrito, pedido…). `Lead` lo traducimos al nombre que Meta
+  espera ahí; una cita o un evento con nombre propio en ese modo puede no
+  contar.
+
+<Note>
+Pausar el píxel con su interruptor deja de mandar todo, sin borrar reglas ni
+historial. Lo que pase mientras está en pausa no se manda después: al
+reactivarlo solo salen los hechos nuevos.
+</Note>
+
+
+## Qué te dice cada envío
+
+**Últimos envíos**, en la tarjeta del píxel, es la prueba de vida: los últimos
+20 avisos, una fila por cada uno con su desenlace. No tienes que pedirle a
+nadie un registro técnico: aquí ves qué pasó con cada uno.
+
+| Estado | Qué significa | Qué hacer |
+| --- | --- | --- |
+| **Enviado** | Meta lo recibió. | Nada. |
+| **Falló** | Meta lo rechazó o no se pudo contactar. El motivo aparece en la fila. | Si habla del token («OAuth», inválido, revocado), genera otro en el Administrador de eventos, elimina el píxel y créalo de nuevo. Si dice que no hubo respuesta, fue un corte momentáneo: ese aviso no se repite, pero el siguiente saldrá con normalidad. |
+| **Omitido** | La regla encajó, pero no había nada que Meta pudiera emparejar: el contacto no tenía un teléfono utilizable (número oculto o sin país reconocido) ni venía de un anuncio, o el hecho tenía más de 7 días. | Nada que arreglar en ese contacto. Si son todos, lee «Problemas frecuentes». |
+
+Los fallos con Meta **no se reintentan solos**: un token revocado no va a
+volver a funcionar por insistir. Por eso el error queda a la vista aquí en
+lugar de girar en silencio.
+
+Del lado de Meta, la pestaña **Probar eventos** solo te da instrucciones y el
+código; no lista lo que va llegando. La actividad real se ve en la pestaña
+**Resumen** del conjunto de datos, y Meta avisa que puede tardar hasta 30
+minutos en mostrarla.
+
+## El clic del anuncio
+
+Cuando un cliente te escribe desde un anuncio de **«Enviar mensaje por
+WhatsApp»**, su primer mensaje suele traer escondido el anuncio del que vino y
+un identificador del clic. Lo guardamos junto al contacto sin que tengas que
+hacer nada (no lo verás en su ficha: solo lo usa el envío a Meta), y si el
+mismo cliente vuelve por otro anuncio, se queda el último.
+
+Con eso hay dos maneras de contarle la venta a Meta:
+
+- **Por teléfono**, que es la de siempre. Meta recibe la huella del número y
+  la empareja con la persona; si esa persona vio o tocó tus anuncios, se lo
+  atribuye con sus reglas habituales. Funciona con el número conectado por QR
+  siempre que el cliente escriba con un número visible y con país: los que
+  llegan con el número oculto se omiten.
+- **Por el clic exacto**, si además guardas en el píxel el **ID de cuenta de
+  WhatsApp Business**. Ese ID lo tienen los números que están en la
+  Plataforma de WhatsApp Business (la API oficial de Meta, la de los números
+  registrados a través de un proveedor o de Meta directamente), y se ve en
+  **Configuración del negocio → Cuentas → Cuentas de WhatsApp**. Si
+  conectaste por QR, lo normal es que no lo tengas: déjalo vacío. Con los dos
+  datos, el aviso va marcado como conversión de mensajería y Meta lo cuelga
+  del anuncio concreto.
+
+La insignia **Atribución por clic** en la tarjeta te dice que la segunda vía
+está habilitada; cada aviso la usa solo si ese cliente llegó desde un anuncio,
+y si no, va por teléfono.
+
+## En el Administrador de anuncios
+
+Para que las compras aparezcan en los resultados de la campaña, el anuncio
+tiene que leer del mismo conjunto de datos. Edita el anuncio de clic a
+WhatsApp y baja hasta el bloque **Seguimiento**, debajo de la plantilla de
+bienvenida: marca **Eventos del sitio web** y comprueba que el conjunto de
+datos que aparece es el que conectaste aquí. Pulsa **Publicar**.
+
+<Frame caption="El bloque Seguimiento del anuncio, antes de marcar nada.">
+  <img src="/images/pixel-de-meta/13-ads-seguimiento-antes.png" alt="Editor del anuncio con el bloque Seguimiento y la casilla Eventos del sitio web sin marcar" />
+</Frame>
+
+<Frame caption="Al marcar «Eventos del sitio web» aparece el conjunto de datos con su ID. El aviso «Tu píxel de Meta no está activo» es normal: no hay web que cargue el píxel; los avisos llegan del servidor.">
+  <img src="/images/pixel-de-meta/14-ads-seguimiento-dataset-elegido.png" alt="Bloque Seguimiento con el conjunto de datos seleccionado y el aviso de píxel no activo" />
+</Frame>
+
+Los avisos reales aparecen en el **Resumen** del conjunto de datos y en los
+informes de la campaña más tarde, con el retraso de Meta. Si acabas de
+conectar, dale unas horas antes de concluir que algo falla.
+
+<Note>
+Meta ofrece una optimización por compras para anuncios de clic a WhatsApp que
+solo se habilita cuando tu cuenta le ha compartido un mínimo de compras por la
+API de conversiones (Meta ha publicado cifras distintas según el canal). Cuándo
+aparece ese objetivo en tu cuenta lo decide Meta, no este panel.
+</Note>
+
+## Problemas frecuentes
+
+<AccordionGroup>
+  <Accordion title="«Generar token de acceso» sale en gris">
+    Te falta el permiso en el portfolio comercial dueño del píxel (**Control
+    total** o **Apps e integraciones**). Pídeselo a quien administra el
+    portfolio, en **Configuración del negocio → Usuarios → Personas**, o crea
+    un conjunto de datos nuevo en un portfolio donde ya seas administrador
+    (**Conectar datos → Web**).
+  </Accordion>
+  <Accordion title="En «Conectar datos» elegí «Mensajes» y dice que ninguna página cumple los requisitos">
+    Esa vía es para números que están en la Plataforma de WhatsApp Business.
+    Con un número conectado por QR, Meta no encuentra una página elegible.
+    Vuelve atrás y elige **Web**: el píxel clásico recibe igual los avisos de
+    este panel.
+  </Accordion>
+  <Accordion title="«Probar conexión» dice que Meta lo recibió, pero en «Probar eventos» no veo nada">
+    Es lo esperable: esa pestaña de Meta solo da instrucciones y el código, no
+    lista los avisos. La confirmación está en **Últimos envíos** (fila
+    **Enviado**) y, con hasta 30 minutos de retraso, en el **Resumen** del
+    conjunto de datos. Si tampoco aparece ahí pasadas unas horas, comprueba
+    que el ID pegado es el del conjunto de datos que estás mirando.
+  </Accordion>
+  <Accordion title="Meta rechazó el evento: «Invalid OAuth access token»">
+    El token es de otro píxel, se pegó incompleto o alguien lo revocó en el
+    Administrador de eventos. Genera uno nuevo, elimina el píxel del panel y
+    créalo con el token bueno. Apunta antes las reglas: al eliminar se borran.
+  </Accordion>
+  <Accordion title="Un cliente compró y no hay ningún envío">
+    Repasa en este orden: el píxel está **activo** (interruptor verde); hay
+    una regla de venta **para ese embudo** (cada regla nombra su embudo); la
+    venta la registró **tu agente** en la conversación, no la diste de alta a
+    mano; y la venta tiene menos de 7 días. Si todo cuadra, el envío está en
+    **Últimos envíos** con su estado.
+  </Accordion>
+  <Accordion title="Casi todo sale «Omitido»">
+    El motivo está en cada fila. Si dice que el contacto no tiene teléfono
+    real ni clic de anuncio, son clientes que escribieron con el número
+    escondido (WhatsApp deja ocultarlo; en tu bandeja los ves sin teléfono
+    completo) o sin país reconocido, y que no llegaron desde un anuncio: no
+    hay nada que Meta pueda emparejar y se saltan a propósito. Si dice que el
+    aviso era demasiado antiguo, el sistema estuvo parado y recuperó hechos
+    viejos: Meta no acepta nada de más de 7 días, así que no se mandan.
+  </Accordion>
+  <Accordion title="Quiero cambiar el token o el nombre">
+    Hoy el panel no permite editarlos: elimina el píxel y créalo de nuevo con
+    los datos nuevos. Se pierden sus reglas y su historial de envíos, no la
+    información del clic de tus contactos.
+  </Accordion>
+  <Accordion title="No quiero mandar nada todavía">
+    Crea el píxel igual y déjalo sin reglas, o apágalo con el interruptor. En
+    los dos casos no sale ningún aviso, salvo el de prueba si pulsas **Probar
+    conexión**.
+  </Accordion>
+</AccordionGroup>
+
+## Lo que el píxel no hace
+
+Para que no te lleves una sorpresa:
+
+- No manda las ventas que registras a mano desde **Clientes**. Tampoco la
+  venta que el sistema anota por su cuenta cuando se cobra un pedido que tu
+  agente no registró en el chat: para Meta solo existe lo que registró el
+  agente.
+- No resta nada al anular una venta.
+- No manda avisos con más de 7 días, ni mientras el píxel está en pausa o sin
+  reglas.
+- No le pasa a Meta el contenido de ninguna conversación. Lo que viaja: las
+  huellas del teléfono, el nombre, el país y de un identificador interno del
+  contacto; en las ventas, el importe, la moneda, el código del producto y el
+  número de pedido; y, si usas la atribución por clic, el identificador del
+  clic y el de tu cuenta de WhatsApp Business, que son datos de Meta, no
+  tuyos.
+- No mueve dinero ni toca tus campañas ni tus anuncios: solo le manda avisos
+  a Meta.
+
+## Y ahora
+
+Escríbele a tu agente desde otro teléfono (con el número visible, y con el
+código de prueba ya retirado si no quieres que salga como prueba), deja que te
+lleve hasta el capítulo de tu regla y mira **Últimos envíos**: es la prueba
+honesta. Si el anuncio lee de ese conjunto de datos, en unas horas las compras
+reales empiezan a aparecer junto a tus anuncios.
+
+<CardGroup cols={2}>
+  <Card title="El manual del vendedor" icon="book" href="/guias/manual">
+    Los capítulos a los que apuntan tus reglas nacen aquí.
+  </Card>
+  <Card title="Pedidos y métricas" icon="receipt" href="/guias/pedidos-y-metricas">
+    Qué mide de verdad cada venta que registra tu agente.
+  </Card>
+</CardGroup>
