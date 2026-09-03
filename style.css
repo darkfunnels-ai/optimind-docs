@@ -16,6 +16,20 @@
 
    Los valores son los del sistema de diseño de la app OptiMind.
    ========================================================================= */
+/* JetBrains Mono — la mono del sistema. Va por CSS y autoalojada a propósito:
+   `fonts` de docs.json solo admite family/weight/source/format (o heading+body),
+   no tiene slot de mono (comprobado contra el esquema oficial), y un @import a
+   Google Fonts desde aquí encadenaría un salto más porque Mintlify inyecta este
+   archivo como <style> tardío. El woff2 es el subconjunto latino de la variable
+   que ya usa la app (413 glifos, 40 KB), mismo patrón que la landing con Manrope. */
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/jetbrains-mono-latin.woff2') format('woff2');
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Naranja de marca (--orange-primary, dark --accent, --orange-deep) */
   --primary:       194 86 42;    /* #C2562A */
@@ -53,6 +67,15 @@
   --gray-800:  42  35  29;  /* #2A231D = la superficie hover del modo oscuro */
   --gray-900:  33  27  23;  /* #211B17 = --warm-900 */
   --gray-950:  23  18  14;  /* #17120E = --warm-950 */
+
+  /* Mono de los bloques de código y el `code` en línea. Se pisan las DOS
+     variables a propósito: Mintlify pinta el código con --font-paper-mono (su
+     propia fuente) y Tailwind con --default-mono-font-family; cuál gana depende
+     del componente, y el nombre de la primera es de un módulo de Next que puede
+     cambiar en una actualización — por eso la segunda queda de red. */
+  --font-paper-mono: 'JetBrains Mono';
+  --default-mono-font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular,
+    Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
   /* Radio de tarjeta plana del sistema (18px). Es el único radio que Mintlify
      expone: --radius-xl lee var(--rounded-xl, .75rem). */
