@@ -8,6 +8,10 @@
     "light": "#D86A3C",
     "dark": "#9A3F1C"
   },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
   "favicon": "/favicon.svg",
   "fonts": {
     "family": "Manrope"
