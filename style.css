@@ -1,0 +1,60 @@
+/* =========================================================================
+   docs.darkfunnels.ai — sistema de diseño DarkFunnels sobre Mintlify.
+
+   Mintlify incluye solo este archivo por estar junto a docs.json; no hay que
+   importarlo. Solo se tocan las variables que el sitio consume de verdad
+   (comprobado en vivo: 433 usos de var(--gray-N), 368 de var(--primary),
+   66 de var(--background-light/dark)). Los tokens --button, --accordion y
+   --tabs que aparecen en :root son de c15t (el banner de cookies), NO del
+   chrome de Mintlify: pintarlos no haría nada.
+
+   Dos trampas ya pisadas:
+   - El formato es tripleta RGB separada por espacios (Tailwind v4 las envuelve
+     en rgb(var(--x))), no hex. Un hex aquí apaga el token en silencio.
+   - Nada de la secuencia asterisco-barra dentro de un comentario: lo cierra
+     antes de tiempo y el navegador descarta el bloque entero sin avisar.
+
+   Los valores son los del sistema de diseño de la app OptiMind.
+   ========================================================================= */
+:root {
+  /* Naranja de marca (--orange-primary, dark --accent, --orange-deep) */
+  --primary:       194 86 42;    /* #C2562A */
+  --primary-light: 216 106 60;   /* #D86A3C — el acento de modo oscuro, ya AA */
+  --primary-dark:  154 63 28;    /* #9A3F1C — hover y texto naranja en claro */
+
+  /* Página: --warm-0 en claro, --warm-950 en oscuro.
+     En claro NO es --warm-25 (el fondo de página de la app) sino el blanco puro
+     de la card elevada, y es a propósito: el naranja de marca da 4.51:1 sobre
+     blanco — el número de referencia de la marca — pero 4.36:1 sobre warm-25,
+     y falla AA en los enlaces y en el ítem activo del menú, que Mintlify pinta
+     con --primary.
+     Lo cálido lo aportan la rampa y los bordes, no la superficie de lectura. */
+  --background-light: 255 255 255;  /* #FFFFFF = --warm-0  */
+  --background-dark:   23  18  14;  /* #17120E = --warm-950 */
+
+  /* Rampa cálida-neutra. Mintlify ya deriva una rampa templada del primario,
+     pero no es la nuestra. Ojo: NO es un calco peldaño a peldaño de --warm-N.
+     Mintlify usa gray-400/500 para el texto tenue, y ahí --warm-400/500 dan
+     1.71:1 y 3.02:1 sobre la página (medido) — el mismo fallo AA que el sistema
+     de diseño ya resuelve llevando su texto tenue de --warm-500 a --warm-600.
+     Así que los peldaños de TEXTO van corridos un paso: lo que Mintlify pinta como
+     tenue aterriza en --warm-600 (4.54:1) y el cuerpo en --warm-700 (5.76:1),
+     que son exactamente los semánticos del sistema. Los peldaños de SUPERFICIE
+     (50-300) y los oscuros sí son el calco. Misma rampa en ambos modos:
+     Tailwind la usa por contexto. */
+  --gray-50:  247 245 241;  /* #F7F5F1 = --warm-50  */
+  --gray-100: 245 243 239;  /* #F5F3EF = --warm-100 */
+  --gray-200: 237 234 228;  /* #EDEAE4 = --warm-200 */
+  --gray-300: 224 220 212;  /* #E0DCD4 = --warm-300 */
+  --gray-400: 154 144 137;  /* #9A9089 = --warm-500 */
+  --gray-500: 124 114 106;  /* #7C726A = --warm-600 — el --text-muted del sistema */
+  --gray-600: 107  98  91;  /* #6B625B = --warm-700 — el --text-body */
+  --gray-700:  61  53  47;  /* #3D352F = --warm-800 */
+  --gray-800:  42  35  29;  /* #2A231D = la superficie hover del modo oscuro */
+  --gray-900:  33  27  23;  /* #211B17 = --warm-900 */
+  --gray-950:  23  18  14;  /* #17120E = --warm-950 */
+
+  /* Radio de tarjeta plana del sistema (18px). Es el único radio que Mintlify
+     expone: --radius-xl lee var(--rounded-xl, .75rem). */
+  --rounded-xl: 18px;
+}

@@ -4,9 +4,13 @@
   "name": "OptiMind",
   "description": "Vende por WhatsApp con un agente de ventas IA — y opéralo desde tu asistente.",
   "colors": {
-    "primary": "#7C3AED",
-    "light": "#A78BFA",
-    "dark": "#5B21B6"
+    "primary": "#C2562A",
+    "light": "#D86A3C",
+    "dark": "#9A3F1C"
+  },
+  "favicon": "/favicon.svg",
+  "fonts": {
+    "family": "Manrope"
   },
   "navigation": {
     "languages": [
