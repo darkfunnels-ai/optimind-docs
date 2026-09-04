@@ -1,0 +1,133 @@
+---
+title: "Conecta tu WhatsApp"
+description: "El QR paso a paso: qué número usar, qué pasa exactamente con los chats de ese número, los créditos que se acreditan al conectar y qué hacer cuando el código caduca o la sesión se queda parqueada."
+---
+
+Es el paso que enciende todo. Hasta aquí tienes un agente con guion; a partir de
+aquí tiene teléfono.
+
+## Antes de escanear: las tres cosas que hay que saber
+
+{/* Cifra de producto: la fuente es billing.welcome_amounts() (migración z×187).
+    Si cambia allá, cambia aquí — estos docs son un deploy estático sin acceso a la BD. */}
+
+<Warning>
+**1. Usa el número al que ya te escriben tus clientes.** Sirve WhatsApp normal o
+WhatsApp Business, en el teléfono que sea. No hace falta un número nuevo ni una
+línea aparte.
+
+**2. Tu agente responderá los chats que lleguen a ese número.** Todos los
+entrantes, no una lista de prueba. Es lo que hace: contesta a quien escribe. Tú
+puedes tomar cualquier conversación cuando quieras — cada chat tiene un
+interruptor **Piloto automático** que apagas para responder tú.
+
+**3. Al conectar se acreditan tus US$10 de prueba** (más los US$25 del referido,
+si usaste uno) **y arranca el reloj de los 15 días.** Antes de conectar, tu
+saldo dice US$ 0 a propósito. Si ya habías armado o probado tu agente, verás
+acreditado algo menos de US$ 10: ese consumo se te adelantó y ahora se descuenta
+— lo cuenta [Planes y precios](/primeros-pasos/planes-y-precios).
+</Warning>
+
+## El QR, paso a paso
+
+<Steps>
+  <Step title="Abre el panel de canales">
+    En el menú: **Personalizar → Canales**. Si vienes del aviso de tu saldo, el
+    botón **Conectar WhatsApp** te deja directamente ahí.
+  </Step>
+  <Step title="Pulsa «Conectar / Escanear»">
+    Verás **Preparando el código QR…** unos segundos. El agente tiene que estar
+    activo: si está apagado, el panel te lo dice en vez de mostrarte el código.
+  </Step>
+  <Step title="En tu teléfono, vincula el dispositivo">
+    Abre WhatsApp → **Dispositivos vinculados** → **Vincular un dispositivo** y
+    apunta la cámara al código de la pantalla.
+
+    Es el mismo mecanismo de WhatsApp Web: tu teléfono sigue siendo el dueño del
+    número y puedes seguir usándolo con normalidad.
+  </Step>
+  <Step title="Espera el «Conectado»">
+    La insignia del panel pasa por **Conectando…** y termina en **Conectado**,
+    con el número a la vista. Tus créditos se acreditan en ese momento.
+  </Step>
+</Steps>
+
+<Tip>
+Ten el teléfono en la mano antes de pulsar «Conectar»: el código tiene vida
+corta y se agradece no tener que pedir otro.
+</Tip>
+
+## Qué te dice cada estado
+
+| Insignia | Qué significa | Qué hacer |
+| --- | --- | --- |
+| **Conectado** | El número está vinculado y el agente responde. | Nada. |
+| **Escanea el QR** | Hay un código en pantalla esperándote. | Escanearlo, o pulsar **Actualizar QR** si ya caducó. |
+| **Conectando…** | La sesión está levantando. | Esperar unos segundos. |
+| **Acción requerida** | La sesión se quedó parqueada o tardó de más. | Ver abajo. |
+| **Desconectado** | No hay número vinculado. | **Conectar / Escanear**. |
+| **Sin conexión** | No se pudo hablar con el servicio de WhatsApp. | Reintentar en unos minutos. |
+
+## Problemas frecuentes
+
+<AccordionGroup>
+  <Accordion title="El código QR caducó antes de que lo escaneara">
+    Es normal: los códigos de WhatsApp expiran solos a los pocos segundos y se
+    van renovando mientras la pantalla está abierta. Pulsa **Actualizar QR** y
+    escanea el nuevo. Si dejas pasar muchos códigos sin escanear ninguno, la
+    sesión se parquea — es el caso de abajo.
+  </Accordion>
+  <Accordion title="Dice «Acción requerida» y no aparece ningún código">
+    La sesión quedó **parqueada**: tras una decena de códigos sin escanear, el
+    servicio deja de generarlos hasta que alguien vuelve a arrancar la conexión
+    a propósito — así una pestaña olvidada no se pasa la noche pidiéndole
+    códigos a WhatsApp.
+
+    El botón dice **Conectar** (no «Reintentar»): púlsalo y el ciclo del QR
+    empieza de cero.
+  </Accordion>
+  <Accordion title="Se queda en «Conectando…» mucho rato">
+    El panel te ofrece dos salidas, en este orden:
+
+    1. **Reintentar** — vuelve a pedir la conexión sin tocar la sesión.
+    2. **Reiniciar** — tira la sesión y la levanta desde cero. Es la salida
+       cuando «Reintentar» no cambia nada.
+
+    Si tras reiniciar sigue igual, suele ser el servicio y no tu cuenta: espera
+    unos minutos y vuelve.
+  </Accordion>
+  <Accordion title="Estaba conectado y se cayó solo">
+    Pasa cuando el número se desvincula desde el teléfono (WhatsApp →
+    Dispositivos vinculados → cerrar sesión), cuando WhatsApp cierra la sesión
+    por su cuenta, o tras un corte de red largo.
+
+    Se recupera igual que la primera vez: **Conectar / Escanear** y un QR nuevo.
+    Tus conversaciones, tu manual y tu catálogo no se tocan — lo único que se
+    rehace es el vínculo con el teléfono.
+  </Accordion>
+  <Accordion title="Conecté el número equivocado">
+    **Desconectar** en el panel del canal y volver a conectar con el número
+    correcto. Los créditos de bienvenida se acreditan **una sola vez por
+    cuenta**: reconectar no los duplica, y desconectarte no te los quita.
+  </Accordion>
+  <Accordion title="No quiero que responda todavía">
+    Conecta igual — es lo que acredita tus créditos y arranca la prueba — y
+    apaga el **Piloto automático** en los chats que quieras atender tú. También
+    puedes desactivar el agente mientras terminas de afinar su manual.
+  </Accordion>
+</AccordionGroup>
+
+## Y ahora
+
+Escríbele tú mismo desde otro teléfono: es la prueba honesta. Verás la
+conversación entrar en **Conversaciones**, con el piloto encendido y el agente
+respondiendo con el guion que le escribiste.
+
+<CardGroup cols={2}>
+  <Card title="Créditos y recarga" icon="wallet" href="/primeros-pasos/creditos-y-recarga">
+    Qué consume saldo y cómo recargar antes de quedarte sin.
+  </Card>
+  <Card title="Revisa conversaciones" icon="message" href="/guias/conversaciones">
+    Dónde se están perdiendo las ventas, con tu asistente al lado.
+  </Card>
+</CardGroup>

@@ -1,92 +1,534 @@
 ---
-title: "Seguridad"
-description: "Cómo el puente MCP confina, delimita y audita — y por qué nunca mueve dinero."
+title: "Seguridad y privacidad"
+description: "Quién puede ver los chats de tus clientes, a qué empresas de fuera viajan tus datos, cuánto tiempo se guarda cada cosa y cómo borrar un cliente o cerrar tu cuenta."
 ---
 
-## Tu cuenta es el perímetro
+Vas a conectar el WhatsApp por el que te compran tus clientes. Antes de eso
+mereces respuestas concretas, no un folleto. Esta página las da, incluidas las
+incómodas.
 
-El asistente se autentica por **OAuth con tu propia cuenta** de OptiMind y todo
-acceso a datos viaja con tu identidad: la separación entre negocios la aplica la
-base de datos en cada consulta (Row Level Security), no una convención del
-código. El servicio del puente **no tiene credenciales de plataforma** — un
-compromiso total del proceso no puede cruzar de un negocio a otro.
+<Note>
+**«Cliente»** en esta página es siempre **la persona que te escribe por
+WhatsApp**. Cuando hablemos de la gente de tu negocio diremos **tu equipo**.
+</Note>
 
-## Revocación
+## Las respuestas cortas
 
-La conexión se elimina desde tu asistente (en Claude: Personalizar → Conectores
-→ eliminar el conector; en Codex: Ajustes → MCP servers). A partir de ahí ese cliente deja de poder llamar al
-puente. Si necesitas cortar el acceso de inmediato desde nuestro lado —por
-ejemplo si perdiste el control de la cuenta— escríbele al equipo de OptiMind:
-hoy la revocación desde el panel no está disponible todavía.
+| La pregunta | La respuesta corta |
+| --- | --- |
+| ¿Otro negocio puede ver mis chats? | No. En los chats el candado lo pone la propia base de datos; en las demás pantallas, un filtro del programa. |
+| ¿Y la gente de mi equipo? | **Sí: cualquiera que invites ve todas las conversaciones.** No hay forma de acotarlo hoy. |
+| ¿Y alguien de OptiMind? | **Sí, para dar soporte.** Ese acceso no está limitado a tu empresa. Está contado en la sección 1. |
+| ¿Mis chats salen de OptiMind? | Sí, a la IA que los contesta. Abajo está la tabla, dato por dato. |
+| ¿Entrenan con mis datos? | Lo que podemos afirmar honestamente está en su propia sección. No prometemos de más. |
+| ¿Cuánto se guardan mis mensajes? | **Indefinidamente**, hasta que tú o tu cliente los borréis. |
+| ¿Y mis archivos? | Su enlace abre el archivo sin iniciar sesión para quien lo tenga. Trátalo como el archivo mismo (sección 7). |
+| ¿Puedo borrar a un cliente? | Sí, con un botón. Y él también puede pedirlo por WhatsApp. |
 
-## Los mensajes de tus clientes son DATOS, no órdenes
+## 1. ¿Quién puede ver los chats de mis clientes?
 
-Todo texto que escriben clientes finales llega al asistente **delimitado** con
-marcadores criptográficos frescos por respuesta y una nota fija: es contenido a
-analizar, no instrucciones a seguir. Además:
+### Entre negocios: un candado y un filtro
 
-- Sin parámetros, la conexión es de **lectura, con una única escritura**: las
-  etiquetas de clientes (`assign_client_tags`, que fija el conjunto completo de
-  etiquetas de un cliente). Ninguna acción destructiva viaja en el set base:
-  guardar el manual, editar el catálogo, enviar mensajes o simular
-  conversaciones exigen grupos opt-in explícitos en la URL (`?features=…`), y
-  una lista explícita **reemplaza** al set base en vez de ampliarlo.
+En la bandeja y en las conversaciones, el candado lo pone la propia base de
+datos en cada consulta: **si la consulta no llega con tu identidad, devuelve
+cero filas.** No hay una pantalla que «se acuerde» de filtrar; el filtro está
+por debajo de la pantalla.
+
+En otras áreas —**Pedidos**, **Envíos**, **Inventario**, **Finanzas**,
+**Calendario** y **Conexiones**— el servidor consulta con una llave de
+plataforma y es el propio programa el que añade el filtro de tu negocio a cada
+lectura. El resultado que ves es el mismo; la garantía es de otro tipo, y es
+justo decirlo.
+
+<Check>
+**Una tabla nueva sin candado no llega a producción.** Hay una prueba
+automática que corre en cada cambio y bloquea la publicación si aparece una
+tabla sin protección. Dos matices honestos: esa prueba comprueba que el candado
+esté **puesto**, no que separe bien por negocio —eso se revisa a mano—, y **los
+archivos guardados quedan fuera de esa prueba** (por eso hay una sección
+entera sobre sus enlaces más abajo).
+</Check>
+
+### Dentro de tu negocio: todos ven todo
+
+<Warning>
+**Cualquier persona activa de tu negocio ve TODAS las conversaciones**, aunque
+la hayas invitado solo para una tarea concreta. **Asignar un chat a un vendedor
+es un aviso en pantalla, no un candado**: no impide que otro lo abra.
+
+Si vas a invitar a alguien, invítalo sabiendo esto.
+</Warning>
+
+El sistema de permisos existe, pero hoy gobierna otras cosas: dar y quitar
+permisos, instalar apps, **Pedidos**, **Envíos**, **Inventario**, **Finanzas**,
+**Calendario** y el **Copiloto** (que además pide permiso acción por acción).
+**No hay ningún permiso que limite la lectura de la bandeja.**
+
+Dos excepciones que matizan el «todos ven todo»:
+
+- **Los avisos del navegador sí son de cada persona.** Un compañero no puede
+  leer ni quitar las notificaciones de otro.
+- **Nadie de tu equipo puede editar ni borrar un mensaje suelto** de la bandeja:
+  la aplicación solo permite añadir. Los mensajes se van en bloque (al borrar un
+  cliente, al borrar un agente, al reiniciar el chat de prueba o al cerrar la
+  cuenta), no de uno en uno para tapar algo. El soporte de OptiMind
+  es la excepción, y está contada aquí abajo.
+
+<Note>
+**Si tienes varios negocios agrupados**, el superadministrador del grupo ve los
+datos de todos ellos. Es intencional, no un fallo — pero si nadie te lo dice,
+parece una fuga cuando lo descubres.
+</Note>
+
+### Desde dentro de OptiMind: el equipo de soporte
+
+Esto no suele contarse en una página así. Preferimos contarlo nosotros.
+
+<Warning>
+**El equipo de OptiMind puede acceder a los datos de tu negocio para darte
+soporte**, y ese acceso no está limitado a tu empresa: es una herramienta de
+operación de la plataforma. Incluye poder ver lo que la IA leyó en un turno —el
+guion, el historial de esa conversación y el mensaje de tu cliente— y corregir
+un dato que ya existe cuando hace falta desatascar algo.
+</Warning>
+
+Lo que ese acceso **no** hace: no borra tus datos, no toca quién entra a tu
+cuenta ni con qué permisos, y no altera el registro de cambios.
+
+Si tu negocio maneja información que no debería poder verse en un soporte,
+escríbenos antes de conectar y lo hablamos
+
+Cuántas personas tienen hoy esa llave no se puede responder desde el programa: es
+un dato del sistema vivo. Si necesitas esa respuesta por escrito para tu negocio,
+pídenosla.
+
+### Invitar y quitar gente
+
+Invitas por correo desde **Personas y accesos**. Tres datos que todo el mundo
+pregunta:
+
+- El enlace de invitación **caduca a los 7 días**.
+- Se puede **revocar** mientras siga pendiente.
+- El enlace **no se guarda tal cual** en ningún sitio, solo una huella suya. Si
+  el envío de correo no está disponible, quien invita comparte el enlace a mano.
+
+### Lo que queda registrado (y lo que no)
+
+En **Personas y accesos** ves **las últimas 60 acciones** de permisos y de
+instalación de apps de tu negocio: quién dio o quitó qué permiso, qué app se
+activó.
+
+<Warning>
+**No es un registro de todo lo que pasa.** Cambiar el manual, tocar los ajustes
+o editar la ficha de un cliente **no aparecen ahí**. Y registra acciones, no
+lecturas: **no queda constancia de quién abrió qué chat.** Si ibas a tomar una
+decisión de personal apoyándote en eso, no lo hagas.
+
+Esa lista, además, la puede leer cualquier persona de tu negocio, no solo quien
+administra los permisos.
+</Warning>
+
+<Tip>
+**Puedes auditar a tu propia IA.** Existe una vista que muestra, en tus propios
+turnos, exactamente lo que la IA leyó: el guion completo, el historial de la
+conversación y el mensaje del cliente. **No viene encendida de fábrica**: las
+cuentas nuevas nacen sin ella y hay que pedirla al equipo.
+</Tip>
+
+## 2. ¿A qué empresas de fuera viajan mis datos?
+
+Esta es la tabla que un dueño necesita antes de conectar. Lo marcado **«solo si
+lo activas»** no ocurre hasta que tú lo enciendes.
+
+| Proveedor | Qué recibe | Cuándo |
+| --- | --- | --- |
+| **La IA que conversa** (OpenAI, con la cuenta de OptiMind) | El guion completo de tu agente, el historial de esa conversación y la ficha del cliente — **con el teléfono entero, sin tapar** | Cada vez que un cliente escribe |
+| **Transcripción de notas de voz** (OpenAI) | El audio que grabó tu cliente | Cuando tu cliente manda una nota de voz |
+| **Lectura de fotos y videos** (OpenAI) | La imagen o el video que mandó tu cliente | Cuando tu cliente manda una foto o un video |
+| **El alta guiada** (Google) | La entrevista en la que **tú** cuentas cómo vendes. **No recibe conversaciones con clientes** | Mientras el copiloto te arma un agente en esa entrevista |
+| **WhatsApp** | Los mensajes que tu agente recibe y envía, igual que si los escribieras tú desde WhatsApp Web | Siempre que el agente conversa |
+| **Culqi** (la pasarela que te cobra a ti) | **Tu** correo, **tu** nombre y **tu** teléfono. Nada de tus clientes | Al pagar la suscripción o recargar saldo |
+| **Meta** — *solo si activas el píxel* | Del comprador: teléfono, nombre, apellido, país y un código de su ficha, **todos cifrados en un solo sentido**. Sin cifrar: monto, moneda, producto y número de pedido; y si la conversación nació de un anuncio, el identificador de ese clic y el de la cuenta de WhatsApp Business | Al registrarse una venta |
+| **ElevenLabs / HeyGen** — *solo si los conectas con tu llave* | Voz: el texto de la muestra que escuchas al elegir una persona. Video: lo que generes | Solo cuando lo usas en el panel |
+| **Facturación electrónica** — *solo si la activas con tu cuenta* | De tu cliente: tipo y número de documento, nombre legal, dirección y correo | Al emitir un comprobante |
+| **Agencia de envíos** — *solo si la activas con tu cuenta* | Del destinatario: nombre y sus dos apellidos, su documento, su teléfono si lo tienes, el destino y la clave de retiro | Al generar un envío |
+
+<Warning>
+**Dos cosas llegan además a los sistemas de OptiMind**, y hoy no hay una
+casilla en tus Ajustes para apagarlas:
+
+- **Las fotos y los documentos que te manda un cliente.** No alcanza a los
+  videos ni a las notas de voz, y un archivo que no llegue a guardarse —por
+  encima de 8 archivos por minuto en una misma conversación— tampoco se copia.
+- **Un aviso por cada venta o servicio que registra tu agente**, con el nombre
+  del comprador, su teléfono, los datos capturados y el monto. Las citas y los
+  interesados no lo disparan, y vaciar tu lista de destinatarios apaga ese aviso
+  para tu equipo, no para la plataforma.
+
+Si esto te frena, escríbenos antes de conectar.
+</Warning>
+
+Cinco precisiones que no caben en la tabla:
+
+- **La relación con OpenAI es de OptiMind, no tuya.** La IA que conversa con tus
+  clientes va sobre la cuenta de OptiMind. Los dos únicos proveedores de IA en
+  los que puedes poner tu propia llave son la voz (ElevenLabs) y el video
+  (HeyGen); la facturación y la agencia de envíos van con tu propia cuenta de
+  ese servicio.
+- **Los PDF de tus clientes no pasan por el proveedor de IA.** Se leen en el
+  propio servidor de OptiMind. (Sí se copian a la plataforma, como cualquier
+  documento: es lo que acabas de leer.)
+- **Sin saldo, el audio y las imágenes no se procesan.** Si tu cuenta se queda
+  sin créditos o llegan demasiados archivos seguidos, el mensaje entra sin
+  transcribir ni describir.
+- **Tu agente no responde con audio.** Las notas de voz sintéticas están
+  apagadas para todos los negocios, y encenderlas es una decisión de plataforma,
+  no una casilla tuya. ElevenLabs solo recibe texto cuando pruebas una voz en el
+  Estudio de Personas.
+- **Esta tabla es la de hoy.** Qué modelo concreto atiende cada función se cambia
+  desde dentro de OptiMind sin tocar el programa; cambiar de proveedor, no. Si
+  esa lista te importa para un contrato, pídenos la versión del día.
+
+<Check>
+**El número de tu tarjeta nunca pasa por OptiMind.** Lo captura el propio
+formulario de Culqi dentro de tu navegador y a nosotros nos llega solo un vale.
+De la tarjeta se guardan **la marca y los cuatro últimos dígitos**, nada más.
+</Check>
+
+<Note>
+**A Meta no le llega el teléfono legible de tu cliente**: le llega una huella
+irreversible, y solo si conocemos el país de ese contacto — sin país, el teléfono
+no viaja. La guía del
+[píxel de Meta](/guias/pixel-de-meta) explica cómo se enciende y cómo se apaga.
+</Note>
+
+## 3. ¿Entrenan a la IA con mis datos?
+
+Aquí es fácil prometer de más, así que vamos a ser exactos.
+
+**Lo que el programa hace:** en una de las formas de llamar al proveedor, el
+código le pide **expresamente que no se quede con una copia** de la
+conversación. Eso es verificable.
+
+**Lo que el programa no hace:** hoy las conversaciones de tus clientes **no van
+por esa forma**, sino por otra, en la que —según el proveedor— no se guarda
+copia por defecto. Eso **lo dicen los términos del proveedor, no nuestro
+programa**.
+
+<Warning>
+Por eso **no vamos a escribir «nadie entrena con tus datos»**. Que un proveedor
+entrene o no depende de su contrato y del tipo de cuenta, y eso no es algo que
+un botón nuestro pueda garantizarte. Si necesitas esa garantía por escrito para
+tu negocio, escríbenos y lo revisamos contigo con los términos vigentes en la
+mano.
+</Warning>
+
+Lo que sí puedes hacer tú, hoy, sin pedirle permiso a nadie: **no subir a la
+Librería lo que no quieras que salga**, y borrar a un cliente concreto cuando lo
+pida (sección 6).
+
+## 4. ¿Qué pasa con mi número de WhatsApp?
+
+**OptiMind se conecta a tu WhatsApp como un dispositivo vinculado, igual que
+WhatsApp Web.** No usa la API oficial de WhatsApp Business. Eso explica el
+código QR, explica por qué el teléfono importa, y explica el alcance: **el mismo
+que tendría un WhatsApp Web abierto en una computadora.**
+
+### Lo que se importa al escanear el QR
+
+Al vincular, se traen conversaciones anteriores. Los valores por defecto son:
+
+| Tope | Por defecto |
+| --- | --- |
+| Antigüedad | **72 horas** |
+| Chats | **50** |
+| Mensajes por chat | **40** |
+| Mensajes en total | **400** |
+
+<Warning>
+**Si vinculas tu WhatsApp personal, entra parte de tu WhatsApp personal.** Esos
+cuatro topes son lo único que separa una cosa de la otra, y la plataforma puede
+ajustarlos. Por eso el consejo de siempre deja de ser vago: **usa una línea del
+negocio, no la tuya.**
+</Warning>
+
+### Traer mensajes más antiguos
+
+Existe además una petición manual que puede traer **hasta 200 mensajes más
+antiguos** de un chat concreto, y necesita un mensaje real como punto de
+partida: **no puede traer un chat del que no exista ni un mensaje**. Dicho al
+revés: no puede aspirar tu historial entero.
+
+### Desconectar no es borrar
+
+Al pulsar **Desconectar** se borran las credenciales de la sesión, así que para
+volver hace falta un QR nuevo.
+
+<Warning>
+**Lo ya importado no se borra: tus conversaciones siguen en el panel.**
+Desconectar corta el flujo, no limpia el pasado. Para eso está la sección 6.
+
+Y la desvinculación del lado de WhatsApp **se intenta, pero no está
+garantizada**: si la sesión ya estaba caída, quita el dispositivo también desde
+tu teléfono (WhatsApp → **Dispositivos vinculados**).
+</Warning>
+
+### El botón de emergencia
+
+El interruptor **Activo / Pausado** del agente no es cosmético: al pausarlo
+**cancela también los envíos que ya estaban en cola y los turnos a medias**. Es
+la respuesta a «¿y si se descontrola?».
+
+<Note>
+Entre tu WhatsApp y el cerebro del agente hay una clave compartida, y el
+servicio se niega a arrancar sin ella. En cristiano: **nadie de fuera puede
+meter mensajes falsos en tu bandeja.**
+</Note>
+
+## 5. ¿Cuánto tiempo se guarda cada cosa?
+
+| Qué | Cuánto dura |
+| --- | --- |
+| **Los mensajes de tu bandeja** | **No caducan** |
+| La ficha de un archivo que mandaste a la **Papelera** de la Librería | 30 días, y desaparece sola |
+| Los adjuntos que le pasas al copiloto | 24 horas si nadie los usa; 30 días si sí |
+| Las acciones y tareas del copiloto | 90 días |
+| Las conversaciones con el copiloto | Se archivan a los 180 días y se borran a los 365 |
+| Las copias técnicas internas de cada mensaje | Se podan a los 30 días |
+| El rastro del razonamiento de la IA | 14 días (su cabecera, 30) |
+
+**Lo que no caduca**, dicho claro para que nadie se lleve una sorpresa:
+
+- **Los mensajes de WhatsApp no se borran solos.** No existe ninguna limpieza
+  por antigüedad. Se van cuando alguien los borra: tú al borrar un cliente, un
+  agente o el hilo del chat de prueba, tu cliente al pedir el olvido, o al
+  cerrar la cuenta. La respuesta honesta a «¿cuánto los guardan?» es
+  **indefinidamente, y tú tienes el botón**.
+- **La papelera de la Librería libera la ficha, no el archivo.** A los 30 días
+  se borra el registro del archivo, pero **el archivo en sí se queda hoy en el
+  almacén**. Sí se borran de verdad con el borrado de un cliente y con el cierre
+  de la cuenta.
+- Las podas de las dos últimas filas son **limpiezas programadas cada noche**,
+  no un cronómetro exacto por fila; un resto puede quedar fuera de esa poda.
+
+<Note>
+**Dónde vive esto.** La base de datos está en un centro de datos de Estados
+Unidos (Virginia del Norte). Los servidores que hacen funcionar la aplicación
+están en otro proveedor y su ubicación no la tenemos escrita: si la necesitas
+para un contrato, pídenosla. Y una parte de tus datos viaja a los proveedores de
+la tabla de la sección 2, cada uno con su propia ubicación.
+</Note>
+
+## 6. Borrar un cliente, o cerrar tu cuenta
+
+### Borrar los datos de un cliente
+
+Hay dos caminos, y los dos hacen lo mismo:
+
+<Steps>
+  <Step title="Tú, desde la ficha del cliente">
+    Abre la ficha del cliente y pulsa **Borrar datos de usuario**.
+  </Step>
+  <Step title="O tu propio cliente, por WhatsApp">
+    Le escribe a tu agente la palabra clave —por defecto, **borrar**— y se
+    ejecuta igual. Cambiar esa palabra es un ajuste de plataforma, no algo que
+    hoy toques desde tu panel.
+  </Step>
+</Steps>
+
+**Qué alcanza:** todas las conversaciones de esa persona en tu negocio (aunque
+te haya escrito por varios canales), sus archivos, y las copias que quedaran en
+los registros internos de conversaciones, cuenta, pedidos, envíos y calendario.
+
+<Warning>
+**Borramos todo lo que sabemos identificar, y así es como lo identificamos.** La
+limpieza de esos registros internos busca por el nombre del campo: **una copia
+guardada bajo otro nombre puede sobrevivir**. Está asumido y escrito, no es un
+descuido escondido. Si necesitas un borrado certificado para un caso concreto,
+escríbenos.
+</Warning>
+
+<Warning>
+**Si ese cliente se había dado de baja, no podrás volver a contactarle.** Su
+baja también es un dato personal suyo, así que se borra con el resto. Pero el
+bloqueo efectivo de ese número lo sigue poniendo una copia del servicio que
+mantiene tu conexión de WhatsApp, y **ya no se puede deshacer desde el panel**,
+porque la ficha del contacto dejó de existir.
+</Warning>
+
+### Otras tres formas de borrado que conviene conocer
+
+- **Borrar un agente borra sus conversaciones.** No solo el guion: los mensajes
+  de sus chats se van con él.
+- **Reiniciar el chat de prueba borra ese hilo**, y solo ese.
+- **Quitar una variable del cliente NO borra el dato.** Si retiras la columna de
+  DNI, dirección o género, el valor sigue guardado en la ficha y **reaparece si
+  vuelves a añadir la variable**. Quitar la columna es dejar de pedirlo, no
+  olvidarlo.
+
+### Cerrar tu cuenta
+
+Se hace desde **Perfil**. Pide tu contraseña otra vez y escribir la palabra
+**ELIMINAR**, y **solo lo puede hacer el dueño**.
+
+<Warning>
+**Es inmediato y no hay ventana de gracia.** No existen «30 días para
+arrepentirse»: al confirmar, tus datos se van. Piénsalo antes de pulsar, porque
+después no hay a quién pedirle que lo deshaga.
+</Warning>
+
+El borrado de tus datos ocurre en un solo paso de menos de 8 segundos, y es todo
+o nada: o se hace entero o no se hace. Después, y por separado, se limpian tu
+acceso, tus archivos guardados y tu sesión de WhatsApp. **La pantalla te confirma
+el cierre pase lo que pase con esos tres**, así que no te vas a enterar por ahí:
+si alguno no saliera, tus datos ya están borrados igual, y escribiéndonos lo
+terminamos.
+
+**Qué se conserva a propósito, y por qué:** se archiva aparte el libro contable
+—cobros, créditos, suscripción y referidos— más una huella irreversible de tu
+correo. Es una obligación contable. **Tus ajustes, tus números y tus
+integraciones no se copian a ese archivo.**
+
+**Tres casos que hoy no se resuelven con el botón** y hay que pedirnos:
+
+| Si… | Qué hacer |
+| --- | --- |
+| Entras **solo con Google** | No hay contraseña que confirmar, así que la pantalla no te deja. Escríbenos y la cerramos por ti. |
+| Tu negocio **forma parte de un grupo** con más de un negocio | La operación se niega. Escríbenos. |
+| Tu negocio es **muy grande** | El borrado no cabe en ese paso único y el botón falla. No es un error tuyo: escríbenos y lo hacemos. |
+
+## 7. Los enlaces de tus archivos: trátalos como el archivo mismo
+
+Esto no es una alarma, es una regla de uso. Las fotos, audios y documentos que
+tus clientes mandan, los archivos de tu Librería, las imágenes de tu catálogo y
+lo que tu agente envía se sirven mediante enlaces directos.
+
+<Warning>
+**Un enlace de archivo funciona para cualquiera que lo tenga, sin iniciar
+sesión, y no lleva fecha de caducidad.** La dirección no se adivina a ojo, pero
+no la trates como una contraseña: quien la tenga, entra.
+</Warning>
+
+En la práctica, tres consejos:
+
+- **No pegues esos enlaces en un grupo de WhatsApp abierto, en una publicación
+  ni en un ticket con terceros.** Compartir el enlace es compartir el archivo.
+- **Si un documento no debería circular jamás, no lo subas.** Manda ese dato por
+  otro canal.
+- Cuando pases un archivo a alguien de fuera, **mándale el archivo, no el
+  enlace**.
+
+<Note>
+La excepción son **los adjuntos que le pasas al copiloto**: ésos sí viven en un
+almacén privado y separado por negocio.
+</Note>
+
+## 8. Opcional: la conexión con Claude o ChatGPT
+
+<Note>
+Esta sección **solo aplica si conectas tu asistente** (Claude, ChatGPT o Codex)
+a tu negocio por fuera del panel — lo que en esta documentación llamamos **el
+puente**. **No hace falta para vender.** Si trabajas solo en el panel, ya
+terminaste.
+</Note>
+
+### Tu cuenta es el perímetro
+
+El asistente se autentica **con tu propia cuenta** de OptiMind y todo acceso
+viaja con tu identidad. **El servicio del puente no tiene llave maestra**, y eso
+no es una promesa: hay una comprobación de arranque que impide
+configurársela —por su nombre o por su forma— y que **hace fallar el despliegue**
+si alguien lo intentara.
+
+### Lectura por defecto
+
+- Sin parámetros, la conexión es **de lectura, con una única escritura**: las
+  etiquetas de clientes. Guardar el manual, editar el catálogo, enviar mensajes
+  o simular conversaciones exigen activarlos explícitamente en la dirección de
+  conexión.
 - `?read_only=true` desactiva toda escritura y manda sobre cualquier otra
   opción.
-- Las acciones destructivas están anotadas como tales: tu cliente pide
-  confirmación antes de ejecutarlas.
+- Las acciones destructivas viajan marcadas como tales: es la marca que los
+  asistentes usan para pedirte confirmación antes de ejecutarlas.
+- Los mensajes de tus clientes le llegan **delimitados como datos a analizar, no
+  como órdenes a seguir**.
 
-## El teléfono de tus clientes sale tapado
+### El teléfono tapado es de aquí, y solo de aquí
 
-Tus clientes finales no son usuarios de OptiMind: escribieron a tu negocio por
-WhatsApp y no han consentido nada con el proveedor de IA que va a leer la
-respuesta. Por eso el dato que más los identifica —el número— llega
-**enmascarado por defecto**:
+Por este camino el número del cliente llega **enmascarado por defecto**:
 
 ```
 51•••••4321          12•••6789@lid
 ```
 
-Se conservan los últimos cuatro dígitos y una pista de país, suficiente para que reconozcas un número que
-ya conoces y para distinguir dos filas de tu bandeja. Si un valor no tiene forma
-de teléfono, no se enmascara a medias: sale `(oculto)`.
+<Warning>
+**Ese tapado existe solo en el puente.** En tu panel, en los avisos y en lo que
+lee el agente de ventas, **el número va completo**. Si alguna vez leíste que
+OptiMind enmascara los teléfonos, era cierto de un solo camino, no del producto.
+</Warning>
 
-Esto no cierra ninguna operación. **Ninguna herramienta necesita el número de un
-cliente para operar sobre su chat**: responder, cambiar el modo y crear
-recordatorios direccionan todos por la conversación. La única mella es de
-comodidad: la búsqueda de clientes admite teléfono, así que tu asistente no
-puede encadenar un número que acaba de leer tapado. La única que pide un
-teléfono es `simulate_new_chat`, y ahí lo tecleas tú: es tu propio número de
-prueba, no uno que hayas leído de la bandeja.
+Se conservan los últimos cuatro dígitos y una pista de país: suficiente para
+reconocer un número que ya conoces. Si un valor no tiene forma de teléfono, no
+se enmascara a medias: sale `(oculto)`.
 
-Si de verdad necesitas los números completos, reconecta tu asistente añadiendo
-`pii=full` a la URL:
+Si necesitas los números completos, reconecta añadiendo `pii=full` a la
+dirección:
 
 ```
 https://mcp.darkfunnels.ai/mcp?features=all&pii=full
 ```
 
 <Warning>
-Añade `pii=full` a la URL que ya usabas, no lo pongas solo. `?features=` es
-independiente, pero si tenías `?features=all` y conectas con `?pii=full` a
-secas, vuelves al set base y pierdes pedidos, métricas y las escrituras.
+Añade `pii=full` **a la dirección que ya usabas**, no lo pongas solo. Si tenías
+`?features=all` y conectas con `?pii=full` a secas, vuelves al conjunto básico y
+pierdes pedidos, métricas y las escrituras.
 </Warning>
 
-Es una decisión tuya al conectar, no algo que el asistente pueda cambiar a mitad
-de una conversación. Y siempre los tienes en el panel.
+Es una decisión tuya al conectar: **el asistente no puede cambiarla a mitad de
+una conversación**, y cualquier variante mal escrita deja el modo seguro.
 
-## Auditoría que no se puede borrar
+### Queda registrado, y lo puedes leer tú
 
-Cada llamada del asistente queda registrada (herramienta, resultado, momento) en
-una bitácora **append-only** que tú puedes leer y nadie —ni nosotros ni el
-asistente— puede editar o borrar. Del contenido de tus datos solo se guarda un
-hash: la bitácora dice *qué se hizo*, no duplica *lo que dijiste*.
+Cada llamada de tu asistente se registra —qué herramienta, con qué resultado y
+cuándo— y **esa bitácora es legible por tu negocio**. La aplicación no ofrece
+ninguna forma de editarla ni de borrarla. Dos honestidades: no es inmutable a
+nivel de infraestructura, y está previsto que caduque por antigüedad.
 
-## Nunca mueve dinero
+### No mueve dinero
 
-Quien registra las ventas es tu agente de WhatsApp dentro de OptiMind; el puente
-solo las **lee** (`list_orders`, `get_order`). **No cobra, no transfiere, no
-emite links de pago, no toca tu pasarela ni tus tarjetas** — ninguna de sus
-herramientas puede hacerlo. Las funciones que consumen créditos de IA (generar
-manual, Copiloto, simulaciones) pasan por el mismo control de saldo del panel:
-sin créditos, se detienen — jamás cobran solas.
+Quien registra las ventas es tu agente de WhatsApp; el puente solo **las lee**.
+Ninguna de sus herramientas cobra, transfiere, emite links de pago ni toca tu
+pasarela o tus tarjetas. Lo poco que consume créditos —generar u optimizar el
+manual, preguntarle al copiloto— se paga del mismo saldo del panel, y cada
+respuesta te avisa cuando ese saldo queda bajo.
+
+### Cortar el acceso
+
+Se elimina desde tu asistente (en Claude: **Personalizar → Conectores** →
+eliminar el conector; en Codex: **Ajustes → MCP servers**). A partir de ahí ese
+cliente deja de poder llamar al puente. **Hoy no hay un botón de revocación en
+el panel**: si necesitas cortarlo de inmediato desde nuestro lado —por ejemplo
+si perdiste el control de la cuenta— escríbenos.
+
+## Cómo escribirnos
+
+Si algo de esta página te frena, pregúntanoslo antes de conectar. Preferimos la
+pregunta.
+
+<Card title="WhatsApp del equipo" icon="whatsapp" href="https://wa.me/51976616514">
+  **+51 976 616 514** — es el mismo número al que apuntan los botones de ayuda
+  del panel, y la vía más rápida.
+</Card>
+
+También puedes escribir a **soporte@darkfunnels.ai**, que es el canal que figura
+en los [Términos](https://darkfunnels.ai/terminos) y en la [Política de
+Privacidad](https://darkfunnels.ai/privacidad).
+
+<CardGroup cols={2}>
+  <Card title="Conecta tu WhatsApp" icon="whatsapp" href="/primeros-pasos/conecta-whatsapp">
+    El paso del QR, con lo que se importa y lo que no.
+  </Card>
+  <Card title="El píxel de Meta" icon="bullseye" href="/guias/pixel-de-meta">
+    Qué se le manda a Meta y cómo se apaga.
+  </Card>
+</CardGroup>

@@ -1,308 +1,974 @@
 ---
 title: "Pedidos y métricas"
-description: "Pídele a tu asistente los pedidos, los hitos de pago, el consumo de IA y el saldo — y entiende qué mide de verdad cada número."
+description: "Las pantallas donde ves lo que vendiste: cómo nace cada pedido, cómo se cobra, qué significa cada estado y qué mide de verdad cada indicador de Resultados."
 ---
 
-Esto es lo que miras para saber si el negocio va bien: qué se vendió, quién te
-debe cuánto, cuánto te está costando la IA y cuánto saldo te queda. Todo eso se
-lo pides a tu asistente en tu idioma; él llama a las herramientas del puente.
-
-<Warning>
-**El puente lee ventas. No las registra ni las cobra.**
-
-Quien registra una venta es **tu agente**, en el turno exacto en que el cliente
-cierra: ahí escribe la conversión y —si tienes la app Órdenes activa— abre el
-pedido de esa conversación. También puedes dar de alta un pedido a mano desde el
-panel. El puente solo enseña lo que ya existe: sus herramientas de pedidos son
-**las tres de lectura** (`list_orders`, `get_order`, `list_stock`) y ninguna
-crea, cobra ni concilia nada. El puente [nunca mueve dinero](/seguridad).
-</Warning>
-
-## Antes de empezar
-
-Pedidos y métricas son grupos **opt-in**: no viajan en la URL pelada. Lo cómodo
-es conectar con
-
-```
-https://mcp.darkfunnels.ai/mcp?features=all
-```
-
-y no volver a tocar la URL. Si prefieres nombrar los grupos a mano, lee antes
-[La URL de conexión](/referencia/url-de-conexion): una lista explícita no se
-comporta como la gente espera.
-
-Además:
-
-- `list_orders` y `get_order` exigen la **app Órdenes activa** en tu empresa. Si
-  no lo está, tu asistente recibe un mensaje claro: *«La app Órdenes no está
-  activa en esta empresa.»*
-- `list_stock` exige la **app Inventario activa**, con su aviso equivalente:
-  *«La app Inventario no está activa en esta empresa.»*
-- Las métricas y el saldo no dependen de ninguna app.
+Tu agente cierra la venta en el chat. A partir de ahí el trabajo es tuyo:
+cobrar, despachar y saber si el mes va bien. Esta guía es el recorrido por las
+pantallas donde eso se hace, clic por clic.
 
 <Note>
-Si acabas de encender un grupo, abre un chat **nuevo**: el catálogo de
-herramientas se fija por conversación
-([por qué](/referencia/url-de-conexion)).
+**Dónde está todo.** Entra al panel en
+[optimind.darkfunnels.ai](https://optimind.darkfunnels.ai). En el menú de la
+izquierda:
+
+| Pantalla | Para qué sirve | Cómo llegar |
+| --- | --- | --- |
+| **Órdenes** | Tu cola del día: quién te debe, qué falta despachar | Abajo del menú, como una fila suelta: **Órdenes** |
+| **Clientes** | Las personas que hablaron con tu agente, con lo que aprendió de ellas | **Ventas** → bloque **AGENTE** → **Clientes** |
+| **Resultados** | Cómo va el negocio en un período | **Ventas** → **Resultados** (la primera) |
+| **Envíos** | Los paquetes, el courier y la guía | **Envíos** — solo si tu empresa lo tiene activado |
 </Note>
 
-## Los pedidos
+<Tip>
+**La regla de oro de esta guía: aquí el dinero se anota, no se cobra.** El
+pedido guarda lo que se vendió y lo que falta cobrar; el dinero entra por tu
+Yape, tu Plin, tu transferencia o tu efectivo, y **una persona lo registra
+aquí**. Tu agente no confirma pagos: los confirma alguien de tu equipo, en la
+ficha del pedido o aprobando el comprobante.
+</Tip>
 
-### La lista
+## Órdenes: la pantalla
 
-`list_orders` devuelve tus pedidos, **del más reciente al más antiguo**. De cada
-uno viene el número de pedido, el estado, la forma de pago, la moneda, el
-subtotal, el envío, el total, **cuánto está pagado** (`amount_paid`), **cuánto
-falta** (`balance_due`), el cliente, la dirección, el origen (`agent` si lo abrió
-tu agente, `human` si lo tecleó una persona), la
-[conversación](/guias/conversaciones) de la que salió y las líneas con SKU,
-título, precio unitario, cantidad y total de línea.
+En el menú de escritorio se llama **Órdenes**; en el móvil, la misma entrada se
+llama **Pedidos**. La dirección directa es `optimind.darkfunnels.ai/ordenes`
+(si tenías guardado el enlace viejo `/orders`, te lleva ahí solo).
 
-Los filtros que existen de verdad son cuatro, ni uno más:
+<Frame caption="La pantalla Órdenes recién estrenada: las cuatro pestañas, los cuatro totales, las tres vistas y los cuatro filtros.">
+  <img src="/images/apps/01-ordenes.png" alt="Pantalla Órdenes del panel de OptiMind con las pestañas Pedidos, Citas, Servicios y Leads, los totales en cero y el estado vacío «Aún no hay pedidos»" />
+</Frame>
 
-| Filtro | Qué hace |
+El título es **Órdenes** y debajo, en letra pequeña, dice qué es: *Todo lo que
+el embudo logra — pedidos, citas, servicios y leads — del «sí» al cierre.*
+Esa frase explica las cuatro pestañas.
+
+<Note>
+**Si buscabas «Conversiones» en el menú, ya no está como pantalla aparte:** se
+fundió aquí. Las ventas son la pestaña **Pedidos**; las citas, los servicios y
+los interesados son las otras tres.
+</Note>
+
+### ¿Tengo que contratar esto?
+
+No. Las cuentas nuevas nacen con Órdenes encendida, sin activarla desde ningún
+sitio, y a los negocios que ya existían con su agente de ventas activo se les
+encendió de oficio. No es una app de núcleo, así que se puede apagar y volver a
+encender desde **Administración** → **Apps** (te lo cuenta
+[Las apps](/primeros-pasos/las-apps)). **Si no ves la entrada Órdenes en tu
+menú, es que está apagada** — no es un fallo.
+
+Contrasta con **Envíos**, que sí es opcional y hay que activar aparte.
+
+### Las cuatro pestañas
+
+Arriba, en fila: **Pedidos** · **Citas** · **Servicios** · **Leads**. Son los
+cuatro tipos de resultado que puede conseguir tu agente. Esta guía trata la
+primera, que es la que mueve dinero.
+
+### Los cuatro totales
+
+La banda de cifras grandes: **POR COBRAR** · **POR DESPACHAR** · **EN CAMINO**
+· **ENTREGADOS**.
+
+<Warning>
+**Son el total histórico de tu negocio, no del mes ni de la semana.** Esa banda
+no tiene selector de fechas: el número de **ENTREGADOS** es todo lo que has
+entregado desde que empezaste. Para «cuánto vendí en agosto», la pantalla es
+**Resultados**.
+</Warning>
+
+Cada total agrupa más de un estado, y por eso las cuentas no cuadran a la
+primera:
+
+| Total | Qué estados suma |
 | --- | --- |
-| `status` | Uno o varios estados a la vez |
-| `conversation_id` | Solo los pedidos de un chat |
-| `before` | Tope superior por fecha: devuelve lo anterior a esa marca ISO. Es también el cursor de paginación |
-| `limit` | Filas por página: 25 por defecto, 50 como máximo |
+| **POR COBRAR** | Por cobrar + Pago parcial |
+| **POR DESPACHAR** | Pagado + Facturado |
+| **EN CAMINO** | En camino |
+| **ENTREGADOS** | Entregado + Cerrado |
 
-Los ocho estados posibles son `pending_payment`, `partial`, `paid`, `invoiced`,
-`shipped`, `delivered`, `closed` y `cancelled`.
+**Los pedidos cancelados no entran en ninguno de los cuatro.** Si sumas los
+cuatro totales y no te cuadra con lo que ves en la tabla, esa es una de las
+razones: los cancelados sí salen en la lista y en ningún total.
 
-No hay filtro por cliente ni por importe. Por fecha solo hay **tope superior**:
-para una ventana con principio y fin —«esta semana», «julio»— tu asistente pide
-páginas hacia atrás y recorta él lo que sobra.
+<Note>
+**Los números no son botones.** Pulsar una cifra de esa banda no filtra la
+tabla. Para filtrar están los botones de abajo.
+</Note>
 
-Frases para copiar:
+### Las tres vistas
 
-> «Enséñame los pedidos que están en `pending_payment` o `partial` y dime cuánto
-> dinero suman en `balance_due`.»
+Tres formas de mirar lo mismo, con tres trabajos distintos:
 
-> «Trae los últimos 50 pedidos y agrúpalos por estado, con el total de cada
-> grupo.»
-
-> «De los pedidos entregados de esta semana, ¿cuáles salieron de un chat y
-> cuáles los abrió una persona a mano?»
-
-La paginación es honesta: la respuesta trae `has_more` y `next_before` —la marca
-`created_at` del último pedido de la página—. Si quieres más, tu asistente
-vuelve a llamar pasando ese `next_before` **tal cual** lo recibió: `before` solo
-se aplica si tiene forma de fecha ISO, y un valor con otra forma se ignora en
-silencio y te devolvería la primera página otra vez.
-
-### El detalle
-
-`get_order` pide el `order_id` de la lista y devuelve el pedido completo con
-cuatro anexos que la lista no trae:
-
-<CardGroup cols={2}>
-  <Card title="Hitos de pago" icon="flag">
-    El plan de cobro del pedido, hito por hito, con su importe y su estado.
+<CardGroup cols={3}>
+  <Card title="Tabla" icon="list">
+    La lista. **Para buscar** un pedido concreto y abrirlo.
+  </Card>
+  <Card title="Pipeline" icon="table-columns">
+    Tablero de tarjetas por etapa. **Para mover** pedidos arrastrando.
   </Card>
   <Card title="Vouchers" icon="receipt">
-    Los comprobantes que mandó el cliente, con lo que el OCR leyó de la imagen.
-  </Card>
-  <Card title="Pagos manuales" icon="hand-holding-dollar">
-    Lo que un humano registró como cobrado, con su glosa.
-  </Card>
-  <Card title="Notas y conversión" icon="note-sticky">
-    Las notas del pedido y la venta con la que está ligado.
+    Los comprobantes que mandaron tus clientes. **Para cobrar.**
   </Card>
 </CardGroup>
 
-> «Ábreme el pedido `<id>` y dime qué falta para darlo por cobrado.»
-
-## Los hitos de pago
-
-Un **hito** es un tramo del cobro. La forma de pago del pedido decide cuántos
-hay:
-
-- **`full_upfront`** — se paga todo antes.
-- **`cash_on_delivery`** — se cobra contra entrega.
-- **`advance_balance`** — adelanto y saldo. Aquí tu agente crea **dos** hitos:
-  «Adelanto» por lo que el cliente adelanta y «Saldo» por el resto.
-- **`milestones`** — el pedido se cobra en varios tramos, definidos uno a uno.
-  De aquí salen los hitos de tipo `on_arrival` y `custom`.
-
-Cada hito tiene un tipo (`advance`, `on_arrival`, `on_delivery` o `custom`), una
-etiqueta, un importe y un estado: `pending` (aún no toca), `due` (ya vence) o
-`paid` (cobrado). La suma de los hitos es el total del pedido.
-
-Ojo con la etiqueta: las del par que arma tu agente son **fijas y en español**,
-«Adelanto» y «Saldo», aunque tu negocio opere en otro idioma. Solo en el alta
-manual la escribe el operador.
-
-Los tipos `on_arrival` y `custom` existen en el sistema, pero hoy tu agente solo
-arma el par adelanto + saldo; los demás salen del alta manual en el panel.
-
-### Vouchers: por qué el monto llega vacío
-
-Cuando el cliente manda la captura de su Yape, Plin o transferencia, el
-comprobante entra como `pending_review` **con el monto en blanco a propósito**:
-nadie da por bueno un importe que leyó un modelo de una foto. Lo que el OCR
-extrajo viaja aparte, como dato a contrastar. Un humano concilia el voucher en
-el panel y ahí pasa a `matched` (con monto) o `rejected`.
+En **Tabla** hay además cuatro filtros rápidos: **Todos**, **Por cobrar** (sin
+pagar o pagados a medias), **Pagados** y **Cerrados**.
 
 <Warning>
-El puente **no concilia vouchers ni registra pagos**. Puede enseñarte lo que hay
-pendiente de revisar y con qué monto dice el OCR; aprobarlo es tuyo, en el
-panel. Igual con los estados del pedido: el puente no marca despachado ni
-entregado.
+**«Cerrados» mete a los cancelados en la misma bolsa que los entregados.** Si
+buscas una venta que se cayó, está ahí. Y también sale en **Todos**.
 </Warning>
 
-> «Búscame los pedidos con saldo pendiente que ya tengan un voucher sin
-> conciliar, y dime qué monto leyó el OCR frente a lo que falta cobrar.»
+### Las columnas de la tabla
+
+De fábrica, y en este orden: **pedido** · **cliente** · **detalle** · **total**
+· **saldo** · **estado**, y al final un botón **Abrir**.
+
+- **saldo** es la columna que te dice cuánto te deben todavía.
+- Puedes ensanchar y reordenar las columnas arrastrando; el panel recuerda el
+  resultado para cada agente por separado.
+- **Abrir** se queda fija a la derecha: no se mueve ni se estrecha.
+
+### El número del pedido
+
+Cada pedido tiene un número corto tipo **#ORD-0012**. Lo pone el sistema, no se
+elige, y la cuenta es de tu negocio: **tu primer pedido es el #ORD-0001** aunque
+otras empresas lleven miles. Sirve para hablar de él con tu equipo y para
+buscarlo en la caja de búsqueda de arriba (*«Buscar cliente o #ORD…»*).
+
+<Warning>
+**La búsqueda solo mira los pedidos ya cargados.** La tabla carga de 50 en 50 a
+medida que bajas. Si buscas un pedido antiguo y no aparece, no es que se haya
+borrado: todavía no está cargado. La propia pantalla lo dice cuando no encuentra
+nada — *«la búsqueda mira los pedidos ya cargados»*.
+
+**El truco:** filtra primero por estado, o baja hasta cargarlo.
+</Warning>
+
+<Tip>
+**Enlace directo a un pedido.** Si añades `?id=` y el identificador del pedido a
+la dirección, al entrar se abre esa ficha sola. Es cómodo para pasarle a alguien
+de tu equipo el pedido exacto del que están hablando.
+</Tip>
+
+## Cómo nace un pedido
+
+Hay dos caminos, y solo dos.
+
+### 1. Solo, desde una venta por WhatsApp
+
+<Steps>
+  <Step title="El cliente cierra en el chat">
+    Tu agente conversa, resuelve y el cliente dice que sí.
+  </Step>
+  <Step title="El agente registra la venta">
+    En ese mismo turno anota la venta. **Registrar la venta ES abrir el
+    pedido**: no hay un segundo paso ni un botón que pulsar.
+  </Step>
+  <Step title="El pedido aparece en Órdenes">
+    Con su número, su total, su saldo y su estado. En la ficha se lee **creado
+    por el agente**.
+  </Step>
+</Steps>
 
 <Note>
-Los textos libres del pedido —nombre y dirección del cliente, títulos de línea,
-lo que leyó el OCR, las notas y las glosas— llegan **delimitados como datos no
-confiables**, y el teléfono del cliente llega enmascarado (`51•••••4321`). El
-porqué de las dos cosas, en [Seguridad](/seguridad).
+**Sin la app Órdenes activa, la venta se registra igual pero no se abre ningún
+pedido.** La venta cuenta en Resultados; lo que no tienes es la cola de cobro
+ni la de despacho.
 </Note>
 
-## El stock
+**¿Y si el mismo cliente compra otra vez en el mismo chat?** Mientras el pedido
+anterior siga abierto —**Por cobrar** o **Pago parcial**—, el agente **reescribe
+ese pedido** con las líneas nuevas en vez de duplicarlo. Ojo: lo reescribe, no
+lo suma. Si el pedido anterior ya estaba **Pagado** o más allá, la segunda venta
+abre un pedido nuevo.
 
-`list_stock` trae todas las variantes del [catálogo](/guias/catalogo) con dos
-números que **pueden no coincidir**: `catalog_stock`, el contador que vive en la
-ficha del producto, y `total`, el que sale del libro de inventario por almacén.
-Cuando difieren, ahí tienes un descuadre que mirar.
+<Warning>
+**«Vendí y no me apareció el pedido».** Casi siempre es el catálogo. Si el
+agente registra una venta y no consigue ponerle precio a alguna línea —porque el
+producto no está en el catálogo y nadie dijo el precio—, la venta **sí** queda
+registrada pero **el pedido no se abre**. Lo mismo si la venta llega sin ninguna
+línea de producto. Tener el producto cargado en tu [catálogo](/guias/catalogo)
+quita esa causa.
 
-No admite filtros del servidor: viene todo. Si tu catálogo es grande, la
-respuesta llega recortada con `truncated: true` — no es un error, es un tope de
-tamaño; el catálogo entero está en el panel.
+Caso distinto y anterior a este: **una venta sin importe no se registra
+siquiera**. El monto es el valor total del pedido, aunque el cliente pague
+contra entrega y no haya adelantado ni un sol.
+</Warning>
 
-> «Compara el stock del catálogo contra el del inventario y dime qué variantes
-> no cuadran.»
+#### De dónde salen los precios
 
-## Las métricas
+Cuando la línea encaja con un producto de tu catálogo —por su identificador o
+por su nombre—, **manda el precio del catálogo** y se descarta cualquier número
+que el agente hubiera escrito. Por eso, con el producto cargado, el precio no lo
+pone la IA.
 
-### Consumo de IA: `get_usage_metrics`
+Dos excepciones que conviene conocer:
 
-Mide **lo que te cuesta la IA**, no lo que vendes. Devuelve una serie por día
-—tokens y gasto de Ventas y de Copiloto por separado— y, cuando se puede medir,
-el desglose por embudo: qué agente se llevó qué parte del gasto de Ventas (lo
-que no es de un agente cae junto en una entrada aparte).
+- **Un producto que no está en el catálogo** entra al pedido con el precio que
+  dijo el agente en el chat.
+- **Si el producto tiene precio por cantidad**, el unitario se recalcula según
+  el volumen y la línea sale rotulada *(precio por volumen)*.
 
-- Sin fechas cubre los **últimos 7 días**.
-- El rango máximo es de **400 días**.
-- Con detalle **por hora** el rango baja a **2 días**.
-- Los días se cortan en horario de **Lima** (el puente no manda zona horaria).
+#### De dónde sale la moneda
 
-Si el desglose por embudo llega como `funnels: null`, significa **«no se pudo
-medir»**, no «cero». El sistema prefiere no darte un desglose antes que darte
-uno que no cuadre con el total, así que ante el mínimo descuadre lo retira
-entero y te deja el total, que sí es de fiar.
+Nadie la declara: se deduce, en este orden. Primero, lo que el agente entendió
+del chat leyendo el símbolo que se escribió (`S/` o `$`). Si no, la moneda del
+precio del catálogo que resolvió. Y si tampoco, el ajuste **Moneda de las
+ventas** del agente (soles de fábrica).
 
-> «¿Cuánto me costó la IA los últimos 30 días, por día, y qué agente se llevó la
-> mayor parte?»
+<Warning>
+**Por aquí es por donde se cuelan los períodos con «varias monedas».** Si en tus
+chats se escriben los dos símbolos, acabarás con ventas en soles y en dólares el
+mismo mes, y Resultados dejará de poder sumarlas. Ojo con el orden: el ajuste
+**Moneda de las ventas** es el último recurso, no la primera palabra — si vendes
+en una sola moneda, lo que de verdad manda es que el catálogo esté en esa moneda
+y que en el chat no se mezclen los dos símbolos.
+</Warning>
 
-### Resultados del agente: `get_agent_scorecard`
+### 2. A mano, con «Pedido manual»
 
-Los resultados de **un** agente en un período —semana (de lunes a domingo) o
-mes— contra el período anterior, con una sparkline por bucket. Necesita el
-`agent_id`; si conectaste con `?agent=` en la URL
-([cómo](/referencia/url-de-conexion)), ya lo tiene.
+Para cuando vendiste por teléfono, en el mostrador o por otro canal. El botón
+está arriba a la derecha, junto a **Avisos automáticos**.
 
-El **volumen** llega en su propio bloque, `volume`, con dos cifras:
-`conversations_current` (las conversaciones nuevas del período, por fecha de
-apertura) y `conversations_previous` (las del período anterior). No es un KPI y
-no viaja dentro de `kpis`.
+Lo que te pide:
 
-Los KPIs que hoy miden algo de verdad son cuatro:
-
-| KPI | Qué es |
+| Campo | ¿Obligatorio? |
 | --- | --- |
-| `conversions` | Ventas, citas, leads o servicios registrados en el período |
-| `revenue_usd` | La suma de los importes de esas conversiones |
-| `conversion_rate` | Conversiones divididas entre conversaciones nuevas |
-| `handoff_rate` | Qué parte de esas conversaciones acabó en manos de un humano |
+| Nombre del cliente | **Sí.** Sin él no deja guardar: *«El cliente necesita un nombre»* |
+| Teléfono | No |
+| Dirección y distrito | No — el campo dice literalmente *«Dirección (opcional)»* |
+| Líneas de producto | Elegidas del catálogo o escritas a mano |
+| Moneda, costo de envío y plan de pago | Se eligen aquí |
 
-Y aquí van las letras pequeñas, que importan:
+El total y el número de pedido los calcula el sistema. En la ficha se leerá
+**creado a mano**.
 
-- **Las dos tasas llegan como ratio de 0 a 1, no en porcentaje.** Un
-  `conversion_rate` de `0.057` es 5,7 %, no 0,057 %.
-- **Tres KPIs llegan siempre sin datos hoy**: `tool_success_rate`,
-  `response_latency_p50_sec` y `sale_quality`. El puente los aparta en una lista
-  de claves, `kpis_sin_datos`, justo para que tu asistente **no los lea como
-  ceros**.
-- **Los otros cuatro caen también en `kpis_sin_datos` cuando el período no tuvo
-  ninguna conversación ni ninguna conversión.** En un agente recién encendido o
-  una semana muerta, `kpis` puede llegar vacío del todo: eso significa período
-  sin actividad, no avería.
-- **Una venta anulada deja de contar.** Si un operador anula una conversión
-  desde el panel, desaparece del scorecard.
-- **`revenue_usd` no siempre es en dólares.** El nombre es histórico: el importe
-  va en la moneda de tus ventas, y el campo `currency` la dice. Si el período
-  cruza monedas, llega `MIXED` y `currency_mixed` en verdadero: esa suma no se
-  puede leer como un solo número. Y si el período no tuvo ninguna venta, la
-  moneda sale `PEN` por defecto — no significa que vendas en soles.
-- **Por cómo se cuenta, `conversion_rate` puede salir por encima de 1.** El
-  numerador cuenta las conversiones registradas dentro del período; el
-  denominador, las conversaciones **abiertas** dentro del período. Un chat de la
-  semana pasada que cierra hoy suma arriba y no abajo.
-- **En `grain=month` la sparkline no cubre el mes.** Son 4 bloques de 7 días
-  desde el día 1: 28 días. Lo que exceda de ahí queda fuera de la serie —dos o
-  tres días en los meses de 30 y 31—, aunque el valor del KPI sí es del mes
-  completo, así que los bloques no suman el total. Para leer el mes día a día,
-  pide semanas.
-- El corte de la semana y del mes se calcula en **UTC**; el campo `tz` que
-  acompaña al período es solo una etiqueta.
+<Note>
+**El desplegable de productos solo trae lo que vende el agente que tengas
+seleccionado** en la barra de la izquierda. Si no encuentras un producto,
+comprueba primero el agente.
+</Note>
 
-> «Dame el scorecard de esta semana de mi agente y compáralo con la semana
-> pasada. Dime qué empeoró y qué día se torció.»
+<Warning>
+**Un pedido lleva una sola moneda para todo.** Si mezclas un producto en soles
+con otro en dólares, la pantalla te lo bloquea y te dice qué línea es la
+culpable. La plataforma no convierte divisas en ningún sitio.
+</Warning>
 
-## El saldo de créditos
+### El tercer camino que NO abre un pedido
 
-`get_credit_balance` está siempre disponible, sin encender ningún grupo. Trae el
-saldo en dólares, un estado, el **gasto medio diario de los últimos 7 días**, una
-estimación de días que te quedan a ese ritmo, si tienes la recarga automática
-activa y el link para recargar.
+Desde **Clientes** → ficha del cliente también puedes **Registrar** una venta.
+Eso **anota la venta en su historial y cuenta en Resultados, pero no abre
+ningún pedido**.
 
-Los cuatro estados no son adornos:
+Son dos altas manuales distintas y solo una crea pedido:
 
-| Estado | Cuándo |
+| Si quieres… | Ve a |
 | --- | --- |
-| `ok` | Todo en orden |
-| `low` | Por debajo de 7 días de gasto, con un suelo de 5 dólares |
-| `critical` | Por debajo de 2 días de gasto, con un suelo de 2 dólares (y nunca por debajo de tu umbral de recarga automática, si la tienes) |
-| `empty` | Saldo en cero o menos |
+| Cobrar y despachar algo | **Órdenes** → **Pedido manual** |
+| Solo dejar constancia de una venta | **Clientes** → ficha → **Registrar** |
 
-Los días restantes solo se calculan si hay gasto medido; si no, llegan vacíos —
-prefiere no dar un número a inventarlo. Y si el saldo no se puede leer en ese
-momento, el estado sale `unknown` con una nota pidiendo reintentar: **jamás se
-degrada a cero**.
+### Los tres planes de pago
 
-### Qué pasa cuando se acaba
+Tanto en el alta manual como cuando lo registra tu agente, las opciones son
+tres: **Pago completo**, **Contra entrega** y **Adelanto + saldo**. No hay más.
+Los planes por tramos libres no se arman ni desde la pantalla, ni desde el
+agente, ni desde tu asistente conectado.
 
-Con el saldo bajo, **cada respuesta** del puente arrastra un aviso informativo
-con el link de recarga y —mientras quede algo— la cifra del saldo: no hace falta
-preguntar. En cero, el aviso ya no trae importe: solo dice que las funciones de
-IA están detenidas hasta recargar.
+## Los estados de un pedido
 
-Y se detienen de verdad, tu agente incluido: deja de responder a los clientes
-hasta que recargues en el panel (Facturación). Ninguna herramienta cobra sola;
-las que consumen créditos —generar u [optimizar el manual](/guias/manual), el
-Copiloto, las simulaciones— pasan por el mismo control de saldo que el panel y
-se paran igual.
+Ocho rótulos. Estos son los que vas a ver escritos en tu pantalla:
 
-> «¿Cómo va mi saldo y para cuántos días me alcanza al ritmo de esta semana?»
+| Estado | Qué significa |
+| --- | --- |
+| **Por cobrar** | Está abierto y no ha entrado nada |
+| **Pago parcial** | Entró algo y queda saldo |
+| **Pagado** | No queda nada que cobrar |
+| **Facturado** | Etiqueta heredada — ver abajo |
+| **En camino** | Ya salió hacia el cliente |
+| **Entregado** | Llegó |
+| **Cerrado** | Etiqueta heredada — ver abajo |
+| **Cancelado** | Se cayó |
 
-## Lo que este grupo no hace
+<Note>
+**«Facturado» y «Cerrado» son etiquetas heredadas.** Existen en el sistema y los
+totales de arriba las siguen sumando, pero **hoy ninguna acción del panel lleva
+un pedido a esos dos estados**. Si ves un pedido en «Cerrado», viene de una
+migración antigua de tus datos, no de algo que hiciste tú.
+</Note>
 
-Dicho sin adornos, para que no te lleves una sorpresa:
+## La ficha del pedido
 
-- No registra ventas ni abre pedidos: eso lo hace tu agente en el chat, o tú a
-  mano en el panel.
-- No cobra, no emite links de pago y no toca tu pasarela. La lista de servicios
-  a los que el puente puede llamar está cerrada en el código: no hay pasarela ni
-  emisión de facturas. De facturación lee **una sola cosa**, y solo para leerla:
-  tu cuenta de créditos (el saldo y los ajustes de recarga automática).
-- No concilia vouchers, no registra pagos manuales, no cambia el estado de un
-  pedido ni marca despachos o entregas.
-- No anula una conversión ni corrige un importe mal registrado.
-- No filtra pedidos por cliente ni por importe —por fecha, solo tope superior—
-  ni el stock por nada.
+Se abre con el botón **Abrir** de la tabla, con la tarjeta del Pipeline, o
+directamente desde el chat (más abajo). Tiene cuatro bloques:
 
-Todo eso vive en el panel. El puente es para **mirar, entender y decidir** — y
-para eso sí que está entero.
+<CardGroup cols={2}>
+  <Card title="Detalle" icon="list-check">
+    Qué se vendió y el total.
+  </Card>
+  <Card title="Plan de pago" icon="flag">
+    Los tramos de cobro, si los hay.
+  </Card>
+  <Card title="Pagos" icon="hand-holding-dollar">
+    Lo que ya entró, lo que falta y los comprobantes sin conciliar de este
+    pedido.
+  </Card>
+  <Card title="Historia" icon="clock-rotate-left">
+    Quién creó el pedido, cada cambio de estado y las notas.
+  </Card>
+</CardGroup>
+
+Justo debajo del número de pedido se lee **creado por el agente** o **creado a
+mano**. Es la forma de auditar, sin salir de la pantalla, qué vendió la IA y qué
+vendió tu equipo.
+
+### Registrar un pago
+
+Botón **Registrar pago**, eligiendo entre **Efectivo**, **Yape**, **Plin**,
+**Transferencia** y **Otro**. Solo aparece mientras el pedido está **Por
+cobrar** o en **Pago parcial**; en cuanto pasa a **Pagado**, deja de estar.
+
+Tu agente no confirma pagos: los confirma una persona, aquí o aprobando un
+comprobante.
+
+### Las otras acciones
+
+Según en qué punto esté el pedido, verás **Marcar despachado**, **Marcar
+entregado** y **Cancelar pedido**. Y puedes dejar una **nota interna**:
+queda en la Historia y **el cliente no la ve**.
+
+<Warning>
+**El botón «Cerrar» del pie cierra la ficha, no el pedido.** No existe ninguna
+acción que cierre un pedido: para dar por muerta una venta, usa **Cancelar
+pedido**.
+</Warning>
+
+### La trampa que más desconcierta
+
+<Warning>
+**Marcar despachado o entregado un pedido con saldo pendiente NO cambia su
+estado.** El despacho queda anotado en la Historia, con lo que falta escrito en
+la anotación, pero el pedido se queda donde estaba —**Por cobrar** o **Pago
+parcial**—. Es a propósito: así el dinero que te deben no desaparece de tu vista
+de cobranza.
+
+La pantalla te lo dice en el aviso: *«(anotado; sigue por cobrar)»*. Pasará a
+**Pagado** cuando registres el cobro.
+</Warning>
+
+### La ficha también vive dentro del chat
+
+Es el mismo bloque, en dos sitios: el cajón de **Órdenes** y la pestaña
+**Órdenes** del carril lateral de la conversación. Desde el chat, con el cliente
+delante, puedes registrar su pago, aprobar su comprobante y marcar el despacho
+sin cambiar de pantalla. Para el día a día suele ser el camino más cómodo.
+
+## Cobrar por WhatsApp: los comprobantes
+
+Tu cliente manda la captura de su Yape, su Plin o su transferencia. Esa imagen
+entra en la vista **Vouchers**.
+
+La IA lee la imagen y **pre-llena el monto**, pero quien confirma el pago es
+siempre una persona, con el botón **Aprobar pago**. También puedes
+**Descartar**.
+
+### Las etiquetas de la bandeja
+
+Cada una es una decisión que tienes que tomar tú:
+
+| Etiqueta | Qué te está diciendo |
+| --- | --- |
+| **difiere del saldo** | El monto leído no es lo que falta cobrar |
+| **no cubre el hito** | Es menos de lo que tocaba en ese tramo del plan |
+| **revísalo a ojo** | La IA leyó la imagen con poca confianza |
+| **moneda distinta** | El comprobante no está en la moneda del pedido |
+| **se asocia al aprobar** | Todavía no está enganchado a un pedido; se engancha al aprobarlo |
+| **Sin pedido abierto en este chat — créalo antes de aprobar** | No hay a qué aplicarlo: el botón de aprobar está deshabilitado |
+
+Si la imagen es ilegible, la pantalla lo dice sin rodeos: *«El OCR no pudo
+leerlo — abre el comprobante y concílialo a ojo»*. Hay un visor a pantalla
+completa para mirarlo con calma.
+
+<Note>
+**La bandeja va por tandas, no es la lista completa.** Al pie se lee *«Se
+muestran los N comprobantes más antiguos. Concilia estos para ver los
+siguientes.»* Es una cola: primero los viejos.
+</Note>
+
+<Warning>
+**Un comprobante de hace más de 48 horas no se procesa.** Si tu cliente reenvía
+la captura de un pago de hace tres días, no aparecerá pre-llenada en la bandeja.
+Regístralo a mano desde la ficha del pedido con **Registrar pago**.
+</Warning>
+
+<Tip>
+**No hace falta ir a la bandeja.** El bloque **Pagos** de la ficha del pedido
+lista los comprobantes sin conciliar de ese pedido, con su foto y su fila de
+aprobación. Es más directo cuando ya sabes de qué pedido hablas.
+</Tip>
+
+## Cuando el pedido queda cobrado, pasan tres cosas solas
+
+En el momento en que el saldo llega a cero:
+
+1. **Tu agente le escribe al cliente** que su pedido ya se está preparando — si
+   el pedido nació de una conversación y ese aviso sigue encendido, que lo está
+   de fábrica.
+2. **Se descuenta el stock** del inventario. Si luego cancelas el pedido, ese
+   descuento se compensa.
+3. **Nace el envío**, si tienes la app Envíos activa y un solo courier
+   habilitado (ver más abajo).
+
+## Mover pedidos: el Pipeline
+
+Tablero con cuatro columnas: **Por cobrar**, **Por despachar**, **En camino** y
+**Entregado**.
+
+<Warning>
+**Solo se puede arrastrar a las dos últimas.** Las columnas de cobro no aceptan
+que les sueltes nada, porque **el dinero se registra, no se arrastra**. Para
+cobrar, abre el pedido y usa **Registrar pago**, o aprueba su comprobante.
+</Warning>
+
+Tres cosas más del Pipeline que sorprenden:
+
+- **Los cancelados no aparecen** en ninguna columna.
+- **El tablero solo reparte los pedidos ya cargados** (50 de entrada, más los
+  que cargues bajando). Los cuatro totales de arriba sí cuentan todos tus
+  pedidos. Por eso puedes ver «POR COBRAR 180» arriba y un puñado de tarjetas en
+  esa columna: no falta nada, falta cargarlo.
+- **Al entrar en Pipeline el filtro de estado vuelve a «Todos»**, a propósito.
+
+## Avisos automáticos
+
+El otro botón de arriba a la derecha. Abre el panel donde decides **qué le
+cuenta tu agente al cliente en cada peldaño** del pedido.
+
+Ojo con lo que se edita ahí: **no escribes el mensaje literal, escribes la
+tarea** que el agente ejecuta al avisar. Él lo redacta con su forma de hablar y
+con el contexto de esa conversación. Cada peldaño tiene su interruptor: al
+apagarlo conservas el texto para cuando lo quieras volver a encender.
+
+Los peldaños nacen encendidos, con estas tareas de fábrica:
+
+| Cuándo | Tarea de fábrica |
+| --- | --- |
+| Al cobrar | *«Cuéntale al cliente que su pedido ya se está preparando y agradécele la compra.»* |
+| Al despachar | *«Avísale al cliente que su pedido ya salió. Si hay courier o dato de seguimiento, dáselo…»* |
+| Al entregar | *«Confirma con el cliente que recibió bien su pedido, pregúntale cómo le fue…»* |
+
+Hay dos peldaños más para las citas (asistió / no asistió).
+
+<Note>
+**«¿Por qué mi agente le escribió solo al cliente?»** Por esto. Es la respuesta,
+y se apaga desde aquí.
+</Note>
+
+### El botón «Deshacer» que no deshace lo que crees
+
+Cuando mueves un pedido a **En camino** o **Entregado**, el aviso al cliente
+sale aproximadamente **un minuto después**. Durante unos **55 segundos** aparece
+un botón **Deshacer**.
+
+<Warning>
+**«Deshacer» cancela el mensaje al cliente. NO revierte el estado del pedido.**
+El pedido se queda movido. Si te equivocaste de pedido, tienes que corregirlo a
+mano en su ficha.
+</Warning>
+
+Ese aviso —y por tanto ese botón— tiene tres condiciones. Si falta alguna, no
+hay mensaje ni **Deshacer**:
+
+1. **El pedido tiene que venir de una conversación.** Un pedido creado con
+   **Pedido manual** no tiene chat detrás: ahí no hay aviso ni botón.
+2. **El pedido tiene que avanzar.** Volver a marcar algo que ya se avisó no
+   vuelve a avisar.
+3. **El peldaño tiene que estar encendido** en **Avisos automáticos**.
+
+## Clientes
+
+`optimind.darkfunnels.ai/clientes`. Es el CRM: cada persona que ha hablado con
+tu agente, con lo que él aprendió de ella.
+
+<Note>
+**Necesita un agente seleccionado.** Sin él la pantalla dice *«Sin agente
+seleccionado»* y la entrada del menú no lleva a ninguna parte. Y la lista cambia
+al cambiar de agente en la barra lateral: no es que hayas perdido contactos.
+</Note>
+
+### Las tres vistas
+
+| Vista | Qué es | Cuándo usarla |
+| --- | --- | --- |
+| **Cola** | *«Tu cola de cierre: quien te escribió y se quedó sin respuesta, del que más lleva esperando al que menos; tú solo la vacías.»* | Todos los días |
+| **Embudo** | *«El embudo de un vistazo: cada tarjeta es una persona. Arrástrala a otro capítulo y el agente conversará desde ahí en su siguiente turno.»* | Para ver dónde se atascan |
+| **Tabla** | *«Cada persona que conversa con tu agente, con su capítulo, sus compras, lo que el agente aprendió de ella y las excepciones que piden tu atención.»* | Para supervisar y buscar |
+
+Normalmente entras en **Cola**. Si llegas desde un enlace que ya pide otra vista
+o un capítulo concreto —por ejemplo desde el [Manual](/guias/manual)—, entras
+directo ahí.
+
+<Tip>
+**Arrastrar una tarjeta en la vista Embudo cambia el capítulo de esa persona:**
+tu agente conversará desde ese capítulo en su siguiente turno. Es la forma más
+rápida de rescatar a alguien que se quedó atascado.
+</Tip>
+
+### Las columnas de la Tabla
+
+Fijas y en este orden: **cliente** · **estado** · **capítulo** · **piloto** ·
+**etiquetas** · **conversiones** · **costo IA** · **última actividad**. Al final,
+los botones **Ficha** y **Chat**.
+
+Después de las fijas aparece **una columna por cada dato que tu agente captura**
+de esa persona —y son editables—. Quedan fuera los que ya tienen columna propia
+(el capítulo, el piloto, el teléfono y la foto) y los de uso interno.
+
+La columna **estado** tiene tres valores y se calcula sola, no se edita:
+
+| Estado | Qué significa |
+| --- | --- |
+| **Baja** | El contacto se dio de baja |
+| **Espera respuesta** | Te escribió y sigue sin respuesta |
+| **Al día** | Nadie está esperando respuesta |
+
+<Note>
+**«Al día» no significa «me compró».** Significa que esa conversación no tiene
+nada pendiente por tu lado.
+</Note>
+
+### Tres columnas que no miden lo que su nombre sugiere
+
+<Warning>
+**«conversiones» no son ventas.** Cuenta todos los resultados registrados sin
+anular de esa persona: ventas, pero también citas, servicios y leads. Y suma
+**toda su historia con todos tus agentes**, no solo con el que tienes abierto.
+Si tu embudo agenda citas, ese número está inflado respecto a lo que vendiste.
+
+**«Con compra» tampoco es «me pagó».** Ese filtro marca a quien tiene al menos
+un resultado registrado y no anulado en toda su historia, con cualquier agente.
+No mira si pagó ni si el pedido está cobrado. Para el dinero, el sitio es el
+filtro **Por cobrar** de Órdenes.
+
+**«costo IA» se queda corta.** Es lo que costó la IA de atender a esa persona,
+en dólares y sumando toda su historia, pero solo cuenta lo que ocurre dentro de
+un turno de conversación. Transcribir el audio que mandó el cliente o leer una
+imagen quedan fuera. Si sumas la columna de todos tus clientes y lo comparas con
+tu consumo, no va a cuadrar.
+</Warning>
+
+### Ordenar la tabla: cuidado
+
+<Warning>
+**Ordenar por una columna solo ordena las filas ya cargadas** (200 por página),
+no toda tu base. Si ordenas por «conversiones» buscando a tu mejor cliente,
+puede que ni siquiera esté en pantalla.
+
+Cuando quedan más filas, la propia pantalla lo dice al pie —*«el orden se aplica
+solo sobre los cargados»*— y te ofrece **Cargar 200 más** y **Quitar orden**.
+
+**Primero filtra, después ordena.**
+</Warning>
+
+Mientras hay un orden puesto, la tabla deja de cargar sola al bajar y se apaga
+el modo en vivo, para que las filas que estás mirando no salten de sitio.
+
+<Note>
+**La lista se refresca sola cada 10 segundos** y sube al primer puesto a quien
+acaba de escribirte. La pantalla lo declara al pie con un punto verde.
+</Note>
+
+### La ficha del cliente
+
+Desde el botón **Ficha** puedes cambiarle el capítulo, encender o apagar su
+piloto automático, ponerle etiquetas, registrar o anular una venta, darlo de
+baja y borrar sus datos.
+
+<Tip>
+**Las «Notas internas» son la función más útil y menos conocida del panel.** Es
+donde le dices a tu agente *«a este trátalo como mayorista»* sin tocar el
+manual: él las lee y las aplica en sus respuestas, y **el cliente no las ve**.
+
+Escríbelas cortas. Tu agente recibe **las 5 más recientes, recortadas a 300
+caracteres cada una**: acumular decenas de notas largas no ayuda, estorba.
+</Tip>
+
+<Warning>
+**Anular una venta desde la ficha también cancela el pedido enlazado** — si el
+pedido está **Por cobrar**, **Pago parcial** o **Pagado**, se cancela sin más.
+Si ya iba camino de la entrega y dejó rastro (guía emitida o stock movido), el
+pedido no se cancela y verás *«el pedido enlazado ya no admite cancelación —
+revísalo en /ordenes»*. **La venta queda anulada en los dos casos**: el pedido
+hay que revisarlo tú.
+</Warning>
+
+<Warning>
+**Una persona aparece en un solo agente, no en dos.** A cada contacto se le
+asigna el agente de su conversación más reciente que tuviera agente asignado. Si
+alguien habló con dos embudos distintos, se lo lleva el segundo y desaparece de
+la lista del primero. **No es un fallo.** Y si su última conversación no llegó a
+tener agente, se queda con el anterior.
+</Warning>
+
+## Resultados: qué mide de verdad cada número
+
+`optimind.darkfunnels.ai/resultados`. Es la pantalla de «cómo va mi negocio», y
+la única del panel con filtro de fechas.
+
+Arriba eliges el ámbito: **el agente seleccionado** o **Toda la organización**.
+El antetítulo cambia entre *«Tu agente»* y *«Tu organización»* para que sepas
+qué estás mirando.
+
+<Warning>
+**No intentes cuadrar las dos vistas.** La suma de tus agentes por separado NO
+da el número de «Toda la organización», y es a propósito: una conversación sin
+agente asignado y una venta sin agente anotado no le tocan a ningún embudo, pero
+sí cuentan en el total de la organización.
+</Warning>
+
+### El selector de fechas
+
+Ofrece: Hoy · Últimos 7 días · Últimos 30 días · Últimos 90 días · Esta semana ·
+Este mes · Mes anterior · Este año · Año anterior · Rango personalizado. La
+primera vez entra en **Esta semana**; después recuerda, en ese navegador, el
+último período que elegiste. Lo máximo que se puede pedir es algo menos de 400
+días.
+
+<Note>
+**El «cambio frente al período anterior» se calcula por forma, no por días.** El
+anterior de marzo es febrero —28 días—, no «marzo menos 31 días». Por eso el
+porcentaje de cambio no cuadra si lo intentas reproducir con una resta a mano.
+</Note>
+
+### El número grande
+
+Un veredicto de 0 a 100 con tres bandas: **Bueno** (75 o más), **Regular** (50 a
+74) y **Malo** (menos de 50). No es una nota que ponga la IA: es una media
+ponderada de los siete indicadores de abajo, con estos pesos:
+
+| Indicador | Peso |
+| --- | --- |
+| Tasa de conversión | 30 % |
+| Latencia de respuesta | 13 % |
+| Conversiones | 12 % |
+| Derivación a humano | 12 % |
+| Calidad de venta | 12 % |
+| Éxito de herramientas | 11 % |
+| Ingreso atribuido | 10 % |
+
+Los indicadores que no se pudieron calcular se descartan y su peso se reparte
+entre los demás. El **Ingreso atribuido** también se descarta cuando en el
+período hubo ventas en más de una moneda, porque esa suma no significaría nada.
+
+<Note>
+**Cuándo dice «Sin datos» en vez de calificarte.** Solo dos indicadores cuentan
+para eso: la **Tasa de conversión** y las **Conversiones**. Si en el período no
+se pudo calcular ninguno de los dos, el veredicto dice *«Sin datos»* aunque
+tengas cifra en los otros cinco. Es deliberado: no queremos calificar mal a un
+agente que simplemente no tuvo con quién hablar.
+</Note>
+
+### Los siete indicadores, sin adornos
+
+Están agrupados en tres bloques: **Resultado de venta** (Tasa de conversión,
+Conversiones, Ingreso atribuido), **Operativo** (Derivación a humano, Éxito de
+herramientas, Latencia de respuesta) y **Calidad** (Calidad de venta).
+
+Esta tabla es lo más importante de esta página. Hay indicadores cuyo nombre
+sugiere una cosa y miden otra:
+
+| Indicador | Qué mide de verdad | Cuándo NO te fíes |
+| --- | --- | --- |
+| **Tasa de conversión** | Los resultados registrados en el período divididos entre las conversaciones **nuevas** del período | **Puede pasar del 100 %** y no es un error: una venta de hoy puede cerrarse sobre un chat que empezó la semana pasada. Se muestra en crudo a propósito |
+| **Conversiones** | **Todos** los resultados del período: ventas, citas, servicios y leads. Fuera quedan los anulados y tu chat de prueba | Si tu embudo agenda citas o capta leads, **esto no son ventas**. El número es mayor que lo que vendiste |
+| **Ingreso atribuido** | La suma de los importes de esos resultados, **en la moneda en que se registraron** — no en dólares | Una cita o un servicio con importe también engordan el número. Y si el período cruzó dos monedas, el número sale sin símbolo, sin comparación y con la nota *«varias monedas — sin convertir»* |
+| **Derivación a humano** | De las conversaciones que tu agente trabajó de verdad, en cuántas intentó pasarte el chat. Menos es mejor, y no pasa del 100 % | Es **un techo, no una cifra exacta**: los intentos que el sistema rechazó o que no cambiaron nada cuentan igual. Los traspasos reales pueden ser menos |
+| **Éxito de herramientas** | De las acciones que tu agente intentó ejecutar (buscar en el catálogo, agendar, registrar una venta), cuántas salieron bien | Las que el sistema le frenó por política cuentan como fallo, a propósito. Si baja, tu manual le está pidiendo cosas que no puede hacer |
+| **Latencia de respuesta** | El tiempo **mediano** desde el último mensaje del cliente hasta la primera respuesta, incluyendo la espera deliberada del agente | Solo mide respuestas a un cliente. Los recordatorios y el re-enganche que manda el agente por su cuenta quedan fuera, para que una campaña no destroce el número |
+| **Calidad de venta** | Una nota de 0 a 100 que pone un juez de IA sobre la conversación: si califica al cliente antes de ofrecer, si persuade, si mantiene el personaje y si cierra con un próximo paso | **Es probable que la veas vacía siempre.** Viene apagada de fábrica y la enciende la plataforma, no tú desde el panel: cada nota consume saldo. Aun encendida, solo califica conversaciones de 6 mensajes o más y no repite la misma antes de 24 horas |
+
+### Cómo leer una tarjeta apagada
+
+<Note>
+**Una raya significa «no hay dato». Un 0 significa «hay dato y es cero».** No se
+pinta un 0 falso para rellenar el hueco. Cuando falta el dato, el valor de la tarjeta es una raya
+**—** y donde iría la comparación con el período anterior pone *«sin datos»*.
+
+El **Ingreso atribuido** con varias monedas es el caso aparte: la tarjeta sigue
+encendida —datos hay— y lo que dice es *«sin comparar»*.
+</Note>
+
+<Check>
+**Tu chat de prueba no ensucia estos números.** Ni las conversaciones ni las
+conversiones de la simulación entran en Resultados: probar tu agente antes de
+conectar WhatsApp no te falsea la pantalla. Otra cosa es el saldo: los turnos de
+prueba los responde tu agente, y eso
+[consume créditos](/primeros-pasos/creditos-y-recarga) como cualquier otro turno.
+</Check>
+
+## Envíos (solo si tu empresa lo tiene activado)
+
+Vive en `optimind.darkfunnels.ai/envios`, menú **Envíos**. A diferencia de
+Órdenes, **Envíos no viene encendida**: se activa negocio por negocio. Si no ves la entrada en tu menú, es eso, no un error.
+
+<AccordionGroup>
+  <Accordion title="Las tres vistas y los estados">
+    La pantalla tiene tres vistas: **Envíos** (la cola de paquetes), **Guías del
+    courier** (guías que se sacaron a mano en el panel del transportista y hay
+    que emparejar) y **Couriers** (dar de alta transportistas y tarifas).
+
+    Las columnas son **envío** · **courier** · **destino** · **receptor** ·
+    **estado**, más el botón **Abrir**. Los siete estados posibles son **Por
+    despachar**, **Pidiendo guía**, **Despachado**, **En camino**,
+    **Entregado**, **Fallido** y **Cancelado**.
+
+    **«Pidiendo guía» confunde:** significa que el sistema está esperando al
+    transportista, no a ti.
+
+    <Note>
+    **Los estados del ENVÍO no son los mismos que los del PEDIDO**, aunque
+    compartan algunos nombres. Son dos ciclos distintos que avanzan por
+    separado.
+    </Note>
+  </Accordion>
+
+  <Accordion title="Los filtros y los contadores (y dónde no cuadran)">
+    Filtros: **Todos**, **Por despachar**, **Pidiendo guía**, **En camino**,
+    **Entregados** e **Incidencias**. Arriba hay cinco contadores con esos
+    mismos nombres, y —como en Órdenes— son totales históricos sin selector de
+    fechas.
+
+    Dos avisos:
+
+    - **«En camino» agrupa dos estados**: los despachados y los que ya viajan.
+    - **«Incidencias» no cuenta lo mismo que lista**: el contador cuenta solo
+      los fallidos; el filtro lista además los cancelados. Un envío cancelado
+      sale en la lista y no en el número.
+
+    Y la caja de búsqueda, igual que en Órdenes, **solo mira los envíos ya
+    cargados**.
+  </Accordion>
+
+  <Accordion title="Cuándo nace un envío">
+    Todo envío cuelga de un pedido. Nace solo, sin que nadie lo pida, en tres
+    momentos: cuando el pedido es **contra entrega** (al crearse), cuando entró
+    **el adelanto** acordado, o cuando el pedido se **pagó completo**. La regla
+    es que el paquete sale cuando ya no queda nada que cobrar antes de
+    despacharlo.
+
+    También puedes crear uno a mano desde la pantalla de Envíos, pegando el
+    identificador del pedido (lo copias desde Órdenes).
+
+    <Warning>
+    **Añadir un segundo courier APAGA la creación automática de envíos.** Con
+    dos o más transportistas habilitados el sistema se niega a elegir por ti, y
+    los envíos dejan de nacer solos. Con un único courier habilitado (aparte de
+    la entrega propia), el envío nace con ese; sin ninguno declarado, tampoco
+    nace nada. Si de un día para otro «dejaron de aparecer los envíos», mira
+    esto primero.
+    </Warning>
+  </Accordion>
+
+  <Accordion title="Couriers y guías: qué es automático y qué no">
+    **El único transportista con integración real es Shalom**: es el único que
+    puede sacar la guía desde la plataforma. Cualquier otro courier se puede dar
+    de alta con su nombre y su tarifa, pero **la guía se anota a mano**. La
+    opción **Entrega propia** es para cuando lo llevas tú (moto, mostrador).
+
+    Pedir la guía desde la plataforma **nace apagado** y lo enciendes tú,
+    courier por courier, porque cada guía es real y se la cobra tu cuenta del
+    transportista.
+
+    <Warning>
+    **Aun encendido, la guía no se pide sola.** El interruptor da permiso; no
+    dispara nada. La pide una persona con el botón **Pedir la guía al courier**
+    dentro del envío, y la pantalla avisa antes: *«Se crea una guía real y se
+    cobra en tu cuenta del courier»*.
+    </Warning>
+
+    Antes de dejarte pedirla, la ficha te muestra un bloque **Para pedir la
+    guía** con una etiqueta **Listo** o **Faltan datos** y la lista de lo que
+    falta. La agencia de origen se elige una sola vez, en la pestaña
+    **Couriers**, y vale para todos tus envíos.
+
+    Si la petición se queda a medias, aparece un bloque avisando de que la guía
+    necesita que la mires: eso no se resuelve solo, y hay que mirarlo, porque
+    dos guías se le cobrarían al cliente.
+  </Accordion>
+
+  <Accordion title="La ficha del envío">
+    Muestra **Destino**, **Destinatario**, **Envío** (pedido, courier, costo,
+    número de guía) y una **Línea de tiempo** con cada movimiento del paquete.
+    Según el punto en que esté, aparecen además los bloques para pedir la guía,
+    despachar o anotar la guía.
+
+    **Por qué te pide tantos datos:** cuando el destinatario es una persona, el
+    courier exige documento y los dos apellidos por separado —**Apellido
+    paterno** y **Apellido materno**—; sin eso no entrega. Si el destinatario es
+    una empresa, se pide **Razón social** en su lugar.
+
+    **Los datos del destinatario se editan hasta que despachas.** Después quedan
+    en solo lectura, porque son los que viajaron impresos en la guía.
+  </Accordion>
+
+  <Accordion title="Dos cosas de dinero y de rastreo">
+    <Warning>
+    **El flete de Shalom lo paga el destinatario.** Si haces la cuenta del campo
+    **Costo** del envío como si lo pagaras tú, te sale al revés.
+    </Warning>
+
+    **Puedes despachar sin tener el número de guía.** La pantalla te lo dice:
+    *«La guía es opcional: si el courier todavía no te la dio, despacha ahora y
+    anótala cuando llegue»*. Anotarla después no cambia el estado del envío.
+
+    **El enlace «Rastrear» solo aparece si alguien pegó a mano un enlace de
+    rastreo** (tiene que empezar por `https`). La guía sacada desde la
+    plataforma guarda el **número** de guía, no el enlace: por eso puedes tener
+    número y no tener botón de rastreo.
+
+    Y la vista **Guías del courier** es la red de seguridad para cuando alguien
+    sacó la guía por fuera: llega un espejo de tu cuenta de Shalom, cada fila
+    con una propuesta de a qué envío pertenece, **que tienes que confirmar a
+    mano**. Vincular mal despacha el pedido de otra persona con esa guía.
+  </Accordion>
+</AccordionGroup>
+
+## Si algo no funciona
+
+| Lo que ves | Casi siempre es | Cómo se arregla |
+| --- | --- | --- |
+| **No encuentro «Órdenes» en el menú** | La app está apagada en tu empresa | Enciéndela en **Administración** → **Apps** |
+| **Vendí y no me aparece el pedido** | Alguna línea se quedó sin precio: el producto no está en el catálogo | Carga el producto en el [catálogo](/guias/catalogo) y pide al agente que vuelva a registrar |
+| **Busco un pedido antiguo y no sale** | La búsqueda solo mira lo ya cargado | Filtra por estado, o baja hasta cargarlo |
+| **Marqué despachado y el estado no cambió** | Queda saldo por cobrar | Es a propósito. Registra el pago y pasará a **Pagado** |
+| **Pulsé «Deshacer» y el pedido sigue movido** | «Deshacer» cancela el mensaje al cliente, no el cambio de estado | Corrígelo a mano en la ficha del pedido |
+| **Mi agente le escribió solo al cliente** | Un peldaño de **Avisos automáticos** | Apágalo desde ese panel; conserva el texto |
+| **Sumo los cuatro totales y no cuadra con la tabla** | Los cancelados no entran en ningún total | Míralos en el filtro **Cerrados** |
+| **El Pipeline tiene menos tarjetas que el total de arriba** | El tablero solo reparte los pedidos ya cargados | Baja para cargar más |
+| **No puedo arrastrar a «Por cobrar»** | El dinero se registra, no se arrastra | Abre el pedido y usa **Registrar pago** |
+| **Un cliente desapareció de un embudo** | Habló después con otro agente y se lo llevó | Búscalo con el otro agente seleccionado |
+| **«Calidad de venta» sale vacía** | Viene apagada y se enciende desde la plataforma | No hay nada que puedas hacer desde el panel |
+| **Un pedido «no se deja cancelar»** | Ya iba camino de la entrega y dejó rastro: guía emitida o stock movido | Revísalo en **Órdenes**; la venta sí quedó anulada |
+| **Dejaron de nacer los envíos solos** | Tienes dos o más couriers habilitados | El sistema no elige por ti: crea el envío a mano |
+| **El comprobante que reenvió mi cliente no aparece** | Tiene más de 48 horas | Regístralo con **Registrar pago** en la ficha |
+
+## Lo que hoy no se puede
+
+Dicho una vez y claro, para que no lo busques:
+
+- **No hay exportación a Excel ni a CSV** en Órdenes, Clientes, Envíos ni
+  Resultados. La única pantalla del panel que descarga un CSV es el
+  [Catálogo](/guias/catalogo).
+- **Solo Resultados filtra por fechas.** Órdenes filtra por estado y por texto,
+  Clientes por capítulo, piloto, etiqueta, texto y «Con compra», y Envíos por
+  estado y por texto. Para «cuánto vendí en agosto», Resultados.
+- **No existe cerrar un pedido.** Para dar por muerta una venta, **Cancelar
+  pedido**.
+- **No hay planes de pago por tramos libres** desde ninguna pantalla: solo los
+  tres planes de arriba.
+
+## Lo mismo, desde tu asistente
+
+<Note>
+Esta sección es **opcional y solo aplica si conectaste Claude, ChatGPT o Codex**
+a tu negocio. Si trabajas en el panel, ya terminaste.
+</Note>
+
+<Warning>
+**Tu asistente mira los pedidos; no los opera.** No puede crear un pedido, ni
+registrar un pago, ni aprobar un comprobante, ni despachar, ni pedir una guía,
+ni dar de alta un courier. De envíos no tiene nada. Todo lo operativo se hace
+desde la pantalla, o lo hace tu agente al vender.
+</Warning>
+
+Lo que sí puede: **leer**. Y para eso es muy cómodo, porque cruza cosas que la
+pantalla no cruza.
+
+Pedidos y métricas son grupos que hay que activar al conectar. Lo cómodo es
+conectar con la URL que trae ya todo —está lista para copiar en
+[La URL de conexión](/referencia/url-de-conexion)— y no volver a tocarla. Si
+acabas de activar un grupo, abre un chat **nuevo**: el catálogo de herramientas
+se fija por conversación.
+
+Y valen las mismas apps que en el panel: para leer pedidos hace falta la app
+**Órdenes** activa, y para el stock, la app **Inventario**. Si no lo están, tu
+asistente recibe un aviso claro diciéndolo.
+
+Frases que funcionan:
+
+- *«Enséñame los pedidos por cobrar y dime cuánto dinero suman en saldo
+  pendiente.»*
+- *«Trae los últimos 50 pedidos y agrúpalos por estado, con el total de cada
+  grupo.»*
+- *«De los pedidos entregados de esta semana, ¿cuáles salieron de un chat y
+  cuáles los abrió una persona a mano?»*
+- *«Ábreme el pedido y dime qué falta para darlo por cobrado.»*
+- *«Compara el stock del catálogo contra el del inventario y dime qué variantes
+  no cuadran.»*
+- *«¿Cuánto me costó la IA los últimos 30 días y qué agente se llevó la mayor
+  parte?»*
+- *«¿Cómo va mi saldo y para cuántos días me alcanza al ritmo de esta semana?»*
+
+Detalles que evitan malentendidos cuando le pides números:
+
+<AccordionGroup>
+  <Accordion title="Los pedidos llegan por páginas y sin filtro de fechas">
+    La lista viene del más reciente al más antiguo, de 25 en 25 (50 como
+    máximo). Por fecha solo hay **tope superior**: para una ventana con
+    principio y fin —«esta semana», «julio»— tu asistente pide páginas hacia
+    atrás y recorta él lo que sobra. No hay filtro por cliente ni por importe.
+  </Accordion>
+  <Accordion title="Las tasas llegan de 0 a 1, no en porcentaje">
+    Una tasa de conversión de `0.057` es **5,7 %**, no 0,057 %. Si tu asistente
+    te la lee tal cual, es eso.
+  </Accordion>
+  <Accordion title="«Sin datos» no es cero">
+    Los indicadores que no se pudieron medir llegan apartados en una lista
+    propia, justo para que tu asistente **no los lea como ceros**. En un agente
+    recién encendido o una semana muerta, pueden llegar todos: eso significa
+    período sin actividad, no avería.
+  </Accordion>
+  <Accordion title="El ingreso no siempre viene en dólares">
+    El nombre del campo es histórico. El importe va en la moneda de tus ventas y
+    viaja acompañado de un código que la dice. Si el período cruzó monedas,
+    llega marcado como mezclado: esa suma no se puede leer como un solo número.
+    Y si el período no tuvo ninguna venta, no llega ninguna moneda: viene en
+    blanco a propósito, porque no hay nada de donde deducirla.
+  </Accordion>
+  <Accordion title="El teléfono del cliente llega tapado">
+    Verás algo como `51•••••4321`. Es a propósito. Para verlo completo, o lo
+    miras en el panel, o el dueño de la cuenta reconecta el asistente pidiéndolo
+    explícitamente. El porqué está en [Seguridad](/seguridad).
+  </Accordion>
+</AccordionGroup>
+
+Si necesitas nombrar los estados en inglés porque tu asistente te los devuelve
+así, esta es la equivalencia con lo que ves en pantalla:
+
+| En tu pantalla | Como te lo puede nombrar tu asistente |
+| --- | --- |
+| Por cobrar | `pending_payment` |
+| Pago parcial | `partial` |
+| Pagado | `paid` |
+| Facturado | `invoiced` |
+| En camino | `shipped` |
+| Entregado | `delivered` |
+| Cerrado | `closed` |
+| Cancelado | `cancelled` |
+
+## Y ahora
+
+<CardGroup cols={3}>
+  <Card title="El catálogo" icon="tag" href="/guias/catalogo">
+    De donde salen los precios de cada pedido. Si está incompleto, los pedidos
+    no se abren.
+  </Card>
+  <Card title="Las conversaciones" icon="comments" href="/guias/conversaciones">
+    El chat del que nació cada venta, y dónde se pierden las que no cierran.
+  </Card>
+  <Card title="Créditos y recarga" icon="wallet" href="/primeros-pasos/creditos-y-recarga">
+    Qué consume saldo y cómo se recarga.
+  </Card>
+</CardGroup>

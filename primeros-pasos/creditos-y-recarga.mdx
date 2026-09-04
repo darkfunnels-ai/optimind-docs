@@ -1,0 +1,141 @@
+---
+title: "Créditos y recarga"
+description: "Qué gasta saldo, cuánto te dura, qué pasa exactamente cuando llegas a cero y cómo recargar desde el panel."
+---
+
+Los créditos son **dólares**: US$ 1 de crédito = US$ 1. No hay puntos, ni packs
+con equivalencias raras, ni caducidad mensual del saldo que compraste.
+
+## De dónde salen los primeros
+
+{/* Cifra de producto: la fuente es billing.welcome_amounts() (migración z×187).
+    Si cambia allá, cambia aquí — estos docs son un deploy estático sin acceso a la BD. */}
+
+Tu prueba trae **US$10 de crédito y 15 días con hasta 5 agentes activos** —
+más **US$25** si te registraste con un código de referido.
+
+Se acreditan **al conectar tu WhatsApp**, no al registrarte, y el reloj de los
+15 días arranca en ese mismo instante. Antes de eso tu saldo dice US$ 0 y no es
+un fallo. Lo cuenta [Conecta tu WhatsApp](/primeros-pasos/conecta-whatsapp).
+
+<Note>
+Los créditos de bienvenida se otorgan **una sola vez por cuenta**, de por vida.
+Desconectar y reconectar el canal no los duplica ni los quita.
+</Note>
+
+## Qué consume saldo
+
+Lo que consume es **el trabajo de la IA**, y se mide de verdad: no hay tarifa
+plana por mensaje ni redondeos a tu favor ni al nuestro.
+
+- **Cada turno que responde tu agente** — lo que lee del hilo y lo que escribe.
+  Una conversación larga cuesta más que un «¿cuánto cuesta?» respondido en una
+  línea.
+- **Los audios que transcribe**, por segundo de audio.
+- **Las fotos que interpreta** cuando un cliente manda una imagen.
+- **Los documentos que lee** al montar el contexto de tu producto.
+- **La generación de embudos y las propuestas del manual**, cada vez que las
+  pides.
+
+Lo que **no** consume: tener la sesión de WhatsApp conectada, ni usar el panel.
+El gasto lo genera la IA cuando trabaja, no el hecho de estar dado de alta.
+
+## Cuánto te cuesta cada conversación
+
+La unidad que de verdad importa no es el token, es la conversación. Por eso la
+tarjeta de créditos de **Saldo y facturación** te lo traduce con tus propios
+datos: *«Este mes, cada conversación te costó ~US$ 0.15»*, seguido de cuántas
+conversaciones iniciaron tus agentes este mes y cuánto consumieron entre todos.
+
+Es un **promedio del mes en curso**, no una tarifa: sale de dividir lo que
+consumieron tus agentes entre las conversaciones que iniciaron, y es el mismo
+número que ves en el Inicio como **Costo por conversación**. Mientras no haya
+conversaciones en el mes, la tarjeta te lo dice en vez de inventar una cifra.
+
+<Tip>
+Si el promedio te parece alto, casi siempre son conversaciones largas o muchos
+audios: el manual decide cuánto habla tu agente, y un guion que cierra en
+menos pasos también cuesta menos.
+</Tip>
+
+## Cuánto te dura
+
+Depende de cuántas conversaciones tengas y de lo largas que sean, así que
+cualquier número que pusiéramos aquí sería mentira para alguien.
+
+El panel te lo dice con tus datos: en **Saldo y facturación**, la tarjeta de
+créditos proyecta *«A tu ritmo de consumo, el saldo dura ~N días»* usando tu
+consumo real del mes. Es la única cifra en la que conviene fiarse.
+
+## Qué pasa cuando llegas a cero
+
+<Warning>
+Al quedarte sin saldo **tus agentes dejan de responder turnos nuevos**. Las
+conversaciones no se borran y el número sigue conectado: simplemente nadie
+contesta hasta que recargues.
+</Warning>
+
+<Warning>
+**Lo que sí se pierde: el turno que no se respondió.** Los mensajes que te
+escriban mientras estás sin saldo **se guardan y los ves en la bandeja**, pero
+no quedan en una cola: al recargar, tu agente **no contesta lo atrasado**.
+Retoma con el siguiente mensaje que escriba ese cliente. Si nadie vuelve a
+escribir, nadie recibe respuesta — por eso conviene recargar antes, y revisar a
+mano lo que entró mientras tanto.
+</Warning>
+
+El corte no espera al US$ 0 exacto: tu agente se queda mudo cuando el saldo baja
+de **US$ 0,10**, así que puedes ver un resto en pantalla y tenerlo callado igual.
+Por eso el panel distingue tres avisos, y cada uno dice la verdad de su número:
+
+| Aviso | Qué pasó |
+| --- | --- |
+| **Saldo insuficiente** | Te queda algo, pero menos de lo que cuesta un turno. |
+| **Saldo agotado** | Llegaste a cero. |
+| **Saldo en deuda** | El saldo quedó en negativo. Tu próxima recarga descuenta la deuda automáticamente. |
+
+El chip **Saldo** de la barra superior se pone ámbar cuando queda poco y rojo
+cuando el agente ya no responde: es el aviso que verás primero, sin entrar a
+ninguna pantalla.
+
+## Cómo recargar
+
+<Steps>
+  <Step title="Entra a Saldo y facturación">
+    En el menú lateral, bloque **Administración → Dinero**. O pulsa el chip
+    **Saldo** de la barra superior, que lleva al mismo sitio.
+  </Step>
+  <Step title="Pulsa «Recargar créditos»">
+    Se abre el selector de paquetes: **US$ 5, 10, 25, 50 o 100**. Elige y
+    confirma. Todo se paga **en dólares, con tarjeta**.
+  </Step>
+  <Step title="Paga con tarjeta">
+    El cobro va por la pasarela; tu tarjeta queda guardada para las próximas
+    recargas, que se cobran al instante sin volver a escribirla. El saldo se
+    acredita en el momento y lo verás en el historial como un movimiento
+    **Recarga** con su referencia.
+  </Step>
+</Steps>
+
+<Tip>
+Recarga **antes** de quedarte en cero. Mientras el saldo está agotado tu agente
+no contesta, y una venta que no se respondió a tiempo cuesta bastante más que
+US$ 10.
+</Tip>
+
+Si el pago no sale o los paquetes no cargan, el propio panel te ofrece
+**Contactar al equipo** por WhatsApp y lo aplicamos a mano.
+
+## Prueba, suscripción y saldo son tres cosas distintas
+
+Conviene no mezclarlas:
+
+- **La prueba** son 15 días con hasta 5 agentes activos. Cuando termina, tus
+  agentes dejan de responder turnos nuevos aunque te sobre saldo.
+- **La suscripción** es lo que te devuelve los agentes activos cuando la prueba
+  termina.
+- **El saldo** es el combustible de la IA. Se gasta con el uso y se recarga
+  cuando quieras, tengas prueba o suscripción.
+
+Tu saldo comprado **no caduca** al acabar la prueba: sigue ahí cuando te
+suscribas.

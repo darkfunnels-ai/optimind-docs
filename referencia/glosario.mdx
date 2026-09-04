@@ -1,0 +1,143 @@
+---
+title: "Glosario"
+description: "Las palabras propias de OptiMind, explicadas en una línea cada una: agente, embudo, manual, capítulo, catálogo, librería, copiloto, créditos, turno, conversión y el puente para asistentes."
+---
+
+Todas las palabras que esta documentación usa como si ya las conocieras. Si te
+topas con una a media página, vuelve aquí.
+
+## Lo básico
+
+<AccordionGroup>
+  <Accordion title="Panel">
+    La aplicación web donde entras con tu correo:
+    [optimind.darkfunnels.ai](https://optimind.darkfunnels.ai). Todo lo que
+    cuenta esta documentación ocurre ahí, salvo lo marcado como «desde tu
+    asistente».
+  </Accordion>
+  <Accordion title="Agente">
+    Tu vendedor automático. Tiene un nombre con el que se presenta, una forma de
+    hablar, un guion y **un número de WhatsApp**. Si vendes dos cosas muy
+    distintas, son dos agentes.
+
+    → [Tu primer agente](/primeros-pasos/tu-primer-agente)
+  </Accordion>
+  <Accordion title="Embudo">
+    Otro nombre para el agente entero. En el panel verás sobre todo «agente»;
+    en algunas pantallas y en la conexión para asistentes verás «embudo». **Son
+    la misma cosa**: el vendedor con su nombre, su número y su manual.
+  </Accordion>
+  <Accordion title="Copiloto">
+    La IA que vive **dentro** del panel, en el cajón de la derecha. Te arma el
+    primer agente conversando y te ayuda a corregirlo. No la confundas con «tu
+    asistente» (Claude o ChatGPT conectados por fuera).
+  </Accordion>
+</AccordionGroup>
+
+## El guion
+
+<AccordionGroup>
+  <Accordion title="Manual">
+    El guion del agente, y la pantalla donde se edita (menú lateral →
+    **Manual**). Es lo que más vas a tocar. Guarda versiones, así que puedes
+    volver atrás.
+
+    → [El manual del vendedor](/guias/manual)
+  </Accordion>
+  <Accordion title="Capítulo">
+    Cada tramo del guion: saludar y entender qué busca, presentar el producto,
+    resolver el precio, cerrar y tomar los datos. El agente avanza de capítulo
+    en capítulo según lo que pase en la conversación.
+  </Accordion>
+  <Accordion title="Turno">
+    Todo lo que el agente contesta a **un** mensaje del cliente, aunque salgan
+    varios mensajes seguidos. Un turno tiene un tope de 12 mensajes y los
+    archivos cuentan dentro de él; si el texto no cabe, el final se junta en el
+    último mensaje (no se pierde).
+  </Accordion>
+  <Accordion title="Marcador">
+    La marca que escribes dentro de un capítulo para decir **dónde** sale un
+    archivo: `###SEND_FILES: catalogo###`. Bien escrita, el cliente no la ve: se
+    sustituye por el archivo. Si le falta un signo, sale escrita tal cual en el
+    chat — por eso conviene insertarla con el botón **Recursos** del manual y no
+    a mano.
+
+    → [La Librería de archivos](/guias/libreria)
+  </Accordion>
+</AccordionGroup>
+
+## Lo que el agente usa
+
+<AccordionGroup>
+  <Accordion title="Catálogo">
+    Tus productos con precios y variantes. Es de donde el agente saca los
+    números: sin catálogo no tiene precios que dar.
+
+    → [El catálogo](/guias/catalogo)
+  </Accordion>
+  <Accordion title="Librería">
+    Los archivos del negocio: fotos, catálogos en PDF, listas de precios,
+    audios. En el menú se llama **Librería** y la pantalla se titula
+    **«Archivos»**.
+
+    → [La Librería de archivos](/guias/libreria)
+  </Accordion>
+  <Accordion title="Condición de envío">
+    El apodo de un archivo: la palabra con la que lo llamas desde el guion. Por
+    defecto es el nombre del archivo sin la extensión. Pese a su nombre **no es
+    una frase en prosa**: para acertar por el apodo, el apodo tiene que estar
+    **entero** en el marcador (las mayúsculas y las tildes dan igual). Si no
+    encaja con nada, el sistema no se calla: cae a un parecido de palabras que
+    **puede entregar otro archivo**.
+
+    → [La Librería de archivos](/guias/libreria)
+  </Accordion>
+  <Accordion title="Memoria del agente">
+    El permiso de que el agente **lea** un archivo para responder preguntas
+    sobre él, sin mandárselo nunca al cliente. Se activa por archivo, en la
+    Librería.
+  </Accordion>
+</AccordionGroup>
+
+## El dinero y los resultados
+
+<AccordionGroup>
+  <Accordion title="Créditos / saldo">
+    Lo que se consume cuando tu agente conversa. Con el saldo en cero tus
+    agentes dejan de responder turnos nuevos, y tampoco se pueden procesar
+    archivos para memoria.
+
+    → [Créditos y recarga](/primeros-pasos/creditos-y-recarga)
+  </Accordion>
+  <Accordion title="Conversión">
+    Una venta registrada por el agente durante la conversación. Es la unidad con
+    la que se miden los resultados; una venta anulada deja de contar.
+
+    → [Pedidos y métricas](/guias/pedidos-y-metricas)
+  </Accordion>
+</AccordionGroup>
+
+## Solo si conectas Claude o ChatGPT
+
+<AccordionGroup>
+  <Accordion title="Tu asistente">
+    Claude, ChatGPT o Codex conectados a tu negocio **desde fuera** del panel.
+    Es opcional. En esta documentación «tu asistente» siempre significa eso, y
+    nunca el copiloto del panel.
+  </Accordion>
+  <Accordion title="MCP y «el puente»">
+    **MCP** es el estándar que usan Claude y ChatGPT para conectarse a
+    herramientas externas. **El puente** es nuestra conexión a ese estándar: lo
+    que hace que tu asistente pueda leer y cambiar cosas de tu negocio, con tu
+    autorización.
+
+    → [La URL de conexión](/referencia/url-de-conexion) · [Seguridad](/seguridad)
+  </Accordion>
+  <Accordion title="Herramienta (tool)">
+    Cada acción concreta que tu asistente puede ejecutar por el puente: listar
+    archivos, leer el manual, registrar algo. Tú no las escribes; se las pides
+    en tu idioma.
+
+    → [Referencia de herramientas](/referencia/tools)
+  </Accordion>
+</AccordionGroup>

@@ -29,14 +29,15 @@
             ]
           },
           {
-            "group": "Conecta tu asistente",
+            "group": "Primeros pasos",
             "pages": [
-              "quickstarts/claude-ai",
-              "quickstarts/claude-code",
-              "quickstarts/codex",
-              "quickstarts/chatgpt",
-              "quickstarts/otros-clientes",
-              "referencia/url-de-conexion"
+              "primeros-pasos/crea-tu-cuenta",
+              "primeros-pasos/tu-primer-inicio",
+              "primeros-pasos/las-apps",
+              "primeros-pasos/tu-primer-agente",
+              "primeros-pasos/conecta-whatsapp",
+              "primeros-pasos/creditos-y-recarga",
+              "primeros-pasos/planes-y-precios"
             ]
           },
           {
@@ -53,6 +54,8 @@
           {
             "group": "Referencia",
             "pages": [
+              "referencia/glosario",
+              "referencia/faq",
               "referencia/tools"
             ]
           },
@@ -60,6 +63,17 @@
             "group": "Seguridad",
             "pages": [
               "seguridad"
+            ]
+          },
+          {
+            "group": "Opcional: opéralo desde Claude o ChatGPT",
+            "pages": [
+              "quickstarts/claude-ai",
+              "quickstarts/claude-code",
+              "quickstarts/codex",
+              "quickstarts/chatgpt",
+              "quickstarts/otros-clientes",
+              "referencia/url-de-conexion"
             ]
           }
         ]
@@ -80,13 +94,13 @@
               "en/quickstarts/claude-code",
               "en/quickstarts/codex",
               "en/quickstarts/chatgpt",
-              "en/quickstarts/other-clients"
+              "en/quickstarts/otros-clientes"
             ]
           },
           {
             "group": "Security",
             "pages": [
-              "en/security"
+              "en/seguridad"
             ]
           }
         ]
@@ -96,6 +110,13 @@
   "footer": {
     "socials": {
       "website": "https://darkfunnels.ai"
+    }
+  },
+  "navbar": {
+    "primary": {
+      "type": "button",
+      "label": "Entrar al panel",
+      "href": "https://optimind.darkfunnels.ai"
     }
   }
 }

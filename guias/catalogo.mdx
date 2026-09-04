@@ -1,286 +1,721 @@
 ---
 title: "El catálogo de productos"
-description: "Carga y mantén tu catálogo desde el asistente: alta masiva, precios y monedas, variantes, stock y qué es irreversible."
+description: "Dar de alta tus productos desde el panel —clic por clic— con su precio, sus tallas, su stock y su foto, para que el agente cotice lo que tú pusiste."
 ---
 
-El catálogo es la lista de lo que vendes. Es **uno por negocio**: todos tus
-agentes buscan en la misma lista, no hay un catálogo por embudo ni por agente.
+Tu agente no sabe cuánto cuesta nada hasta que se lo dices. **El catálogo es
+donde se lo dices**: un producto, un precio, sus tallas, su foto. De ahí saca
+los números cuando el cliente pregunta «¿cuánto está?».
 
-Tu asistente puede leerlo entero, cargarlo de golpe y corregirlo. También puede
-romperlo, así que esta guía va sobre las dos cosas.
+Esta guía es el recorrido completo desde la pantalla, clic por clic. Los
+ejemplos van con una tienda de ropa inventada, **Moda Sol**, y su producto
+estrella: el **Polo oversize de algodón pima**.
 
 <Note>
-Leer el catálogo funciona con la conexión básica. **Escribir no**: hace falta
-`catalog_write` en la URL con la que conectaste. El grupo de escritura arrastra
-el suyo de lectura, así que dentro del catálogo nunca escribes a ciegas — pero
-una lista explícita reemplaza al set por defecto, así que `?features=catalog_write`
-a secas te deja sin conversaciones ni manual. Con `?features=all` lo tienes todo.
-Los cuatro parámetros, en [La URL de conexión](/referencia/url-de-conexion).
+**Dónde está.** Entra al panel en
+[optimind.darkfunnels.ai](https://optimind.darkfunnels.ai) y, en el menú de la
+izquierda, dentro de la fila de **Ventas**, pulsa **Catálogo**. (Si prefieres ir
+directo, escribe `optimind.darkfunnels.ai/catalog` en la barra del navegador.
+La dirección antigua, `/catalogo`, te lleva sola a la nueva.)
 </Note>
 
-## Las cuatro herramientas
+<Frame caption="Así se ve el Catálogo el primer día: «Aún no hay productos» y un botón naranja arriba a la derecha.">
+  <img src="/images/catalogo/01-vacio.png" alt="Pantalla Catálogo vacía con el mensaje «Aún no hay productos» y el botón Añadir producto" />
+</Frame>
 
-| Herramienta | Qué hace |
+## Para qué sirve el catálogo
+
+La propia pantalla lo resume debajo del título: *«Tus productos, sincronizados
+desde tu tienda o creados a mano. El precio sale de aquí; el agente nunca lo
+inventa.»* (Si tienes más de un agente esa frase cambia, y te avisa de que la
+lista está recortada al agente que tienes abierto.)
+
+Eso es literal: el agente lleva escrita la orden de consultar el catálogo cada
+vez que el cliente pregunta por un producto o su precio, y de no inventarse
+precios. La consecuencia práctica es simple: **lo que no está en el catálogo es
+lo que tu agente no sabe cotizar.**
+
+<Tip>
+**Cargarlo es todo lo que tienes que hacer.** No hay que enlazar el producto al
+manual, ni nombrarlo en ningún capítulo, ni encender nada más. En cuanto lo
+guardas, el agente ya puede encontrarlo y ofrecerlo. Dos matices honestos: los
+cambios pueden tardar **hasta un minuto** en llegar a una conversación que ya
+está en marcha, y si en el producto marcas embudos concretos, los demás dejan de
+verlo (lo cuenta [Visible y Activo](#visible-y-activo-no-son-lo-mismo)).
+</Tip>
+
+## Las palabras de esta pantalla
+
+| Palabra | Qué significa, en cristiano |
 | --- | --- |
-| `list_products` | Lista paginada (20 por defecto, 100 como máximo). Filtra por texto, visibilidad, activo y tipo. |
-| `get_product` | Ficha completa de un producto: descripción, variantes, imágenes, tramos de precio. |
-| `upsert_products` | Crea o actualiza hasta 100 productos por llamada. **Destructiva.** |
-| `delete_product` | Borra un producto. **Definitivo, sin papelera.** |
+| **Producto** | La ficha completa: nombre, descripción, fotos y precio. |
+| **Variante** | Cada versión vendible de ese producto: la talla M negra, el frasco de 500 ml. Cada una tiene **su propio precio y su propio código**. |
+| **SKU** | El código con el que tú identificas una variante (`POLO-NEG-M`). Es opcional; sirve para buscar. |
+| **Tipo** | Si eso que vendes es **Producto físico**, **Servicio** o **Infoproducto**. Se elige lo primero y cambia el resto del formulario. |
+| **Activo** | Si el agente puede encontrarlo al buscar. |
+| **Visible en el catálogo** | Si sale en el catálogo que WhatsApp muestra dentro del perfil de tu negocio. **No es lo mismo que Activo.** |
 
-Eso es todo. No hay una herramienta que suba un CSV ni que se conecte a tu
-tienda: quien lee el fichero o la tienda es **tu asistente**, y luego escribe el
-resultado con `upsert_products`.
-
-## La regla que evita desastres
-
-`upsert_products` **no es un parche**. Cada producto que mandas es una fila
-completa que **reemplaza** a la que había, igual que la subida de un CSV: una
-celda que no mandas se escribe vacía.
-
-Por eso el orden correcto es siempre el mismo:
+## Tu primer producto, clic por clic
 
 <Steps>
-  <Step title="Leer">
-    `get_product` con el id del producto. Te devuelve la fila entera.
+  <Step title="Pulsa «Añadir producto»">
+    Está arriba a la derecha, en naranja, junto a otro botón llamado **Plantilla
+    CSV**. Con el catálogo vacío tienes además el mismo botón en el centro de la
+    pantalla, debajo de *«Aún no hay productos»*.
+
+    **No se abre una página nueva.** Se desliza un panel por el lado derecho,
+    de arriba abajo, sobre el fondo oscurecido. Se titula **Nuevo producto** —y
+    **Editar producto** cuando abres uno que ya existe—. No busques un botón de
+    «volver»: no lo hay, se cierra con **Cerrar** o **Cancelar**.
   </Step>
-  <Step title="Cambiar solo lo tuyo">
-    Sobre esa fila, tocar únicamente lo que pediste cambiar.
+
+  <Step title="Elige qué vas a vender">
+    Lo primero y único que verás es el título **«¿Qué vas a vender?»** con tres
+    tarjetas: **Producto físico**, **Servicio** e **Infoproducto**. Hasta que no
+    elijas una, el resto del formulario no existe y el botón **Guardar** está
+    apagado: no se deja pulsar.
+
+    Para el polo de Moda Sol: **Producto físico**.
+
+    <Frame caption="El panel arranca preguntando qué vendes. Cada tarjeta te dice qué hará el agente si la eliges.">
+      <img src="/images/catalogo/02-nuevo-producto-tipo.png" alt="Panel «Nuevo producto» en el paso «¿Qué vas a vender?» con las tarjetas Producto físico, Servicio e Infoproducto" />
+    </Frame>
   </Step>
-  <Step title="Escribir">
-    `upsert_products` con la fila completa, no con el campo suelto.
+
+  <Step title="Ponle nombre y describe cómo se vende">
+    Elegido el tipo se despliega el formulario entero. En **Título y
+    descripción** solo hay un campo con asterisco: **Nombre \***. Escribe
+    `Polo oversize de algodón pima`.
+
+    La **Descripción** es opcional, pero no es decorativa: el campo lo dice
+    —*«Detalles que el agente puede usar al vender.»*— y es texto que el agente
+    lee cuando encuentra el producto. Le llega **recortado a unos 240
+    caracteres**, así que pon lo que vende en las primeras líneas: *«Algodón
+    pima peruano, corte oversize unisex. Lavable a máquina. Envío a todo el
+    Perú.»*
+
+    <Warning>
+    **El nombre es lo que el cliente tiene que poder decir.** El agente busca por
+    el nombre del producto y por el nombre o el código de sus variantes —**no
+    busca dentro de la descripción**—. Meter «polo», «camiseta» y «remera» solo
+    en la descripción no ayuda a que lo encuentre: ponlo en el nombre.
+    </Warning>
   </Step>
-  <Step title="Verificar">
-    Releer con `get_product` o `list_products` y comprobar el resultado.
+
+  <Step title="Sube las fotos">
+    En **Medios**, arrastra las imágenes o pulsa donde dice **«Arrastra o haz
+    clic para subir»**. Debajo se lee *«PNG, JPG o WEBP. La primera imagen es la
+    principal.»* — es una **recomendación**, no un filtro: el sistema acepta
+    cualquier archivo de imagen, así que un GIF o un HEIC también entran.
+
+    La primera foto lleva la etiqueta **Principal**; las demás se quitan con la
+    **×**. **No se pueden reordenar arrastrando**: para cambiar la principal hay
+    que quitar las que estén delante.
+
+    <Warning>
+    **Las fotos son lo único de este panel que no espera al botón de guardar.**
+    Se suben en el acto, y quitar una la borra del almacenamiento en ese mismo
+    momento. Si subes una foto y luego cancelas el producto, la foto ya se
+    subió. Si quitas una foto y luego cancelas, la foto ya se borró de verdad —y
+    en un producto que ya existía, su ficha se queda apuntando a un archivo que
+    ya no está hasta que la vuelvas a guardar.
+    </Warning>
+
+    <Frame caption="El formulario de un producto físico: Tipo, Título y descripción, Medios y Precios.">
+      <img src="/images/catalogo/03-formulario-fisico.png" alt="Formulario de producto físico relleno con nombre, descripción, foto y precio" />
+    </Frame>
+  </Step>
+
+  <Step title="Pon el precio">
+    En **Precios** hay dos campos: **Precio \*** y la moneda. La moneda tiene
+    **solo dos opciones —«PEN (S/)» y «USD ($)»— y viene puesta en PEN**. Desde
+    esta pantalla no hay más monedas.
+
+    Para el polo: `79` y `PEN (S/)`. Si te dejas el precio vacío o escribes algo
+    que no es un número, al guardar sale *«Pon un precio válido.»*
+
+    Debajo verás el interruptor **Precios por cantidad**. Déjalo apagado por
+    ahora: lo vemos en [su propia sección](#precios-por-cantidad-el-mayoreo).
+  </Step>
+
+  <Step title="Decide si llevas la cuenta del stock">
+    En **Inventario** hay un interruptor **Controlar stock** y un campo **SKU**
+    (con el ejemplo `XL-25`). Enciéndelo solo si de verdad quieres que el agente
+    deje de ofrecer lo agotado — te lo explica ahí mismo: *«El agente avisa
+    cuando algo se agota y no ofrece lo que no tienes.»*
+
+    <Warning>
+    **Aquí no se escriben las cantidades.** Al encender **Controlar stock**
+    aparece **Cantidad disponible**, pero es de **solo lectura**: no te deja
+    teclear. Debajo lo dice el propio panel — *«Lo lleva Inventario. Para
+    moverlo, registra un movimiento en Inventario»*— con un enlace a esa
+    pantalla. Es la confusión más común de este formulario.
+    </Warning>
+  </Step>
+
+  <Step title="Añade tallas y colores, si los tienes">
+    En un producto físico el bloque se llama **Variantes** y trae el botón
+    **Generar variantes por opciones**: le das los ejes (Color: negro, blanco,
+    arena / Talla: S, M, L, XL) y te crea las combinaciones de un clic, con
+    **SKU automático** si lo pides. Admite hasta **3 ejes** y **100
+    combinaciones**.
+
+    Lo cuenta entero la sección [Variantes](#variantes-tallas-y-colores).
+
+    <Frame caption="La mitad de abajo del panel: Inventario con su SKU, las Variantes y la Disponibilidad.">
+      <img src="/images/catalogo/04-inventario-variantes.png" alt="Bloques Inventario, SKU, Variantes y Disponibilidad del formulario de producto" />
+    </Frame>
+  </Step>
+
+  <Step title="Guarda — y comprueba que salió en la tabla">
+    El último bloque es **Disponibilidad**, con **Visible en el catálogo** y
+    **Activo** encendidos. Déjalos así y pulsa **Guardar**.
+
+    El producto aparece arriba del todo en la tabla, con sus columnas:
+    *producto, sku, precio, inventario, embudos, visible, origen* y una última
+    con las acciones.
+
+    <Frame caption="El producto guardado, con sus columnas. La columna «inventario» dice «Sin control» cuando no lo controlas.">
+      <img src="/images/catalogo/05-tabla-con-producto.png" alt="Tabla del catálogo con un producto guardado y todas sus columnas" />
+    </Frame>
+
+    <Warning>
+    **Cerrar el panel tira todo lo escrito, sin avisar.** Da igual que pulses
+    **Cerrar** arriba, **Cancelar** abajo o que hagas clic fuera del panel, en
+    la zona oscura: no hay confirmación ni borrador guardado. Lo único que
+    conserva tu trabajo es **Guardar**.
+    </Warning>
   </Step>
 </Steps>
 
-El puente te obliga a hacerlo. Antes de tocar nada, `upsert_products` revisa que
-cada fila declare:
+## Los tres tipos, y en qué se diferencian de verdad
 
-- `name`
-- `description` (vale `null`, pero la clave tiene que estar)
-- `active` y `visibility`
-- su forma: `has_variants` en `false` **con** `sku`, `price` y `currency`, o
-  `has_variants` en `true` **con todas** sus variantes completas.
+El tipo no es una etiqueta: **cambia qué campos ves y qué hace el agente
+después**. Cada tarjeta te lo dice al elegirla.
 
-Si falta cualquiera de esas, la llamada rebota con un error que te dice qué
-falta y te manda a leer con `get_product`. No es burocracia: sin `description`
-el catálogo borraría la descripción, y sin `active` reactivaría un producto que
-tenías apagado.
+| Tipo | Lo que dice la tarjeta | Qué cambia en el formulario |
+| --- | --- | --- |
+| **Producto físico** | *«El agente cotiza el envío y genera la guía.»* | Bloque **Variantes**, con el generador de tallas y colores. |
+| **Servicio** | *«El agente lo vende y coordina por chat. No genera envío.»* | El bloque se llama **Modalidades**: pide nombre y precio de cada modalidad. |
+| **Infoproducto** | *«Su envío es digital: se entrega solo, apenas se confirma el pago.»* | **No tiene** bloque de variantes. A cambio aparece **Entrega automática**. |
 
-<Warning>
-Si mandas un producto **sin `id`**, el destino se busca por el nombre. Un nombre
-igual al de un producto que ya existe lo **sobrescribe** en vez de crear uno
-nuevo. Cuando actualices algo, que tu asistente use siempre el `id`.
-</Warning>
-
-## Frases para copiar y pegar
-
-Cargar un catálogo desde un fichero que le pasas al asistente:
-
-```text
-Te paso mi lista de productos. Antes de escribir nada, lista lo que ya hay
-en mi catálogo de OptiMind para no duplicar. Después súbelos con
-upsert_products en lotes de 100, cada fila completa, y enséñame el
-resumen de created / updated / errors.
-```
-
-Cambiar un precio sin romper nada:
-
-```text
-Sube el precio del Shampoo Anticaída a 69.90 soles. Lee la ficha con
-get_product primero y reenvía la fila entera con ese único cambio.
-Confírmame la moneda antes de escribir.
-```
-
-Dejar de ofrecer algo sin borrarlo:
-
-```text
-Pon el Combo Verano como inactivo. Lee su ficha, cambia solo active a
-false y reenvía la fila completa.
-```
-
-## Cargar un catálogo de cero
-
-- Máximo **100 productos por llamada**. Si tienes 400, son cuatro llamadas.
-- Los errores llegan **fila a fila**. La llamada puede responder que fue bien y
-  traer dentro cinco filas fallidas. Pide siempre `created`, `updated` y
-  `errors`.
-- Cada fila que sale bien te devuelve su `product_id` en `results`. Ese id vale
-  tal cual para `get_product`.
-- Nombres claros y **únicos**: el identificador interno sale del nombre.
-
-<Tip>
-Después de cargar, pídele: *«ábreme con `get_product` tres de los que acabas de
-subir y enséñame el precio y la moneda de cada variante»*. Que sea `get_product`
-importa: en el listado, el precio es el **mínimo** entre variantes y el SKU el de
-la más barata, así que un lote que subió la moneda equivocada en una variante
-puede parecer correcto de lejos.
-</Tip>
-
-### Si tu catálogo viene sincronizado de una tienda
-
-Los productos que entran a OptiMind sincronizados desde una tienda son de
-**solo lectura** para el puente. `upsert_products` los rechaza con
-`producto sincronizado (solo lectura)` y `delete_product` también. Se leen
-bien; no se editan desde aquí.
-
-## Precios y monedas
-
-La moneda vive **en cada variante**, no en el negocio. Un mismo catálogo puede
-tener productos en soles y productos en dólares.
-
-<Warning>
-La moneda es texto libre: no hay lista blanca, no se valida. Si tu asistente
-escribe `PEM` en lugar de `PEN`, se guarda `PEM` sin un solo error. Que copie
-siempre la moneda de la fila que acaba de leer, y que te **pregunte** cuando le
-des un precio sin moneda.
-</Warning>
-
-Al leer un producto con varias variantes, `get_product` te da un resumen, no la
-verdad completa:
-
-- `price` es el **mínimo** entre sus variantes.
-- `currency` es la de la **primera** variante. Si esa variante no tiene moneda
-  guardada, lees `PEN` aunque nadie lo haya escrito nunca.
-
-Para el precio real de cada variante, mira la lista `variants`.
-
-### Precio por cantidad
-
-Un producto puede llevar una escala de precios (`price_tiers`): tramos exactos
-`{qty, total}`, un tramo abierto `beyond` con `{min_qty, unit}` y una promoción
-con fecha de fin. Reglas que verifica el sistema al escribir:
-
-- La escala exige **moneda uniforme** entre las variantes del producto. Con dos
-  monedas, la fila rebota.
-- Un tramo exacto que quede tapado por el tramo abierto rebota con un mensaje
-  que te dice cuál.
-- Los precios por unidad con más de dos decimales rebotan: no se pueden cobrar.
-  El límite de dos decimales vale tanto para el `total` de cada tramo como para
-  el `unit` del tramo abierto.
-- Hace falta un tramo de **una unidad**, las cantidades no se repiten y los
-  totales tienen que crecer de tramo en tramo.
-- Mandar `price_tiers` en `null` **borra** la escala. No mandar la clave la deja
-  como estaba.
-
-La escala solo aparece en `get_product`. `list_products` no la trae, así que
-«no la veo en la lista» no significa que no exista.
-
-## Variantes
-
-Una variante es cada versión vendible: talla, sabor, presentación. Su identidad
-es un `id` propio, y ese id es lo que enlaza tus pedidos y tu stock.
-
-Cuando actualizas un producto con variantes, mandas **todas**:
-
-- Una variante que existe y **no mandas** se **elimina**.
-- Una variante que mandas **sin su `id`** crea otra nueva y borra la vieja: los
-  pedidos y el stock que apuntaban a ella se quedan sin referencia. Hay una sola
-  excepción: una única variante entrante contra un producto que tiene una sola
-  variante se adopta (es el reenvío del producto simple). Con dos o más, el `id`
-  es obligatorio.
-- Cada variante va completa: `sku`, `title`, `price`, `currency` y `options`.
-  `null` vale; ausente borra.
-
-<Warning>
-Decirle `has_variants: false` a un producto que sí tiene varias variantes
-**arrasa con todas** y las sustituye por una sola construida con los campos
-raíz. Es el error más caro del catálogo, y es exactamente el que se evita
-leyendo con `get_product` antes de escribir.
-</Warning>
-
-Un producto de una sola variante se lee como `has_variants: false`, con su SKU y
-su precio al nivel raíz. Reenviarlo así no rompe referencias —la variante se
-adopta y conserva su id—, **pero borra su título y sus opciones**: la fila simple
-no los lleva. Si esa variante tiene título u opciones que importan, reenvíala
-como `has_variants: true` con su `id`, `title` y `options` leídos de
-`get_product`.
-
-## Stock: el catálogo no lo escribe
-
-La cantidad **no se toca desde aquí**. Vive en el libro de Inventario y solo se
-mueve registrando un movimiento en el panel. Aunque mandes una cantidad en
-`upsert_products`, no se escribe.
-
-Lo que sí lees:
-
-- `inventory_qty` con número: la suma de las variantes que llevan control.
-- `inventory_qty` en `null`: **el producto no lleva control de stock**. Así se
-  representa el «stock infinito»: no es un cero, es la ausencia de control, y el
-  agente lo sigue ofreciendo igual.
+El aviso del control de stock también cambia: en un producto físico habla de
+existencias, en un servicio de **cupos disponibles** (*«El agente no ofrece lo
+que se agotó.»*) y en un infoproducto de **licencias o accesos limitados**. Así
+que «stock» aquí no es solo cajas en un almacén.
 
 <Note>
-Encender o apagar el control de stock de un producto tampoco se puede hacer
-desde el asistente: `upsert_products` no tiene ese campo. Eso se declara en el
-panel, en Inventario.
+**Cambiar el tipo de un producto que ya existe no borra nada al momento.** El
+propio panel lo dice: *«Cambiar el tipo oculta lo que ya no aplica. Nada se
+borra hasta que guardes.»* Si el cambio sí va a quitar datos —pasar a
+infoproducto un producto que tiene varias variantes, por ejemplo— el guardado
+te pide una confirmación de dos pasos con el botón **Convertir y guardar**.
 </Note>
 
-Si tienes la app Inventario activa y el grupo `orders` en tu conexión (con
-`?features=all`, o nombrándolo en una lista que incluya todo lo que uses), hay
-una lectura aparte, `list_stock`, con el saldo por almacén. Ojo: el contador del
-catálogo y el total del libro de inventario **pueden no coincidir**, y la
-herramienta te devuelve los dos precisamente para que lo veas.
+### Si vendes un curso o un ebook: «Entrega automática»
 
-## Activo y visible no son lo mismo
+En un infoproducto aparece un bloque que no está en los otros dos, y explica
+solo para qué sirve: *«Cuando el pago se confirma (voucher aprobado), el agente
+le manda esto al cliente sin que tú hagas nada.»* Tienes dos opciones:
 
-Son dos interruptores distintos, y solo uno hace lo que esperas:
+- **Un archivo de la Librería** — solo se ofrecen los archivos que ya estén
+  marcados como enviables para el agente abierto. Se preparan en
+  [La Librería de archivos](/guias/libreria).
+- **Un enlace** — tiene que empezar por `http://` o `https://`.
 
-- **`active: false`** deja el producto fuera de lo que tu agente encuentra
-  cuando busca en el catálogo. Es la forma de retirar algo sin borrarlo.
-- **`visibility: hidden`** filtra la herramienta `list_products`, pero la
-  búsqueda del agente de WhatsApp **no mira ese campo**. Ocultar un producto no
-  impide que el agente lo ofrezca.
+Si guardas sin ninguna de las dos, el producto **se guarda igual**, pero el
+panel te avisa: *«Ojo: sin archivo ni enlace, el agente no podrá entregarlo
+solo.»* Y en la lista, ese producto queda marcado bajo su nombre como
+**«Infoproducto · ⚠️ sin entrega»**. Merece la pena arreglarlo: si no, el agente
+puede cobrar algo que después no sabe entregar.
 
-Si quieres que deje de venderse, `active: false`.
+## El formulario, bloque por bloque
 
-## Entrega digital
+Elegido el tipo, el panel muestra **siete bloques**. Seis son siempre los
+mismos; el séptimo depende del tipo y va entre **Inventario** y
+**Disponibilidad**.
 
-Un infoproducto entrega por variante: un archivo de tu Librería
-(`access_file_id`) o un enlace (`access_url`). Aquí la regla de «lo que no
-mandas se borra» **no** aplica: si la fila no menciona esas dos claves, la
-entrega se conserva. Mandar `null` explícito sí la apaga.
+| Orden | Bloque | Para qué es |
+| --- | --- | --- |
+| 1 | **Tipo** | Qué vendes. Se elige primero y condiciona el resto. |
+| 2 | **Título y descripción** | El nombre (obligatorio) y el texto que el agente usa al vender. |
+| 3 | **Medios** | Las fotos. |
+| 4 | **Precios** | Precio, moneda y la escala por cantidad. |
+| 5 | **Inventario** | El interruptor de control de stock y el SKU. |
+| 6 | **Variantes** / **Modalidades** / **Entrega automática** | Según el tipo. El infoproducto no tiene variantes. |
+| 7 | **Disponibilidad** | Visible, Activo y —si tienes más de un agente— qué embudos lo venden. |
+
+### Qué es obligatorio de verdad
+
+Poco. **Tres cosas**, en este orden:
+
+1. **El tipo.** Sin él no se ve ningún otro campo.
+2. **Nombre \***. Si falta: *«El nombre es obligatorio.»*
+3. **Precio \***. Si está vacío o no es un número: *«Pon un precio válido.»*
+
+Todo lo demás —descripción, fotos, SKU, variantes, stock, embudos— es opcional
+y se puede rellenar después.
+
+<Note>
+**Con «Precios por cantidad» encendido, el precio obligatorio se muda.** El
+campo de arriba se bloquea y el que hay que rellenar pasa a ser la fila de **1
+unidad** de la escala. El aviso también cambia: te hablará del precio de 1
+unidad, no de «Pon un precio válido».
+</Note>
 
 <Warning>
-El enlace de entrega **no se valida** cuando lo escribe el asistente: un
-`access_url` mal escrito se guarda tal cual, sin un solo error. Si cambias la
-entrega de un infoproducto, ábrelo y compruébalo tú.
+**No dejes productos con precio 0.** Se guardan sin protestar, pero después
+**no aparecen en el desplegable de productos** cuando registras una venta o un
+pedido a mano: ese desplegable solo trae productos activos cuyas variantes
+cuesten más de cero.
 </Warning>
 
-## Imágenes
+## Precios por cantidad (el mayoreo)
 
-`get_product` te las lista, pero `upsert_products` **no las toca**: subir un
-lote no borra ni cambia las fotos de tus productos. Las imágenes se gestionan
-en el panel.
+Es la función más potente de esta pantalla y la menos evidente. Enciende
+**Precios por cantidad** y declaras el **precio total exacto de cada cantidad**,
+no un descuento en porcentaje:
 
-## Borrar es definitivo
+| Cantidad | Precio total |
+| --- | --- |
+| 1 | S/ 79 |
+| 2 | S/ 149 |
+| 3 | S/ 209 |
 
-`delete_product` borra el producto con sus variantes e imágenes. **No hay
-papelera.** Consecuencias reales:
+Se añaden filas con **+ Añadir tramo**. Y con **+ De N a más (precio por
+unidad)** defines el tramo abierto: *de 6 a más, S/ 65 cada uno*.
 
-- Si una variante está atada a un checkout activo, el borrado rebota con error.
-  Es una protección, no un fallo.
-- Las ventas y pedidos pasados que apuntaban a esas variantes **pierden la
-  referencia** a qué se vendió.
+<Warning>
+**En cuanto lo enciendes, el campo «Precio» de arriba se bloquea** y pasa a
+llamarse **Precio (1 unidad, de la escala)**. No es un fallo: el precio ahora se
+escribe en la fila de 1 unidad de la tabla.
+</Warning>
 
-Casi siempre lo que quieres es `active: false`, no borrar. Tu asistente te pedirá
-confirmación —la herramienta está marcada como destructiva—, y ese es el momento
-de pensarlo.
+**Para las cantidades que no están en tu escala, el agente combina tramos y
+suma.** Si el cliente pide 10 polos y tu escala llega a 3, cobra 3 + 3 + 3 + 1.
+Si prefieres un precio por unidad limpio a partir de cierta cantidad, define el
+tramo abierto **De N a más**.
 
-## Trampas verificadas
+También hay **Promoción con fecha de fin**, con el campo **Vigente hasta**.
+Mientras esté vigente, ese precio manda sobre la escala de lista en la
+conversación.
 
-- **Un lote «exitoso» puede traer filas rotas.** Los errores viajan dentro de la
-  respuesta, no como fallo de la llamada. Revisa `errors` siempre.
-- **Un producto simple sin SKU no se puede reenviar tal cual.** `get_product` te
-  lo devuelve como `null`, pero la fila simple no acepta `null` ahí. Que tu
-  asistente mande una cadena vacía.
-- **El tipo de producto que no se reconoce se ignora en silencio.** Solo valen
-  `physical`, `service` y `digital` (o «físico», «servicio», «digital»,
-  «infoproducto»). Escribir «Colchón» no da error: simplemente no cambia nada.
-- **Los textos del catálogo llegan marcados como datos, no como órdenes.** Si un
-  nombre o una descripción puede confundirse con una instrucción, viaja entre
-  delimitadores tipo `<<<UNTRUSTED_DATA_…>>>`. Si tu asistente intenta
-  reescribirlos con esos delimitadores dentro, la escritura rebota: tiene que
-  mandar el texto de dentro, limpio. Es a propósito.
-- **El puente nunca cobra.** Editar el catálogo no emite links de pago ni toca tu
-  pasarela. Los detalles en [Seguridad](/seguridad).
+<Note>
+**La promoción no viaja al catálogo de WhatsApp.** En el catálogo que WhatsApp
+muestra en el perfil de tu negocio se publica siempre el precio **de lista** de
+1 unidad, nunca el de la promoción. Es a propósito: si se publicara la promo,
+se quedaría pegada ahí cuando venciera. En el chat, la promoción sí manda.
+</Note>
+
+<Note>
+**La escala solo se quita desde este panel.** Dejar en blanco su casilla en el
+archivo CSV no la borra: la deja como estaba.
+</Note>
+
+## Variantes: tallas y colores
+
+Moda Sol vende el mismo polo en 3 colores y 4 tallas. Eso son **12 variantes**,
+y no hace falta escribirlas una a una.
+
+<Steps>
+  <Step title="Pulsa «Generar variantes por opciones»">
+    Está en el bloque **Variantes**.
+  </Step>
+  <Step title="Declara los ejes">
+    *Color*: negro, blanco, arena. *Talla*: S, M, L, XL. Puedes usar hasta
+    **3 ejes** (color, talla y, por ejemplo, manga).
+  </Step>
+  <Step title="Genera">
+    Salen las 12 combinaciones de un clic. Marca **SKU automático** y cada una
+    nace con su código. El tope son **100 combinaciones** por producto.
+  </Step>
+  <Step title="Ajusta los precios que se salgan de la norma">
+    Cada fila lleva su propio precio. Si la XL cuesta S/ 10 más, se cambia ahí.
+  </Step>
+</Steps>
+
+<Warning>
+**En cuanto el producto tiene varias variantes, el «Precio» y el «SKU» de
+arriba dejan de mandar.** Cada variante guarda los suyos, y lo que escribas
+arriba no se guarda: solo sirve como precio base al generar la matriz. Al
+reabrir el producto, ese campo de arriba te muestra **el más barato** de sus
+variantes.
+
+Si cambias el precio arriba y juras que no se guardó, es esto. **Cambia el
+precio en la fila de la variante.**
+</Warning>
+
+<Note>
+**En un servicio se llaman «Modalidades» y son lo mismo** con otro nombre:
+*Consulta express*, *Consulta completa*, *Paquete de 4 sesiones*. Piden nombre
+y precio. Los **Cupos** se muestran pero no se teclean —igual que el stock, los
+lleva Inventario—. Un infoproducto no tiene este bloque: una sola presentación.
+</Note>
+
+## Stock: cuándo encenderlo
+
+**Enciende «Controlar stock» solo si vas a registrar los movimientos.** Si lo
+enciendes y nunca cargas existencias, el agente creerá que no te queda nada.
+
+| Lo que ves en la columna **inventario** | Qué significa |
+| --- | --- |
+| Un número | Llevas control y te quedan esas unidades. |
+| **Agotado** | Llevas control y estás en cero: al agente le llega marcado como agotado, con la orden de no prometerlo. |
+| **Sin control** | No llevas la cuenta. El agente puede ofrecerlo sin mirar existencias. |
+
+Con el control encendido y el stock en cero, al agente le llega esa variante
+marcada como **agotada y con la orden de no prometerla** —es lo que la pantalla
+resume como *«El agente avisa cuando algo se agota y no ofrece lo que no
+tienes.»*—. Sin control encendido no hay nada que se agote: es la opción
+correcta para un servicio que puedes dar sin límite de cupos, o para un producto
+que fabricas por encargo.
+
+Las cantidades se mueven en la pantalla **Inventario**, registrando un
+movimiento. Desde el catálogo solo se declara **si** el producto lleva control.
+
+## Visible y Activo no son lo mismo
+
+Esta es la confusión más cara de la pantalla. Los dos interruptores están en
+**Disponibilidad** y **solo uno calla al agente**.
+
+| Interruptor | Qué hace al apagarlo |
+| --- | --- |
+| **Activo** | El agente **deja de encontrarlo** al buscar en el catálogo. Es la forma correcta de retirar algo. |
+| **Visible en el catálogo** | Lo saca del catálogo que WhatsApp enseña en el perfil de tu negocio, **pero el agente lo sigue encontrando** y lo puede seguir ofreciendo en la conversación. |
+
+<Warning>
+**Para retirar un producto, apaga «Activo».** Apagar solo «Visible en el
+catálogo» no impide que el agente lo siga vendiendo por chat.
+</Warning>
+
+### «Embudos que lo venden»
+
+Esa lista **solo aparece si tu negocio tiene más de un agente**. Si tienes uno,
+ni la verás. Y la regla no es la que parece: *«Sin marcar ninguno, lo cotizan
+todos los embudos.»* — **no marcar nada significa «todos», no «ninguno»**.
+
+<Note>
+**Es una regla de organización, no una barrera de seguridad.** Sirve para que tu
+agente de mayoreo no cotice lo del minorista. Pero no la uses para esconder
+información delicada: si el sistema no consigue leer las asignaciones, se abre
+en vez de cerrarse, y el agente ve todo.
+</Note>
+
+**Los embudos se guardan en un segundo paso, después del producto.** Si ese paso
+falla verás *«El producto se guardó, pero los embudos no»*: el producto está
+bien; reábrelo y vuelve a marcarlos.
+
+Y si al guardar le quitas el producto al agente que tienes abierto, te avisa
+—*«Ya no lo vende el embudo abierto: sale de esta lista.»*— y desaparece de la
+tabla. **No se ha borrado**: dejó de pertenecer a ese embudo.
+
+<Warning>
+**Con más de un agente, la lista que ves está recortada.** `/catalog` muestra lo
+que vende el agente que tienes seleccionado en la barra de arriba, más lo que no
+está asignado a ninguno. El contador del pie (*«Mostrando N de M productos»*)
+cuenta ya recortado, y la plantilla CSV que descargues saldrá recortada igual.
+Antes de concluir que perdiste productos, **cambia de agente en ese selector**.
+</Warning>
+
+## Editar muchos productos de golpe: la Plantilla CSV
+
+Para cargar cien productos, o para subirle el precio a toda una temporada, el
+formulario uno a uno no sirve. El botón **Plantilla CSV** (junto a «Añadir
+producto») abre el cuadro **«Editar catálogo en bloque (CSV)»**, con dos pasos
+numerados.
+
+<Frame caption="El cuadro «Editar catálogo en bloque (CSV)»: primero descargas, editas en tu hoja de cálculo, y luego subes.">
+  <img src="/images/catalogo/06-plantilla-csv.png" alt="Modal «Editar catálogo en bloque (CSV)» con los pasos Descarga la plantilla y Sube tus cambios" />
+</Frame>
+
+<Steps>
+  <Step title="Descarga la plantilla">
+    Botón **Descargar plantilla (.csv)**. Baja un archivo con tus productos
+    actuales, que puedes abrir en Excel o en Google Sheets.
+
+    Ojo con lo que trae: **solo tus productos propios** (los sincronizados desde
+    una tienda no salen) y **solo los del agente que tengas abierto**.
+  </Step>
+  <Step title="Edítala en tu hoja de cálculo">
+    Cambia lo que necesites y guarda como CSV.
+  </Step>
+  <Step title="Súbela">
+    **Elegir archivo CSV** y después **Aplicar cambios**. El tope es de **500
+    productos por subida**.
+  </Step>
+</Steps>
+
+### Las reglas del archivo
+
+- Una fila **con id** actualiza el producto que ya existe.
+- Una fila **sin id** crea uno nuevo… salvo que repita el **handle** de un
+  producto que ya está, y entonces **lo sobrescribe**.
+- **Un producto que no esté en el archivo no se toca.** Borrar una fila de
+  producto no borra el producto.
+- **Pero quitar la fila de una variante sí elimina esa variante** del producto.
+
+<Warning>
+**Quien manda es la columna «handle», no el nombre.** Es la clave de agrupación
+que la plantilla trae ya rellena (algo como `polo-oversize-de-algodon-pima-`
+seguido de un código largo). Si copias una fila entera para crear una variación
+del polo y te dejas el handle igual, **machacas el producto original en
+silencio**.
+
+Para crear de verdad: deja el **id** vacío y pon un **handle** que no exista.
+Una fila sin handle no se acepta —el archivo la rechaza con *«Falta el handle
+(clave de agrupación).»*—.
+
+Desde el botón **Añadir producto** esto no pasa: dos productos con el mismo
+nombre creados ahí son dos productos distintos.
+</Warning>
+
+<Note>
+**Dos columnas que no hacen lo que parece.** Las **fotos no se editan por CSV**
+(solo desde el editor del producto), y **la cantidad de stock se exporta pero al
+importarla se ignora**: puedes escribir «40» en la hoja, subirla, y no pasará
+nada ni verás ningún error. El stock se mueve en **Inventario**.
+</Note>
+
+| En el archivo | Qué es |
+| --- | --- |
+| `id` | El identificador del producto. Con id, actualiza; sin id, crea. |
+| `handle` | La clave de agrupación. **Es la que decide qué se sobrescribe.** |
+| `price_tiers` | La escala de precios por cantidad. Dejarla en blanco no la borra. |
+
+<Tip>
+**Desde el panel, es el único camino para duplicar un producto.** La pantalla no
+sabe clonar: no hay botón de «Duplicar». El camino real es bajar la plantilla, copiar la fila
+del producto, **borrarle el id y cambiarle el handle**, y volver a subirla.
+</Tip>
+
+## Cómo llega tu catálogo al cliente
+
+Hay dos caminos distintos, y conviene no mezclarlos.
+
+### 1. En la conversación (el importante)
+
+Cuando el cliente pregunta por un producto o su precio, el agente busca en el
+catálogo y responde con lo que encuentra. Busca por **el nombre del producto** y
+por **el nombre o el código (SKU) de sus variantes**. Cosas útiles de saber:
+
+- **No busca dentro de la descripción**, aunque sí se la enseña al agente
+  (recortada) cuando ya encontró el producto.
+- Tiene que acertar **al menos la mitad de las palabras**. Y las palabras de una
+  o dos letras —«S», «M», «XL»— tienen que ir sueltas para contar.
+- **Devuelve como mucho 5 productos.** Si tienes cuarenta artículos parecidos,
+  el agente nombrará unos pocos, no la lista entera.
+- El color y la talla de la variante ayudan a **afinar entre lo que ya
+  encontró**, no a encontrar algo que no encajó por nombre ni por código.
+
+Traducido a una recomendación: **el nombre del producto tiene que ser el nombre
+con el que tu cliente lo pediría.**
+
+### 2. En el catálogo nativo de WhatsApp
+
+Es la pestaña de productos que WhatsApp enseña dentro del perfil de tu negocio.
+Se llena solo, pero con condiciones:
+
+- Tu número tiene que ser una **cuenta de WhatsApp Business** y estar
+  conectado. Si no lo es, ahí no se publica nada (y el agente sigue vendiendo
+  igual por chat).
+- Se publica **una entrada por cada variante**, no por producto. Por eso el polo
+  de 12 combinaciones aparece 12 veces.
+- Solo entran los productos que estén **a la vez «Activo» y «Visible en el
+  catálogo»**, y solo si tienen precio y moneda.
+- Con precios por cantidad se publica el de **1 unidad de la lista**, nunca la
+  promoción.
+- Si marcaste embudos en el producto, cada número publica lo suyo. **Un producto
+  sin embudos marcados —que es lo normal— lo publican todos tus números.**
+
+<Note>
+**Desactivar u ocultar también lo borra de WhatsApp.** No queda ahí colgado. Y
+tranquilo: solo se tocan los productos que publicó OptiMind; los que tú hubieras
+creado a mano en WhatsApp se quedan como están.
+</Note>
+
+## Cosas que vas a necesitar después
+
+<AccordionGroup>
+  <Accordion title="Editar un producto que ya existe">
+    En la columna de acciones de su fila, pulsa **Editar**. **Pulsar la fila no
+    abre nada** —ninguna fila de esta tabla es pulsable—, así que si haces clic
+    encima y no pasa nada, no está roto: usa la acción.
+  </Accordion>
+
+  <Accordion title="Retirar un producto sin borrarlo (lo recomendado)">
+    Marca la casilla de su fila y pulsa **Desactivar** en la barra que aparece
+    arriba. El producto sigue en tu catálogo con todo su historial, pero el
+    agente deja de encontrarlo.
+
+    En esa misma barra tienes las cuatro acciones en bloque —**Activar**,
+    **Desactivar**, **Mostrar** y **Ocultar**—, que se aplican al momento sobre
+    todo lo que hayas marcado. Es la forma rápida de retirar una temporada
+    entera.
+  </Accordion>
+
+  <Accordion title="Borrar un producto de verdad">
+    No hay papelera ni botón de borrar dentro del panel del producto. **Desde el
+    panel, la única forma es marcar la casilla de la fila y pulsar «Eliminar»**
+    en la barra de selección.
+
+    <Warning>
+    **Ese botón no pide confirmación y no se puede deshacer.** Un solo clic y el
+    producto desaparece con sus variantes; no se archiva. Lo único que llega a
+    frenarlo es que una de sus variantes tenga un cobro abierto: entonces el
+    borrado rebota con un error.
+
+    Un pedido o una venta ya registrados **no** lo frenan: el producto se borra
+    y esos registros se quedan sin saber qué variante se vendió. Por eso, casi
+    siempre, lo que quieres es **Desactivar**, no **Eliminar**.
+    </Warning>
+  </Accordion>
+
+  <Accordion title="Encontrar algo en un catálogo grande">
+    Funcionan dos herramientas: el buscador **«Buscar productos...»** (busca por
+    nombre del producto y por el SKU de sus variantes; no busca en la
+    descripción) y el botón **Filtrar**, que abre **«Filtrar catálogo»** con
+    tres filtros: **Tipo**, **Visibilidad** (Visible / Oculto) y **Estado**
+    (Activo / Inactivo).
+
+    La lista carga **de 50 en 50** según bajas, sin números de página, y al pie
+    pone **«Mostrando N de M productos»**.
+
+    <Warning>
+    **Dos controles de esta pantalla hoy no hacen nada, y preferimos decírtelo.**
+    Las pestañas **Todos · Manual · Shopify** no filtran: cambiar de pestaña no
+    cambia lo que ves. Y el botón **Ordenar** abre su cuadro con «Nombre»,
+    «Precio», «Inventario» y «Actualizado», pero la lista no cambia de orden:
+    siempre sale del producto más reciente al más antiguo (las cabeceras de las
+    columnas tampoco ordenan). Usa el buscador y **Filtrar**, que sí funcionan.
+    </Warning>
+  </Accordion>
+
+  <Accordion title="Mis productos vienen de Shopify y no me deja tocarlos">
+    Los productos sincronizados desde una tienda son **de solo lectura**. En su
+    fila no verás **Editar** sino **Importar** (*«Copiar al catálogo
+    editable»*), tampoco se pueden marcar con la casilla ni cambiarles el
+    interruptor **visible**.
+
+    Impórtalos primero y después edita la copia.
+  </Accordion>
+
+  <Accordion title="¿Quién de mi equipo puede tocar el catálogo?">
+    **Cualquier persona invitada a tu negocio**: no hay permisos por rol en esta
+    pantalla. Puede crear, editar, ocultar y también **borrar** productos, con el
+    botón **Eliminar** que no pide confirmación. Tenlo en cuenta al invitar
+    gente.
+  </Accordion>
+
+  <Accordion title="Cosas que esta pantalla no tiene">
+    Para que no las busques: **no hay categorías, ni etiquetas, ni peso, ni
+    «precio antes / precio tachado»**. No hay botón de **duplicar** (se hace por
+    CSV), **no hay deshacer** y **no hay papelera**.
+  </Accordion>
+</AccordionGroup>
+
+## Si algo no funciona
+
+| Lo que ves | Casi siempre es | Cómo se arregla |
+| --- | --- | --- |
+| **«Aún no hay productos»** —o **«… no tiene nada que vender»** con el nombre de tu agente— y tú sabes que los cargaste | Tienes seleccionado otro agente y la lista va recortada a él | Cambia de agente en el selector de la barra de arriba |
+| **«Sin resultados»** | Tienes puesta una búsqueda o un filtro | Pulsa **Limpiar filtros** |
+| El panel se abre **casi vacío** | Todavía no elegiste el tipo | Elige **Producto físico**, **Servicio** o **Infoproducto** |
+| **No me deja escribir el precio** | Tienes **Precios por cantidad** encendido | Escríbelo en la fila de **1 unidad** de la escala |
+| **Cambio el precio arriba y no se guarda** | El producto tiene varias variantes: manda el precio de cada una | Cambia el precio en la fila de la variante |
+| **No me deja escribir la cantidad de stock** | Aquí solo se declara *si* lleva control | Registra el movimiento en **Inventario** |
+| **Perdí lo que estaba escribiendo** | Cerraste el panel (o hiciste clic fuera) sin guardar | No hay borrador: hay que rehacerlo. Pulsa siempre **Guardar** |
+| **Guardé y el producto desapareció** de la tabla | Se lo quitaste al agente que tienes abierto | No se borró: cámbiate a un agente que sí lo venda |
+| **«El producto se guardó, pero los embudos no»** | Falló el segundo paso del guardado | Reabre el producto y vuelve a marcar los embudos |
+| El agente **sigue sin nombrar** un producto recién creado | Los cambios pueden tardar hasta un minuto en llegar a una conversación en curso | Espera un minuto y vuelve a probar |
+| El agente **no lo encuentra** aunque está activo | El cliente lo nombra distinto a como se llama | Renombra el producto con las palabras que usa el cliente |
+| **Apagué «Visible» y el agente lo sigue ofreciendo** | «Visible» no calla al agente | Apaga **Activo** |
+| **Desaparecieron el buscador y los filtros** | Marcaste la casilla de un producto: los reemplaza la barra de selección | Pulsa **Limpiar** |
+| **Subí el CSV y machaqué un producto** | Repetiste el **handle** de uno que ya existía | Para crear, id vacío y handle nuevo |
+| **Edité el stock en el CSV y no cambió nada** | Esa columna se exporta pero al importar se ignora | Regístralo en **Inventario** |
+| **«Infoproducto · ⚠️ sin entrega»** en la lista | No le pusiste ni archivo ni enlace de entrega | Ábrelo y rellena **Entrega automática** |
+| **No sale en el desplegable** al registrar una venta | Su precio es 0 | Ponle un precio mayor que cero |
+
+<Warning>
+**Las fotos de tus productos quedan en una dirección pública de internet.**
+Tiene que ser así para que WhatsApp pueda mostrarlas: cualquiera con ese enlace
+la ve, sin entrar a tu cuenta. Y **borrar el producto no borra la foto**: ese
+enlace sigue funcionando. No subas aquí nada que no deba ser público.
+</Warning>
+
+## Lo mismo, desde tu asistente
+
+<Note>
+Esta sección es **opcional y solo aplica si conectaste Claude, ChatGPT o Codex**
+a tu negocio. Si trabajas en el panel, ya terminaste.
+</Note>
+
+Tu asistente puede leer el catálogo entero, cargarlo de golpe desde un fichero
+que le pases y corregirlo. **Leer funciona con la conexión básica; escribir
+no**: hace falta pedir el permiso de escritura del catálogo en la dirección con
+la que conectas. Está armada para copiar y pegar en
+[La URL de conexión](/referencia/url-de-conexion).
+
+| Herramienta | Qué hace |
+| --- | --- |
+| `list_products` | Lista paginada. Filtra por texto, visibilidad, activo y tipo. |
+| `get_product` | La ficha completa de un producto: descripción, variantes, imágenes y escala de precios. |
+| `upsert_products` | Crea o actualiza hasta 100 productos por llamada. **Destructiva.** |
+| `delete_product` | Borra un producto. **Definitivo, sin papelera.** |
+
+**La regla que evita desastres:** al escribir, cada producto es una **fila
+completa que reemplaza a la que había** —lo que no se manda se escribe vacío—.
+Por eso el orden correcto es siempre leer la ficha, cambiar solo lo tuyo,
+reenviarla entera y volver a leerla para comprobar. El sistema te obliga bastante:
+rechaza las filas incompletas antes de tocar nada.
+
+<Warning>
+**Tres cosas que sí pueden costarte caro desde el asistente.**
+
+1. Decirle que un producto **no tiene variantes** cuando sí las tiene **arrasa
+   con todas** y las sustituye por una sola. Es el error más caro del catálogo.
+2. Al actualizar un producto con variantes hay que mandarlas **todas**: una
+   variante que no se manda **se elimina**, y una que se manda sin su
+   identificador crea otra nueva y borra la vieja —los pedidos y el stock que
+   apuntaban a ella se quedan sin referencia—.
+3. Un producto **sin identificador** se busca por el nombre: un nombre igual al
+   de uno que ya existe **lo sobrescribe**. Que tu asistente use siempre el
+   identificador al actualizar.
+</Warning>
+
+Y tres límites que conviene tener presentes:
+
+- **Las fotos no se tocan** desde el asistente: subir un lote no borra ni cambia
+  las imágenes de tus productos. Se gestionan en el panel.
+- **La cantidad de stock tampoco.** Aunque tu asistente mande un número, no se
+  escribe: vive en Inventario. Lo que sí puede declarar desde fuera es *si* el
+  producto lleva control de stock.
+- **Los productos sincronizados desde una tienda se leen, no se editan.**
+
+Frases que funcionan:
+
+- *«Lista mi catálogo antes de escribir nada, para no duplicar.»*
+- *«Sube el precio del Polo oversize de algodón pima a 89 soles. Lee su ficha
+  primero y reenvía la fila entera con ese único cambio.»*
+- *«Pon el Combo Verano como inactivo: lee su ficha, cambia solo eso y reenvía
+  la fila completa.»*
+- *«Ábreme tres de los que acabas de subir y enséñame el precio y la moneda de
+  cada variante.»*
+
+<Tip>
+Esa última frase importa. En el listado, el precio que ves es el **más barato**
+entre las variantes y el código el de esa misma, así que un lote que subió la
+moneda equivocada en una sola variante **puede parecer correcto de lejos**.
+</Tip>
+
+<CardGroup cols={3}>
+  <Card title="La Librería de archivos" icon="paperclip" href="/guias/libreria">
+    Las fotos y los PDFs que el agente manda, y de donde salen las entregas
+    automáticas.
+  </Card>
+  <Card title="El manual del vendedor" icon="book" href="/guias/manual">
+    El guion con el que tu agente presenta y defiende esos precios.
+  </Card>
+  <Card title="Pedidos y métricas" icon="chart-line" href="/guias/pedidos-y-metricas">
+    Qué se vendió de todo esto y cuánto dejó.
+  </Card>
+</CardGroup>
