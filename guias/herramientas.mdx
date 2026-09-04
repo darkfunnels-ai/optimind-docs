@@ -1,0 +1,462 @@
+---
+title: "Las herramientas del agente"
+description: "Todo lo que tu agente puede HACER además de escribir: avanzar de capítulo, registrar la venta, pasarle el chat a una persona, guardar datos, programar seguimientos, avisar a un tercero, buscar precios y stock, agendar citas. Cuáles existen, qué necesita cada una y cómo se piden desde el manual."
+keywords:
+  - "herramientas del agente de ventas IA"
+  - "acciones del agente en WhatsApp"
+  - "registrar venta agente IA"
+  - "recordatorio automático WhatsApp"
+  - "pasar a humano agente IA"
+---
+
+Tu agente no solo escribe. En medio de una conversación **hace cosas**: busca el
+precio en tu catálogo, manda una foto, guarda el distrito del cliente, programa
+un seguimiento para mañana, registra la venta y, cuando toca, le pasa el chat a
+una persona. Cada una de esas acciones es una **herramienta**. Esta guía las
+enumera todas, dice qué necesita cada una para funcionar y enseña cómo se piden
+desde el guion.
+
+<Note>
+**Dos cosas distintas se llaman «herramienta» en esta documentación.** Las de
+esta página son **las del agente**: las acciones que ejecuta mientras habla con
+un cliente por WhatsApp. Las de la
+[Referencia de herramientas](/referencia/tools) son **las del puente**: lo que
+Claude, ChatGPT o Codex pueden hacer sobre tu negocio si los conectas. Son
+listas separadas y no se mezclan.
+</Note>
+
+## Tres cosas que conviene saber antes
+
+**1. No hay nada que «encender».** Las herramientas están disponibles para
+todos los agentes desde el primer día. Las excepciones son las que dependen de
+algo que tú tienes que preparar: un catálogo con productos, una sede con
+dirección, una app activa. La tabla de abajo lo dice herramienta por
+herramienta.
+
+**2. Hay dos familias, y se piden de forma distinta.** Unas **se escriben en el
+manual**, en el punto exacto del guion donde deben ocurrir («aquí registra la
+venta», «si no responde, recuérdaselo mañana»). Otras **el agente las usa
+solo** cuando la conversación lo pide —buscar un precio, mandar la ubicación,
+consultar la agenda— y **no se nombran en el manual**: si las escribes, el
+Doctor te lo marcará.
+
+**3. Puedes ver cada vez que corrió una.** En el hilo del chat, cada acción deja
+un chip **⚡** con su nombre y su resultado, y en **Resultados** hay un número
+que las resume: **Éxito de herramientas**. Más abajo, en
+[Cómo saber si funcionó](#como-saber-si-funciono).
+
+## Todas las herramientas, de un vistazo
+
+| Herramienta | Qué hace | Cómo se pide | Qué necesita |
+| --- | --- | --- | --- |
+| **Avanzar de capítulo** | Mueve la conversación al capítulo siguiente del embudo. | Se escribe en el manual (menú `@` → Capítulos). | Nada. |
+| **Registrar una venta / conversión** | Anota la venta, la cita, el lead o el servicio; en una venta abre el pedido. | Se escribe en el manual. | Nada. Para que abra el pedido, la app **Órdenes**. |
+| **Activar Modo Manual** | Apaga el piloto automático: el agente calla y sigue una persona. | Se escribe en el manual (o el cliente lo pide). | Nada. |
+| **Guardar un dato** | Guarda en la ficha del cliente lo que dijo (nombre, distrito, talla…). | Se escribe en el manual. | Que la variable exista en la ficha. |
+| **Leer un dato del cliente** | Relee un dato ya guardado para no volver a preguntarlo. | Se escribe en el manual. | Nada. |
+| **Recordatorio / seguimiento** | Programa un toque para retomar la conversación más tarde. | Se escribe en el manual. | Nada. |
+| **Programar una acción** | Programa una tarea para más tarde: mandar algo, cambiar de capítulo. | Se escribe en el manual. | Nada. |
+| **Avisar a un tercero** | Manda un WhatsApp a otra persona (el vendedor, el encargado). | Se escribe en el manual. | El número con código de país. |
+| **Consultar conocimiento** | Busca en los archivos que el agente estudió (políticas, garantías, FAQ). | Se escribe en el manual; también la usa solo. | Archivos con permiso **Memoria del agente**. |
+| **Enviar un archivo** | Manda al cliente una foto, un PDF o un audio de la Librería. | Se escribe en el manual con un marcador. | El archivo con permiso **Enviar por WhatsApp**. |
+| **Buscar en el catálogo** | Da el precio exacto y el total por cantidad. | La usa solo. | Un catálogo con productos activos. |
+| **Enviar la ubicación** | Manda la sede como pin de mapa de WhatsApp. | La usa solo. | Una ubicación guardada en la Librería. |
+| **Consultar stock** | Mira cuántas unidades hay de verdad antes de prometerlas. | La usa solo. | App **Inventario**, su interruptor en Ajustes y catálogo. |
+| **Citas** (ver agenda, reservar, mover, cancelar) | Cuatro herramientas para agendar en tu calendario. | Las usa solo. | App **Calendario**. |
+| **Avisar al equipo por Slack** | Publica en un canal de Slack una venta, un lead caliente o un traspaso. | La usa solo. | Slack conectado en **Personalizar → Canales**. |
+| **Video del avatar** | Genera un video corto de la persona del agente diciendo un texto. | Se pide en prosa. | Una persona con cara y voz configuradas. |
+| **Tus propias herramientas (MCP)** | Lo que le conectes tú: tu ERP, tu sistema de reservas, tu CRM. | Se escribe en el manual. | Un servidor MCP en **Personalizar → Herramientas**. |
+
+<Note>
+**La nota de voz está apagada.** Existe una herramienta que convierte texto en
+audio con la voz del agente, pero hoy está desactivada para todos los negocios.
+Si un manual antiguo pide «responde con una nota de voz», el agente responderá
+con texto.
+</Note>
+
+## Cómo se escriben en el manual
+
+Una herramienta del manual se pide con **una frase exacta**, en la línea del
+guion donde debe ocurrir. No la teclees: en el editor del
+[Manual](/guias/manual#el-menu-mencionar-cosas), escribe **`@`**, elige el
+grupo **Herramientas** y pulsa la que quieras. Si la herramienta lleva datos, se
+abre un formulario de una línea que te los pide, y la frase queda escrita bien
+y **teñida** como una mención: un clic la cambia, `⌫` la borra.
+
+La frase que queda en el texto tiene siempre esta forma:
+
+```
+Ejecuta la herramienta "Recordatorio Tool" con el query "en 24 horas recuérdame: retomar con el descuento"
+```
+
+Y hay dos que van sin datos, tal cual:
+
+```
+Ejecuta la herramienta "Activar Modo Manual Tool"
+```
+
+<Warning>
+**Escribirlo en prosa no ejecuta nada.** «Registra la venta», «programa un
+recordatorio para mañana» o «pásalo a un humano», escritos sin la frase, son
+texto que el agente lee como sugerencia, no una orden que el sistema reconozca.
+Lo mismo si escribes el nombre técnico suelto (`reminder`, `register_conversion`):
+el Doctor lo marca como **«escrita sin formato de herramienta»** y te ofrece
+arreglarlo con un clic.
+</Warning>
+
+Tres reglas del formulario que evitan frases rotas:
+
+- **Recordatorio, Programar una acción y Avisar a un tercero exigen el dato.**
+  Sin él, el botón **Insertar** se queda apagado: una frase con el hueco vacío
+  no serviría de nada.
+- **Activar Modo Manual y Consultar conocimiento van sin datos.** No se les
+  dice a quién avisar ni qué: el traspaso avisa a tu equipo por Slack, si lo
+  tienes conectado, y el agente sabe solo qué consultar.
+- **Los datos van dentro de la frase, no al lado.** Si el Doctor te dice
+  **«los argumentos están escritos como prosa al lado de la herramienta»**, es
+  que alguien tecleó a mano el plazo o el número fuera de las comillas; acepta
+  el arreglo que te propone.
+
+Todo lo que ocurre alrededor del guion —los PASOS, las secciones §, el
+Doctor— está en [El manual del vendedor](/guias/manual). Aquí va solo lo de
+cada herramienta.
+
+## Las que se escriben en el manual
+
+### Avanzar de capítulo
+
+Es la herramienta más importante del producto y por eso tiene su propia sección
+en la guía del manual:
+[Hacer que el embudo avance](/guias/manual#hacer-que-el-embudo-avance). En
+corto: se inserta con **`@` → Capítulos**, la frase literal es
+`Llama a la herramienta advance_chapter con el capítulo 3`, y escribir «pasa al
+siguiente» en prosa **no mueve nada**.
+
+### Registrar una venta / conversión
+
+En el manual se ve como **«Registrar Conversion Tool»**, y su dato es **qué se
+registra**: `venta`, `cita`, `lead calificado` o `servicio`.
+
+```
+PASO 5: Cuando el cliente confirme el pedido y la dirección, Ejecuta la herramienta "Registrar Conversion Tool" con el query "venta"
+```
+
+Lo que hace cuando corre:
+
+- **Una venta lleva siempre monto.** El agente lo toma del catálogo (precio por
+  cantidad, más el envío si lo cobras). Es lo que **vale** el pedido, no lo que
+  ya se cobró: una venta contra entrega sin adelanto se registra igual, por el
+  precio del producto.
+- **En una venta de productos, abre el pedido.** Con la app **Órdenes** activa,
+  esa misma llamada crea el pedido de la conversación con sus líneas, el plan de
+  pago acordado (todo por adelantado, contra entrega, o adelanto y saldo), el
+  costo de envío y la dirección. Si el chat ya tenía un pedido abierto, **lo
+  reemplaza entero** con las líneas finales.
+- **No cobra nada.** El pago se confirma cuando tu equipo verifica el
+  comprobante. Ver [Pedidos y métricas](/guias/pedidos-y-metricas).
+- **Te avisa.** Si en **Ajustes** del agente elegiste números para **Ventas**,
+  cada venta registrada llega al instante por WhatsApp con un 💰, con el
+  producto, el total y los datos capturados del cliente.
+
+<Tip>
+**Ponla en el capítulo de cierre, y una sola vez.** Es la fuente de tus
+números de ventas y de **Resultados**: si la escribes en dos capítulos,
+contarás la misma venta dos veces.
+</Tip>
+
+### Activar Modo Manual
+
+En el manual se ve como **«Activar Modo Manual Tool»** y se escribe sin datos.
+Al correr, **apaga el piloto automático** de esa conversación: el agente deja de
+responder y la conversación queda esperando a una persona —igual que si tú
+mismo apagaras el interruptor desde la bandeja, como cuenta
+[Tomar tú la conversación](/guias/conversaciones#tomar-tu-la-conversacion).
+
+El agente la ejecuta en tres situaciones:
+
+| Cuándo | Qué pasa |
+| --- | --- |
+| **El capítulo lo ordena** (lo típico: pedido tomado, queda coordinar la entrega). | Apaga el piloto. Es el uso normal de escribirla en el manual. |
+| **El último mensaje del cliente pide hablar con una persona**, o expresa enojo real. | Apaga el piloto aunque el manual no lo diga. |
+| **El cliente pregunta algo que el manual no cubre.** | **No apaga el piloto.** Avisa a tu equipo de que faltó ese dato y el agente sigue atendiendo. |
+
+<Warning>
+**Es irreversible desde el chat.** Una vez apagado, el agente no vuelve a
+responder hasta que una persona entre y vuelva a encender el piloto. Por eso el
+agente tiene prohibido apagarlo «por inercia»: porque el historial mencione un
+traspaso anterior, porque él mismo lo ofreció antes, o porque el cliente
+pregunte por sus datos. Si el cliente dice que prefiere seguir con el agente,
+sigue con el agente.
+</Warning>
+
+Cada traspaso avisa a tu equipo por el canal de traspasos, si tienes Slack
+conectado, y queda en el hilo como un chip **⚡ Activar Modo Manual**.
+
+### Guardar un dato · Leer un dato del cliente
+
+En el manual se ven como **«Actualizar Datos Tool»** y **«Leer Datos Tool»**;
+el dato es **qué guardar** o **qué leer**:
+
+```
+PASO 2: Pregunta a qué distrito se envía. Ejecuta la herramienta "Actualizar Datos Tool" con el query "distrito"
+```
+
+Lo que guarda va a la ficha del cliente, la que ves en
+[«Datos capturados»](/guias/conversaciones#datos-capturados-lo-que-el-agente-sabe-de-ese-cliente),
+y se fusiona con lo que ya había.
+
+<Warning>
+**Solo guarda variables que existen.** La herramienta no crea campos nuevos:
+si el manual le pide guardar «talla» y en la ficha no hay ninguna variable
+«talla», no guarda nada. Crea la variable primero; y si es de opciones (una
+lista cerrada), el agente solo podrá guardar uno de esos valores.
+</Warning>
+
+**Leer un dato** existe para no repetir preguntas: si el cliente ya dijo su
+nombre en el capítulo 1, el capítulo 4 puede releerlo en vez de preguntarlo.
+Como el agente ya recibe la ficha del cliente en cada mensaje, la necesitarás
+poco; sirve cuando quieres dejar explícito en el guion que **debe** usar ese
+dato.
+
+### Recordatorio / seguimiento
+
+En el manual se ve como **«Recordatorio Tool»** y su dato es **el plazo y qué
+retomar**:
+
+```
+PASO 3: Si no responde, Ejecuta la herramienta "Recordatorio Tool" con el query "en 24 horas recuérdame: retomar preguntando si tuvo dudas con el precio"
+```
+
+Cómo funciona por dentro, que es lo que explica sus sorpresas:
+
+- **El texto es una nota para el agente, no un mensaje para el cliente.** Al
+  vencer el plazo, el agente **redacta** el mensaje a partir de esa nota, con
+  todo el contexto del chat. Y nunca le dice al cliente que está «creando un
+  recordatorio».
+- **Solo vive uno por conversación.** Si el agente programa otro, el anterior
+  se cancela. Por eso la cadencia de seguimientos se **encadena** —cada
+  seguimiento programa el siguiente— en vez de apilarse.
+- **Si no pones plazo, son 24 horas.**
+- **Puede caducar si el cliente escribe antes.** Para un «reenganche» a quien
+  no contesta, tiene sentido que se cancele solo si el cliente responde; para
+  un «llámame el lunes», no. El agente lo decide por el sentido del texto.
+- **Puede llevar archivos.** Si dentro del texto va un marcador
+  `###SEND_FILES: promo###`, ese archivo se adjunta solo al vencer, no ahora.
+- **Si la conversación pasa a modo manual, lo programado se cancela al vencer**
+  en vez de salir: una persona está atendiendo y el agente no se cruza.
+
+Los recordatorios de cada chat se ven y se cancelan desde el hilo, en el panel
+de recordatorios. Y hay uno que el agente programa **sin que el manual lo pida**:
+cuando el cliente pacta un día («te aviso el viernes», «pago el 15»), el agente
+queda en retomar ese día a las 10 de la mañana, sin insistir antes.
+
+### Programar una acción
+
+En el manual se ve como **«Programar Accion Tool»** y su dato es **el plazo y la
+tarea**:
+
+```
+PASO 4: Ejecuta la herramienta "Programar Accion Tool" con el query "en 48 horas: envía el archivo ###SEND_FILES: descuento_final### y pasa al capítulo 6"
+```
+
+Se parece al recordatorio, pero no es lo mismo:
+
+| | Recordatorio | Acción programada |
+| --- | --- | --- |
+| **Para qué** | Volver a hablarle a quien se quedó callado. | Ejecutar una tarea concreta a una hora: mandar algo, cambiar de capítulo, guardar un dato. |
+| **Cuántas a la vez** | Una: la nueva cancela la anterior. | Hasta **10** activas por conversación, sin cancelarse entre sí. |
+| **Qué lleva** | Una nota de qué retomar. | La tarea **literal**, que el agente ejecutará al pie de la letra. |
+
+Si la tarea cambia de capítulo, puede además decir **desde qué PASO** de ese
+capítulo continuar. Y al igual que el recordatorio, el agente nunca le anuncia
+al cliente que está programando algo.
+
+### Avisar a un tercero
+
+En el manual se ve como **«Enviar Mensaje A Tercero Tool»**. El formulario del
+menú `@` te pide **a qué número** y **qué avisarle**, y arma la frase:
+
+```
+PASO 6: Ejecuta la herramienta "Enviar Mensaje A Tercero Tool" con el query "Dile al número 51987654321 que hay un pedido nuevo para coordinar la entrega"
+```
+
+Manda un WhatsApp desde el número del agente a esa otra persona —el vendedor de
+turno, el encargado del almacén—, fuera de la conversación con el cliente. Puede
+adjuntar el historial del chat.
+
+<Warning>
+**El número va con código de país, pegado y sin `+`.** `51987654321`, no
+`987654321` ni `+51 987 654 321`. Si el manual trae el número en formato local,
+la herramienta **lo rechaza** y el aviso no sale; y el agente tiene prohibido
+completarlo o corregirlo por su cuenta. Lo que hay que arreglar es el número en
+el manual. Si tienes tus números guardados en **Números frecuentes** (en
+Ajustes), el menú `@` te los ofrece ya bien escritos.
+</Warning>
+
+### Consultar conocimiento
+
+En el manual se ve como **«Memoria A Largo Plazo Tool»** y se escribe sin
+datos. Busca en los archivos que el agente **estudió**: los que en la Librería
+tienen el permiso **Memoria del agente** (políticas, garantías, tiempos de
+envío, fichas técnicas). Ver [La Librería de archivos](/guias/libreria).
+
+No hace falta escribirla para que funcione: **el agente la usa solo** cada vez
+que el cliente pregunta algo que no está en el capítulo ni en sus datos. Y si lo
+que encuentra no responde a la pregunta, no lo usa: le dice al cliente que se lo
+confirma y sigue el guion. Escribirla en un capítulo sirve para forzarla en un
+punto concreto («antes de responder sobre garantías, consulta»).
+
+### Enviar un archivo
+
+No es una frase sino un **marcador** con el apodo del archivo, y tiene su propia
+sección: [Mandar un archivo desde el guion](/guias/manual#mandar-un-archivo-desde-el-guion).
+
+```
+PASO 2: Si pide ver el catálogo, envíalo aquí: ###SEND_FILES: catalogo###
+```
+
+Lo esencial: el archivo tiene que estar en la Librería **con el permiso «Enviar
+por WhatsApp»** antes de nombrarlo, el apodo por defecto es el nombre del
+archivo sin extensión, y un marcador mal escrito sale tal cual en el chat.
+
+## Las que el agente usa solo
+
+Estas **no se escriben en el manual**. El agente las tiene a mano y decide
+cuándo llamarlas según lo que pregunte el cliente. Si las nombras en un
+capítulo, el Doctor te lo marca; lo que sí puedes hacer es prepararles lo que
+necesitan.
+
+### Buscar en el catálogo
+
+Cada vez que el cliente pregunta por un producto o un precio, el agente busca en
+tu [catálogo](/guias/catalogo) y responde con el precio exacto; si el cliente
+dijo cuántas unidades quiere, recibe el total ya calculado, con precio por
+cantidad y promociones. **Tiene prohibido inventar precios y calcular totales
+por su cuenta.**
+
+Solo existe si tu negocio **tiene productos activos** en el catálogo: sin
+catálogo, el agente ni la ve. La misma búsqueda le da el identificador de cada
+variante, que es lo que **Registrar una venta** usa para ligar la venta al
+producto correcto.
+
+### Enviar la ubicación
+
+Cuando el cliente pregunta dónde están o cómo llegar, el agente manda la sede
+como **pin de mapa de WhatsApp**. Las direcciones y coordenadas salen de lo que
+tú guardaste en **Librería → Ubicaciones**; el agente **nunca** escribe una
+dirección por su cuenta, solo elige cuál sede mandar si tienes varias («la de
+Surco», «el almacén»). Sin ubicaciones guardadas, no la tiene.
+
+### Consultar stock
+
+Antes de prometer unidades, cantidades grandes o plazos de entrega, el agente
+consulta cuánto hay **de verdad** en el inventario, por variante, y no ofrece lo
+que no hay. No la usa para dar precios: eso es del catálogo.
+
+Es la única con **tres condiciones**: la app **Inventario** activa en tu
+negocio, el interruptor **«Consultar stock»** encendido en los **Ajustes** de
+ese agente (sección *Herramientas*, que solo aparece con Inventario activo) y un
+catálogo con productos. Falla una y el agente no la ve.
+
+### Citas: ver la agenda, reservar, mover y cancelar
+
+Con la app **Calendario** activa, el agente recibe cuatro herramientas de golpe:
+**consultar disponibilidad** (los servicios agendables y los horarios libres
+reales), **reservar**, **reprogramar** y **cancelar** la cita del cliente. Tiene
+prohibido proponer un horario sin consultar antes, y el precio, la duración y la
+seña salen de tus servicios, no de su cabeza. Si el servicio lleva seña, la
+cobra por comprobante y tu equipo la confirma. Ver
+[Las apps de DarkFunnels](/primeros-pasos/las-apps#las-apps-que-existen-hoy).
+
+### Avisar al equipo por Slack
+
+Si conectaste Slack en **Personalizar → Canales**, el agente publica en el canal
+que elegiste cuando registra una venta, detecta un lead caliente o traspasa un
+chat a una persona. Sin Slack, la herramienta no existe y nada más cambia: los
+avisos por WhatsApp de **Ajustes** (Ventas, Alertas, Reportes) son
+independientes.
+
+### Video del avatar
+
+Si la persona del agente tiene **cara y voz** configuradas, el agente puede
+generar un video corto del avatar diciendo un texto y mandarlo cuando esté
+listo; tarda unos minutos y la conversación sigue mientras tanto. Es la única
+que se pide **en prosa** («en el saludo, mándale un video de bienvenida») y
+solo si tu negocio lo amerita. Ver
+[La persona del agente](/guias/manual#la-persona-del-agente).
+
+## Tus propias herramientas (MCP)
+
+Si tu negocio tiene un sistema propio —un ERP, un sistema de reservas, un CRM—
+que expone un **servidor MCP**, puedes conectarlo y tu agente lo usará como una
+herramienta más. Está en **Personalizar → Herramientas**: **«Añadir servidor
+MCP»**, con un nombre, la URL del servidor y, si lo pide, su clave.
+
+<Steps>
+  <Step title="Conecta el servidor">
+    **Personalizar → Herramientas → Añadir servidor MCP.** La tarjeta queda con
+    su estado (**Activo** / **Inactivo**) y una etiqueta **Con credencial** si
+    guardaste la clave.
+  </Step>
+  <Step title="Escríbela en el manual">
+    En el menú `@` → Herramientas, la entrada **«Otra herramienta»** es la
+    genérica para todo lo que venga de un servidor MCP. Su dato es la
+    instrucción: qué tiene que hacer, nombrando tu sistema si tienes varios.
+    ```
+    Ejecuta la herramienta "MCP Tool" con el query "busca en el sistema de reservas la reserva a nombre del cliente"
+    ```
+    El agente elige, entre las herramientas que publica tu servidor, la que
+    cumple esa instrucción.
+  </Step>
+  <Step title="Pruébala en un chat">
+    El agente descubre solo las herramientas del servidor; un servidor recién
+    añadido puede tardar unos minutos en aparecerle. Abre un **chat de
+    prueba** desde la bandeja y mira el chip **⚡** para ver si corrió y qué
+    devolvió.
+  </Step>
+</Steps>
+
+Lo que hay que tener presente:
+
+- **Límites:** hasta **5 servidores** por negocio y **20 herramientas** en
+  total. Lo que pase de ahí no se carga.
+- **Si el servidor está caído, se salta.** El agente sigue atendiendo sin esa
+  herramienta; nunca se cae la conversación por un servidor ajeno.
+- **Lo que devuelve tu servidor es texto de un tercero.** El agente lo trata
+  como información, no como órdenes; y ninguna herramienta MCP puede cobrar ni
+  mover dinero, porque el agente no tiene forma de hacerlo.
+- **La URL tiene que ser pública** (`https://…`). Los servidores en redes
+  privadas no se admiten.
+
+## Cómo saber si funcionó
+
+Cada vez que el agente ejecuta una herramienta, en el hilo del chat aparece un
+chip **⚡** con su nombre —**Recordatorio**, **Conversión registrada**,
+**Aviso a tercero**…— y, si algo se desvió, una palabra al lado:
+
+| El chip dice | Qué pasó |
+| --- | --- |
+| *(nada, solo el nombre)* | Corrió bien. |
+| **falló** | La herramienta dio error. El agente siguió atendiendo sin ella. |
+| **bloqueado por política** | El sistema la frenó a propósito: un traspaso sin motivo, un recordatorio por encima del tope, una acción de más. No cuenta como ejecutada. |
+| **omitido** | No llegó a tener efecto: no había nada que hacer, o lo que prometió nunca se entregó. |
+| **descartado** | Corrió, pero el turno se interrumpió (el cliente escribió encima) y el cliente no recibió nada. |
+
+Si un chip te sorprende, pulsa sobre él: se despliega con los datos que el
+agente le pasó y lo que la herramienta devolvió. Es la forma más rápida de
+entender **por qué** hizo lo que hizo.
+
+El resumen de todo esto vive en **Resultados**, en la línea **Éxito de
+herramientas**: de todas las acciones que el agente intentó, cuántas salieron
+bien. Lo cuenta
+[Pedidos y métricas](/guias/pedidos-y-metricas#resultados-que-mide-de-verdad-cada-numero).
+
+## Desde tu asistente (opcional)
+
+Si conectaste Claude, ChatGPT o Codex por
+[el puente](/referencia/url-de-conexion), tu asistente puede leer una
+conversación y ver **qué herramientas corrieron** en cada turno, listar y
+cancelar los recordatorios de un chat, y programar uno nuevo. También puede
+escribir las herramientas en el manual por ti: pídele que use la frase exacta y
+que te enseñe el capítulo antes de guardar. Las herramientas que tiene tu
+asistente para eso están en la [Referencia de herramientas](/referencia/tools).

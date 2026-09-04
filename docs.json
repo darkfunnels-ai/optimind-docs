@@ -43,6 +43,7 @@
             "group": "Guías",
             "pages": [
               "guias/manual",
+              "guias/herramientas",
               "guias/catalogo",
               "guias/libreria",
               "guias/conversaciones",
@@ -102,6 +103,7 @@
             "group": "Guides",
             "pages": [
               "en/guides/sales-playbook",
+              "en/guides/tools",
               "en/guides/catalog",
               "en/guides/library",
               "en/guides/conversations",

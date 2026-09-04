@@ -1,0 +1,480 @@
+---
+title: "WhatsApp AI sales agent tools: what the agent can do"
+sidebarTitle: "The agent's tools"
+description: "Everything your WhatsApp AI sales agent can DO besides writing: advance the funnel, record the sale, hand the chat to a person, save data, schedule follow-ups, notify a third party, look up prices and stock, book appointments. Which ones exist, what each one needs and how they are asked for from the playbook."
+keywords:
+  - "WhatsApp AI sales agent tools"
+  - "AI agent actions WhatsApp"
+  - "record sale AI agent"
+  - "automatic WhatsApp follow-up reminder"
+  - "AI agent human handoff"
+---
+
+{/* es-source: guias/herramientas.mdx @ 44021ac2 */}
+
+Your agent does not only write. In the middle of a conversation it **does
+things**: it looks up the price in your catalog, sends a photo, saves the
+customer's district, schedules a follow-up for tomorrow, records the sale and,
+when the time comes, hands the chat to a person. Each of those actions is a
+**tool**. This guide lists all of them, says what each one needs in order to
+work, and shows how they are asked for from the script.
+
+<Note>
+**Two different things are called «tool» in this documentation.** The ones on
+this page are **the agent's**: the actions it carries out while talking to a
+customer on WhatsApp. The ones in the [Tool reference](/en/reference/tools) are
+**the bridge's**: what Claude, ChatGPT or Codex can do to your business if you
+connect them. They are separate lists and do not mix.
+</Note>
+
+## Three things worth knowing first
+
+**1. There is nothing to «switch on».** The tools are available to every agent
+from day one. The exceptions are the ones that depend on something you have to
+prepare: a catalog with products, a location with an address, an active app.
+The table below says so, tool by tool.
+
+**2. There are two families, and they are asked for differently.** Some **are
+written into the playbook**, at the exact point of the script where they must
+happen («record the sale here», «if they do not reply, remind them tomorrow»).
+Others **the agent uses on its own** when the conversation calls for it —
+looking up a price, sending the location, checking the calendar — and **are not
+named in the playbook**: if you write them, the Doctor will flag it.
+
+**3. You can see every time one ran.** In the chat thread, every action leaves a
+**⚡** chip with its name and its result, and in **Resultados** (*Results*)
+there is a number that sums them up: **Éxito de herramientas** (*Tool
+success*). More below, in [How to know whether it worked](#how-to-know-whether-it-worked).
+
+## Every tool at a glance
+
+The first column shows the name as it appears in the dashboard.
+
+| Tool | What it does | How it is asked for | What it needs |
+| --- | --- | --- | --- |
+| **Avanzar de capítulo** (*Advance chapter*) | Moves the conversation to the next chapter of the funnel. | Written into the playbook (`@` menu → Capítulos). | Nothing. |
+| **Registrar una venta / conversión** (*Record a sale / conversion*) | Records the sale, appointment, lead or service; on a sale, opens the order. | Written into the playbook. | Nothing. For it to open the order, the **Órdenes** app. |
+| **Activar Modo Manual** (*Activate Manual Mode*) | Switches autopilot off: the agent goes quiet and a person takes over. | Written into the playbook (or the customer asks). | Nothing. |
+| **Guardar un dato** (*Save a piece of data*) | Saves what the customer said (name, district, size…) to their record. | Written into the playbook. | The variable must exist in the record. |
+| **Leer un dato del cliente** (*Read a customer's data*) | Re-reads a saved piece of data so as not to ask again. | Written into the playbook. | Nothing. |
+| **Recordatorio / seguimiento** (*Reminder / follow-up*) | Schedules a nudge to pick the conversation up later. | Written into the playbook. | Nothing. |
+| **Programar una acción** (*Schedule an action*) | Schedules a task for later: send something, change chapter. | Written into the playbook. | Nothing. |
+| **Avisar a un tercero** (*Notify a third party*) | Sends a WhatsApp message to someone else (the salesperson, the manager). | Written into the playbook. | The number with its country code. |
+| **Consultar conocimiento** (*Consult knowledge*) | Searches the files the agent studied (policies, warranties, FAQ). | Written into the playbook; also used on its own. | Files with the **Memoria del agente** (*Agent memory*) permission. |
+| **Enviar un archivo** (*Send a file*) | Sends the customer a photo, a PDF or an audio from the Library. | Written into the playbook with a marker. | The file with the **Enviar por WhatsApp** (*Send over WhatsApp*) permission. |
+| **Buscar en el catálogo** (*Search the catalog*) | Gives the exact price and the total per quantity. | Used on its own. | A catalog with active products. |
+| **Enviar la ubicación** (*Send the location*) | Sends the business's location as a WhatsApp map pin. | Used on its own. | A location saved in the Library. |
+| **Consultar stock** (*Check stock*) | Checks how many units really exist before promising them. | Used on its own. | The **Inventario** app, its switch in Settings, and a catalog. |
+| **Citas** (*Appointments*: see calendar, book, move, cancel) | Four tools for booking in your calendar. | Used on their own. | The **Calendario** app. |
+| **Avisar al equipo por Slack** (*Notify the team on Slack*) | Posts a sale, a hot lead or a handoff to a Slack channel. | Used on its own. | Slack connected in **Personalizar → Canales**. |
+| **Video del avatar** (*Avatar video*) | Generates a short video of the agent's persona saying a text. | Asked for in prose. | A persona with a face and a voice set up. |
+| **Your own tools (MCP)** | Whatever you connect: your ERP, your booking system, your CRM. | Written into the playbook. | An MCP server in **Personalizar → Herramientas**. |
+
+<Note>
+**The voice note is switched off.** There is a tool that turns text into audio
+with the agent's voice, but today it is disabled for every business. If an old
+playbook asks to «reply with a voice note», the agent replies with text.
+</Note>
+
+## How they are written into the playbook
+
+A playbook tool is asked for with **one exact sentence**, on the line of the
+script where it must happen. Do not type it: in the
+[playbook editor](/en/guides/sales-playbook#the-menu-mentioning-things), type
+**`@`**, choose the **Herramientas** (*Tools*) group and click the one you want.
+If the tool takes data, a one-line form opens to ask for it, and the sentence is
+written correctly and **tinted** as a mention: a click changes it, `⌫` deletes
+it.
+
+The sentence left in the text always has this shape (it is in Spanish, because
+it is what the agent reads):
+
+```
+Ejecuta la herramienta "Recordatorio Tool" con el query "en 24 horas recuérdame: retomar con el descuento"
+```
+
+And two of them go without data, as they are:
+
+```
+Ejecuta la herramienta "Activar Modo Manual Tool"
+```
+
+<Warning>
+**Writing it in prose executes nothing.** «Record the sale», «schedule a
+reminder for tomorrow» or «hand it to a human», written without the sentence,
+are text the agent reads as a suggestion, not an order the system recognises.
+The same goes for a bare technical name (`reminder`, `register_conversion`): the
+Doctor flags it as **«escrita sin formato de herramienta»** (*written without
+tool format*) and offers to fix it with one click.
+</Warning>
+
+Three rules of the form that prevent broken sentences:
+
+- **Reminder, Schedule an action and Notify a third party require the data.**
+  Without it, the **Insertar** (*Insert*) button stays disabled: a sentence with
+  an empty slot would be of no use.
+- **Activate Manual Mode and Consult knowledge take no data.** They are not
+  told whom to notify or what: the handoff notifies your team on Slack, if you
+  have it connected, and the agent knows on its own what to look up.
+- **The data goes inside the sentence, not next to it.** If the Doctor tells
+  you **«los argumentos están escritos como prosa al lado de la herramienta»**
+  (*the arguments are written as prose next to the tool*), someone typed the
+  delay or the number by hand outside the quotes; accept the fix it proposes.
+
+Everything that happens around the script — the STEPS, the § sections, the
+Doctor — is in [The sales playbook](/en/guides/sales-playbook). Here goes only
+what concerns each tool.
+
+## The ones written into the playbook
+
+### Advance chapter
+
+It is the most important tool in the product, which is why it has its own
+section in the playbook guide:
+[Making the sales funnel advance](/en/guides/sales-playbook#making-the-sales-funnel-advance).
+In short: it is inserted with **`@` → Capítulos**, the literal sentence is
+`Llama a la herramienta advance_chapter con el capítulo 3`, and writing «move
+on to the next one» in prose **moves nothing**.
+
+### Record a sale / conversion
+
+In the playbook it appears as **«Registrar Conversion Tool»**, and its data is
+**what gets recorded**: `venta` (sale), `cita` (appointment), `lead calificado`
+(qualified lead) or `servicio` (service).
+
+```
+PASO 5: Cuando el cliente confirme el pedido y la dirección, Ejecuta la herramienta "Registrar Conversion Tool" con el query "venta"
+```
+
+What it does when it runs:
+
+- **A sale always carries an amount.** The agent takes it from the catalog
+  (price times quantity, plus shipping if you charge it). It is what the order
+  is **worth**, not what has already been collected: a cash-on-delivery sale
+  with no advance is recorded all the same, at the product's price.
+- **On a product sale, it opens the order.** With the **Órdenes** (*Orders*)
+  app active, that same call creates the conversation's order with its lines,
+  the agreed payment plan (all upfront, cash on delivery, or advance plus
+  balance), the shipping cost and the address. If the chat already had an open
+  order, **it replaces it entirely** with the final lines.
+- **It does not charge anything.** Payment is confirmed when your team verifies
+  the receipt. See [Orders and metrics](/en/guides/orders-and-metrics).
+- **It notifies you.** If in the agent's **Ajustes** (*Settings*) you chose
+  numbers for **Ventas** (*Sales*), every recorded sale arrives instantly on
+  WhatsApp with a 💰, with the product, the total and the customer data
+  captured.
+
+<Tip>
+**Put it in the closing chapter, and only once.** It is the source of your
+sales numbers and of **Resultados**: if you write it in two chapters, you will
+count the same sale twice.
+</Tip>
+
+### Activate Manual Mode
+
+In the playbook it appears as **«Activar Modo Manual Tool»** and is written
+without data. When it runs, it **switches off autopilot** for that
+conversation: the agent stops replying and the conversation waits for a person —
+just as if you had flipped the switch yourself from the inbox, as described in
+[Taking over the conversation yourself](/en/guides/conversations#taking-over-the-conversation-yourself).
+
+The agent runs it in three situations:
+
+| When | What happens |
+| --- | --- |
+| **The chapter orders it** (the typical case: order taken, delivery left to coordinate). | Switches autopilot off. This is the normal use of writing it into the playbook. |
+| **The customer's last message asks to talk to a person**, or expresses real anger. | Switches autopilot off even if the playbook does not say so. |
+| **The customer asks something the playbook does not cover.** | **Does not switch autopilot off.** Notifies your team that the information was missing, and the agent keeps serving. |
+
+<Warning>
+**It is irreversible from the chat.** Once off, the agent does not reply again
+until a person comes in and turns autopilot back on. That is why the agent is
+forbidden from switching it off «by inertia»: because the history mentions an
+earlier handoff, because it offered one itself before, or because the customer
+asks about their data. If the customer says they would rather carry on with the
+agent, it carries on with the agent.
+</Warning>
+
+Every handoff notifies your team through the handoff channel, if you have Slack
+connected, and stays in the thread as an **⚡ Activar Modo Manual** chip.
+
+### Save a piece of data · Read a customer's data
+
+In the playbook they appear as **«Actualizar Datos Tool»** and **«Leer Datos
+Tool»**; the data is **what to save** or **what to read**:
+
+```
+PASO 2: Pregunta a qué distrito se envía. Ejecuta la herramienta "Actualizar Datos Tool" con el query "distrito"
+```
+
+What it saves goes to the customer's record, the one you see under
+[«Datos capturados»](/en/guides/conversations#captured-data-what-the-agent-knows-about-that-customer),
+and merges with what was already there.
+
+<Warning>
+**It only saves variables that exist.** The tool does not create new fields: if
+the playbook asks it to save «talla» (size) and the record has no «talla»
+variable, it saves nothing. Create the variable first; and if it is an options
+variable (a closed list), the agent can only save one of those values.
+</Warning>
+
+**Read a piece of data** exists so as not to repeat questions: if the customer
+already gave their name in chapter 1, chapter 4 can re-read it instead of
+asking. Since the agent already receives the customer's record with every
+message, you will need it rarely; it is useful when you want to make it explicit
+in the script that it **must** use that piece of data.
+
+### Reminder / follow-up
+
+In the playbook it appears as **«Recordatorio Tool»** and its data is **the
+delay and what to pick up**:
+
+```
+PASO 3: Si no responde, Ejecuta la herramienta "Recordatorio Tool" con el query "en 24 horas recuérdame: retomar preguntando si tuvo dudas con el precio"
+```
+
+How it works inside, which is what explains its surprises:
+
+- **The text is a note for the agent, not a message for the customer.** When
+  the delay is up, the agent **writes** the message from that note, with the
+  whole context of the chat. And it never tells the customer that it is
+  «creating a reminder».
+- **Only one lives per conversation.** If the agent schedules another, the
+  previous one is cancelled. That is why a follow-up cadence is **chained** —
+  each follow-up schedules the next — rather than stacked.
+- **If you give no delay, it is 24 hours.**
+- **It can expire if the customer writes first.** For a «re-engagement» of
+  someone who does not answer, it makes sense for it to cancel itself if the
+  customer replies; for a «call me on Monday», it does not. The agent decides
+  from the meaning of the text.
+- **It can carry files.** If the text contains a `###SEND_FILES: promo###`
+  marker, that file is attached on its own when the delay is up, not now.
+- **If the conversation switches to manual mode, whatever was scheduled is
+  cancelled when it comes due** instead of going out: a person is serving and
+  the agent does not cut across.
+
+Each chat's reminders are seen and cancelled from the thread, in the reminders
+panel. And there is one the agent schedules **without the playbook asking**:
+when the customer agrees on a day («I'll let you know on Friday», «I'll pay on
+the 15th»), the agent arranges to pick it up that day at 10 in the morning,
+without insisting before.
+
+### Schedule an action
+
+In the playbook it appears as **«Programar Accion Tool»** and its data is **the
+delay and the task**:
+
+```
+PASO 4: Ejecuta la herramienta "Programar Accion Tool" con el query "en 48 horas: envía el archivo ###SEND_FILES: descuento_final### y pasa al capítulo 6"
+```
+
+It resembles the reminder, but it is not the same thing:
+
+| | Reminder | Scheduled action |
+| --- | --- | --- |
+| **What for** | Talking again to someone who went quiet. | Carrying out a concrete task at a given time: send something, change chapter, save a piece of data. |
+| **How many at once** | One: the new one cancels the previous one. | Up to **10** active per conversation, without cancelling each other. |
+| **What it carries** | A note on what to pick up. | The **literal** task, which the agent will carry out to the letter. |
+
+If the task changes chapter, it can also say **from which STEP** of that chapter
+to continue. And just like the reminder, the agent never announces to the
+customer that it is scheduling something.
+
+### Notify a third party
+
+In the playbook it appears as **«Enviar Mensaje A Tercero Tool»**. The `@`
+menu form asks you **which number** and **what to tell them**, and builds the
+sentence:
+
+```
+PASO 6: Ejecuta la herramienta "Enviar Mensaje A Tercero Tool" con el query "Dile al número 51987654321 que hay un pedido nuevo para coordinar la entrega"
+```
+
+It sends a WhatsApp message from the agent's number to that other person — the
+salesperson on duty, the warehouse manager — outside the conversation with the
+customer. It can attach the chat history.
+
+<Warning>
+**The number goes with its country code, joined up and without `+`.**
+`51987654321`, not `987654321` or `+51 987 654 321`. If the playbook carries
+the number in local format, the tool **rejects it** and the notice does not go
+out; and the agent is forbidden from completing or correcting it on its own.
+What has to be fixed is the number in the playbook. If you keep your numbers
+under **Números frecuentes** (*Frequent numbers*, in Settings), the `@` menu
+offers them to you already well written.
+</Warning>
+
+### Consult knowledge
+
+In the playbook it appears as **«Memoria A Largo Plazo Tool»** and is written
+without data. It searches the files the agent **studied**: the ones that in the
+Library have the **Memoria del agente** (*Agent memory*) permission (policies,
+warranties, shipping times, spec sheets). See
+[The file Library](/en/guides/library).
+
+You do not need to write it for it to work: **the agent uses it on its own**
+whenever the customer asks something that is neither in the chapter nor in its
+data. And if what it finds does not answer the question, it does not use it: it
+tells the customer it will confirm and follows the script. Writing it into a
+chapter serves to force it at a specific point («before answering about
+warranties, look it up»).
+
+### Send a file
+
+It is not a sentence but a **marker** with the file's nickname, and it has its
+own section:
+[Send a file from the script](/en/guides/sales-playbook#send-a-file-from-the-script).
+
+```
+PASO 2: Si pide ver el catálogo, envíalo aquí: ###SEND_FILES: catalogo###
+```
+
+The essentials: the file has to be in the Library **with the «Enviar por
+WhatsApp» permission** before you name it, the default nickname is the file
+name without its extension, and a badly written marker comes out as it is in
+the chat.
+
+## The ones the agent uses on its own
+
+These **are not written into the playbook**. The agent has them at hand and
+decides when to call them depending on what the customer asks. If you name them
+in a chapter, the Doctor flags it; what you can do is prepare what they need.
+
+### Search the catalog
+
+Every time the customer asks about a product or a price, the agent searches
+your [catalog](/en/guides/catalog) and answers with the exact price; if the
+customer said how many units they want, it receives the total already
+calculated, with quantity pricing and promotions. **It is forbidden from
+inventing prices and from calculating totals on its own.**
+
+It only exists if your business **has active products** in the catalog: with no
+catalog, the agent does not even see it. The same search gives it each
+variant's identifier, which is what **Record a sale** uses to tie the sale to
+the right product.
+
+### Send the location
+
+When the customer asks where you are or how to get there, the agent sends the
+location as a **WhatsApp map pin**. The addresses and coordinates come from what
+you saved under **Librería → Ubicaciones** (*Library → Locations*); the agent
+**never** writes an address of its own, it only chooses which location to send
+if you have several («the Surco one», «the warehouse»). With no saved
+locations, it does not have it.
+
+### Check stock
+
+Before promising units, large quantities or delivery times, the agent checks
+how much there **really** is in the inventory, per variant, and does not offer
+what there is not. It does not use it for prices: that is the catalog's job.
+
+It is the only one with **three conditions**: the **Inventario** (*Inventory*)
+app active in your business, the **«Consultar stock»** switch on in that
+agent's **Ajustes** (*Settings*, under *Herramientas*, which only appears with
+Inventory active) and a catalog with products. If one fails, the agent does not
+see it.
+
+### Appointments: see the calendar, book, move and cancel
+
+With the **Calendario** (*Calendar*) app active, the agent receives four tools
+at once: **check availability** (the bookable services and the real free
+slots), **book**, **reschedule** and **cancel** the customer's appointment. It
+is forbidden from proposing a slot without checking first, and the price, the
+duration and the deposit come from your services, not from its head. If the
+service carries a deposit, it collects it by receipt and your team confirms it.
+See [The DarkFunnels apps](/en/getting-started/the-apps#the-apps-that-exist-today).
+
+### Notify the team on Slack
+
+If you connected Slack under **Personalizar → Canales** (*Customize →
+Channels*), the agent posts to the channel you chose when it records a sale,
+detects a hot lead or hands a chat to a person. Without Slack, the tool does not
+exist and nothing else changes: the WhatsApp notices in **Ajustes** (Ventas,
+Alertas, Reportes) are independent.
+
+### Avatar video
+
+If the agent's persona has a **face and a voice** set up, the agent can
+generate a short video of the avatar saying a text and send it when it is ready;
+it takes a few minutes and the conversation carries on meanwhile. It is the only
+one asked for **in prose** («in the greeting, send them a welcome video») and
+only if your business warrants it. See
+[The agent's persona](/en/guides/sales-playbook#the-agent-s-persona).
+
+## Your own tools (MCP)
+
+If your business has a system of its own — an ERP, a booking system, a CRM —
+that exposes an **MCP server**, you can connect it and your agent will use it as
+one more tool. It is under **Personalizar → Herramientas** (*Customize →
+Tools*): **«Añadir servidor MCP»** (*Add MCP server*), with a name, the server's
+URL and, if it asks for one, its key.
+
+<Steps>
+  <Step title="Connect the server">
+    **Personalizar → Herramientas → Añadir servidor MCP.** The card shows its
+    status (**Activo** / **Inactivo**) and a **Con credencial** (*With
+    credential*) label if you saved the key.
+  </Step>
+  <Step title="Write it into the playbook">
+    In the `@` menu → Herramientas, the **«Otra herramienta»** (*Other tool*)
+    entry is the generic one for anything that comes from an MCP server. Its
+    data is the instruction: what it has to do, naming your system if you have
+    several.
+    ```
+    Ejecuta la herramienta "MCP Tool" con el query "busca en el sistema de reservas la reserva a nombre del cliente"
+    ```
+    The agent picks, among the tools your server publishes, the one that
+    fulfils that instruction.
+  </Step>
+  <Step title="Try it in a chat">
+    The agent discovers the server's tools on its own; a freshly added server
+    can take a few minutes to show up for it. Open a **test chat** from the
+    inbox and look at the **⚡** chip to see whether it ran and what it
+    returned.
+  </Step>
+</Steps>
+
+What to keep in mind:
+
+- **Limits:** up to **5 servers** per business and **20 tools** in total.
+  Anything beyond that is not loaded.
+- **If the server is down, it is skipped.** The agent keeps serving without
+  that tool; a conversation never falls over because of someone else's server.
+- **What your server returns is third-party text.** The agent treats it as
+  information, not as orders; and no MCP tool can charge or move money, because
+  the agent has no way of doing so.
+- **The URL has to be public** (`https://…`). Servers on private networks are
+  not accepted.
+
+## How to know whether it worked
+
+Every time the agent runs a tool, an **⚡** chip appears in the chat thread
+with its name — **Recordatorio**, **Conversión registrada**, **Aviso a
+tercero**… — and, if something went off course, a word next to it:
+
+| The chip says | What happened |
+| --- | --- |
+| *(nothing, just the name)* | It ran fine. |
+| **falló** (*failed*) | The tool errored. The agent kept serving without it. |
+| **bloqueado por política** (*blocked by policy*) | The system stopped it on purpose: a handoff with no reason, a reminder above the cap, one action too many. It does not count as run. |
+| **omitido** (*skipped*) | It had no effect: there was nothing to do, or what it promised was never delivered. |
+| **descartado** (*discarded*) | It ran, but the turn was interrupted (the customer wrote over it) and the customer received nothing. |
+
+If a chip surprises you, click it: it unfolds with the data the agent passed
+and what the tool returned. It is the fastest way to understand **why** it did
+what it did.
+
+The summary of all this lives under **Resultados**, on the **Éxito de
+herramientas** (*Tool success*) line: of all the actions the agent attempted,
+how many went well. It is explained in
+[Orders and metrics](/en/guides/orders-and-metrics#results-what-each-number-really-measures).
+
+## From your assistant (optional)
+
+If you connected Claude, ChatGPT or Codex through
+[the bridge](/en/reference/connection-url), your assistant can read a
+conversation and see **which tools ran** in each turn, list and cancel a chat's
+reminders, and schedule a new one. It can also write the tools into the
+playbook for you: ask it to use the exact sentence and to show you the chapter
+before saving. The tools your assistant has for that are in the
+[Tool reference](/en/reference/tools).
