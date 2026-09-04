@@ -1,6 +1,6 @@
 ---
 title: "Tool reference"
-description: "The 45 tools of the DarkFunnels MCP bridge, by group. Generated from the source code: do not edit by hand."
+description: "The 44 tools of the DarkFunnels MCP bridge, by group. Generated from the source code: do not edit by hand."
 ---
 
 {/* GENERADO por scripts/gen-tools-reference.mjs — editarlo a mano se pierde. */}
@@ -178,10 +178,6 @@ it. That and the rest of the connection parameters are explained in
 *write*. Cancela un recordatorio o acción programada por su reminder_id (de list_reminders). La fila queda en el historial como cancelada por el usuario; se puede volver a programar con create_reminder. Devuelve la fila cancelada; su message llega delimitado como datos no confiables, igual que en list_reminders.
 
 ## Playbook with AI (`?features=manual_ai`, spends credits)
-
-### `generate_manual` — Generar manual con IA
-
-*write*. Genera un borrador de manual de ventas con la IA de DarkFunnels (consume créditos). mode 'propose' devuelve solo persona y enfoque sugeridos; 'full' devuelve capítulos completos listos para revisar. NO guarda nada: el borrador se aplica después a un embudo que YA existe, con save_manual_chapters o apply_funnel; en una cuenta sin embudos no hay dónde aplicarlo y el primero se crea con create_sales_agent. Con agent_id, los marcadores de envío de archivos se generan contra los archivos enviables reales del agente.
 
 ### `optimize_manual` — Optimizar manual con IA
 
