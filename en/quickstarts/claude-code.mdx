@@ -1,20 +1,20 @@
 ---
 title: "Claude Code"
-description: "The OptiMind connector in your terminal."
+description: "The DarkFunnels connector in your terminal."
 ---
 
 <Steps>
   <Step title="Add the server">
     ```bash
-    claude mcp add --transport http optimind "https://mcp.darkfunnels.ai/mcp?features=all"
+    claude mcp add --transport http DarkFunnels "https://mcp.darkfunnels.ai/mcp?features=all"
     ```
     The quotes matter: without them the `?` triggers your shell's glob.
   </Step>
   <Step title="Authorize">
     ```bash
-    claude mcp login optimind
+    claude mcp login DarkFunnels
     ```
-    Your browser opens: sign in with the **same account as the OptiMind
+    Your browser opens: sign in with the **same account as the DarkFunnels
     dashboard**.
   </Step>
 </Steps>

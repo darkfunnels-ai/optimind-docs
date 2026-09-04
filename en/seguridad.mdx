@@ -5,7 +5,7 @@ description: "How the MCP bridge confines, delimits and audits — and why it ne
 
 ## Your account is the perimeter
 
-The assistant authenticates over **OAuth with your own OptiMind account**, and
+The assistant authenticates over **OAuth with your own DarkFunnels account**, and
 every data access travels with your identity: separation between businesses is
 enforced by the database on each query (Row Level Security), not by a convention
 in the code. The bridge service **holds no platform credentials** — a full
@@ -17,7 +17,7 @@ You remove the connection from your assistant (in Claude: Customize →
 Connectors → remove the connector; in Codex: Settings → MCP servers). From that
 point the client can no longer call the bridge. If you need access cut
 immediately from our side — say you lost control of the account — write to the
-OptiMind team: revocation from the dashboard is not available yet.
+DarkFunnels team: revocation from the dashboard is not available yet.
 
 ## Your customers' messages are DATA, not orders
 
@@ -37,7 +37,7 @@ content to analyze, not instructions to follow. On top of that:
 
 ## Your customers' phone numbers come back masked
 
-Your end customers are not OptiMind users: they messaged your business on
+Your end customers are not DarkFunnels users: they messaged your business on
 WhatsApp and have consented to nothing with the AI provider that will read the
 response. So the field that identifies them most directly — the number — arrives
 **masked by default**:
@@ -82,7 +82,7 @@ can edit or delete. Of your data's content only a hash is stored: the log says
 
 ## It never moves money
 
-Sales are recorded by your WhatsApp agent inside OptiMind; the bridge only
+Sales are recorded by your WhatsApp agent inside DarkFunnels; the bridge only
 **reads** them (`list_orders`, `get_order`). It **does not charge, does not
 transfer, does not issue payment links, does not touch your payment provider or
 your cards** — none of its tools can. The features that consume AI credits

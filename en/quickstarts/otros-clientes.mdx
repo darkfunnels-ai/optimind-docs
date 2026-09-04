@@ -3,7 +3,7 @@ title: "Cursor, VS Code and others"
 description: "The connector in any MCP client: one URL and one config file."
 ---
 
-OptiMind speaks standard MCP, so it works in any client that supports it. It is
+DarkFunnels speaks standard MCP, so it works in any client that supports it. It is
 always the same URL:
 
 ```
@@ -21,7 +21,7 @@ Edit `~/.cursor/mcp.json` (global) or `.cursor/mcp.json` (that project only):
 ```json
 {
   "mcpServers": {
-    "optimind": {
+    "DarkFunnels": {
       "url": "https://mcp.darkfunnels.ai/mcp?features=all"
     }
   }
@@ -37,7 +37,7 @@ Edit `.vscode/mcp.json` in your project, or the one in your user profile:
 ```json
 {
   "servers": {
-    "optimind": {
+    "DarkFunnels": {
       "type": "http",
       "url": "https://mcp.darkfunnels.ai/mcp?features=all"
     }
@@ -62,7 +62,7 @@ the field name: here the URL goes in **`httpUrl`**, not `url`:
 ```json
 {
   "mcpServers": {
-    "optimind": {
+    "DarkFunnels": {
       "httpUrl": "https://mcp.darkfunnels.ai/mcp?features=all"
     }
   }
@@ -87,7 +87,7 @@ docs before fighting the file:
 ## If your client runs out of room for tools
 
 Some clients cap how many tools the model can hold at once — Windsurf around
-100, VS Code 128 — counting **all** your servers together. OptiMind ships 39
+100, VS Code 128 — counting **all** your servers together. DarkFunnels ships 39
 with `?features=all`, so with several connectors already installed you may not
 fit.
 

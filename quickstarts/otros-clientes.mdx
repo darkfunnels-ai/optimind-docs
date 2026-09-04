@@ -3,7 +3,7 @@ title: "Cursor, VS Code y otros"
 description: "El conector en cualquier cliente MCP: una URL y un fichero de configuración."
 ---
 
-OptiMind habla MCP estándar, así que funciona en cualquier cliente que lo
+DarkFunnels habla MCP estándar, así que funciona en cualquier cliente que lo
 soporte. Siempre es la misma URL:
 
 ```
@@ -21,7 +21,7 @@ Edita `~/.cursor/mcp.json` (global) o `.cursor/mcp.json` (solo ese proyecto):
 ```json
 {
   "mcpServers": {
-    "optimind": {
+    "DarkFunnels": {
       "url": "https://mcp.darkfunnels.ai/mcp?features=all"
     }
   }
@@ -37,7 +37,7 @@ Edita `.vscode/mcp.json` en tu proyecto (o el del perfil de usuario):
 ```json
 {
   "servers": {
-    "optimind": {
+    "DarkFunnels": {
       "type": "http",
       "url": "https://mcp.darkfunnels.ai/mcp?features=all"
     }
@@ -61,7 +61,7 @@ con el nombre del campo: aquí la URL va en **`httpUrl`**, no en `url`:
 ```json
 {
   "mcpServers": {
-    "optimind": {
+    "DarkFunnels": {
       "httpUrl": "https://mcp.darkfunnels.ai/mcp?features=all"
     }
   }
@@ -87,7 +87,7 @@ del cliente antes de pelearse con el fichero:
 
 Algunos clientes limitan cuántas herramientas puede tener el modelo a la vez
 (Windsurf ronda las 100, VS Code las 128) contando **todos** tus servidores
-juntos. OptiMind trae 44 con `?features=all`, así que si ya tienes varios
+juntos. DarkFunnels trae 44 con `?features=all`, así que si ya tienes varios
 conectores puedes quedarte corto.
 
 La solución es pedir solo lo que vayas a usar. La lista **sustituye** al set
