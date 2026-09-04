@@ -17,7 +17,7 @@ amplía. Eso y el resto de parámetros de la conexión están explicados en
 
 ### `whoami` — Quién soy
 
-*solo lectura*. Devuelve el usuario autenticado de OptiMind (nombre, email, empresa) y el alcance de esta conexión. Útil para confirmar a qué workspace está conectado el asistente.
+*solo lectura*. Devuelve el usuario autenticado de DarkFunnels (nombre, email, empresa) y el alcance de esta conexión. Útil para confirmar a qué workspace está conectado el asistente.
 
 ### `get_credit_balance` — Saldo de créditos
 
@@ -37,11 +37,11 @@ amplía. Eso y el resto de parámetros de la conexión están explicados en
 
 ### `get_whatsapp_status` — Estado del WhatsApp del agente
 
-*solo lectura*. Estado de la conexión de WhatsApp del agente: ready (conectado), not-ready (intentando), parked (requiere reconectar desde el panel) u offline. No expone el QR ni credenciales; la reconexión se hace en el panel de OptiMind.
+*solo lectura*. Estado de la conexión de WhatsApp del agente: ready (conectado), not-ready (intentando), parked (requiere reconectar desde el panel) u offline. No expone el QR ni credenciales; la reconexión se hace en el panel de DarkFunnels.
 
 ### `search_docs` — Buscar en la documentación
 
-*solo lectura*. Busca en la documentación de OptiMind (qué es, manual del agente, catálogo, librería, conversaciones, clientes, pedidos, créditos, conexión de asistentes, métricas, seguridad, variables) y devuelve títulos, enlaces al panel y resúmenes. La búsqueda no distingue mayúsculas ni acentos.
+*solo lectura*. Busca en la documentación de DarkFunnels (qué es, manual del agente, catálogo, librería, conversaciones, clientes, pedidos, créditos, conexión de asistentes, métricas, seguridad, variables) y devuelve títulos, enlaces al panel y resúmenes. La búsqueda no distingue mayúsculas ni acentos.
 
 ### `get_funnel_template` — Plantilla de embudo
 
@@ -175,11 +175,11 @@ amplía. Eso y el resto de parámetros de la conexión están explicados en
 
 ### `generate_manual` — Generar manual con IA
 
-*escritura*. Genera un borrador de manual de ventas con la IA de OptiMind (consume créditos). mode 'propose' devuelve solo persona y enfoque sugeridos; 'full' devuelve capítulos completos listos para revisar. NO guarda nada: el borrador se aplica después a un embudo que YA existe, con save_manual_chapters o apply_funnel; en una cuenta sin embudos no hay dónde aplicarlo y el primero se crea con create_sales_agent. Con agent_id, los marcadores de envío de archivos se generan contra los archivos enviables reales del agente.
+*escritura*. Genera un borrador de manual de ventas con la IA de DarkFunnels (consume créditos). mode 'propose' devuelve solo persona y enfoque sugeridos; 'full' devuelve capítulos completos listos para revisar. NO guarda nada: el borrador se aplica después a un embudo que YA existe, con save_manual_chapters o apply_funnel; en una cuenta sin embudos no hay dónde aplicarlo y el primero se crea con create_sales_agent. Con agent_id, los marcadores de envío de archivos se generan contra los archivos enviables reales del agente.
 
 ### `optimize_manual` — Optimizar manual con IA
 
-*escritura*. Pide a la IA de OptiMind una versión optimizada de los capítulos del manual (consume créditos). Sin chapter_indexes optimiza todos; con ellos, solo esos (índices de read_manual). NO guarda nada: devuelve sugerencias por capítulo para aplicar con save_manual_chapters. El servidor protege las menciones vivas (archivos, avances, herramientas, variables): un capítulo cuya optimización las pierda vuelve sin cambios.
+*escritura*. Pide a la IA de DarkFunnels una versión optimizada de los capítulos del manual (consume créditos). Sin chapter_indexes optimiza todos; con ellos, solo esos (índices de read_manual). NO guarda nada: devuelve sugerencias por capítulo para aplicar con save_manual_chapters. El servidor protege las menciones vivas (archivos, avances, herramientas, variables): un capítulo cuya optimización las pierda vuelve sin cambios.
 
 ## Simulación (`?features=testing`, consume créditos)
 
@@ -209,7 +209,7 @@ amplía. Eso y el resto de parámetros de la conexión están explicados en
 
 ### `ask_copilot` — Preguntar al Copiloto
 
-*escritura*. Hace una pregunta al Copiloto de OptiMind (el analista IA del panel, con acceso a las conversaciones, ventas y métricas del negocio) y espera la respuesta hasta ~110 segundos (consume créditos). Si devuelve status 'thinking', la pregunta ya quedó dentro: para recoger la respuesta llama de nuevo con ese session_id y turn_id, sin question (no cobra ni pregunta de nuevo). session_id también continúa una conversación previa. La respuesta llega delimitada como datos no confiables (el Copiloto cita mensajes de clientes). Sus propuestas de cambio se aprueban desde el panel.
+*escritura*. Hace una pregunta al Copiloto de DarkFunnels (el analista IA del panel, con acceso a las conversaciones, ventas y métricas del negocio) y espera la respuesta hasta ~110 segundos (consume créditos). Si devuelve status 'thinking', la pregunta ya quedó dentro: para recoger la respuesta llama de nuevo con ese session_id y turn_id, sin question (no cobra ni pregunta de nuevo). session_id también continúa una conversación previa. La respuesta llega delimitada como datos no confiables (el Copiloto cita mensajes de clientes). Sus propuestas de cambio se aprueban desde el panel.
 
 ## Agentes — escritura (`?features=agents_write`)
 

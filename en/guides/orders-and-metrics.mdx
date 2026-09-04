@@ -1,0 +1,1059 @@
+---
+title: "WhatsApp sales orders and conversion metrics"
+sidebarTitle: "Orders and metrics"
+description: "WhatsApp sales orders and conversion metrics: how each order is born, how you get paid, what every status means and what each Results indicator really measures."
+keywords:
+  - "WhatsApp sales orders and conversion metrics"
+  - "order statuses"
+  - "payment receipt reconciliation"
+  - "sales funnel results"
+  - "attributed revenue"
+  - "shipments and couriers"
+---
+{/* es-source: guias/pedidos-y-metricas.mdx @ 25c3ccb */}
+
+Your agent closes the sale in the chat. From there on the work is yours: get
+paid, dispatch and know whether the month is going well. This guide is the tour
+of the screens where that happens, click by click.
+
+<Note>
+**Where everything is.** Go into the dashboard at
+[optimind.darkfunnels.ai](https://optimind.darkfunnels.ai). In the menu on the
+left:
+
+| Screen | What it is for | How to get there |
+| --- | --- | --- |
+| **Órdenes** ("Orders") | Your queue for the day: who owes you, what is left to dispatch | At the bottom of the menu, as a standalone row: **Órdenes** |
+| **Clientes** ("Customers") | The people who have talked to your agent, with what it learned about them | **Ventas** ("Sales") → **AGENTE** ("AGENT") block → **Clientes** |
+| **Resultados** ("Results") | How the business is doing over a period | **Ventas** → **Resultados** (the first one) |
+| **Envíos** ("Shipments") | The parcels, the courier and the waybill | **Envíos** — only if your business has it switched on |
+</Note>
+
+<Tip>
+**The golden rule of this guide: here money is recorded, not collected.** The
+order stores what was sold and what is still to be collected; the money comes in
+through your Yape, your Plin, your bank transfer or your cash, and **a person
+records it here**. Your agent does not confirm payments: someone on your team
+confirms them, in the order record or by approving the payment receipt.
+</Tip>
+
+## Orders: the screen
+
+In the desktop menu it is called **Órdenes** ("Orders"); on mobile, the same
+entry is called **Pedidos** ("Orders"). The direct address is
+`optimind.darkfunnels.ai/ordenes` (if you had the old `/orders` link saved, it
+takes you there by itself).
+
+The dashboard is in Spanish, so throughout this page screens, buttons and labels
+are named as you will actually see them, with the English meaning in
+parentheses.
+
+<Frame caption="The brand-new Orders screen: the four tabs, the four totals, the three views and the four filters.">
+  <img src="/images/apps/01-ordenes.png" alt="DarkFunnels dashboard Orders screen with the Orders, Appointments, Services and Leads tabs, the totals at zero and the «No orders yet» empty state" />
+</Frame>
+
+The title is **Órdenes** ("Orders") and underneath, in small type, it says what
+it is: *Everything the sales funnel achieves — orders, appointments, services
+and leads — from the "yes" to the close.* That sentence explains the four tabs.
+
+<Note>
+**If you were looking for «Conversiones» ("Conversions") in the menu, it is no
+longer there as a separate screen:** it was merged in here. Sales are the
+**Pedidos** ("Orders") tab; appointments, services and interested parties are
+the other three.
+</Note>
+
+### Do I have to sign up for this?
+
+No. New accounts are born with Orders switched on, without activating it from
+anywhere, and businesses that already existed with their sales agent active had
+it switched on for them. It is not a core app, so it can be switched off and back
+on from **Administración** → **Apps** ("Administration → Apps") — as
+[The apps](/en/getting-started/the-apps) explains. **If you do not see the
+Órdenes entry in your menu, it is switched off** — it is not a fault.
+
+Contrast that with **Envíos** ("Shipments"), which is optional and does have to
+be activated separately.
+
+### The four tabs
+
+At the top, in a row: **Pedidos** ("Orders") · **Citas** ("Appointments") ·
+**Servicios** ("Services") · **Leads**. They are the four kinds of outcome your
+agent can achieve. This guide covers the first one, which is the one that moves
+money.
+
+### The four totals
+
+The band of large figures: **POR COBRAR** ("AWAITING PAYMENT") · **POR
+DESPACHAR** ("TO DISPATCH") · **EN CAMINO** ("ON THEIR WAY") · **ENTREGADOS**
+("DELIVERED").
+
+<Warning>
+**They are your business's historical total, not the month's or the week's.**
+That band has no date selector: the **ENTREGADOS** number is everything you have
+delivered since you started. For "how much did I sell in August", the screen is
+**Resultados** ("Results").
+</Warning>
+
+Each total groups more than one status, and that is why the figures do not add
+up at first glance:
+
+| Total | Which statuses it sums |
+| --- | --- |
+| **POR COBRAR** ("AWAITING PAYMENT") | Awaiting payment + Partial payment |
+| **POR DESPACHAR** ("TO DISPATCH") | Paid + Invoiced |
+| **EN CAMINO** ("ON THEIR WAY") | On its way |
+| **ENTREGADOS** ("DELIVERED") | Delivered + Closed |
+
+**Cancelled orders do not go into any of the four.** If you add up the four
+totals and it does not match what you see in the table, that is one of the
+reasons: cancelled orders do appear in the list and in none of the totals.
+
+<Note>
+**The numbers are not buttons.** Pressing a figure in that band does not filter
+the table. The buttons below are what you filter with.
+</Note>
+
+### The three views
+
+Three ways of looking at the same thing, with three different jobs:
+
+<CardGroup cols={3}>
+  <Card title="Table" icon="list">
+    The list. **For finding** a specific order and opening it.
+  </Card>
+  <Card title="Pipeline" icon="table-columns">
+    A board of cards by stage. **For moving** orders by dragging.
+  </Card>
+  <Card title="Payment receipts" icon="receipt">
+    The receipts your customers sent. **For getting paid.**
+  </Card>
+</CardGroup>
+
+In **Tabla** ("Table") there are also four quick filters: **Todos** ("All"),
+**Por cobrar** ("Awaiting payment" — unpaid or half paid), **Pagados** ("Paid")
+and **Cerrados** ("Closed").
+
+<Warning>
+**«Cerrados» ("Closed") puts cancelled orders in the same bag as delivered
+ones.** If you are looking for a sale that fell through, it is in there. And it
+also shows up under **Todos** ("All").
+</Warning>
+
+### The table columns
+
+Out of the box, and in this order: **order** · **customer** · **detail** ·
+**total** · **balance** · **status**, and at the end an **Abrir** ("Open")
+button.
+
+- **balance** is the column that tells you how much they still owe you.
+- You can widen and reorder the columns by dragging; the dashboard remembers the
+  result for each agent separately.
+- **Abrir** stays fixed on the right: it does not move and it does not narrow.
+
+<Frame caption="The table with orders in it: each row carries its number, the time, the customer, what they bought, the total, the outstanding balance and the status. At the top, the band of totals — which is historical, not for the period.">
+  <img src="/images/apps/07-ordenes-con-pedidos.png" alt="DarkFunnels dashboard Orders screen with the orders table full and the four totals at the top" />
+</Frame>
+
+### The order number
+
+Every order has a short number like **#ORD-0012**. The system assigns it, you do
+not choose it, and the count is your business's own: **your first order is
+#ORD-0001** even if other companies are running into the thousands. It is there
+so you can talk about the order with your team and find it in the search box at
+the top (*«Buscar cliente o #ORD…»* — "Search customer or #ORD…").
+
+<Warning>
+**The search only looks at the orders already loaded.** The table loads 50 at a
+time as you scroll down. If you search for an old order and it does not turn up,
+it has not been deleted: it just is not loaded yet. The screen itself says so
+when it finds nothing — *«la búsqueda mira los pedidos ya cargados»* ("the
+search looks at the orders already loaded").
+
+**The trick:** filter by status first, or scroll down until it loads.
+</Warning>
+
+<Tip>
+**Direct link to an order.** If you add `?id=` and the order's identifier to the
+address, that record opens on its own when you go in. It is handy for sending
+someone on your team the exact order they are talking about.
+</Tip>
+
+## How an order is born
+
+There are two paths, and only two.
+
+### 1. On its own, from a WhatsApp sale
+
+<Steps>
+  <Step title="The customer closes in the chat">
+    Your agent talks, resolves things and the customer says yes.
+  </Step>
+  <Step title="The agent records the sale">
+    In that same turn it records the sale. **Recording the sale IS opening the
+    order**: there is no second step and no button to press.
+  </Step>
+  <Step title="The order appears in Orders">
+    With its number, its total, its balance and its status. In the record it
+    reads **creado por el agente** ("created by the agent").
+  </Step>
+</Steps>
+
+<Note>
+**Without the Orders app active, the sale is recorded all the same but no order
+is opened.** The sale counts in Results; what you do not have is the collection
+queue or the dispatch queue.
+</Note>
+
+**And if the same customer buys again in the same chat?** As long as the
+previous order is still open — **Por cobrar** ("Awaiting payment") or **Pago
+parcial** ("Partial payment") — the agent **rewrites that order** with the new
+lines instead of duplicating it. Careful: it rewrites it, it does not add to it.
+If the previous order was already **Pagado** ("Paid") or beyond, the second sale
+opens a new order.
+
+<Warning>
+**"I sold something and no order appeared."** Almost always it is the catalog.
+If the agent records a sale and cannot put a price on some line — because the
+product is not in the catalog and nobody said the price — the sale **is** in
+fact recorded but **the order is not opened**. The same happens if the sale
+arrives with no product line at all. Having the product loaded in your
+[catalog](/en/guides/catalog) removes that cause.
+
+A different case, and one that comes before this one: **a sale with no amount is
+not even recorded**. The amount is the order's total value, even if the customer
+pays on delivery and has not put down a single sol.
+</Warning>
+
+#### Where the prices come from
+
+When the line matches a product in your catalog — by its identifier or by its
+name — **the catalog price wins** and any number the agent may have written is
+discarded. That is why, with the product loaded, the price is not set by the AI.
+
+Two exceptions worth knowing about:
+
+- **A product that is not in the catalog** goes into the order at the price the
+  agent said in the chat.
+- **If the product has quantity-based pricing**, the unit price is recalculated
+  according to the volume and the line comes out labelled *(precio por volumen)*
+  ("volume price").
+
+#### Where the currency comes from
+
+Nobody declares it: it is inferred, in this order. First, what the agent
+understood from the chat by reading the symbol that was written (`S/` or `$`).
+If not that, the currency of the catalog price it resolved. And if not that
+either, the agent's **Moneda de las ventas** ("Sales currency") setting (soles
+out of the box).
+
+<Warning>
+**This is where periods with "several currencies" creep in.** If both symbols
+get written in your chats, you will end up with sales in soles and in dollars in
+the same month, and Results will no longer be able to add them up. Mind the
+order: the **Moneda de las ventas** ("Sales currency") setting is the last
+resort, not the first word — if you sell in a single currency, what really
+matters is that the catalog is in that currency and that the two symbols do not
+get mixed in the chat.
+</Warning>
+
+### 2. By hand, with «Pedido manual»
+
+For when you sold over the phone, at the counter or through another channel. The
+button is at the top right, next to **Avisos automáticos** ("Automatic
+notifications").
+
+What it asks you for:
+
+| Field | Required? |
+| --- | --- |
+| Customer name | **Yes.** Without it, it will not let you save: *«El cliente necesita un nombre»* ("The customer needs a name") |
+| Phone | No |
+| Address and district | No — the field literally says *«Dirección (opcional)»* ("Address (optional)") |
+| Product lines | Chosen from the catalog or written by hand |
+| Currency, shipping cost and payment plan | Chosen here |
+
+The system calculates the total and the order number. In the record it will read
+**creado a mano** ("created by hand").
+
+<Note>
+**The product dropdown only brings in what the agent you have selected sells**
+in the bar on the left. If you cannot find a product, check the agent first.
+</Note>
+
+<Warning>
+**An order carries a single currency for everything.** If you mix a product in
+soles with another in dollars, the screen blocks it and tells you which line is
+the culprit. The platform does not convert currencies anywhere.
+</Warning>
+
+### The third path that does NOT open an order
+
+From **Clientes** ("Customers") → the customer's record you can also **Registrar**
+("Record") a sale. That **notes the sale in their history and counts in Results,
+but does not open any order**.
+
+They are two different manual entries and only one creates an order:
+
+| If you want to… | Go to |
+| --- | --- |
+| Get paid and dispatch something | **Órdenes** → **Pedido manual** ("Manual order") |
+| Just leave a record of a sale | **Clientes** → record → **Registrar** ("Record") |
+
+### The three payment plans
+
+Both in the manual entry and when your agent records it, there are three
+options: **Pago completo** ("Payment in full"), **Contra entrega** ("Cash on
+delivery") and **Adelanto + saldo** ("Deposit + balance"). There are no others.
+Plans with freely defined instalments cannot be built from the screen, from the
+agent, or from your connected assistant.
+
+## The statuses of an order
+
+Eight labels. These are the ones you will see written on your screen:
+
+| Status | What it means |
+| --- | --- |
+| **Por cobrar** ("Awaiting payment") | It is open and nothing has come in |
+| **Pago parcial** ("Partial payment") | Something came in and a balance is left |
+| **Pagado** ("Paid") | There is nothing left to collect |
+| **Facturado** ("Invoiced") | Inherited label — see below |
+| **En camino** ("On its way") | It has left for the customer |
+| **Entregado** ("Delivered") | It arrived |
+| **Cerrado** ("Closed") | Inherited label — see below |
+| **Cancelado** ("Cancelled") | It fell through |
+
+<Note>
+**«Facturado» ("Invoiced") and «Cerrado» ("Closed") are inherited labels.** They
+exist in the system and the totals above still sum them, but **today no
+dashboard action takes an order into those two statuses**. If you see an order
+in "Cerrado", it comes from an old migration of your data, not from something
+you did.
+</Note>
+
+## The order record
+
+It opens with the **Abrir** ("Open") button in the table, with the Pipeline card,
+or straight from the chat (further down). It has four blocks:
+
+<CardGroup cols={2}>
+  <Card title="Detail" icon="list-check">
+    What was sold and the total.
+  </Card>
+  <Card title="Payment plan" icon="flag">
+    The collection instalments, if there are any.
+  </Card>
+  <Card title="Payments" icon="hand-holding-dollar">
+    What has already come in, what is missing and this order's unreconciled
+    payment receipts.
+  </Card>
+  <Card title="History" icon="clock-rotate-left">
+    Who created the order, every status change and the notes.
+  </Card>
+</CardGroup>
+
+Just below the order number it reads **creado por el agente** ("created by the
+agent") or **creado a mano** ("created by hand"). It is the way to audit, without
+leaving the screen, what the AI sold and what your team sold.
+
+### Recording a payment
+
+The **Registrar pago** ("Record payment") button, choosing between **Efectivo**
+("Cash"), **Yape**, **Plin**, **Transferencia** ("Bank transfer") and **Otro**
+("Other"). It only appears while the order is **Por cobrar** ("Awaiting
+payment") or on **Pago parcial** ("Partial payment"); as soon as it goes to
+**Pagado** ("Paid"), it is no longer there.
+
+Your agent does not confirm payments: a person confirms them, here or by
+approving a payment receipt.
+
+### The other actions
+
+Depending on where the order is, you will see **Marcar despachado** ("Mark
+dispatched"), **Marcar entregado** ("Mark delivered") and **Cancelar pedido**
+("Cancel order"). And you can leave an **internal note**: it stays in the
+History and **the customer does not see it**.
+
+<Warning>
+**The «Cerrar» ("Close") button at the bottom closes the record, not the order.**
+There is no action that closes an order: to declare a sale dead, use **Cancelar
+pedido** ("Cancel order").
+</Warning>
+
+### The trap that confuses people most
+
+<Warning>
+**Marking an order with an outstanding balance as dispatched or delivered does
+NOT change its status.** The dispatch is noted in the History, with what is
+missing written into the note, but the order stays where it was — **Por cobrar**
+("Awaiting payment") or **Pago parcial** ("Partial payment"). It is deliberate:
+that way the money you are owed does not disappear from your collections view.
+
+The screen tells you so in the notice: *«(anotado; sigue por cobrar)»*
+("(recorded; still awaiting payment)"). It will move to **Pagado** ("Paid") when
+you record the payment.
+</Warning>
+
+### The record also lives inside the chat
+
+It is the same block, in two places: the **Órdenes** ("Orders") drawer and the
+**Órdenes** tab in the conversation's side rail. From the chat, with the customer
+right there, you can record their payment, approve their payment receipt and mark
+the dispatch without switching screens. For day-to-day work it is usually the
+most convenient route.
+
+## Getting paid over WhatsApp: the payment receipts
+
+Your customer sends the screenshot of their Yape, their Plin or their bank
+transfer. That image lands in the **Vouchers** ("Payment receipts") view.
+
+The AI reads the image and **pre-fills the amount**, but the one who confirms the
+payment is always a person, with the **Aprobar pago** ("Approve payment") button.
+You can also **Descartar** ("Discard").
+
+### The inbox tags
+
+Each one is a decision you have to make yourself:
+
+| Tag | What it is telling you |
+| --- | --- |
+| **difiere del saldo** ("differs from the balance") | The amount read is not what is left to collect |
+| **no cubre el hito** ("does not cover the milestone") | It is less than what was due at that instalment of the plan |
+| **revísalo a ojo** ("check it by eye") | The AI read the image with low confidence |
+| **moneda distinta** ("different currency") | The receipt is not in the order's currency |
+| **se asocia al aprobar** ("linked on approval") | It is not hooked to an order yet; it gets hooked when you approve it |
+| **Sin pedido abierto en este chat — créalo antes de aprobar** ("No open order in this chat — create one before approving") | There is nothing to apply it to: the approve button is disabled |
+
+If the image is illegible, the screen says so plainly: *«El OCR no pudo leerlo —
+abre el comprobante y concílialo a ojo»* ("OCR could not read it — open the
+receipt and reconcile it by eye"). There is a full-screen viewer for looking at
+it calmly.
+
+<Note>
+**The inbox goes in batches, it is not the complete list.** At the bottom it
+reads *«Se muestran los N comprobantes más antiguos. Concilia estos para ver los
+siguientes.»* ("Showing the N oldest receipts. Reconcile these to see the next
+ones."). It is a queue: the old ones first.
+</Note>
+
+<Warning>
+**A receipt more than 48 hours old is not processed.** If your customer forwards
+the screenshot of a payment from three days ago, it will not appear pre-filled in
+the inbox. Record it by hand from the order record with **Registrar pago**
+("Record payment").
+</Warning>
+
+<Tip>
+**You do not have to go to the inbox.** The **Pagos** ("Payments") block in the
+order record lists that order's unreconciled receipts, with their image and their
+approval row. It is more direct when you already know which order you are talking
+about.
+</Tip>
+
+## When the order is paid in full, three things happen on their own
+
+The moment the balance reaches zero:
+
+1. **Your agent writes to the customer** to say their order is now being prepared
+   — if the order came from a conversation and that notification is still
+   switched on, which it is out of the box.
+2. **Stock is deducted** from the inventory. If you later cancel the order, that
+   deduction is offset.
+3. **The shipment is born**, if you have the Shipments app active and a single
+   courier enabled (see below).
+
+## Moving orders: the Pipeline
+
+A board with four columns: **Por cobrar** ("Awaiting payment"), **Por despachar**
+("To dispatch"), **En camino** ("On its way") and **Entregado** ("Delivered").
+
+<Warning>
+**You can only drag into the last two.** The collection columns will not accept
+anything dropped on them, because **money is recorded, not dragged**. To get
+paid, open the order and use **Registrar pago** ("Record payment"), or approve
+its payment receipt.
+</Warning>
+
+Three more things about the Pipeline that come as a surprise:
+
+- **Cancelled orders do not appear** in any column.
+- **The board only distributes the orders already loaded** (50 to start with,
+  plus whatever you load by scrolling down). The four totals at the top do count
+  all your orders. That is why you can see "POR COBRAR 180" at the top and a
+  handful of cards in that column: nothing is missing, it just has not been
+  loaded.
+- **On entering the Pipeline the status filter goes back to «Todos» ("All")**, on
+  purpose.
+
+## Automatic notifications
+
+The other button at the top right. It opens the panel where you decide **what
+your agent tells the customer at each rung** of the order.
+
+Mind what you edit in there: **you do not write the literal message, you write
+the task** the agent carries out when notifying. It words it in its own way of
+speaking and with the context of that conversation. Each rung has its own switch:
+switching it off keeps the text for when you want to switch it back on.
+
+The rungs are born switched on, with these out-of-the-box tasks:
+
+| When | Out-of-the-box task |
+| --- | --- |
+| On payment | *«Tell the customer their order is already being prepared and thank them for the purchase.»* |
+| On dispatch | *«Let the customer know their order has left. If there is a courier or tracking detail, give it to them…»* |
+| On delivery | *«Confirm with the customer that they received their order in good order, ask them how it went…»* |
+
+There are two more rungs for appointments (attended / did not attend).
+
+<Note>
+**"Why did my agent write to the customer on its own?"** Because of this. That is
+the answer, and it is switched off from here.
+</Note>
+
+### The «Undo» button that does not undo what you think
+
+When you move an order to **En camino** ("On its way") or **Entregado**
+("Delivered"), the notification to the customer goes out roughly **a minute
+later**. For about **55 seconds** a **Deshacer** ("Undo") button appears.
+
+<Warning>
+**«Deshacer» ("Undo") cancels the message to the customer. It does NOT revert the
+order's status.** The order stays moved. If you got the wrong order, you have to
+correct it by hand in its record.
+</Warning>
+
+That notification — and therefore that button — has three conditions. If any one
+of them is missing, there is no message and no **Deshacer**:
+
+1. **The order has to come from a conversation.** An order created with **Pedido
+   manual** ("Manual order") has no chat behind it: there is no notification and
+   no button there.
+2. **The order has to move forward.** Marking again something that has already
+   been notified does not notify again.
+3. **The rung has to be switched on** in **Avisos automáticos** ("Automatic
+   notifications").
+
+## Customers
+
+`optimind.darkfunnels.ai/clientes`. It is the CRM: every person who has talked to
+your agent, with what it learned about them.
+
+<Note>
+**It needs an agent selected.** Without one the screen says *«Sin agente
+seleccionado»* ("No agent selected") and the menu entry leads nowhere. And the
+list changes when you change agent in the side bar: you have not lost contacts.
+</Note>
+
+### The three views
+
+| View | What it is | When to use it |
+| --- | --- | --- |
+| **Cola** ("Queue") | *"Your closing queue: whoever wrote to you and was left without a reply, from the one who has been waiting longest to the one who has been waiting least; you just empty it."* | Every day |
+| **Embudo** ("Sales funnel") | *"The sales funnel at a glance: each card is a person. Drag them to another chapter and the agent will talk from there on its next turn."* | To see where people get stuck |
+| **Tabla** ("Table") | *"Every person who talks to your agent, with their chapter, their purchases, what the agent learned about them and the exceptions that need your attention."* | To supervise and to search |
+
+Normally you land in **Cola** ("Queue"). If you arrive from a link that already
+asks for another view or a specific chapter — from the [Sales
+playbook](/en/guides/sales-playbook), for example — you land straight there.
+
+<Tip>
+**Dragging a card in the Embudo ("Sales funnel") view changes that person's
+chapter:** your agent will talk from that chapter on its next turn. It is the
+quickest way to rescue someone who got stuck.
+</Tip>
+
+### The Table columns
+
+Fixed and in this order: **customer** · **status** · **chapter** · **autopilot**
+· **tags** · **conversions** · **AI cost** · **last activity**. At the end, the
+**Ficha** ("Record") and **Chat** buttons.
+
+After the fixed ones, **one column appears for each piece of data your agent
+captures** about that person — and they are editable. Left out are those that
+already have a column of their own (the chapter, the autopilot, the phone and the
+photo) and those for internal use.
+
+<Frame caption="The Table view of Customers (Clientes): each row is a person with their phone, their status, the chapter they are on, the autopilot switch, their tags and what you have spent on AI with them. To the right come the columns of the data the agent captured from them — the table scrolls horizontally.">
+  <img src="/images/apps/08-clientes-tabla.png" alt="DarkFunnels dashboard Customers screen in Table view, with one row per person and its fixed columns" />
+</Frame>
+
+The **status** column has three values and calculates itself, it is not editable:
+
+| Status | What it means |
+| --- | --- |
+| **Baja** ("Unsubscribed") | The contact unsubscribed |
+| **Espera respuesta** ("Awaiting reply") | They wrote to you and are still without a reply |
+| **Al día** ("Up to date") | Nobody is waiting for a reply |
+
+<Note>
+**"Al día" ("Up to date") does not mean "they bought from me".** It means that
+conversation has nothing pending on your side.
+</Note>
+
+### Three columns that do not measure what their name suggests
+
+<Warning>
+**"conversions" are not sales.** It counts all the recorded, non-voided outcomes
+for that person: sales, but also appointments, services and leads. And it sums
+**their whole history with all your agents**, not just the one you have open. If
+your sales funnel books appointments, that number is inflated relative to what
+you sold.
+
+**"Con compra" ("With a purchase") is not "they paid me" either.** That filter
+marks whoever has at least one recorded, non-voided outcome in their whole
+history, with any agent. It does not look at whether they paid or whether the
+order has been collected. For the money, the place is the **Por cobrar**
+("Awaiting payment") filter in Orders.
+
+**"AI cost" falls short.** It is what the AI cost to serve that person, in
+dollars and summing their whole history, but it only counts what happens inside a
+conversation turn. Transcribing the audio the customer sent or reading an image
+fall outside it. If you add up the column across all your customers and compare
+it with your usage, it is not going to match.
+</Warning>
+
+### Sorting the table: careful
+
+<Warning>
+**Sorting by a column only sorts the rows already loaded** (200 per page), not
+your whole base. If you sort by "conversions" looking for your best customer,
+they may not even be on screen.
+
+When more rows are left, the screen itself says so at the bottom — *«el orden se
+aplica solo sobre los cargados»* ("sorting applies only to the ones loaded") —
+and offers you **Cargar 200 más** ("Load 200 more") and **Quitar orden** ("Clear
+sorting").
+
+**Filter first, sort afterwards.**
+</Warning>
+
+While a sort is in place, the table stops loading by itself as you scroll down and
+live mode is switched off, so the rows you are looking at do not jump around.
+
+<Note>
+**The list refreshes itself every 10 seconds** and moves whoever has just written
+to you up to first place. The screen declares this at the bottom with a green
+dot.
+</Note>
+
+### The customer record
+
+From the **Ficha** ("Record") button you can change their chapter, switch their
+autopilot on or off, put tags on them, record or void a sale, unsubscribe them
+and delete their data.
+
+<Tip>
+**"Notas internas" ("Internal notes") is the dashboard's most useful and least
+known feature.** It is where you tell your agent *"treat this one as a
+wholesaler"* without touching the playbook: it reads them and applies them in its
+replies, and **the customer does not see them**.
+
+Write them short. Your agent receives **the 5 most recent ones, trimmed to 300
+characters each**: piling up dozens of long notes does not help, it gets in the
+way.
+</Tip>
+
+<Warning>
+**Voiding a sale from the record also cancels the linked order** — if the order is
+**Por cobrar** ("Awaiting payment"), **Pago parcial** ("Partial payment") or
+**Pagado** ("Paid"), it is cancelled without further ado. If it was already on its
+way to delivery and left a trace (waybill issued or stock moved), the order is not
+cancelled and you will see *«el pedido enlazado ya no admite cancelación —
+revísalo en /ordenes»* ("the linked order no longer accepts cancellation — check
+it in /ordenes"). **The sale is voided in both cases**: the order is the part you
+have to review.
+</Warning>
+
+<Warning>
+**A person appears under a single agent, not two.** Each contact is assigned the
+agent of their most recent conversation that had an agent assigned. If someone
+talked to two different sales funnels, the second one takes them and they
+disappear from the first one's list. **It is not a fault.** And if their last
+conversation never got an agent, they stay with the previous one.
+</Warning>
+
+## Results: what each number really measures
+
+`optimind.darkfunnels.ai/resultados`. It is the "how is my business doing" screen,
+and the only one in the dashboard with a date filter.
+
+At the top you choose the scope: **the selected agent** or **Toda la
+organización** ("The whole organization"). The kicker changes between *"Tu
+agente"* ("Your agent") and *"Tu organización"* ("Your organization") so you know
+what you are looking at.
+
+<Warning>
+**Do not try to reconcile the two views.** The sum of your agents individually
+does NOT give the "Toda la organización" ("The whole organization") number, and
+that is on purpose: a conversation with no agent assigned and a sale with no agent
+recorded do not belong to any sales funnel, but they do count in the
+organization's total.
+</Warning>
+
+<Frame caption="Results (Resultados) with a period already worked: the 0-to-100 verdict on the left and, below it, the indicators grouped into «Resultado de venta» (Sales outcome), «Operativo» (Operational) and «Calidad» (Quality), each with its change against the previous period and its trend line.">
+  <img src="/images/apps/06-resultados-con-datos.png" alt="DarkFunnels dashboard Results screen with the verdict and the indicator cards with data" />
+</Frame>
+
+### The date selector
+
+It offers: Today · Last 7 days · Last 30 days · Last 90 days · This week · This
+month · Last month · This year · Last year · Custom range. The first time it opens
+on **Esta semana** ("This week"); after that it remembers, in that browser, the
+last period you chose. The most that can be asked for is a little under 400 days.
+
+<Note>
+**The "change against the previous period" is calculated by shape, not by days.**
+The previous period for March is February — 28 days — not "March minus 31 days".
+That is why the change percentage does not add up if you try to reproduce it with
+a subtraction by hand.
+</Note>
+
+### The big number
+
+A verdict from 0 to 100 with three bands: **Bueno** ("Good", 75 or more),
+**Regular** ("Fair", 50 to 74) and **Malo** ("Poor", under 50). It is not a mark
+the AI gives: it is a weighted average of the seven indicators below, with these
+weights:
+
+| Indicator | Weight |
+| --- | --- |
+| Conversion rate | 30 % |
+| Response latency | 13 % |
+| Conversions | 12 % |
+| Handover to a human | 12 % |
+| Sales quality | 12 % |
+| Tool success | 11 % |
+| Attributed revenue | 10 % |
+
+Indicators that could not be calculated are discarded and their weight is shared
+out among the rest. **Attributed revenue** is also discarded when there were sales
+in more than one currency during the period, because that sum would not mean
+anything.
+
+<Note>
+**When it says "Sin datos" ("No data") instead of grading you.** Only two
+indicators count for that: the **Conversion rate** and **Conversions**. If neither
+of the two could be calculated in the period, the verdict says *«Sin datos»* ("No
+data") even if you have a figure for the other five. It is deliberate: we do not
+want to grade an agent badly when it simply had nobody to talk to.
+</Note>
+
+### The seven indicators, without frills
+
+They are grouped in three blocks: **Resultado de venta** ("Sales outcome" —
+Conversion rate, Conversions, Attributed revenue), **Operativo** ("Operational" —
+Handover to a human, Tool success, Response latency) and **Calidad** ("Quality" —
+Sales quality).
+
+This table is the most important thing on this page. There are indicators whose
+name suggests one thing and which measure another:
+
+| Indicator | What it really measures | When NOT to trust it |
+| --- | --- | --- |
+| **Tasa de conversión** ("Conversion rate") | The outcomes recorded in the period divided by the **new** conversations of the period | **It can go over 100 %** and that is not an error: a sale made today can close on a chat that started last week. It is shown raw on purpose |
+| **Conversiones** ("Conversions") | **All** the outcomes of the period: sales, appointments, services and leads. Voided ones and your test chat are left out | If your sales funnel books appointments or captures leads, **these are not sales**. The number is bigger than what you sold |
+| **Ingreso atribuido** ("Attributed revenue") | The sum of the amounts of those outcomes, **in the currency they were recorded in** — not in dollars | An appointment or a service with an amount also swells the number. And if the period crossed two currencies, the number comes out with no symbol, with no comparison and with the note *«varias monedas — sin convertir»* ("several currencies — not converted") |
+| **Derivación a humano** ("Handover to a human") | Of the conversations your agent genuinely worked, in how many it tried to pass you the chat. Less is better, and it does not go above 100 % | It is **a ceiling, not an exact figure**: attempts the system rejected or that changed nothing count just the same. Real handovers may be fewer |
+| **Éxito de herramientas** ("Tool success") | Of the actions your agent tried to carry out (search the catalog, book, record a sale), how many went well | The ones the system stopped on policy grounds count as failures, on purpose. If it drops, your playbook is asking it for things it cannot do |
+| **Latencia de respuesta** ("Response latency") | The **median** time from the customer's last message to the first reply, including the agent's deliberate wait | It only measures replies to a customer. The reminders and re-engagement the agent sends on its own are left out, so a campaign does not wreck the number |
+| **Calidad de venta** ("Sales quality") | A 0-to-100 mark that an AI judge gives on the conversation: whether it qualifies the customer before offering, whether it persuades, whether it stays in character and whether it closes with a next step | **You will probably see it empty always.** It comes switched off out of the box and the platform switches it on, not you from the dashboard: each mark consumes balance. Even switched on, it only marks conversations of 6 messages or more and does not repeat the same one within 24 hours |
+
+### How to read a card with no data
+
+<Note>
+**A dash means "there is no data". A 0 means "there is data and it is zero".** No
+fake 0 is painted in to fill the gap. When the data is missing, the card's value is
+a dash **—** and where the comparison with the previous period would go it says
+*«sin datos»* ("no data").
+
+**Attributed revenue** with several currencies is the case apart: the card stays on
+— there is data — and what it says is *«sin comparar»* ("no comparison").
+</Note>
+
+<Check>
+**Your test chat does not dirty these numbers.** Neither the conversations nor the
+conversions of the simulation go into Results: testing your agent before connecting
+WhatsApp does not distort the screen for you. Your balance is another matter: your
+agent answers the test turns, and that
+[consumes credits](/en/getting-started/credits-and-top-ups) like any other turn.
+</Check>
+
+## Shipments (only if your business has it switched on)
+
+It lives at `optimind.darkfunnels.ai/envios`, menu **Envíos** ("Shipments").
+Unlike Orders, **Shipments does not come switched on**: it is activated business by
+business. If you do not see the entry in your menu, that is why, not an error.
+
+<AccordionGroup>
+  <Accordion title="The three views and the statuses">
+    The screen has three views: **Envíos** ("Shipments" — the parcel queue),
+    **Guías del courier** ("Courier waybills" — waybills that were issued by hand
+    in the carrier's own dashboard and have to be matched up) and **Couriers**
+    (registering carriers and rates).
+
+    The columns are **shipment** · **courier** · **destination** · **recipient** ·
+    **status**, plus the **Abrir** ("Open") button. The seven possible statuses are
+    **Por despachar** ("To dispatch"), **Pidiendo guía** ("Requesting waybill"),
+    **Despachado** ("Dispatched"), **En camino** ("On its way"), **Entregado**
+    ("Delivered"), **Fallido** ("Failed") and **Cancelado** ("Cancelled").
+
+    **"Pidiendo guía" ("Requesting waybill") is confusing:** it means the system is
+    waiting for the carrier, not for you.
+
+    <Note>
+    **The SHIPMENT statuses are not the same as the ORDER ones**, even though they
+    share some names. They are two different cycles that advance separately.
+    </Note>
+  </Accordion>
+
+  <Accordion title="The filters and the counters (and where they do not add up)">
+    Filters: **Todos** ("All"), **Por despachar** ("To dispatch"), **Pidiendo
+    guía** ("Requesting waybill"), **En camino** ("On its way"), **Entregados**
+    ("Delivered") and **Incidencias** ("Issues"). At the top there are five counters
+    with those same names, and — as in Orders — they are historical totals with no
+    date selector.
+
+    Two warnings:
+
+    - **"En camino" ("On its way") groups two statuses**: the dispatched ones and
+      the ones already travelling.
+    - **"Incidencias" ("Issues") does not count the same thing it lists**: the
+      counter counts only the failed ones; the filter also lists the cancelled ones.
+      A cancelled shipment shows up in the list and not in the number.
+
+    And the search box, just as in Orders, **only looks at the shipments already
+    loaded**.
+  </Accordion>
+
+  <Accordion title="When a shipment is born">
+    Every shipment hangs off an order. It is born on its own, without anyone asking
+    for it, at three moments: when the order is **contra entrega** ("cash on
+    delivery" — at creation), when the agreed **deposit** came in, or when the order
+    was **paid in full**. The rule is that the parcel goes out when there is nothing
+    left to collect before dispatching it.
+
+    You can also create one by hand from the Shipments screen, pasting in the
+    order's identifier (you copy it from Orders).
+
+    <Warning>
+    **Adding a second courier SWITCHES OFF the automatic creation of shipments.**
+    With two or more carriers enabled the system refuses to choose for you, and
+    shipments stop being born on their own. With a single courier enabled (apart
+    from your own delivery), the shipment is born with that one; with none declared,
+    nothing is born either. If from one day to the next "the shipments stopped
+    appearing", look at this first.
+    </Warning>
+  </Accordion>
+
+  <Accordion title="Couriers and waybills: what is automatic and what is not">
+    **The only carrier with a real integration is Shalom**: it is the only one that
+    can issue the waybill from the platform. Any other courier can be registered with
+    its name and its rate, but **the waybill is noted down by hand**. The **Entrega
+    propia** ("Own delivery") option is for when you take it yourself (motorbike,
+    counter).
+
+    Requesting the waybill from the platform **is born switched off** and you switch
+    it on yourself, courier by courier, because each waybill is real and gets charged
+    to your account with the carrier.
+
+    <Warning>
+    **Even switched on, the waybill is not requested on its own.** The switch gives
+    permission; it does not trigger anything. A person requests it with the **Pedir
+    la guía al courier** ("Request the waybill from the courier") button inside the
+    shipment, and the screen warns you first: *«Se crea una guía real y se cobra en
+    tu cuenta del courier»* ("A real waybill is created and charged to your account
+    with the courier").
+    </Warning>
+
+    Before letting you request it, the record shows you a **Para pedir la guía** ("To
+    request the waybill") block with a **Listo** ("Ready") or **Faltan datos**
+    ("Missing details") tag and the list of what is missing. The origin branch is
+    chosen once only, in the **Couriers** tab, and applies to all your shipments.
+
+    If the request is left half done, a block appears warning that the waybill needs
+    you to look at it: that does not resolve itself, and it has to be looked at,
+    because two waybills would be charged to the customer.
+  </Accordion>
+
+  <Accordion title="The shipment record">
+    It shows **Destino** ("Destination"), **Destinatario** ("Recipient"), **Envío**
+    ("Shipment" — order, courier, cost, waybill number) and a **Línea de tiempo**
+    ("Timeline") with every movement of the parcel. Depending on where it is, the
+    blocks for requesting the waybill, dispatching or noting down the waybill also
+    appear.
+
+    **Why it asks you for so many details:** when the recipient is a person, the
+    courier requires an ID document and the two surnames separately — **Apellido
+    paterno** ("paternal surname") and **Apellido materno** ("maternal surname");
+    without that it does not deliver. If the recipient is a company, **Razón social**
+    ("company name") is asked for instead.
+
+    **The recipient's details can be edited until you dispatch.** After that they are
+    read-only, because they are the ones that travelled printed on the waybill.
+  </Accordion>
+
+  <Accordion title="Two things about money and tracking">
+    <Warning>
+    **Shalom's freight is paid by the recipient.** If you do the sums on the
+    shipment's **Costo** ("Cost") field as if you were paying it, you get it the
+    wrong way round.
+    </Warning>
+
+    **You can dispatch without having the waybill number.** The screen tells you so:
+    *«La guía es opcional: si el courier todavía no te la dio, despacha ahora y
+    anótala cuando llegue»* ("The waybill is optional: if the courier has not given
+    it to you yet, dispatch now and note it down when it arrives"). Noting it down
+    afterwards does not change the shipment's status.
+
+    **The «Rastrear» ("Track") link only appears if someone pasted in a tracking link
+    by hand** (it has to start with `https`). A waybill issued from the platform
+    stores the waybill **number**, not the link: that is why you can have a number and
+    not have a tracking button.
+
+    And the **Guías del courier** ("Courier waybills") view is the safety net for when
+    someone issued the waybill outside: a mirror of your Shalom account arrives, each
+    row with a proposal of which shipment it belongs to, **which you have to confirm by
+    hand**. Linking it wrongly dispatches someone else's order with that waybill.
+  </Accordion>
+</AccordionGroup>
+
+## If something does not work
+
+| What you see | Almost always it is | How it gets fixed |
+| --- | --- | --- |
+| **I cannot find «Órdenes» ("Orders") in the menu** | The app is switched off in your business | Switch it on in **Administración** → **Apps** ("Administration → Apps") |
+| **I sold something and the order does not appear** | Some line was left without a price: the product is not in the catalog | Load the product in the [catalog](/en/guides/catalog) and ask the agent to record it again |
+| **I look for an old order and it does not come up** | The search only looks at what is already loaded | Filter by status, or scroll down until it loads |
+| **I marked it dispatched and the status did not change** | There is still a balance to collect | It is on purpose. Record the payment and it will go to **Pagado** ("Paid") |
+| **I pressed «Deshacer» ("Undo") and the order is still moved** | «Deshacer» cancels the message to the customer, not the status change | Correct it by hand in the order record |
+| **My agent wrote to the customer on its own** | A rung of **Avisos automáticos** ("Automatic notifications") | Switch it off from that panel; it keeps the text |
+| **I add up the four totals and it does not match the table** | Cancelled orders do not go into any total | Look at them in the **Cerrados** ("Closed") filter |
+| **The Pipeline has fewer cards than the total at the top** | The board only distributes the orders already loaded | Scroll down to load more |
+| **I cannot drag into «Por cobrar» ("Awaiting payment")** | Money is recorded, not dragged | Open the order and use **Registrar pago** ("Record payment") |
+| **A customer disappeared from a sales funnel** | They talked afterwards to another agent and it took them | Look for them with the other agent selected |
+| **«Calidad de venta» ("Sales quality") comes out empty** | It comes switched off and is switched on from the platform | There is nothing you can do from the dashboard |
+| **An order "will not let itself be cancelled"** | It was already on its way to delivery and left a trace: waybill issued or stock moved | Review it in **Órdenes** ("Orders"); the sale was in fact voided |
+| **Shipments stopped being born on their own** | You have two or more couriers enabled | The system does not choose for you: create the shipment by hand |
+| **The receipt my customer forwarded does not appear** | It is more than 48 hours old | Record it with **Registrar pago** ("Record payment") in the record |
+
+## What cannot be done today
+
+Said once and plainly, so you do not go looking for it:
+
+- **There is no export to Excel or to CSV** in Orders, Customers, Shipments or
+  Results. The only screen in the dashboard that downloads a CSV is the
+  [Catalog](/en/guides/catalog).
+- **Only Results filters by dates.** Orders filters by status and by text,
+  Customers by chapter, autopilot, tag, text and "Con compra" ("With a purchase"),
+  and Shipments by status and by text. For "how much did I sell in August",
+  Results.
+- **Closing an order does not exist.** To declare a sale dead, **Cancelar pedido**
+  ("Cancel order").
+- **There are no payment plans with freely defined instalments** from any screen:
+  only the three plans above.
+
+## The same thing, from your assistant
+
+<Note>
+This section is **optional and only applies if you connected Claude, ChatGPT or
+Codex** to your business. If you work in the dashboard, you have already finished.
+</Note>
+
+<Warning>
+**Your assistant looks at orders; it does not operate them.** It cannot create an
+order, record a payment, approve a payment receipt, dispatch, request a waybill or
+register a courier. Of shipments it has nothing. Everything operational is done from
+the screen, or done by your agent when it sells.
+</Warning>
+
+What it can do: **read**. And for that it is very convenient, because it
+cross-references things the screen does not cross-reference.
+
+Orders and metrics are groups that have to be enabled when connecting. The
+convenient thing is to connect with the URL that already brings everything — it is
+ready to copy in [The connection URL](/en/reference/connection-url) — and not touch
+it again. If you have just enabled a group, open a **new** chat: the tool catalog is
+fixed per conversation.
+
+And the same apps apply as in the dashboard: to read orders you need the **Órdenes**
+("Orders") app active, and for stock, the **Inventario** ("Inventory") app. If they
+are not, your assistant gets a clear notice saying so.
+
+Phrases that work:
+
+- *"Show me the orders awaiting payment and tell me how much money they add up to
+  in outstanding balance."*
+- *"Bring the last 50 orders and group them by status, with the total for each
+  group."*
+- *"Of the orders delivered this week, which came out of a chat and which were
+  opened by a person by hand?"*
+- *"Open the order for me and tell me what is missing for it to count as
+  collected."*
+- *"Compare the catalog stock against the inventory stock and tell me which
+  variants do not match."*
+- *"How much did the AI cost me over the last 30 days and which agent took the
+  biggest share?"*
+- *"How is my balance doing and for how many days will it last at this week's
+  rate?"*
+
+Details that avoid misunderstandings when you ask it for numbers:
+
+<AccordionGroup>
+  <Accordion title="Orders arrive in pages and with no date filter">
+    The list comes from the most recent to the oldest, 25 at a time (50 at most). By
+    date there is only an **upper bound**: for a window with a beginning and an end —
+    "this week", "July" — your assistant asks for pages going backwards and trims off
+    what is left over itself. There is no filter by customer or by amount.
+  </Accordion>
+  <Accordion title="Rates arrive from 0 to 1, not as a percentage">
+    A conversion rate of `0.057` is **5.7 %**, not 0.057 %. If your assistant reads it
+    to you just as it is, that is what it is.
+  </Accordion>
+  <Accordion title="«No data» is not zero">
+    The indicators that could not be measured arrive set aside in a list of their own,
+    precisely so that your assistant **does not read them as zeros**. In a
+    just-switched-on agent or a dead week, they can all arrive: that means a period
+    with no activity, not a breakdown.
+  </Accordion>
+  <Accordion title="Revenue does not always come in dollars">
+    The field name is historical. The amount goes in the currency of your sales and
+    travels accompanied by a code that states it. If the period crossed currencies, it
+    arrives marked as mixed: that sum cannot be read as a single number. And if the
+    period had no sale at all, no currency arrives: it comes blank on purpose, because
+    there is nothing to infer it from.
+  </Accordion>
+  <Accordion title="The customer's phone number arrives masked">
+    You will see something like `51•••••4321`. It is on purpose. To see it in full,
+    either you look at it in the dashboard, or the account owner reconnects the
+    assistant asking for it explicitly. The why of it is in [Security](/en/security).
+  </Accordion>
+</AccordionGroup>
+
+If you need to name the statuses in English because your assistant gives them back
+to you that way, this is the equivalence with what you see on screen:
+
+| On your screen | How your assistant may name it |
+| --- | --- |
+| Por cobrar ("Awaiting payment") | `pending_payment` |
+| Pago parcial ("Partial payment") | `partial` |
+| Pagado ("Paid") | `paid` |
+| Facturado ("Invoiced") | `invoiced` |
+| En camino ("On its way") | `shipped` |
+| Entregado ("Delivered") | `delivered` |
+| Cerrado ("Closed") | `closed` |
+| Cancelado ("Cancelled") | `cancelled` |
+
+## And now
+
+<CardGroup cols={3}>
+  <Card title="The catalog" icon="tag" href="/en/guides/catalog">
+    Where each order's prices come from. If it is incomplete, orders do not get
+    opened.
+  </Card>
+  <Card title="Conversations" icon="comments" href="/en/guides/conversations">
+    The chat each sale was born from, and where the ones that do not close get lost.
+  </Card>
+  <Card title="Credits and top-ups" icon="wallet" href="/en/getting-started/credits-and-top-ups">
+    What consumes balance and how to top up.
+  </Card>
+</CardGroup>

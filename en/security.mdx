@@ -1,0 +1,546 @@
+---
+title: "WhatsApp AI agent data retention and privacy"
+sidebarTitle: "Security and privacy"
+description: "Who can read your customers' WhatsApp chats, which outside companies your data reaches, how long each thing is kept, and how to delete a customer or close your account."
+keywords:
+  - "WhatsApp AI agent data retention"
+  - "WhatsApp chat privacy"
+  - "AI sales agent security"
+  - "delete customer data"
+  - "MCP connector permissions"
+---
+
+{/* es-source: seguridad.mdx @ 0658e78 */}
+
+You are about to connect the WhatsApp number your customers buy from. Before
+that you deserve concrete answers, not a brochure. This page gives them, the
+uncomfortable ones included.
+
+<Note>
+**"Customer"** on this page always means **the person who writes to you on
+WhatsApp**. When we mean the people in your business we will say **your team**.
+</Note>
+
+## The short answers
+
+| The question | The short answer |
+| --- | --- |
+| Can another business see my chats? | No. In chats the lock is set by the database itself; on the other screens, by a filter in the application. |
+| And the people on my team? | **Yes: anyone you invite sees every conversation.** There is no way to narrow that down today. |
+| And someone from DarkFunnels? | **Yes, to give support.** That access is not limited to your business. It is spelled out in section 1. |
+| Do my chats leave DarkFunnels? | Yes, to the AI that answers them. The table below goes item by item. |
+| Do they train on my data? | What we can honestly state has a section of its own. We don't over-promise. |
+| How long are my messages kept? | **Indefinitely**, until you or your customer delete them. |
+| And my files? | Their link opens the file without signing in, for whoever has it. Treat it as the file itself (section 7). |
+| Can I delete a customer? | Yes, with a button. And they can also ask for it over WhatsApp. |
+
+## 1. Who can see my customers' chats?
+
+### Between businesses: a lock and a filter
+
+In the inbox and in conversations, the lock is set by the database itself on
+every query: **if the query does not arrive with your identity, it returns zero
+rows.** There is no screen that has to "remember" to filter; the filter sits
+underneath the screen.
+
+In other areas — **Orders**, **Shipping**, **Inventory**, **Finance**,
+**Calendar** and **Connections** — the server queries with a platform key and it
+is the application itself that adds your business's filter to every read. The
+result you see is the same; the guarantee is of a different kind, and it is only
+fair to say so.
+
+<Check>
+**A new table without a lock does not reach production.** There is an automated
+test that runs on every change and blocks the release if an unprotected table
+shows up. Two honest caveats: that test checks that the lock is **in place**,
+not that it separates businesses correctly — that is reviewed by hand — and
+**stored files fall outside that test** (which is why there is a whole section
+about their links further down).
+</Check>
+
+### Inside your business: everyone sees everything
+
+<Warning>
+**Any active person in your business sees ALL conversations**, even if you
+invited them for one specific task. **Assigning a chat to a salesperson is an
+on-screen notice, not a lock**: it does not stop someone else from opening it.
+
+If you are going to invite someone, invite them knowing this.
+</Warning>
+
+The permissions system exists, but today it governs other things: granting and
+revoking permissions, installing apps, **Orders**, **Shipping**, **Inventory**,
+**Finance**, **Calendar** and the **Copilot** (which on top of that asks for
+permission action by action). **There is no permission that limits reading the
+inbox.**
+
+Two exceptions that qualify the "everyone sees everything":
+
+- **Browser notifications are per person.** A colleague cannot read or dismiss
+  someone else's notifications.
+- **Nobody on your team can edit or delete an individual message** in the inbox:
+  the application only allows adding. Messages go in bulk (when you delete a
+  customer, delete an agent, reset the test chat or close the account), not one
+  by one to cover something up. DarkFunnels support is the exception, and it is
+  described right below.
+
+<Note>
+**If you have several businesses grouped together**, the group's
+super-administrator sees the data of all of them. It is intentional, not a bug —
+but if nobody tells you, it looks like a leak when you find out.
+</Note>
+
+### From inside DarkFunnels: the support team
+
+This is not usually spelled out on a page like this. We would rather spell it
+out ourselves.
+
+<Warning>
+**The DarkFunnels team can access your business's data to give you support**,
+and that access is not limited to your company: it is a platform operations
+tool. It includes being able to see what the AI read on a turn — the playbook,
+that conversation's history and your customer's message — and correcting a piece
+of data that already exists when something needs unblocking.
+</Warning>
+
+What that access does **not** do: it does not delete your data, it does not
+touch who signs in to your account or with what permissions, and it does not
+alter the change log.
+
+If your business handles information that should not be visible during a support
+session, write to us before connecting and we'll talk it through.
+
+How many people hold that key today cannot be answered from the application: it
+is a fact about the live system. If you need that answer in writing for your
+business, ask us for it.
+
+### Inviting and removing people
+
+You invite by email from **People and access**. Three facts everyone asks about:
+
+- The invitation link **expires after 7 days**.
+- It can be **revoked** while it is still pending.
+- The link **is not stored as such** anywhere, only a fingerprint of it. If
+  email delivery is not available, whoever invites shares the link by hand.
+
+### What gets logged (and what doesn't)
+
+In **People and access** you see **the last 60 actions** on permissions and app
+installs for your business: who granted or revoked which permission, which app
+was turned on.
+
+<Warning>
+**It is not a log of everything that happens.** Changing the playbook, touching
+the settings or editing a customer's record **do not appear there**. And it
+records actions, not reads: **there is no record of who opened which chat.** If
+you were going to make a personnel decision leaning on that, don't.
+
+That list, moreover, can be read by anyone in your business, not only by whoever
+administers the permissions.
+</Warning>
+
+<Tip>
+**You can audit your own AI.** There is a view that shows, on your own turns,
+exactly what the AI read: the full playbook, the conversation history and the
+customer's message. **It does not come switched on out of the box**: new
+accounts are created without it and you have to ask the team for it.
+</Tip>
+
+## 2. Which outside companies does my data travel to?
+
+This is the table an owner needs before connecting. Anything marked **"only if
+you turn it on"** does not happen until you switch it on.
+
+| Provider | What it receives | When |
+| --- | --- | --- |
+| **The AI that holds the conversation** (OpenAI, on DarkFunnels' account) | Your agent's full playbook, that conversation's history and the customer's record — **with the complete phone number, unmasked** | Every time a customer writes |
+| **Voice-note transcription** (OpenAI) | The audio your customer recorded | When your customer sends a voice note |
+| **Reading photos and videos** (OpenAI) | The image or the video your customer sent | When your customer sends a photo or a video |
+| **The guided onboarding** (Google) | The interview in which **you** describe how you sell. **It does not receive conversations with customers** | While the copilot builds you an agent in that interview |
+| **WhatsApp** | The messages your agent receives and sends, just as if you were typing them yourself from WhatsApp Web | Whenever the agent is conversing |
+| **Culqi** (the gateway that charges you) | **Your** email, **your** name and **your** phone. Nothing from your customers | When you pay the subscription or top up your balance |
+| **Meta** — *only if you turn on the pixel* | From the buyer: phone, first name, last name, country and a code from their record, **all hashed one way**. Unhashed: amount, currency, product and order number; and if the conversation started from an ad, the identifier of that click and the one of the WhatsApp Business account | When a sale is recorded |
+| **ElevenLabs / HeyGen** — *only if you connect them with your own key* | Voice: the text of the sample you hear when picking a persona. Video: whatever you generate | Only when you use it in the dashboard |
+| **Electronic invoicing** — *only if you turn it on with your own account* | From your customer: document type and number, legal name, address and email | When issuing an invoice |
+| **Shipping carrier** — *only if you turn it on with your own account* | From the recipient: first name and both surnames, their ID document, their phone if you have it, the destination and the pickup code | When creating a shipment |
+
+<Warning>
+**Two things also reach DarkFunnels' own systems**, and today there is no
+checkbox in your Settings to turn them off:
+
+- **The photos and documents a customer sends you.** It does not extend to
+  videos or voice notes, and a file that never gets stored — beyond 8 files per
+  minute in the same conversation — is not copied either.
+- **A notification for every sale or service your agent records**, with the
+  buyer's name, their phone, the captured data and the amount. Appointments and
+  leads do not trigger it, and emptying your list of recipients turns that
+  notification off for your team, not for the platform.
+
+If this gives you pause, write to us before connecting.
+</Warning>
+
+Five clarifications that don't fit in the table:
+
+- **The relationship with OpenAI is DarkFunnels', not yours.** The AI that talks
+  to your customers runs on DarkFunnels' account. The only two AI providers where
+  you can put your own key are voice (ElevenLabs) and video (HeyGen); invoicing
+  and the shipping carrier run on your own account with that service.
+- **Your customers' PDFs do not go through the AI provider.** They are read on
+  DarkFunnels' own server. (They are copied to the platform, like any document:
+  that is what you just read.)
+- **With no balance, audio and images are not processed.** If your account runs
+  out of credits or too many files arrive in a row, the message comes in without
+  being transcribed or described.
+- **Your agent does not reply with audio.** Synthetic voice notes are off for
+  every business, and turning them on is a platform decision, not a checkbox of
+  yours. ElevenLabs only receives text when you test a voice in the Persona
+  Studio.
+- **This table is today's.** Which specific model handles each function is
+  changed from inside DarkFunnels without touching the application; changing
+  provider is not. If that list matters to you for a contract, ask us for the
+  current version.
+
+<Check>
+**Your card number never passes through DarkFunnels.** Culqi's own form captures
+it inside your browser and only a token reaches us. Of the card we store **the
+brand and the last four digits**, nothing else.
+</Check>
+
+<Note>
+**Meta does not get your customer's readable phone number**: it gets an
+irreversible fingerprint, and only if we know that contact's country — with no
+country, the phone does not travel. The [Meta pixel](/en/guides/meta-pixel)
+guide explains how it is switched on and how it is switched off.
+</Note>
+
+## 3. Do they train the AI with my data?
+
+It is easy to over-promise here, so let's be exact.
+
+**What the application does:** on one of the ways of calling the provider, the
+code **expressly asks it not to keep a copy** of the conversation. That is
+verifiable.
+
+**What the application does not do:** today your customers' conversations **do
+not go that way**, but through another one, in which — according to the provider — no
+copy is kept by default. That **is stated by the provider's terms, not by our
+code**.
+
+<Warning>
+Which is why **we are not going to write "nobody trains on your data"**. Whether
+a provider trains or not depends on their contract and the type of account, and
+that is not something a button of ours can guarantee you. If you need that
+guarantee in writing for your business, write to us and we will review it with
+you against the terms in force.
+</Warning>
+
+What you can do yourself, today, without asking anyone's permission: **don't
+upload to the Library what you don't want getting out**, and delete a specific
+customer when they ask for it (section 6).
+
+## 4. What happens with my WhatsApp number?
+
+**DarkFunnels connects to your WhatsApp as a linked device, just like WhatsApp
+Web.** It does not use the WhatsApp Business Platform API (Meta's Cloud API).
+That explains the QR code, explains why the phone matters, and explains the
+scope: **the same one a WhatsApp Web session open on a computer would have.**
+
+### What is imported when you scan the QR
+
+When you link, previous conversations are pulled in. The defaults are:
+
+| Cap | Default |
+| --- | --- |
+| Age | **72 hours** |
+| Chats | **50** |
+| Messages per chat | **40** |
+| Messages in total | **400** |
+
+<Warning>
+**If you link your personal WhatsApp, part of your personal WhatsApp comes in.**
+Those four caps are the only thing separating one from the other, and the
+platform can adjust them. Which is why the usual advice stops being vague: **use
+a business line, not yours.**
+</Warning>
+
+### Pulling in older messages
+
+There is also a manual request that can bring in **up to 200 older messages**
+from a specific chat, and it needs a real message as a starting point: **it
+cannot bring in a chat with not a single message in it**. Put the other way
+round: it cannot vacuum up your entire history.
+
+### Disconnecting is not deleting
+
+Pressing **Disconnect** deletes the session credentials, so getting back in
+takes a new QR.
+
+<Warning>
+**What was already imported is not deleted: your conversations stay in the
+dashboard.** Disconnecting cuts the flow, it does not clean up the past. Section
+6 is what that is for.
+
+And unlinking on WhatsApp's side **is attempted, but not guaranteed**: if the
+session was already down, remove the device from your phone as well (WhatsApp →
+**Linked devices**).
+</Warning>
+
+### The emergency button
+
+The agent's **Active / Paused** switch is not cosmetic: pausing it **also
+cancels the sends already queued and the turns half-done**. It is the answer to
+"what if it goes off the rails?".
+
+<Note>
+Between your WhatsApp and the agent's brain there is a shared key, and the
+service refuses to start without it. In plain terms: **nobody from outside can
+inject fake messages into your inbox.**
+</Note>
+
+## 5. How long is each thing kept?
+
+| What | How long it lasts |
+| --- | --- |
+| **Your inbox messages** | **They do not expire** |
+| The record of a file you sent to the Library's **Trash** | 30 days, and it disappears on its own |
+| The attachments you hand to the copilot | 24 hours if nobody uses them; 30 days if someone does |
+| The copilot's actions and tasks | 90 days |
+| Conversations with the copilot | Archived at 180 days and deleted at 365 |
+| The internal technical copies of each message | Pruned at 30 days |
+| The trace of the AI's reasoning | 14 days (its header, 30) |
+
+**What does not expire**, said plainly so nobody gets a surprise:
+
+- **WhatsApp messages are not deleted on their own.** There is no cleanup by
+  age. They go when someone deletes them: you when you delete a customer, an
+  agent or the test chat thread, your customer when they ask to be forgotten, or
+  when the account is closed. The honest answer to "how long do you keep them?"
+  is **indefinitely, and you have the button**.
+- **The Library's trash frees the record, not the file.** After 30 days the
+  file's record is deleted, but **the file itself stays in storage today**. They
+  are genuinely deleted with the deletion of a customer and with the closing of
+  the account.
+- The prunes in the last two rows are **scheduled cleanups every night**, not an
+  exact timer per row; a leftover can fall outside that prune.
+
+<Note>
+**Where this lives.** The database is in a data center in the United States
+(Northern Virginia). The servers that run the application are with another
+provider and we do not have their location written down: if you need it for a
+contract, ask us. And part of your data travels to the providers in the section
+2 table, each with its own location.
+</Note>
+
+## 6. Deleting a customer, or closing your account
+
+### Deleting a customer's data
+
+There are two paths, and both do the same thing:
+
+<Steps>
+  <Step title="You, from the customer's record">
+    Open the customer's record and press **Delete user data**.
+  </Step>
+  <Step title="Or your own customer, over WhatsApp">
+    They write the keyword to your agent — by default, **borrar** ("delete") —
+    and it runs just the same. Changing that word is a platform setting, not
+    something you touch from your dashboard today.
+  </Step>
+</Steps>
+
+**What it covers:** all of that person's conversations in your business (even if
+they wrote to you on several channels), their files, and the copies that were
+left in the internal logs for conversations, account, orders, shipping and
+calendar.
+
+<Warning>
+**We delete everything we know how to identify, and this is how we identify it.**
+The cleanup of those internal logs searches by the name of the field: **a copy
+stored under a different name can survive**. That is assumed and written down,
+not a hidden oversight. If you need a certified deletion for a specific case,
+write to us.
+</Warning>
+
+<Warning>
+**If that customer had opted out, you will not be able to contact them again.**
+Their opt-out is personal data of theirs too, so it is deleted with the rest.
+But the effective block on that number is still applied by a copy in the service
+that keeps your WhatsApp connection alive, and **it can no longer be undone from
+the dashboard**, because the contact's record ceased to exist.
+</Warning>
+
+### Three other kinds of deletion worth knowing about
+
+- **Deleting an agent deletes its conversations.** Not just the playbook: the
+  messages from its chats go with it.
+- **Resetting the test chat deletes that thread**, and only that one.
+- **Removing a customer variable does NOT delete the data.** If you withdraw the
+  column for ID number, address or gender, the value stays saved in the record
+  and **reappears if you add the variable back**. Removing the column is to stop
+  asking for it, not to forget it.
+
+### Closing your account
+
+It is done from **Profile**. It asks for your password again and for you to type
+the word **ELIMINAR** ("DELETE"), and **only the owner can do it**.
+
+<Warning>
+**It is immediate and there is no grace window.** There is no "30 days to change
+your mind": on confirming, your data goes. Think about it before pressing,
+because afterwards there is nobody to ask to undo it.
+</Warning>
+
+The deletion of your data happens in a single step of under 8 seconds, and it is
+all or nothing: either it happens in full or it does not happen. Afterwards, and
+separately, your access, your stored files and your WhatsApp session are cleaned
+up. **The screen confirms the closure whatever happens with those three**, so
+you will not find out there: if one of them did not go through, your data is
+deleted all the same, and by writing to us we finish it off.
+
+**What is kept on purpose, and why:** the accounting ledger is archived
+separately — charges, credits, subscription and referrals — plus an irreversible
+fingerprint of your email. It is an accounting obligation. **Your settings, your
+numbers and your integrations are not copied into that archive.**
+
+**Three cases the button does not solve today** and you have to ask us about:
+
+| If… | What to do |
+| --- | --- |
+| You sign in **with Google only** | There is no password to confirm, so the screen won't let you. Write to us and we'll close it for you. |
+| Your business is **part of a group** with more than one business | The operation refuses. Write to us. |
+| Your business is **very large** | The deletion does not fit in that single step and the button fails. It is not a mistake of yours: write to us and we'll do it. |
+
+## 7. Your file links: treat them as the file itself
+
+This is not an alarm, it is a rule of use. The photos, audio and documents your
+customers send, the files in your Library, your catalog images and what your
+agent sends are served through direct links.
+
+<Warning>
+**A file link works for anyone who has it, without signing in, and carries no
+expiry date.** The address cannot be guessed by eye, but do not treat it as a
+password: whoever has it, gets in.
+</Warning>
+
+In practice, three pieces of advice:
+
+- **Do not paste those links into an open WhatsApp group, into a post or into a
+  ticket with third parties.** Sharing the link is sharing the file.
+- **If a document should never circulate, do not upload it.** Send that piece of
+  information through another channel.
+- When you pass a file to someone outside, **send them the file, not the link**.
+
+<Note>
+The exception is **the attachments you hand to the copilot**: those do live in a
+private store, separated by business.
+</Note>
+
+## 8. Optional: the connection with Claude or ChatGPT
+
+<Note>
+This section **only applies if you connect your assistant** (Claude, ChatGPT or
+Codex) to your business from outside the dashboard — what this documentation
+calls **the bridge**. **You don't need it to sell.** If you work only in the
+dashboard, you're already done.
+</Note>
+
+### Your account is the perimeter
+
+The assistant authenticates **with your own DarkFunnels account** and every
+access travels with your identity. **The bridge service has no master key**, and
+that is not a promise: there is a startup check that prevents one being
+configured for it — by its name or by its shape — and that **makes the
+deployment fail** if anyone tried.
+
+### Read by default
+
+- With no parameters, the connection is **read-only, with a single write**:
+  customer tags. Saving the playbook, editing the catalog, sending messages or
+  simulating conversations require enabling them explicitly in the connection
+  URL.
+- `?read_only=true` disables every write and overrides any other option.
+- Destructive actions travel marked as such: it is the marker assistants use to
+  ask you for confirmation before running them.
+- Your customers' messages reach it **delimited as data to analyze, not as
+  orders to follow**.
+
+### The masked phone is from here, and only from here
+
+On this path the customer's number arrives **masked by default**:
+
+```
+51•••••4321          12•••6789@lid
+```
+
+<Warning>
+**That masking exists only in the bridge.** In your dashboard, in the
+notifications and in what the sales agent reads, **the number goes through in
+full**.
+If you ever read that DarkFunnels masks phone numbers, it was true of one path,
+not of the product.
+</Warning>
+
+The last four digits and a country hint are kept: enough to recognize a number
+you already know. If a value is not shaped like a phone number, it is not
+half-masked: it comes out as `(oculto)` — hidden.
+
+If you need the full numbers, reconnect adding `pii=full` to the URL:
+
+```
+https://mcp.darkfunnels.ai/mcp?features=all&pii=full
+```
+
+<Warning>
+Add `pii=full` **to the URL you were already using**, don't use it on its own.
+If you had `?features=all` and connect with just `?pii=full`, you fall back to
+the base set and lose orders, metrics and the writes.
+</Warning>
+
+It is a decision of yours when connecting: **the assistant cannot change it
+halfway through a conversation**, and any misspelled variant leaves it in safe
+mode.
+
+### It is logged, and you can read it yourself
+
+Every call your assistant makes is logged — which tool, with what outcome and
+when — and **that log is readable by your business**. The application offers no
+way to edit it or to delete it. Two honest points: it is not immutable at the
+infrastructure level, and it is expected to expire by age.
+
+### It does not move money
+
+It is your WhatsApp agent that records sales; the bridge only **reads** them. None of its tools charges, transfers, issues payment links or touches your
+gateway or your cards. The little that consumes credits — generating or
+optimizing the playbook, asking the copilot — is paid from the same dashboard
+balance, and every response warns you when that balance runs low.
+
+### Cutting off access
+
+It is removed from your assistant (in Claude: **Customize → Connectors** →
+remove the connector; in Codex: **Settings → MCP servers**). From then on that
+client can no longer call the bridge. **There is no revocation button in the
+dashboard today**: if you need it cut immediately from our side — for example if
+you lost control of the account — write to us.
+
+## How to reach us
+
+If anything on this page gives you pause, ask us about it before connecting. We
+prefer the question.
+
+<Card title="Team WhatsApp" icon="whatsapp" href="https://wa.me/51976616514">
+  **+51 976 616 514** — it is the same number the help buttons in the dashboard
+  point to, and the fastest route.
+</Card>
+
+You can also write to **soporte@darkfunnels.ai**, which is the channel listed in
+the [Terms](https://darkfunnels.ai/terminos) and the [Privacy
+Policy](https://darkfunnels.ai/privacidad).
+
+<CardGroup cols={2}>
+  <Card title="Connect your WhatsApp" icon="whatsapp" href="/en/getting-started/connect-whatsapp">
+    The QR step, with what gets imported and what doesn't.
+  </Card>
+  <Card title="The Meta pixel" icon="bullseye" href="/en/guides/meta-pixel">
+    What gets sent to Meta and how it is switched off.
+  </Card>
+</CardGroup>

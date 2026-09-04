@@ -1,0 +1,161 @@
+---
+title: "Connect WhatsApp without the Business API"
+sidebarTitle: "Connect WhatsApp"
+description: "Connect WhatsApp without the Business API: scan a QR from the dashboard, what happens to that number's chats, the trial credits you get and how to fix a stalled session."
+keywords:
+  - "connect WhatsApp without the Business API"
+  - "WhatsApp QR code linked device"
+  - "WhatsApp AI sales agent"
+  - "no Meta Cloud API"
+  - "WhatsApp session stuck connecting"
+---
+
+{/* es-source: primeros-pasos/conecta-whatsapp.mdx @ 865863c */}
+
+This is the step that switches everything on. Up to here you have an agent with
+a script; from here on it has a phone.
+
+You connect the WhatsApp number you already use by scanning a QR from the
+dashboard — no Meta Cloud API application, no message templates to get
+approved, no per-conversation fee.
+
+<Note>
+The dashboard is in Spanish. Throughout this page, buttons and labels are given
+in English with the Spanish wording you will actually see in parentheses.
+</Note>
+
+## Before you scan: the three things to know
+
+{/* Product figure: the source is billing.welcome_amounts() (migration z×187).
+    If it changes there, change it here — these docs are a static deploy with no
+    access to the database. */}
+
+<Warning>
+**1. Use the number your customers already write to.** Regular WhatsApp or
+WhatsApp Business works, on whatever phone. You don't need a new number or a
+separate line.
+
+**2. Your agent will answer the chats that arrive at that number.** All of the
+incoming ones, not a test list. That is what it does: it answers whoever
+writes. You can take over any conversation whenever you want — every chat has
+an **Autopilot** (*Piloto automático*) switch that you turn off to reply
+yourself.
+
+**3. Connecting credits your US$ 10 of trial credit** (plus the US$ 25 of
+referral credit, if you used one) **and starts the 15-day clock.** Before you
+connect, your balance says US$ 0 on purpose. If you had already built or tested
+your agent, you will see slightly less than US$ 10 credited: that usage was
+advanced to you and is now deducted — [Pricing](/en/getting-started/pricing)
+explains it.
+</Warning>
+
+## The QR, step by step
+
+<Steps>
+  <Step title="Open the channels panel">
+    In the menu: **Customize → Channels** (*Personalizar → Canales*). If you are
+    coming from your balance notice, the **Connect WhatsApp** (*Conectar
+    WhatsApp*) button takes you straight there.
+  </Step>
+  <Step title="Press «Connect / Scan»">
+    You will see **Preparing the QR code…** (*Preparando el código QR…*) for a
+    few seconds. The agent has to be active: if it is switched off, the
+    dashboard tells you so instead of showing you the code.
+  </Step>
+  <Step title="On your phone, link the device">
+    Open WhatsApp → **Linked devices** → **Link a device** and point the camera
+    at the code on the screen.
+
+    It is the same mechanism as WhatsApp Web: your phone remains the owner of
+    the number and you can carry on using it as normal.
+  </Step>
+  <Step title="Wait for «Connected»">
+    The badge in the dashboard goes through **Connecting…** (*Conectando…*) and
+    ends at **Connected** (*Conectado*), with the number in view. Your credits
+    are credited at that moment.
+  </Step>
+</Steps>
+
+<Tip>
+Have your phone in hand before you press «Connect»: the code is short-lived and
+it is nice not to have to ask for another one.
+</Tip>
+
+## What each status tells you
+
+| Badge | What it means | What to do |
+| --- | --- | --- |
+| **Connected** (*Conectado*) | The number is linked and the agent replies. | Nothing. |
+| **Scan the QR** (*Escanea el QR*) | There is a code on screen waiting for you. | Scan it, or press **Refresh QR** (*Actualizar QR*) if it has already expired. |
+| **Connecting…** (*Conectando…*) | The session is coming up. | Wait a few seconds. |
+| **Action required** (*Acción requerida*) | The session got parked or took too long. | See below. |
+| **Disconnected** (*Desconectado*) | There is no linked number. | **Connect / Scan** (*Conectar / Escanear*). |
+| **No connection** (*Sin conexión*) | The WhatsApp service could not be reached. | Retry in a few minutes. |
+
+## Common problems
+
+<AccordionGroup>
+  <Accordion title="The QR code expired before I could scan it">
+    That is normal: WhatsApp codes expire on their own after a few seconds and
+    keep renewing while the screen is open. Press **Refresh QR** (*Actualizar
+    QR*) and scan the new one. If you let many codes go by without scanning any
+    of them, the session gets parked — that is the case below.
+  </Accordion>
+  <Accordion title="It says «Action required» and no code appears">
+    The session got **parked**: after ten or so unscanned codes, the service
+    stops generating them until someone deliberately starts the connection
+    again — that way a forgotten tab does not spend the night asking WhatsApp
+    for codes.
+
+    The button says **Connect** (*Conectar*), not «Retry»: press it and the QR
+    cycle starts from scratch.
+  </Accordion>
+  <Accordion title="It stays on «Connecting…» for a long time">
+    The dashboard offers you two ways out, in this order:
+
+    1. **Retry** (*Reintentar*) — asks for the connection again without touching
+       the session.
+    2. **Restart** (*Reiniciar*) — throws the session away and brings it up from
+       scratch. It is the way out when «Retry» changes nothing.
+
+    If it is still the same after restarting, it is usually the service and not
+    your account: wait a few minutes and come back.
+  </Accordion>
+  <Accordion title="It was connected and dropped on its own">
+    This happens when the number is unlinked from the phone (WhatsApp → Linked
+    devices → log out), when WhatsApp closes the session on its own, or after a
+    long network outage.
+
+    You recover it the same way as the first time: **Connect / Scan**
+    (*Conectar / Escanear*) and a new QR. Your conversations, your playbook and
+    your catalog are not touched — the only thing rebuilt is the link with the
+    phone.
+  </Accordion>
+  <Accordion title="I connected the wrong number">
+    **Disconnect** (*Desconectar*) in the channel panel and connect again with
+    the right number. Welcome credits are credited **once per account**:
+    reconnecting does not duplicate them, and disconnecting does not take them
+    away.
+  </Accordion>
+  <Accordion title="I don't want it to reply yet">
+    Connect anyway — it is what credits your credits and starts the trial — and
+    turn off **Autopilot** (*Piloto automático*) in the chats you want to handle
+    yourself. You can also deactivate the agent while you finish tuning its
+    playbook.
+  </Accordion>
+</AccordionGroup>
+
+## And now
+
+Write to it yourself from another phone: that is the honest test. You will see
+the conversation come into **Conversations** (*Conversaciones*), with autopilot
+on and the agent replying with the script you wrote for it.
+
+<CardGroup cols={2}>
+  <Card title="Credits and top-ups" icon="wallet" href="/en/getting-started/credits-and-top-ups">
+    What consumes balance and how to top up before you run out.
+  </Card>
+  <Card title="Review conversations" icon="message" href="/en/guides/conversations">
+    Where sales are being lost, with your assistant alongside.
+  </Card>
+</CardGroup>

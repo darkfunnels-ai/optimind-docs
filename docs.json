@@ -87,19 +87,51 @@
             ]
           },
           {
-            "group": "Connect your assistant",
+            "group": "Getting started",
             "pages": [
-              "en/quickstarts/claude-ai",
-              "en/quickstarts/claude-code",
-              "en/quickstarts/codex",
-              "en/quickstarts/chatgpt",
-              "en/quickstarts/otros-clientes"
+              "en/getting-started/create-your-account",
+              "en/getting-started/first-look",
+              "en/getting-started/the-apps",
+              "en/getting-started/your-first-agent",
+              "en/getting-started/connect-whatsapp",
+              "en/getting-started/credits-and-top-ups",
+              "en/getting-started/pricing"
+            ]
+          },
+          {
+            "group": "Guides",
+            "pages": [
+              "en/guides/sales-playbook",
+              "en/guides/catalog",
+              "en/guides/library",
+              "en/guides/conversations",
+              "en/guides/orders-and-metrics",
+              "en/guides/meta-pixel"
+            ]
+          },
+          {
+            "group": "Reference",
+            "pages": [
+              "en/reference/glossary",
+              "en/reference/faq",
+              "en/reference/tools"
             ]
           },
           {
             "group": "Security",
             "pages": [
-              "en/seguridad"
+              "en/security"
+            ]
+          },
+          {
+            "group": "Optional: run it from Claude or ChatGPT",
+            "pages": [
+              "en/quickstarts/claude-ai",
+              "en/quickstarts/claude-code",
+              "en/quickstarts/codex",
+              "en/quickstarts/chatgpt",
+              "en/quickstarts/other-mcp-clients",
+              "en/reference/connection-url"
             ]
           }
         ]
@@ -153,6 +185,18 @@
       "redirect": false
     }
   },
+  "redirects": [
+    {
+      "source": "/en/seguridad",
+      "destination": "/en/security",
+      "permanent": true
+    },
+    {
+      "source": "/en/quickstarts/otros-clientes",
+      "destination": "/en/quickstarts/other-mcp-clients",
+      "permanent": true
+    }
+  ],
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"

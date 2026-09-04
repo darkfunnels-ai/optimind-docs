@@ -1,0 +1,109 @@
+---
+title: "MCP connection URL parameters"
+sidebarTitle: "Connection URL"
+description: "The four MCP connection URL parameters that decide what your assistant can do: features, read_only, pii and agent — all set on the URL you connect with."
+keywords:
+  - MCP connection URL parameters
+  - features parameter
+  - read_only
+  - pii full
+  - MCP server URL
+---
+
+{/* es-source: referencia/url-de-conexion.mdx @ 7bf99f7 */}
+
+The bridge's entire configuration lives in the URL you connect with. There are
+no hidden settings: what it says there is exactly what your assistant can do.
+
+```
+https://mcp.darkfunnels.ai/mcp
+```
+
+That bare URL is already enough to work with: it brings the business **reads**
+(playbook, catalog, conversations, customers and the account basics) and a
+single non-destructive write, customer tags.
+
+<Note>
+Parameters combine with `&`, as in any URL: `?features=all&pii=full`. If you add
+one, **keep the ones you already had** — it is the most common mistake when
+reconnecting.
+</Note>
+
+## `?features=` — which tool groups travel
+
+Without this parameter four groups travel: `core`, `manual`, `catalog` and
+`conversations`. Everything else is opt-in.
+
+| Group | What it adds |
+|---|---|
+| `agents_write` | Create a new funnel — **uses up a slot in your subscription** |
+| `manual_write` | Save chapters, restore versions and apply a complete funnel |
+| `catalog_write` | Create, edit and delete products |
+| `library` | Upload files and link them to an agent |
+| `operations` | Reply as the operator, change a chat's mode, reminders |
+| `manual_ai` | Generate and optimize the playbook with AI (spends credits) |
+| `testing` | Simulate messages — **they really go out over WhatsApp** |
+| `orders` | Orders and stock (needs the apps active) |
+| `metrics` | Usage metrics and the agent scorecard |
+| `copilot` | Ask the Copilot (spends credits) |
+
+<Warning>
+**An explicit list REPLACES the default set, it does not extend it.** Connecting
+with `?features=orders` leaves you with `orders` and `core` **only**: you lose
+playbook, catalog and conversations.
+
+To add without losing anything, name them all:
+`?features=manual,catalog,conversations,orders`.
+</Warning>
+
+A `_write` group always drags its read group along: `?features=catalog_write`
+also brings `catalog`, because to rewrite a whole row you have to be able to
+read it first.
+
+**`?features=all`** turns on everything, including the groups we publish later
+on. It is the URL you do not have to touch again, and the one we give in the
+quickstarts. In exchange, it also connects the destructive writes: if your
+assistant is only going to read, do not use it.
+
+## `?read_only=true` — the handbrake
+
+Disables **every** write and overrides any other option, `all` included. Useful
+for letting someone look without being able to touch.
+
+```
+https://mcp.darkfunnels.ai/mcp?features=all&read_only=true
+```
+
+## `?pii=full` — full phone numbers
+
+By default your end customers' phone number arrives masked (`51•••••4321`).
+With `pii=full` it arrives whole. The tools that operate on an existing chat
+address it by the conversation, so masking does not close off those operations:
+it is only what your assistant gets to read. The only one that asks for a
+number is `simulate_new_chat` (the testing group), and there you type it
+yourself. The other dent is one of convenience — customer search accepts a
+phone number, and masked it cannot be chained. The details and the why, in
+[Security](/en/security).
+
+## `?agent=<uuid>` — pinning an agent
+
+If you have several sales agents, almost every tool asks which one you mean.
+This parameter leaves it pinned for the whole connection, and your assistant
+stops having to ask you.
+
+```
+https://mcp.darkfunnels.ai/mcp?features=all&agent=8f14e45f-ceea-467a-9c1d-2d4a6bcbb3f5
+```
+
+`list_agents` gives you the identifier. It has to be the complete UUID: if it is
+written wrong, it is ignored without warning and you go back to the normal
+behavior (your assistant will ask you which agent).
+
+## Changing the URL afterwards
+
+Changing any of these parameters requires **reconnecting** the connector: remove
+the one you had and add it with the new URL.
+
+Do not confuse that with the new tools. The tool list is frozen **per
+conversation**: if we add one and it does not appear for you, opening a new chat
+is almost always enough. Reconnecting is only needed when the URL changes.

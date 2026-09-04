@@ -1,18 +1,27 @@
 ---
-title: "Cursor, VS Code and others"
-description: "The connector in any MCP client: one URL and one config file."
+title: "MCP setup for Cursor, VS Code and others"
+sidebarTitle: "Cursor, VS Code and others"
+description: "Add the DarkFunnels MCP connector to Cursor, VS Code, Gemini CLI, Windsurf or Zed: one URL, one config file, and the three fields that change between clients."
+keywords:
+  - "MCP connector setup"
+  - "Cursor MCP server"
+  - "VS Code MCP configuration"
+  - "Gemini CLI MCP"
+  - "remote MCP server URL"
 ---
 
-DarkFunnels speaks standard MCP, so it works in any client that supports it. It is
-always the same URL:
+{/* es-source: quickstarts/otros-clientes.mdx @ 3e5d3a0 */}
+
+DarkFunnels speaks standard MCP, so it works in any client that supports it. It
+is always the same URL:
 
 ```
 https://mcp.darkfunnels.ai/mcp?features=all
 ```
 
 Nothing to register, no access to request: on connecting, the client discovers
-how to authorize you and opens your browser. Sign in with **the same account you
-use for the dashboard**.
+on its own how to authorize you and opens your browser. Sign in with **the same
+account you use for the dashboard**.
 
 ## Cursor
 
@@ -46,10 +55,10 @@ Edit `.vscode/mcp.json` in your project, or the one in your user profile:
 ```
 
 <Warning>
-VS Code is where people get stuck, over two details:
+VS Code is where people get it wrong most, over two details:
 
-- The root key is **`servers`**, not `mcpServers` as in Cursor. With the wrong
-  key VS Code **ignores the entire file and says nothing**.
+- The root key above is **`servers`**, not `mcpServers` as in Cursor. With the
+  wrong key VS Code **ignores the entire file and says nothing**.
 - **`"type": "http"`** is required. Without it the remote connection never comes
   up.
 </Warning>
@@ -74,33 +83,32 @@ Gemini CLI discovers the authorization on its own and stores the token in
 
 ## Any other client
 
-Windsurf, Zed, Claude Desktop and the rest follow the same pattern. Only three
-details change between them, and they are worth checking in your client's own
-docs before fighting the file:
+Windsurf, Zed, Claude Desktop and the rest follow the same pattern. The only
+things that change between them are three details, and they are worth checking
+in your client's own docs before fighting the file:
 
 1. **What the root key is called** — `mcpServers` in almost all of them,
    `servers` in VS Code.
 2. **What the URL field is called** — `url` in almost all of them, `httpUrl` in
    Gemini CLI.
-3. **Whether a type is required** — `"type": "http"` in VS Code.
+3. **Whether a type has to be declared** — `"type": "http"` in VS Code.
 
 ## If your client runs out of room for tools
 
 Some clients cap how many tools the model can hold at once — Windsurf around
-100, VS Code 128 — counting **all** your servers together. DarkFunnels ships 39
-with `?features=all`, so with several connectors already installed you may not
-fit.
+100, VS Code 128 — counting **all** your servers together. DarkFunnels ships 45
+with `?features=all`, so if you already have several connectors you may fall
+short.
 
-The fix is to ask only for what you'll use. The list **replaces** the default
-set rather than extending it:
+The fix is to ask only for what you are going to use. The list **replaces** the
+base set rather than extending it:
 
 ```
 https://mcp.darkfunnels.ai/mcp?features=conversations,orders
 ```
 
-The groups are listed in the [tool reference](/referencia/tools), which is
-published in Spanish. And if you want to look without being able to touch
-anything:
+The groups are in the [tool reference](/en/reference/tools). And if you want to
+look without being able to touch anything:
 
 ```
 https://mcp.darkfunnels.ai/mcp?read_only=true
@@ -112,12 +120,12 @@ Not today. Connecting requires a person to authorize in a browser with their
 account, so an agent running on its own — a cron job, a worker, OpenAI's Agents
 SDK or Claude's Agent SDK — cannot connect by itself.
 
-Agent keys for that are in the works. In the meantime, if you need to automate
+We are working on agent keys for that. In the meantime, if you need to automate
 something with no human present, write to us and we'll look at it case by case.
 
 <Note>
 If your client can't see your business, or sees it empty, it is almost always
 the same thing: you authorized with **a different account** and are connected to
 another workspace. Ask your assistant "which account are you connected to?" and,
-if it isn't the right one, remove the connector and connect again.
+if it isn't the right one, remove the connector and connect it again.
 </Note>

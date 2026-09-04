@@ -1,17 +1,109 @@
 ---
-title: "DarkFunnels, run by your assistant"
-description: "Connect Claude, ChatGPT or Codex to your WhatsApp business: sales playbook, catalog, conversations, orders and metrics — with your authorization, under your account."
+title: "WhatsApp AI sales agent and MCP server"
+sidebarTitle: "Overview"
+description: "DarkFunnels is a WhatsApp AI sales agent that answers your own number after a QR scan, plus a WhatsApp MCP server so Claude, ChatGPT or Codex can run the business."
+keywords:
+  - "WhatsApp AI sales agent"
+  - "WhatsApp MCP server"
+  - "connect WhatsApp without the Business API"
+  - "WhatsApp sales automation"
+  - "MCP connector for WhatsApp"
 ---
 
-DarkFunnels is an AI sales agent that works your business's WhatsApp. This site
-documents the **MCP bridge**: the connection that lets the assistant you already
-use (Claude, ChatGPT, Codex or any MCP client) operate your workspace.
+{/* es-source: index.mdx @ 30f2884 */}
+
+**DarkFunnels answers the WhatsApp messages that reach your number for you.** It
+is not a bot of loose replies: it follows a sales script that you write — it
+greets, works out what the customer is looking for, sends them the photo and the
+price, handles the objection and closes — and it tells you when it has sold. It
+replies within some safety limits: up to 150 messages and 150 distinct customers
+per day and per number, and as long as you have balance and the agent is active.
+
+You connect the WhatsApp number you already use by scanning a QR from the
+dashboard — no Meta Cloud API application, no message templates to get approved,
+no per-conversation fee.
+
+**What you need:** the WhatsApp number your customers already write to, and some
+time the first time round.
+**What you do NOT need:** to change number, to know how to code, or to put in a
+card to try it.
+
+<Frame caption="This is what the dashboard looks like: the menu on the left, your agents in the middle and the day's numbers at the top.">
+  <img src="/images/inicio/01-panel-inicio.png" alt="DarkFunnels dashboard home screen with the side menu and an agent card" />
+</Frame>
+
+The dashboard interface is in Spanish, so the screenshots on this site show it
+that way; the English pages give each button and label with its Spanish wording
+in parentheses.
+
+<CardGroup cols={2}>
+  <Card title="Start here" icon="rocket" href="/en/getting-started/create-your-account">
+    Five pages, in order, from creating the account to your agent replying on
+    its own. It is the recommended path if you have just arrived.
+  </Card>
+  <Card title="Open the dashboard" icon="arrow-right" href="https://optimind.darkfunnels.ai">
+    **The dashboard** is `optimind.darkfunnels.ai`: where you sign in with your
+    email and where everything this documentation describes happens.
+  </Card>
+  <Card title="Connect WhatsApp" icon="whatsapp" href="/en/getting-started/connect-whatsapp">
+    The QR step by step, and what exactly happens to that number's chats.
+  </Card>
+  <Card title="What does it cost?" icon="tag" href="/en/getting-started/pricing">
+    The 15-day trial, what happens the day it expires and how much the
+    subscription is. With the figures.
+  </Card>
+</CardGroup>
+
+## Guides by task
+
+<CardGroup cols={2}>
+  <Card title="The sales playbook" icon="book" href="/en/guides/sales-playbook">
+    The script: chapters, rules, examples. With versions and undo.
+  </Card>
+  <Card title="The catalog" icon="tag" href="/en/guides/catalog">
+    Products, prices and variants — so the agent does not make anything up.
+  </Card>
+  <Card title="The file library" icon="paperclip" href="/en/guides/library">
+    The photos, the PDFs and the audios that your agent sends over WhatsApp.
+  </Card>
+  <Card title="Conversations" icon="comments" href="/en/guides/conversations">
+    Reviewing what happened in the chats and where sales are being lost.
+  </Card>
+  <Card title="Orders and metrics" icon="chart-line" href="/en/guides/orders-and-metrics">
+    What was sold, what it cost and how the business is doing.
+  </Card>
+  <Card title="Frequently asked questions" icon="circle-question" href="/en/reference/faq">
+    Starting with the one that hurts most: **"my agent did not reply to a
+    customer"**.
+  </Card>
+</CardGroup>
+
+## Before you connect your WhatsApp
+
+It is exactly what everybody asks: *is it safe for an AI to answer my customers
+and read my chats?* The long answer — what is stored, who sees it and what does
+not happen — is in **[Security](/en/security)**.
+
+The short answer about money: **your agent never charges your customers
+anything.** It records the sale; collecting it is up to you. The only thing
+charged automatically is your own subscription and, if you switch it on, the
+balance top-up to the card you left stored.
+
+## Optional: run it from Claude or ChatGPT
+
+Once your agent is selling, you can connect your business to **the assistant you
+already use** and ask it things or make changes by talking to it: *"go through
+yesterday's conversations and tell me where sales are being lost"* or *"propose
+an improvement to the closing chapter and save it once I approve it"*.
 
 <Note>
-There is no access to request: if you have an DarkFunnels account, you can connect
-right now. Authorize with **the same account you use to sign in to the
-dashboard** — with any other one you would be connecting a business that isn't
-yours.
+This uses **MCP**, the standard that Claude and ChatGPT use to connect to
+external tools; our connection to that standard is what these pages call **the
+bridge**. **It is not needed in order to sell**: it is a convenience for anyone
+who already uses one of those assistants.
+
+Always authorize with **the same account you use to sign in to the dashboard** —
+with any other one you would be connecting a business that is not yours.
 </Note>
 
 One URL for everything:
@@ -35,28 +127,17 @@ https://mcp.darkfunnels.ai/mcp?features=all
   </Card>
 </CardGroup>
 
-## What your assistant can do
+### What the bridge does not do
 
-- **Review conversations**: "Go through yesterday's chats and tell me where I'm
-  losing sales."
-- **Improve the playbook**: "Read my agent's playbook and propose a better
-  closing chapter; save it once I approve." Versioned, with undo.
-- **Work the pipeline**: "List the customers who haven't replied in over three
-  days and what the agent should say to bring them back."
-- Load the catalog, review orders and stock, read metrics, ask the Copilot.
-
-## What it never does
-
-The bridge **never moves money**: it does not charge, transfer, issue payment
-links or touch your payment provider. Sales are recorded by your WhatsApp agent;
-the bridge only reads them. Details in [Security](/en/seguridad).
+The bridge **does not move money**: none of its tools charges, transfers, issues
+payment links or touches your payment provider. Sales are recorded by your
+WhatsApp agent; the bridge only reads them. The details are in
+[Security](/en/security).
 
 <Note>
-**This English section documents the MCP bridge only.** The rest of the site —
-[getting started](/primeros-pasos/crea-tu-cuenta), the sales playbook, the
-catalog, conversations, orders, [pricing](/primeros-pasos/planes-y-precios) and
-the [FAQ](/referencia/faq) — is written in Spanish and has no English
-translation. So is the [tool reference](/referencia/tools), generated from the
-source code: Spanish is the language the connector itself speaks to your
-assistant.
+**The English mirror of this site is being completed.** Anything that is not
+mirrored here yet is available in the [Spanish documentation](/), which covers
+getting started, the sales playbook, the catalog, the library, conversations,
+orders and metrics, and the FAQ in full. The [tool
+reference](/en/reference/tools) is already in English.
 </Note>

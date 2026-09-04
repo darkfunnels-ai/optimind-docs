@@ -1,0 +1,475 @@
+---
+title: "WhatsApp AI agent troubleshooting FAQ"
+sidebarTitle: "FAQ"
+description: "WhatsApp AI agent troubleshooting: why your agent didn't reply to a customer, what does and doesn't spend credit, the QR code, WhatsApp alerts and files."
+keywords:
+  - WhatsApp AI agent troubleshooting
+  - agent not replying
+  - WhatsApp QR code problems
+  - credits and charges
+  - DarkFunnels FAQ
+---
+
+{/* es-source: referencia/faq.mdx @ 46180bd */}
+
+This page is the way in when something doesn't add up. Each answer takes three
+lines and ends in a link to the page that tells the whole story. If you are
+looking for what a word means, it is in the
+[glossary](/en/reference/glossary).
+
+## My agent didn't reply to a customer
+
+Before letting your agent speak, the system checks five things, each with its
+own screen. **Go through them in this order**, which is the same one it checks
+them in.
+
+<Steps>
+  <Step title="1. Someone turned off Autopilot in that chat">
+    The conversation header has an **Autopilot** switch. Turned off, your agent
+    goes quiet **in that specific chat** and you reply instead. It takes one
+    click from the header to turn it off, so it is the first thing to look at.
+    Turn it back on right there.
+  </Step>
+  <Step title="2. The agent is paused">
+    A deactivated agent doesn't reply to anyone. You can see it and turn it on
+    from the dashboard **Home**, on the agent's card, and also in **Channels**.
+    → [Your first look](/en/getting-started/first-look)
+  </Step>
+  <Step title="3. The free trial expired">
+    That very moment your agents stop replying, even if you have credit to
+    spare. The dashboard says so when you try to turn one on: *"Your trial has
+    ended: choose a plan to turn your agents back on."* **Topping up credits
+    does not unlock it**: the trial date is checked before the balance and does
+    not look at it. You need to subscribe.
+    → [Plans and pricing](/en/getting-started/pricing)
+  </Step>
+  <Step title="4. You ran out of credit">
+    The cutoff doesn't wait for exactly zero: it trips when what is left is
+    less than the cost of answering a message (around **US$ 0.10**), so you can
+    see a remainder on screen with the agent already mute. The **Balance** chip
+    in the top bar turns red when you get there.
+    → [Credits and top-ups](/en/getting-started/credits-and-top-ups)
+  </Step>
+  <Step title="5. That same chat already had a turn in progress">
+    The system doesn't open two replies at once for the same customer. If they
+    wrote to you three times in a row, you are not going to see three replies.
+    There is nothing to change on any screen: it is deliberate.
+  </Step>
+</Steps>
+
+<Note>
+**If all five are fine, look at the conversation in the inbox.** Your agent may
+have replied and the message not gone out: in that case the bubble carries a
+**red exclamation mark** and the text **"Not sent (…)"**. Also check that
+**that** agent's channel is connected: each agent has its own number, there is
+no WhatsApp "for the account".
+</Note>
+
+<Warning>
+**Autopilot is not the way to get "don't reply to anyone yet".** It is a
+**per-conversation** switch, and it only exists in chats that already exist.
+Anyone writing to you for the first time comes in with the agent in charge. If
+you really don't want it replying to anyone, **deactivate the agent**.
+</Warning>
+
+## Does the copilot spend my credit?
+
+It depends on what you ask it for, and since it is your money it all goes in a
+table. **The copilot** is the AI inside the dashboard, the one in the drawer on
+the right — don't confuse it with Claude or ChatGPT connected from outside,
+which on these pages are **your assistant**.
+
+| What you do with the copilot | Does it spend your credit? |
+| --- | --- |
+| The messages of the **guided setup**: telling it how you sell so it builds your first agent | **No.** The platform pays for these on purpose |
+| The messages of the **"Guide me"** helper, the one that shows you where everything is | **No.** Same as the previous one |
+| **Generating the script** for the playbook (every time you ask it to write it or redo it) | **Yes** (with one exception at the start: see the box) |
+| Any other conversation with the copilot | **Yes**, and with the balance at zero it stops |
+
+The reason for the first two rows is simple: whoever needs that conversation
+most is exactly the person who still has US$ 0 because they have not connected
+their WhatsApp yet. Everything else goes through the same balance check as the
+rest of the AI.
+
+<Warning>
+**"You have already used your complimentary generations."** Generating the
+script costs money before you connect too. So that you can build your agent
+with the balance at zero, the system **fronts you up to four generations**
+during the trial (the normal path spends three; the fourth is in case you were
+not happy), with a cap of **US$ 2**. It is not a gift: the spend is recorded
+and your account goes into debt, which settles itself with the welcome credits
+the day you connect your WhatsApp. When they run out — by count or because you
+reached the US$ 2 — the dashboard tells you: *"You have already used your
+complimentary generations: connect your WhatsApp to activate your trial credits
+and keep generating."*
+→ [Plans and pricing](/en/getting-started/pricing)
+</Warning>
+
+## Credit and charges
+
+<AccordionGroup>
+  <Accordion title="My balance says US$ 0 and I just signed up">
+    That is expected, not a half-finished account. The welcome credits are
+    granted **when you connect your WhatsApp**, not when you sign up, and the
+    trial clock starts at that same moment. In the meantime you can build your
+    agent all the same.
+    → [Connect WhatsApp](/en/getting-started/connect-whatsapp)
+  </Accordion>
+  <Accordion title="I was credited US$ 9.50 instead of US$ 10">
+    You tested your agent in the simulator before connecting. So that you could
+    watch it reply without having connected anything, the system fronted you
+    **US$ 0.50** and that now comes off the welcome credit. The advance is one
+    per account only and only kicks in if you had no balance at that moment.
+    → [Plans and pricing](/en/getting-started/pricing)
+  </Accordion>
+  <Accordion title="I have credit on screen and the agent doesn't reply">
+    The cutoff trips before zero: when what is left is less than the cost of a
+    turn, around **US$ 0.10**. That is why the dashboard uses three different
+    notices — **Insufficient balance**, **Balance exhausted** and **Balance in
+    debt** — and each one tells the truth about its own number.
+    → [Credits and top-ups](/en/getting-started/credits-and-top-ups)
+  </Accordion>
+  <Accordion title="I topped up and my agent didn't answer what arrived while it was stopped">
+    Correct, and it is worth knowing beforehand: the messages **were saved and
+    you can see them in the inbox**, but they were not left in a queue. When you
+    top up, your agent picks up with the **next** message that customer writes.
+    If someone was left hanging, write to them yourself from the inbox.
+    → [Credits and top-ups](/en/getting-started/credits-and-top-ups)
+  </Accordion>
+  <Accordion title="If I run out of credit, does any charge keep running?">
+    Yes, and the dashboard warns you in the balance-exhausted banner: the apps
+    you have contracted and the jobs that run in the background stay active, so
+    the debt can grow with the agent already silent. The concrete example is the
+    Library's **audio transcription**, which does not stop for lack of credit.
+    → [Credits and top-ups](/en/getting-started/credits-and-top-ups)
+  </Accordion>
+  <Accordion title="My trial is over: do I top up or subscribe?">
+    You subscribe. Topping up credit does **not** turn your agents back on once
+    the trial has expired: they are two different things and the trial date is
+    checked first.
+    → [Plans and pricing](/en/getting-started/pricing)
+  </Accordion>
+  <Accordion title="I hit my limit of agents turned on">
+    During the trial you can have several at once — today it is **5**, and the
+    dashboard always tells you how many you get. When you try to turn on one
+    more it offers you two ways out: subscribe, or turn another one off to
+    relieve it without paying. Careful with the second: **the agent you turn off
+    stops replying instantly** and any messages it had queued are cancelled.
+    → [Plans and pricing](/en/getting-started/pricing)
+  </Accordion>
+  <Accordion title="I got a WhatsApp from DarkFunnels, is it real?">
+    If it says your account ran out of credit or that the trial expired, yes:
+    that notice goes out to the numbers you have in the agent's **Error
+    alerts**, and it **never reaches your customer**, who never sees the state
+    of your account. The intent is to send you one a day per agent, but it is
+    not a guarantee: with several agents, or if the system restarts, another one
+    can reach you the same day.
+    → [Credits and top-ups](/en/getting-started/credits-and-top-ups)
+  </Accordion>
+  <Accordion title="I want to cancel, change my card or request an invoice">
+    Those three are resolved by writing to us, not from a dashboard screen. It
+    is better to say so before you find out hunting for the button. **Plans and
+    pricing** has the full list of what you cannot do on your own today and of
+    which receipt you get for each charge.
+    → [Plans and pricing](/en/getting-started/pricing)
+  </Accordion>
+  <Accordion title="Is there a referral code?">
+    Yes. If you signed up with one, you are credited **US$ 25 extra** alongside
+    the welcome credit, the day you connect your WhatsApp. And your own business
+    has its code for referring others.
+    → [Plans and pricing](/en/getting-started/pricing)
+  </Accordion>
+</AccordionGroup>
+
+## WhatsApp and the QR code
+
+<AccordionGroup>
+  <Accordion title="The QR expires before I have time to scan it">
+    That is normal: it expires in seconds and renews itself while that screen is
+    open. Have WhatsApp on your phone already at **Linked devices** before you
+    look at the dashboard screen, and if the code got away from you, press
+    **Refresh QR** and scan the new one.
+    → [Connect WhatsApp](/en/getting-started/connect-whatsapp)
+  </Accordion>
+  <Accordion title="It says “Connecting…” and there is no button">
+    For the first few seconds you will only see a spinner and **"Preparing the
+    QR code…"**: there is nothing to press yet. The buttons appear around the
+    20-second mark, once the badge has changed to **Action required**. Wait
+    before reloading the page.
+    → [Connect WhatsApp](/en/getting-started/connect-whatsapp)
+  </Accordion>
+  <Accordion title="It says “Action required” and no code appears">
+    The session was parked after a dozen or so codes that nobody scanned. The
+    button says **Connect** and restarts the QR cycle from scratch.
+    → [Connect WhatsApp](/en/getting-started/connect-whatsapp)
+  </Accordion>
+  <Accordion title="It stays on “Connecting…” and doesn't move">
+    There are two ways out, in this order: **Retry**, which asks for the
+    connection again, and **Restart**, which tears the session down and brings
+    it up from scratch. The dashboard says it in its own words: *"The connection
+    is taking longer than usual. Retry or restart."*
+    → [Connect WhatsApp](/en/getting-started/connect-whatsapp)
+  </Accordion>
+  <Accordion title="My WhatsApp was connected and dropped: do I have to rescan?">
+    Wait a bit before redoing anything. With the number already linked, a
+    network drop recovers on its own when the connection heals. If the dashboard
+    asks you for a code again, scan it calmly: your conversations, your playbook
+    and your catalog are untouched.
+    → [Connect WhatsApp](/en/getting-started/connect-whatsapp)
+  </Accordion>
+  <Accordion title="I connected the wrong number">
+    Disconnect it and connect the right one. The welcome credits are granted
+    **once per account only**, so reconnecting does not duplicate them and
+    disconnecting does not take them away from you.
+    → [Connect WhatsApp](/en/getting-started/connect-whatsapp)
+  </Accordion>
+  <Accordion title="I connected WhatsApp but my second agent doesn't reply">
+    Each agent connects **its own number**: there is no WhatsApp for the whole
+    account. In **Channels** you will see one card per agent with its status. If
+    you try to write from the inbox, the notice distinguishes the two cases: the
+    agent not having a number linked yet, or having one and being disconnected.
+    → [Connect WhatsApp](/en/getting-started/connect-whatsapp)
+  </Accordion>
+  <Accordion title="I don't want the agent to reply yet">
+    Connect anyway — it is what credits your credits and starts the trial — and
+    **then** deactivate the agent. The order matters: **a deactivated agent
+    cannot connect its WhatsApp**. And remember that Autopilot only silences the
+    agent in chats that already exist, not with someone writing to you for the
+    first time.
+    → [Connect WhatsApp](/en/getting-started/connect-whatsapp)
+  </Accordion>
+  <Accordion title="I already connected, but Home keeps asking me to">
+    Go back to the **Home** tab: it refreshes when you return to it. If it is
+    still there, look at the channel status: if it stayed on **Connecting…** or
+    on **Action required**, the connection never finished.
+    → [Your first look](/en/getting-started/first-look)
+  </Accordion>
+</AccordionGroup>
+
+## The agent and its script
+
+<AccordionGroup>
+  <Accordion title="My agent made up a price or a condition">
+    It means you did not give them to it. Prices live in the **catalog** and the
+    hard rules — shipping, warranties, what cannot be promised — in the
+    **playbook**. Whatever is not written down, the agent fills in its own way.
+    → [The catalog](/en/guides/catalog) · [The sales playbook](/en/guides/sales-playbook)
+  </Accordion>
+  <Accordion title="I approved a funnel and it replaced my whole playbook">
+    Yes: approving a funnel replaces the complete playbook, it does not merge
+    it. But you have a way out: the Playbook keeps a **History** with the latest
+    versions and the previous one can be restored from there, instead of fixing
+    it chapter by chapter.
+    → [The sales playbook](/en/guides/sales-playbook)
+  </Accordion>
+  <Accordion title="I closed the copilot mid-conversation and lost the thread">
+    From **the same machine**, the thread reopens where you left it: Home →
+    **Create agent**. From another device it starts from scratch, although it
+    does recognize the agent you left without a script.
+    → [Your first agent](/en/getting-started/your-first-agent)
+  </Accordion>
+  <Accordion title="I approved the agent but did not approve the script">
+    The agent already exists, with an empty playbook. Go into its **Playbook**
+    and press **Build it by chatting**: you pick the script back up without
+    taking up another agent slot.
+    → [Your first agent](/en/getting-started/your-first-agent)
+  </Accordion>
+  <Accordion title="What is the red exclamation mark on a message from my agent?">
+    That the message **did not go out**. The bubble shows **"Not sent (…)"**
+    with a technical label for the reason that today is not translated
+    anywhere: do not try to decipher it, go into the conversation and, if it
+    repeats, write to us with the agent's name and the time.
+  </Accordion>
+  <Accordion title="My agent replied halfway and the rest doesn't appear">
+    That is expected, not a failure, and that is why it carries no mark: when
+    the customer writes while the agent still had messages queued, the rest of
+    that batch is cancelled so as not to talk over them. The agent carries on
+    with the last thing the customer said.
+  </Accordion>
+  <Accordion title="I got a WhatsApp saying my funnel had an error">
+    It is a real DarkFunnels notice to your **Error alerts** numbers. It names
+    the funnel and includes, in parentheses, a technical label for the reason,
+    untranslated. The actionable part is to go into the conversation in the
+    dashboard; so as not to flood you, at most one notice arrives every 5
+    minutes per funnel and reason.
+  </Accordion>
+  <Accordion title="A customer asked not to be written to again">
+    Do it by hand: no text the customer sends you ("BAJA", "STOP") unsubscribes
+    them on its own. The contact's record has **Unsubscribe contact**; from then
+    on they stop receiving messages from the agent and from you too, on every
+    channel, and it is reversed from the same place.
+  </Accordion>
+</AccordionGroup>
+
+## Files
+
+<AccordionGroup>
+  <Accordion title="How large can a file be and how many fit?">
+    There is no limit on quantity. The limit is **20 MB per file** from the
+    dashboard, with the notice *"The file … exceeds the 20MB limit."* If your
+    catalog weighs more, split it into two PDFs or export it at a lower
+    resolution. There is a second cap that causes confusion: when the file is
+    uploaded by **your assistant** connected from outside, the maximum drops to
+    **2.5 MB**.
+    → [The file Library](/en/guides/library)
+  </Accordion>
+  <Accordion title="Does sending files cost me separate credits?">
+    Sending them has no charge of its own separate from the conversation's. Two
+    things that happen on their own when you upload do consume credit:
+    **processing the file for the agent's memory** and **transcribing an
+    audio** — the latter happens even if you never send it.
+    → [Credits and top-ups](/en/getting-started/credits-and-top-ups)
+  </Accordion>
+  <Accordion title="A file says “Something went wrong” and I don't know why">
+    The reason is not in plain sight: put the mouse over the label and it
+    appears. The two most common cases are a **scanned PDF**, which has no text
+    to read, and a **CSV with no data rows**; it also shows up when you have run
+    out of credit. Next to it you have **Retry**, but with a scanned PDF
+    retrying changes nothing: a different file is needed.
+    → [The file Library](/en/guides/library)
+  </Accordion>
+  <Accordion title="Does the customer see my file's name?">
+    On documents, yes: WhatsApp shows the name as it is. On photos and videos,
+    no. Give a presentable name to whatever you are going to send as a document.
+    → [The file Library](/en/guides/library)
+  </Accordion>
+  <Accordion title="The customer says the audio doesn't play for them">
+    Almost always it is in the source file, not in the send: the Library
+    re-encodes the audio into a voice note when you upload it, and if the file
+    will not let itself be processed, the upload fails with a notice. Try
+    uploading it again recorded from your phone.
+    → [The file Library](/en/guides/library)
+  </Accordion>
+</AccordionGroup>
+
+## Signing in, signing out and your account
+
+<AccordionGroup>
+  <Accordion title="“An account with that email already exists”">
+    Sign-up stops and sends you to the login. If you do not remember the
+    password, use **Forgot your password?**: you get a link to set it again.
+    → [Create your account](/en/getting-started/create-your-account)
+  </Accordion>
+  <Accordion title="It won't accept the password I want to set">
+    The rule is short: **at least 8 characters, with at least one letter and at
+    least one number**. No symbols or capitals are asked for.
+    → [Create your account](/en/getting-started/create-your-account)
+  </Accordion>
+  <Accordion title="It rejected my email and it is spelled correctly">
+    Look at it again calmly: sign-up rejects impossible endings — `.con`
+    instead of `.com` is the classic one. It is done on purpose, because
+    nothing reaches an account with a misspelled email: not the welcome, not
+    the password recovery.
+    → [Create your account](/en/getting-started/create-your-account)
+  </Accordion>
+  <Accordion title="The anti-bot check won't pass">
+    Press **Retry** in the box. It tends to fail inside the Instagram or
+    Facebook browser: open the page in Chrome or Safari and it goes through
+    first time. Depending on the configuration, it may not even appear for you.
+    → [Create your account](/en/getting-started/create-your-account)
+  </Accordion>
+  <Accordion title="“We are receiving too many sign-ups right now”">
+    It is not a problem with your email or your account: it is a ceiling for the
+    whole platform that was reached in that hour. Try again in a few minutes,
+    with the same details.
+  </Accordion>
+  <Accordion title="I came back from Google and it asks me for details again">
+    That is the normal step. Google does not supply your WhatsApp number or your
+    business name, so those two are asked for all the same.
+    → [Create your account](/en/getting-started/create-your-account)
+  </Accordion>
+  <Accordion title="I entered my WhatsApp number wrong at sign-up">
+    You do not have to redo the sign-up, but you do have to correct it **agent
+    by agent**: that number is copied into the notification lists of every agent
+    you create — error alerts, sale notices and daily summary — and **Profile**
+    does not let you change it. You correct it in the agent's **Settings**, in
+    those lists.
+  </Accordion>
+  <Accordion title="No WhatsApp notification reaches me">
+    Two reasons, both silent. One: the number is written without the country
+    code — at least 8 digits are needed with it — and then the send is counted
+    as good and the message does not arrive. Two: the **Error alerts** list is
+    empty, and then those notices reach nobody in your business. Check that your
+    number is there, complete.
+  </Accordion>
+  <Accordion title="I want to change my password, my login email or delete my account">
+    All three are done from **Profile**. When you change the email you get a
+    confirmation link and the old email keeps working until you confirm. What is
+    not changed there is the WhatsApp number from the sign-up.
+    → [Security](/en/security)
+  </Accordion>
+  <Accordion title="The steps card disappeared from Home">
+    It is only hidden **in that browser**: your progress still counts and the
+    card reappears from another browser or from the phone. The guided tour opens
+    once per browser and reopens whenever you want with **How it works**, in the
+    Home header.
+    → [Your first look](/en/getting-started/first-look)
+  </Accordion>
+  <Accordion title="The “Have your first conversation” step doesn't tick for me">
+    The dashboard's test conversations do not tick it: that step waits for a
+    **real** conversation, from someone who writes to the WhatsApp number you
+    connected.
+    → [Your first look](/en/getting-started/first-look)
+  </Accordion>
+</AccordionGroup>
+
+## If you connected Claude, ChatGPT or Codex
+
+This part is **optional** and only applies if you connected **your assistant**
+to your business from outside the dashboard. If you work only in the dashboard,
+you are done.
+
+<AccordionGroup>
+  <Accordion title="My assistant doesn't see my data, or sees it empty">
+    Almost always you authorized with **a different account**. Since there is no
+    waiting list, the wrong account does not error out: it connects you to an
+    empty space. Ask it *"which DarkFunnels account are you connected to?"* — it
+    has a tool for answering that. If it is not yours, remove the connector,
+    sign in to `darkfunnels.ai` with the right account and connect again.
+    → [Security](/en/security)
+  </Accordion>
+  <Accordion title="The new tools don't appear for me">
+    Open a **new chat**: each conversation keeps the list of features that
+    existed when it was opened. If with a new chat it still does not see them —
+    or it is missing some detail a feature ought to be asking you for — remove
+    the connector and connect it again: that also refreshes the descriptions.
+    Changing the connection address also forces a reconnect.
+    → [The connection URL](/en/reference/connection-url)
+  </Accordion>
+  <Accordion title="My assistant says “out of credits”">
+    It is the same balance as the dashboard: the AI features stay stopped until
+    you top up, and the assistant itself gives you the link. You top up in
+    **Balance and billing**.
+    → [Credits and top-ups](/en/getting-started/credits-and-top-ups)
+  </Accordion>
+  <Accordion title="Can I ask it to review my conversations?">
+    Yes, it is the bridge's flagship job: reading the real chats and pointing
+    out where the sale falls apart. Note that those guides are written for the
+    connected assistant, not for the dashboard inbox.
+    → [Reviewing conversations](/en/guides/conversations) · [Orders and metrics](/en/guides/orders-and-metrics)
+  </Accordion>
+</AccordionGroup>
+
+## Isn't your question here?
+
+Write to us. Tell us what happened in detail — the agent's name, the time and,
+if you can, the customer's number — and we will look at it in your account.
+
+<CardGroup cols={2}>
+  <Card title="Team WhatsApp" icon="whatsapp" href="https://wa.me/51976616514">
+    **+51 976 616 514** — the fastest route.
+  </Card>
+  <Card title="Email" icon="envelope" href="mailto:soporte@darkfunnels.ai">
+    **soporte@darkfunnels.ai** — the channel listed in the Terms and in the
+    Privacy Policy.
+  </Card>
+</CardGroup>
+
+<CardGroup cols={2}>
+  <Card title="Glossary" icon="book-open" href="/en/reference/glossary">
+    Agent, funnel, playbook, chapter, turn, marker: every word in one line.
+  </Card>
+  <Card title="Security" icon="shield" href="/en/security">
+    What is stored, who sees it and what never happens with your data.
+  </Card>
+</CardGroup>

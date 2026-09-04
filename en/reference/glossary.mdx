@@ -1,0 +1,154 @@
+---
+title: "WhatsApp AI sales agent glossary"
+sidebarTitle: "Glossary"
+description: "WhatsApp AI sales agent glossary: agent, funnel, sales playbook, chapter, catalog, library, copilot, credits, turn, conversion and the bridge for assistants."
+keywords:
+  - WhatsApp AI sales agent glossary
+  - sales funnel terminology
+  - sales playbook
+  - MCP bridge
+  - agent turn
+---
+
+{/* es-source: referencia/glosario.mdx @ 5664bb9 */}
+
+Every word this documentation uses as if you already knew it. If you run into
+one mid-page, come back here.
+
+## The basics
+
+<AccordionGroup>
+  <Accordion title="Dashboard">
+    The web app you sign in to with your email:
+    [optimind.darkfunnels.ai](https://optimind.darkfunnels.ai). Everything this
+    documentation describes happens there, except what is marked "from your
+    assistant".
+  </Accordion>
+  <Accordion title="Agent">
+    Your automatic salesperson. It has a name it introduces itself with, a way
+    of speaking, a script and **a WhatsApp number**. If you sell two very
+    different things, that is two agents.
+
+    → [Your first agent](/en/getting-started/your-first-agent)
+  </Accordion>
+  <Accordion title="Funnel">
+    Another name for the whole agent. In the dashboard you will mostly see
+    "agent"; on some screens and in the connection for assistants you will see
+    "funnel". **They are the same thing**: the salesperson with its name, its
+    number and its playbook.
+  </Accordion>
+  <Accordion title="Copilot">
+    The AI that lives **inside** the dashboard, in the drawer on the right. It
+    builds your first agent by chatting with you and helps you correct it. Do
+    not confuse it with "your assistant" (Claude or ChatGPT connected from
+    outside).
+  </Accordion>
+</AccordionGroup>
+
+## The script
+
+<AccordionGroup>
+  <Accordion title="Sales playbook">
+    The agent's script, and the screen where it is edited (side menu →
+    **Playbook**). It is what you will touch most. It keeps versions, so you can
+    go back.
+
+    → [The sales playbook](/en/guides/sales-playbook)
+  </Accordion>
+  <Accordion title="Chapter">
+    Each stretch of the script: greeting and understanding what they are after,
+    presenting the product, settling the price, closing and taking the details.
+    The agent advances from chapter to chapter according to what happens in the
+    conversation.
+  </Accordion>
+  <Accordion title="Turn">
+    Everything the agent replies to **one** message from the customer, even if
+    several messages go out in a row. A turn has a cap of 12 messages and files
+    count inside it; if the text does not fit, the ending is joined into the
+    last message (it is not lost).
+  </Accordion>
+  <Accordion title="Marker">
+    The mark you write inside a chapter to say **where** a file goes out:
+    `###SEND_FILES: catalogo###`. Written correctly, the customer does not see
+    it: it is replaced by the file. If it is missing a character, it comes out
+    written as it is in the chat — which is why it is best to insert it with the
+    playbook's **Resources** button and not by hand.
+
+    → [The file Library](/en/guides/library)
+  </Accordion>
+</AccordionGroup>
+
+## What the agent uses
+
+<AccordionGroup>
+  <Accordion title="Catalog">
+    Your products with prices and variants. It is where the agent gets its
+    numbers from: with no catalog it has no prices to give.
+
+    → [The catalog](/en/guides/catalog)
+  </Accordion>
+  <Accordion title="Library">
+    The business's files: photos, PDF catalogs, price lists, audio. In the menu
+    it is called **Library** and the screen is titled **"Files"**.
+
+    → [The file Library](/en/guides/library)
+  </Accordion>
+  <Accordion title="Send condition">
+    A file's nickname: the word you call it by from the script. By default it is
+    the file name without the extension. Despite its name **it is not a sentence
+    in prose**: to hit the right file by nickname, the nickname has to be in the
+    marker **whole** (capitals and accents make no difference). If it does not
+    match anything, the system does not stay quiet: it falls back to a
+    word-similarity match that **can deliver a different file**.
+
+    → [The file Library](/en/guides/library)
+  </Accordion>
+  <Accordion title="Agent memory">
+    Permission for the agent to **read** a file in order to answer questions
+    about it, without ever sending it to the customer. It is enabled per file,
+    in the Library.
+  </Accordion>
+</AccordionGroup>
+
+## Money and results
+
+<AccordionGroup>
+  <Accordion title="Credits / balance">
+    What gets consumed when your agent talks. With the balance at zero your
+    agents stop answering new turns, and files cannot be processed for memory
+    either.
+
+    → [Credits and top-ups](/en/getting-started/credits-and-top-ups)
+  </Accordion>
+  <Accordion title="Conversion">
+    A sale recorded by the agent during the conversation. It is the unit results
+    are measured with; a cancelled sale stops counting.
+
+    → [Orders and metrics](/en/guides/orders-and-metrics)
+  </Accordion>
+</AccordionGroup>
+
+## Only if you connect Claude or ChatGPT
+
+<AccordionGroup>
+  <Accordion title="Your assistant">
+    Claude, ChatGPT or Codex connected to your business **from outside** the
+    dashboard. It is optional. In this documentation "your assistant" always
+    means that, and never the dashboard copilot.
+  </Accordion>
+  <Accordion title="MCP and “the bridge”">
+    **MCP** is the standard Claude and ChatGPT use to connect to external tools.
+    **The bridge** is our connection to that standard: what makes it possible
+    for your assistant to read and change things in your business, with your
+    authorization.
+
+    → [The connection URL](/en/reference/connection-url) · [Security](/en/security)
+  </Accordion>
+  <Accordion title="Tool">
+    Each specific action your assistant can run over the bridge: listing files,
+    reading the playbook, recording something. You do not write them; you ask
+    for them in your own language.
+
+    → [Tool reference](/en/reference/tools)
+  </Accordion>
+</AccordionGroup>
