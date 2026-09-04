@@ -1,20 +1,19 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "OptiMind",
+  "name": "DarkFunnels",
   "description": "Vende por WhatsApp con un agente de ventas IA — y opéralo desde tu asistente.",
   "colors": {
     "primary": "#C2562A",
     "light": "#D86A3C",
     "dark": "#9A3F1C"
   },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
-  "favicon": "/favicon.svg",
-  "fonts": {
-    "family": "Manrope"
+  "navbar": {
+    "primary": {
+      "type": "button",
+      "label": "Entrar al panel",
+      "href": "https://optimind.darkfunnels.ai"
+    }
   },
   "navigation": {
     "languages": [
@@ -112,11 +111,54 @@
       "website": "https://darkfunnels.ai"
     }
   },
-  "navbar": {
-    "primary": {
-      "type": "button",
-      "label": "Entrar al panel",
-      "href": "https://optimind.darkfunnels.ai"
+  "seo": {
+    "indexing": "navigable",
+    "metatags": {
+      "og:locale": "es_PE"
+    },
+    "organization": {
+      "id": "https://darkfunnels.ai/#organization",
+      "name": "DarkFunnels",
+      "url": "https://darkfunnels.ai",
+      "sameAs": [
+        "https://github.com/darkfunnels-ai"
+      ]
     }
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "claude",
+      "chatgpt",
+      "perplexity",
+      "cursor",
+      "vscode",
+      "mcp"
+    ]
+  },
+  "markdown": {
+    "instructions": [
+      "DarkFunnels is a WhatsApp AI sales-agent platform used mainly in Peru and Latin America. The product interface and most of this documentation are in Spanish; the /en tree is the English mirror.",
+      "A business connects the WhatsApp number it already uses by scanning a QR code from the dashboard, the same linked-device mechanism as WhatsApp Web. It does not go through the Meta Cloud API (WhatsApp Business Platform), so there is no application to get approved and no message templates to submit. DarkFunnels is not a Meta product and is not affiliated with Meta.",
+      "DarkFunnels also publishes a remote MCP server at https://mcp.darkfunnels.ai/mcp so an assistant such as Claude, ChatGPT or Codex can operate the workspace on the owner's behalf. The tool reference is at /referencia/tools and the connection parameters at /referencia/url-de-conexion.",
+      "The dashboard is https://optimind.darkfunnels.ai, the marketing site is https://darkfunnels.ai and the page written for AI agents is https://darkfunnels.ai/agents."
+    ]
+  },
+  "metadata": {
+    "timestamp": true
+  },
+  "errors": {
+    "404": {
+      "redirect": false
+    }
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "favicon": "/favicon.svg",
+  "fonts": {
+    "family": "Manrope"
   }
 }
