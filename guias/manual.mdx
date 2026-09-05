@@ -225,6 +225,30 @@ de cada línea. Las que empiezan por **«Si…»** se pintan como condición y l
 empiezan por **«Nunca…»** como prohibición. Es una ayuda visual del editor: el
 texto que se guarda es exactamente el que escribiste.
 
+### El índice como mapa
+
+A la izquierda, cada capítulo lleva un **punto de color**: rojo si el Doctor
+le encontró un error, ámbar si tiene avisos, verde si no hay nada. Pasa el
+ratón por la fila y el tooltip te dice qué le pasa; un clic en el punto te
+lleva a la línea del primer hallazgo. Bajo el rótulo «Manual» se resume el
+total («1 error · 2 avisos»). Además, **«1×»** marca los capítulos que se
+ejecutan una sola vez y **«vacío»** los que no tienen líneas propias (solo les
+aplican las secciones §).
+
+### Plegar capítulos
+
+Con seis capítulos el documento se hace largo. El chevrón a la izquierda de
+cada rótulo **pliega** el capítulo: queda la cabecera y una línea que lo
+resume (cuántos PASOS tiene, qué archivos y herramientas menciona, a qué
+capítulos sale y cuántas secciones § le aplican). Un clic en el chevrón o en
+ese resumen lo vuelve a abrir. En el índice, **«Plegar todo»** pliega todos
+los capítulos de una vez y **«Desplegar todo»** los abre.
+
+Plegar no toca el texto: lo escrito sigue ahí, solo deja de verse. Y cualquier
+salto (un capítulo del índice, «Ir al sitio» del Doctor, el primer uso de un
+recurso, el capítulo que recorre el chat de prueba) despliega el capítulo
+antes de llevarte.
+
 ## Las secciones compartidas §
 
 Una **sección compartida** es un bloque marcado con el símbolo **§** que aplica
@@ -381,14 +405,6 @@ computadora). Desde el teléfono, o desde el manual incrustado en Conversaciones
 el chip no responde al clic y además solo se ve cuando el capítulo está puesto
 en «una sola vez»: si dice «se ejecuta cada vez», ahí no se muestra nada.
 </Note>
-
-### La condición de avance no se edita aquí
-
-Hay una pieza más que decide cuándo avanzar —la **condición de avance**, escrita
-como conducta observable del cliente («el cliente dio su distrito», nunca
-«parece interesado»)—. **El editor del Manual no la muestra ni la escribe.** Si
-tu manual la trae, porque la puso el generador de IA o tu asistente, se conserva
-intacta y tu agente la sigue leyendo; simplemente no la busques en pantalla.
 
 ## El menú «@»: mencionar cosas
 
@@ -623,8 +639,12 @@ El botón **Doctor** revisa el manual entero y lista lo que está roto, con el
 número de problemas a la vista. No es IA ni opinión: son *«problemas verificados
 del manual, con su arreglo»*, como dice el propio botón.
 
-Hoy hace **once comprobaciones**. Entre ellas:
+Hoy hace **doce comprobaciones**. Entre ellas:
 
+- **PASOS fuera de orden, referencias a un paso que no existe y capítulos
+  intermedios que no avanzan a ninguno** — la misma regla con la que el
+  asistente rechaza un embudo nuevo, corriendo mientras escribes; un salto de
+  numeración (PASO 1, 2, 3, 5) se renumera a un clic, referencias incluidas,
 - **menciones rotas** (un archivo al que ya no apunta nada, una variable que no
   existe),
 - **menciones a un capítulo que ya no existe**,
@@ -654,6 +674,30 @@ comillas angulares no lo detecta nadie.
 
 Dicho claro: **cuenta con que el Doctor te los enseñe, no con que el sistema te
 frene.** Míralos antes de dar el manual por bueno.
+
+## Probar el manual
+
+El botón **Probar** de la barra abre, junto al documento, un chat de prueba con
+tu agente. Escribes como si fueras el cliente y el agente responde con el
+manual **guardado**: es el mismo motor que atiende WhatsApp, pero nada sale por
+WhatsApp.
+
+Mientras el agente contesta, el manual se mueve contigo: el capítulo en el que
+está se ilumina, pulsa mientras piensa, y el PASO cuya herramienta se está
+ejecutando respira. Debajo de cada respuesta ves la traza: en qué capítulo
+entró y qué herramientas usó. Un clic en el capítulo de la traza te lleva a él.
+
+- **Probar desde aquí**, al pasar el ratón por la cabecera de un capítulo,
+  reinicia el hilo de prueba en ese capítulo. Lo mismo hace **Empezar en**
+  dentro del panel.
+- Si tienes **cambios sin guardar**, el panel lo dice: el agente no los ve
+  hasta que guardes. **Guardar y probar** guarda y sigue.
+
+<Note>
+El hilo de prueba es real: consume saldo como cualquier conversación, y lo que
+el agente registre en él (una venta, un pedido) queda anotado como en cualquier
+chat. Solo la entrega se queda dentro del panel.
+</Note>
 
 ## Borrar un capítulo
 
@@ -738,7 +782,6 @@ agente»** y en la ventanita de ejecución del capítulo.
 | La **sección compartida §** y su alcance | `context` | El conocimiento y las reglas que aplican a varios capítulos. |
 | El chip **«se ejecuta 1 vez»** y la casilla **«Se ejecuta una sola vez»** | `execute_once` | Que el capítulo se diga una vez y pase de largo. |
 | La lista **«al terminar pasa a»** | `advance_to` | A qué capítulo salta al terminar. |
-| *(no está en el editor)* | `advance_condition` | Cuándo toca avanzar. Lo escribe el generador o tu asistente. |
 | *(no está en el editor)* | `chapter_index` | La clave con la que tu asistente edita ese capítulo. No la asignas tú. |
 | *(ya no existe)* | `examples` | Ejemplos de conversación. Ver el aviso de abajo. |
 
@@ -769,8 +812,7 @@ Primero la **persona**, los **datos del cliente**, sus **notas** y sus
 **citas**. Después el capítulo: su **nombre**, quién es (**ROL:**), el guion
 (**CADENA DE PENSAMIENTO:**, con una instrucción añadida detrás), el
 **contexto** —que trae dentro sus propios rótulos **CONTEXTO:** y **PUNTOS
-CLAVE:**—, la condición de avance, las **herramientas** y los **archivos** del
-capítulo. Entre el nombre y el rol pueden colarse dos avisos del sistema: desde
+CLAVE:**—, las **herramientas** y los **archivos** del capítulo. Entre el nombre y el rol pueden colarse dos avisos del sistema: desde
 qué PASO entra, y si el manual está vacío.
 
 Cada parte **solo aparece si tiene contenido**.

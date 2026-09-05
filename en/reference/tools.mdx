@@ -1,12 +1,13 @@
 ---
 title: "Tool reference"
-description: "The 44 tools of the DarkFunnels MCP bridge, by group. Generated from the source code: do not edit by hand."
+description: "The 45 tools of the DarkFunnels MCP bridge, by group. Generated from the source code: do not edit by hand."
 ---
 
 {/* GENERADO por scripts/gen-tools-reference.mjs — editarlo a mano se pierde. */}
 
 Default set (a URL with no `?features=`): groups `core`, `manual`, `catalog`, `conversations` —
-read-only, plus one non-destructive write (customer tags). Everything else is opt-in.
+read-only, plus two non-destructive writes (customer tags and the unsupported-request
+log). Everything else is opt-in.
 
 <Note>
   Tool titles and descriptions appear **in Spanish**. That is deliberate: this is
@@ -59,6 +60,10 @@ belong to **your assistant** connected through the bridge.
 ### `get_funnel_template` — Plantilla de embudo
 
 *read only*. Devuelve la gramática del manual, el cuestionario de la entrevista (con las reglas para convertir el proceso de venta que narra el dueño en capítulos) y una plantilla de REFERENCIA completa y probada. El embudo se deriva del proceso real del negocio, no de la plantilla: ella aporta la forma (avances literales, terminales, una pregunta por mensaje) y redacción de partida. Dentro de `template` viajan los capítulos enteros, el bloque compartido sugerido (shared_context), los parámetros que hay que preguntarle al dueño (required_parameters), las notas de uso y el catálogo de plantillas disponibles. Pide una concreta por template_id (del catálogo del resultado) o deja que el objetivo elija la bandera. Para el objetivo de ruteo por segmento sirve el esqueleto. Si le pasas `answers` (las respuestas de la entrevista, una por cada required_parameter; null en lo que no aplique al negocio), devuelve además el embudo YA RELLENADO y listo para apply_funnel —con los opcionales borrados, los capítulos y PASOS renumerados y la persona compuesta— y la lista de lo que todavía falta preguntar. Sin `answers`, la plantilla viaja con sus huecos como siempre.
+
+### `report_unsupported_request` — Registrar petición no cubierta
+
+*write*. Registra una petición del usuario que este conector no pudo cumplir o cumplió mal: no existe una herramienta para eso, la herramienta falló o devolvió algo incompleto, o el dato no es alcanzable desde aquí. Úsala después de intentarlo, cuando el usuario pida algo que no puedas resolver con estas herramientas. El equipo de DarkFunnels revisa estos registros numerados para construir lo que falta. Describe la petición con las palabras del usuario, sin datos personales de sus clientes (teléfonos, nombres). Devuelve el número asignado.
 
 ## Sales playbook — read
 

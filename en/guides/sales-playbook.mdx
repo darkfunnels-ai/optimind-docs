@@ -10,7 +10,7 @@ keywords:
   - "WhatsApp sales automation script"
 ---
 
-{/* es-source: guias/manual.mdx @ bd1f2e3 */}
+{/* es-source: guias/manual.mdx @ 7d4e96d */}
 
 The sales playbook is your agent's script. It is not internal documentation: it
 is what your agent obeys, word for word, every time a customer writes. The
@@ -421,15 +421,6 @@ the chapter is set to "runs only once": if it says «se ejecuta cada vez»,
 nothing is shown there.
 </Note>
 
-### The advance condition is not edited here
-
-There is one more piece that decides when to advance — the **advance
-condition**, written as observable customer behaviour («the customer gave their
-district», never «seems interested»). **The Playbook editor neither shows it
-nor writes it.** If your playbook carries it, because the AI generator or your
-assistant put it there, it is preserved intact and your agent still reads it;
-just do not look for it on screen.
-
 ## The «@» menu: mentioning things
 
 Type **`@`** on any line and the mentions menu opens, with up to six groups:
@@ -798,7 +789,6 @@ como lo recibe el agente»** window and in the chapter's execution window.
 | The **shared section §** and its scope | `context` | The knowledge and the rules that apply to several chapters. |
 | The **«se ejecuta 1 vez»** chip and the **«Se ejecuta una sola vez»** checkbox | `execute_once` | That the chapter is said once and moves on. |
 | The **«al terminar pasa a»** list | `advance_to` | Which chapter it jumps to on finishing. |
-| *(not in the editor)* | `advance_condition` | When it is time to advance. It is written by the generator or by your assistant. |
 | *(not in the editor)* | `chapter_index` | The key with which your assistant edits that chapter. You do not assign it. |
 | *(no longer exists)* | `examples` | Conversation examples. See the warning below. |
 
@@ -830,7 +820,7 @@ First the **persona**, the **customer's data**, their **notes** and their
 **appointments**. Then the chapter: its **name**, who it is (**ROL:**), the
 script (**CADENA DE PENSAMIENTO:**, with an added instruction after it), the
 **context** — which brings inside it its own labels **CONTEXTO:** and **PUNTOS
-CLAVE:** —, the advance condition, the chapter's **tools** and **files**.
+CLAVE:** —, the chapter's **tools** and **files**.
 Between the name and the role two system notices may slip in: which PASO it
 enters from, and whether the playbook is empty.
 

@@ -244,6 +244,10 @@ Cómo funciona por dentro, que es lo que explica sus sorpresas:
   `###SEND_FILES: promo###`, ese archivo se adjunta solo al vencer, no ahora.
 - **Si la conversación pasa a modo manual, lo programado se cancela al vencer**
   en vez de salir: una persona está atendiendo y el agente no se cruza.
+- **Si pasaron más de 8 horas desde el último mensaje del agente, saluda
+  primero.** Un recordatorio que vence a la mañana siguiente —o un cliente que
+  vuelve a los días— abre con un «buenos días» según la hora local y recién
+  después retoma donde quedó.
 
 Los recordatorios de cada chat se ven y se cancelan desde el hilo, en el panel
 de recordatorios. Y hay uno que el agente programa **sin que el manual lo pida**:

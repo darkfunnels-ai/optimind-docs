@@ -252,6 +252,10 @@ How it works inside, which is what explains its surprises:
 - **If the conversation switches to manual mode, whatever was scheduled is
   cancelled when it comes due** instead of going out: a person is serving and
   the agent does not cut across.
+- **If more than 8 hours have passed since the agent's last message, it greets
+  first.** A reminder that comes due the next morning — or a customer who comes
+  back days later — opens with a «good morning» by local time and only then
+  picks up where it left off.
 
 Each chat's reminders are seen and cancelled from the thread, in the reminders
 panel. And there is one the agent schedules **without the playbook asking**:
