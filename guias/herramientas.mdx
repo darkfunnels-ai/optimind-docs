@@ -56,6 +56,7 @@ que las resume: **Éxito de herramientas**. Más abajo, en
 | **Leer un dato del cliente** | Relee un dato ya guardado para no volver a preguntarlo. | Se escribe en el manual. | Nada. |
 | **Recordatorio / seguimiento** | Programa un toque para retomar la conversación más tarde. | Se escribe en el manual. | Nada. |
 | **Programar una acción** | Programa una tarea para más tarde: mandar algo, cambiar de capítulo. | Se escribe en el manual. | Nada. |
+| **Registrar un referido** | Anota a la persona que el cliente refiere y la plataforma le escribe de su parte. | Se escribe en el manual. | El WhatsApp del referido con código de país. |
 | **Avisar a un tercero** | Manda un WhatsApp a otra persona (el vendedor, el encargado). | Se escribe en el manual. | El número con código de país. |
 | **Consultar conocimiento** | Busca en los archivos que el agente estudió (políticas, garantías, FAQ). | Se escribe en el manual; también la usa solo. | Archivos con permiso **Memoria del agente**. |
 | **Enviar un archivo** | Manda al cliente una foto, un PDF o un audio de la Librería. | Se escribe en el manual con un marcador. | El archivo con permiso **Enviar por WhatsApp**. |
@@ -106,7 +107,7 @@ arreglarlo con un clic.
 
 Tres reglas del formulario que evitan frases rotas:
 
-- **Recordatorio, Programar una acción y Avisar a un tercero exigen el dato.**
+- **Recordatorio, Programar una acción, Registrar un referido y Avisar a un tercero exigen el dato.**
   Sin él, el botón **Insertar** se queda apagado: una frase con el hueco vacío
   no serviría de nada.
 - **Activar Modo Manual y Consultar conocimiento van sin datos.** No se les
@@ -274,6 +275,39 @@ Se parece al recordatorio, pero no es lo mismo:
 Si la tarea cambia de capítulo, puede además decir **desde qué PASO** de ese
 capítulo continuar. Y al igual que el recordatorio, el agente nunca le anuncia
 al cliente que está programando algo.
+
+### Registrar un referido
+
+En el manual se ve como **«Registrar Referido Tool»** y su dato es **a quién
+refiere el cliente**: el nombre, su WhatsApp con código de país y el contexto
+que dé (dónde está, a qué se dedica). El agente la llama **una vez por cada
+persona** que el cliente comparta, sea como tarjeta de contacto de WhatsApp o
+escribiendo el número:
+
+```
+PASO 3: Si no tiene lo que buscamos, pregúntale si conoce a alguien que sí. Por cada persona que comparta, Ejecuta la herramienta "Registrar Referido Tool" con el query "el nombre y WhatsApp de la persona referida, y lo que el cliente cuente de ella"
+```
+
+Lo que pasa después no ocurre en ese chat: **la plataforma le escribe al
+referido** desde el mismo WhatsApp del agente, «de parte de» quien lo refirió,
+en horario de día (entre las 8 y las 20 de tu zona) y arrancando el manual desde
+el capítulo 1. En su ficha queda la variable **referido_por** con el nombre y el
+teléfono de quien lo refirió, y en la ficha de los dos se ve el referido con su
+estado.
+
+Cuatro reglas que el agente ya conoce:
+
+- **No cuenta quien ya te escribió.** Si ese número ya tiene una conversación
+  con tu negocio, el agente se lo dice al cliente con amabilidad y no registra
+  nada.
+- **Gana el primero.** Si dos clientes refieren el mismo número, vale la
+  primera; la segunda no cuenta.
+- **Nadie se refiere a sí mismo**, y el agente no inventa ni completa un
+  número: si llega sin código de país, se lo pide al cliente.
+- **El premio no se menciona en el chat.** Si al referido se le marca un
+  adelanto desde su ficha, quien lo refirió queda con el premio pendiente; el
+  importe se configura por embudo y pagarlo es cosa tuya. El agente no habla de
+  premios ni comisiones con nadie.
 
 ### Avisar a un tercero
 

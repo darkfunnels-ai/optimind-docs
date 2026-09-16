@@ -10,7 +10,7 @@ keywords:
   - DarkFunnels FAQ
 ---
 
-{/* es-source: referencia/faq.mdx @ 83a8a00 */}
+{/* es-source: referencia/faq.mdx @ ddbbdaf */}
 
 This page is the way in when something doesn't add up. Each answer takes three
 lines and ends in a link to the page that tells the whole story. If you are
@@ -60,7 +60,9 @@ them in.
 <Note>
 **If all five are fine, look at the conversation in the inbox.** Your agent may
 have replied and the message not gone out: in that case the bubble carries a
-**red exclamation mark** and the text **"Not sent (…)"**. Also check that
+**red exclamation mark** and, on hover, **"No enviado: …"** ("Not sent: …") with
+the reason in words (message cap, customer who opted out, channel in a safety
+pause…). Also check that
 **that** agent's channel is connected: each agent has its own number, there is
 no WhatsApp "for the account".
 </Note>
@@ -74,52 +76,48 @@ you really don't want it replying to anyone, **deactivate the agent**.
 
 ## Does the copilot spend my credit?
 
-It depends on what you ask it for, and since it is your money it all goes in a
-table. **The copilot** is the AI inside the dashboard, the one in the drawer on
-the right — don't confuse it with Claude or ChatGPT connected from outside,
-which on these pages are **your assistant**.
+Yes: everything the AI does spends balance, and the copilot is AI. **The
+copilot** is the AI inside the dashboard, the one in the drawer on the right —
+don't confuse it with Claude or ChatGPT connected from outside, which on these
+pages are **your assistant**.
 
 | What you do with the copilot | Does it spend your credit? |
 | --- | --- |
-| The messages of the **guided setup**: telling it how you sell so it builds your first agent | **No.** The platform pays for these on purpose |
-| The messages of the **"Guide me"** helper, the one that shows you where everything is | **No.** Same as the previous one |
-| **Generating the script** for the playbook (every time you ask it to write it or redo it) | **Yes** (with one exception at the start: see the box) |
-| Any other conversation with the copilot | **Yes**, and with the balance at zero it stops |
+| The messages of the **guided setup**: telling it how you sell so it builds your first agent, chapter by chapter | **Yes.** That is what the US\$ 5 your account is born with are for |
+| The messages of the **"Guide me"** helper, the one that shows you where everything is | **Yes**, cents per question |
+| Any other conversation with the copilot | **Yes**, and with the balance used up it stops |
 
-The reason for the first two rows is simple: whoever needs that conversation
-most is exactly the person who still has US\$ 0 because they have not connected
-their WhatsApp yet. Everything else goes through the same balance check as the
-rest of the AI.
+There is a single budget — your balance — and a single gate: if it covers it,
+the AI works; if not, it stops and tells you. There are no more free messages or
+hidden allowances: what existed was a disguised advance, and today it is in plain
+sight, in your balance, from the first minute.
 
-<Warning>
-**"You have already used your complimentary generations."** Generating the
-script costs money before you connect too. So that you can build your agent
-with the balance at zero, the system **fronts you up to four generations**
-during the trial (the normal path spends three; the fourth is in case you were
-not happy), with a cap of **US\$ 2**. It is not a gift: the spend is recorded
-and your account goes into debt, which settles itself with the welcome credits
-the day you connect your WhatsApp. When they run out — by count or because you
-reached the US\$ 2 — the dashboard tells you: *"You have already used your
-complimentary generations: connect your WhatsApp to activate your trial credits
-and keep generating."*
-→ [Plans and pricing](/en/getting-started/pricing)
-</Warning>
+<Note>
+**"Tu cuenta no tiene saldo disponible. Recarga créditos para seguir usando el
+copiloto."** ("Your account has no balance available. Top up credits to keep
+using the copilot.") It is the notice the copilot leaves in the thread when the
+balance does not cover one more turn (the cut-off kicks in below US\$ 0.10). If
+you have not connected WhatsApp yet, **connect it**: the rest of your welcome
+credits arrives. If you already have, **top up**. And if your trial has expired,
+no balance unlocks it: you need a plan.
+→ [Credits and top-ups](/en/getting-started/credits-and-top-ups)
+</Note>
 
 ## Credit and charges
 
 <AccordionGroup>
-  <Accordion title="My balance says US\$ 0 and I just signed up">
-    That is expected, not a half-finished account. The welcome credits are
-    granted **when you connect your WhatsApp**, not when you sign up, and the
-    trial clock starts at that same moment. In the meantime you can build your
-    agent all the same.
+  <Accordion title="My balance says US\$ 5 and I just signed up">
+    That is expected: they are the US\$ 5 your account advances out of your
+    US\$ 10 of welcome credit, so that you can build and test your agent before
+    connecting anything. The rest is credited **when you connect your WhatsApp**,
+    and the trial clock starts at that same moment.
     → [Connect WhatsApp](/en/getting-started/connect-whatsapp)
   </Accordion>
-  <Accordion title="I was credited US\$ 9.50 instead of US\$ 10">
-    You tested your agent in the simulator before connecting. So that you could
-    watch it reply without having connected anything, the system fronted you
-    **US\$ 0.50** and that now comes off the welcome credit. The advance is one
-    per account only and only kicks in if you had no balance at that moment.
+  <Accordion title="I was credited US\$ 5 instead of US\$ 10">
+    You already had the other five from sign-up: they are the **advance** you
+    built and tested your agent with, and they come off the welcome credit the
+    day you connect. The lifetime total is still US\$ 10 (plus US\$ 25 with a
+    referral). It is one per account.
     → [Plans and pricing](/en/getting-started/pricing)
   </Accordion>
   <Accordion title="I have credit on screen and the agent doesn't reply">
@@ -200,6 +198,15 @@ and keep generating."*
     **Refresh QR** and scan the new one.
     → [Connect WhatsApp](/en/getting-started/connect-whatsapp)
   </Accordion>
+  <Accordion title="My phone says “Couldn't link device”">
+    You scanned and WhatsApp rejected the link at the last step; it happens with
+    some phones on the first attempt. The dashboard detects it on the spot and
+    tells you while it re-signs the same code: close WhatsApp, open **Linked
+    devices** again and scan the code on screen once more. If it fails again,
+    **Refresh QR** and once more; if that fails too, **Escribir al equipo**
+    ("Write to the team") from that screen.
+    → [Connect WhatsApp](/en/getting-started/connect-whatsapp#common-problems)
+  </Accordion>
   <Accordion title="It says “Connecting…” and there is no button">
     For the first few seconds you will only see a spinner and **"Preparing the
     QR code…"**: there is nothing to press yet. The buttons appear around the
@@ -207,9 +214,10 @@ and keep generating."*
     before reloading the page.
     → [Connect WhatsApp](/en/getting-started/connect-whatsapp)
   </Accordion>
-  <Accordion title="It says “Action required” and no code appears">
-    The session was parked after a dozen or so codes that nobody scanned. The
-    button says **Connect** and restarts the QR cycle from scratch.
+  <Accordion title="It says “El código caducó” (the code expired) and no code appears">
+    The session was parked after a dozen or so codes that nobody scanned (the
+    badge used to say "Action required"; now it names the cause). The button says
+    **Connect** and restarts the QR cycle from scratch.
     → [Connect WhatsApp](/en/getting-started/connect-whatsapp)
   </Accordion>
   <Accordion title="It stays on “Connecting…” and doesn't move">
@@ -297,9 +305,13 @@ and keep generating."*
   </Accordion>
   <Accordion title="I got a WhatsApp saying my funnel had an error">
     It is a real DarkFunnels notice to your **Error alerts** numbers. It names
-    the funnel and includes, in parentheses, a technical label for the reason,
-    untranslated. The actionable part is to go into the conversation in the
-    dashboard; so as not to flood you, at most one notice arrives every 5
+    the funnel and says in plain words what happened — *"it could not reply to a
+    customer's message, not even on retry"*, or *"it could not deliver a reply"*
+    if what failed was the sending — adds **Reason:** with the detail, and closes
+    by asking you to check the conversation in the dashboard. It only goes out
+    when the automatic retry failed too: a hiccup the system recovers from on its
+    own no longer notifies you. The actionable part is to go into that
+    conversation; so as not to flood you, at most one notice arrives every 5
     minutes per funnel and reason.
   </Accordion>
   <Accordion title="A customer asked not to be written to again">

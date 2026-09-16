@@ -59,6 +59,7 @@ The first column shows the name as it appears in the dashboard.
 | **Leer un dato del cliente** (*Read a customer's data*) | Re-reads a saved piece of data so as not to ask again. | Written into the playbook. | Nothing. |
 | **Recordatorio / seguimiento** (*Reminder / follow-up*) | Schedules a nudge to pick the conversation up later. | Written into the playbook. | Nothing. |
 | **Programar una acción** (*Schedule an action*) | Schedules a task for later: send something, change chapter. | Written into the playbook. | Nothing. |
+| **Registrar un referido** (*Register a referral*) | Records the person the customer refers, and the platform writes to them on the customer's behalf. | Written into the playbook. | The referred person's WhatsApp with its country code. |
 | **Avisar a un tercero** (*Notify a third party*) | Sends a WhatsApp message to someone else (the salesperson, the manager). | Written into the playbook. | The number with its country code. |
 | **Consultar conocimiento** (*Consult knowledge*) | Searches the files the agent studied (policies, warranties, FAQ). | Written into the playbook; also used on its own. | Files with the **Memoria del agente** (*Agent memory*) permission. |
 | **Enviar un archivo** (*Send a file*) | Sends the customer a photo, a PDF or an audio from the Library. | Written into the playbook with a marker. | The file with the **Enviar por WhatsApp** (*Send over WhatsApp*) permission. |
@@ -110,7 +111,7 @@ tool format*) and offers to fix it with one click.
 
 Three rules of the form that prevent broken sentences:
 
-- **Reminder, Schedule an action and Notify a third party require the data.**
+- **Reminder, Schedule an action, Register a referral and Notify a third party require the data.**
   Without it, the **Insertar** (*Insert*) button stays disabled: a sentence with
   an empty slot would be of no use.
 - **Activate Manual Mode and Consult knowledge take no data.** They are not
@@ -283,6 +284,39 @@ It resembles the reminder, but it is not the same thing:
 If the task changes chapter, it can also say **from which STEP** of that chapter
 to continue. And just like the reminder, the agent never announces to the
 customer that it is scheduling something.
+
+### Register a referral
+
+In the playbook it appears as **«Registrar Referido Tool»** and its data is
+**who the customer refers**: the name, their WhatsApp with its country code and
+whatever context the customer gives (where they are, what they do). The agent
+calls it **once per person** the customer shares, whether as a WhatsApp contact
+card or by typing the number:
+
+```
+PASO 3: Si no tiene lo que buscamos, pregúntale si conoce a alguien que sí. Por cada persona que comparta, Ejecuta la herramienta "Registrar Referido Tool" con el query "el nombre y WhatsApp de la persona referida, y lo que el cliente cuente de ella"
+```
+
+What happens next does not happen in that chat: **the platform writes to the
+referred person** from the agent's own WhatsApp, «on behalf of» whoever referred
+them, during the day (between 8 and 20 in your time zone) and starting the
+playbook from chapter 1. Their record gets the variable **referido_por** with the
+name and phone of the referrer, and the referral shows up, with its status, on
+both records.
+
+Four rules the agent already knows:
+
+- **Someone who already wrote to you does not count.** If that number already
+  has a conversation with your business, the agent tells the customer kindly and
+  records nothing.
+- **First come, first served.** If two customers refer the same number, the
+  first one stands; the second does not count.
+- **Nobody refers themselves**, and the agent does not invent or complete a
+  number: if it comes without a country code, it asks the customer for it.
+- **The reward is not mentioned in the chat.** If a deposit is marked on the
+  referred person's record, the referrer is left with the reward pending; the
+  amount is configured per funnel and paying it is up to you. The agent does not
+  talk about rewards or commissions with anyone.
 
 ### Notify a third party
 

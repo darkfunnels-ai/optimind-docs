@@ -32,11 +32,11 @@ entrantes, no una lista de prueba. Es lo que hace: contesta a quien escribe. Tú
 puedes tomar cualquier conversación cuando quieras — cada chat tiene un
 interruptor **Piloto automático** que apagas para responder tú.
 
-**3. Al conectar se acreditan tus US\$10 de prueba** (más los US\$25 del referido,
-si usaste uno) **y arranca el reloj de los 15 días.** Antes de conectar, tu
-saldo dice US\$ 0 a propósito. Si ya habías armado o probado tu agente, verás
-acreditado algo menos de US\$ 10: ese consumo se te adelantó y ahora se descuenta
-— lo cuenta [Planes y precios](/primeros-pasos/planes-y-precios).
+**3. Al conectar llegan tus créditos de bienvenida y arranca el reloj de los 15
+días.** Son US\$10 (más los US\$25 del referido, si usaste uno) **menos los US\$ 5
+que tu cuenta ya traía de anticipo** para armar y probar el agente: verás
+acreditados US\$ 5, o US\$ 30 con referido — lo cuenta
+[Planes y precios](/primeros-pasos/planes-y-precios).
 </Warning>
 
 ## El QR, paso a paso
@@ -49,6 +49,10 @@ acreditado algo menos de US\$ 10: ese consumo se te adelantó y ahora se descuen
   <Step title="Pulsa «Conectar / Escanear»">
     Verás **Preparando el código QR…** unos segundos. El agente tiene que estar
     activo: si está apagado, el panel te lo dice en vez de mostrarte el código.
+    Bajo el código se lee **«Intento N de 10»**: los códigos se renuevan solos y,
+    si pasan diez sin que nadie escanee, la sesión se detiene (mira abajo). Al
+    lado tienes **No puedo escanear mi QR**, que abre la sección de problemas de
+    esta guía, y **Escribir al equipo**.
   </Step>
   <Step title="En tu teléfono, vincula el dispositivo">
     Abre WhatsApp → **Dispositivos vinculados** → **Vincular un dispositivo** y
@@ -59,7 +63,11 @@ acreditado algo menos de US\$ 10: ese consumo se te adelantó y ahora se descuen
   </Step>
   <Step title="Espera el «Conectado»">
     La insignia del panel pasa por **Conectando…** y termina en **Conectado**,
-    con el número a la vista. Tus créditos se acreditan en ese momento.
+    con el número a la vista. Tus créditos se acreditan en ese momento y se abre
+    **«¡Tu agente está en línea!»**: te dice el saldo que quedó activo, te propone
+    **probarlo ahora** escribiéndole «hola» a ese número desde otro teléfono, y
+    te ofrece **Activar avisos** para que el navegador te avise de su primera
+    conversación. **Ir al chat** te lleva a la bandeja.
   </Step>
 </Steps>
 
@@ -75,7 +83,8 @@ corta y se agradece no tener que pedir otro.
 | **Conectado** | El número está vinculado y el agente responde. | Nada. |
 | **Escanea el QR** | Hay un código en pantalla esperándote. | Escanearlo, o pulsar **Actualizar QR** si ya caducó. |
 | **Conectando…** | La sesión está levantando. | Esperar unos segundos. |
-| **Acción requerida** | La sesión se quedó parqueada o tardó de más. | Ver abajo. |
+| **El código caducó** | Pasaron diez códigos sin que nadie escaneara: la sesión se detuvo. | **Conectar** para un código nuevo (ver abajo). |
+| **Acción requerida** | La sesión tardó de más o se cerró sola. | Ver abajo. |
 | **Desconectado** | No hay número vinculado. | **Conectar / Escanear**. |
 | **Sin conexión** | No se pudo hablar con el servicio de WhatsApp. | Reintentar en unos minutos. |
 
@@ -88,7 +97,17 @@ corta y se agradece no tener que pedir otro.
     escanea el nuevo. Si dejas pasar muchos códigos sin escanear ninguno, la
     sesión se parquea — es el caso de abajo.
   </Accordion>
-  <Accordion title="Dice «Acción requerida» y no aparece ningún código">
+  <Accordion title="Mi teléfono dice «No se pudo vincular el dispositivo»">
+    Escaneaste y WhatsApp rechazó el vínculo en el último paso. No es tu número
+    ni tu cuenta: pasa con algunos teléfonos en el primer intento. El panel lo
+    detecta en el momento y te lo dice —**«Tu teléfono dijo "No se pudo
+    vincular"…»**— mientras vuelve a firmar el mismo código. Cierra WhatsApp,
+    vuelve a abrir **Dispositivos vinculados** y **escanea otra vez el código que
+    está en pantalla**: la segunda vez suele pasar. Si vuelve a fallar, pulsa
+    **Actualizar QR** e inténtalo de nuevo; y si tampoco, **Escribir al equipo**
+    desde esa misma pantalla.
+  </Accordion>
+  <Accordion title="Dice «El código caducó» y no aparece ningún código">
     La sesión quedó **parqueada**: tras una decena de códigos sin escanear, el
     servicio deja de generarlos hasta que alguien vuelve a arrancar la conexión
     a propósito — así una pestaña olvidada no se pasa la noche pidiéndole

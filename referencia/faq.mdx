@@ -50,7 +50,9 @@ comprueba él.
 <Note>
 **Si las cinco están bien, mira la conversación en la bandeja.** Puede que tu
 agente sí contestara y el mensaje no saliera: en ese caso la burbuja lleva una
-**admiración roja** y el texto **«No enviado (…)»**. También comprueba que el
+**admiración roja** y, al pasar el ratón, **«No enviado: …»** con el motivo en
+palabras (tope de mensajes, cliente que pidió no recibir, canal en pausa de
+seguridad…). También comprueba que el
 canal de **ese** agente esté conectado: cada agente tiene su propio número, no
 hay un WhatsApp «de la cuenta».
 </Note>
@@ -64,50 +66,46 @@ que responda a nadie, **desactiva el agente**.
 
 ## ¿El copiloto me gasta saldo?
 
-Depende de qué le pidas, y como es tu dinero va entero en una tabla.
-**El copiloto** es la IA de dentro del panel, la del cajón de la derecha
-—no la confundas con Claude o ChatGPT conectados por fuera, que en estas páginas
-son **tu asistente**—.
+Sí: todo lo que hace la IA gasta saldo, y el copiloto es IA. **El copiloto** es
+la IA de dentro del panel, la del cajón de la derecha —no la confundas con Claude
+o ChatGPT conectados por fuera, que en estas páginas son **tu asistente**—.
 
 | Lo que haces con el copiloto | ¿Gasta tu saldo? |
 | --- | --- |
-| Los mensajes del **alta guiada**: contarle cómo vendes para que te arme el primer agente | **No.** Los paga la plataforma a propósito |
-| Los mensajes del ayudante **«Guíame»**, el que te enseña dónde está cada cosa | **No.** Igual que el anterior |
-| **Generar el guion** del manual (cada vez que le pides que lo escriba o lo rehaga) | **Sí** (con una excepción al arrancar: mira el recuadro) |
-| Cualquier otra conversación con el copiloto | **Sí**, y con el saldo en cero se detiene |
+| Los mensajes del **alta guiada**: contarle cómo vendes para que te arme el primer agente, capítulo por capítulo | **Sí.** Para eso tu cuenta nace con US\$ 5 de anticipo |
+| Los mensajes del ayudante **«Guíame»**, el que te enseña dónde está cada cosa | **Sí**, centavos por pregunta |
+| Cualquier otra conversación con el copiloto | **Sí**, y con el saldo agotado se detiene |
 
-La razón de las dos primeras filas es sencilla: quien más necesita esa
-conversación es justo quien todavía tiene US\$ 0 porque aún no ha conectado su
-WhatsApp. Lo demás pasa por el mismo control de saldo que el resto de la IA.
+Hay un solo presupuesto —tu saldo— y una sola puerta: si alcanza, la IA trabaja;
+si no, se detiene y te lo dice. Ya no hay mensajes gratis ni cupos escondidos:
+lo que había era un anticipo disimulado y hoy está a la vista, en tu saldo, desde
+el primer minuto.
 
-<Warning>
-**«Ya usaste tus generaciones de cortesía».** Generar el guion cuesta también
-antes de conectar. Para que puedas armar tu agente con el saldo en cero, el
-sistema te **adelanta hasta cuatro generaciones** durante la prueba (el camino
-normal gasta tres; la cuarta es por si no quedaste conforme), con un tope de
-**US\$ 2**. No es un regalo: el gasto se apunta y tu cuenta queda en deuda, que
-se salda sola con los créditos de bienvenida el día que conectas tu WhatsApp.
-Cuando se agotan —por número o porque llegaste a los US\$ 2— el panel te dice:
-*«Ya usaste tus generaciones de cortesía: conecta tu WhatsApp para activar tus
-créditos de prueba y seguir generando»*.
-→ [Planes y precios](/primeros-pasos/planes-y-precios)
-</Warning>
+<Note>
+**«Tu cuenta no tiene saldo disponible. Recarga créditos para seguir usando el
+copiloto.»** Es el aviso que deja el copiloto en el hilo cuando el saldo no
+alcanza para un turno más (el corte salta por debajo de US\$ 0,10). Si aún no
+conectaste WhatsApp, **conéctalo**: llega el resto de tus créditos de bienvenida.
+Si ya lo conectaste, **recarga**. Y si tu prueba venció, ningún saldo lo
+desbloquea: hace falta un plan.
+→ [Créditos y recarga](/primeros-pasos/creditos-y-recarga)
+</Note>
 
 ## Saldo y cobros
 
 <AccordionGroup>
-  <Accordion title="Mi saldo dice US\$ 0 y acabo de registrarme">
-    Es lo esperado, no una cuenta a medias. Los créditos de bienvenida se
-    acreditan **al conectar tu WhatsApp**, no al registrarte, y el reloj de la
-    prueba arranca en ese mismo momento. Mientras tanto puedes armar tu agente
-    igual.
+  <Accordion title="Mi saldo dice US\$ 5 y acabo de registrarme">
+    Es lo esperado: son los US\$ 5 que tu cuenta adelanta de tus US\$ 10 de
+    bienvenida, para que armes y pruebes tu agente antes de conectar nada. El
+    resto se acredita **al conectar tu WhatsApp**, y el reloj de la prueba
+    arranca en ese mismo momento.
     → [Conecta tu WhatsApp](/primeros-pasos/conecta-whatsapp)
   </Accordion>
-  <Accordion title="Me acreditaron US\$ 9,50 en vez de US\$ 10">
-    Probaste tu agente en el simulador antes de conectar. Para que pudieras
-    verlo responder sin haber conectado nada, el sistema te adelantó **US\$ 0,50**
-    y ahora se descuenta del crédito de bienvenida. El adelanto es uno solo por
-    cuenta y solo se activa si en ese momento no tenías saldo.
+  <Accordion title="Me acreditaron US\$ 5 en vez de US\$ 10">
+    Los otros cinco ya los tenías desde el registro: son el **anticipo** con el
+    que armaste y probaste tu agente, y se descuentan de la bienvenida el día que
+    conectas. El total de por vida sigue siendo US\$ 10 (más US\$ 25 con
+    referido). Es uno solo por cuenta.
     → [Planes y precios](/primeros-pasos/planes-y-precios)
   </Accordion>
   <Accordion title="Tengo saldo en pantalla y el agente no responde">
@@ -188,6 +186,15 @@ créditos de prueba y seguir generando»*.
     **Actualizar QR** y escanea el nuevo.
     → [Conecta tu WhatsApp](/primeros-pasos/conecta-whatsapp)
   </Accordion>
+  <Accordion title="Mi teléfono dice «No se pudo vincular el dispositivo»">
+    Escaneaste y WhatsApp rechazó el vínculo en el último paso; pasa con algunos
+    teléfonos en el primer intento. El panel lo detecta en el momento y te lo
+    dice mientras vuelve a firmar el mismo código: cierra WhatsApp, vuelve a
+    abrir **Dispositivos vinculados** y escanea otra vez el código que está en
+    pantalla. Si vuelve a fallar, **Actualizar QR** y de nuevo; si tampoco,
+    **Escribir al equipo** desde esa pantalla.
+    → [Conecta tu WhatsApp](/primeros-pasos/conecta-whatsapp#problemas-frecuentes)
+  </Accordion>
   <Accordion title="Dice «Conectando…» y no hay ningún botón">
     Los primeros segundos solo verás un giro y **«Preparando el código QR…»**:
     no hay nada que pulsar todavía. Los botones aparecen alrededor de los 20
@@ -195,9 +202,10 @@ créditos de prueba y seguir generando»*.
     de recargar la página.
     → [Conecta tu WhatsApp](/primeros-pasos/conecta-whatsapp)
   </Accordion>
-  <Accordion title="Dice «Acción requerida» y no aparece ningún código">
+  <Accordion title="Dice «El código caducó» y no aparece ningún código">
     La sesión quedó parqueada después de una decena de códigos que nadie
-    escaneó. El botón dice **Conectar** y reinicia el ciclo del QR desde cero.
+    escaneó (antes la insignia decía «Acción requerida»; ahora nombra la causa).
+    El botón dice **Conectar** y reinicia el ciclo del QR desde cero.
     → [Conecta tu WhatsApp](/primeros-pasos/conecta-whatsapp)
   </Accordion>
   <Accordion title="Se queda en «Conectando…» y no avanza">
@@ -284,10 +292,14 @@ créditos de prueba y seguir generando»*.
     último que dijo el cliente.
   </Accordion>
   <Accordion title="Me llegó un WhatsApp diciendo que mi embudo tuvo un error">
-    Es un aviso real de DarkFunnels a tus números de **Alertas de error**. Nombra el
-    embudo e incluye entre paréntesis una etiqueta técnica del motivo, sin
-    traducir. Lo accionable es entrar a la conversación en el panel; para no
-    inundarte, llega como mucho un aviso cada 5 minutos por embudo y motivo.
+    Es un aviso real de DarkFunnels a tus números de **Alertas de error**. Nombra
+    el embudo y dice en castellano qué pasó —*«no pudo responder a un mensaje del
+    cliente, ni al reintentar»*, o *«no pudo entregar una respuesta»* si lo que
+    falló fue el envío—, añade **Motivo:** con el detalle y cierra pidiéndote
+    revisar la conversación en el panel. Solo sale cuando el reintento automático
+    también falló: un bache del que el sistema se recupera solo ya no te avisa.
+    Lo accionable es entrar a esa conversación; para no inundarte, llega como
+    mucho un aviso cada 5 minutos por embudo y motivo.
   </Accordion>
   <Accordion title="Un cliente me pidió que no le escriban más">
     Hazlo tú a mano: ningún texto que te mande el cliente («BAJA», «STOP») lo da

@@ -10,7 +10,7 @@ keywords:
   - "WhatsApp sales automation script"
 ---
 
-{/* es-source: guias/manual.mdx @ 7d4e96d */}
+{/* es-source: guias/manual.mdx @ 437a626 */}
 
 The sales playbook is your agent's script. It is not internal documentation: it
 is what your agent obeys, word for word, every time a customer writes. The
@@ -94,6 +94,15 @@ each with its own name:
 The two AI ones —talking it through and drafting one chapter— only appear once an
 agent has been chosen. From the phone two remain: **«Armarlo conversando»** and
 **«💻 Enviármelo a la computadora»** (*💻 Send it to my computer*).
+
+**If you build it by talking, the copilot asks you for your files.** After the
+first chapter a card appears in the panel where you drop all your product
+material (catalogue, flyer, price list, spec sheets, photos). They are uploaded
+to the Library under your account, the copilot reads them and proposes two
+things that you approve: which file the agent **sends** over WhatsApp and which
+it only **consults** to answer, and the **shared section §** —the verifiable
+facts, the answers to frequent questions and the business rules— written from
+what those files say. What the file does not say is not asserted.
 
 ### The banner that teaches you to use the editor
 
@@ -205,7 +214,10 @@ leading number is trimmed automatically.
 
 **The chapter's lines.** This is the script: what your agent executes. **It
 carries no label inside the editor**; they are simply the lines you write under
-the name. It is the part you will touch the most.
+the name. It is the part you will touch the most. To add a line at the end, hover
+over the chapter: a thin **«＋ añadir instrucción»** (*add instruction*) line
+appears; click it and it turns into the writing box (in an empty chapter and on
+the phone it stays visible).
 
 **«Quién eres» (*Who you are*) or «Tu papel aquí:» (*Your role here:*).** This
 is who your agent is. It appears in one of three ways, and it changes by
@@ -221,14 +233,20 @@ itself:
 (*runs every time*) or **«se ejecuta 1 vez → pasa a capítulo N»** (*runs once →
 goes to chapter N*). It is explained further down.
 
-**The header buttons:**
+**The header buttons.** So as not to crowd the row, only the execution chip is
+always in view. Hovering over the chapter brings up two short buttons, and the
+**⋯** menu holds the rest:
 
-- **«Ver como lo recibe el agente»** (*See it as the agent receives it*) —
-  opens a window with that chapter's text as it will be saved.
-- **«✦ Reescribir el capítulo»** (*✦ Rewrite the chapter*) — selects the whole
-  chapter and opens the ✦ AI actions.
-- **the wastebasket** — delete the chapter (see the section further down before
-  using it).
+- **«Ver»** (*See*; in the menu, «Ver como lo recibe el agente» — *See it as
+  the agent receives it*) — opens a window with that chapter's text as it will
+  be saved.
+- **«✦ Reescribir»** (*✦ Rewrite*) — selects the whole chapter and opens the
+  ✦ AI actions.
+- In the **⋯** menu: **«Probar desde aquí»** (*Test from here*, which starts
+  the test chat at that chapter) and **«Eliminar capítulo»** (*Delete
+  chapter*; see the section further down before using it).
+
+On the phone there is no hovering: the buttons are always visible.
 
 <Note>
 **«Ver como lo recibe el agente» shows your text, not the complete message.**
@@ -245,6 +263,32 @@ each line's intent. Those beginning with **«Si…»** (*If…*) are painted as 
 condition and those beginning with **«Nunca…»** (*Never…*) as a prohibition. It
 is a visual aid in the editor: the text that gets saved is exactly the one you
 wrote.
+
+### The index as a map
+
+On the left, each chapter carries a **coloured dot**: red if the Doctor found
+an error in it, amber if it has warnings, green if there is nothing. Hover
+over the row and the tooltip tells you what is wrong with it; a click on the
+dot takes you to the line of the first finding. Under the **«Manual»** label
+the total is summarised (**«1 error · 2 avisos»** — *1 error · 2 warnings*).
+On top of that, **«1×»** marks the chapters that run only once and
+**«vacío»** (*empty*) those with no lines of their own (only the § sections
+apply to them).
+
+### Collapsing chapters
+
+With six chapters the document gets long. The chevron to the left of each
+label **collapses** the chapter: what is left is the heading and one line
+summarising it (how many PASOS it has, which files and tools it mentions,
+which chapters it exits to and how many § sections apply to it). A click on
+the chevron or on that summary opens it again. In the index, **«Plegar todo»**
+(*Collapse all*) collapses every chapter at once and **«Desplegar todo»**
+(*Expand all*) opens them.
+
+Collapsing does not touch the text: what is written is still there, it just
+stops being visible. And any jump (a chapter from the index, the Doctor's «Ir
+al sitio», the first use of a resource, the chapter the test chat walks
+through) expands the chapter before taking you there.
 
 ## The shared sections §
 
@@ -469,6 +513,14 @@ inside.
   the file names: a marker written with the name may come out underlined and
   still be saved and work. If you leave nickname = name, the two match and the
   doubt is over.
+- **Every file mention carries a status dot** in the editor: green if the file
+  is active, amber if it is **paused** in the Library (it exists, but the agent
+  will not send it even if the playbook asks for it) and red if it does not
+  exist. Hover over the mention and a card shows the file (type and size), its
+  status, the condition that triggers it and which other chapters use it; from
+  there you can **view the file**, **swap it for another**, **reactivate it** if
+  it is paused or, if it does not exist, **reconnect it** to another one or open
+  Resources to upload it.
 - **If you take away the file's send permission**, the markers that named it are
   left with nothing to resolve. The playbook's text is not touched by itself:
   the Doctor points it out to you.
@@ -665,8 +717,12 @@ the number of problems in view. It is not AI and not opinion: they are
 *«problemas verificados del manual, con su arreglo»* — *"verified playbook
 problems, with their fix"*, as the button itself says.
 
-Today it does **eleven checks**. Among them:
+Today it does **sixteen checks**. Among them:
 
+- **PASOS out of order, references to a step that does not exist, and
+  in-between chapters that advance to none of them** — the same rule the
+  assistant rejects a new funnel with, running while you write; a gap in the
+  numbering (PASO 1, 2, 3, 5) is renumbered in one click, references included,
 - **broken mentions** (a file nothing points to any more, a variable that does
   not exist),
 - **mentions of a chapter that no longer exists**,
@@ -698,10 +754,36 @@ by nobody.
 Put plainly: **count on the Doctor showing them to you, not on the system
 stopping you.** Look at them before calling the playbook done.
 
+## Testing the playbook
+
+The **«Probar»** (*Test*) button in the bar opens a test chat with your agent
+next to the document. You write as if you were the customer and the agent
+answers with the **saved** playbook: it is the same engine that serves
+WhatsApp, but nothing goes out over WhatsApp.
+
+While the agent answers, the playbook moves with you: the chapter it is in
+lights up and pulses while it thinks, and the PASO whose tool is running
+breathes. Under each reply you see the trace: which chapter it entered and
+which tools it used. A click on the chapter in the trace takes you there.
+
+- **«Probar desde aquí»** (*Test from here*), in the **⋯** menu of a chapter
+  heading, restarts the test thread at that chapter. **«Empezar en»** (*Start
+  at*) inside the panel does the same.
+- If you have **unsaved changes**, the panel says so: the agent does not see
+  them until you save. **«Guardar y probar»** (*Save and test*) saves and
+  carries on.
+
+<Note>
+The test thread is real: it consumes balance like any conversation, and
+whatever the agent records in it (a sale, an order) is written down as in any
+chat. Only the delivery stays inside the panel.
+</Note>
+
 ## Deleting a chapter
 
-Pressing the wastebasket opens a confirmation with the **«Eliminar capítulo»**
-(*Delete chapter*) button (or **«Eliminar sección»** — *Delete section*).
+Choosing «Eliminar capítulo» in the **⋯** menu opens a confirmation with the
+**«Eliminar capítulo»** (*Delete chapter*) button (or **«Eliminar sección»** —
+*Delete section*).
 Before you decide, it warns you of four things, and they are worth reading:
 
 1. **«El borrado se aplica al guardar los cambios.»** (*The deletion is applied

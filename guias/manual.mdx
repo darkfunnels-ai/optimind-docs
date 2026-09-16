@@ -83,6 +83,15 @@ Las dos de IA —conversar y redactar un capítulo— solo aparecen con un agent
 elegido. Desde el teléfono quedan dos: **Armarlo conversando** y
 **💻 Enviármelo a la computadora**.
 
+**Si lo armas conversando, el copiloto te pide los archivos.** Después del
+primer capítulo aparece en el panel una tarjeta para soltar todo el material de
+tu producto (catálogo, flyer, lista de precios, fichas, fotos). Suben a la
+Librería con tu cuenta, el copiloto los lee y te propone dos cosas que apruebas
+tú: qué archivo **envía** el agente por WhatsApp y cuál solo **consulta** para
+responder, y la **sección compartida §** —los datos verificables, las respuestas
+a las dudas frecuentes y las reglas del negocio— escrita con lo que dicen esos
+archivos. Lo que el archivo no diga, no se afirma.
+
 ### El cartel que enseña a usar el editor
 
 Cuando no hay ningún otro aviso pendiente, arriba del documento sale la
@@ -186,7 +195,10 @@ ese número inicial sí se recorta solo.
 
 **Las líneas del capítulo.** Es el guion: lo que tu agente ejecuta. **No lleva
 ningún rótulo dentro del editor**; son sencillamente las líneas que escribes
-debajo del nombre. Es la parte que más vas a tocar.
+debajo del nombre. Es la parte que más vas a tocar. Para añadir una línea al
+final, pasa el ratón por el capítulo: aparece una línea fina **«＋ añadir
+instrucción»**; al hacer clic se convierte en la caja de escribir (en un
+capítulo vacío y en el teléfono se ve siempre).
 
 **«Quién eres» o «Tu papel aquí:».** Es quién es tu agente. Aparece de una de
 tres formas, y cambia sola:
@@ -200,14 +212,19 @@ tres formas, y cambia sola:
 **El chip de ejecución**, junto al nombre: dice **«se ejecuta cada vez»** o
 **«se ejecuta 1 vez → pasa a capítulo N»**. Se explica más abajo.
 
-**Los botones de la cabecera:**
+**Los botones de la cabecera.** Para no llenar la fila, solo el chip de
+ejecución está siempre a la vista. Al pasar el ratón por el capítulo aparecen
+dos botones cortos, y el menú **⋯** guarda el resto:
 
-- **«Ver como lo recibe el agente»** — abre una ventana con el texto de ese
-  capítulo tal como queda guardado.
-- **«✦ Reescribir el capítulo»** — selecciona el capítulo entero y abre las
-  acciones de ✦ IA.
-- **la papelera** — borrar el capítulo (mira la sección de más abajo antes de
-  usarla).
+- **«Ver»** (en el menú, «Ver como lo recibe el agente») — abre una ventana con
+  el texto de ese capítulo tal como queda guardado.
+- **«✦ Reescribir»** — selecciona el capítulo entero y abre las acciones de
+  ✦ IA.
+- En el menú **⋯**: **«Probar desde aquí»** (arranca el chat de prueba en ese
+  capítulo) y **«Eliminar capítulo»** (mira la sección de más abajo antes de
+  usarlo).
+
+En el teléfono no hay «pasar el ratón»: los botones se ven siempre.
 
 <Note>
 **«Ver como lo recibe el agente» enseña tu texto, no el mensaje completo.** Es
@@ -453,6 +470,14 @@ marcador ya dentro.
   nombres de archivo: un marcador escrito con el nombre puede salir subrayado y
   aun así guardarse y funcionar. Si dejas apodo = nombre, los dos coinciden y se
   acaba la duda.
+- **Cada mención de archivo lleva un punto de estado** en el editor: verde si
+  el archivo está activo, ámbar si está **pausado** en la Librería (existe,
+  pero el agente no lo enviará aunque el manual lo pida) y rojo si no existe.
+  Pasa el ratón por la mención y sale una tarjeta con el archivo (tipo y
+  tamaño), su estado, la condición que lo dispara y en qué otros capítulos se
+  usa; desde ahí puedes **ver el archivo**, **cambiarlo por otro**,
+  **reactivarlo** si está pausado o, si no existe, **reconectarlo** a otro o
+  abrir Recursos para subirlo.
 - **Si le quitas el permiso de envío al archivo**, los marcadores que lo
   nombraban se quedan sin nada que resolver. El texto del manual no se toca
   solo: te lo señala el Doctor.
@@ -639,7 +664,7 @@ El botón **Doctor** revisa el manual entero y lista lo que está roto, con el
 número de problemas a la vista. No es IA ni opinión: son *«problemas verificados
 del manual, con su arreglo»*, como dice el propio botón.
 
-Hoy hace **doce comprobaciones**. Entre ellas:
+Hoy hace **dieciséis comprobaciones**. Entre ellas:
 
 - **PASOS fuera de orden, referencias a un paso que no existe y capítulos
   intermedios que no avanzan a ninguno** — la misma regla con la que el
@@ -687,7 +712,7 @@ está se ilumina, pulsa mientras piensa, y el PASO cuya herramienta se está
 ejecutando respira. Debajo de cada respuesta ves la traza: en qué capítulo
 entró y qué herramientas usó. Un clic en el capítulo de la traza te lleva a él.
 
-- **Probar desde aquí**, al pasar el ratón por la cabecera de un capítulo,
+- **Probar desde aquí**, en el menú ⋯ de la cabecera de un capítulo,
   reinicia el hilo de prueba en ese capítulo. Lo mismo hace **Empezar en**
   dentro del panel.
 - Si tienes **cambios sin guardar**, el panel lo dice: el agente no los ve
@@ -701,7 +726,7 @@ chat. Solo la entrega se queda dentro del panel.
 
 ## Borrar un capítulo
 
-Al pulsar la papelera se abre una confirmación con el botón **«Eliminar
+Al elegir «Eliminar capítulo» en el menú ⋯ se abre una confirmación con el botón **«Eliminar
 capítulo»** (o **«Eliminar sección»**). Antes de que decidas, te avisa de cuatro
 cosas, y vale la pena leerlas:
 

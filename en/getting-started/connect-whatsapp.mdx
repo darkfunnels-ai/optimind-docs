@@ -10,7 +10,7 @@ keywords:
   - "WhatsApp session stuck connecting"
 ---
 
-{/* es-source: primeros-pasos/conecta-whatsapp.mdx @ a8cea32 */}
+{/* es-source: primeros-pasos/conecta-whatsapp.mdx @ 2441880 */}
 
 This is the step that switches everything on. Up to here you have an agent with
 a script; from here on it has a phone.
@@ -41,12 +41,11 @@ writes. You can take over any conversation whenever you want — every chat has
 an **Autopilot** (*Piloto automático*) switch that you turn off to reply
 yourself.
 
-**3. Connecting credits your US\$ 10 of trial credit** (plus the US\$ 25 of
-referral credit, if you used one) **and starts the 15-day clock.** Before you
-connect, your balance says US\$ 0 on purpose. If you had already built or tested
-your agent, you will see slightly less than US\$ 10 credited: that usage was
-advanced to you and is now deducted — [Pricing](/en/getting-started/pricing)
-explains it.
+**3. Connecting brings your welcome credits and starts the 15-day clock.** They
+are US\$ 10 (plus the US\$ 25 of referral credit, if you used one) **minus the
+US\$ 5 your account already had as an advance** to build and test the agent: you
+will see US\$ 5 credited, or US\$ 30 with a referral —
+[Pricing](/en/getting-started/pricing) explains it.
 </Warning>
 
 ## The QR, step by step
@@ -61,6 +60,11 @@ explains it.
     You will see **Preparing the QR code…** (*Preparando el código QR…*) for a
     few seconds. The agent has to be active: if it is switched off, the
     dashboard tells you so instead of showing you the code.
+    Below the code you can read **"Intento N de 10"** ("Attempt N of 10"): the
+    codes renew themselves and, if ten go by without anyone scanning, the session
+    stops (see below). Next to it you have **No puedo escanear mi QR** ("I can't
+    scan my QR"), which opens the problems section of this guide, and
+    **Escribir al equipo** ("Write to the team").
   </Step>
   <Step title="On your phone, link the device">
     Open WhatsApp → **Linked devices** → **Link a device** and point the camera
@@ -72,7 +76,12 @@ explains it.
   <Step title="Wait for «Connected»">
     The badge in the dashboard goes through **Connecting…** (*Conectando…*) and
     ends at **Connected** (*Conectado*), with the number in view. Your credits
-    are credited at that moment.
+    are credited at that moment and **"¡Tu agente está en línea!"** ("Your agent
+    is online!") opens: it tells you the balance that is now active, suggests
+    **trying it now** by texting "hola" to that number from another phone, and
+    offers **Activar avisos** ("Turn on notifications") so the browser tells you
+    about its first conversation. **Ir al chat** ("Go to the chat") takes you to
+    the inbox.
   </Step>
 </Steps>
 
@@ -88,7 +97,8 @@ it is nice not to have to ask for another one.
 | **Connected** (*Conectado*) | The number is linked and the agent replies. | Nothing. |
 | **Scan the QR** (*Escanea el QR*) | There is a code on screen waiting for you. | Scan it, or press **Refresh QR** (*Actualizar QR*) if it has already expired. |
 | **Connecting…** (*Conectando…*) | The session is coming up. | Wait a few seconds. |
-| **Action required** (*Acción requerida*) | The session got parked or took too long. | See below. |
+| **The code expired** (*El código caducó*) | Ten codes went by without anyone scanning: the session stopped. | **Connect** (*Conectar*) for a new code (see below). |
+| **Action required** (*Acción requerida*) | The session took too long or closed on its own. | See below. |
 | **Disconnected** (*Desconectado*) | There is no linked number. | **Connect / Scan** (*Conectar / Escanear*). |
 | **No connection** (*Sin conexión*) | The WhatsApp service could not be reached. | Retry in a few minutes. |
 
@@ -101,7 +111,17 @@ it is nice not to have to ask for another one.
     QR*) and scan the new one. If you let many codes go by without scanning any
     of them, the session gets parked — that is the case below.
   </Accordion>
-  <Accordion title="It says «Action required» and no code appears">
+  <Accordion title="My phone says «Couldn't link device»">
+    You scanned and WhatsApp rejected the link at the last step. It is not your
+    number or your account: it happens with some phones on the first attempt. The
+    dashboard detects it on the spot and tells you — **"Tu teléfono dijo "No se
+    pudo vincular"…"** ("Your phone said it couldn't link…") — while it re-signs
+    the same code. Close WhatsApp, open **Linked devices** again and **scan the
+    code on screen once more**: the second time usually goes through. If it fails
+    again, press **Refresh QR** (*Actualizar QR*) and try once more; and if that
+    fails too, **Escribir al equipo** ("Write to the team") from that same screen.
+  </Accordion>
+  <Accordion title="It says «El código caducó» (the code expired) and no code appears">
     The session got **parked**: after ten or so unscanned codes, the service
     stops generating them until someone deliberately starts the connection
     again — that way a forgotten tab does not spend the night asking WhatsApp
