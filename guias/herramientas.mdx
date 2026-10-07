@@ -56,7 +56,7 @@ que las resume: **Éxito de herramientas**. Más abajo, en
 | **Leer un dato del cliente** | Relee un dato ya guardado para no volver a preguntarlo. | Se escribe en el manual. | Nada. |
 | **Recordatorio / seguimiento** | Programa un toque para retomar la conversación más tarde. | Se escribe en el manual. | Nada. |
 | **Programar una acción** | Programa una tarea para más tarde: mandar algo, cambiar de capítulo. | Se escribe en el manual. | Nada. |
-| **Registrar un referido** | Anota a la persona que el cliente refiere y la plataforma le escribe de su parte. | Se escribe en el manual. | El WhatsApp del referido con código de país. |
+| **Registrar un referido** | Anota a la persona que el cliente refiere: el cliente la presenta con un mensaje listo para reenviar o, si así lo configuras, la plataforma le escribe de su parte. | Se escribe en el manual. | El WhatsApp del referido con código de país. |
 | **Avisar a un tercero** | Manda un WhatsApp a otra persona (el vendedor, el encargado). | Se escribe en el manual. | El número con código de país. |
 | **Consultar conocimiento** | Busca en los archivos que el agente estudió (políticas, garantías, FAQ). | Se escribe en el manual; también la usa solo. | Archivos con permiso **Memoria del agente**. |
 | **Enviar un archivo** | Manda al cliente una foto, un PDF o un audio de la Librería. | Se escribe en el manual con un marcador. | El archivo con permiso **Enviar por WhatsApp**. |
@@ -288,12 +288,46 @@ escribiendo el número:
 PASO 3: Si no tiene lo que buscamos, pregúntale si conoce a alguien que sí. Por cada persona que comparta, Ejecuta la herramienta "Registrar Referido Tool" con el query "el nombre y WhatsApp de la persona referida, y lo que el cliente cuente de ella"
 ```
 
-Lo que pasa después no ocurre en ese chat: **la plataforma le escribe al
-referido** desde el mismo WhatsApp del agente, «de parte de» quien lo refirió,
-en horario de día (entre las 8 y las 20 de tu zona) y arrancando el manual desde
-el capítulo 1. En su ficha queda la variable **referido_por** con el nombre y el
-teléfono de quien lo refirió, y en la ficha de los dos se ve el referido con su
-estado.
+Lo que pasa después depende de cómo configures el programa en **Red de
+referidos → Programa**, en «¿Quién escribe primero?»:
+
+- **El cliente lo presenta** (lo que viene de fábrica): el agente le da al
+  cliente, en ese mismo chat, la presentación que tú escribes en esa pantalla
+  (o la de fábrica), tal cual y en una sola burbuja, con el número de WhatsApp
+  de tu embudo en texto: WhatsApp lo convierte solo en un toque que abre el
+  chat, sin enlaces (un wa.me en un mensaje reenviado se lee como spam).
+  Escríbela en la voz de tu cliente («te paso el contacto de…»): es él quien
+  la reenvía, y la de fábrica ya viene así, y nombra a tu negocio con el
+  «Nombre de tu negocio» de esa misma pantalla (vacío = el nombre del embudo). Si eliges una foto, un video o un
+  PDF de tu librería, va en ese mismo mensaje con la presentación como pie,
+  para que tu cliente reenvíe una sola cosa. El referido te escribe él y entra
+  por el capítulo que elijas. Si a los tres días no ha escrito, el agente le
+  pregunta al cliente, una sola vez, si pudo pasarle el mensaje. En cuanto el
+  referido escribe, el agente le agradece a tu cliente la recomendación por su
+  mismo chat, una sola vez, sin contarle nada de lo que el referido dijo y sin
+  hablar de premios, y ese recordatorio de los tres días se cancela. Tu número
+  no inicia ninguna conversación.
+- **El agente le escribe primero**: la plataforma le manda al referido un solo
+  mensaje desde el mismo WhatsApp del agente, en horario de día (entre las 8 y
+  las 20 de tu zona). Empieza con una apertura de una o dos líneas que la IA
+  redacta en cada envío (el saludo según la hora, quién eres según tu manual,
+  de parte de quién viene con nombre y apellido, y el contexto si lo hay), sigue
+  con tu texto, que escribes en esa misma pantalla y sale tal cual, y puede
+  llevar una foto o un video de tu librería con todo el texto como pie. Después
+  no hay ningún seguimiento automático: el capítulo que elijas corre cuando el
+  referido conteste. Cada mensaje así le llega a alguien que no te tiene
+  guardado, y WhatsApp lo cuenta como no solicitado: úsalo con pocos referidos
+  al día.
+  Por eso tiene un tope por día, editable en esa misma pantalla (3 de
+  fábrica, hasta 20): cuando el día se llena, los siguientes referidos se
+  saludan al día siguiente a partir de las 8 y el agente le dice al cliente
+  que le escribirán mañana, no que ya le escribieron. Las respuestas a quien
+  te escribe no cuentan para ese tope.
+
+En los dos casos, en la ficha del referido quedan la variable **referido_por**
+con el nombre de quien lo refirió y, si el cliente contó algo de esa persona al
+pasar el contacto, **referido_contexto** con ese dato. En la ficha de los dos se
+ve el referido con su estado.
 
 Cuatro reglas que el agente ya conoce:
 

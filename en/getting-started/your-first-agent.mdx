@@ -10,7 +10,7 @@ keywords:
   - "WhatsApp agent onboarding"
 ---
 
-{/* es-source: primeros-pasos/tu-primer-agente.mdx @ 3a9880e */}
+{/* es-source: primeros-pasos/tu-primer-agente.mdx @ 0af8b15 */}
 
 An agent is **a salesperson**: it has a name it introduces itself with, a way of
 speaking and a script. To build it you don't have to write anything from scratch
@@ -52,7 +52,7 @@ While it lasts, below the compose box there's a label to remind you:
 > We're building your agent.
 
 The conversation spends balance, like everything the AI does: that is what the
-**US\$ 5** your account is born with are for (see
+**US\$ 10** your account is born with are for (see
 [Pricing](/en/getting-started/pricing)).
 
 <Steps>
@@ -66,6 +66,10 @@ The conversation spends balance, like everything the AI does: that is what the
     first screen offers you three phrases to get going in one tap — *"I sell
     over WhatsApp and close in the chat"*, *"I book visits or appointments"*,
     *"I screen applicants or requests"* — and from there it asks the questions.
+
+    If you sell over WhatsApp and close in the chat, sign-up is shorter: your
+    funnel is born from **the Ecommerce template** and you skip the steps below.
+    See [If you sell over WhatsApp: the Ecommerce template](#if-you-sell-over-whatsapp-the-ecommerce-template).
   </Step>
   <Step title="Answer what it asks you">
     It isn't a form: it asks you **in blocks and in plain language**, and it
@@ -130,15 +134,17 @@ playbook.
 
 **Building your agent this way spends cents of your advance**, and that's why
 it's the normal path before connecting WhatsApp: your account is born with
-**US\$ 5** precisely for this.
+**US\$ 10** precisely for this.
 
 <Note>
-**It isn't a gift, it's an advance.** Those US\$ 5 are part of your **US\$ 10**
-welcome credit: the day you connect WhatsApp the rest is credited, so you'll see
-US\$ 5 arrive (plus US\$ 25 if you were referred). If the advance ran out before
-connecting, the copilot tells you — *"Tu cuenta no tiene saldo disponible"*
-("Your account has no balance available") — and the way out is to connect your
-WhatsApp or top up.
+**It isn't a gift, it's an advance.** Those US\$ 10 are your **whole** welcome
+credit, brought forward so you can build and test your agent without stopping
+halfway: connecting WhatsApp no longer brings balance (the US\$ 25 bonus, if you
+were referred, arrives when you activate your subscription). What starts there is **your trial** —
+the days are counted from the day you connect — and your agent begins answering
+the number. If the advance ran out before connecting, the copilot tells you —
+*"Tu cuenta no tiene saldo disponible"* ("Your account has no balance
+available") — and the way out is to **top up**.
 </Note>
 
 <Note>
@@ -150,12 +156,82 @@ first thing it does is look at which agents you have: if one was left without a
 script, it picks up on that one instead of creating another.
 </Note>
 
+## If you sell over WhatsApp: the Ecommerce template
+
+When what you do is **sell over WhatsApp and close in the chat**, the copilot
+does not interview you chapter by chapter. Your funnel is born from a template
+proven in shops that already sell that way, and you only fill in what belongs
+to your business.
+
+<Steps>
+  <Step title="Choose template or from scratch">
+    The copilot asks *«¿Usamos una plantilla de Ecommerce o armamos tu flujo
+    desde 0?»* (*Shall we use an Ecommerce template or build your flow from
+    scratch?*) and gives you both buttons: **«Usar la plantilla de Ecommerce»**
+    (*Use the Ecommerce template*) and **«Armar mi flujo desde 0»** (*Build my
+    flow from scratch*).
+  </Step>
+  <Step title="Tell it the salesperson's name and the product">
+    Those are the only two questions. From the name it decides between
+    **Asesora** and **Asesor** (female or male advisor), and the product is
+    written into the greeting and the script. If you already told it what you
+    sell at the start, it does not ask again.
+  </Step>
+  <Step title="Approve the card">
+    The **«Confirmar: Creando el embudo»** (*Confirm: Creating the funnel*) card
+    shows the creation mode, the title (for example, *«Carla - Venta de Colágeno
+    Plus»*), the product, the objective and the salesperson. When you press
+    **Aprobar** (*Approve*), the copilot tells you in one line that the funnel is
+    ready and goes quiet: no tour and no more questions.
+  </Step>
+</Steps>
+
+**What is born when you approve.** A **shared block** with the business data
+and three chapters:
+
+| Chapter | What it does |
+| --- | --- |
+| **1 · Saludo** (*Greeting*) | Runs once: greets with the product, its benefits and the promotion, and asks where the customer is writing from. |
+| **2 · En venta** (*Selling*) | Answers doubts, asks about shipping, helps pick the promotion and takes the order details (and the deposit if it ships to the provinces). |
+| **3 · Pedido confirmado** (*Order confirmed*) | Confirms the order, records the sale and hands the conversation to your team. |
+
+What only you know goes in as **placeholders** of the `«PRODUCTO_MARCA»` or
+`«ESCALERA_PRECIOS»` kind: the brand, the presentation, the benefits, the
+prices, your payment methods, the frequent objections and the follow-up
+messages. The usual Peruvian defaults (cash on delivery in Lima, a S/20 deposit
+for the provinces, shipping with Shalom or Olva) come already written, and you
+review them before connecting.
+
+<Note>
+**From scratch** creates the same three chapters, with their role and the
+shared block, but with **empty steps** for you to write.
+</Note>
+
+**After that, everything happens in the playbook.** Each placeholder is filled
+in once and changed everywhere it appears, from the **«Huecos»**
+(*Placeholders*) button in the bar. If you would rather get help, press
+**«Ayúdame a rellenarlo»** (*Help me fill it in*): the copilot first asks for
+your product files, asks you one question at a time and proposes the changes
+for you to approve. See
+[The sales playbook](/en/guides/sales-playbook#a-playbook-born-from-the-ecommerce-template).
+
+- **Probar** (*Test*) turns on when chapter 1 and the PRODUCTO and PRECIOS
+  sections of the block have no placeholders left. Chapters 2 and 3 can wait.
+- **Connecting WhatsApp** requires that no placeholder is left and that you
+  confirm the payment, location and shipping details with **«Sí, son
+  correctos»** (*Yes, they are correct*). While something is missing, Channels
+  tells you what it is, with a link to each item.
+
+Your agent **never says a placeholder to a customer**: whatever you have not
+filled in yet does not reach its instructions.
+
 ## Right after approving it
 
 <Steps>
   <Step title="Scan the QR code">
     An agent with no number talks to nobody. The QR code is at **Customize →
-    Channels**, and it's also what credits your trial credits.
+    Channels**, and it's also what **starts your trial**: the days are counted
+    from the day you connect.
     [Connect your WhatsApp](/en/getting-started/connect-whatsapp) covers it in
     full.
   </Step>
@@ -186,9 +262,10 @@ scripts it produced were worse.
 The onboarding runs against the same balance as everything else. If you see
 *"Tu cuenta no tiene saldo disponible. Recarga créditos para seguir usando el
 copiloto"* ("Your account has no balance available. Top up credits to keep using
-the copilot"), the advance ran out: **connect your WhatsApp** (the rest of your
-welcome credits arrives) or **top up**. If your trial has expired as well, you
-need a plan.
+the copilot"), the advance ran out and the way out is to **top up**: your welcome
+credit was already in the account in full, so connecting WhatsApp brings no
+balance (the US\$ 25 bonus, if you were referred, arrives when you activate your
+subscription). If your trial has expired as well, you need a plan.
 
 **The onboarding isn't lost**: the agent and the chapters you already approved
 are still there, and you can also carry on [in the

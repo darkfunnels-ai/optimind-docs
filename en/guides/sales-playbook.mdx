@@ -10,7 +10,7 @@ keywords:
   - "WhatsApp sales automation script"
 ---
 
-{/* es-source: guias/manual.mdx @ 437a626 */}
+{/* es-source: guias/manual.mdx @ c1b00c0 */}
 
 The sales playbook is your agent's script. It is not internal documentation: it
 is what your agent obeys, word for word, every time a customer writes. The
@@ -90,6 +90,7 @@ each with its own name:
 | **«Cargar un manual de ejemplo»** (*Load a sample playbook*) | A ready-made playbook you can edit on top of. It is what the screen itself recommends if it is your first time. |
 | **«＋ Crear el primer capítulo en blanco»** (*＋ Create the first blank chapter*) | Start from scratch, by hand. |
 | **«✦ Redactar un capítulo con IA»** (*✦ Draft a chapter with AI*) | A single chapter written by AI. |
+| **«Cargar plantilla de Ecommerce»** (*Load the Ecommerce template*) | Sales funnels only: the playbook becomes the Ecommerce template (shared block and three chapters with placeholders). You also see it with a single chapter written. |
 
 The two AI ones —talking it through and drafting one chapter— only appear once an
 agent has been chosen. From the phone two remain: **«Armarlo conversando»** and
@@ -140,6 +141,7 @@ On a computer, left to right:
 | **History** (*Historial*) | The saved versions of the playbook, to compare and roll back. |
 | **Resources** (*Recursos*) | The drawer with the agent's files, tools, variables and chapters. |
 | **Data** (*Datos*) | The links, prices, phone numbers and exact phrases of the playbook, all together. |
+| **Placeholders** (*Huecos*) | Only in a funnel born from the Ecommerce template, and while it has placeholders left: carries the number of placeholders to fill and opens their panel. |
 | **Doctor** | The playbook's problems, with their fix. It carries the number of problems found. |
 | *(save indicator)* | Tells you whether there are pending changes. |
 | **Discard changes** (*Descartar cambios*) | Only appears if you have touched something. |
@@ -752,7 +754,71 @@ recognises that exact format: a `PRECIO_1` without the angle quotes is detected
 by nobody.
 
 Put plainly: **count on the Doctor showing them to you, not on the system
-stopping you.** Look at them before calling the playbook done.
+stopping you.** Look at them before calling the playbook done. In a funnel born
+from the Ecommerce template the placeholders also have their own panel and
+their own rules: the next section covers them.
+
+## A playbook born from the Ecommerce template
+
+If your funnel was born from the Ecommerce template (from the sales sign-up or
+with **«Cargar plantilla de Ecommerce»**), the playbook brings a shared block
+and three chapters — Saludo, En venta and Pedido confirmado (*Greeting, Selling,
+Order confirmed*) — with **placeholders** of the `«PRODUCTO_MARCA»` kind where
+what belongs to your business goes. The editor paints them amber, and above the
+document a notice says how many are missing: *«Faltan 20 huecos: 16 en el
+bloque y 4 en los capítulos»* (*20 placeholders missing: 16 in the block and 4
+in the chapters*).
+
+### The Placeholders panel
+
+The **«Huecos»** (*Placeholders*) button in the bar opens a panel with each
+placeholder once, in the playbook's order: first the shared block and then each
+chapter.
+
+- **Type the data and press «Rellenar en N sitios»** (*Fill in N places*): the
+  placeholder changes everywhere it appears (the block counts once, even though
+  the three chapters share it).
+- **File placeholders** (`«ARCHIVO_PRECIOS»`, `«ARCHIVO_PRODUCTO»`…) are not
+  typed: you pick a file from your **Library** and its mention stays. If you do
+  not have it, **«No tengo este archivo»** (*I don't have this file*) removes
+  it from the playbook.
+- Nothing is written until you press **«Guardar cambios»** (*Save changes*),
+  like any other change in the editor.
+
+### Letting the copilot help
+
+**«Ayúdame a rellenarlo»** (*Help me fill it in*), next to the placeholders
+notice, asks the copilot for help in a separate conversation. It reads your
+playbook, first asks for the product files, asks you one question at a time and
+proposes the changes for you to approve. A change to the block applies to the
+three chapters at once.
+
+### When you can test and connect
+
+- **Probar** (*Test*) turns on when chapter 1 and the **PRODUCTO** and **PRECIOS
+  Y PROMOCIONES** sections of the block have no placeholders left; until then
+  the button tells you how many are missing. Chapters 2 and 3 can stay as
+  template.
+- **Connecting WhatsApp** requires three things: no placeholders, no chapter
+  without steps and the payment, location and shipping details confirmed.
+  Channels shows you those three sections as they stand and asks for a **«Sí,
+  son correctos»** (*Yes, they are correct*). While something is missing,
+  instead of the QR you see **«Antes de conectar:»** (*Before connecting:*)
+  with what is missing and a link to each item.
+
+<Note>
+**A placeholder never reaches a customer.** Until you fill it in, your agent
+does not receive it in its instructions: the line that contains it is left out.
+</Note>
+
+### Loading the template into a funnel that already exists
+
+In a sales funnel with an empty playbook or with a single chapter, the index
+offers you **«＋ Cargar plantilla de Ecommerce»** (*＋ Load the Ecommerce
+template*). It asks for the salesperson's name, whether it is **Asesora** or
+**Asesor** and the product, and replaces the playbook with the template. The
+previous version stays in the [History](#the-history-rolling-back). If the
+funnel already serves a connected WhatsApp, it has to be paused first.
 
 ## Testing the playbook
 
@@ -851,7 +917,7 @@ press **«Guardar cambios»** — and that spends **only one** of your ten Histo
 versions.
 
 To **rewrite the script** — create chapters, change the steps, move sections —
-you need a computer. The **«Enviármelo»** (*Send it to me*) button (in the
+or **fill in the template placeholders** you need a computer. The **«Enviármelo»** (*Send it to me*) button (in the
 empty playbook, **«💻 Enviármelo a la computadora»**) is there for exactly
 that: to carry on on the big screen.
 

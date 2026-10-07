@@ -174,7 +174,7 @@ dashboard.
   number; the platform includes safeguards, none of which removes that risk.
 - **Limits:** up to 150 messages and 150 distinct customers per day and per
   number, and only while the account has balance and the agent is active.
-- **Pricing:** 15-day trial without a card; the welcome credit is granted when
+- **Pricing:** 7-day trial without a card; the welcome credit is granted when
   WhatsApp is connected. Afterwards a monthly subscription, part of which comes
   back as usage balance. Current figures:
   [Plans and pricing](https://docs.darkfunnels.ai/en/getting-started/pricing).

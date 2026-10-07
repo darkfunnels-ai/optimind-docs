@@ -59,7 +59,7 @@ The first column shows the name as it appears in the dashboard.
 | **Leer un dato del cliente** (*Read a customer's data*) | Re-reads a saved piece of data so as not to ask again. | Written into the playbook. | Nothing. |
 | **Recordatorio / seguimiento** (*Reminder / follow-up*) | Schedules a nudge to pick the conversation up later. | Written into the playbook. | Nothing. |
 | **Programar una acción** (*Schedule an action*) | Schedules a task for later: send something, change chapter. | Written into the playbook. | Nothing. |
-| **Registrar un referido** (*Register a referral*) | Records the person the customer refers, and the platform writes to them on the customer's behalf. | Written into the playbook. | The referred person's WhatsApp with its country code. |
+| **Registrar un referido** (*Register a referral*) | Records the person the customer refers: the customer introduces them with a ready-to-forward message or, if you configure it so, the platform writes to them on the customer's behalf. | Written into the playbook. | The referred person's WhatsApp with its country code. |
 | **Avisar a un tercero** (*Notify a third party*) | Sends a WhatsApp message to someone else (the salesperson, the manager). | Written into the playbook. | The number with its country code. |
 | **Consultar conocimiento** (*Consult knowledge*) | Searches the files the agent studied (policies, warranties, FAQ). | Written into the playbook; also used on its own. | Files with the **Memoria del agente** (*Agent memory*) permission. |
 | **Enviar un archivo** (*Send a file*) | Sends the customer a photo, a PDF or an audio from the Library. | Written into the playbook with a marker. | The file with the **Enviar por WhatsApp** (*Send over WhatsApp*) permission. |
@@ -297,12 +297,48 @@ card or by typing the number:
 PASO 3: Si no tiene lo que buscamos, pregúntale si conoce a alguien que sí. Por cada persona que comparta, Ejecuta la herramienta "Registrar Referido Tool" con el query "el nombre y WhatsApp de la persona referida, y lo que el cliente cuente de ella"
 ```
 
-What happens next does not happen in that chat: **the platform writes to the
-referred person** from the agent's own WhatsApp, «on behalf of» whoever referred
-them, during the day (between 8 and 20 in your time zone) and starting the
-playbook from chapter 1. Their record gets the variable **referido_por** with the
-name and phone of the referrer, and the referral shows up, with its status, on
-both records.
+What happens next depends on how you configure the program in **Referral
+network → Program**, under "Who writes first?":
+
+- **The customer introduces them** (the factory setting): the agent gives the
+  customer, in that same chat, the introduction you write on that screen (or
+  the factory one), verbatim and in a single bubble, with your funnel's
+  WhatsApp number as plain text: WhatsApp turns it into a tap that opens the
+  chat, with no links (a wa.me link in a forwarded message reads as spam).
+  Write it in your customer's voice ("here's the contact of…"): they are the
+  one forwarding it, and the factory text already reads that way, naming your
+  business with the "Your business name" field on that same screen (empty =
+  the funnel's name). If you
+  pick a photo, a video or a PDF from your library, it goes in that same message with the introduction
+  as its caption, so your customer forwards a single thing. The referred
+  person writes to you and enters through the chapter you choose. If three
+  days go by without a message, the agent asks the customer, once, whether
+  they managed to pass it on. As soon as the referred person writes, the agent
+  thanks your customer for the recommendation in their own chat, once, without
+  repeating anything the referred person said and without mentioning rewards,
+  and that three-day reminder is cancelled. Your number never starts the
+  conversation.
+- **The agent writes first**: the platform sends the referred person a single
+  message from the agent's own WhatsApp, during the day (between 8 and 20 in
+  your time zone). It opens with one or two lines the AI writes on every send
+  (the greeting for the time of day, who you are according to your playbook,
+  who referred them with first and last name, and the context if there is any),
+  continues with your text, which you write on that same screen and goes out
+  verbatim, and can carry a photo or video from your library with the whole
+  text as its caption. Nothing follows automatically: the chapter you choose
+  runs when the referred person replies. Each such message reaches someone who
+  has not saved your number, and WhatsApp counts it as unsolicited: use it with
+  few referrals a day.
+  That is why it has a daily cap, editable on that same screen (3 by default,
+  up to 20): once the day is full, the next referrals are greeted the following
+  day from 8 onwards, and the agent tells the customer they will be written to
+  tomorrow, not that they already were. Replies to people who write to you do
+  not count towards that cap.
+
+In both cases the referred person's record gets the variable **referido_por**
+with the referrer's name and, if the customer said something about that person
+when sharing the contact, **referido_contexto** with that detail. The referral
+shows up, with its status, on both records.
 
 Four rules the agent already knows:
 

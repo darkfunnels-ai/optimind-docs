@@ -78,6 +78,7 @@ salidas con nombre propio:
 | **Cargar un manual de ejemplo** | Un manual armado que puedes editar encima. Es lo que recomienda la propia pantalla si es tu primera vez. |
 | **＋ Crear el primer capítulo en blanco** | Empezar de cero, a mano. |
 | **✦ Redactar un capítulo con IA** | Un solo capítulo escrito por IA. |
+| **Cargar plantilla de Ecommerce** | Solo en embudos de venta: el manual pasa a ser la plantilla de Ecommerce (bloque compartido y tres capítulos con huecos). La ves también con un solo capítulo escrito. |
 
 Las dos de IA —conversar y redactar un capítulo— solo aparecen con un agente ya
 elegido. Desde el teléfono quedan dos: **Armarlo conversando** y
@@ -125,6 +126,7 @@ En computadora, de izquierda a derecha:
 | **Historial** | Las versiones guardadas del manual, para comparar y volver atrás. |
 | **Recursos** | El cajón con los archivos, herramientas, variables y capítulos del agente. |
 | **Datos** | Los enlaces, precios, teléfonos y frases exactas del manual, todos juntos. |
+| **Huecos** | Solo en un embudo nacido de la plantilla de Ecommerce, y mientras le queden huecos: lleva el número de huecos por rellenar y abre su panel. |
 | **Doctor** | Los problemas del manual, con su arreglo. Lleva encima el número de problemas encontrados. |
 | *(indicador de guardado)* | Te dice si hay cambios pendientes. |
 | **Descartar cambios** | Solo aparece si has tocado algo. |
@@ -698,7 +700,64 @@ los que ya estaban. Y solo reconoce ese formato exacto: un `PRECIO_1` sin las
 comillas angulares no lo detecta nadie.
 
 Dicho claro: **cuenta con que el Doctor te los enseñe, no con que el sistema te
-frene.** Míralos antes de dar el manual por bueno.
+frene.** Míralos antes de dar el manual por bueno. En un embudo nacido de la
+plantilla de Ecommerce los huecos tienen además su propio panel y sus reglas:
+las cuenta la sección siguiente.
+
+## Un manual nacido de la plantilla de Ecommerce
+
+Si tu embudo nació de la plantilla de Ecommerce (desde el alta de venta o con
+**Cargar plantilla de Ecommerce**), el manual trae un bloque compartido y tres
+capítulos —Saludo, En venta y Pedido confirmado— con **huecos** del estilo
+`«PRODUCTO_MARCA»` donde va lo que es de tu negocio. El editor los pinta en
+ámbar, y arriba del documento un aviso dice cuántos faltan: *«Faltan 20 huecos:
+16 en el bloque y 4 en los capítulos»*.
+
+### El panel Huecos
+
+El botón **Huecos** de la barra abre un panel con cada hueco una sola vez,
+ordenados como en el manual: primero el bloque compartido y después cada
+capítulo.
+
+- **Escribe el dato y pulsa «Rellenar en N sitios»**: el hueco se cambia en
+  todos los lugares donde aparece (el bloque cuenta una vez, aunque lo compartan
+  los tres capítulos).
+- **Los huecos de archivo** (`«ARCHIVO_PRECIOS»`, `«ARCHIVO_PRODUCTO»`…) no se
+  escriben: eliges un archivo de tu **Librería** y queda su mención. Si no lo
+  tienes, **«No tengo este archivo»** lo quita del manual.
+- Nada se escribe hasta que pulsas **«Guardar cambios»**, como cualquier otro
+  cambio del editor.
+
+### Que el copiloto te ayude
+
+**«Ayúdame a rellenarlo»**, junto al aviso de huecos, le pide ayuda al copiloto
+en una conversación aparte. Lee tu manual, te pide primero los archivos del
+producto, te hace una pregunta por vez y te propone los cambios para que los
+apruebes. Un cambio del bloque se aplica a los tres capítulos a la vez.
+
+### Cuándo puedes probar y conectar
+
+- **Probar** se enciende cuando el capítulo 1 y las secciones **PRODUCTO** y
+  **PRECIOS Y PROMOCIONES** del bloque ya no tienen huecos; mientras tanto, el
+  botón te dice cuántos faltan. Los capítulos 2 y 3 pueden seguir en plantilla.
+- **Conectar WhatsApp** pide tres cosas: ningún hueco, ningún capítulo sin
+  pasos y los datos de pago, ubicación y envío confirmados. Canales te muestra
+  esas tres secciones tal como quedaron y te pide un **«Sí, son correctos»**.
+  Mientras falte algo, en lugar del QR ves **«Antes de conectar:»** con lo que
+  falta y un enlace a cada punto.
+
+<Note>
+**Un hueco nunca le llega a un cliente.** Mientras no lo rellenes, tu agente no
+lo recibe en sus instrucciones: la línea que lo contiene se queda fuera.
+</Note>
+
+### Cargar la plantilla en un embudo que ya existe
+
+En un embudo de venta con el manual vacío o con un solo capítulo, el índice te
+ofrece **＋ Cargar plantilla de Ecommerce**. Te pide el nombre del vendedor, si
+es **Asesora** o **Asesor** y el producto, y reemplaza el manual por la
+plantilla. La versión anterior queda en el [Historial](#el-historial-volver-atras).
+Si el embudo ya atiende un WhatsApp conectado, primero hay que pausarlo.
 
 ## Probar el manual
 
@@ -787,7 +846,7 @@ Toca el dato, elige en qué apariciones aplicarlo y pulsa **«Guardar cambios»*
 y eso gasta **una sola** de tus diez versiones del Historial.
 
 Para **reescribir el guion** —crear capítulos, cambiar los pasos, mover
-secciones— hace falta una computadora. El botón **«Enviármelo»** (en el manual
+secciones— o **rellenar los huecos** de la plantilla hace falta una computadora. El botón **«Enviármelo»** (en el manual
 vacío, **«💻 Enviármelo a la computadora»**) está ahí justamente para eso:
 continuar en la pantalla grande.
 
