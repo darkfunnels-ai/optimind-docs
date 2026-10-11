@@ -10,7 +10,7 @@ keywords:
   - "ROAS"
 ---
 
-{/* es-source: guias/anuncios-de-meta.mdx @ b94d5fc */}
+{/* es-source: guias/anuncios-de-meta.mdx @ 6fcace9 */}
 
 The **Ads** page brings together two things that until now lived in different
 places: what you spent on Meta for each click-to-WhatsApp ad, and what happened
@@ -36,9 +36,11 @@ the account you pick at the top left). If you connect with a Facebook account
 that can't see that ad account, DarkFunnels can't find your ads and tells you
 so.
 
-**2. DarkFunnels recognizes your ad account by the ads that already brought you
-chats.** If nobody has written to you from a click-to-WhatsApp ad yet, wait for
-the first chat before connecting.
+**2. DarkFunnels recognizes your ad account by the ads that bring you chats.**
+If nobody has written to you from a click-to-WhatsApp ad yet, you can still
+connect: if your Facebook account sees a single ad account, that one gets
+connected; if it sees several, we add yours on our own when the first chat from
+an ad reaches you.
 
 **3. To see Facebook's "organic" engagement, that same Facebook account must
 manage the Page that publishes your ads.** Without that, everything else works
@@ -152,9 +154,14 @@ everyone; this guide will be updated then.
 <Note>
 **Which accounts get connected.** If your Facebook account has access to several
 ad accounts (for example, those of other businesses you manage), DarkFunnels
-keeps the ones that pay for your most recent ads that brought chats to your
-business. The rest are not read. Accounts are fixed when you connect: if you later
-start paying for ads from another one, reconnect (see "When to reconnect" below).
+keeps the ones that pay for ads that brought chats to your business. The rest are
+not read. If you connect before your first chat from an ad and your Facebook
+account sees several ad accounts, the sheet says *"We don't know yet which of
+your Facebook's ad accounts belongs to this business"* and yours is added on its
+own when that chat arrives. And if you later start paying for ads from another
+account, it's added on its own too. In both cases it comes in with the daily
+update that follows that account's first chat, if the Facebook account you
+connected can see it.
 </Note>
 
 ## What you see once it's connected
@@ -272,7 +279,7 @@ detail sheet asked you for your Pages permission, use **Edit settings**.
   <img src="/images/anuncios-de-meta/11-meta-configuracion-anterior.png" alt="Meta window asking whether you want to continue with your previous settings, with the Edit settings and Continue buttons" />
 </Frame>
 
-The spend we already brought in stays. You need to reconnect in four cases:
+The spend we already brought in stays. You need to reconnect in three cases:
 
 1. **Every 90 days.** Meta grants access to the data for 90 days from when you
    accept. The sheet says *"The connection expires on …"* and, in the last 14
@@ -286,9 +293,9 @@ The spend we already brought in stays. You need to reconnect in four cases:
    published** says *"Reading it needs your Pages permission."* with a
    **Reconnect** button. When you come back, go through **Edit settings** and
    accept the Page permissions.
-4. **If you start paying for ads from another ad account.** Accounts are fixed
-   when you connect. Once a chat from those ads has reached you, reconnect to add
-   it.
+
+If you start paying for ads from another ad account, you don't need to: it's
+added on its own (see "Which accounts get connected", above).
 
 <Note>
 When you reconnect, the spend for the days the connection was cut comes in on
@@ -347,11 +354,19 @@ access to Sales. To have us delete what we've already stored, write to us.
     us.
   </Accordion>
   <Accordion title="It says «In your ad accounts we couldn't find the ads that bring chats to this business»">
-    The Facebook account you connected with doesn't have access to the ad
-    account that pays for your click-to-WhatsApp ads, or no chat has come from
-    an ad yet. Connect with the Facebook account that manages those ads (or ask
-    to be given access to the ad account in Meta), or wait for the first chat
-    that comes from an ad.
+    Chats from ads have already reached you, but the Facebook account you
+    connected with doesn't have access to the ad account that pays for them.
+    Connect with the Facebook account that manages those ads (or ask to be given
+    access to the ad account in Meta).
+  </Accordion>
+  <Accordion title="It says «We don't know yet which of your Facebook's ad accounts belongs to this business»">
+    You connected before your first chat from an ad and your Facebook account
+    sees several ad accounts: DarkFunnels doesn't know yet which one is yours. You
+    don't have to do anything. When a chat arrives from an ad paid by one of those
+    accounts, it's added on its own with the daily update and brings in its last
+    93 days of spend. If chats from ads are already reaching you and the sheet
+    still looks the same the next day, those ads are paid by an account your
+    Facebook can't see: connect with the Facebook account that manages them.
   </Accordion>
   <Accordion title="It says «You didn't choose any ad account»">
     Your Facebook account doesn't have access to any ad account, or you didn't
@@ -366,8 +381,10 @@ access to Sales. To have us delete what we've already stored, write to us.
   </Accordion>
   <Accordion title="An ad shows no spend («—»)">
     Either it spent nothing in the period you have selected, or it's paid by
-    another ad account that isn't connected. Try a longer period; if it still
-    shows "—", connect with a Facebook account that can see that other account.
+    another ad account that isn't connected yet (it's added on its own with the
+    daily update if the Facebook account you connected can see it). Try a longer
+    period; if it still shows "—" the next day, connect with a Facebook account
+    that can see that other account.
   </Accordion>
   <Accordion title="The spend doesn't match Ads Manager">
     Check that the period is the same, that days follow your ad account's time
