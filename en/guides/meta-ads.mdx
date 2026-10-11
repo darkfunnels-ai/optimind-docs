@@ -10,7 +10,7 @@ keywords:
   - "ROAS"
 ---
 
-{/* es-source: guias/anuncios-de-meta.mdx @ ad1bcde */}
+{/* es-source: guias/anuncios-de-meta.mdx @ 5e9acce */}
 
 The **Ads** page brings together two things that until now lived in different
 places: what you spent on Meta for each click-to-WhatsApp ad, and what happened
@@ -104,10 +104,25 @@ everyone; this guide will be updated then.
       <img src="/images/anuncios-de-meta/04-meta-continuar-como.png" alt="Meta window asking Continue as …? with the Cancel and Continue buttons" />
     </Frame>
   </Step>
-  <Step title="Accept the permissions">
-    Meta shows you what DarkFunnels asks for: **reading your ads' statistics**
-    and, for your Facebook Pages, **seeing the list and reading the engagement on
-    their posts**. It's all read-only. Accept it.
+  <Step title="Choose your Pages">
+    Meta asks you to choose which Pages DarkFunnels can access. Leave the first
+    option selected (all your Pages, current ones and those you create later), or
+    pick the second one (current ones only) and check, at least, the Page that
+    publishes your ads. Click **Continue**.
+
+    <Frame caption="The Pages: from them DarkFunnels reads the organic engagement of the posts your ads use.">
+      <img src="/images/anuncios-de-meta/05-meta-elige-paginas.png" alt="Meta window to choose which Pages DarkFunnels can access, with the all-Pages and current-Pages-only options" />
+    </Frame>
+  </Step>
+  <Step title="Review the permissions and save">
+    Meta sums up what DarkFunnels asks for under **Review DarkFunnels' access
+    request**: *access your Facebook ads and related statistics*, *read content
+    posted on the Page*, *read user content on your Page* and *show a list of the
+    Pages you manage*. Click **Save**.
+
+    <Frame caption="The four permissions. «Read user content» is what lets us count the post's reactions and comments: we count how many there are, we don't read what they say.">
+      <img src="/images/anuncios-de-meta/05b-meta-revisa-permisos.png" alt="Meta window Review DarkFunnels' access request with four permissions and the Back and Save buttons" />
+    </Frame>
 
     The Page permissions are what make Facebook's organic engagement visible. If
     you don't grant them, the connection still works, but that part doesn't show
@@ -247,8 +262,17 @@ brought (gray) and what came on its own (purple), on Facebook and on Instagram.
 ## When to reconnect
 
 Reconnecting is the same steps as above, starting with the button at the top
-(**Meta connected** or **Reconnect Meta**) → **Reconnect**. The spend we already
-brought in stays. You need it in four cases:
+(**Meta connected** or **Reconnect Meta**) → **Reconnect**. Since you connected
+before, Meta asks whether you want to **continue with your previous settings**:
+**Continue** reuses what you already accepted and finishes there; **Edit
+settings** takes you to choose the Pages and review the permissions again. If the
+detail sheet asked you for your Pages permission, use **Edit settings**.
+
+<Frame caption="When reconnecting: «Continue» repeats what you already accepted; «Edit settings» lets you review Pages and permissions.">
+  <img src="/images/anuncios-de-meta/11-meta-configuracion-anterior.png" alt="Meta window asking whether you want to continue with your previous settings, with the Edit settings and Continue buttons" />
+</Frame>
+
+The spend we already brought in stays. You need to reconnect in four cases:
 
 1. **Every 90 days.** Meta grants access to the data for 90 days from when you
    accept. The sheet says *"The connection expires on …"* and, in the last 14
@@ -260,7 +284,8 @@ brought in stays. You need it in four cases:
 3. **If the detail sheet asks you to.** If you didn't grant the Page permissions
    (or connected before we asked for them), the Facebook part of **Since it was
    published** says *"Reading it needs your Pages permission."* with a
-   **Reconnect** button. When you come back, accept the new permissions.
+   **Reconnect** button. When you come back, go through **Edit settings** and
+   accept the Page permissions.
 4. **If you start paying for ads from another ad account.** Accounts are fixed
    when you connect. Once a chat from those ads has reached you, reconnect to add
    it.
