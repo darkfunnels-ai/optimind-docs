@@ -48,7 +48,8 @@
               "guias/libreria",
               "guias/conversaciones",
               "guias/pedidos-y-metricas",
-              "guias/pixel-de-meta"
+              "guias/pixel-de-meta",
+              "guias/anuncios-de-meta"
             ]
           },
           {
@@ -108,7 +109,8 @@
               "en/guides/library",
               "en/guides/conversations",
               "en/guides/orders-and-metrics",
-              "en/guides/meta-pixel"
+              "en/guides/meta-pixel",
+              "en/guides/meta-ads"
             ]
           },
           {

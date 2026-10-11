@@ -1,0 +1,410 @@
+---
+title: "Connect your Meta ads"
+sidebarTitle: "Meta ads"
+description: "How to connect your Meta ad account to the Ads page, what Meta asks on each screen, what you see afterwards (spend, cost per chat, yield and where to invest), when to reconnect, and what to do if something fails."
+keywords:
+  - "Meta ads"
+  - "click-to-WhatsApp ads"
+  - "ad account"
+  - "cost per chat"
+  - "ROAS"
+---
+
+{/* es-source: guias/anuncios-de-meta.mdx @ ad1bcde */}
+
+The **Ads** page brings together two things that until now lived in different
+places: what you spent on Meta for each click-to-WhatsApp ad, and what happened
+next in your chats: who wrote, who qualified and who bought. DarkFunnels already
+knows the second half: the first message from someone who writes from an ad
+usually carries the ad they came from, hidden, and we store it with the chat. The
+first half lives in your Meta ad account, and to read it you have to connect it.
+This guide is that step, screen by screen.
+
+Without connecting, the page already shows, per ad, the chats, the qualified
+leads and the sales. Connecting adds the **spend**, the **clicks**, what each chat,
+each qualified lead and each sale cost you, the **ROAS**, the **engagement**
+(reactions, comments, shares), each ad's **thumbnail** and **video** (when Meta
+shares it), and **yield**: which ad is your best one by what each sol (or dollar)
+you put into it brings back.
+
+## Before you start: what you need to know
+
+<Warning>
+**1. Connect with the Facebook account that runs your ads.** It must have access
+to the ad account that pays for your click-to-WhatsApp ads (in Ads Manager, it's
+the account you pick at the top left). If you connect with a Facebook account
+that can't see that ad account, DarkFunnels can't find your ads and tells you
+so.
+
+**2. DarkFunnels recognizes your ad account by the ads that already brought you
+chats.** If nobody has written to you from a click-to-WhatsApp ad yet, wait for
+the first chat before connecting.
+
+**3. To see Facebook's "organic" engagement, that same Facebook account must
+manage the Page that publishes your ads.** Without that, everything else works
+the same and that part doesn't show up.
+
+**4. The Ads page is in a pilot and lives in the Sales app.** You need access to
+Sales. If you still don't see it in the menu, or it says *"Not available for your
+account yet"* when you open it, write to us to join. While the pilot lasts there
+is one extra step: accepting an invitation from Meta (explained right below).
+</Warning>
+
+### While the pilot lasts: accept Meta's invitation
+
+The app DarkFunnels uses to connect to Meta doesn't have Meta's approval for
+everyone yet, and in the meantime Meta only lets people the app invited connect. So, the first time:
+
+<Steps>
+  <Step title="Send us your Facebook profile">
+    The profile of the person who will connect (the one who runs your ads): their
+    name as it appears on Facebook, or the link to their profile. We invite you
+    as a **tester** of the DarkFunnels app.
+  </Step>
+  <Step title="Accept the invitation">
+    Go to `developers.facebook.com/requests` with that Facebook account and accept
+    the DarkFunnels invitation. If Meta asks you to register as a developer, do
+    it: it's free and doesn't publish anything in your name.
+  </Step>
+</Steps>
+
+From then on you can connect. This step goes away once Meta approves the app for
+everyone; this guide will be updated then.
+
+## Connect your ad account
+
+<Steps>
+  <Step title="Open Ads">
+    In the left menu: **Sales → Ads**.
+
+    <Frame caption="The page lives under Sales, right below Results.">
+      <img src="/images/anuncios-de-meta/01-menu-ventas-anuncios.png" alt="Side menu with the Sales section and the Ads entry selected" />
+    </Frame>
+  </Step>
+  <Step title="Click «Connect Meta»">
+    Top right, next to **Qualified chapter**.
+
+    <Frame caption="Without a connection, the button says «Connect Meta». Once connected, it says «Meta connected».">
+      <img src="/images/anuncios-de-meta/02-boton-conectar-meta.png" alt="Ads page toolbar with the search box, the funnel, the period and the Connect Meta button" />
+    </Frame>
+
+    The **Connection with Meta** sheet opens. Click **Connect with Meta**: it
+    takes you to Meta's window.
+
+    <Frame caption="The sheet before connecting. We only ask for permission to read: we don't create, change or publish anything.">
+      <img src="/images/anuncios-de-meta/03-hoja-conectar-con-meta.png" alt="Connection with Meta sheet with the Connect with Meta button" />
+    </Frame>
+  </Step>
+  <Step title="Confirm it's your Facebook account">
+    Meta asks **Continue as …?** with the name of the Facebook account open in
+    that browser. If it's the one that runs your ads, click **Continue**. If not,
+    **Log in to another account** and sign in with the right one.
+
+    <Frame caption="Meta's window. Your name and photo appear here; in the screenshot they are covered.">
+      <img src="/images/anuncios-de-meta/04-meta-continuar-como.png" alt="Meta window asking Continue as …? with the Cancel and Continue buttons" />
+    </Frame>
+  </Step>
+  <Step title="Accept the permissions">
+    Meta shows you what DarkFunnels asks for: **reading your ads' statistics**
+    and, for your Facebook Pages, **seeing the list and reading the engagement on
+    their posts**. It's all read-only. Accept it.
+
+    The Page permissions are what make Facebook's organic engagement visible. If
+    you don't grant them, the connection still works, but that part doesn't show
+    up and the ad's detail sheet will ask you to reconnect.
+  </Step>
+  <Step title="Click «OK»">
+    Meta confirms your Facebook account **connected to DarkFunnels**. **OK** takes
+    you back to DarkFunnels.
+
+    <Frame caption="Meta's confirmation. The «go to business integrations» link is where, from Facebook, you can remove DarkFunnels' access whenever you want.">
+      <img src="/images/anuncios-de-meta/06-meta-se-conecto.png" alt="Meta window confirming the connection with DarkFunnels and the OK button" />
+    </Frame>
+  </Step>
+  <Step title="Check that it worked">
+    Back in Ads, the sheet says **Done: you connected 1 ad account** (or however
+    many) and shows each account with its name, ID and currency. At first you'll
+    see *"We're bringing in the spend for the last 93 days. Come back in a few
+    minutes."*; when it's done, it tells you when the spend was updated and until
+    when the connection is valid.
+
+    <Frame caption="Connected. From this same sheet you reconnect or disconnect.">
+      <img src="/images/anuncios-de-meta/07-hoja-listo.png" alt="Connection with Meta sheet with the Done: you connected 1 ad account notice, the account, the update date and the expiry date" />
+    </Frame>
+  </Step>
+</Steps>
+
+<Note>
+**Which accounts get connected.** If your Facebook account has access to several
+ad accounts (for example, those of other businesses you manage), DarkFunnels
+keeps the ones that pay for your most recent ads that brought chats to your
+business. The rest are not read. Accounts are fixed when you connect: if you later
+start paying for ads from another one, reconnect (see "When to reconnect" below).
+</Note>
+
+## What you see once it's connected
+
+<Frame caption="The page with Meta connected (demo data). At the top, the spend and the cost per chat; below, «Where to invest» and the table sorted by yield.">
+  <img src="/images/anuncios-de-meta/08-pagina-con-gasto.png" alt="Ads page with the figures strip, the Where to invest sentence and the table with the yield, spend, reactions, comments, shares and chats columns" />
+</Frame>
+
+- **The top strip** adds two figures: **Meta spend** and **Cost per chat** (all
+  the spend divided by all the chats from those ads).
+- **Each ad** shows its name in Meta and its thumbnail, what it **spent** in the
+  period (with its clicks underneath), the **reactions, comments and shares** it
+  brought in the period (underneath, with a purple dot, its post's organic ones:
+  those that came on their own, unpaid, since it was published), and what **each
+  chat, each qualified lead and each sale** cost you, plus the **ROAS** (what it
+  sold divided by what it spent).
+- **Ads from those accounts that spent without bringing a single chat also show
+  up, with 0 chats** (for example, campaigns that aren't click-to-WhatsApp), when
+  you look at all funnels. Their spend counts toward your average.
+- **Yield** and the **Where to invest** sentence, explained below.
+- **Country**: if your contacts come from more than one country, a selector shows
+  up in the toolbar. When you pick one, the page counts the chats from contacts in
+  that country and the spend Meta delivered there.
+
+### Yield: which ad is your best one
+
+Yield answers a single question: **for each sol (or dollar) you put into this ad,
+how much does it bring you compared with an average one across all your ads?**
+"2.0×" is double; "0.4×", less than half. The table comes sorted by this column:
+the best one on top.
+
+What counts as "what it brings you" depends on what your business already
+measures:
+
+| If in the period, among your ads with spend… | yield compares… |
+| --- | --- |
+| your agent registered **10 or more sales** | what each ad **sold**, in money |
+| there are **10 or more qualified leads** (and fewer than 10 sales) | the **qualified leads** each ad brought |
+| neither | the **chats** each ad brought |
+
+The line below **Where to invest** tells you which of the three it's using. For
+qualified leads to count, each funnel needs its **qualified chapter** (the
+**Qualified chapter** button, top right): the chapter from which a chat is
+already a serious customer.
+
+An ad with little data **doesn't shoot up by luck**: its yield is estimated close to
+your average and moves away from it as it gathers chats. One that spent 21 cents
+and brought 2 chats comes out near 1×, not above all the others.
+
+The column's two marks:
+
+- **Invest more**: it yields more than your average with good confidence (80% or
+  more) and **is still running** (it spent in the three days before the last
+  update). It's the candidate for a bigger budget.
+- **Iterate**: it yields more than your average with the same confidence, but
+  **is no longer running**. It's the base for your next variations: the same
+  hook, another format or copy.
+
+**Where to invest**, the sentence above the table, puts it all together: which ad
+to invest more in and which one to start from for the next version. If no ad
+clearly yields more than your average yet, it tells you which one looks most
+promising and that it needs more data. The ad's name is a link that opens its
+detail sheet.
+
+<Tip>
+Yield compares each ad with your own average, so it works even if you spend in
+dollars and sell in soles: it doesn't need an exchange rate. If you pay from
+accounts in two currencies, it only compares the ads in the currency you spend
+the most in. And it recommends, it doesn't execute: you change the budget
+yourself in Ads Manager.
+</Tip>
+
+### An ad's detail sheet
+
+Click an ad's name to open its detail sheet. On the left, **What they saw**: the
+video (or the image), how many times it was shown and the people who reacted. On
+the right, **What happened**: wrote → qualified → bought, what each step cost, and
+on one line what it spent, what it brought in, the ROAS and its yield.
+
+<Frame caption="«What happened»: each step with its cost, the money on one line and, below, how much it brings per S/ 100 against your average.">
+  <img src="/images/anuncios-de-meta/09-ficha-lo-que-paso.png" alt="Ad detail sheet: wrote, qualified and bought with their cost, the spent, brought in, ROAS and yield line, and how far they got" />
+</Frame>
+
+Under **The people**, each interaction is read per 1,000 times the ad was shown,
+with a mark for your average: that's how you compare a big ad with a small one.
+Below, **Since it was published** splits the post's engagement into what the ads
+brought (gray) and what came on its own (purple), on Facebook and on Instagram.
+
+<Frame caption="«The people» per 1,000 times shown and, below, the post's paid and organic engagement.">
+  <img src="/images/anuncios-de-meta/10-ficha-la-gente-y-organica.png" alt="Ad detail sheet: reactions, comments, shares and saves per 1,000, and Facebook and Instagram engagement split into paid and organic" />
+</Frame>
+
+## How often it updates
+
+- **When you connect**, DarkFunnels brings in the last 93 days. It takes a few
+  minutes.
+- **After that, once a day, on its own.** Each day it also re-reads the last 7
+  days, so if Meta corrects a recent day's spend, the correction arrives on its
+  own. The **Connection with Meta** sheet says when the last update was.
+- **Days follow your ad account's time zone.** Today's spend is completed by the
+  next update: don't expect it to match Ads Manager minute by minute.
+- **The post's engagement** (the organic part) is the total since it was
+  published, read in the daily update.
+
+## When to reconnect
+
+Reconnecting is the same steps as above, starting with the button at the top
+(**Meta connected** or **Reconnect Meta**) → **Reconnect**. The spend we already
+brought in stays. You need it in four cases:
+
+1. **Every 90 days.** Meta grants access to the data for 90 days from when you
+   accept. The sheet says *"The connection expires on …"* and, in the last 14
+   days, it warns you so you renew it before it's cut off. That warning shows up
+   inside **Meta connected**: open it every now and then.
+2. **If Meta stops accepting the connection**, for example because you removed
+   the permission from Facebook. The button at the top changes to **Reconnect
+   Meta** and the sheet explains that Meta no longer accepts the connection.
+3. **If the detail sheet asks you to.** If you didn't grant the Page permissions
+   (or connected before we asked for them), the Facebook part of **Since it was
+   published** says *"Reading it needs your Pages permission."* with a
+   **Reconnect** button. When you come back, accept the new permissions.
+4. **If you start paying for ads from another ad account.** Accounts are fixed
+   when you connect. Once a chat from those ads has reached you, reconnect to add
+   it.
+
+<Note>
+After reconnecting, each day re-reads the last 7 days. If the connection was cut
+for longer, the days in between don't come back on their own: write to us and
+we'll bring them in.
+</Note>
+
+## Disconnect
+
+**Meta connected → Disconnect**, and confirm. DarkFunnels stops reading your
+accounts, and the page stops showing the spend, the costs, yield and the
+thumbnails. What we already brought in stays stored: if you reconnect, it shows
+up again.
+
+That cuts the connection on DarkFunnels' side. To also remove its access on
+Meta's side, go to **Business integrations** on Facebook (the link Meta shows you
+when connecting) and remove DarkFunnels.
+
+## What we read from Meta and what we don't
+
+**We read, once a day:** each ad's spend, impressions, clicks and engagement, by
+day and by country; the names of the ad, the ad set and the campaign; and the
+totals of the post each ad uses (reactions, comments and shares on Facebook;
+likes and comments on Instagram). We store a copy of each ad's thumbnail and, the
+first time you open its detail sheet, of its video (if Meta shares it), to show
+them to you without depending on Meta's links, which expire.
+
+**We don't:** we don't create, change, pause or publish anything. For comments
+we only count how many there are; we don't read what they say.
+
+The permission Meta gives you is stored encrypted. We also store the name and
+Facebook ID of whoever connected, and the connected ad accounts (name, ID and
+currency). The figures are only visible to the people in your business with
+access to Sales. To have us delete what we've already stored, write to us.
+
+## Common problems
+
+<AccordionGroup>
+  <Accordion title="It says «Not available for your account yet»">
+    The page is in a pilot and your business isn't in it yet. Write to us and
+    we'll add you.
+  </Accordion>
+  <Accordion title="Meta won't let me continue or says the app isn't available">
+    While the pilot lasts, Meta only lets people who accepted the DarkFunnels app
+    invitation connect. Check that you accepted it at
+    `developers.facebook.com/requests` and that you're using that same Facebook
+    account in Meta's window. If another name shows up in **Continue as …?**, use
+    **Log in to another account**.
+  </Accordion>
+  <Accordion title="It says «It didn't connect: you canceled in Meta or didn't grant the permission.»">
+    You clicked **Cancel** in Meta or didn't accept the permissions. Click
+    **Connect Meta** again and go all the way to **OK**.
+  </Accordion>
+  <Accordion title="It says «Meta didn't accept the connection» or «Meta didn't respond as expected»">
+    Something failed on Meta's side while closing the connection. Wait a few
+    minutes and start again from **Connect Meta**. If it happens again, write to
+    us.
+  </Accordion>
+  <Accordion title="It says «In your ad accounts we couldn't find the ads that bring chats to this business»">
+    The Facebook account you connected with doesn't have access to the ad
+    account that pays for your click-to-WhatsApp ads, or no chat has come from
+    an ad yet. Connect with the Facebook account that manages those ads (or ask
+    to be given access to the ad account in Meta), or wait for the first chat
+    that comes from an ad.
+  </Accordion>
+  <Accordion title="It says «You didn't choose any ad account»">
+    Your Facebook account doesn't have access to any ad account, or you didn't
+    accept the permission to read your ads. Connect with the Facebook account
+    that runs your ads and accept all the permissions.
+  </Accordion>
+  <Accordion title="It says the connection link isn't valid, was already used or expired">
+    Each connection attempt is valid for 10 minutes, only once, and for the same
+    business and DarkFunnels user that started it. If you took longer in Meta's
+    window, came back with an old link or switched business or user halfway,
+    start again from **Connect Meta**.
+  </Accordion>
+  <Accordion title="An ad shows no spend («—»)">
+    Either it spent nothing in the period you have selected, or it's paid by
+    another ad account that isn't connected. Try a longer period; if it still
+    shows "—", connect with a Facebook account that can see that other account.
+  </Accordion>
+  <Accordion title="The spend doesn't match Ads Manager">
+    Check that the period is the same, that days follow your ad account's time
+    zone and that today's spend is only completed by the next day's update (the
+    corrections Meta makes to the last few days arrive on their own). Also: with
+    a funnel selected, the strip only adds the ads that brought chats to that
+    funnel; with accounts in two currencies, it shows the one with the most spend
+    ("Spend (main currency)"); and clicks are Meta's "clicks (all)", not only
+    link clicks.
+  </Accordion>
+  <Accordion title="I don't see Facebook's organic engagement">
+    In the table, the purple figure doesn't show up; in the detail sheet, the
+    Facebook part of **Since it was published** tells you why. If it says
+    *"Reading it needs your Pages permission."*, click **Reconnect** and accept
+    the Page permissions. If it says *"We haven't read it yet…"*, it shows up
+    with the next update; if it's still the same the day after, your Facebook
+    account doesn't manage the Page that publishes the ad: reconnect with one
+    that does.
+  </Accordion>
+  <Accordion title="The button says «Reconnect Meta»">
+    Meta stopped accepting the connection: it expired or the permission was
+    removed. Click the button and repeat the steps. The spend we already brought
+    in isn't lost (if it was cut for more than 7 days, see the note under "When
+    to reconnect").
+  </Accordion>
+  <Accordion title="The sheet says «The last spend update failed: …»">
+    What follows the colon is Meta's answer. If it talks about the session, the
+    permission or the token, reconnect. If not, wait for the next day's update;
+    if it happens again, write to us with that text.
+  </Accordion>
+  <Accordion title="Below the table it says «couldn't bring in the Meta spend»">
+    The chats table looks the same, but this time the spend didn't arrive. Reload
+    the page; if it happens again, write to us.
+  </Accordion>
+  <Accordion title="The detail sheet says «We couldn't bring this ad's video from Meta.»">
+    Meta shares videos uploaded to the ad account; the ones an ad takes from a
+    post on your Page sometimes can't be copied. You can still see the ad on
+    Facebook with **See the ad on Facebook**.
+  </Accordion>
+  <Accordion title="ROAS shows «—» with «other currency» underneath">
+    Your ad account spends in one currency and your sales are in another.
+    DarkFunnels doesn't convert currencies, so it doesn't divide one by the
+    other. Yield does work in that case, because it compares each ad with your
+    own average.
+  </Accordion>
+</AccordionGroup>
+
+## What this page doesn't do
+
+- It doesn't touch your ads, your campaigns or your budget: it only reads.
+- It doesn't count as a sale anything that wasn't registered as a sale in
+  DarkFunnels. It counts registered sales (by your agent or your team), collected
+  or not, the first one up to 30 days after the click.
+- It doesn't convert currencies.
+- It doesn't read ad accounts that aren't connected.
+
+<CardGroup cols={2}>
+  <Card title="Connect your Meta pixel" icon="bullseye" href="/en/guides/meta-pixel">
+    The way back: letting Meta know who bought over WhatsApp.
+  </Card>
+  <Card title="Orders and metrics" icon="receipt" href="/en/guides/orders-and-metrics">
+    What each sale your agent registers really measures.
+  </Card>
+</CardGroup>
