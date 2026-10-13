@@ -69,7 +69,16 @@ https://mcp.darkfunnels.ai/mcp?features=all
 - **Authorize with the same account the owner uses for the dashboard.** A
   different account connects successfully to *that* other, probably empty,
   workspace. If the assistant reports no products or no agents, check this
-  first: the `whoami` tool says which account is connected.
+  first: the `whoami` tool says which account is connected, and
+  `get_connection_company` which company and permissions the connection acts
+  with.
+- **One connection, one company, the person's permissions.** An account can
+  belong to several companies: each connection is bound to the company that was
+  active on its first call. Reads follow the company active in the dashboard;
+  a write after the account switched company there is rejected until it
+  switches back or the connector is reconnected. The catalog only offers the
+  tools of the apps the person can use in that company (and that the company
+  has active): someone with only HR gets no Sales tools.
 - A person has to complete the authorization in a browser. Headless
   automation (cron jobs, workers, agent SDKs without a browser) is not
   supported yet.
@@ -85,19 +94,21 @@ Per-client steps: [claude.ai](https://docs.darkfunnels.ai/en/quickstarts/claude-
 | Parameter | Effect |
 |---|---|
 | `?features=all` | Recommended. Takes the whole catalog, including groups published after you connect. |
-| `?features=a,b,c` | An explicit list **replaces** the default set — it does not extend it. `?features=orders` alone loses playbook, catalog and conversations. A `_write` group always brings its read group with it. |
+| `?features=a,b,c` | An explicit list **replaces** the default set — it does not extend it. `?features=orders` alone loses playbook, catalog, conversations and HR. A `_write` group always brings its read group with it. |
 | `?read_only=true` | Disables every write and overrides everything else, `all` included. |
-| `?pii=full` | Unmasks end-customer phone numbers (masked by default, e.g. `51•••••4321`). |
-| `?agent=<uuid>` | Pins the connection to one sales agent (funnel). |
+| `?pii=full` | Unmasks end-customer phone numbers (masked by default, e.g. `51•••••4321`) and the ID document numbers in the HR tools. |
+| `?agent=<uuid>` | Sets the default sales agent (funnel) for the tools that take an `agent_id`; an explicit `agent_id` still wins. |
 
-Without `?features=` the default set is read-only apart from one
-non-destructive write: assigning tags to customers.
+Without `?features=` the default set (`core`, `manual`, `catalog`,
+`conversations`, `hr`) is read-only apart from three non-destructive writes:
+creating customer tags, assigning them, and logging a request the connector
+could not handle (`report_unsupported_request`).
 
 Full reference: [Connection URL](https://docs.darkfunnels.ai/en/reference/connection-url).
 
 ## What the tools cover
 
-60 tools in 14 feature groups. Every tool declares a `title` and the
+81 tools in 16 feature groups. Every tool declares a `title` and the
 applicable `readOnlyHint` / `destructiveHint`, so a client can show the owner
 what it is about to do. **Tool titles and descriptions are written in
 Spanish** on purpose: that text is what the connector sends verbatim to the
@@ -105,28 +116,30 @@ model, refined against real operational failures with Spanish-speaking owners.
 
 | Group | What it does |
 |---|---|
-| `core` (always on) | `whoami`, `list_agents`, `get_agent_settings`, `get_agent_variables`, `get_whatsapp_status`, `get_credit_balance`, `search_docs`, `get_funnel_template`, `get_agent_overview` (one-call snapshot of an agent), `get_setup_checklist` (what is still missing to go live), `list_agent_tools` (the exact mention grammar of the agent's own tools), `get_manual_tutorial` (the step-by-step script for writing a playbook with the owner), `report_unsupported_request` |
+| `core` (always on) | `whoami`, `get_connection_company` (the company and permissions the connection acts with), `list_agents`, `get_agent_settings`, `get_agent_variables`, `get_whatsapp_status`, `get_credit_balance`, `search_docs` (searches this documentation and returns the passages with their links), `get_funnel_template`, `get_agent_overview` (one-call snapshot of an agent), `get_setup_checklist` (what is still missing to go live), `list_agent_tools` (the exact mention grammar of the agent's own tools), `get_manual_tutorial` (the step-by-step script for writing a playbook with the owner), `report_unsupported_request` |
 | `manual` / `manual_write` | Read the playbook chapters and version history, lint the live playbook or a draft without saving (`lint_manual`); save chapters in one batch, write ONE chapter at a time (`write_funnel_chapter`), restore a version, apply a whole funnel, edit the shared context block |
 | `catalog` / `catalog_write` | List and read products; create/update products in bulk, delete a product |
 | `conversations` | List chats, read a thread, list customers (CRM), the 360° customer profile (`get_client_profile`), explain one agent turn — model, cost, tools it ran (`explain_turn`), create and assign tags |
-| `metrics` | Sales and funnel KPIs |
-| `library` | Upload files and link them to agents, read the text of a file (`extract_library_file_text`) |
+| `metrics` | AI usage, and sales results (`get_agent_scorecard`) for the whole company or one funnel over any period — today, yesterday, last 7/30/90 days, week, month, year or explicit dates; the same calculation as the dashboard's Results screen |
+| `library` | Upload files and link them to agents, read the text of a file (`extract_library_file_text`; images are read with vision and consume credits) |
 | `operations` | Send an operator message, switch a chat between AI and manual, schedule reminders, delete a tag |
-| `manual_ai` | Draft or optimize one playbook chapter with AI (consumes credits) |
-| `testing` | Simulate inbound messages — **sends real WhatsApp messages** |
+| `manual_ai` | Optimize playbook chapters with AI (`optimize_manual`: returns suggestions, saves nothing; consumes credits) |
+| `testing` | Simulate conversations (agent turns consume credits). `simulate_new_chat`, and `simulate_inbound_message` on a real chat, **send real WhatsApp messages**; `simulate_open_chat` opens the dashboard test chat, where nothing goes out over WhatsApp |
 | `orders` | Read orders and stock |
-| `copilot` | Ask the in-product copilot |
-| `agents_write` | Create or duplicate a sales agent (consumes a subscription seat; fails closed at the limit), change its settings, pause or resume it, edit or toggle its persona |
+| `copilot` | Ask the in-product copilot (consumes credits) |
+| `agents_write` | Create or duplicate a sales agent, change its settings, pause or resume it, edit or toggle its persona. Creating, duplicating and resuming take a subscription seat (fails closed at the limit); pausing frees it |
+| `hr` (default, per permission) | HR reads: the person's own space, staff records, attendance, leave requests, payroll, the quarter bonus and the objectives board — each tool needs its HR permission and the HR app active in that company |
+| `hr_write` | Request and cancel vacations, answer leave requests, create, move and edit tasks, and log key-result progress. Clocking in, medical leave, anything involving money and time tracking stay in the app |
 
 Generated, always-current list: [Tool reference](https://docs.darkfunnels.ai/en/reference/tools).
 
 ### What it will never do
 
 The connector **never moves money**: nothing in the tool surface initiates,
-captures or refunds a payment, and order and sales data is read-only. The one
-tool that creates a sales agent consumes a subscription seat but never starts
-a purchase: at the seat limit the call fails closed and the owner buys in the
-dashboard.
+captures or refunds a payment, and order and sales data is read-only. Three
+calls take a paid subscription seat — `create_sales_agent`, `duplicate_funnel`
+and `set_agent_active` when it resumes an agent — but none starts a purchase:
+at the seat limit the call fails closed and the owner buys in the dashboard.
 
 ## Working patterns that matter
 
@@ -139,9 +152,9 @@ dashboard.
   the previous one is never lost.
 - **Confirm destructive tools with the owner** before calling them; they are
   annotated `destructiveHint: true` for exactly that.
-- **Simulations are real.** `simulate_new_chat` and `simulate_inbound_message`
-  send actual WhatsApp messages to the number given. Use the owner's test
-  number, never a customer's.
+- **Simulations are real.** `simulate_new_chat`, and `simulate_inbound_message`
+  on a real chat, send actual WhatsApp messages. Use the owner's test number,
+  never a customer's.
 - **`simulate_open_chat` is the quiet one.** It opens the agent's own test
   thread inside the dashboard: it takes no phone number, and what the agent
   writes there does not leave over WhatsApp. Its `draft_chapters` field tries a
@@ -152,8 +165,9 @@ dashboard.
 - **New tools do not appear in old conversations.** The tool list freezes per
   conversation; start a new chat to see groups published later.
 - **Check credits first** before AI features (`optimize_manual`, `ask_copilot`,
-  `simulate_*`): `get_credit_balance` says how many days are left. AI features
-  stop at zero balance.
+  `simulate_*`, reading an image with `extract_library_file_text`):
+  `get_credit_balance` says how many days are left. AI features stop at zero
+  balance.
 
 ## Good first prompts
 

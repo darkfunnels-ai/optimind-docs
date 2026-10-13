@@ -10,7 +10,7 @@ keywords:
   - MCP server URL
 ---
 
-{/* es-source: referencia/url-de-conexion.mdx @ a79c6da */}
+{/* es-source: referencia/url-de-conexion.mdx @ b61d16b */}
 
 <Note>
 This page is **optional and only applies if you connect your assistant**
@@ -163,14 +163,14 @@ https://mcp.darkfunnels.ai/mcp?features=all&read_only=true
 ```
 
 These count as writes, so they don't travel either: asking the copilot,
-optimizing the playbook with AI, opening the test chat and logging a request.
-If your URL brings `library` (or `all`), reading the text of a Library file is
-still available, and with an image it spends credits.
+optimizing the playbook with AI, opening the test chat, logging a request and
+reading the text of a Library file (with an image it spends credits).
 
-<Warning>
-Write it exactly like this: `read_only=true`. With `True`, `TRUE` or `1` **it
-doesn't turn on**, and the connection keeps its writes.
-</Warning>
+<Note>
+Any value turns it on: `true`, `1`, `TRUE` or `yes` mean read-only. Only
+`false`, `0`, `no` or `off` leave it off, and when a value can't be understood
+the bridge stays read-only: when in doubt, it doesn't write.
+</Note>
 
 ## `?pii=full` — full phone numbers
 
@@ -374,8 +374,9 @@ remove it from there too: in claude.ai, **Customize → Connectors**; in Codex,
   <Accordion title="I changed the URL and nothing changed">
     First, did you reconnect? Changing the URL requires deleting the connector
     and adding it again. If you did, check how it's written. A misspelled group
-    is ignored, and `read_only=True` or `pii=FULL` have no effect: they go in
-    lowercase. An incomplete `agent=` is ignored too. Fix it and reconnect.
+    is ignored, and `pii=FULL` has no effect: it goes in lowercase (`read_only`
+    does turn on with any value that isn't a "no"). An incomplete `agent=` is
+    ignored too. Fix it and reconnect.
   </Accordion>
   <Accordion title="It can't see your data, or sees it empty">
     The most common cause is that you authorized with another account. Ask it

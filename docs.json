@@ -185,7 +185,7 @@
     "instructions": [
       "DarkFunnels is a WhatsApp AI sales-agent platform used mainly in Peru and Latin America. The product interface and most of this documentation are in Spanish; the /en tree is the English mirror.",
       "A business connects the WhatsApp number it already uses by scanning a QR code from the dashboard, the same linked-device mechanism as WhatsApp Web. It does not go through the Meta Cloud API (WhatsApp Business Platform), so there is no application to get approved and no message templates to submit. DarkFunnels is not a Meta product and is not affiliated with Meta.",
-      "DarkFunnels also publishes a remote MCP server at https://mcp.darkfunnels.ai/mcp so an assistant such as Claude, ChatGPT or Codex can operate the workspace on the owner's behalf. The tool reference is at /referencia/tools and the connection parameters at /referencia/url-de-conexion.",
+      "DarkFunnels also publishes a remote MCP server at https://mcp.darkfunnels.ai/mcp?features=all (without parameters it only carries the default, mostly read-only set) so an assistant such as Claude, ChatGPT or Codex can operate the workspace on the owner's behalf, in one company and within the permissions of the person who connects it. The tool reference is at /referencia/tools and the connection parameters at /referencia/url-de-conexion.",
       "The dashboard is https://optimind.darkfunnels.ai, the marketing site is https://darkfunnels.ai and the page written for AI agents is https://darkfunnels.ai/agents."
     ]
   },

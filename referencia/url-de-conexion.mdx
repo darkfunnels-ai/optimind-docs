@@ -147,14 +147,14 @@ https://mcp.darkfunnels.ai/mcp?features=all&read_only=true
 ```
 
 Cuentan como escritura, y por eso tampoco viajan: preguntarle al copiloto,
-optimizar el manual con IA, abrir el chat de prueba y registrar una petición.
-Si tu URL trae `library` (o `all`), leer el texto de un archivo de la Librería
-sí sigue disponible, y con una imagen gasta créditos.
+optimizar el manual con IA, abrir el chat de prueba, registrar una petición y
+leer el texto de un archivo de la Librería (con una imagen gasta créditos).
 
-<Warning>
-Escríbelo exactamente así: `read_only=true`. Con `True`, `TRUE` o `1` **no se
-activa**, y la conexión conserva sus escrituras.
-</Warning>
+<Note>
+Cualquier valor lo enciende: `true`, `1`, `TRUE` o `yes` dan solo lectura. Solo
+`false`, `0`, `no` u `off` lo dejan apagado, y ante un valor que no se entiende
+el puente se queda en solo lectura: en la duda, no escribe.
+</Note>
 
 ## `?pii=full` — teléfonos completos
 
@@ -350,8 +350,9 @@ también de allí: en claude.ai, **Personalizar → Conectores**; en Codex,
   <Accordion title="Cambié la URL y no cambió nada">
     Primero, ¿reconectaste? Cambiar la URL exige borrar el conector y
     añadirlo de nuevo. Si lo hiciste, revisa cómo está escrita. Un grupo mal
-    escrito se ignora, y `read_only=True` o `pii=FULL` no hacen efecto: van en
-    minúsculas. Un `agent=` incompleto también se ignora. Corrige y reconecta.
+    escrito se ignora, y `pii=FULL` no hace efecto: va en minúsculas (`read_only`
+    sí se enciende con cualquier valor que no sea un «no»). Un `agent=` incompleto
+    también se ignora. Corrige y reconecta.
   </Accordion>
   <Accordion title="No ve tus datos, o los ve vacíos">
     Lo más común es que autorizaras con otra cuenta. Pregúntale *«¿con qué
