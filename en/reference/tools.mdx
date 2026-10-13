@@ -1,11 +1,11 @@
 ---
 title: "Tool reference"
-description: "The 81 tools of the DarkFunnels MCP bridge, by group. Generated from the source code: do not edit by hand."
+description: "The 62 tools of the DarkFunnels MCP bridge, by group. Generated from the source code: do not edit by hand."
 ---
 
 {/* GENERADO por scripts/gen-tools-reference.mjs — editarlo a mano se pierde. */}
 
-Default set (a URL with no `?features=`): groups `core`, `manual`, `catalog`, `conversations`, `hr` —
+Default set (a URL with no `?features=`): groups `core`, `manual`, `catalog`, `conversations` —
 read-only, plus the non-destructive writes for customer tags (create and assign)
 and the unsupported-request log. Everything else is opt-in.
 
@@ -302,84 +302,4 @@ belong to **your assistant** connected through the bridge.
 ### `duplicate_funnel` — Duplicar un embudo
 
 *🔴 destructive*. Copia un embudo (manual, ajustes, persona, archivos). CONSUME 1 cupo pagado. Confírmalo con el dueño antes; sin cupo rebota con el enlace para ampliarlo. Dentro de la misma empresa copia también el objetivo, la memoria, las variables y las etiquetas (los archivos, como enlaces de la Librería); NO copia conversaciones ni contactos. El duplicado nace activo con su propio canal de WhatsApp sin conectar. La misma llamada repetida en menos de un minuto se toma como reintento: devuelve la copia ya creada (deduplicated: true) sin gastar otro cupo.
-
-## Human resources — read (per each person's permissions)
-
-### `get_my_hr_summary` — Mi resumen de RR. HH.
-
-*read only*. Mi espacio de RR. HH. de la persona conectada: el día de hoy (horario, marcas, si llegó a tiempo), su situación del mes, el puntaje y el bono del trimestre, rachas, saldo de vacaciones y solicitudes pendientes. Solo lo propio, con su ficha enlazada. Marcar asistencia o pedir un descanso médico con certificado se hace en Mi espacio de la app, no por aquí.
-
-### `get_my_attendance` — Mi asistencia del mes
-
-*read only*. Asistencia de la persona conectada en un mes (por defecto el actual): cada día con su horario, primera y última marca, tardanza, salida temprana y ausencias (vacaciones, descanso médico, feriados), y el resumen del mes. Solo lo propio.
-
-### `get_my_leave` — Mis vacaciones y permisos
-
-*read only*. Vacaciones y permisos de la persona conectada: saldo (ganados, tomados, programados), la política (días por año, bloque mínimo), sus solicitudes de vacaciones y sus días justificados (descansos médicos y otros permisos) con su estado. Los certificados no se entregan por aquí.
-
-### `get_my_payslip` — Mi sueldo y mi boleta
-
-*read only*. Sueldo de la persona conectada y sus meses de planilla (neto, pagado, pendiente). Con month (AAAA-MM), también su boleta resumen de ese mes: conceptos, descuentos, neto y pagos. Solo lo propio.
-
-### `get_goals_board` — Tablero de objetivos
-
-*read only*. Tablero de objetivos de RR. HH. del mes (por defecto el actual): las personas con su carga y su puntaje (el puntaje solo de uno mismo, salvo quien administra), los objetivos con sus resultados clave y avance, y las tareas abiertas o terminadas en el periodo. Como en la app, todos ven los objetivos de todos.
-
-### `list_employees` — Personal
-
-*read only*. Personal de la empresa (RR. HH.): fichas con nombre, documento (enmascarado salvo ?pii=full), cargo, fechas de ingreso y cese, estado y horario semanal vigente. Por defecto solo el personal activo. El sueldo solo aparece para quien tiene permiso de sueldos.
-
-### `get_employee` — Ficha de una persona
-
-*read only*. Ficha de una persona del personal: datos, cuenta enlazada, versiones de horario, vacaciones, permisos y saldo de vacaciones. Los descansos médicos aparecen como ausencias justificadas, sin nota, y los certificados no se entregan.
-
-### `get_team_attendance` — Asistencia del equipo
-
-*read only*. Asistencia del equipo en un mes (AAAA-MM): por persona, días marcados, tardanzas (cuántas y cuántos minutos), salidas tempranas, puntualidad y ausencias, más los feriados y los días de toda la empresa. Con employee_id, además el detalle día por día de esa persona. Los descansos médicos aparecen como ausencias justificadas.
-
-### `list_leave_requests` — Vacaciones y permisos del personal
-
-*read only*. Vacaciones y permisos del personal: saldos por persona y las solicitudes (por defecto solo las que esperan respuesta). Los descansos médicos aparecen como ausencias justificadas, sin nota, y los certificados no se entregan. Se responden con answer_leave_request (si la conexión trae las escrituras de RR. HH., hr_write) o en la app; las que traen un documento adjunto, solo en la app, donde se puede revisar.
-
-### `get_payroll` — Planilla del mes
-
-*read only*. Planilla de un mes (AAAA-MM): por persona sueldo, bonos, comisiones, descuentos, neto, adelantos, pagado y pendiente, con sus pagos, los totales por moneda y quién falta en la planilla. Solo para quien tiene permiso de sueldos; registrar pagos se hace en la app.
-
-### `get_payslip` — Boleta de una persona
-
-*read only*. Boleta resumen de una persona en un mes (AAAA-MM): conceptos, descuentos, neto y pagos. Solo para quien tiene permiso de sueldos.
-
-### `get_quarter_bonus` — Bono del trimestre
-
-*read only*. Bono de puntualidad de un trimestre (AAAA-Tn, p. ej. 2026-T4): por persona puntaje, días a tiempo, tardanzas, ausencias, comodines usados y bono, y los totales. Solo para quien tiene permiso de sueldos; cerrar el trimestre se hace en la app.
-
-## Human resources — write (`?features=hr_write`)
-
-### `request_vacation` — Pedir vacaciones
-
-*write*. Pide vacaciones a RR. HH. a nombre de la persona conectada (su ficha enlazada): desde first_day (un día futuro) por days días, o hasta last_day. Los largos permitidos y el primer día posible salen de get_my_leave (allowed_vacation_lengths, earliest_first_day). Queda pendiente hasta que RR. HH. responda, y se le avisa.
-
-### `cancel_vacation_request` — Cancelar un pedido de vacaciones
-
-*write*. Cancela un pedido de vacaciones propio que todavía no tiene respuesta (el id sale de get_my_leave). Uno ya aprobado o rechazado solo lo puede anular RR. HH. en la app.
-
-### `answer_leave_request` — Responder una solicitud de vacaciones o permiso
-
-*🔴 destructive*. Aprueba o rechaza una solicitud de vacaciones (kind vacation) o de permiso (kind justified) del personal; los ids salen de list_leave_requests. La respuesta es definitiva —solo se deshace anulándola en la app— y se le avisa a la persona. Una solicitud de la propia ficha la responde otra persona de RR. HH. (nadie se aprueba solo), y una que trae un documento adjunto se responde en la app, donde se puede revisar.
-
-### `create_goal_task` — Crear una tarea
-
-*write*. Crea una tarea en el tablero de objetivos para alguien del personal (o para uno mismo), con su fecha y, si aplica, el objetivo o resultado clave al que aporta. Si es para otra persona con cuenta, le llega para aceptarla y se le avisa. Si la misma tarea ya se creó hace unos minutos, devuelve esa en vez de duplicarla.
-
-### `move_goal_task` — Mover una tarea
-
-*🔴 destructive*. Cambia el estado de una tarea como en el tablero: accept, decline (con reason), start, block (con reason), complete, confirm, reopen o cancel, o reschedule a otra due_date. Cada tarea dice en `can` qué acciones tiene permitidas la persona conectada. Quien recibe una tarea le cambia la fecha hasta 3 veces; después la cambia quien la pidió. Cancelar y rechazar no se deshacen.
-
-### `update_goal_task` — Editar una tarea
-
-*write*. Edita una tarea abierta: título, detalle, tamaño, o el objetivo o resultado clave al que aporta. La fecha se cambia con move_goal_task (reschedule).
-
-### `update_key_result_progress` — Anotar el avance de un resultado clave
-
-*write*. Anota el valor actual de un resultado clave (y, si se quiere, la confianza de 1 a 10 en el objetivo). Lo hace quien es dueño del objetivo o quien administra RR. HH.; un hito vale 0 o 1. Devuelve el objetivo con su avance.
 

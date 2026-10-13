@@ -78,7 +78,7 @@ https://mcp.darkfunnels.ai/mcp?features=all
   a write after the account switched company there is rejected until it
   switches back or the connector is reconnected. The catalog only offers the
   tools of the apps the person can use in that company (and that the company
-  has active): someone with only HR gets no Sales tools.
+  has active): someone without access to Sales gets no Sales tools.
 - A person has to complete the authorization in a browser. Headless
   automation (cron jobs, workers, agent SDKs without a browser) is not
   supported yet.
@@ -94,13 +94,13 @@ Per-client steps: [claude.ai](https://docs.darkfunnels.ai/en/quickstarts/claude-
 | Parameter | Effect |
 |---|---|
 | `?features=all` | Recommended. Takes the whole catalog, including groups published after you connect. |
-| `?features=a,b,c` | An explicit list **replaces** the default set — it does not extend it. `?features=orders` alone loses playbook, catalog, conversations and HR. A `_write` group always brings its read group with it. |
+| `?features=a,b,c` | An explicit list **replaces** the default set — it does not extend it. `?features=orders` alone loses playbook, catalog and conversations. A `_write` group always brings its read group with it. |
 | `?read_only=true` | Disables every write and overrides everything else, `all` included. |
-| `?pii=full` | Unmasks end-customer phone numbers (masked by default, e.g. `51•••••4321`) and the ID document numbers in the HR tools. |
+| `?pii=full` | Unmasks end-customer phone numbers (masked by default, e.g. `51•••••4321`). |
 | `?agent=<uuid>` | Sets the default sales agent (funnel) for the tools that take an `agent_id`; an explicit `agent_id` still wins. |
 
 Without `?features=` the default set (`core`, `manual`, `catalog`,
-`conversations`, `hr`) is read-only apart from three non-destructive writes:
+`conversations`) is read-only apart from three non-destructive writes:
 creating customer tags, assigning them, and logging a request the connector
 could not handle (`report_unsupported_request`).
 
@@ -108,7 +108,7 @@ Full reference: [Connection URL](https://docs.darkfunnels.ai/en/reference/connec
 
 ## What the tools cover
 
-81 tools in 16 feature groups. Every tool declares a `title` and the
+62 tools in 14 feature groups. Every tool declares a `title` and the
 applicable `readOnlyHint` / `destructiveHint`, so a client can show the owner
 what it is about to do. **Tool titles and descriptions are written in
 Spanish** on purpose: that text is what the connector sends verbatim to the
@@ -128,8 +128,6 @@ model, refined against real operational failures with Spanish-speaking owners.
 | `orders` | Read orders and stock |
 | `copilot` | Ask the in-product copilot (consumes credits) |
 | `agents_write` | Create or duplicate a sales agent, change its settings, pause or resume it, edit or toggle its persona. Creating, duplicating and resuming take a subscription seat (fails closed at the limit); pausing frees it |
-| `hr` (default, per permission) | HR reads: the person's own space, staff records, attendance, leave requests, payroll, the quarter bonus and the objectives board — each tool needs its HR permission and the HR app active in that company |
-| `hr_write` | Request and cancel vacations, answer leave requests, create, move and edit tasks, and log key-result progress. Clocking in, medical leave, anything involving money and time tracking stay in the app |
 
 Generated, always-current list: [Tool reference](https://docs.darkfunnels.ai/en/reference/tools).
 
