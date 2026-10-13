@@ -1,52 +1,286 @@
 ---
 title: "Codex"
-description: "Conecta Codex (OpenAI) a DarkFunnels — app, extensión del editor o terminal."
+description: "Conecta Codex de OpenAI (app, extensión del editor o terminal) a tu negocio en DarkFunnels: añade el servidor MCP, pega el link y autoriza con tu cuenta."
 ---
 
-Requiere una cuenta de OpenAI con acceso a Codex. La app, la extensión del
-editor y la terminal comparten la misma configuración (`~/.codex/config.toml`),
-así que lo conectas una sola vez.
+**Codex es el asistente de OpenAI** que usas en su app, en tu editor o en la
+terminal. Conectado a DarkFunnels, trabaja sobre tu negocio mientras conversas
+con él: lee el manual de tu agente, el catálogo, las conversaciones y los
+clientes, y te propone cambios.
+
+<Note>
+**Es opcional.** No hace falta para vender: tu agente atiende WhatsApp igual.
+Es una comodidad si ya usas Codex.
+</Note>
+
+## Antes de empezar
+
+- Necesitas una **cuenta de OpenAI con acceso a Codex**.
+- La app de Codex, su extensión del editor y la terminal **comparten la misma
+  conexión**. La conectas una vez y sirve en las tres.
+- Ten a mano **la cuenta con la que entras al panel de DarkFunnels**. Es con
+  la que vas a autorizar.
+
+Este es el link que vas a pegar:
+
+```
+https://mcp.darkfunnels.ai/mcp?features=all
+```
+
+Gracias a `?features=all`, no lo vuelves a tocar: las funciones que
+publiquemos después le llegan solas.
+
+<Tip>
+**También lo tienes en el panel, listo para copiar.** En el menú de la
+izquierda, dentro de **Ventas**, pulsa **Personalizar** y elige **Asistentes
+IA**. Arriba está el link con su botón **Copiar link**. Más abajo, en
+**¿Dónde lo pego?**, la pestaña **Codex** trae la ruta de ajustes y los dos
+comandos de la terminal, cada uno con su botón **Copiar**.
+</Tip>
+
+<Frame caption="La tarjeta «¿Dónde lo pego?»: una pestaña por asistente. En la captura está elegida la de Claude Code; pulsa la de Codex para ver su ruta de ajustes y sus dos comandos.">
+  <img src="/images/asistentes/02-donde-lo-pego.png" alt="Tarjeta ¿Dónde lo pego? con las pestañas claude.ai, Claude Code, Codex y ChatGPT, la de Claude Code elegida y su comando con el botón Copiar" />
+</Frame>
+
+## Conéctalo desde la app o la extensión del editor
 
 <Steps>
   <Step title="Añade el servidor">
-    **Ajustes → MCP servers → Add server** y elige **Streamable HTTP**.
+    En Codex, ve a **Ajustes → MCP servers → Add server** y elige
+    **Streamable HTTP**.
   </Step>
-  <Step title="Pega la URL">
+  <Step title="Pega el link y guarda">
     ```
     https://mcp.darkfunnels.ai/mcp?features=all
     ```
-    Deja **vacío** el campo del token portador: la autorización va por tu
-    cuenta, no por una clave.
+    Deja **vacío** el campo del token. La autorización va aparte, con tu
+    cuenta, no con una clave.
   </Step>
-  <Step title="Autoriza">
-    Con la **misma cuenta con la que entras al panel de DarkFunnels**. Se abre tu
-    navegador y pulsas «Autorizar».
+  <Step title="Autoriza con tu cuenta">
+    Se abre tu navegador con la pantalla **Autorizar acceso** de DarkFunnels.
+    Mira la línea **Autorizas como…**: tiene que decir el correo con el que
+    entras al panel. Si es ese, pulsa **Autorizar**.
+
+    Si no tenías la sesión abierta, primero te pide entrar. Y si ya habías
+    autorizado Codex con esa cuenta, puede pasar directo, sin mostrarte el
+    botón.
   </Step>
 </Steps>
 
-¿Prefieres la terminal? Dos comandos:
+## Conéctalo desde la terminal
+
+Son dos comandos. El primero guarda el servidor en Codex; el segundo abre tu
+navegador para autorizar.
 
 ```bash
-codex mcp add DarkFunnels --url "https://mcp.darkfunnels.ai/mcp?features=all"
+codex mcp add optimind --url "https://mcp.darkfunnels.ai/mcp?features=all"
 ```
 
 ```bash
-codex mcp login DarkFunnels
+codex mcp login optimind
 ```
 
-<Warning>
-Si autorizas correctamente pero las herramientas no aparecen en el hilo,
-actualiza Codex: hay un fallo conocido en una versión alpha de la app de
-escritorio ([openai/codex#20009](https://github.com/openai/codex/issues/20009)).
-Mientras tanto funcionan la terminal y la extensión del editor.
-</Warning>
+- **Copia el comando entero, con las comillas.** Sin ellas, la terminal puede
+  tomar el `?` del link como un comodín y el comando falla.
+- **`optimind` es el nombre con el que Codex guarda esta conexión.** Si eliges
+  otro, usa el mismo en los dos comandos.
+- **Según tu versión de Codex, el primer comando puede abrir ya el navegador.**
+  Si autorizaste ahí, ya está. El segundo te sirve para autorizar, o volver a
+  hacerlo, cuando haga falta.
+
+En el navegador ves la misma pantalla **Autorizar acceso** de arriba: comprueba
+el correo y pulsa **Autorizar**.
+
+Para ver que quedó guardado, escribe `codex mcp list`: tiene que aparecer
+`optimind`.
+
+## Pruébalo
+
+Abre un hilo **nuevo** en Codex y pídele algo, tal cual:
+
+- *«Revisa mis conversaciones de ayer y dime dónde se están perdiendo ventas.»*
+- *«Lee el manual de mi agente y proponme una mejora del capítulo de cierre;
+  guárdala cuando te la apruebe.»*
+- *«Pásame los clientes que llevan más de 3 días sin respuesta y qué les diría
+  el agente para retomar.»*
+
+**Comprueba con qué cuenta entró.** Pregúntale *«¿con qué cuenta de
+DarkFunnels estás conectado?»*. Te dice el correo y la empresa.
+
+Si administras las apps de tu empresa, en el panel **Personalizar → Asistentes
+IA** también ves la insignia **Conectado · última actividad**, con la fecha, en
+cuanto un asistente trabajó en tu empresa.
+
+## Qué puede hacer con este link
+
+Con `?features=all` tu asistente puede, entre otras cosas:
+
+- Leer y editar el manual de ventas del agente, con historial de versiones
+  para deshacer.
+- Revisar, crear y actualizar productos del catálogo.
+- Revisar conversaciones y clientes, y etiquetar a quien necesita seguimiento.
+- Avisarte cuando tu saldo de créditos esté por agotarse, si tu cuenta puede
+  ver el saldo.
+
+**Ese link incluye también las funciones que tienen efecto real.** Algunas
+mandan mensajes por WhatsApp de verdad, como responder a un cliente como
+operador. Otras gastan créditos, como optimizar el manual con IA o preguntarle
+al copiloto. Y crear un agente nuevo ocupa un cupo de tu suscripción.
+
+**¿Prefieres que solo lea?** Conéctalo con este link:
+
+```
+https://mcp.darkfunnels.ai/mcp?features=all&read_only=true
+```
+
+Para cambiar el link después, quita el servidor y añádelo de nuevo con el
+link nuevo. Las opciones del link están en
+[La URL de conexión](/referencia/url-de-conexion), y cada función, en la
+[Referencia de herramientas](/referencia/tools).
+
+<Note>
+**Ve y hace lo que tu cuenta puede en el panel, nada más.** Si no tienes acceso
+a una app en tu empresa, tu asistente tampoco puede usar sus funciones.
+
+No cobra a tus clientes ni transfiere dinero: no tiene funciones para eso. Los
+mensajes de tus clientes le llegan marcados como datos, no como órdenes. Y
+cada acción queda registrada: qué herramienta usó, cuándo y con qué resultado.
+</Note>
+
+## Cortar el acceso
+
+Hay dos sitios, y conviene usar los dos.
+
+<Steps>
+  <Step title="En el panel: corta el acceso">
+    Ve a **Personalizar → Asistentes IA** y baja a la tarjeta **Seguridad y
+    acceso**. En **Asistentes con acceso a tu cuenta** ves los que autorizaste,
+    cada uno con la fecha en que lo hiciste.
+
+    Pulsa **Revocar** junto al que quieras cortar y confirma con **Revocar**.
+    Pierde el acceso a tu cuenta en unos segundos. Para volver a usarlo, tienes
+    que conectarlo de nuevo.
+  </Step>
+  <Step title="En Codex: quítalo de la lista">
+    En la app o la extensión: **Ajustes → MCP servers**, y lo eliminas. En la
+    terminal:
+
+    ```bash
+    codex mcp remove optimind
+    ```
+  </Step>
+</Steps>
+
+<Frame caption="«Seguridad y acceso»: cómo se protege la conexión y la lista «Asistentes con acceso a tu cuenta». En esta captura está vacía; cada asistente que autorices aparece ahí con su botón «Revocar».">
+  <img src="/images/asistentes/03-seguridad-y-acceso.png" alt="Tarjeta Seguridad y acceso con tres viñetas sobre la conexión y la lista Asistentes con acceso a tu cuenta, que dice Ningún asistente tiene acceso a tu cuenta ahora" />
+</Frame>
+
+Si un asistente aparece como **Asistente sin nombre**, es que se registró sin
+nombre: guíate por la fecha.
 
 ## Si algo falla
 
-- **No ve tus datos, o los ve vacíos** → autorizaste con otra cuenta.
-  Pregúntale «¿con qué cuenta de DarkFunnels estás conectado?»; si no es la tuya,
-  borra el servidor, entra a darkfunnels.ai con la cuenta correcta y vuelve a
-  conectarlo.
-- **No aparecen funciones nuevas** → empieza un hilo nuevo: cada conversación
-  se queda con la lista de funciones que había al abrirla.
-- **«Sin créditos»** → recarga en Facturación.
+<AccordionGroup>
+  <Accordion title="No ve tus datos, o los ve vacíos">
+    Lo más común es que autorizaras con **otra cuenta**. Equivocarse de cuenta
+    no da error: Codex queda conectado al negocio de esa otra cuenta.
+
+    Pregúntale *«¿con qué cuenta de DarkFunnels estás conectado?»*. Te dice el
+    correo y la empresa.
+
+    - Si la cuenta es la tuya pero la empresa no es la que esperabas, mira
+      «Dice que tu cuenta cambió de empresa y no guarda cambios», aquí abajo.
+    - Si las dos están bien, mira «Ve tus datos, pero le faltan funciones».
+
+    Si la cuenta no es la tuya:
+
+    1. En el panel ([optimind.darkfunnels.ai](https://optimind.darkfunnels.ai)),
+       abre tu menú de cuenta (el círculo con tus iniciales, arriba a la
+       derecha) y pulsa **Cerrar sesión**. Entra con la cuenta correcta.
+    2. Vuelve a autorizar Codex. En la terminal: `codex mcp logout optimind` y
+       después `codex mcp login optimind`. En la app: quita el servidor y
+       añádelo de nuevo.
+  </Accordion>
+
+  <Accordion title="Dice que tu cuenta cambió de empresa y no guarda cambios">
+    Pasa si tu cuenta está en **varias empresas**. Cada conexión queda atada a
+    la empresa que tenías elegida en el panel la primera vez que tu asistente
+    la usó. Si después cambias de empresa en el panel, o aceptas una invitación
+    de otra empresa (eso también te cambia a ella), deja de guardar cambios
+    hasta que hagas uno de los dos pasos de abajo: así no escribe en la empresa
+    equivocada. Lo que lea, en cambio, sale de la empresa que tienes elegida
+    ahora.
+
+    - **Para seguir en la primera empresa:** abre tu menú de cuenta en el panel
+      y pulsa esa empresa (debajo de su nombre dice **Cambiar a esta
+      empresa**).
+    - **Para trabajar en la nueva:** vuelve a autorizar Codex. En la terminal:
+      `codex mcp logout optimind` y después `codex mcp login optimind`. En la
+      app: quita el servidor y añádelo de nuevo.
+
+    Si en cambio dice *«No se pudo confirmar en qué empresa trabaja esta
+    conexión»*, fue un tropiezo al comprobarlo y no hizo el cambio. Pídele que
+    lo intente otra vez en unos segundos.
+
+    Más sobre esto en
+    [Una cuenta en varias empresas](/primeros-pasos/invita-a-tu-equipo#una-cuenta-en-varias-empresas).
+  </Accordion>
+
+  <Accordion title="Ve tus datos, pero le faltan funciones">
+    Tu asistente trabaja con **tus permisos en esa empresa**. Si no tienes
+    acceso a una app (por ejemplo, Órdenes), o tu empresa no la tiene activa,
+    no puede usar sus funciones. Pide el acceso a quien administra tu equipo:
+    [Invita a tu equipo](/primeros-pasos/invita-a-tu-equipo).
+
+    Si te acaban de dar el acceso, espera un minuto y abre un hilo nuevo.
+
+    Revisa también el link. Si lleva `read_only=true`, o si no lleva
+    `features=all`, conecta menos funciones. Para cambiarlo, quita el servidor
+    y añádelo con el link de arriba; después abre un hilo nuevo.
+  </Accordion>
+
+  <Accordion title="No aparecen funciones nuevas">
+    Empieza un **hilo nuevo**. Cada conversación se queda con la lista de
+    funciones que había al abrirla.
+  </Accordion>
+
+  <Accordion title="Autorizaste bien, pero las herramientas no aparecen en el hilo de la app">
+    Algunas versiones de la app de escritorio de Codex han tenido un fallo que
+    impide cargar las herramientas en los hilos, aunque la autorización salga
+    bien ([openai/codex#20009](https://github.com/openai/codex/issues/20009)).
+
+    **Actualiza Codex** y abre un hilo nuevo. Si sigue igual, usa Codex desde
+    la terminal o desde la extensión del editor: comparten la conexión, así que
+    no tienes que volver a conectarlo.
+  </Accordion>
+
+  <Accordion title="El comando de la terminal falla con «no matches found»">
+    Lo copiaste **sin comillas** y la terminal tomó el `?` del link como un
+    comodín. Copia el comando entero, con las comillas alrededor del link.
+  </Accordion>
+
+  <Accordion title="Dice que la sesión con DarkFunnels fue revocada o expiró">
+    Alguien pulsó **Revocar** en el panel, o la autorización venció. Vuelve a
+    autorizar: en la terminal, `codex mcp login optimind`; en la app, quita el
+    servidor y añádelo de nuevo.
+  </Accordion>
+
+  <Accordion title="La pantalla del navegador dice «No se pudo autorizar»">
+    Debajo del título se lee el motivo. Lo más común es que la solicitud de
+    autorización caducara o llegara incompleta: vuelve a Codex y empieza la
+    autorización otra vez, por ejemplo con `codex mcp login optimind`.
+
+    Si dice que no se pudo conectar con el servidor, revisa tu internet y
+    vuelve a intentarlo.
+  </Accordion>
+
+  <Accordion title="Dice «Sin créditos»">
+    Tu saldo se acabó y las funciones de IA quedan detenidas hasta que
+    recargues. Recarga en **Administración → Dinero → Saldo y facturación**
+    (en el menú lateral, pulsa **Administración** para desplegarlo).
+
+    Si con el bloque desplegado no ves esa entrada, tu cuenta no tiene acceso
+    al dinero de la empresa: pídele a quien lo tenga que recargue. El paso a paso, en
+    [Créditos y recarga](/primeros-pasos/creditos-y-recarga#como-recargar).
+  </Accordion>
+</AccordionGroup>

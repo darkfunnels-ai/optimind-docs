@@ -1,7 +1,7 @@
 ---
 title: "MCP setup for Cursor, VS Code and others"
 sidebarTitle: "Cursor, VS Code and others"
-description: "Add the DarkFunnels MCP connector to Cursor, VS Code, Gemini CLI, Windsurf or Zed: one URL, one config file, and the three fields that change between clients."
+description: "Connect DarkFunnels to Cursor, VS Code, Gemini CLI or another MCP client: the link, the config file, usage limits and how to remove access."
 keywords:
   - "MCP connector setup"
   - "Cursor MCP server"
@@ -10,22 +10,135 @@ keywords:
   - "remote MCP server URL"
 ---
 
-{/* es-source: quickstarts/otros-clientes.mdx @ 3e5d3a0 */}
+{/* es-source: quickstarts/otros-clientes.mdx @ 47c8614 */}
 
-DarkFunnels speaks standard MCP, so it works in any client that supports it. It
-is always the same URL:
+**If you work with an AI assistant in your editor or in the terminal, it can
+also work with your business.** Cursor, VS Code, Gemini CLI and any program
+that connects to remote MCP servers —MCP is the standard AI assistants use to
+connect to other services— can read your conversations, your playbook and your
+catalog, and save changes if you ask them to.
+
+It is **optional**: your agent sells just the same without it.
+
+The dashboard interface is in Spanish, so its buttons and menus are named here
+in Spanish with the English meaning in parentheses.
+
+<Note>
+**What you need.** The account you use to sign in to the DarkFunnels dashboard
+and a client that supports **remote MCP servers over HTTP, with sign-in
+(OAuth)**. If your client only accepts servers that run on your own computer,
+it won't work for this.
+</Note>
+
+Do you use one of these? They have their own step-by-step guide:
+
+<CardGroup cols={2}>
+  <Card title="claude.ai" href="/en/quickstarts/claude-ai">
+    Also covers Claude's desktop app and its phone app.
+  </Card>
+  <Card title="Claude Code" href="/en/quickstarts/claude-code">
+    One command in the terminal.
+  </Card>
+  <Card title="Codex" href="/en/quickstarts/codex">
+    The app, the editor extension and the terminal.
+  </Card>
+  <Card title="ChatGPT" href="/en/quickstarts/chatgpt">
+    With developer mode.
+  </Card>
+</CardGroup>
+
+## The link
+
+It is the same for every client:
 
 ```
 https://mcp.darkfunnels.ai/mcp?features=all
 ```
 
-Nothing to register, no access to request: on connecting, the client discovers
-on its own how to authorize you and opens your browser. Sign in with **the same
-account you use for the dashboard**.
+You also have it in your dashboard, ready to copy. Go to
+[optimind.darkfunnels.ai](https://optimind.darkfunnels.ai). In the left-hand
+menu, inside **Ventas** (*Sales*), click **Personalizar** (*Customize*) — it is
+in the **Ajustes** (*Settings*) group — and choose the **Asistentes IA** (*AI
+assistants*) tab. You can also get there by typing
+`optimind.darkfunnels.ai/customize?panel=asistentes` in the browser's address
+bar.
+
+The first card, **Conecta tu asistente** (*Connect your assistant*), has the
+link and the **Copiar link** (*Copy link*) button.
+
+<Frame caption="The «Conecta tu asistente» (Connect your assistant) card: the connection link with its Copiar link (Copy link) button and the three steps.">
+  <img src="/images/asistentes/01-conecta-tu-asistente.png" alt="Conecta tu asistente (Connect your assistant) card with the connection link, the Copiar link (Copy link) button and three numbered steps" />
+</Frame>
+
+**Personalizar is part of Ventas.** If you don't see Ventas in your menu, the
+link is the one above and you can connect anyway. That said, the list for
+removing an assistant's access is also in Personalizar. If you ever need it, ask
+whoever manages your company for access to Ventas, or write to us from **Ayuda →
+Escríbenos por WhatsApp** (*Help → Write to us on WhatsApp*).
+
+**There is nothing to register and no key to request.** When it connects, your
+client works out on its own how to ask for your permission and sends you to the
+browser so you can authorize with your account.
+
+<Warning>
+**The `?features=all` ending switches on every feature**, including the ones
+that write and send: saving the playbook, deleting a product or sending a real
+WhatsApp message to a customer. And the ones we publish later. If you'd rather
+your assistant only read, use the [Read-only](#read-only) link.
+</Warning>
+
+## Connect it, step by step
+
+<Steps>
+  <Step title="Copy the link">
+    In **Personalizar → Asistentes IA** (*Customize → AI assistants*), click
+    **Copiar link** (*Copy link*). The notice *«Link copiado»* (*Link copied*)
+    appears.
+  </Step>
+  <Step title="Paste it into your client's configuration">
+    Each client keeps it in a different file and with different field names.
+    Below you have [Cursor](#cursor), [VS Code](#vs-code) and
+    [Gemini CLI](#gemini-cli). Give it a name you'll recognize, for example
+    DarkFunnels.
+  </Step>
+  <Step title="Authorize in the browser">
+    When you switch the server on, your client opens a DarkFunnels tab. If you
+    weren't signed in to the dashboard, it first asks you to sign in and then
+    comes back to this screen on its own.
+
+    The screen is titled **Autorizar acceso** (*Authorize access*) and tells
+    you which assistant wants to connect to your account. Below it is the line
+    **Autorizas como** (*You are authorizing as*), with an email. **That email
+    has to be the one for your dashboard account.**
+
+    If it is, click **Autorizar** (*Authorize*): you'll see **Acceso
+    autorizado** (*Access authorized*) and you go back to your client. If it's
+    a different one, click **Denegar** (*Deny*) and see
+    [If something goes wrong](#if-something-goes-wrong).
+
+    If that account had already authorized this same assistant before, you may
+    not see this screen: it goes straight to **Acceso autorizado**. Check the
+    account with the next step.
+  </Step>
+  <Step title="Check what you connected to">
+    Ask your assistant: *"Which DarkFunnels account and which company are you
+    connected to?"*. It has tools that tell it your email, your company and
+    your permissions.
+  </Step>
+</Steps>
+
+<Warning>
+**Picking the wrong account doesn't give an error.** Your client connects
+anyway, but to the account you authorized with: you'll see another business, or
+an empty one. Check the email under **Autorizas como** before you click
+**Autorizar**. If that screen didn't appear, ask the question from the last
+step.
+</Warning>
 
 ## Cursor
 
-Edit `~/.cursor/mcp.json` (global) or `.cursor/mcp.json` (that project only):
+Edit `~/.cursor/mcp.json` (for all your projects) or `.cursor/mcp.json` (that
+project only):
 
 ```json
 {
@@ -37,11 +150,13 @@ Edit `~/.cursor/mcp.json` (global) or `.cursor/mcp.json` (that project only):
 }
 ```
 
-Cursor opens the browser the first time only, then stores the session.
+Cursor supports sign-in for remote servers: the first time, it sends you to the
+browser to authorize.
 
 ## VS Code
 
-Edit `.vscode/mcp.json` in your project, or the one in your user profile:
+Edit `.vscode/mcp.json` in your project. To have it in all your projects, open
+the one in your profile with the **MCP: Open User Configuration** command.
 
 ```json
 {
@@ -57,16 +172,16 @@ Edit `.vscode/mcp.json` in your project, or the one in your user profile:
 <Warning>
 VS Code is where people get it wrong most, over two details:
 
-- The root key above is **`servers`**, not `mcpServers` as in Cursor. With the
-  wrong key VS Code **ignores the entire file and says nothing**.
-- **`"type": "http"`** is required. Without it the remote connection never comes
-  up.
+- The root block is called **`servers`**, not `mcpServers` as in Cursor.
+- **`"type": "http"`** is required in VS Code.
 </Warning>
 
 ## Gemini CLI
 
-Edit `~/.gemini/settings.json`, or the project's `.gemini/settings.json`. Watch
-the field name: here the URL goes in **`httpUrl`**, not `url`:
+Edit `~/.gemini/settings.json` (or the project's `.gemini/settings.json`).
+Watch the field name: here the URL goes in **`httpUrl`**, not in `url`. In
+Gemini CLI, `url` is for another kind of connection (SSE) that DarkFunnels
+doesn't use.
 
 ```json
 {
@@ -78,54 +193,287 @@ the field name: here the URL goes in **`httpUrl`**, not `url`:
 }
 ```
 
-Gemini CLI discovers the authorization on its own and stores the token in
-`~/.gemini/mcp-oauth-tokens.json`, refreshing it when it expires.
+Gemini CLI works out on its own how to authorize you, stores the session in
+`~/.gemini/mcp-oauth-tokens.json` and renews it when it expires.
 
 ## Any other client
 
-Windsurf, Zed, Claude Desktop and the rest follow the same pattern. The only
-things that change between them are three details, and they are worth checking
-in your client's own docs before fighting the file:
+Three details change from one client to another. Look them up in your client's
+documentation before fighting with the file:
 
-1. **What the root key is called** — `mcpServers` in almost all of them,
-   `servers` in VS Code.
-2. **What the URL field is called** — `url` in almost all of them, `httpUrl` in
-   Gemini CLI.
-3. **Whether a type has to be declared** — `"type": "http"` in VS Code.
+| Client | Name of the root block | URL field | Connection type |
+| --- | --- | --- | --- |
+| Cursor | `mcpServers` | `url` | No need to set it |
+| VS Code | `servers` | `url` | Required: `"type": "http"` |
+| Gemini CLI | `mcpServers` | `httpUrl` | No need to set it |
+
+If your client lets you choose the connection type, choose **HTTP** (sometimes
+called "Streamable HTTP"). **SSE** and **stdio** don't work with DarkFunnels.
+
+<Note>
+**If your client keeps waiting after you clicked Autorizar**, write to us from
+**Ayuda → Escríbenos por WhatsApp** (*Help → Write to us on WhatsApp*; the
+question mark in the dashboard's top bar) and tell us which client you use. It
+can happen with clients that receive the response on your own computer, because
+of a limitation of our identity provider. With Claude Code it is a known case,
+and [its guide](/en/quickstarts/claude-code) explains how to get around it.
+</Note>
+
+## Read-only
+
+If you want your assistant to look things up and explain them without being
+able to save anything, add `&read_only=true` to the end of the link:
+
+```
+https://mcp.darkfunnels.ai/mcp?features=all&read_only=true
+```
+
+`read_only=true` overrides any other option in the link: with it, no feature
+that writes comes through.
+
+To change the link of a connection you already had, change it in the
+configuration file and connect the server again from your client. All the
+link's options are in [The connection URL](/en/reference/connection-url).
 
 ## If your client runs out of room for tools
 
-Some clients cap how many tools the model can hold at once — Windsurf around
-100, VS Code 128 — counting **all** your servers together. DarkFunnels ships 45
-with `?features=all`, so if you already have several connectors you may fall
-short.
+Some clients limit how many tools the model can have at once, **adding up all
+your servers and the client's own tools**. VS Code, for example, allows up to
+128 per request.
 
-The fix is to ask only for what you are going to use. The list **replaces** the
-base set rather than extending it:
+With `?features=all`, an account with access to every app receives **more than
+60 tools** from DarkFunnels. **The exact number depends on you**: your
+assistant receives only the ones for the apps you can use and that your company
+has switched on (we explain it in
+[Your account, your company and your permissions](#your-account-your-company-and-your-permissions)).
+If you already have other servers connected, you may fall short.
+
+You have three ways out, from the simplest to the most fine-grained:
+
+1. **Remove the `?features=all`.** The bare link,
+   `https://mcp.darkfunnels.ai/mcp`, brings the reads —playbook, catalog,
+   conversations, customers and the account basics— and three minor writes:
+   creating labels, changing a customer's labels and noting down a request
+   your assistant couldn't fulfil. That is less than half of what
+   `?features=all` brings.
+2. **Ask only for the groups you are going to use**, for example
+   `https://mcp.darkfunnels.ai/mcp?features=conversations,orders`. **The list
+   replaces the base set, it doesn't extend it**: the account basics come with
+   any list, but with that link you get neither the playbook nor the catalog.
+   The groups and what each one brings are in
+   [The connection URL](/en/reference/connection-url), and the list of tools,
+   in the [tools reference](/en/reference/tools).
+3. **Switch tools off in your client**, if it lets you. VS Code, for example,
+   has a tool picker in the chat.
+
+## Your account, your company and your permissions
+
+**Your assistant comes in with your account and sees what your account sees in
+the dashboard, nothing more.** Three consequences:
+
+- **Your permissions rule.** Your assistant only gets the tools of the apps
+  that you can use and that your company has switched on. If someone on your
+  team connects their own assistant, it works with that person's permissions.
+  How they are shared out, in
+  [Invite your team](/en/getting-started/invite-your-team).
+- **One connection, one company to save in.** If your account is in several
+  companies, each connection is pinned to the company you had active the first
+  time your assistant used it. If you later switch company in the dashboard,
+  that connection doesn't save changes until you go back to that company or
+  connect it again. That way it doesn't write in the wrong company. **Careful:
+  what it reads does change.** After the switch, your assistant reads the data
+  of the company you have active now.
+- **What it can't do, it notes down.** If you ask it for something its tools
+  don't cover, your assistant can log it for our team and give you the request
+  number. With `read_only=true` it can't.
+
+## Usage limits
+
+So that a runaway assistant doesn't leave anyone without service, the bridge
+—our MCP connection, the way your assistant comes in— sets two caps:
+
+| Cap | How much | What you see if you go over it |
+| --- | --- | --- |
+| **Per person** | Around 60 requests per minute and 300 per hour, adding up all the assistants you connected with your account | An error that says *«rate limit; reintenta en N s»* (*rate limit; retry in N s*). Wait those seconds and carry on. |
+| **Per company** | To start with, 20,000 tool calls per day, adding up everyone | *«La empresa alcanzó su cupo diario de llamadas por el puente MCP; se restablece a medianoche (hora de Lima)…»* (*The company reached its daily quota of calls through the MCP bridge; it resets at midnight, Lima time…*) |
+
+Every time your client talks to the bridge counts as a request: using a tool,
+but also asking it for the list of tools. **If you work with an agent that
+chains many calls, the cap you'll notice most is the hourly one**: 300 per hour
+is about 5 per minute on average.
+
+If your business needs more daily quota, the owner can ask for it from **Ayuda →
+Escríbenos por WhatsApp** (*Help → Write to us on WhatsApp*).
+
+## Removing its access
+
+<Steps>
+  <Step title="Open the list of assistants">
+    In **Personalizar → Asistentes IA** (*Customize → AI assistants*), scroll
+    down to the **Seguridad y acceso** (*Security and access*) card. The
+    **Asistentes con acceso a tu cuenta** (*Assistants with access to your
+    account*) list has one row per assistant: the name your client introduced
+    itself with, the date you authorized it (**Autorizado el …**, *Authorized
+    on …*) and the **Revocar** (*Revoke*) button.
+  </Step>
+  <Step title="Click Revocar and confirm">
+    The dashboard warns you: *«… pierde el acceso a tu cuenta en unos segundos.
+    Para volver a usarlo, tendrás que conectarlo de nuevo.»* (*… loses access
+    to your account within a few seconds. To use it again, you will have to
+    connect it again.*) Confirm with **Revocar**. The notice *«Acceso revocado:
+    …»* (*Access revoked: …*) appears and the assistant disappears from the
+    list.
+  </Step>
+  <Step title="Remove it from your client too">
+    Revoking cuts off access, but the entry is still in your configuration file
+    (`mcp.json` in Cursor and VS Code, `settings.json` in Gemini CLI). Delete it
+    so your client stops trying.
+  </Step>
+</Steps>
+
+<Frame caption="«Seguridad y acceso» (Security and access): how the connection is protected and the «Asistentes con acceso a tu cuenta» (Assistants with access to your account) list. In this screenshot it is empty; each assistant you authorize shows up there with its «Revocar» (Revoke) button.">
+  <img src="/images/asistentes/03-seguridad-y-acceso.png" alt="Seguridad y acceso (Security and access) card with three bullet points about the connection and the Asistentes con acceso a tu cuenta (Assistants with access to your account) list, which reads Ningún asistente tiene acceso a tu cuenta ahora (No assistant has access to your account right now)" />
+</Frame>
+
+**The list belongs to your account.** It doesn't show the assistants other
+people on your team connected with their own accounts, and revoking yours
+doesn't affect them.
+
+## No human present (headless)
+
+**There are no API keys today.** The connection starts with a person who
+authorizes in the browser with their account. An agent that runs on its own —a
+scheduled task, a worker, OpenAI's Agents SDK or Claude's Agent SDK— can't take
+that step by itself.
+
+If you need to automate something like that, write to us from **Ayuda →
+Escríbenos por WhatsApp** (*Help → Write to us on WhatsApp*) and we'll look at
+it with you.
+
+## The documentation, over MCP too
+
+If you only want your assistant to look things up in this documentation
+—without touching your business—, there is a public MCP server. **It doesn't
+ask for an account or authorization**, so an agent with no person present can
+use it too:
 
 ```
-https://mcp.darkfunnels.ai/mcp?features=conversations,orders
+https://docs.darkfunnels.ai/mcp
 ```
 
-The groups are in the [tool reference](/en/reference/tools). And if you want to
-look without being able to touch anything:
+It searches every page of this documentation and reads them.
 
-```
-https://mcp.darkfunnels.ai/mcp?read_only=true
-```
+Both servers are in the official MCP registry:
+`ai.darkfunnels/whatsapp-sales-agent` is the one for your business (with
+authorization) and `ai.darkfunnels/docs` is the documentation one. If your
+client installs servers from that registry, look us up as DarkFunnels.
 
-## Headless (no human present)
+## If something goes wrong
 
-Not today. Connecting requires a person to authorize in a browser with their
-account, so an agent running on its own — a cron job, a worker, OpenAI's Agents
-SDK or Claude's Agent SDK — cannot connect by itself.
+<AccordionGroup>
+  <Accordion title="The browser doesn't open to authorize">
+    The first thing to check is the configuration file. Review the three
+    details in [Any other client](#any-other-client): in VS Code, the `servers`
+    block and `"type": "http"`; in Gemini CLI, the `httpUrl` field. And that
+    the link is complete, starting with `https://`.
 
-We are working on agent keys for that. In the meantime, if you need to automate
-something with no human present, write to us and we'll look at it case by case.
+    If your client only supports servers that run on your computer, it can't
+    connect directly to DarkFunnels.
+  </Accordion>
+  <Accordion title="It sees another business, or an empty one">
+    The most common cause is that you authorized with **a different account**.
+    Ask your assistant *"which DarkFunnels account and which company are you
+    connected to?"*. If the email isn't yours:
 
-<Note>
-If your client can't see your business, or sees it empty, it is almost always
-the same thing: you authorized with **a different account** and are connected to
-another workspace. Ask your assistant "which account are you connected to?" and,
-if it isn't the right one, remove the connector and connect it again.
-</Note>
+    1. Remove the server from your client (and its stored session, if your
+       client keeps it separately).
+    2. In the dashboard, open your account menu (the circle with your
+       initials, top right), click **Cerrar sesión** (*Sign out*) and sign in
+       with the right account.
+    3. Connect again. If **Autorizar acceso** appears, check that **Autorizas
+       como** shows your email. If it doesn't appear, ask your assistant the
+       same question as before.
+
+    If the email is yours but the company isn't, see the next item.
+  </Accordion>
+  <Accordion title="It says your account switched company">
+    It happens if your account is in **several companies** and, after
+    connecting, you switched company in the dashboard or accepted an invitation
+    to another company (when you accept it, it becomes the active one). Your
+    assistant warns you with *«La cuenta cambió de empresa en la app de
+    DarkFunnels…»* (*The account switched company in the DarkFunnels app…*)
+    and doesn't save anything, so it doesn't write in the wrong company.
+
+    You have two ways out:
+
+    - **To stay in the connection's company**, open your account menu and
+      click that company's name (underneath it says **Cambiar a esta
+      empresa**, *Switch to this company*).
+    - **To work in the one you have active now**, connect it with a new
+      session. In **Personalizar → Asistentes IA**, click **Revocar** on that
+      assistant and connect it again from your client: the new session is
+      pinned to the active company. If you'd rather not revoke, remove the
+      server from your client **and also its stored session**, if your client
+      keeps it separately, and connect it again.
+
+    Retrying without one of those two steps doesn't help. If the notice says
+    your account **no longer has access** to the connection's company, only the
+    second way out works: connecting it again. How to switch company, in
+    [Invite your team](/en/getting-started/invite-your-team#one-account-in-several-businesses).
+  </Accordion>
+  <Accordion title="It says you don't have access to an app, or that it isn't switched on">
+    If it answers something like *«Esta persona no tiene acceso a Ventas…»*
+    (*This person doesn't have access to Sales…*), ask whoever manages your
+    company for that access
+    ([Invite your team](/en/getting-started/invite-your-team)).
+
+    If it says *«La app … no está activa…»* (*The … app isn't switched on…*),
+    it first has to be switched on in your company from **Apps**
+    ([The apps](/en/getting-started/the-apps)).
+  </Accordion>
+  <Accordion title="Tools you expected are missing">
+    Check three things, in this order:
+
+    1. **Your permissions and your apps.** The tools of an app you can't use,
+       or that your company doesn't have switched on, don't appear.
+    2. **Your link.** If you asked for individual groups with `?features=`, the
+       rest don't come through. With `?features=all` you get all the ones your
+       account can use, unless the link carries `read_only=true`: then none
+       that writes comes through.
+    3. **An old list.** New tools appear when your client asks for the list
+       again: open a new chat or connect the server again from your client. If
+       you were just given a permission, wait a minute first.
+  </Accordion>
+  <Accordion title="It says «rate limit; reintenta en N s»">
+    Your assistant went over the per-person cap (explained in **Usage limits**,
+    above). Wait the seconds it indicates and carry on.
+  </Accordion>
+  <Accordion title="It says the company reached its daily quota">
+    Between everyone in your company, the day's calls were used up. It resets
+    at midnight, Lima time. If your business needs more quota, the owner can ask
+    for it from **Ayuda → Escríbenos por WhatsApp** (*Help → Write to us on
+    WhatsApp*).
+  </Accordion>
+  <Accordion title="It says «Sin créditos» (Out of credits)">
+    It is **the same balance as in your dashboard**, and it ran out. The AI
+    features stay paused until you top up.
+
+    You top up in **Administración → Dinero → Saldo y facturación**
+    (*Administration → Money → Balance and billing*). All the details, in
+    [Credits and top-ups](/en/getting-started/credits-and-top-ups).
+  </Accordion>
+  <Accordion title="It says the authorization was revoked, or asks you to authorize again">
+    The most common cause is that someone clicked **Revocar** for that
+    assistant in **Personalizar → Asistentes IA**, with your account. It also
+    happens if your assistant's session no longer exists for another reason, or
+    if your client lost the one it had stored. Either way, the fix is the same:
+    connect it again and authorize.
+  </Accordion>
+  <Accordion title="The screen says «No se pudo autorizar» (Couldn't authorize)">
+    If underneath it says *«La solicitud de autorización expiró o no es
+    válida»* (*The authorization request expired or isn't valid*), go back to
+    your client and connect again: a new request opens.
+  </Accordion>
+</AccordionGroup>
+
+How your data is protected along this route, in [Security](/en/security).

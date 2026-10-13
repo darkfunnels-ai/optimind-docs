@@ -1,22 +1,126 @@
 ---
 title: "Cursor, VS Code y otros"
-description: "El conector en cualquier cliente MCP: una URL y un fichero de configuración."
+description: "Conecta DarkFunnels a Cursor, VS Code, Gemini CLI u otro cliente MCP: el link, el archivo de configuración, los límites de uso y cómo quitar el acceso."
 ---
 
-DarkFunnels habla MCP estándar, así que funciona en cualquier cliente que lo
-soporte. Siempre es la misma URL:
+**Si trabajas con un asistente de IA en tu editor o en la terminal, también
+puede trabajar con tu negocio.** Cursor, VS Code, Gemini CLI y cualquier
+programa que se conecte a servidores MCP remotos —MCP es el estándar con el que
+los asistentes de IA se conectan a otros servicios— pueden leer tus
+conversaciones, tu manual y tu catálogo, y guardar cambios si se lo pides.
+
+Es **opcional**: tu agente vende igual sin esto.
+
+<Note>
+**Qué necesitas.** La cuenta con la que entras al panel de DarkFunnels y un
+cliente que admita **servidores MCP remotos por HTTP, con inicio de sesión
+(OAuth)**. Si tu cliente solo acepta servidores que corren en tu propia
+computadora, no sirve para esto.
+</Note>
+
+¿Usas alguno de estos? Tienen su propia guía, paso a paso:
+
+<CardGroup cols={2}>
+  <Card title="claude.ai" href="/quickstarts/claude-ai">
+    También vale para la app de escritorio de Claude y la del celular.
+  </Card>
+  <Card title="Claude Code" href="/quickstarts/claude-code">
+    Un comando en la terminal.
+  </Card>
+  <Card title="Codex" href="/quickstarts/codex">
+    La app, la extensión del editor y la terminal.
+  </Card>
+  <Card title="ChatGPT" href="/quickstarts/chatgpt">
+    Con el modo desarrollador.
+  </Card>
+</CardGroup>
+
+## El link
+
+Es el mismo para todos los clientes:
 
 ```
 https://mcp.darkfunnels.ai/mcp?features=all
 ```
 
-No hay que registrar nada ni pedir acceso: al conectar, el cliente descubre solo
-cómo autorizarte y te abre el navegador. Entra con **la misma cuenta con la que
-entras al panel**.
+También lo tienes en tu panel, listo para copiar. Entra a
+[optimind.darkfunnels.ai](https://optimind.darkfunnels.ai). En el menú de la
+izquierda, dentro de **Ventas**, pulsa **Personalizar** (está en el grupo
+**Ajustes**) y elige la pestaña **Asistentes IA**. También llegas escribiendo
+`optimind.darkfunnels.ai/customize?panel=asistentes` en la barra del navegador.
+
+La primera tarjeta, **Conecta tu asistente**, tiene el link y el botón
+**Copiar link**.
+
+<Frame caption="La tarjeta «Conecta tu asistente»: el link de conexión con su botón Copiar link y los tres pasos.">
+  <img src="/images/asistentes/01-conecta-tu-asistente.png" alt="Tarjeta Conecta tu asistente con el link de conexión, el botón Copiar link y tres pasos numerados" />
+</Frame>
+
+**Personalizar es parte de Ventas.** Si no ves Ventas en tu menú, el link es el
+de arriba y conectas igual. Eso sí: la lista para quitarle el acceso a un
+asistente también está en Personalizar. Si algún día la necesitas, pide acceso
+a Ventas a quien administra tu empresa o escríbenos desde **Ayuda → Escríbenos
+por WhatsApp**.
+
+**No hay que registrar nada ni pedir una clave.** Al conectar, tu cliente
+descubre solo cómo pedirte permiso y te manda al navegador para que autorices
+con tu cuenta.
+
+<Warning>
+**El final `?features=all` activa todas las funciones**, también las que
+escriben y envían: guardar el manual, borrar un producto o mandarle un WhatsApp
+de verdad a un cliente. Y las que publiquemos más adelante. Si prefieres que tu
+asistente solo lea, usa el link de [Solo lectura](#solo-lectura).
+</Warning>
+
+## Conéctalo, paso a paso
+
+<Steps>
+  <Step title="Copia el link">
+    En **Personalizar → Asistentes IA**, pulsa **Copiar link**. Sale el aviso
+    *«Link copiado»*.
+  </Step>
+  <Step title="Pégalo en la configuración de tu cliente">
+    Cada cliente lo guarda en un archivo distinto y con nombres de campo
+    distintos. Aquí abajo tienes [Cursor](#cursor), [VS Code](#vs-code) y
+    [Gemini CLI](#gemini-cli). Ponle de nombre algo que reconozcas, por
+    ejemplo DarkFunnels.
+  </Step>
+  <Step title="Autoriza en el navegador">
+    Al activar el servidor, tu cliente abre una pestaña de DarkFunnels. Si no
+    tenías abierta la sesión del panel, primero te pide entrar y después vuelve
+    sola a esta pantalla.
+
+    La pantalla se titula **Autorizar acceso** y te dice qué asistente quiere
+    conectarse a tu cuenta. Debajo está la línea **Autorizas como**, con un
+    correo. **Ese correo tiene que ser el de tu cuenta del panel.**
+
+    Si lo es, pulsa **Autorizar**: verás **Acceso autorizado** y vuelves a tu
+    cliente. Si es otro, pulsa **Denegar** y mira
+    [Si algo falla](#si-algo-falla).
+
+    Si esa cuenta ya había autorizado antes a este mismo asistente, puede que
+    no veas esta pantalla: pasa directo a **Acceso autorizado**. Comprueba la
+    cuenta con el paso siguiente.
+  </Step>
+  <Step title="Comprueba a qué te conectaste">
+    Pídele a tu asistente: *«¿Con qué cuenta y en qué empresa de DarkFunnels
+    estás conectado?»*. Tiene herramientas que le dicen tu correo, tu empresa y
+    tus permisos.
+  </Step>
+</Steps>
+
+<Warning>
+**Equivocarte de cuenta no da error.** Tu cliente se conecta igual, pero a la
+cuenta con la que autorizaste: verás otro negocio, o uno vacío. Mira el correo
+de **Autorizas como** antes de pulsar **Autorizar**. Si esa pantalla no salió,
+haz la pregunta del último paso.
+</Warning>
 
 ## Cursor
 
-Edita `~/.cursor/mcp.json` (global) o `.cursor/mcp.json` (solo ese proyecto):
+Edita `~/.cursor/mcp.json` (para todos tus proyectos) o `.cursor/mcp.json`
+(solo ese proyecto):
 
 ```json
 {
@@ -28,11 +132,13 @@ Edita `~/.cursor/mcp.json` (global) o `.cursor/mcp.json` (solo ese proyecto):
 }
 ```
 
-Cursor abre el navegador solo la primera vez y guarda la sesión.
+Cursor admite el inicio de sesión de los servidores remotos: la primera vez te
+manda al navegador para autorizar.
 
 ## VS Code
 
-Edita `.vscode/mcp.json` en tu proyecto (o el del perfil de usuario):
+Edita `.vscode/mcp.json` en tu proyecto. Para tenerlo en todos tus proyectos,
+abre el de tu perfil con el comando **MCP: Open User Configuration**.
 
 ```json
 {
@@ -46,17 +152,17 @@ Edita `.vscode/mcp.json` en tu proyecto (o el del perfil de usuario):
 ```
 
 <Warning>
-VS Code es el que más se equivoca la gente, por dos detalles:
+VS Code es donde más se equivoca la gente, por dos detalles:
 
-- La clave de arriba es **`servers`**, no `mcpServers` como en Cursor. Con la
-  clave equivocada VS Code **ignora el fichero entero y no dice nada**.
-- Hace falta **`"type": "http"`**. Sin él no levanta la conexión remota.
+- El bloque principal se llama **`servers`**, no `mcpServers` como en Cursor.
+- **`"type": "http"`** es obligatorio en VS Code.
 </Warning>
 
 ## Gemini CLI
 
 Edita `~/.gemini/settings.json` (o `.gemini/settings.json` del proyecto). Ojo
-con el nombre del campo: aquí la URL va en **`httpUrl`**, no en `url`:
+con el nombre del campo: aquí la URL va en **`httpUrl`**, no en `url`. En
+Gemini CLI, `url` es para otro tipo de conexión (SSE) que DarkFunnels no usa.
 
 ```json
 {
@@ -68,54 +174,271 @@ con el nombre del campo: aquí la URL va en **`httpUrl`**, no en `url`:
 }
 ```
 
-Gemini CLI descubre la autorización solo y guarda el token en
-`~/.gemini/mcp-oauth-tokens.json`, renovándolo cuando caduca.
+Gemini CLI descubre solo cómo autorizarte, guarda la sesión en
+`~/.gemini/mcp-oauth-tokens.json` y la renueva cuando caduca.
 
 ## Cualquier otro cliente
 
-Windsurf, Zed, Claude Desktop y el resto siguen el mismo patrón; lo único que
-cambia entre unos y otros son tres detalles, y merece la pena mirarlos en la doc
-del cliente antes de pelearse con el fichero:
+Entre un cliente y otro cambian tres detalles. Búscalos en la documentación de
+tu cliente antes de pelearte con el archivo:
 
-1. **Cómo se llama la clave raíz** — `mcpServers` en casi todos, `servers` en
-   VS Code.
-2. **Cómo se llama el campo de la URL** — `url` en casi todos, `httpUrl` en
-   Gemini CLI.
-3. **Si hace falta declarar el tipo** — `"type": "http"` en VS Code.
+| Cliente | Nombre del bloque principal | Campo de la URL | Tipo de conexión |
+| --- | --- | --- | --- |
+| Cursor | `mcpServers` | `url` | No hace falta ponerlo |
+| VS Code | `servers` | `url` | Obligatorio: `"type": "http"` |
+| Gemini CLI | `mcpServers` | `httpUrl` | No hace falta ponerlo |
+
+Si tu cliente te deja elegir el tipo de conexión, elige **HTTP** (a veces se
+llama «Streamable HTTP»). **SSE** y **stdio** no sirven con DarkFunnels.
+
+<Note>
+**Si tu cliente se queda esperando después de que pulsaste Autorizar**,
+escríbenos desde **Ayuda → Escríbenos por WhatsApp** (el signo de
+interrogación de la barra de arriba del panel) y dinos qué cliente usas. Puede
+pasar con clientes que reciben la respuesta en tu propia computadora, por una
+limitación de nuestro proveedor de identidad. Con Claude Code es un caso
+conocido, y [su guía](/quickstarts/claude-code) explica cómo salvarlo.
+</Note>
+
+## Solo lectura
+
+Si quieres que tu asistente consulte y explique sin poder guardar nada, añade
+`&read_only=true` al final del link:
+
+```
+https://mcp.darkfunnels.ai/mcp?features=all&read_only=true
+```
+
+`read_only=true` manda sobre cualquier otra opción del link: con él no viaja
+ninguna función que escriba.
+
+Para cambiar el link de una conexión que ya tenías, cámbialo en el archivo de
+configuración y vuelve a conectar el servidor desde tu cliente. Todas las
+opciones del link están en [La URL de conexión](/referencia/url-de-conexion).
 
 ## Si tu cliente se queda sin sitio para las herramientas
 
-Algunos clientes limitan cuántas herramientas puede tener el modelo a la vez
-(Windsurf ronda las 100, VS Code las 128) contando **todos** tus servidores
-juntos. DarkFunnels trae 45 con `?features=all`, así que si ya tienes varios
-conectores puedes quedarte corto.
+Algunos clientes limitan cuántas herramientas puede tener el modelo a la vez,
+**sumando todos tus servidores y las herramientas propias del cliente**. VS
+Code, por ejemplo, admite hasta 128 por petición.
 
-La solución es pedir solo lo que vayas a usar. La lista **sustituye** al set
-base, no lo amplía:
+Con `?features=all`, una cuenta con acceso a todas las apps recibe **más de 60
+herramientas** de DarkFunnels. **El número exacto depende de ti**: tu asistente
+recibe solo las de las apps que puedes usar y que tu empresa tiene activas (lo
+explicamos en [Tu cuenta, tu empresa y tus permisos](#tu-cuenta-tu-empresa-y-tus-permisos)).
+Si ya tienes otros servidores conectados, puedes quedarte corto.
 
-```
-https://mcp.darkfunnels.ai/mcp?features=conversations,orders
-```
+Tienes tres salidas, de la más simple a la más fina:
 
-Los grupos están en la [referencia de herramientas](/referencia/tools). Y si
-quieres mirar sin poder tocar nada:
+1. **Quita el `?features=all`.** El link pelado,
+   `https://mcp.darkfunnels.ai/mcp`, trae las lecturas —manual, catálogo,
+   conversaciones, clientes y lo básico de la cuenta— y tres escrituras
+   menores: crear etiquetas, cambiar las etiquetas de un cliente y dejar
+   anotada una petición que tu asistente no pudo cumplir. Son menos de la mitad
+   de las que trae `?features=all`.
+2. **Pide solo los grupos que vas a usar**, por ejemplo
+   `https://mcp.darkfunnels.ai/mcp?features=conversations,orders`. **La lista
+   sustituye al set base, no lo amplía**: lo básico de la cuenta va con
+   cualquier lista, pero con ese link no tienes manual ni catálogo. Los grupos y lo que trae cada uno están en
+   [La URL de conexión](/referencia/url-de-conexion), y la lista de
+   herramientas, en la [referencia de herramientas](/referencia/tools).
+3. **Apaga herramientas en tu cliente**, si te deja. VS Code, por ejemplo,
+   tiene un selector de herramientas en el chat.
 
-```
-https://mcp.darkfunnels.ai/mcp?read_only=true
-```
+## Tu cuenta, tu empresa y tus permisos
+
+**Tu asistente entra con tu cuenta y ve lo que tu cuenta ve en el panel, nada
+más.** Tres consecuencias:
+
+- **Tus permisos mandan.** A tu asistente le aparecen solo las herramientas de
+  las apps que tú puedes usar y que tu empresa tiene activas. Si alguien de tu
+  equipo conecta su propio asistente, trabaja con los permisos de esa persona.
+  Cómo se reparten, en [Invita a tu equipo](/primeros-pasos/invita-a-tu-equipo).
+- **Una conexión, una empresa para guardar.** Si tu cuenta está en varias
+  empresas, cada conexión queda fijada a la empresa que tenías activa la
+  primera vez que tu asistente la usó. Si después cambias de empresa en el
+  panel, esa conexión no guarda cambios hasta que vuelvas a esa empresa o la
+  conectes de nuevo. Así no escribe en la empresa equivocada. **Ojo: lo que lee
+  sí cambia.** Después del cambio, tu asistente lee los datos de la empresa que
+  tienes activa ahora.
+- **Lo que no sabe hacer, lo anota.** Si le pides algo que sus herramientas no
+  cubren, tu asistente puede dejarlo registrado para nuestro equipo y darte el
+  número de la petición. Con `read_only=true` no puede.
+
+## Límites de uso
+
+Para que un asistente desbocado no deje sin servicio a nadie, el puente
+—nuestra conexión MCP, por donde entra tu asistente— pone dos topes:
+
+| Tope | Cuánto | Qué ves si lo pasas |
+| --- | --- | --- |
+| **Por persona** | Del orden de 60 peticiones por minuto y 300 por hora, sumando todos los asistentes que conectaste con tu cuenta | Un error que dice *«rate limit; reintenta en N s»*. Espera esos segundos y sigue. |
+| **Por empresa** | De entrada, 20 000 llamadas a herramientas al día, sumando a todas las personas | *«La empresa alcanzó su cupo diario de llamadas por el puente MCP; se restablece a medianoche (hora de Lima)…»* |
+
+Cuenta como petición cada vez que tu cliente le habla al puente: usar una
+herramienta, pero también pedirle la lista de herramientas. **Si trabajas con
+un agente que encadena muchas llamadas, el que más se nota es el tope por
+hora**: 300 por hora son unas 5 por minuto de media.
+
+Si tu negocio necesita más cupo diario, el dueño puede pedirlo desde **Ayuda →
+Escríbenos por WhatsApp**.
+
+## Quitarle el acceso
+
+<Steps>
+  <Step title="Abre la lista de asistentes">
+    En **Personalizar → Asistentes IA**, baja hasta la tarjeta **Seguridad y
+    acceso**. La lista **Asistentes con acceso a tu cuenta** tiene una fila por
+    asistente: el nombre con el que se presentó tu cliente, la fecha en que lo
+    autorizaste (**Autorizado el …**) y el botón **Revocar**.
+  </Step>
+  <Step title="Pulsa Revocar y confirma">
+    El panel te avisa: *«… pierde el acceso a tu cuenta en unos segundos. Para
+    volver a usarlo, tendrás que conectarlo de nuevo.»* Confirma con
+    **Revocar**. Sale el aviso *«Acceso revocado: …»* y el asistente desaparece
+    de la lista.
+  </Step>
+  <Step title="Quítalo también de tu cliente">
+    Revocar corta el acceso, pero la entrada sigue en tu archivo de
+    configuración (`mcp.json` en Cursor y VS Code, `settings.json` en Gemini
+    CLI). Bórrala para que tu cliente deje de intentarlo.
+  </Step>
+</Steps>
+
+<Frame caption="«Seguridad y acceso»: cómo se protege la conexión y la lista «Asistentes con acceso a tu cuenta». En esta captura está vacía; cada asistente que autorices aparece ahí con su botón «Revocar».">
+  <img src="/images/asistentes/03-seguridad-y-acceso.png" alt="Tarjeta Seguridad y acceso con tres viñetas sobre la conexión y la lista Asistentes con acceso a tu cuenta, que dice Ningún asistente tiene acceso a tu cuenta ahora" />
+</Frame>
+
+**La lista es de tu cuenta.** No muestra los asistentes que otras personas de tu
+equipo conectaron con las suyas, y revocar el tuyo no les afecta.
 
 ## Sin humano delante (headless)
 
-Hoy **no**. La conexión exige que una persona autorice en el navegador con su
-cuenta, así que un agente que corra solo —un cron, un worker, el Agents SDK de
-OpenAI o el Agent SDK de Claude— no puede conectarse por su cuenta.
+**Hoy no hay claves de API.** La conexión empieza con una persona que autoriza
+en el navegador con su cuenta. Un agente que corra solo —una tarea programada,
+un worker, el Agents SDK de OpenAI o el Agent SDK de Claude— no puede dar ese
+paso por su cuenta.
 
-Estamos trabajando en claves de agente para eso. Mientras tanto, si necesitas
-automatizar algo sin humano delante, escríbenos y lo vemos caso por caso.
+Si necesitas automatizar algo así, escríbenos desde **Ayuda → Escríbenos por
+WhatsApp** y lo vemos contigo.
 
-<Note>
-Si tu cliente no ve tu negocio, o lo ve vacío, casi siempre es lo mismo:
-autorizaste con **otra cuenta** y estás conectado a un workspace distinto.
-Pregúntale a tu asistente «¿a qué cuenta estás conectado?» y, si no es la
-correcta, borra el conector y vuelve a conectarlo.
-</Note>
+## La documentación, también por MCP
+
+Si solo quieres que tu asistente consulte esta documentación —sin tocar tu
+negocio—, hay un servidor MCP público. **No pide cuenta ni autorización**, así
+que también lo puede usar un agente sin persona delante:
+
+```
+https://docs.darkfunnels.ai/mcp
+```
+
+Busca en todas las páginas de esta documentación y las lee.
+
+Los dos servidores están en el registro oficial de MCP:
+`ai.darkfunnels/whatsapp-sales-agent` es el de tu negocio (con autorización) y
+`ai.darkfunnels/docs`, el de la documentación. Si tu cliente instala servidores
+desde ese registro, búscanos como DarkFunnels.
+
+## Si algo falla
+
+<AccordionGroup>
+  <Accordion title="No se abre el navegador para autorizar">
+    Lo primero que hay que mirar es el archivo de configuración. Revisa los
+    tres detalles de [Cualquier otro cliente](#cualquier-otro-cliente): en VS
+    Code, el bloque `servers` y `"type": "http"`; en Gemini CLI, el campo
+    `httpUrl`. Y que el link esté completo, empezando por `https://`.
+
+    Si tu cliente solo admite servidores que corren en tu computadora, no puede
+    conectarse directamente a DarkFunnels.
+  </Accordion>
+  <Accordion title="Ve otro negocio, o uno vacío">
+    Lo más común es que autorizaras con **otra cuenta**. Pregúntale a tu
+    asistente *«¿con qué cuenta y en qué empresa de DarkFunnels estás
+    conectado?»*. Si el correo no es el tuyo:
+
+    1. Quita el servidor de tu cliente (y su sesión guardada, si tu cliente la
+       guarda aparte).
+    2. En el panel, abre tu menú de cuenta (el círculo con tus iniciales,
+       arriba a la derecha), pulsa **Cerrar sesión** y entra con la cuenta
+       correcta.
+    3. Vuelve a conectar. Si sale **Autorizar acceso**, comprueba que
+       **Autorizas como** diga tu correo. Si no sale, hazle a tu asistente la
+       misma pregunta de antes.
+
+    Si el correo es el tuyo pero la empresa no, mira el punto siguiente.
+  </Accordion>
+  <Accordion title="Dice que tu cuenta cambió de empresa">
+    Pasa si tu cuenta está en **varias empresas** y, después de conectar,
+    cambiaste de empresa en el panel o aceptaste una invitación a otra empresa
+    (al aceptarla, pasa a ser la activa). Tu asistente te avisa con *«La cuenta
+    cambió de empresa en la app de DarkFunnels…»* y no guarda nada, para no
+    escribir en la empresa equivocada.
+
+    Tienes dos salidas:
+
+    - **Para seguir en la empresa de la conexión**, abre tu menú de cuenta y
+      pulsa el nombre de esa empresa (debajo dice «Cambiar a esta empresa»).
+    - **Para trabajar en la que tienes activa ahora**, conéctalo con una sesión
+      nueva. En **Personalizar → Asistentes IA**, pulsa **Revocar** en ese
+      asistente y vuelve a conectarlo desde tu cliente: la sesión nueva queda
+      fijada en la empresa activa. Si prefieres no revocar, quita el servidor
+      de tu cliente **y también su sesión guardada**, si tu cliente la guarda
+      aparte, y vuelve a conectarlo.
+
+    Reintentar sin uno de esos dos pasos no ayuda. Si el aviso dice que tu
+    cuenta **ya no tiene acceso** a la empresa de la conexión, solo sirve la
+    segunda salida: conectarlo de nuevo. Cómo se cambia de empresa,
+    en [Invita a tu equipo](/primeros-pasos/invita-a-tu-equipo#una-cuenta-en-varias-empresas).
+  </Accordion>
+  <Accordion title="Dice que no tienes acceso a una app, o que no está activa">
+    Si responde algo como *«Esta persona no tiene acceso a Ventas…»*, pídele
+    ese acceso a quien administra tu empresa
+    ([Invita a tu equipo](/primeros-pasos/invita-a-tu-equipo)).
+
+    Si dice *«La app … no está activa…»*, primero hay que activarla en tu
+    empresa desde **Apps** ([Las apps](/primeros-pasos/las-apps)).
+  </Accordion>
+  <Accordion title="Faltan herramientas que esperabas">
+    Mira tres cosas, en este orden:
+
+    1. **Tus permisos y tus apps.** Las herramientas de una app que no puedes
+       usar, o que tu empresa no tiene activa, no aparecen.
+    2. **Tu link.** Si pediste grupos sueltos con `?features=`, los demás no
+       viajan. Con `?features=all` llegan todos los que tu cuenta puede usar,
+       salvo que el link lleve `read_only=true`: entonces no llega ninguna que
+       escriba.
+    3. **Una lista vieja.** Las herramientas nuevas aparecen cuando tu cliente
+       vuelve a pedir la lista: abre un chat nuevo o vuelve a conectar el
+       servidor desde tu cliente. Si te acaban de dar un permiso, espera un
+       minuto antes.
+  </Accordion>
+  <Accordion title="Dice «rate limit; reintenta en N s»">
+    Tu asistente pasó el tope por persona (lo explica **Límites de uso**, más
+    arriba). Espera los segundos que indica y sigue.
+  </Accordion>
+  <Accordion title="Dice que la empresa alcanzó su cupo diario">
+    Entre todas las personas de tu empresa se usaron las llamadas del día. Se
+    restablece a medianoche, hora de Lima. Si tu negocio necesita más cupo, el
+    dueño puede pedirlo desde **Ayuda → Escríbenos por WhatsApp**.
+  </Accordion>
+  <Accordion title="Dice «Sin créditos»">
+    Es **el mismo saldo de tu panel**, y se acabó. Las funciones con IA quedan
+    detenidas hasta que recargues.
+
+    Se recarga en **Administración → Dinero → Saldo y facturación**. Todo el
+    detalle, en [Créditos y recarga](/primeros-pasos/creditos-y-recarga).
+  </Accordion>
+  <Accordion title="Dice que la autorización se revocó, o te pide autorizar otra vez">
+    Lo más común es que se haya pulsado **Revocar** para ese asistente en
+    **Personalizar → Asistentes IA**, con tu cuenta. También pasa si la sesión
+    de tu asistente ya no existe por otra causa, o si tu cliente perdió la que
+    tenía guardada. En cualquier caso, la solución es la misma: conéctalo de
+    nuevo y autoriza.
+  </Accordion>
+  <Accordion title="La pantalla dice «No se pudo autorizar»">
+    Si debajo dice *«La solicitud de autorización expiró o no es válida»*,
+    vuelve a tu cliente y conecta otra vez: se abre una solicitud nueva.
+  </Accordion>
+</AccordionGroup>
+
+Cómo se protegen tus datos por esta vía, en [Seguridad](/seguridad).

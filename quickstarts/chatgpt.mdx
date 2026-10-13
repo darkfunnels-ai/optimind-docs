@@ -1,39 +1,247 @@
 ---
-title: "ChatGPT"
-description: "Conecta ChatGPT (modo desarrollador) a DarkFunnels."
+title: "Conecta ChatGPT a tu negocio"
+sidebarTitle: "ChatGPT"
+description: "Conecta ChatGPT a DarkFunnels con el modo desarrollador: qué plan necesitas, el link que pegas, cómo autorizar y cómo cortar el acceso."
+keywords:
+  - "conector ChatGPT"
+  - "ChatGPT modo desarrollador"
+  - "conector personalizado ChatGPT"
+  - "servidor MCP"
+  - "agente de WhatsApp con IA"
 ---
 
+Con ChatGPT conectado, le preguntas por tu negocio y le pides cambios
+conversando. Trabaja sobre **tu manual, tu catálogo, tus conversaciones y tus
+clientes**, con tu cuenta de DarkFunnels.
+
+**No hace falta para vender.** Tu agente de WhatsApp funciona igual sin esto. Es
+una comodidad si ya usas ChatGPT a diario.
+
 <Warning>
-El plan **gratis de ChatGPT no admite conectores personalizados**. Necesitas
-Plus, Pro, Team, Enterprise o Edu, con el **modo desarrollador** activo. Si solo
-tienes el gratis, ve a [claude.ai](/quickstarts/claude-ai): su plan gratis sí
-admite un conector, y es el mismo link.
+**El plan gratis de ChatGPT no admite conectores.** Necesitas Plus, Pro,
+Business (antes Team), Enterprise o Edu. Si solo tienes el gratis, conecta
+[claude.ai](/quickstarts/claude-ai): su plan gratis sí admite un conector, y el
+link es el mismo.
 </Warning>
 
+## El link que vas a pegar
+
+```
+https://mcp.darkfunnels.ai/mcp?features=all
+```
+
+**Es el mismo para todos los asistentes.** No hay que volver a tocarlo: las
+funciones que publiquemos después te aparecen en un chat nuevo, sin cambiar el
+link, si tu cuenta tiene acceso a la app que usan.
+
+También lo tienes en el panel, en **Personalizar → Asistentes IA**. Para
+llegar, en el menú de la izquierda, dentro de **Ventas**, pulsa
+**Personalizar** (está en el grupo **Ajustes** de Ventas, no en el **Ajustes**
+de **Administración**) y elige **Asistentes IA**. Si prefieres ir directo,
+escribe `optimind.darkfunnels.ai/customize?panel=asistentes` en la barra del
+navegador.
+
+Ahí lo copias con **Copiar link**, en la tarjeta **Conecta tu asistente**. Esa
+tarjeta también te dice con qué correo tienes que autorizar.
+
+Más abajo, en **¿Dónde lo pego?**, hay una pestaña por asistente. La de
+**ChatGPT** trae el aviso **Ojo** del plan gratis, la ruta del modo
+desarrollador y el botón **Hazlo en Claude**, por si tu plan no admite
+conectores.
+
+<Frame caption="«¿Dónde lo pego?»: una pestaña por asistente. En la captura está elegida Claude Code; pulsa ChatGPT para ver su ruta.">
+  <img src="/images/asistentes/02-donde-lo-pego.png" alt="Tarjeta ¿Dónde lo pego? del panel con las pestañas claude.ai, Claude Code, Codex y ChatGPT, la de Claude Code elegida con su comando" />
+</Frame>
+
+## Conéctalo, paso a paso
+
 <Steps>
-  <Step title="Activa el modo desarrollador">
-    **Ajustes → Apps y conectores → Avanzado → Modo desarrollador**.
+  <Step title="Activa el modo desarrollador en ChatGPT">
+    En ChatGPT: **Ajustes → Apps y conectores → Avanzado → Modo
+    desarrollador**.
   </Step>
-  <Step title="Crea el conector">
-    Crea un conector personalizado nuevo.
+  <Step title="Crea el conector y pega el link">
+    En **Ajustes → Apps y conectores**, crea un conector nuevo. Si te pide un
+    nombre, pon uno que reconozcas, por ejemplo DarkFunnels, y pega el link de
+    arriba como dirección del servidor.
   </Step>
-  <Step title="Pega la URL">
-    ```
-    https://mcp.darkfunnels.ai/mcp?features=all
-    ```
+  <Step title="Autoriza con tu cuenta del panel">
+    ChatGPT te abre la pantalla **Autorizar acceso** de DarkFunnels. Si no
+    tienes la sesión del panel abierta en ese navegador, primero te pide
+    iniciar sesión y luego vuelve a esta pantalla.
+
+    **Antes de pulsar, mira la línea «Autorizas como».** Tiene que ser el
+    correo con el que entras al panel. Si es otro, pulsa **Denegar** y mira la
+    fila «No ve tus datos» de [Si algo falla](#si-algo-falla). La pantalla
+    también te dice qué podrá hacer el asistente y a qué dirección te devolverá.
+
+    Pulsa **Autorizar**. Verás **Acceso autorizado** y vuelves a ChatGPT. Si
+    pulsas **Denegar**, no se conecta nada.
+
+    Si ya habías autorizado antes, es posible que no te lo vuelva a preguntar
+    y regreses directo a ChatGPT.
   </Step>
-  <Step title="Autoriza">
-    Con la **misma cuenta con la que entras al panel de DarkFunnels**.
+  <Step title="Pruébalo">
+    Escríbele en un chat nuevo. Estos tres mensajes vienen del panel (en la
+    tarjeta **Pruébalo con estos mensajes**, cada uno con su botón
+    **Copiar**):
+
+    - *«Revisa mis conversaciones de ayer y dime dónde se están perdiendo
+      ventas.»*
+    - *«Lee el manual de mi agente y proponme una mejora del capítulo de
+      cierre; guárdala cuando te la apruebe.»*
+    - *«Pásame los clientes que llevan más de 3 días sin respuesta y qué les
+      diría el agente para retomar.»*
   </Step>
 </Steps>
 
-Las escrituras (guardar manual, editar catálogo) piden confirmación dentro de
-ChatGPT antes de ejecutarse.
+### Cómo sabes que quedó conectado
 
-Si el asistente no ve tu negocio (o lo ve vacío), autorizaste con una cuenta
-distinta a la del panel: borra el conector y vuelve a conectarlo con la correcta.
+Vuelve a **Personalizar → Asistentes IA**. Hay dos señales:
 
-<Note>
-¿Solo tienes ChatGPT gratis? Usa [claude.ai](/quickstarts/claude-ai): su plan
-gratis admite un conector.
-</Note>
+- **En «Seguridad y acceso»**, la lista **Asistentes con acceso a tu cuenta**
+  muestra cada asistente que autorizaste, con **Autorizado el** y la fecha.
+  Esta señal la ves aunque no administres la empresa.
+- **Si administras las apps de tu empresa**, verás además, junto a «Conecta tu
+  asistente», la insignia **Conectado · última actividad** con una fecha.
+  Aparece cuando algún asistente ya trabajó en tu empresa, sea el tuyo o el de
+  otra persona de tu equipo. Es la fecha de la última actividad: no desaparece
+  al revocar un acceso. Si no administras las apps, no la verás: guíate por la
+  lista.
+
+## Qué puede hacer, y qué te pide antes
+
+Con este link, ChatGPT puede:
+
+- Leer y editar el manual de ventas de tu agente, con historial de versiones
+  para deshacer.
+- Revisar, crear y actualizar productos de tu catálogo.
+- Revisar conversaciones y clientes, y etiquetar a quien necesita seguimiento.
+- Avisarte cuando el saldo de créditos esté por agotarse, si tu cuenta puede
+  ver el saldo.
+
+**El link activa todas las funciones, también las que escriben y envían.**
+Nuestras funciones que cambian algo van marcadas como tales, y ChatGPT suele
+usar esa marca para pedirte confirmación antes de usarlas.
+
+<Warning>
+**Algunas funciones le escriben a tus clientes por WhatsApp de verdad.** Por
+ejemplo, mandar un mensaje como operador en un chat, o simular un mensaje de
+cliente en un chat de WhatsApp para probar el guion: la respuesta del agente le
+llega de verdad a ese número. **Lee qué va a hacer antes de confirmar.**
+</Warning>
+
+Tres cosas más que conviene saber:
+
+- **Algunas funciones gastan saldo de tu empresa**, por ejemplo optimizar el
+  manual con la IA, preguntarle al copiloto o simular un mensaje. Es el mismo
+  saldo del panel. Crear o duplicar un embudo, además, ocupa un lugar de tu
+  plan.
+- **Los teléfonos de tus clientes le llegan tapados** (`51•••••4321`). Cómo
+  verlos completos, en [La URL de conexión](/referencia/url-de-conexion).
+- **La lista completa de funciones** está en la
+  [Referencia de herramientas](/referencia/tools).
+
+### Si prefieres que solo lea
+
+Añade `&read_only=true` al final del link. Así ChatGPT solo lee: no le llegan
+las funciones que cambian algo o envían mensajes, ni las que usan la IA, como
+preguntarle al copiloto u optimizar el manual. **Hay una excepción: leer el
+texto de una imagen de tu Librería sí gasta saldo.**
+
+```
+https://mcp.darkfunnels.ai/mcp?features=all&read_only=true
+```
+
+Si ya lo tenías conectado, cambiar el link exige conectarlo de nuevo: borra el
+conector en ChatGPT y créalo con el link nuevo.
+
+## Tus permisos, y si estás en varias empresas
+
+**ChatGPT trabaja con tu cuenta y tus permisos, nada más.** No puede más que
+tu cuenta: solo usa lo que tu cuenta puede usar en el panel, y no todo lo del
+panel tiene una función para él. Si no tienes acceso a una app, o esa app no
+está activa en la empresa, sus funciones no le aparecen en un chat nuevo. Si
+aun así intenta usar una, se le niega. Cada persona de tu equipo que quiera
+usarlo conecta con su propia cuenta.
+
+**Si tu cuenta está en varias empresas**, cada conexión queda fijada a la
+empresa que tenías activa la primera vez que ChatGPT la usó. Si después cambias
+de empresa en el panel (o aceptas una invitación de otra empresa, que te deja
+en ella), esa conexión deja de guardar cambios: ChatGPT te dirá que no se hizo
+ningún cambio, para no escribir en la empresa equivocada.
+
+<Warning>
+**Lo que lea desde ese momento ya es de la empresa que tienes activa en el
+panel.** Si estabas comparando cifras, vuelve primero a la empresa de la
+conexión.
+</Warning>
+
+Tienes dos salidas:
+
+- **Para seguir en la empresa de la conexión**: vuelve a ella desde tu menú de
+  cuenta, con **Cambiar a esta empresa**.
+- **Para trabajar en la otra**: borra el conector en ChatGPT y vuelve a
+  conectarlo con esa empresa activa en el panel.
+
+Cómo cambiar de empresa y cómo se reparten los permisos, en
+[Invita a tu equipo](/primeros-pasos/invita-a-tu-equipo#una-cuenta-en-varias-empresas).
+
+## Cortar el acceso
+
+<Steps>
+  <Step title="Abre la lista de asistentes">
+    En **Personalizar → Asistentes IA**, baja hasta **Seguridad y acceso**. En
+    **Asistentes con acceso a tu cuenta** aparece cada asistente con el nombre
+    con el que se presentó al conectarse (si no dio ninguno, **Asistente sin
+    nombre**).
+  </Step>
+  <Step title="Pulsa «Revocar»">
+    Junto al asistente que quieres desconectar. El panel te avisa de la
+    consecuencia: ese asistente *«pierde el acceso a tu cuenta en unos
+    segundos. Para volver a usarlo, tendrás que conectarlo de nuevo.»*
+  </Step>
+  <Step title="Confírmalo">
+    Pulsa **Revocar** otra vez (o **Cancelar** si te arrepientes). Verás
+    **Acceso revocado** con el nombre del asistente, y desaparece de la lista.
+  </Step>
+  <Step title="Bórralo también en ChatGPT">
+    Revocar corta el acceso desde nuestro lado. Para que deje de aparecer en
+    ChatGPT, elimina el conector en **Ajustes → Apps y conectores**.
+  </Step>
+</Steps>
+
+<Frame caption="«Seguridad y acceso»: cómo se protege la conexión y la lista «Asistentes con acceso a tu cuenta». En esta captura está vacía; cada asistente que autorices aparece ahí con su botón «Revocar».">
+  <img src="/images/asistentes/03-seguridad-y-acceso.png" alt="Tarjeta Seguridad y acceso con tres viñetas sobre la conexión y la lista Asistentes con acceso a tu cuenta, que dice Ningún asistente tiene acceso a tu cuenta ahora" />
+</Frame>
+
+Las llamadas del asistente quedan registradas: qué herramienta usó, cuándo y
+con qué resultado. Ese registro no tiene pantalla en el panel; si necesitas el
+detalle, [pídenoslo](/seguridad#como-escribirnos). Lo demás sobre datos y
+accesos está en [Seguridad](/seguridad).
+
+## Si algo falla
+
+| Lo que ves | Casi siempre es | Cómo se arregla |
+| --- | --- | --- |
+| **No encuentras dónde crear el conector** | Tu plan es el gratis, o el modo desarrollador está apagado | Con Plus, Pro, Business (antes Team), Enterprise o Edu, actívalo en **Ajustes → Apps y conectores → Avanzado**. Con el gratis, usa [claude.ai](/quickstarts/claude-ai) |
+| **No ve tus datos, o los ve vacíos** | Autorizaste con otra cuenta | Pregúntale *«¿con qué cuenta de DarkFunnels estás conectado?»*. Si no es la tuya, borra el conector, entra al panel con la cuenta correcta y vuelve a conectarlo |
+| **Le falta una parte de tu negocio**, o te dice que no tienes acceso a una app | No tienes permiso en esa app, o la app no está activa en esa empresa | Pide a quien administra tu empresa (o hazlo tú, si la administras) que te dé el acceso o que active la app desde **Apps**. Luego espera un minuto y abre un chat nuevo |
+| **Te dice que no hizo ningún cambio porque cambiaste de empresa** | La conexión está fijada a otra empresa | Vuelve a esa empresa o reconecta: [Tus permisos, y si estás en varias empresas](#tus-permisos-y-si-estas-en-varias-empresas) |
+| **«No se pudo confirmar en qué empresa trabaja esta conexión»** | Un tropiezo al comprobar la empresa, en cuentas que están en varias | Reintenta en unos segundos. No se hizo ningún cambio |
+| **No aparecen funciones nuevas** | La conversación se quedó con la lista de funciones que había al empezarla | Abre un chat nuevo. Si siguen sin aparecer, borra el conector y vuelve a crearlo con el mismo link |
+| **Dice «sin créditos»** | Tu saldo bajó de US\$ 0,10, aunque veas un resto en pantalla, o terminó tu prueba y no tienes suscripción | Recarga en **Administración → Saldo y facturación** ([cómo recargar](/primeros-pasos/creditos-y-recarga#como-recargar)). Si no ves esa pantalla, pídele el acceso al saldo a quien administra tu empresa. Si terminó tu prueba, recargar no basta: activa la suscripción ([cómo se activa](/primeros-pasos/planes-y-precios#como-se-activa)). Hasta entonces, las funciones de IA quedan detenidas |
+| **«No se pudo autorizar»** al conectar | La solicitud de autorización expiró | Vuelve a ChatGPT y repite la conexión |
+| **No ves Personalizar en tu menú** | Personalizar está dentro de Ventas, y no tienes acceso a esa app o no está activa en tu empresa | Copia el link de esta página: es el mismo. Sin Personalizar tampoco ves la lista para revocar: para cortar el acceso, elimina el conector en ChatGPT y, si hay que cortarlo también desde nuestro lado, [escríbenos](/seguridad#como-escribirnos) |
+
+<CardGroup cols={3}>
+  <Card title="claude.ai" icon="message" href="/quickstarts/claude-ai">
+    El mismo link, con un plan gratis que sí admite un conector.
+  </Card>
+  <Card title="La URL de conexión" icon="link" href="/referencia/url-de-conexion">
+    Qué cambia cada opción del link: solo lectura, teléfonos completos y más.
+  </Card>
+  <Card title="Seguridad" icon="shield" href="/seguridad">
+    Qué ve tu asistente, qué queda registrado y qué no puede hacer.
+  </Card>
+</CardGroup>

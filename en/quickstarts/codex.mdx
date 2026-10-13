@@ -1,7 +1,7 @@
 ---
 title: "Connect Codex to your WhatsApp AI agent"
 sidebarTitle: "Codex"
-description: "Connect Codex — OpenAI's app, editor extension or terminal — to your DarkFunnels WhatsApp AI agent: add the Streamable HTTP server, paste the URL and authorize."
+description: "Connect OpenAI's Codex (app, editor extension or terminal) to your DarkFunnels business: add the MCP server, paste the link and authorize with your account."
 keywords:
   - "Codex MCP server"
   - "OpenAI Codex connector"
@@ -9,53 +9,301 @@ keywords:
   - "WhatsApp AI agent"
   - "codex mcp add"
 ---
+{/* es-source: quickstarts/codex.mdx @ 2e24469 */}
 
-{/* es-source: quickstarts/codex.mdx @ e091b8d */}
+**Codex is OpenAI's assistant**, the one you use in its app, in your editor or
+in the terminal. Connected to DarkFunnels, it works on your business while you
+chat with it: it reads your agent's playbook, the catalog, the conversations
+and the customers, and suggests changes.
 
-Requires an OpenAI account with Codex access. The app, the editor extension and
-the terminal share one configuration (`~/.codex/config.toml`), so you connect
-once.
+<Note>
+**It is optional.** You don't need it to sell: your agent handles WhatsApp
+just the same. It is a convenience if you already use Codex.
+</Note>
+
+The dashboard is in Spanish, so its buttons and on-screen messages are quoted
+here exactly as you will see them, with the English meaning in parentheses.
+
+## Before you start
+
+- You need an **OpenAI account with access to Codex**.
+- The Codex app, its editor extension and the terminal **share the same
+  connection**. You connect it once and it works in all three.
+- Have **the account you use to sign in to the DarkFunnels dashboard** at hand.
+  That is the one you will authorize with.
+
+This is the link you will paste:
+
+```
+https://mcp.darkfunnels.ai/mcp?features=all
+```
+
+Thanks to `?features=all`, you don't have to touch it again: the features we
+release later reach it on their own.
+
+<Tip>
+**You also have it in the dashboard, ready to copy.** In the left-hand menu,
+inside **Ventas** (*Sales*), click **Personalizar** (*Customize*) and choose
+**Asistentes IA** (*AI assistants*). At the top is the link with its **Copiar
+link** (*Copy link*) button. Further down, under **¿Dónde lo pego?** (*Where do
+I paste it?*), the **Codex** tab has the settings path and the two terminal
+commands, each with its **Copiar** (*Copy*) button.
+</Tip>
+
+<Frame caption="The «¿Dónde lo pego?» (Where do I paste it?) card: one tab per assistant. In the screenshot the Claude Code one is selected; click the Codex one to see its settings path and its two commands.">
+  <img src="/images/asistentes/02-donde-lo-pego.png" alt="The ¿Dónde lo pego? (Where do I paste it?) card with the claude.ai, Claude Code, Codex and ChatGPT tabs, the Claude Code one selected and its command with the Copiar (Copy) button" />
+</Frame>
+
+## Connect it from the app or the editor extension
 
 <Steps>
   <Step title="Add the server">
-    **Settings → MCP servers → Add server**, and pick **Streamable HTTP**.
+    In Codex, go to **Settings → MCP servers → Add server** and choose
+    **Streamable HTTP**.
   </Step>
-  <Step title="Paste the URL">
+  <Step title="Paste the link and save">
     ```
     https://mcp.darkfunnels.ai/mcp?features=all
     ```
-    Leave the bearer token field **empty**: authorization goes through your
-    account, not through a key.
+    Leave the token field **empty**. Authorization happens separately, with
+    your account, not with a key.
   </Step>
-  <Step title="Authorize">
-    With the **same account you use to sign in to the DarkFunnels dashboard**. Your
-    browser opens and you press "Authorize".
+  <Step title="Authorize with your account">
+    Your browser opens on the DarkFunnels **Autorizar acceso** (*Authorize
+    access*) screen. Look at the **Autorizas como…** (*You are authorizing
+    as…*) line: it has to show the email you use to sign in to the dashboard.
+    If it does, click **Autorizar** (*Authorize*).
+
+    If you weren't signed in, it first asks you to sign in. And if you had
+    already authorized Codex with that account, it may go straight through,
+    without showing you the button.
   </Step>
 </Steps>
 
-Prefer the terminal? Two commands:
+## Connect it from the terminal
+
+It takes two commands. The first saves the server in Codex; the second opens
+your browser to authorize.
 
 ```bash
-codex mcp add DarkFunnels --url "https://mcp.darkfunnels.ai/mcp?features=all"
+codex mcp add optimind --url "https://mcp.darkfunnels.ai/mcp?features=all"
 ```
 
 ```bash
-codex mcp login DarkFunnels
+codex mcp login optimind
 ```
 
-<Warning>
-If you authorize successfully but no tools show up in the thread, update Codex:
-there is a known bug in an alpha build of the desktop app
-([openai/codex#20009](https://github.com/openai/codex/issues/20009)). The
-terminal and the editor extension work in the meantime.
-</Warning>
+- **Copy the whole command, quotes included.** Without them, the terminal may
+  take the `?` in the link as a wildcard and the command fails.
+- **`optimind` is the name Codex saves this connection under.** If you choose
+  another one, use the same name in both commands.
+- **Depending on your Codex version, the first command may already open the
+  browser.** If you authorized there, you are done. The second one is for
+  authorizing, or authorizing again, whenever you need to.
+
+In the browser you see the same **Autorizar acceso** screen as above: check the
+email and click **Autorizar**.
+
+To check that it was saved, type `codex mcp list`: `optimind` has to appear.
+
+## Try it
+
+Open a **new** thread in Codex and ask it something, just like this:
+
+- *"Review my conversations from yesterday and tell me where I'm losing
+  sales."*
+- *"Read my agent's playbook and suggest an improvement to the closing chapter;
+  save it once I approve it."*
+- *"Give me the customers who have gone more than 3 days without a reply, and
+  what the agent would say to them to pick the conversation back up."*
+
+**Check which account it signed in with.** Ask it *"Which DarkFunnels account
+are you connected to?"*. It tells you the email and the company.
+
+If you manage your company's apps, in the dashboard under **Personalizar →
+Asistentes IA** you also see the **Conectado · última actividad** (*Connected ·
+last activity*) badge, with the date, as soon as an assistant has worked in
+your company.
+
+## What it can do with this link
+
+With `?features=all` your assistant can, among other things:
+
+- Read and edit the agent's sales playbook, with a version history so you can
+  undo.
+- Review, create and update products in the catalog.
+- Review conversations and customers, and tag whoever needs a follow-up.
+- Warn you when your credit balance is about to run out, if your account can
+  see the balance.
+
+**That link also includes the features that have a real effect.** Some send
+real WhatsApp messages, such as replying to a customer as an operator. Others
+spend credits, such as optimizing the playbook with AI or asking the copilot.
+And creating a new agent takes up a slot in your subscription.
+
+**Would you rather it only read?** Connect it with this link:
+
+```
+https://mcp.darkfunnels.ai/mcp?features=all&read_only=true
+```
+
+To change the link later, remove the server and add it again with the new
+link. The link's options are in [The connection URL](/en/reference/connection-url),
+and each feature in the [Tool reference](/en/reference/tools).
+
+<Note>
+**It sees and does what your account can in the dashboard, nothing more.** If
+you don't have access to an app in your company, your assistant can't use its
+features either.
+
+It doesn't charge your customers or transfer money: it has no features for
+that. Your customers' messages reach it marked as data, not as commands. And
+every action is logged: which tool it used, when, and with what result.
+</Note>
+
+## Cutting off access
+
+There are two places, and it is best to use both.
+
+<Steps>
+  <Step title="In the dashboard: cut off access">
+    Go to **Personalizar → Asistentes IA** and scroll down to the **Seguridad
+    y acceso** (*Security and access*) card. Under **Asistentes con acceso a
+    tu cuenta** (*Assistants with access to your account*) you see the ones you
+    authorized, each with the date you did it.
+
+    Click **Revocar** (*Revoke*) next to the one you want to cut off and
+    confirm with **Revocar**. It loses access to your account within a few
+    seconds. To use it again, you have to connect it again.
+  </Step>
+  <Step title="In Codex: remove it from the list">
+    In the app or the extension: **Settings → MCP servers**, and delete it. In
+    the terminal:
+
+    ```bash
+    codex mcp remove optimind
+    ```
+  </Step>
+</Steps>
+
+<Frame caption="«Seguridad y acceso» (Security and access): how the connection is protected and the «Asistentes con acceso a tu cuenta» (Assistants with access to your account) list. In this screenshot it is empty; each assistant you authorize shows up there with its «Revocar» (Revoke) button.">
+  <img src="/images/asistentes/03-seguridad-y-acceso.png" alt="Seguridad y acceso (Security and access) card with three bullet points about the connection and the Asistentes con acceso a tu cuenta (Assistants with access to your account) list, which reads Ningún asistente tiene acceso a tu cuenta ahora (No assistant has access to your account right now)" />
+</Frame>
+
+If an assistant shows up as **Asistente sin nombre** (*Unnamed assistant*), it
+registered without a name: go by the date.
 
 ## If something goes wrong
 
-- **It can't see your data, or sees it empty** → you authorized with a different
-  account. Ask "which DarkFunnels account are you connected to?"; if it isn't
-  yours, remove the server, sign in to darkfunnels.ai with the right account and
-  connect again.
-- **New features don't show up** → start a new thread: each conversation keeps
-  the tool list it had when it opened.
-- **"Out of credits"** → top up in Billing.
+<AccordionGroup>
+  <Accordion title="It can't see your data, or sees it empty">
+    The most common cause is that you authorized with **a different account**.
+    Picking the wrong account doesn't give an error: Codex stays connected to
+    that other account's business.
+
+    Ask it *"Which DarkFunnels account are you connected to?"*. It tells you
+    the email and the company.
+
+    - If the account is yours but the company isn't the one you expected, see
+      "It says your account changed company and won't save changes", below.
+    - If both are right, see "It sees your data, but some features are
+      missing".
+
+    If the account isn't yours:
+
+    1. In the dashboard ([optimind.darkfunnels.ai](https://optimind.darkfunnels.ai)),
+       open your account menu (the circle with your initials, top right) and
+       click **Cerrar sesión** (*Log out*). Sign in with the right account.
+    2. Authorize Codex again. In the terminal: `codex mcp logout optimind` and
+       then `codex mcp login optimind`. In the app: remove the server and add
+       it again.
+  </Accordion>
+
+  <Accordion title="It says your account changed company and won't save changes">
+    This happens if your account is in **several companies**. Each connection
+    is tied to the company you had selected in the dashboard the first time
+    your assistant used it. If you later switch companies in the dashboard, or
+    accept an invitation from another company (that also switches you to it),
+    it stops saving changes until you take one of the two steps below: that
+    way it doesn't write to the wrong company. What it reads, on the other
+    hand, comes from the company you have selected now.
+
+    - **To stay in the first company:** open your account menu in the
+      dashboard and click that company (under its name it says **Cambiar a
+      esta empresa**, *Switch to this company*).
+    - **To work in the new one:** authorize Codex again. In the terminal:
+      `codex mcp logout optimind` and then `codex mcp login optimind`. In the
+      app: remove the server and add it again.
+
+    If instead it says *«No se pudo confirmar en qué empresa trabaja esta
+    conexión»* (*Could not confirm which company this connection works in*),
+    it was a hiccup while checking and it didn't make the change. Ask it to
+    try again in a few seconds.
+
+    More on this in [Invite your team](/en/getting-started/invite-your-team),
+    in the part about one account in several companies.
+  </Accordion>
+
+  <Accordion title="It sees your data, but some features are missing">
+    Your assistant works with **your permissions in that company**. If you
+    don't have access to an app (for example, **Órdenes**, *Orders*), or your
+    company doesn't have it switched on, it can't use its features. Ask
+    whoever manages your team for access:
+    [Invite your team](/en/getting-started/invite-your-team).
+
+    If you have just been given access, wait a minute and open a new thread.
+
+    Also check the link. If it has `read_only=true`, or if it doesn't have
+    `features=all`, it connects fewer features. To change it, remove the server
+    and add it with the link above; then open a new thread.
+  </Accordion>
+
+  <Accordion title="New features don't show up">
+    Start a **new thread**. Each conversation keeps the list of features it
+    had when you opened it.
+  </Accordion>
+
+  <Accordion title="You authorized fine, but the tools don't show up in the app's thread">
+    Some versions of the Codex desktop app have had a bug that stops the tools
+    from loading in threads, even when authorization goes through
+    ([openai/codex#20009](https://github.com/openai/codex/issues/20009)).
+
+    **Update Codex** and open a new thread. If nothing changes, use Codex from
+    the terminal or from the editor extension: they share the connection, so
+    you don't have to connect it again.
+  </Accordion>
+
+  <Accordion title="The terminal command fails with «no matches found»">
+    You copied it **without the quotes** and the terminal took the `?` in the
+    link as a wildcard. Copy the whole command, with the quotes around the
+    link.
+  </Accordion>
+
+  <Accordion title="It says the session with DarkFunnels was revoked or expired">
+    Someone clicked **Revocar** in the dashboard, or the authorization
+    expired. Authorize again: in the terminal, `codex mcp login optimind`; in
+    the app, remove the server and add it again.
+  </Accordion>
+
+  <Accordion title="The browser screen says «No se pudo autorizar» (Could not authorize)">
+    The reason is written under the title. The most common one is that the
+    authorization request expired or arrived incomplete: go back to Codex and
+    start the authorization again, for example with
+    `codex mcp login optimind`.
+
+    If it says it could not connect to the server, check your internet
+    connection and try again.
+  </Accordion>
+
+  <Accordion title="It says «Sin créditos» (Out of credits)">
+    Your balance ran out, and the AI features stay stopped until you top up.
+    Top up in **Administración → Dinero → Saldo y facturación**
+    (*Administration → Money → Balance and billing*). In the side menu, click
+    **Administración** to expand it.
+
+    If you don't see that entry with the block expanded, your account doesn't
+    have access to the company's money: ask someone who does to top up. The
+    step by step is in
+    [Credits and top-ups](/en/getting-started/credits-and-top-ups).
+  </Accordion>
+</AccordionGroup>

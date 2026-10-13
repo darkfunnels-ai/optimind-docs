@@ -1,49 +1,262 @@
 ---
 title: "Connect ChatGPT to your WhatsApp agent"
 sidebarTitle: "ChatGPT"
-description: "Connect ChatGPT to your DarkFunnels WhatsApp AI agent with developer mode: which plans allow custom connectors, the URL to paste and how writes are confirmed."
+description: "Connect ChatGPT to DarkFunnels with developer mode: which plan you need, the link you paste, how to authorize and how to cut off access."
 keywords:
   - "ChatGPT MCP connector"
   - "ChatGPT developer mode"
   - "custom connector ChatGPT"
-  - "WhatsApp AI agent"
   - "MCP server URL"
+  - "WhatsApp AI agent"
 ---
 
-{/* es-source: quickstarts/chatgpt.mdx @ 7458ea1 */}
+{/* es-source: quickstarts/chatgpt.mdx @ 24d667e */}
+
+With ChatGPT connected, you ask it about your business and request changes
+just by chatting. It works on **your playbook, your catalog, your
+conversations and your customers**, with your DarkFunnels account.
+
+**You don't need it to sell.** Your WhatsApp agent works just the same without
+it. It is a convenience if you already use ChatGPT every day.
+
+The dashboard is in Spanish, so its buttons and on-screen messages are quoted
+here exactly as you will see them, with the English meaning in parentheses.
 
 <Warning>
-ChatGPT's **free plan does not support custom connectors**. You need Plus, Pro,
-Team, Enterprise or Edu, with **developer mode** enabled. If free is all you
-have, go to [claude.ai](/en/quickstarts/claude-ai): its free plan does allow one
-connector, and it is the same link.
+**ChatGPT's free plan does not support connectors.** You need Plus, Pro,
+Business (formerly Team), Enterprise or Edu. If free is all you have, connect
+[claude.ai](/en/quickstarts/claude-ai): its free plan does allow one connector,
+and the link is the same.
 </Warning>
 
+## The link you will paste
+
+```
+https://mcp.darkfunnels.ai/mcp?features=all
+```
+
+**It is the same for every assistant.** You don't have to touch it again: the
+features we publish later show up in a new chat, without changing the link, as
+long as your account has access to the app they use.
+
+You also have it in the dashboard, under **Personalizar → Asistentes IA**
+(*Customize → AI assistants*). To get there, in the left-hand menu, inside
+**Ventas** (*Sales*), click **Personalizar** and choose **Asistentes IA**.
+Personalizar is in the **Ajustes** (*Settings*) group of Ventas, not in the
+**Ajustes** of **Administración** (*Administration*). If you prefer to go
+straight there, type `optimind.darkfunnels.ai/customize?panel=asistentes` in
+the browser's address bar.
+
+There you copy it with **Copiar link** (*Copy link*), on the **Conecta tu
+asistente** (*Connect your assistant*) card. That card also tells you which
+email you have to authorize with.
+
+Further down, under **¿Dónde lo pego?** (*Where do I paste it?*), there is one
+tab per assistant. The **ChatGPT** one has the **Ojo** (*Heads up*) notice
+about the free plan, the developer-mode path and the **Hazlo en Claude** (*Do
+it in Claude*) button, in case your plan doesn't support connectors.
+
+<Frame caption="«¿Dónde lo pego?» (Where do I paste it?): one tab per assistant. In the screenshot Claude Code is selected; click ChatGPT to see its path.">
+  <img src="/images/asistentes/02-donde-lo-pego.png" alt="The dashboard's ¿Dónde lo pego? (Where do I paste it?) card with the claude.ai, Claude Code, Codex and ChatGPT tabs, the Claude Code one selected with its command" />
+</Frame>
+
+## Connect it, step by step
+
 <Steps>
-  <Step title="Enable developer mode">
-    **Settings → Apps and connectors → Advanced → Developer mode**.
+  <Step title="Turn on developer mode in ChatGPT">
+    In ChatGPT: **Settings → Apps and connectors → Advanced → Developer
+    mode**.
   </Step>
-  <Step title="Create the connector">
-    Create a new custom connector.
+  <Step title="Create the connector and paste the link">
+    In **Settings → Apps and connectors**, create a new connector. If it asks
+    for a name, use one you will recognize, for example DarkFunnels, and paste
+    the link above as the server address.
   </Step>
-  <Step title="Paste the URL">
-    ```
-    https://mcp.darkfunnels.ai/mcp?features=all
-    ```
+  <Step title="Authorize with your dashboard account">
+    ChatGPT opens the DarkFunnels **Autorizar acceso** (*Authorize access*)
+    screen. If you don't have your dashboard session open in that browser, it
+    first asks you to sign in and then comes back to this screen.
+
+    **Before you click, look at the «Autorizas como» (*You are authorizing
+    as*) line.** It has to be the email you use to sign in to the dashboard.
+    If it is a different one, click **Denegar** (*Deny*) and see the "It can't
+    see your data" row in [If something goes wrong](#if-something-goes-wrong).
+    The screen also tells you what the assistant will be able to do and which
+    address it will send you back to.
+
+    Click **Autorizar** (*Authorize*). You will see **Acceso autorizado**
+    (*Access authorized*) and you go back to ChatGPT. If you click
+    **Denegar**, nothing gets connected.
+
+    If you had already authorized before, it may not ask you again and take
+    you straight back to ChatGPT.
   </Step>
-  <Step title="Authorize">
-    With the **same account you use to sign in to the DarkFunnels dashboard**.
+  <Step title="Try it">
+    Write to it in a new chat. These three messages come from the dashboard
+    (on the **Pruébalo con estos mensajes** (*Try it with these messages*)
+    card, each with its **Copiar** (*Copy*) button):
+
+    - *"Review my conversations from yesterday and tell me where I'm losing
+      sales."*
+    - *"Read my agent's playbook and suggest an improvement to the closing
+      chapter; save it once I approve it."*
+    - *"Give me the customers who have gone more than 3 days without a reply,
+      and what the agent would say to them to pick the conversation back
+      up."*
   </Step>
 </Steps>
 
-Writes (saving the playbook, editing the catalog) ask for confirmation inside
-ChatGPT before they run.
+### How you know it is connected
 
-If the assistant can't see your business, or sees it empty, you authorized with
-an account other than the dashboard's: remove the connector and connect again
-with the right one.
+Go back to **Personalizar → Asistentes IA**. There are two signs:
 
-<Note>
-Only have ChatGPT free? Use [claude.ai](/en/quickstarts/claude-ai): its free plan
-allows one connector.
-</Note>
+- **Under «Seguridad y acceso» (*Security and access*)**, the **Asistentes con
+  acceso a tu cuenta** (*Assistants with access to your account*) list shows
+  each assistant you authorized, with **Autorizado el** (*Authorized on*) and
+  the date. You see this sign even if you don't manage the company.
+- **If you manage your company's apps**, you will also see, next to «Conecta
+  tu asistente», the **Conectado · última actividad** (*Connected · last
+  activity*) badge with a date. It appears when an assistant has already
+  worked in your company, whether yours or someone else's on your team. It is
+  the date of the last activity: it doesn't disappear when you revoke an
+  access. If you don't manage the apps, you won't see it: go by the list.
+
+## What it can do, and what it asks you first
+
+With this link, ChatGPT can:
+
+- Read and edit your agent's sales playbook, with a version history so you can
+  undo.
+- Review, create and update products in your catalog.
+- Review conversations and customers, and tag whoever needs a follow-up.
+- Warn you when your credit balance is about to run out, if your account can
+  see the balance.
+
+**The link turns on every feature, including the ones that write and send.**
+Our features that change something are marked as such, and ChatGPT usually
+uses that mark to ask you for confirmation before using them.
+
+<Warning>
+**Some features really do write to your customers on WhatsApp.** For example,
+sending a message as an operator in a chat, or simulating a customer message
+in a WhatsApp chat to test the script: the agent's reply really reaches that
+number. **Read what it is going to do before you confirm.**
+</Warning>
+
+Three more things worth knowing:
+
+- **Some features spend your company's balance**, for example optimizing the
+  playbook with AI, asking the copilot or simulating a message. It is the same
+  balance as in the dashboard. Creating or duplicating a funnel, on top of
+  that, takes up a slot in your plan.
+- **Your customers' phone numbers reach it masked** (`51•••••4321`). How to
+  see them in full, in [The connection URL](/en/reference/connection-url).
+- **The full list of features** is in the
+  [Tool reference](/en/reference/tools).
+
+### If you'd rather it only read
+
+Add `&read_only=true` to the end of the link. That way ChatGPT only reads: it
+doesn't get the features that change something or send messages, nor the ones
+that use AI, such as asking the copilot or optimizing the playbook. **There is
+one exception: reading the text of an image in your Library does spend
+balance.**
+
+```
+https://mcp.darkfunnels.ai/mcp?features=all&read_only=true
+```
+
+If you already had it connected, changing the link means connecting it again:
+delete the connector in ChatGPT and create it with the new link.
+
+## Your permissions, and if you are in several companies
+
+**ChatGPT works with your account and your permissions, nothing more.** It
+can't do more than your account: it only uses what your account can use in the
+dashboard, and not everything in the dashboard has a feature for it. If you
+don't have access to an app, or that app isn't active in the company, its
+features don't show up for it in a new chat. If it still tries to use one, it
+is denied. Each person on your team who wants to use it connects with their
+own account.
+
+**If your account is in several companies**, each connection is tied to the
+company you had active the first time ChatGPT used it. If you later switch
+companies in the dashboard (or accept an invitation from another company,
+which switches you to it), that connection stops saving changes: ChatGPT will
+tell you that no change was made, so it doesn't write to the wrong company.
+
+<Warning>
+**What it reads from that moment on already comes from the company you have
+active in the dashboard.** If you were comparing figures, first go back to the
+connection's company.
+</Warning>
+
+You have two ways out:
+
+- **To stay in the connection's company**: go back to it from your account
+  menu, with **Cambiar a esta empresa** (*Switch to this company*).
+- **To work in the other one**: delete the connector in ChatGPT and connect it
+  again with that company active in the dashboard.
+
+How to switch companies and how permissions are shared out, in
+[Invite your team](/en/getting-started/invite-your-team#one-account-in-several-businesses).
+
+## Cutting off access
+
+<Steps>
+  <Step title="Open the list of assistants">
+    In **Personalizar → Asistentes IA**, scroll down to **Seguridad y
+    acceso**. Under **Asistentes con acceso a tu cuenta** each assistant
+    appears with the name it introduced itself with when it connected (if it
+    gave none, **Asistente sin nombre**, *Unnamed assistant*).
+  </Step>
+  <Step title="Click «Revocar» (Revoke)">
+    Next to the assistant you want to disconnect. The dashboard warns you of
+    the consequence: that assistant *"loses access to your account within a
+    few seconds. To use it again, you will have to connect it again."*
+  </Step>
+  <Step title="Confirm it">
+    Click **Revocar** again (or **Cancelar**, *Cancel*, if you change your
+    mind). You will see **Acceso revocado** (*Access revoked*) with the
+    assistant's name, and it disappears from the list.
+  </Step>
+  <Step title="Delete it in ChatGPT too">
+    Revoking cuts off access from our side. For it to stop appearing in
+    ChatGPT, delete the connector in **Settings → Apps and connectors**.
+  </Step>
+</Steps>
+
+<Frame caption="«Seguridad y acceso» (Security and access): how the connection is protected and the «Asistentes con acceso a tu cuenta» (Assistants with access to your account) list. In this screenshot it is empty; each assistant you authorize shows up there with its «Revocar» (Revoke) button.">
+  <img src="/images/asistentes/03-seguridad-y-acceso.png" alt="Seguridad y acceso (Security and access) card with three bullet points about the connection and the Asistentes con acceso a tu cuenta (Assistants with access to your account) list, which reads Ningún asistente tiene acceso a tu cuenta ahora (No assistant has access to your account right now)" />
+</Frame>
+
+The assistant's calls are logged: which tool it used, when and with what
+result. That log has no screen in the dashboard; if you need the details,
+[ask us](/en/security). Everything else about data and access is in
+[Security](/en/security).
+
+## If something goes wrong
+
+| What you see | The usual cause | How to fix it |
+| --- | --- | --- |
+| **You can't find where to create the connector** | Your plan is the free one, or developer mode is off | With Plus, Pro, Business (formerly Team), Enterprise or Edu, turn it on in **Settings → Apps and connectors → Advanced**. With the free plan, use [claude.ai](/en/quickstarts/claude-ai) |
+| **It can't see your data, or sees it empty** | You authorized with a different account | Ask it *"Which DarkFunnels account are you connected to?"*. If it isn't yours, delete the connector, sign in to the dashboard with the right account and connect it again |
+| **Part of your business is missing**, or it tells you that you don't have access to an app | You don't have permission in that app, or the app isn't active in that company | Ask whoever manages your company (or do it yourself, if you manage it) to give you access or to turn on the app from **Apps**. Then wait a minute and open a new chat |
+| **It tells you it made no change because you switched companies** | The connection is tied to another company | Go back to that company or reconnect: [Your permissions, and if you are in several companies](#your-permissions-and-if-you-are-in-several-companies) |
+| **«No se pudo confirmar en qué empresa trabaja esta conexión»** (*Could not confirm which company this connection works in*) | A hiccup while checking the company, on accounts that are in several | Try again in a few seconds. No change was made |
+| **New features don't show up** | The conversation kept the list of features it had when you started it | Open a new chat. If they still don't show up, delete the connector and create it again with the same link |
+| **It says «Sin créditos»** (*Out of credits*) | Your balance dropped below US\$ 0.10, even if you see a remainder on screen, or your trial ended and you have no subscription | Top up in **Administración → Saldo y facturación** (*Administration → Balance and billing*) ([how to top up](/en/getting-started/credits-and-top-ups#how-to-top-up)). If you don't see that screen, ask whoever manages your company for access to the balance. If your trial ended, topping up isn't enough: activate the subscription ([how it is activated](/en/getting-started/pricing#how-it-is-activated)). Until then, the AI features stay stopped |
+| **«No se pudo autorizar»** (*Could not authorize*) when connecting | The authorization request expired | Go back to ChatGPT and repeat the connection |
+| **You don't see Personalizar in your menu** | Personalizar is inside Ventas, and you don't have access to that app or it isn't active in your company | Copy the link from this page: it is the same. Without Personalizar you don't see the list to revoke either: to cut off access, delete the connector in ChatGPT and, if it also has to be cut off from our side, [write to us](/en/security) |
+
+<CardGroup cols={3}>
+  <Card title="claude.ai" icon="message" href="/en/quickstarts/claude-ai">
+    The same link, with a free plan that does allow one connector.
+  </Card>
+  <Card title="The connection URL" icon="link" href="/en/reference/connection-url">
+    What each option of the link changes: read-only, full phone numbers and more.
+  </Card>
+  <Card title="Security" icon="shield" href="/en/security">
+    What your assistant sees, what gets logged and what it can't do.
+  </Card>
+</CardGroup>

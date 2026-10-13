@@ -1,12 +1,12 @@
 ---
 title: "Conecta tu WhatsApp"
-description: "Conecta tu WhatsApp sin la API de WhatsApp Business: el QR paso a paso, qué número usar, qué pasa con los chats de ese número, los créditos que se acreditan al conectar y qué hacer si la sesión se queda parqueada."
+description: "Conecta tu WhatsApp con un QR, sin la API de WhatsApp Business: qué número usar, a quién responde tu agente y qué hacer si el código caduca o la línea se cae."
 keywords:
   - "conectar WhatsApp sin API"
   - "agente de IA para WhatsApp sin API oficial"
   - "WhatsApp con código QR dispositivo vinculado"
   - "sin API de WhatsApp Business"
-  - "sesión de WhatsApp parqueada"
+  - "código QR de WhatsApp caducó"
 ---
 
 Es el paso que enciende todo. Hasta aquí tienes un agente con guion; a partir de
@@ -15,22 +15,27 @@ aquí tiene teléfono.
 Conectas el número que ya usas escaneando un QR desde el panel, igual que al
 vincular WhatsApp Web. **No pasa por la API de WhatsApp Business** (la Cloud API
 de Meta): no hay solicitud que aprobar, ni plantillas de mensaje que enviar, ni
-cobro por conversación.
+cobro de Meta por conversación.
 
 ## Antes de escanear: las tres cosas que hay que saber
 
-{/* Cifra de producto: la fuente es billing.welcome_amounts() (migración z×187).
-    Si cambia allá, cambia aquí — estos docs son un deploy estático sin acceso a la BD. */}
+{/* Cifras de bienvenida, referido y anticipo: si cambian en el producto, cambian aquí.
+    Un control automático las compara con la fuente antes de publicar. */}
 
 <Warning>
 **1. Usa el número al que ya te escriben tus clientes.** Sirve WhatsApp normal o
 WhatsApp Business, en el teléfono que sea. No hace falta un número nuevo ni una
-línea aparte.
+línea aparte. Puede ser distinto del número con el que te registraste: a ese
+otro te llegan, de entrada, por WhatsApp los avisos de tus ventas y los reportes
+de tu agente.
 
-**2. Tu agente responderá los chats que lleguen a ese número.** Todos los
-entrantes, no una lista de prueba. Es lo que hace: contesta a quien escribe. Tú
-puedes tomar cualquier conversación cuando quieras — cada chat tiene un
-interruptor **Piloto automático** que apagas para responder tú.
+**2. Tu agente responderá los chats que lleguen a ese número.** No es una lista
+de prueba: mientras esté activo y tenga saldo, contesta a quien le escriba en un
+chat individual. No contesta grupos ni estados, ni a los contactos que diste de
+baja, y puede no contestarles a los números de tu propio equipo
+([Y ahora](#y-ahora) te dice desde dónde probar). Tú puedes tomar cualquier
+conversación cuando quieras: cada chat tiene un interruptor **Piloto
+automático** que apagas para responder tú.
 
 **3. Al conectar arranca el reloj de los 7 días y tu agente empieza a atender
 ese número.** Tus créditos de bienvenida ya los tienes: los US\$ 10 se adelantan
@@ -41,125 +46,371 @@ suscripción — lo cuenta
 [Planes y precios](/primeros-pasos/planes-y-precios).
 </Warning>
 
+<Note>
+**¿Gastaste esos US\$ 10 armando el agente?** Entonces al conectar no te llega
+más saldo, y tu agente no responderá hasta que vuelvas a tener créditos. Antes de
+conectar, el aviso de saldo del Inicio te lo advierte: *«Tus US\$ 10 de arranque
+se gastaron en armar tu agente»*. Cómo recargar:
+[Créditos y recarga](/primeros-pasos/creditos-y-recarga).
+</Note>
+
 ## El QR, paso a paso
 
 <Steps>
-  <Step title="Abre el panel de canales">
-    En el menú: **Personalizar → Canales**. Si vienes del aviso de tu saldo, el
-    botón **Conectar WhatsApp** te deja directamente ahí.
+  <Step title="Abre Canales">
+    En el menú de la izquierda, dentro de **Ventas**, pulsa **Personalizar**
+    (está bajo **Ajustes**). En la lista de secciones de esa pantalla
+    (**Comercio**, **Medios IA**, **Herramientas**, **Canales**…), elige
+    **Canales**. Mientras tu empresa no haya conectado su primer número,
+    Personalizar se abre ahí. (Si prefieres ir directo, escribe
+    `optimind.darkfunnels.ai/customize?panel=canales` en la barra del navegador.)
+
+    También llegas desde otros sitios del panel:
+
+    - **El aviso de saldo del Inicio**: mientras no hayas conectado tu primer
+      número, trae el enlace **Conectar WhatsApp**.
+    - **El manual**: cuando tu agente ya tiene guion y le falta el WhatsApp,
+      arriba puede aparecer *«Tu agente está listo»* con el botón
+      **Conectar WhatsApp →**. Te deja en Canales con el QR de ese agente ya
+      preparándose.
+    - **El copiloto**: si armas tu agente conversando con él, al terminar el
+      manual te lleva solo a Canales, también con el QR preparándose.
+
+    Verás **una tarjeta por agente**, con su nombre arriba y una pestaña por
+    canal. Hoy solo está activa la de **WhatsApp**; las demás dicen **(Pronto)**.
+
+    <Frame caption="Canales: una tarjeta por agente, con la pestaña WhatsApp, su insignia de estado (aquí, «Sin conexión») y el botón «Conectar / Escanear».">
+      <img src="/images/whatsapp/01-canales.png" alt="Pantalla Personalizar con la sección Canales elegida y la tarjeta del agente «Sofía - Venta de Polos de algodón pima»: la pestaña WhatsApp y las demás en «(Pronto)», «Sin número conectado», la insignia «Sin conexión», tres recordatorios y el botón «Conectar / Escanear»" />
+    </Frame>
   </Step>
   <Step title="Pulsa «Conectar / Escanear»">
-    Verás **Preparando el código QR…** unos segundos. El agente tiene que estar
-    activo: si está apagado, el panel te lo dice en vez de mostrarte el código.
-    Bajo el código se lee **«Intento N de 10»**: los códigos se renuevan solos y,
-    si pasan diez sin que nadie escanee, la sesión se detiene (mira abajo). Al
-    lado tienes **No puedo escanear mi QR**, que abre la sección de problemas de
-    esta guía, y **Escribir al equipo**.
+    Antes del botón, la tarjeta te recuerda lo esencial: usa el número al que te
+    escriben tus clientes, y tu agente responderá los chats que lleguen ahí.
+
+    Al pulsarlo verás **Preparando el código QR…** unos segundos y después el
+    código. Los códigos se renuevan solos. Si el primero pasa sin que lo
+    escanees, bajo el código aparece **Intento N de 10**: si pasan diez
+    intentos sin que nadie escanee, dejan de generarse (lo explica
+    [Problemas frecuentes](#problemas-frecuentes)). Debajo tienes
+    **Actualizar QR**, **No puedo escanear mi QR** —abre la sección de problemas
+    de esta guía— y **Escribir al equipo**, que abre un chat de WhatsApp con
+    nosotros.
+
+    <Note>
+    **El agente tiene que estar activo.** Si está en pausa, la tarjeta no
+    muestra el código: dice *«Este agente está en pausa: no responde a nadie ni
+    puede conectar su WhatsApp»* y te ofrece **Activar agente** ahí mismo. Si tu
+    prueba ya terminó, el botón es **Ver planes**.
+    </Note>
   </Step>
   <Step title="En tu teléfono, vincula el dispositivo">
-    Abre WhatsApp → **Dispositivos vinculados** → **Vincular un dispositivo** y
-    apunta la cámara al código de la pantalla.
+    En el teléfono **de la línea que estás conectando**, abre WhatsApp →
+    **Dispositivos vinculados** → **Vincular un dispositivo** y apunta la cámara
+    al código de la pantalla.
 
     Es el mismo mecanismo de WhatsApp Web: tu teléfono sigue siendo el dueño del
     número y puedes seguir usándolo con normalidad.
+
+    ¿Abriste el panel en ese mismo celular y no tienes cómo escanear tu propia
+    pantalla? Mira **«Solo tengo el celular a mano»** en
+    [Problemas frecuentes](#problemas-frecuentes).
   </Step>
   <Step title="Espera el «Conectado»">
-    La insignia del panel pasa por **Conectando…** y termina en **Conectado**,
-    con el número a la vista. Tu prueba arranca en ese momento y se abre
-    **«¡Tu agente está en línea!»**: te dice el saldo que quedó activo, te propone
-    **probarlo ahora** escribiéndole «hola» a ese número desde otro teléfono, y
-    te ofrece **Activar avisos** para que el navegador te avise de su primera
-    conversación. **Ir al chat** te lleva a la bandeja.
+    La insignia pasa por **Conectando…** y termina en **Conectado**, con el
+    número a la vista.
+
+    La primera vez que tu empresa conecta un número se abre **¡Tu agente está en
+    línea!**. Te propone **Pruébalo ahora**
+    —escribirle «hola» a ese número desde otro teléfono— y, si tu navegador lo
+    permite, te ofrece **Activar avisos** para que te llegue una notificación en
+    cuanto alguien le escriba a tu agente. **Ir al chat** te lleva a la bandeja;
+    **Seguir configurando** cierra la ventana. Las conexiones siguientes solo
+    muestran el aviso **WhatsApp conectado**.
   </Step>
 </Steps>
 
 <Tip>
-Ten el teléfono en la mano antes de pulsar «Conectar»: el código tiene vida
-corta y se agradece no tener que pedir otro.
+Ten el teléfono de la línea en la mano antes de pulsar «Conectar / Escanear»:
+cada código vive pocos segundos y se agradece no tener que pedir otro.
 </Tip>
+
+## Si tu agente nació de la plantilla de Ecommerce o desde 0
+
+Si creaste tu agente de venta con el copiloto —con la plantilla de Ecommerce o
+armando tu flujo desde 0— o le cargaste la plantilla con **Cargar plantilla de
+Ecommerce**, **el QR no sale hasta que su manual esté completo**. En su lugar,
+la tarjeta muestra **Antes de conectar:** con lo que falta, y cada cosa trae su
+enlace:
+
+- **N huecos (ver)**: datos de tu negocio que la plantilla dejó por rellenar.
+  «ver» te lleva a los huecos de ese manual.
+- **Capítulo N sin pasos (ver)**: un capítulo que quedó vacío. Si elegiste
+  desde 0, los tres capítulos nacen sin pasos: escríbelos antes de conectar.
+  «ver» abre el manual.
+- **Datos de pago y envío sin confirmar (confirmar)**: tu manual trae datos
+  típicos de pago, ubicación y envío. «confirmar» te los enseña tal como los va
+  a usar tu vendedor —*«Así va a responder tu vendedor sobre pago, ubicación y
+  envío. ¿Son correctos?»*— con dos salidas: **Sí, son correctos** o
+  **Cambiarlos en el manual**.
+
+<Frame caption="Con el manual incompleto, la tarjeta dice qué falta en vez de mostrar el QR: aquí, 20 huecos y los datos de pago y envío sin confirmar.">
+  <img src="/images/agente/03-antes-de-conectar.png" alt="Tarjeta del agente «Sofía - Venta de Polos de algodón pima» en Canales, «Sin número conectado», con el bloque «Antes de conectar:»: «20 huecos (ver)» y «Datos de pago y envío sin confirmar (confirmar)»" />
+</Frame>
+
+Al confirmar los datos, la tarjeta vuelve a intentar la conexión sola. Si lo
+que faltaba eran huecos o capítulos, complétalos en el manual, vuelve a Canales y
+pulsa **Conectar / Escanear**. La misma lista aparece arriba del manual mientras
+le falte algo. Cómo rellenar huecos: [El manual del vendedor](/guias/manual).
 
 ## Qué te dice cada estado
 
 | Insignia | Qué significa | Qué hacer |
 | --- | --- | --- |
-| **Conectado** | El número está vinculado y el agente responde. | Nada. |
-| **Escanea el QR** | Hay un código en pantalla esperándote. | Escanearlo, o pulsar **Actualizar QR** si ya caducó. |
-| **Conectando…** | La sesión está levantando. | Esperar unos segundos. |
-| **El código caducó** | Pasaron diez códigos sin que nadie escaneara: la sesión se detuvo. | **Conectar** para un código nuevo (ver abajo). |
-| **Acción requerida** | La sesión tardó de más o se cerró sola. | Ver abajo. |
-| **Desconectado** | No hay número vinculado. | **Conectar / Escanear**. |
-| **Sin conexión** | No se pudo hablar con el servicio de WhatsApp. | Reintentar en unos minutos. |
+| **Conectado** | El número está vinculado y tu agente atiende los chats que llegan. | Nada. |
+| **Escanea el QR** | Hay un código en pantalla esperándote. | Escanéalo con el teléfono de la línea, o pulsa **Actualizar QR**. |
+| **Escribe el código** | Pediste **Vincular con código** (solo aparece si tu cuenta lo tiene) y hay un código en pantalla. | Escríbelo en WhatsApp, en el celular de la línea (ver abajo). |
+| **Conectando…** | La conexión está arrancando. | Esperar unos segundos. |
+| **Desconectado** | No hay un número vinculado a esta línea. | **Conectar / Escanear**. |
+| **El código caducó** | La línea ya estuvo conectada antes y pasaron diez intentos sin que nadie escaneara el código: dejó de generarlos. | **Conectar**, para empezar de nuevo. |
+| **Acción requerida** | La conexión tarda más de lo normal, o la sesión se cerró (por ejemplo, porque otro dispositivo tomó el número). El mensaje de la tarjeta dice qué pasó. | El botón principal (**Reintentar** o **Conectar**); si en unos minutos no cambia nada, **Escribir al equipo**. |
+| **Sin conexión** | El panel no pudo hablar con el servicio de WhatsApp. | Esperar unos minutos: la tarjeta vuelve a preguntar sola. |
+| **Retirada** | Este agente no tiene línea de WhatsApp. | **Agregar línea de WhatsApp**, si quieres que vuelva a atender por WhatsApp. |
+
+## Cambiar de número o dejar un agente sin WhatsApp
+
+**Cada agente tiene su propia tarjeta y una sola línea de WhatsApp.** Si tienes
+dos agentes, cada uno se conecta con su número. Con la línea conectada, la
+tarjeta te da tres botones, y no hacen lo mismo:
+
+| Botón | Qué hace | Cuándo usarlo |
+| --- | --- | --- |
+| **Reiniciar** | Quita la pausa de seguridad que frena los envíos cuando WhatsApp da señales de bloqueo, y vuelve a arrancar la conexión solo si se había detenido. No desvincula el número ni corta una conexión que funciona. | Si la conexión se detuvo, o si tu agente dejó de enviar mensajes con la línea conectada. |
+| **Desconectar** | Desvincula el número: el panel deja de ser un dispositivo vinculado de ese teléfono. La tarjeta queda en **Desconectado**. | **Cuando cambias de número**: desconectas y escaneas el QR con el nuevo. |
+| **Retirar esta línea** | Deja al agente sin WhatsApp. | Cuando ese agente ya no va a atender por WhatsApp. |
+
+Retirar pide confirmación en **¿Retirar esta línea?**: tu agente deja de atender
+por ese número y dejan de llegarte avisos y resúmenes de esa línea. **Las
+conversaciones se conservan.** La tarjeta queda en **Retirada**, con el texto
+*«Este embudo no tiene línea de WhatsApp»*. Para devolverle una, pulsa **Agregar
+línea de WhatsApp** → **Agregar línea**, y sigue el QR como la primera vez, con
+el número que quieras usar.
+
+<Warning>
+**Si solo cambiaste de número, no retires la línea:** desconéctala y escanea el
+QR con el nuevo. Es lo que te recuerda el propio panel antes de retirarla.
+</Warning>
+
+Reconectar, cambiar de número o agregar una línea **no vuelve a dar créditos de
+bienvenida ni reinicia el reloj de la prueba**: eso pasa una sola vez por empresa.
+Desconectarte tampoco te quita el saldo que tengas.
+
+<Note>
+Vincular, reiniciar, desconectar o retirar una línea es de **quien administra
+las apps de tu empresa** (de entrada, quien creó la cuenta). Si no tienes ese
+permiso, la tarjeta te lo dice en vez del QR. Quién puede qué:
+[Invita a tu equipo](/primeros-pasos/invita-a-tu-equipo#que-puede-ver-y-hacer-cada-persona).
+</Note>
 
 ## Problemas frecuentes
 
 <AccordionGroup>
   <Accordion title="El código QR caducó antes de que lo escaneara">
-    Es normal: los códigos de WhatsApp expiran solos a los pocos segundos y se
-    van renovando mientras la pantalla está abierta. Pulsa **Actualizar QR** y
-    escanea el nuevo. Si dejas pasar muchos códigos sin escanear ninguno, la
-    sesión se parquea — es el caso de abajo.
+    Es normal: cada código de WhatsApp vence en segundos y se renueva solo; la
+    pantalla te muestra el nuevo. Pulsa **Actualizar QR** y escanea el que
+    aparezca. Si pasan diez intentos sin que tu teléfono quede vinculado, dejan
+    de generarse: es el caso de abajo.
+  </Accordion>
+  <Accordion title="Dejé pasar los códigos y ya no aparece ninguno">
+    Tras diez intentos sin escanear, la línea deja de pedirle códigos a
+    WhatsApp. Así no se pasa la noche generando códigos que nadie mira. Para
+    retomar, pulsa el botón de la tarjeta. Qué ves depende de la línea:
+
+    - **Si es la primera vez que la conectas**, la tarjeta vuelve a
+      **Desconectado**. Pulsa **Conectar / Escanear** y empieza de nuevo.
+    - **Si la línea ya estuvo conectada antes**, la insignia dice **El código
+      caducó** y el mensaje *«El código QR caducó sin escanearse y dejó de
+      renovarse. Pulsa «Conectar» para generar uno nuevo.»* El botón dice
+      **Conectar** (no «Reintentar»): púlsalo y el ciclo empieza de nuevo.
   </Accordion>
   <Accordion title="Mi teléfono dice «No se pudo vincular el dispositivo»">
-    Escaneaste y WhatsApp rechazó el vínculo en el último paso. No es tu número
-    ni tu cuenta: pasa con algunos teléfonos en el primer intento. El panel lo
-    detecta en el momento y te lo dice —**«Tu teléfono dijo "No se pudo
-    vincular"…»**— mientras vuelve a firmar el mismo código. Cierra WhatsApp,
-    vuelve a abrir **Dispositivos vinculados** y **escanea otra vez el código que
-    está en pantalla**: la segunda vez suele pasar. Si vuelve a fallar, pulsa
-    **Actualizar QR** e inténtalo de nuevo; y si tampoco, **Escribir al equipo**
-    desde esa misma pantalla.
-  </Accordion>
-  <Accordion title="Dice «El código caducó» y no aparece ningún código">
-    La sesión quedó **parqueada**: tras una decena de códigos sin escanear, el
-    servicio deja de generarlos hasta que alguien vuelve a arrancar la conexión
-    a propósito — así una pestaña olvidada no se pasa la noche pidiéndole
-    códigos a WhatsApp.
+    Escaneaste y WhatsApp rechazó el vínculo en el último paso. El panel lo
+    detecta y cambia el texto bajo el código: *«Tu teléfono dijo «No se pudo
+    vincular». Cierra WhatsApp, vuelve a abrir Dispositivos vinculados y escanea
+    este código nuevo.»*
 
-    El botón dice **Conectar** (no «Reintentar»): púlsalo y el ciclo del QR
-    empieza de cero.
+    Hazlo tal cual: cierra WhatsApp, vuelve a **Dispositivos vinculados** y
+    escanea el código que está ahora en pantalla. Si vuelve a fallar, pulsa
+    **Actualizar QR** e inténtalo otra vez; y si tampoco, **Escribir al equipo**
+    desde esa misma tarjeta.
+  </Accordion>
+  <Accordion title="Solo tengo el celular a mano (no puedo escanear mi propia pantalla)">
+    La salida más simple: abre el panel en una computadora, o en otro teléfono,
+    y escanea desde el celular de la línea.
+
+    Si en la tarjeta ves el botón **Vincular con código**, puedes vincular desde
+    el mismo celular, sin escanear nada:
+
+    1. Pulsa **Vincular con código**. Si la línea todavía no se ha conectado,
+       escribe el **Número de WhatsApp de tu negocio** y pulsa **Pedir código**;
+       el panel te pide confirmarlo en **¿Vincular este número?** →
+       **Sí, pedir código**.
+    2. Aparece un código de 8 caracteres. **Copiar código** lo copia.
+    3. En el celular de la línea: WhatsApp → **Dispositivos vinculados** →
+       **Vincular un dispositivo** → **Vincular con el número de teléfono**, y
+       escribe el código.
+
+    La tarjeta pasa a **Conectado** sola en cuanto WhatsApp lo acepta. El código
+    vence en unos minutos; **Pedir otro código** te da uno nuevo (como mucho uno
+    por minuto) y **Usar QR** te devuelve al QR. Funciona solo con **celulares
+    de Perú**, y en una línea que ya estuvo conectada sirve solo para su mismo
+    número: para vincular otro, usa el QR. Si no ves el botón, la vinculación con
+    código no está disponible para tu cuenta o para esa línea.
   </Accordion>
   <Accordion title="Se queda en «Conectando…» mucho rato">
-    El panel te ofrece dos salidas, en este orden:
+    Si pasan unos 20 segundos sin cambios, la insignia pasa a **Acción
+    requerida** con el mensaje *«La conexión está tardando más de lo normal. Reintenta o
+    reinicia.»* La tarjeta te da dos botones:
 
-    1. **Reintentar** — vuelve a pedir la conexión sin tocar la sesión.
-    2. **Reiniciar** — tira la sesión y la levanta desde cero. Es la salida
-       cuando «Reintentar» no cambia nada.
+    1. **Reintentar**: vuelve a pedir la conexión.
+    2. **Reiniciar**: hace lo mismo que «Reintentar» y además quita la pausa de
+       seguridad de los envíos, si la había. No desvincula tu número.
 
-    Si tras reiniciar sigue igual, suele ser el servicio y no tu cuenta: espera
-    unos minutos y vuelve.
+    Si sigue igual, suele ser el servicio y no tu cuenta: espera unos minutos y
+    vuelve, o **Escribir al equipo**.
   </Accordion>
   <Accordion title="Estaba conectado y se cayó solo">
-    Pasa cuando el número se desvincula desde el teléfono (WhatsApp →
-    Dispositivos vinculados → cerrar sesión), cuando WhatsApp cierra la sesión
-    por su cuenta, o tras un corte de red largo.
+    **Te avisamos.** Si una línea que estaba conectada se cae y su agente está
+    activo, te escribimos al correo del dueño de la cuenta a los pocos minutos
+    —y te llega una notificación en el navegador, si activaste los avisos—. Si
+    sigue caída, te lo recordamos a la hora, a las 12 horas y a los 3 días;
+    pasada una semana, una vez por semana si tienes suscripción o tu prueba
+    sigue vigente.
 
-    Se recupera igual que la primera vez: **Conectar / Escanear** y un QR nuevo.
-    Tus conversaciones, tu manual y tu catálogo no se tocan — lo único que se
-    rehace es el vínculo con el teléfono.
+    **Para recuperarla**, mira la insignia y el mensaje de la tarjeta:
+
+    - **Conectando…**, o **Acción requerida** con *«La conexión está tardando
+      más de lo normal. Reintenta o reinicia.»*: está intentando reconectar
+      sola, sin que tengas que escanear. Espera unos minutos; si no vuelve,
+      pulsa **Reintentar**.
+    - **Escanea el QR**: la línea perdió el vínculo con el teléfono. Escanea el
+      código nuevo con el teléfono de esa línea.
+    - **Acción requerida** con *«La sesión se cerró (otro dispositivo tomó el
+      número, o las credenciales dejaron de servir)…»*: pulsa **Conectar** y,
+      si aparece un código, escanéalo con el teléfono de esa línea. Si se
+      vuelve a cerrar, **Escribir al equipo**.
+    - **Acción requerida** con *«La sesión se detuvo desde el panel de
+      soporte…»*: pulsa **Conectar** para reanudarla.
+
+    Recuperar la línea no borra tus conversaciones, tu manual ni tu catálogo: lo
+    que se rehace es el vínculo con el teléfono.
+
+    **Lo que llegó mientras estaba caída.** Los mensajes que tus clientes
+    escribieron durante la caída pueden aparecer en sus conversaciones al
+    reconectar, pero **pueden quedarse sin respuesta**. Revisa
+    **Conversaciones** con el filtro **Esperando respuesta** y contéstales tú.
+    Si en tu bandeja tienes el botón **Seleccionar**, puedes elegir esos chats y
+    pulsar **Responder con IA**. Antes de empezar, la ventana te dice a quién va
+    a contestar y a quién se salta —por ejemplo, a quien escribió hace más de 7
+    días o tiene el piloto apagado— y te pide aceptar el riesgo de que WhatsApp
+    banee tu número. La IA contesta de a un chat por minuto, entre las 8:00 y
+    las 21:00 en la hora de tu agente, hasta 100 por tanda. Espera unos 10
+    minutos después de reconectar; antes, la IA se los salta. Lo cuenta
+    [Conversaciones](/guias/conversaciones#responder-con-ia-a-quien-quedo-esperando).
   </Accordion>
-  <Accordion title="Conecté el número equivocado">
-    **Desconectar** en el panel del canal y volver a conectar con el número
-    correcto. Los créditos de bienvenida se acreditan **una sola vez por
-    cuenta**: reconectar no los duplica, y desconectarte no te los quita.
+  <Accordion title="Dice «Este agente está en pausa»">
+    Un agente en pausa no responde a nadie ni puede conectar su WhatsApp. Pulsa
+    **Activar agente** en la misma tarjeta.
+
+    Si te responde *«Tienes N de M agentes activos. Para relevar un agente hazlo
+    desde Inicio.»*, ya usas todos tus agentes activos: pausa otro desde
+    **Inicio** para hacerle sitio. Si tu prueba terminó, la tarjeta dice
+    *«Tu prueba terminó: los agentes quedan en pausa hasta que elijas un plan»*
+    y el botón es **Ver planes**: lo explica
+    [Planes y precios](/primeros-pasos/planes-y-precios).
+  </Accordion>
+  <Accordion title="Dice «Solo quien administra tu organización puede vincular un número a esta línea»">
+    Tu usuario no tiene permiso para conectar líneas de WhatsApp. Pídele a quien
+    administra tu empresa en el panel que la conecte desde **Canales**, o que te
+    dé ese permiso. Lo mismo pasa al **Reiniciar** o **Desconectar**: el panel te
+    dice que solo quien administra puede hacerlo.
+  </Accordion>
+  <Accordion title="Me pregunta si es el número correcto, o conecté el número equivocado">
+    Si el número que vinculaste no es el del registro, la tarjeta te pregunta:
+    *«Conectaste …4321, que no es el número con el que te registraste. ¿Es el
+    número al que te escriben tus clientes?»*. Es normal: mucha gente se registra
+    con su celular personal y conecta la línea del negocio.
+
+    - **Sí, es este**: no cambia nada y el panel deja de preguntarte en ese
+      navegador.
+    - **Desconectar y usar otro**: desvincula ese número. Después pulsa
+      **Conectar / Escanear** y escanea con el teléfono correcto.
+
+    Si te diste cuenta por tu cuenta, es lo mismo: **Desconectar** y volver a
+    conectar con el número correcto. Ni los créditos ni el reloj de la prueba
+    cambian.
   </Accordion>
   <Accordion title="No quiero que responda todavía">
-    Conecta igual — es lo que arranca la prueba — y
-    apaga el **Piloto automático** en los chats que quieras atender tú. También
-    puedes desactivar el agente mientras terminas de afinar su manual.
+    **Lo más simple es esperar para conectar.** Tu prueba ya tiene fecha desde
+    el registro: si no conectas, vence 7 días después de registrarte. El día que
+    conectas, el reloj vuelve a contar 7 días desde ese día. Conecta cuando
+    quieras que tu agente empiece, dentro de esos 7 días.
+
+    Si necesitas tener el número vinculado ya, conecta y **pon a tu agente en
+    pausa** justo después de ver **Conectado**: en **Inicio**, la tarjeta de tu
+    agente tiene un interruptor que pasa de **Activo** a **Pausado**. Mientras
+    no lo pausas, tu agente ya contesta a quien escriba. En pausa no responde a
+    nadie y los mensajes de ese número no entran al panel, pero el número sigue
+    vinculado: al volver a activarlo, la línea normalmente vuelve sin que tengas
+    que escanear otra vez.
+
+    Hazlo en ese orden: un agente en pausa no puede vincular su número. Y el
+    reloj de los 7 días sigue corriendo aunque el agente esté en pausa.
+
+    Apagar el **Piloto automático** chat por chat no sirve para esto: cada
+    conversación nueva nace con el piloto encendido, así que el agente contestaría
+    el primer mensaje de cada cliente nuevo.
+  </Accordion>
+  <Accordion title="Le escribí desde otro teléfono y no me contestó">
+    Repasa, en este orden:
+
+    1. La insignia de la tarjeta dice **Conectado**.
+    2. Tienes saldo: si el aviso de saldo del Inicio está en rojo, tu agente no responde
+       mensajes nuevos hasta que lo resuelvas.
+    3. El agente está **Activo** en **Inicio**.
+    4. Ese chat tiene el **Piloto automático** encendido.
+    5. **Escribiste desde un teléfono personal.** Las líneas de WhatsApp de tu
+       negocio no sirven como número de prueba.
+    6. Si ese teléfono también recibe tus **Reportes**, **Informar de las
+       ventas** o **Alertas de error**, agrégalo en **Números de prueba**
+       (Ventas → **Configuración**): así el agente le contesta como a un
+       cliente. Lo explica
+       [Números de prueba](/guias/configuracion-del-agente#numeros-de-prueba).
   </Accordion>
 </AccordionGroup>
 
 ## Y ahora
 
-Escríbele tú mismo desde otro teléfono: es la prueba honesta. Verás la
-conversación entrar en **Conversaciones**, con el piloto encendido y el agente
-respondiendo con el guion que le escribiste.
+Escríbele «hola» a tu número desde un teléfono personal: es la prueba honesta.
+Verás la conversación entrar en **Conversaciones**, con el **Piloto automático**
+encendido y tu agente respondiendo con el guion que le escribiste.
+
+<Tip>
+Tu propio WhatsApp —el de tu usuario del panel— ya cuenta como número de prueba,
+así que puedes probar desde ahí aunque reciba tus avisos, mientras no sea el
+número de una de las líneas de WhatsApp de tu negocio.
+</Tip>
 
 <CardGroup cols={2}>
   <Card title="Créditos y recarga" icon="wallet" href="/primeros-pasos/creditos-y-recarga">
     Qué consume saldo y cómo recargar antes de quedarte sin.
   </Card>
   <Card title="Revisa conversaciones" icon="message" href="/guias/conversaciones">
-    Dónde se están perdiendo las ventas, con tu asistente al lado.
+    La bandeja donde ves cada chat y lo tomas tú cuando hace falta.
+  </Card>
+  <Card title="Configuración del agente" icon="gear" href="/guias/configuracion-del-agente">
+    Tus números de prueba, los avisos de venta y los reportes de cada mañana.
+  </Card>
+  <Card title="El manual del vendedor" icon="book" href="/guias/manual">
+    Afina lo que responde tu agente ahora que ya atiende de verdad.
   </Card>
 </CardGroup>

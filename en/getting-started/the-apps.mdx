@@ -1,7 +1,7 @@
 ---
 title: "WhatsApp sales platform modules: the apps"
 sidebarTitle: "The apps"
-description: "The WhatsApp sales platform modules: what an app is, why your sidebar differs from another business's, which are live, which half-built, and where to switch them on."
+description: "What an app is in DarkFunnels, why your menu differs from another business's or your team's, what each entry does and where to switch apps on and off."
 keywords:
   - "WhatsApp sales platform modules"
   - "DarkFunnels apps"
@@ -11,390 +11,572 @@ keywords:
   - "electronic invoicing"
 ---
 
-{/* es-source: primeros-pasos/las-apps.mdx @ 8425f8c */}
+{/* es-source: primeros-pasos/las-apps.mdx @ 8d1d047 */}
 
 DarkFunnels isn't a single screen: it's **pieces that switch on and off, one by
-one, in your business**. Each piece is an **app**. If an app is on, it shows up
-in the left-hand menu; if it's off, that row simply doesn't exist for you.
+one, in your business**. Each piece is an **app**. If an app is on and you have
+access to it, it shows up in the left-hand menu. If not, that row simply doesn't
+exist for you.
 
 That's where the number-one confusion comes from: **two businesses open the same
 dashboard and see different menus.** Neither one is broken. One has more apps
-switched on than the other.
+switched on than the other. And the same thing happens inside a single business:
+each person on the team sees the apps you gave them access to.
 
 <Note>
 **Why this page exists.** Other guides tell you things like *"you need the
-Orders app active"*. If nobody has explained what an app is, that sentence makes
-no sense. This is the explanation, and also the map of the whole menu.
+Órdenes app active"*. If nobody has explained what an app is, that sentence
+makes no sense. This is the explanation, and also the map of the whole menu.
 </Note>
+
+The dashboard is in Spanish, so this page names menus, buttons and labels the
+way you'll see them on screen, with the English translation in parentheses the
+first time.
 
 ## The apps that exist today
 
-There are **six business apps**. Four come switched on when you open the
-account; the other two you switch on yourself if you want them.
+There are **six business apps**. Four come switched on when you open your
+account; you install the other two yourself if you want them.
 
-| App | On by default? | What it does |
+| App | On from the start? | What it does |
 | --- | --- | --- |
-| **Sales** | Yes | Your agents: the script, the conversations, the catalog, the files and the results. It's the heart of the product. |
-| **Calendar** | Yes | The schedule: appointments, services, business hours and a booking page. |
-| **Inventory** | Yes | Real stock, with ins and outs per warehouse. |
-| **Orders** | Yes | The orders your agents close, with what was charged and what was delivered. |
-| **Shipping** | No | Register the shipment for an order and track it. |
-| **Electronic invoicing** | No | Issuer, series and electronic receipts. |
+| **Ventas** (*Sales*) | Yes | Your agents: the script, the conversations, the customers, the catalog, the files and the results. It's the heart of the product. |
+| **Calendario** (*Calendar*) | Yes | The schedule: appointments, services, business hours and a public booking page. |
+| **Inventario** (*Inventory*) | Yes | Real stock, with every in and every out recorded per warehouse. |
+| **Órdenes** (*Orders*) | Yes | The orders your agents close, with what was collected and what was delivered. Also appointments, services and leads. |
+| **Envíos** (*Shipping*) | No | Record the shipment for an order, request the waybill from the courier and track it. |
+| **Facturación electrónica** (*Electronic invoicing*) | No | Electronic receipts and invoices (*boletas* and *facturas*) for Peru, with your Nubefact account. |
 
 <Warning>
-**Shipping and Electronic invoicing don't come in the standard package.** They
-are off when you open the account and you have to install them yourself from
-**Administration → Apps**. And before you do, read
-**What's live and what's half-built** further down: the two are not equally
-finished.
+**Envíos and Facturación electrónica don't come installed.** Their card says
+**No instalada** (*Not installed*) and you install them yourself from
+**Administración → Apps** (*Administration → Apps*). Before you do, read
+**[Worth knowing about each app](/en/getting-started/the-apps#worth-knowing-about-each-app)**
+further down: both have limits worth knowing about.
 </Warning>
 
-### And three pieces you don't touch
+<Info>
+Some apps only appear in certain accounts while we test them there. If your Apps
+panel shows a business app that isn't in this table, it's one of those.
+</Info>
 
-In **Administration → Apps** you'll see **nine** cards, not six. The three extra
-ones are internal pieces tagged **Core**, with no buttons, because they can't be
-switched off or uninstalled:
+### And three Core pieces
+
+In **Administración → Apps**, besides the business apps, you'll see three cards
+marked with the **Core** tag. They have no buttons: from **Apps** they can't be
+deactivated or uninstalled.
 
 | Piece | What it is |
 | --- | --- |
-| **DarkFunnels Copilot** | The AI that lives inside the dashboard and helps you build and fix your agent. |
-| **Identity and access** | Who gets into your account and with what permissions. |
-| **MCP bridge** | The optional connection for operating your business from Claude, ChatGPT or Codex. |
+| **Copiloto optiMind** (*optiMind Copilot*) | The AI that lives inside the dashboard. It helps you build and fix your agent, and work in your apps by proposing changes that you approve. |
+| **Identidad y accesos** (*Identity and access*) | Who gets into your account and with what access. |
+| **Puente MCP** (*MCP bridge*) | The optional connection for running your business from Claude, ChatGPT or Codex. |
 
 <Note>
-**The Copilot has no menu entry** and you won't find one however hard you look:
-it's the chat panel pinned to the right-hand side of the screen, and it goes
-with you through every section. On narrow screens it opens as a drawer that
-overlays the page. On the public screens — sign in, sign up, accept an
-invitation — it isn't there.
+**The Copilot has no menu entry.** It opens with its button in the top bar, or
+with **⌘J** (**Ctrl+J** on Windows). On wide screens it docks to the right-hand
+side; on screens 1280 px wide or less it opens as a drawer that overlays the
+page. It goes with you through every section as you navigate.
 
-**The MCP bridge** is Core, but that doesn't mean you already have it installed.
-Its card looks the same whether it is installed or not, because Core cards show
-the tag instead of the status.
-[The connection URL](/en/reference/connection-url) covers it.
+**Each person has their own copilot.** Nobody else on the team sees what you
+talk about with it, and it only reads and proposes in the apps that person has
+access to. The **«Guíame»** (*Guide me*) helper, which points out on screen
+where to click, is built on top of the copilot: it takes you to screens of apps
+that are active in your business and that you can open.
+
+**The Puente MCP** is Core, but its card doesn't tell you whether you've already
+connected an assistant: Core cards show the tag instead of the status. What you
+have connected is shown in **Personalizar → Asistentes IA** (*Customize → AI
+assistants*). [The connection URL](/en/reference/connection-url) covers it.
 </Note>
 
 ## The sidebar, top to bottom
 
-The order is set by hand and **is always the same**: it isn't alphabetical and
-doesn't depend on which one you activated first. Apps that are off leave no
-gap: they're skipped.
+**The order is fixed:** it isn't alphabetical and doesn't depend on which app
+you activated first. Apps that are off, or that you don't have access to, leave
+no gap: they're skipped.
 
-The dashboard interface is in Spanish, so the labels in the screenshots below
-appear in Spanish.
-
-<Frame caption="The full menu of an account with the four apps that come switched on. Behind it, the Orders screen.">
-  <img src="/images/apps/01-ordenes.png" alt="DarkFunnels dashboard with the sidebar expanded — Home, Calendar, Inventory, Sales with its submenu, Orders and Administration — and the empty Orders screen" />
+<Frame caption="The menu of an account with six apps switched on: Calendario, Inventario, Ventas, Órdenes, Envíos and Facturación electrónica. Ventas expanded with its agent selector; Administración expanded at the end.">
+  <img src="/images/apps/09-menu-lateral.png" alt="Side menu of the dashboard with Inicio, Calendario, Inventario, Ventas open with the selector on «Agente de Ventas» and its entries, Órdenes, Envíos, Facturación electrónica and the Administración block expanded with Personas y accesos, Saldo y facturación, Consumo, Referidos, Apps and Ajustes" />
 </Frame>
 
 <Steps>
-  <Step title="Home">
-    **It doesn't belong to any app**, and that's why it's always in first place,
-    whatever happens to the rest. It's the day's summary: your agents, the
-    numbers and the getting-started list. Don't look for a "Dashboard": it's
-    called **Home**.
+  <Step title="Inicio (Home)">
+    **It doesn't belong to any app**, which is why it comes first, whatever
+    happens to the rest. It's the day's summary, and it's built from your apps:
+    Ventas contributes your agents and their numbers; Calendario, today's
+    appointments. Don't look for a "Dashboard": it's called **Inicio**
+    (*Home*).
 
     → [Your first look](/en/getting-started/first-look)
 
-    <Frame caption="Home: the greeting, the strip of the day's numbers and your agents' cards.">
-      <img src="/images/inicio/01-panel-inicio.png" alt="Home screen with the getting-started list at the top, the metrics strip and the card for the agent Valentina" />
+    <Frame caption="Inicio: the day's headline, what's waiting for a reply and your agents' cards.">
+      <img src="/images/inicio/01-panel-inicio.png" alt="Inicio screen with the headline «Tus agentes atendieron 54 conversaciones.» (Your agents handled 54 conversations), the «Esperan respuesta» (Waiting for a reply) card, the Ventas numbers and the agent cards" />
     </Frame>
   </Step>
 
-  <Step title="Calendar">
-    The schedule. At the top you choose between **Day**, **Week** and **Month**,
-    come back to the present with **Today** and note down an appointment by hand
-    with **+ New appointment**.
+  <Step title="Calendario (Calendar)">
+    The schedule. At the top you choose between **Día**, **Semana** and **Mes**
+    (*Day, Week, Month*), come back to the present with **Hoy** (*Today*) and
+    note down an appointment by hand with **Nueva cita** (*New appointment*).
 
-    <Frame caption="Calendar in week view. Top left, the schedule selector with the agent's name.">
-      <img src="/images/apps/04-calendario.png" alt="DarkFunnels Calendar screen in week view, with the schedule selector, the Day, Week and Month buttons, and today's column highlighted" />
+    <Frame caption="Calendario in week view, still without appointments. Top left, the schedule selector.">
+      <img src="/images/apps/04-calendario.png" alt="Calendario screen in the Semana view for 11–17 October 2026, with no appointments, the schedule selector on «Agente de Ventas», the Día, Semana and Mes buttons, Hoy and Nueva cita" />
     </Frame>
   </Step>
 
-  <Step title="Inventory">
-    Stock with a ledger entry: every in and every out is recorded. At the top,
-    the counters **TRACKED**, **UNITS**, **OVERSOLD** and **WAREHOUSES**; in the
-    middle, two tabs — **Stock** and **Movements** — and the
-    **+ Record movement** button.
+  <Step title="Inventario (Inventory)">
+    Stock with a history: every in and every out is recorded. At the top, the
+    counters **Con seguimiento** (*Tracked*), **Unidades** (*Units*),
+    **Sobrevendidos** (*Oversold*) and **Almacenes** (*Warehouses*); in the
+    middle, two tabs — **Stock** and **Movimientos** (*Movements*) — and the
+    **Registrar movimiento** (*Record movement*) button.
 
-    <Frame caption="Inventory. A product with no stock control shows the 'Not tracked' tag.">
-      <img src="/images/apps/02-inventario.png" alt="DarkFunnels Inventory screen with the counters at the top, the Stock and Movements tabs and one product listed" />
+    <Frame caption="Inventario, still without products: the counters at 0 and «El catálogo está vacío» (The catalog is empty). Once you load products, one without stock control shows the «Sin control» (Not tracked) tag.">
+      <img src="/images/apps/02-inventario.png" alt="Inventario screen with the Con seguimiento, Unidades, Sobrevendidos and Almacenes counters at 0, the Stock and Movimientos tabs, the Registrar movimiento button and the notice «El catálogo está vacío»" />
     </Frame>
   </Step>
 
-  <Step title="Sales">
-    **It's the only app with a submenu, and it starts expanded.** Below the word
-    **Sales** there's a dropdown with the photo — or the initial — and the name
-    of your agent: that is **the agent selector**. It decides which agent
-    **Playbook**, **Conversations**, **Customers** and **Settings** are talking
-    about.
+  <Step title="Ventas (Sales)">
+    **It's the app with a submenu, and it starts expanded.** The other apps on
+    this page have a single entry and show up as a direct row.
+
+    Below the word **Ventas** there's a dropdown with your agent's photo — or
+    initial — and name: that's **the agent selector**. It picks the agent you're
+    working with inside Ventas.
 
     | Entry | Under the divider | What it is |
     | --- | --- | --- |
-    | **Results** | — | The numbers — what it talked about and what it sold — for one agent or for the whole business, depending on what you choose. |
-    | **Playbook** | **AGENT** | The agent's script. It's what you'll edit most. → [guide](/en/guides/sales-playbook) |
-    | **Conversations** | **AGENT** | The inbox: the WhatsApp chats, one by one. → [guide](/en/guides/conversations) |
-    | **Customers** | **AGENT** | Who wrote to you, where they got to and who is waiting for an answer. |
-    | **Library** | **AGENT** | The photos, PDFs and audio your agent sends. The screen is titled **"Files"**. → [guide](/en/guides/library) |
-    | **Catalog** | **COMMERCE** | Your products with prices and variants. → [guide](/en/guides/catalog) |
-    | **Customize** | **SETTINGS** | The name, the face and the WhatsApp number the agent introduces itself with. |
-    | **Settings** | **SETTINGS** | The fine-grained settings for that agent. |
+    | **Resultados** (*Results*) | — | Your business's numbers against the previous period — conversions, attributed revenue, conversion rate and more — for the chosen agent or for all of them together (**Toda la organización**, *The whole organization*). → [guide](/en/guides/orders-and-metrics) |
+    | **Manual** (*Playbook*) | **AGENTE** (*AGENT*) | The agent's script. It's what you'll edit most. → [guide](/en/guides/sales-playbook) |
+    | **Conversaciones** (*Conversations*) | **AGENTE** | The inbox: the WhatsApp chats, one by one. → [guide](/en/guides/conversations) |
+    | **Clientes** (*Customers*) | **AGENTE** | Who wrote to you, which chapter they're in and who's waiting for a reply, in three views: **Cola** (*Queue*), **Embudo** (*Funnel*) and **Tabla** (*Table*). |
+    | **Librería** (*Library*) | **AGENTE** | The photos, PDFs and audio your agent sends. The screen is titled **«Archivos»** (*Files*). → [guide](/en/guides/library) |
+    | **Catálogo** (*Catalog*) | **COMERCIO** (*COMMERCE*) | Your products with prices and variants. → [guide](/en/guides/catalog) |
+    | **Red de referidos** (*Referral network*) | **COMERCIO** | Your customers' referral program: who recommended whom, which deposits came in and which rewards you owe. → [guide](/en/guides/referral-network) |
+    | **Personalizar** (*Customize*) | **AJUSTES** (*SETTINGS*) | What you connect to your agent: the WhatsApp channel, Meta pixels, tools, AI assistants, voice and avatar. → [Connect WhatsApp](/en/getting-started/connect-whatsapp) |
+    | **Configuración** (*Settings*) | **AJUSTES** | That agent's fine-tuning: who it notifies, which currency it records in, which numbers are test numbers, which reports it sends. → [guide](/en/guides/agent-settings) |
 
-    <Frame caption="Customers, inside the AGENT block. The Sales submenu comes open out of the box.">
-      <img src="/images/apps/03-clientes.png" alt="DarkFunnels Customers screen with the Queue, Funnel and Table views and the closing queue empty" />
+    <Frame caption="Resultados: the period's verdict and the numbers that explain it.">
+      <img src="/images/apps/06-resultados-con-datos.png" alt="Resultados screen for Semana 42 with Toda la organización selected, the verdict 77 «Bueno» (Good) and the Tasa de conversión, Conversiones and Ingreso atribuido figures against the previous period" />
+    </Frame>
+
+    <Frame caption="Clientes, inside the AGENTE block, with its Cola, Embudo and Tabla views.">
+      <img src="/images/apps/03-clientes.png" alt="Clientes screen in the Cola view, with the Cola, Embudo and Tabla views, the Etiquetas (Labels) button and the empty Por cerrar section: «Cola limpia. La IA está al mando.»" />
     </Frame>
 
     <Warning>
-    **On day one, four of those entries lead nowhere.** Until you've created
-    your first agent, **Playbook**, **Conversations**, **Customers** and
-    **Settings** come out greyed with the notice *"Create your first agent"*.
-    They aren't broken: they have nobody to refer to yet.
+    **On day one, five of those entries are greyed out.** Until you've created
+    your first agent, **Manual**, **Conversaciones**, **Clientes**,
+    **Red de referidos** and **Configuración** can't be opened yet and, when you
+    hover over them, they say *«Crea tu primer agente»* (*Create your first
+    agent*). They aren't broken: they don't have anyone to refer to yet.
     </Warning>
 
+    <Note>
+    **Anuncios** (*Ads*) appears below **Resultados** in the accounts that
+    already have it. If you don't see it in your menu, it isn't available in
+    your account yet. When you have it, start with
+    [Connect your Meta ads](/en/guides/meta-ads).
+    </Note>
+
     <Tip>
-    If you close the submenu, it stays closed next time. That preference is
-    saved **in your browser**, not in your account.
+    If you collapse the Ventas submenu, it stays collapsed next time. That
+    preference is saved **in your browser**, not in your account.
     </Tip>
   </Step>
 
-  <Step title="Orders">
-    The orders. At the top, four tabs: **Orders**, **Appointments**,
-    **Services** and **Leads** — yes, appointments and leads live here too.
-    Inside **Orders** there are also three views (**Table**, **Pipeline**,
-    **Vouchers**) and four filters (**All**, **To collect**, **Paid**,
-    **Closed**). The three views **only appear on the Orders tab**.
+  <Step title="Órdenes (Orders)">
+    The orders. If you also have Ventas, there are four tabs at the top:
+    **Pedidos** (*Orders*), **Citas** (*Appointments*), **Servicios**
+    (*Services*) and **Leads** — yes, appointments and leads live here too.
+
+    In **Pedidos** you see the counters **Por cobrar** (*To collect*),
+    **Por despachar** (*To dispatch*), **En camino** (*On the way*) and
+    **Entregados** (*Delivered*), and three views: **Tabla** (*Table*),
+    **Pipeline** and **Vouchers**. In the **Tabla** view you also have four
+    filters: **Todos** (*All*), **Por cobrar**, **Pagados** (*Paid*) and
+    **Cerrados** (*Closed*). At the top right are **Pedido manual** (*Manual
+    order*) and, with Ventas, **Avisos automáticos** (*Automatic notices*).
+
+    <Frame caption="Órdenes, still without orders: the tabs at the top, the counters and the Tabla, Pipeline and Vouchers views.">
+      <img src="/images/apps/01-ordenes.png" alt="Órdenes screen with the Pedidos, Citas, Servicios and Leads tabs, the Por cobrar, Por despachar, En camino and Entregados counters at 0, the search box, the Tabla, Pipeline and Vouchers views, the Todos, Por cobrar, Pagados and Cerrados filters, Avisos automáticos, Pedido manual and the notice «Aún no hay pedidos» (No orders yet)" />
+    </Frame>
 
     → [Orders and metrics](/en/guides/orders-and-metrics)
   </Step>
 
-  <Step title="Shipping and Electronic invoicing">
-    Only if you installed them. They go in that order, after **Orders**. Watch
-    out for the name: on the desktop menu it reads **Electronic invoicing** in
-    full, but on the phone that same entry is called **Invoices**.
+  <Step title="Envíos and Facturación electrónica">
+    Only if you installed them. They come in that order, after **Órdenes**.
+    **Envíos** has three tabs: **Envíos** (*Shipments*), **Guías del courier**
+    (*Courier waybills*) and **Couriers**. **Facturación electrónica** is where
+    you set up the issuer and look at the receipts.
   </Step>
 
-  <Step title="Administration">
-    Always the last one, and **it comes collapsed** — unless you're already
-    inside one of its screens, in which case you find it open. If you open or
-    close it by hand, your decision rules from then on.
+  <Step title="Administración (Administration)">
+    It sits at the bottom of the menu and **appears collapsed every time you
+    load the dashboard**, even if you're inside one of its screens: in that case
+    only its header is highlighted. One click opens it and it stays open while
+    you navigate; when you reload the page it's collapsed again.
 
     | Block | Entries |
     | --- | --- |
-    | **People and access** | **People and access** — who else gets into your account and with what permissions. |
-    | **Money** | **Balance and billing** · **Usage** |
-    | **Platform** | **Referrals** · **Apps** |
-    | **Account** | **Settings** |
+    | **Personas y accesos** (*People and access*) | **Personas y accesos** — who else gets into your account and into which apps. |
+    | **Dinero** (*Money*) | **Saldo y facturación** (*Balance and billing*) · **Consumo** (*Usage*) |
+    | **Plataforma** (*Platform*) | **Referidos** (*Referrals*) · **Apps** |
+    | **Cuenta** (*Account*) | **Ajustes** (*Settings*) — opens your **Perfil** (*Profile*): your details and your security. |
+
+    What you see inside depends on your access. **Saldo y facturación**,
+    **Consumo** and **Referidos** show up for whoever can see the balance, and
+    **Apps** for whoever can manage the team (to begin with, the account
+    owner).
 
     <Tip>
-    This is where the balance is topped up (**Balance and billing**) and this is
-    where apps are switched on and off (**Apps**). If you can't find the top-up,
-    it's because this block was collapsed.
+    This is where you top up your balance (**Saldo y facturación**; if you see
+    your balance in the top bar, tapping it takes you to the same place) and
+    where apps are switched on and off (**Apps**). If you can't find the
+    top-up, it's because this block was collapsed.
     </Tip>
+
+    <Note>
+    **Referidos** is not **Red de referidos**. The one in Administración is
+    your code for inviting other businesses to DarkFunnels. **Red de
+    referidos**, inside Ventas, is your own customers' referral program.
+    </Note>
   </Step>
 </Steps>
 
+<Tip>
+**Can't find a screen?** Press **⌘K** (**Ctrl+K** on Windows) and type its
+name. A search box opens, *«Buscar página o acción…»* (*Search page or
+action…*), with the same entries as your menu.
+</Tip>
+
+## What each person on your team sees
+
+Your menu depends on two things: **which apps are switched on in the business**
+and **which ones you have access to**. An app shows up in your menu when both
+are true.
+
+Access is granted person by person and app by app — **Ventas included** — in
+**Administración → Personas y accesos**. Whoever opens the account has all of
+it.
+
+| If a person is missing… | What happens to them |
+| --- | --- |
+| Access to an app | That app doesn't show in their menu. If they type its address, they see *«No tienes acceso a…»* (*You don't have access to…*). |
+| **Ver saldo y facturación** (*View balance and billing*) | They don't see **Saldo y facturación**, **Consumo** or **Referidos**. |
+| The **Copiloto** (*Copilot*) | They don't see the copilot button or the «Guíame» helper. |
+| **Administrar el equipo** (*Manage the team*) | They don't see the **Apps** entry. |
+| **Administrar las apps** (*Manage the apps*) | Even if they see **Apps**, they can't install, activate, deactivate or uninstall apps. |
+
+How to invite someone and hand out access:
+[Invite your team](/en/getting-started/invite-your-team).
+
+<Note>
+**One account, several businesses.** Apps and access belong to each business.
+If your account is in more than one, open your account menu (the circle at the
+top right) and click the other business's name: underneath it says **Cambiar a
+esta empresa** (*Switch to this business*). The menu then shows that business's
+apps.
+</Note>
+
 ## App, agent and funnel are not the same thing
 
-Three words a newcomer mixes up on day one:
+Three words that get mixed up on day one:
 
 | Word | What it is | Whose it is |
 | --- | --- | --- |
 | **App** | A piece of the dashboard, switched on or off. | **The whole business's**. |
-| **Agent** | Your automatic salesperson: a name, a script and a WhatsApp number. | It lives **inside the Sales app**. |
-| **Funnel** | Another name for the agent. **It's the same thing.** In the dashboard, "agent" is the word that rules. | Same as the agent. |
+| **Agent** (*agente*) | Your automatic salesperson: a name, a script and a WhatsApp number. | It lives **inside the Ventas app**. |
+| **Funnel** (*embudo*) | Another name for the agent. **It's the same thing.** In the dashboard you'll mostly see «agente», but some screens say «embudo». | Same as the agent. |
 
-→ [Glossary](/en/reference/glossary)
+Both words live side by side in the dashboard. The menu on each agent's card,
+on Inicio, offers **Compartir embudo…** (*Share funnel…*), and Calendario with
+no agents says *«Aún no tienes embudos»* (*You don't have any funnels yet*).
+[Your funnels](/en/guides/your-funnels) covers it, and each word is in the
+[Glossary](/en/reference/glossary).
 
-The practical consequence: **switching agents in the selector doesn't change
-what you see in Calendar, Inventory, Orders, Shipping or Electronic
-invoicing.** Stock and orders belong to the business, not to a salesperson.
-That's why the selector hangs off **Sales** and not off the menu's first level.
-And that's also why switching agents doesn't take you out of the screen you're
-on: you stay where you were.
+The practical consequence: **orders, stock, shipments and receipts belong to
+the business, not to a salesperson.** Switching agents in the selector doesn't
+filter **Órdenes**, **Inventario**, **Envíos** or **Facturación electrónica**.
+That's why the selector hangs off **Ventas** and not off the menu's first level.
+And switching agents doesn't take you out of the screen you're on: if you're in
+**Conversaciones**, you move to the new agent's inbox.
 
 <Note>
 **Two things that confuse people here, and are worth saying:**
 
-**1. The Calendar does distinguish agents.** Each agent has its own schedule —
-it's just that you choose between them **inside the Calendar screen itself**,
-with the selector you see at the top left, and there you can look at several
-overlaid.
+**1. Calendario does distinguish agents.** Each agent has its own schedule. When
+you go in from the menu, Calendario shows you the schedule of the agent chosen
+in the selector. Inside the screen itself, with the schedule selector at the
+top left, you can look at up to five at once.
 
-**2. The Orders screen uses the word "funnel" in its subtitle**
-(*"Everything the funnel achieves — orders, appointments, services and leads —
-from the 'yes' to the close"*). It's a turn of phrase: the order list you see is
-your whole business's.
+**2. The Órdenes screen uses the word «embudo» (funnel) in its subtitle**
+(*«Todo lo que el embudo logra — pedidos, citas, servicios y leads — del «sí» al
+cierre.»* — *Everything the funnel achieves — orders, appointments, services and
+leads — from the "yes" to the close.*). It's a turn of phrase: the order list
+you see is your whole business's.
 </Note>
 
-## What's live and what's half-built
+## Worth knowing about each app
 
-I'd rather say it before you find out yourself. Status as of
-**September 2026**:
+What's worth knowing about each app before you trust it with your operation:
 
-| App | Actual status |
+| App | Worth knowing |
 | --- | --- |
-| **Sales** | **Live and in daily use.** It's where almost all of the product happens. |
-| **Orders** | **Live.** The most used of the five operational apps, with daily movement. |
-| **Inventory** | **It works, but it's among the least used.** Everything it promises — warehouses, movements, overselling — is operational. |
-| **Calendar** | **It works, little used.** Appointments, services, availability rules and booking page are operational. |
-| **Shipping** | **Half-built.** A single courier connected by API: **Shalom**. Any other one is recorded as a manual shipment. |
-| **Electronic invoicing** | **Built, no mileage.** It takes for granted that you'll be among the first to use it: try it with a one-off receipt before depending on it. |
+| **Ventas** | It's where almost all of the product happens: your agents, their conversations and what they sell. It's the app that charges a subscription. |
+| **Órdenes** | It brings together the orders your agents close and the ones you note down yourself with **Pedido manual**. |
+| **Inventario** | Warehouses, movements and overselling. A product you didn't switch stock control on for shows up as **Sin control**. |
+| **Calendario** | Each schedule has its own services, business hours, blocked times, reminders and public booking page. The settings open with the gear next to the schedule selector. |
+| **Envíos** | Today the courier connected for requesting waybills from the dashboard is **Shalom**. With another courier, the shipment is recorded just the same, but you get the waybill in that courier's system. |
+| **Facturación electrónica** | It issues with your **Nubefact** account, and each receipt comes from a copilot proposal that you approve. |
 
 <Warning>
-**If you're going to install Shipping, this changes what you expect of it.** The
-connection with Shalom doesn't use an API key: it uses **your courier account
-password**. You have to choose by hand the agency you dispatch from. And the
-switch that generates the waybills **starts off on purpose**, because every
-waybill is real and the courier charges it to your account. Today the connection
-reads your Shalom account. Try it with a real shipment before trusting a batch
-to it.
+**If you're going to install Envíos with Shalom, this changes what you expect
+from it.** The connection doesn't use an API key: it uses **your courier account
+password**. You have to pick from the list the agency you dispatch from (type
+your district and choose it). And the **Pedir las guías al courier desde aquí**
+(*Request waybills from the courier here*) checkbox starts off on purpose: with
+it on, each shipment's **Pedir la guía al courier** (*Request the waybill from
+the courier*) button creates a real waybill in your Shalom account, and you're
+charged for it. Nothing requests it on its own: a person presses it. Try it
+with one real shipment before trusting it with a batch.
 </Warning>
 
 <Warning>
-**If you're going to install Electronic invoicing: nothing is issued from its
-screen.** There you only configure the issuer and look at the receipts already
-issued. Today issuing comes in through a single path — a copilot proposal that
-you approve — so don't look for an **Issue** button: it doesn't exist.
+**If you're going to install Facturación electrónica: nothing is issued from
+its screen.** There you set up the issuer — your tax details, your Nubefact
+account and the series for *boletas* and *facturas* — and look at the receipts
+already issued. Each issuance arrives as a copilot proposal that you approve, so
+don't look for an **Emitir** (*Issue*) button: there isn't one. Before
+depending on it, try it with a single receipt.
 </Warning>
 
 ## What they cost
 
-**Today only the Sales app charges a subscription.** Calendar, Inventory,
-Orders, Shipping and Electronic invoicing show on their card as **Free**:
-switching them on doesn't raise your bill.
+**Today only the Ventas app charges a subscription.** Calendario, Inventario,
+Órdenes, Envíos and Facturación electrónica say **Gratis** (*Free*) on their
+card: switching them on doesn't raise your bill. The Core cards also say
+**Gratis**.
 
 <Warning>
-**"Free" means "no subscription", not "no cost".** Whatever those apps consume
-in artificial intelligence still comes off your balance, just like your agent's
-conversations. Each one keeps its own meter.
+**«Gratis» means "no subscription", not "no cost".** Everything the AI does
+spends your balance: your agents' replies and whatever you ask the copilot,
+including when it works in Órdenes, Inventario or Facturación electrónica. In
+**Consumo** you see it split between **Ventas** and **Copiloto** (*Copilot*).
 </Warning>
 
-The Sales arithmetic — the base, the agent quota and the US\$ 50 that come back
-to you as balance — is set out in full in **[Plans and
+The Ventas arithmetic — the US\$ 50 monthly base that comes back to you as
+balance, and the agent quota — is set out in full in **[Plans and
 pricing](/en/getting-started/pricing)**.
-
-<Note>
-If you see "Sales" in some old text, it's the same app: **it's called Ventas**,
-in the dashboard and on your receipt.
-</Note>
 
 ## Where they're switched on and off
 
-In **Administration → Apps**. The account owner does it: an invited employee
-normally **doesn't even see that entry** in their menu.
+In **Administración → Apps**. That entry is visible to whoever can manage the
+team; to begin with, the account owner. To install, activate, deactivate or
+uninstall apps you also need to be able to **manage the apps**. The account
+owner can do both from sign-up.
 
 Each app is a card with its status, its price and, if it's active, the month's
-estimated charge.
+estimated charge. At the top you have the **«Buscar apps…»** (*Search apps…*)
+search box and the buttons to filter by category (**Todas**, **Comercial**,
+**Operación**, **Plataforma** — *All, Commercial, Operations, Platform*).
+
+<Frame caption="The Apps screen: each card with its tag (Activa, Core or No instalada: Active, Core or Not installed), its price and, depending on the case, Desactivar and Desinstalar (Deactivate, Uninstall) or Instalar (Install).">
+  <img src="/images/apps/10-catalogo-de-apps.png" alt="Apps screen with the search box, the Todas, Comercial, Operación and Plataforma filters and nine cards: Calendario, Inventario, Órdenes and Ventas tagged Activa (Active); Copiloto optiMind, Identidad y accesos and Puente MCP tagged Core; Facturación electrónica and Envíos tagged No instalada (Not installed), with Instalar (Install)" />
+</Frame>
+
+### How to install an app
+
+<Steps>
+  <Step title="Open Apps">
+    In the left-hand menu, open **Administración** and click **Apps**.
+  </Step>
+  <Step title="Find the card and click Instalar">
+    Type its name in **«Buscar apps…»** or filter by category. On the app's
+    card, click **Instalar** (*Install*).
+  </Step>
+  <Step title="Review the impact and confirm">
+    A window opens with **your monthly estimate, before and after**. On a free
+    app you'll see *«Sin costo: esta app no factura.»* (*No cost: this app
+    doesn't bill.*) If it works for you, confirm with the **Instalar** button
+    followed by the app's name (for example, **Instalar Envíos**). If not,
+    **Cancelar** (*Cancel*).
+  </Step>
+  <Step title="Give your team access">
+    The app becomes **Activa** (*Active*) and shows up in your menu. Whoever
+    installs it can use it right away. For someone else to see it, give them
+    access in **Personas y accesos**.
+  </Step>
+</Steps>
+
+### An app's statuses
 
 | Status | What it means | Button you'll see |
 | --- | --- | --- |
-| **Active** | Switched on and in the menu. | **Deactivate** · **Uninstall** |
-| **Deactivated** | Installed but switched off. It doesn't show in the menu. | **Activate** · **Uninstall** |
-| **Archived** | Uninstalled. Its data is still stored. | **Install** |
-| **Not installed** | You never had it. | **Install** |
+| **Activa** (*Active*) | Switched on and in the menu. | **Desactivar** (*Deactivate*) · **Desinstalar** (*Uninstall*) |
+| **Desactivada** (*Deactivated*) | Installed but switched off. It doesn't show in the menu. | **Activar** (*Activate*) · **Desinstalar** |
+| **Archivada** (*Archived*) | Uninstalled. Its data is still stored. | **Instalar** |
+| **No instalada** (*Not installed*) | You've never had it. | **Instalar** |
 
 <Check>
-**No button acts on the first click.** Before installing, activating or
-deactivating, a window opens showing you **what happens to your bill**, with the
-before and the after. Uninstalling asks for its own confirmation. You can look
-around without fear of breaking anything.
+**Every button asks for confirmation before acting.** Installing, activating or
+deactivating opens the window that shows you **what happens to your monthly
+estimate**. Uninstalling asks for its own confirmation. You can look around
+without fear of breaking anything.
 </Check>
 
 <Note>
-**Deactivating and uninstalling are not the same**, even though they look alike:
+**Deactivating and uninstalling are not the same**, even though they look
+alike:
 
-- **Deactivate** leaves the app installed and switched off. It's undone with one
-  click on **Activate**.
-- **Uninstall** archives it. It requires the app to be deactivated first, but
+- **Desactivar** leaves the app installed and switched off. It's undone with
+  one click on **Activar**.
+- **Desinstalar** archives it. It requires the app to be deactivated first, but
   the button chains the two steps for you.
 
-And the three **Core** pieces allow neither of the two: they have no buttons.
+The three **Core** pieces allow neither: they have no buttons.
 </Note>
 
 <Check>
-**Uninstalling an app doesn't delete your data: it archives it.** If you install
-it again, everything shows up as you left it. The panel itself tells you so in
-its subtitle. Switching Inventory off doesn't make you lose your stock.
+**Uninstalling an app doesn't delete your data: it archives it.** If you
+install it again, everything shows up as you left it. The dashboard itself tells
+you so in its subtitle: *«Desinstalar archiva: nada se borra.»* (*Uninstalling
+archives: nothing is deleted.*) Switching Inventario off doesn't make you lose
+your stock.
 </Check>
 
 <Warning>
-**A rare case worth recognizing:** an app can show as **Active** and carry
-alongside it a red pill that says **kill-switch**. It's an emergency brake
-applied from our side, and it overrides the status: with that pill in place, the
-app doesn't operate even though it says "Active". If you run into it, write to
-us.
+**A rare case worth recognizing:** an app can show as **Activa** and carry, next
+to it, a red pill that says **kill-switch**. It's an emergency brake that
+overrides the status: with that pill in place, the app leaves the menu and its
+screen says «App no activa» (*App not active*), even though the card says
+«Activa».
+
+It's set and removed by whoever manages the apps in your business, in
+**Administración → Personas y accesos**, **Módulos** (*Modules*) tab. There the
+braked app shows up marked **APAGADO** (*OFF*): click it and confirm with
+**Encender** (*Switch on*). If nobody on your team set it, write to us.
 </Warning>
 
 ## Common problems
 
 <AccordionGroup>
   <Accordion title="The documentation mentions an entry I don't have in my menu">
-    That's normal, and it's what this page is about. That app is **switched off
-    in your business**. Open **Administration → Apps** and look at its card: if
-    it says **Deactivated** or **Not installed**, there's your answer.
+    That's normal, and it's what this page is about. There are three possible
+    causes:
+
+    - **The app is switched off in your business.** If you can see
+      **Administración → Apps**, look at its card: if it says
+      **Desactivada**, **Archivada** or **No instalada** — or carries the red
+      **kill-switch** pill next to it — there's your answer.
+    - **You don't have access to that app.** Ask whoever manages your team for
+      it.
+    - **It isn't available in your account yet.** That's what happens with
+      **Anuncios**: it only appears in the accounts that already have it.
+      There's nothing to switch on in **Apps** for that; if you want it, write
+      to us.
   </Accordion>
 
-  <Accordion title="I went in by the address and got 'App not active'">
+  <Accordion title="I typed the address and got «App no activa»">
     It isn't a technical error: it's the screen that comes up when you type the
-    address of an app that's switched off. If you administer the apps, it comes
-    with a **Go to Apps** button. If not, it tells you to ask your administrator
-    to activate it.
+    address of an app that's switched off in your business. If you manage the
+    apps, it comes with an **Ir a Apps** (*Go to Apps*) button. If not, it tells
+    you to ask your administrator to activate it.
   </Accordion>
 
-  <Accordion title="My employee gets an error opening Orders, but they can see the entry">
-    It isn't a fault: **the menu shows an app because it's switched on in the
-    business, not because you have permission to go in.** Permission is granted
-    separately, person by person.
+  <Accordion title="I get «No tienes acceso a…»">
+    The app is switched on in your business, but you don't have access to it.
+    The screen tells you *«Pídele acceso a quien administra tu equipo.»* (*Ask
+    whoever manages your team for access.*) and offers **Volver al Inicio**
+    (*Back to Home*).
 
-    Five of the six apps — Calendar, Orders, Inventory, Shipping and Electronic
-    invoicing — require their own permission. **Sales is the exception: it has
-    no permission of its own**, so anyone with access to the account gets into
-    Sales, always within your business's data. If that matters to you, bear it
-    in mind before inviting someone.
+    If you're the one who manages the apps, the message is different: *«Ya
+    está activa en tu empresa. Para usarla, date acceso en Personas y
+    accesos.»* (*It's already active in your business. To use it, give
+    yourself access in People and access.*), with the **Ir a Personas y
+    accesos** (*Go to People and access*) button.
+
+    If you were just given access and still don't see the app, reload the page.
   </Accordion>
 
   <Accordion title="My menu ran out of apps">
-    If none are left switched on, the menu doesn't leave you a gap: it shows the
-    owner an **Add apps** button that leads straight to the panel. With the
-    sidebar shrunk to icons only that button doesn't appear — expand it first.
+    If you have no apps left, the menu doesn't leave you a gap. To whoever can
+    manage the team it shows an **Añadir apps** (*Add apps*) button that leads
+    straight to the Apps panel. With the sidebar shrunk to icons only, that
+    button doesn't appear: expand it first.
+
+    If you don't manage the apps, Inicio explains it with *«Aún no tienes apps
+    asignadas»* (*You don't have any apps assigned yet*): ask whoever manages
+    your team for access.
   </Accordion>
 
   <Accordion title="On the phone the menu names are different">
-    On screens of 768 px or less the sidebar turns into a bar of five buttons at
-    the bottom: **Home**, three shortcuts and **More**. The middle three use
-    short names and come from your active apps in order of importance. With the
-    four apps a new account comes with, they are **Chats** (which on the desktop
-    is Conversations), **Schedule** (Calendar) and **Orders**. Everything else
-    lives inside **More**.
+    On screens 768 px wide or less a bar of buttons appears at the bottom:
+    **Inicio**, up to three shortcuts and **Más** (*More*). The shortcuts in the
+    middle use short names and come from your apps in order of importance. With
+    the four apps a new account comes with, they are **Chats**, **Agenda**
+    (*Schedule*) and **Pedidos** (*Orders*). Everything else lives inside
+    **Más**.
+
+    | On the desktop | On the phone bar |
+    | --- | --- |
+    | Conversaciones | **Chats** |
+    | Calendario | **Agenda** |
+    | Órdenes | **Pedidos** |
+    | Inventario | **Stock** |
+    | Facturación electrónica | **Facturas** (*Invoices*) |
+    | Envíos | **Envíos** |
+    | Resultados | **Resultados** |
+
+    The bar takes the first three on this list that you have. If you're missing
+    one of the first apps, the next one moves up.
+
+    <Frame caption="On the phone, the bottom bar: Inicio, Chats, Agenda, Pedidos and Más.">
+      <img src="/images/inicio/05-movil.png" alt="Inicio on a phone with the bottom bar Inicio, Chats, Agenda, Pedidos and Más" />
+    </Frame>
   </Accordion>
 
   <Accordion title="The menu looks different on another computer">
-    What the menu remembers about you — which submenus you left open and whether
-    you shrank the bar — **is saved in your browser, not in your account**. On
-    another machine, or after clearing the site's data, it goes back to its
-    factory state. What does belong to the business, and travels with you, is
-    which apps are switched on.
+    What the menu remembers about you — which submenus you left collapsed and
+    whether you shrank the bar — **is saved in your browser, not in your
+    account**. On another computer, or after clearing the site's data, it goes
+    back to its factory state. What does travel with you is the business's:
+    which apps are switched on and which ones you have access to.
   </Accordion>
 
   <Accordion title="I shrank the sidebar and things disappeared">
     The bar has three shapes: **expanded** with the names, **shrunk** to icons
-    only (with tooltips when you hover) and, in narrow windows, a **drawer**
-    that overlays the page. In the shrunk shape there are no submenus, no
-    **Administration** header and no **Add apps** button, and the agent selector
-    moves up, next to **Home**.
+    only (with tooltips when you hover) and, in windows 1024 px wide or less, a
+    **drawer** that overlays the page and opens with the **Abrir menú** (*Open
+    menu*) button in the top bar.
 
-    The button to change shape is right at the bottom: expanded it reads
-    **Collapse**; shrunk only its icon is left, and on hover the tooltip says
-    **Expand**.
+    In the shrunk shape each app is a single icon, **Administración** too (a
+    gear that takes you to its first screen), the **Añadir apps** button isn't
+    there and the agent selector moves up, next to **Inicio**.
+
+    The button to change shape is right at the bottom: expanded, it reads
+    **Colapsar** (*Collapse*); shrunk, only its icon is left, and on hover the
+    tooltip says **Expandir** (*Expand*).
+
+    <Tip>
+    The bar also shrinks on its own when the screen runs short of room, for
+    example when you open the copilot in a medium-sized window. It comes back
+    on its own as soon as there's space.
+    </Tip>
   </Accordion>
 
   <Accordion title="There are screens I can't reach from the menu">
-    There are two, and you get into them from inside:
+    Some open from inside others. The two people look for most:
 
-    - **The Persona Studio**, where the agent's face and way of speaking are
-      defined: it opens from the **Playbook** or from **Customize**.
-    - **The schedule settings**: they open from the schedule selector on the
-      **Calendar** screen (the gear next to it).
+    - **Personas**, where you define who your agent is, what face it has and
+      how it sounds: it opens from the **Manual** (in the persona panel,
+      **Gestionar Personas** — *Manage Personas*) or from
+      **Personalizar → Medios IA** (*Customize → AI media*), with
+      **Configurar por persona** (*Set up per persona*).
+    - **The schedule settings**: they open with the gear next to the schedule
+      selector on the **Calendario** screen.
   </Accordion>
 </AccordionGroup>
 
@@ -404,13 +586,13 @@ us.
   <Card title="Your first look" icon="house" href="/en/getting-started/first-look">
     The screen you see when you go in, piece by piece.
   </Card>
+  <Card title="Invite your team" icon="users" href="/en/getting-started/invite-your-team">
+    Who gets into your account and into which apps.
+  </Card>
   <Card title="Plans and pricing" icon="wallet" href="/en/getting-started/pricing">
     What's charged, what's at zero and what comes back to you as balance.
   </Card>
-  <Card title="Glossary" icon="book-open" href="/en/reference/glossary">
-    Agent, funnel, playbook, chapter, copilot: every word in one line.
-  </Card>
   <Card title="Orders and metrics" icon="chart-line" href="/en/guides/orders-and-metrics">
-    What the Orders app gathers, and how to look at it.
+    What the Órdenes app gathers, and how to look at it.
   </Card>
 </CardGroup>

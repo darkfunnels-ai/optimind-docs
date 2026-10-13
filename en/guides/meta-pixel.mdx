@@ -1,7 +1,7 @@
 ---
 title: "Meta pixel for WhatsApp conversions"
 sidebarTitle: "Meta pixel"
-description: "Set up the Meta pixel for WhatsApp conversions: what to copy from Events Manager, how to write the rules that send purchases and leads, and what each send means."
+description: "Connect your Meta pixel: what to get from Events Manager, which rules send purchases and leads from WhatsApp, and how to read each send."
 keywords:
   - "Meta pixel"
   - "WhatsApp conversions"
@@ -10,36 +10,52 @@ keywords:
   - "click-to-WhatsApp ads"
 ---
 
-{/* es-source: guias/pixel-de-meta.mdx @ 9dccbf3 */}
+{/* es-source: guias/pixel-de-meta.mdx @ 735adf4 */}
 
 This is what closes the loop with your ads. Up to here your agent sells over
-WhatsApp; from here on Meta finds out who actually bought, and with that list it
-refines who it shows your ads to.
+WhatsApp; from here on **Meta finds out who actually bought**, and with that
+information it refines who it shows your ads to.
 
-<Frame caption="The video tutorial: the same steps as this guide, in 6 minutes and with narration.">
-  <video controls playsInline preload="metadata" className="w-full aspect-video rounded-xl" src="/videos/pixel-de-meta/tutorial-pixel-meta.mp4"></video>
-</Frame>
+<Note>
+**Where it is.** In the left-hand menu, inside **Ventas** (*Sales*), click
+**Personalizar** (*Customize*), which sits under **Ajustes** (*Settings*), and,
+in the list of sections on that screen, choose **Píxeles** (*Pixels*). If you
+prefer to go straight there, type
+`optimind.darkfunnels.ai/customize?panel=pixeles` in the browser's address bar.
+
+The people on your team who have access to the **Ventas** app can see it and
+change it. How that access is given is in
+[Invite your team](/en/getting-started/invite-your-team).
+</Note>
+
+The dashboard is in Spanish, so its buttons and labels are named here as you
+will see them on screen, with the English in parentheses the first time. Meta's
+own screens appear in whatever language your Meta account uses; the screenshots
+are from the Spanish interface.
 
 ## A pixel without a website
 
 The classic pixel is a piece of code that lives on a website and tells Meta
 every time someone buys. In a WhatsApp funnel there is no website and no
 browser, so that code doesn't exist. What there is, is this: when a customer
-matches one of your rules — reaching a chapter of the sales playbook, or your
-agent recording a sale — DarkFunnels sends Meta a notification (Meta calls it
-an “event”) through its **Conversions API**, the channel Meta offers for
+matches one of your rules (they reach a chapter of the sales playbook, or your
+agent records a sale), DarkFunnels sends Meta a notification (Meta calls it an
+“event”) through its **Conversions API**, the channel Meta offers for
 notifications that don't come from a website.
 
 Along with the notification travel the data Meta needs to recognize the person:
-the phone number, the name and the country, always converted into a
-**fingerprint** that cannot be reversed (Meta never receives the data in the
-clear). What does **not** travel is the conversation.
+the phone number, the first name, the last name and the country, first
+converted into a **fingerprint** that cannot be reversed. Meta doesn't receive
+that data in the clear. What does **not** travel is the conversation.
 
-What it's good for, in three sentences: Meta can optimize your campaigns for
-purchases and not only for conversations started, when it enables that objective
-on your account (further down we tell you when); you can normally build
-audiences of real buyers and lookalike audiences from them; and in Ads Manager
-you see purchases next to each ad, not just chats.
+What it's good for:
+
+- Meta can optimize your campaigns for purchases and not only for
+  conversations started, when it enables that objective on your account
+  (further down we tell you what that depends on).
+- You can normally build audiences of real buyers and lookalike audiences
+  based on them.
+- In Ads Manager you see purchases next to each ad, not just chats.
 
 ## Before you start: the three things to know
 
@@ -54,11 +70,16 @@ grants it to you, in **Business settings → Users → People**.
 
 **2. What you paste is the ID of a pixel or dataset, not that of an app.** In
 Events Manager they appear mixed together. If you open a Facebook app you won't
-find the token button: this dashboard's notifications go to the pixel's dataset.
+find the token button: this dashboard's notifications go to the pixel's
+dataset.
 
-**3. Only the sales your agent records count.** The ones you enter by hand from
-**Customers** are not sent, on purpose: the pixel exists so Meta learns from the
-sales that came out of a conversation.
+**3. The sales that reach Meta are the ones your agent records.** The ones you
+enter yourself in the **Conversiones** (*Conversions*) card of the customer's
+profile, from **Clientes** (*Customers*) or from **Conversaciones**
+(*Conversations*), are not sent, even if you use **Registrar conversión**
+(*Record conversion*) to have the AI fill in the form for you. It's on purpose:
+the pixel exists so Meta learns from the sales your agent closed in the
+conversation.
 </Warning>
 
 ## What you need to get from Events Manager
@@ -69,10 +90,6 @@ already has a pixel, skip to step 2.
 
 To get there, from **Ads Manager** hover over the icon bar on the left: the menu
 expands with the names and **Events Manager** is at the bottom.
-
-The screenshots are from the Spanish interface: the DarkFunnels dashboard is in
-Spanish, and Meta's own screens appear in whatever language your Meta account
-uses.
 
 <Frame caption="The Ads Manager left-hand menu, expanded. “Events Manager” is the second-to-last option.">
   <img src="/images/pixel-de-meta/01-ads-menu-administrador-de-eventos.png" alt="Ads Manager side menu with the Events Manager option" />
@@ -92,26 +109,27 @@ uses.
     that's what creates the classic pixel, and it's the one that works for a
     WhatsApp funnel.
 
-    <Frame caption="“Connect data” offers Web, App, Offline, CRM and Messaging. For a number connected by QR, the option is Web.">
+    <Frame caption="“Connect data” offers Web, App, Offline, CRM and Messaging. For your WhatsApp number, the option is Web.">
       <img src="/images/pixel-de-meta/00-meta-conectar-datos.png" alt="Events Manager “Connect a new data source” dialog" />
     </Frame>
 
     Give it a name, leave the Conversions API checkbox ticked and click
     **Create**. Meta asks which ad accounts to connect (tick the ones that
     advertise your WhatsApp) and then how you want to send the data: choose
-    **Set up the Conversions API** and, when it proposes a partner, **See other
-    setup options → Set up manually**. You don't need to follow the “manual
-    implementation” wizard that opens afterwards: close it, the dataset already
-    exists.
+    **Set up the Conversions API**. Meta first proposes a paid partner: you
+    don't need one, because DarkFunnels sends the notifications. Expand the
+    other options and choose the one to set it up yourself, with no partner.
+    You don't need to follow the implementation wizard that opens afterwards:
+    close it, the dataset already exists.
 
-    <Frame caption="Meta proposes a paid partner; “See other options” reveals “Set up manually”, which is the route with no extra code.">
-      <img src="/images/pixel-de-meta/04-meta-api-otras-opciones.png" alt="Conversions API setup options, with “Set up manually” at the end" />
+    <Frame caption="Meta first proposes a paid partner; expanding more options reveals Meta's own routes.">
+      <img src="/images/pixel-de-meta/04-meta-api-otras-opciones.png" alt="Conversions API setup options: a recommended partner at the top and, expanded, Set up with Meta and Set up with partner integration" />
     </Frame>
   </Step>
   <Step title="Copy the pixel ID">
-    In **Datasets** → your pixel → **Settings** tab. The ID is the long number,
-    around 16 digits, that appears as **Dataset ID** (and under the name in the
-    list on the left).
+    In **Datasets** → your pixel → **Settings** tab. The ID is the long number
+    that appears as **Dataset ID** (and under the name in the list on the
+    left).
 
     <Frame caption="The Settings tab shows the ID that goes into DarkFunnels.">
       <img src="/images/pixel-de-meta/07-meta-configuracion-identificador.png" alt="Dataset Settings tab with the ID" />
@@ -135,191 +153,305 @@ uses.
     </Frame>
   </Step>
   <Step title="Copy the test code">
-    **Test events** tab → under **Select channel** choose **Website** → expand
-    **Confirm that your server events are set up correctly** and copy the
-    `test_event_code` (it starts with `TEST`). That's what lets you check the
-    connection instantly. You can save it in the pixel or paste it only when you
-    test.
+    **Test events** tab → in the marketing channel drop-down choose
+    **Website** → expand **Confirm that your server events are set up
+    correctly** and copy the **test code** (it starts with `TEST`). That's what
+    lets you check the connection instantly. You can save it in the pixel when
+    you create it, or paste it only when you test.
 
     <Frame caption="The test code lives inside the “Website” channel, in the server events block.">
-      <img src="/images/pixel-de-meta/12-meta-probar-eventos-codigo-prueba.png" alt="Test events tab with the test_event_code visible" />
+      <img src="/images/pixel-de-meta/12-meta-probar-eventos-codigo-prueba.png" alt="Test events tab with the test code visible" />
     </Frame>
   </Step>
 </Steps>
 
 <Tip>
 Have the three pieces of information at hand before you open the dashboard. The
-token is stored as a fingerprint and can't be looked up afterwards: if you paste
-it wrong, the way out is to delete the pixel and create it again.
+token **is stored encrypted and is not shown again**: if you paste it wrong, the
+way out is to delete the pixel and create it again.
 </Tip>
 
 ## Connect it in DarkFunnels
 
 <Steps>
-  <Step title="Open the pixels dashboard">
-    In the menu: **Customize → Pixels** → **Add pixel**. The card at the top,
-    **Where do I get this information?**, summarizes this guide in case you need
-    it without leaving the dashboard.
+  <Step title="Open «Píxeles» and click «Añadir píxel»">
+    In **Personalizar → Píxeles**, click **Añadir píxel** (*Add pixel*). There
+    is another way in: the **Añadir integración** (*Add integration*) button in
+    the Personalizar header and, in the window that opens, the **Meta Píxel**
+    card. It takes you to the same tab.
 
-    <Frame caption="The Pixels tab: the collapsed help at the top and, below it, each pixel with its rules and its sends.">
-      <img src="/images/pixel-de-meta/20-df-panel-pixeles.png" alt="Customize → Pixels dashboard with one connected pixel and two rules" />
+    At the top is the **Manda tus ventas reales a Meta** (*Send your real sales
+    to Meta*) card. It comes with the **¿Dónde consigo estos datos?** (*Where do
+    I get this information?*) help collapsed, which summarizes this guide in
+    case you need it without leaving the dashboard.
+
+    <Frame caption="The Píxeles tab of Personalizar with a pixel already saved: «Campañas Moda Sol», with the Token guardado badge, its Reglas («Sin reglas todavía…», no rules yet) and its Envíos. Above it, the Añadir píxel button.">
+      <img src="/images/pixel-de-meta/20-df-panel-pixeles.png" alt="Personalizar (Customize) screen with the Píxeles (Pixels) section chosen: the card text, the Cobertura del píxel line, the folded ¿Dónde consigo estos datos? help, the Añadir píxel button and the Campañas Moda Sol pixel (ID ••••3456, Token guardado, switch on) with Reglas («Sin reglas todavía…», Añadir regla) and Envíos (Probar conexión, Últimos envíos)" />
     </Frame>
   </Step>
   <Step title="Fill in the form">
-    A **Name** you'll recognize (“Peru campaigns”), the **Pixel ID (dataset)**
-    and the **Conversions API access token**. The **Test code** goes in its own
-    box. Leave the **WhatsApp Business account ID** empty if you connected your
-    number by scanning the QR (further down we tell you when you should fill it
-    in).
+    **Nuevo píxel de Meta** (*New Meta pixel*) opens. A **Nombre** (*Name*)
+    you'll recognize («Campañas Perú», *Peru campaigns*), the **ID del píxel
+    (conjunto de datos)** (*Pixel ID (dataset)*) and the **Token de acceso de
+    la API de conversiones** (*Conversions API access token*). If you want to
+    save the test code, it goes in **Código de prueba (opcional)** (*Test code
+    (optional)*). Leave the **ID de cuenta de WhatsApp Business (opcional)**
+    (*WhatsApp Business account ID (optional)*) empty: further down we tell you
+    why.
 
-    <Frame caption="The creation form. The token is stored encrypted and is not shown again.">
-      <img src="/images/pixel-de-meta/22-df-formulario-nuevo-pixel.png" alt="“New Meta pixel” form with its five fields" />
+    If the dashboard tells you *«El ID del píxel es numérico…»* (*The pixel ID
+    is numeric…*), what you pasted is not the ID: copy it again from the
+    **Settings** tab.
+
+    <Frame caption="The «Nuevo píxel de Meta» (New Meta pixel) form. Under the token, the note: «Se guarda cifrado y no vuelve a mostrarse» (It is stored encrypted and is not shown again).">
+      <img src="/images/pixel-de-meta/22-df-formulario-nuevo-pixel.png" alt="«Nuevo píxel de Meta» (New Meta pixel) form with its five fields" />
     </Frame>
   </Step>
   <Step title="Save and test the connection">
-    **Save pixel** leaves the card with the **Token saved** badge. Click **Test
-    connection**: if you didn't save the test code, it asks for it in a box
-    right there (paste it and click **Test**; that code is used only for that
-    test and is not stored). If Meta accepts, you'll see the notice *“Meta
-    received the test event. See it in Events Manager → Test events.”* and a
-    **Sent · Lead · test** row under **Recent sends**.
+    **Guardar píxel** (*Save pixel*) creates the pixel's card with the **Token
+    guardado** (*Token saved*) badge and the notice *«Píxel guardado. Ahora
+    define cuándo mandar cada evento.»* (*Pixel saved. Now define when to send
+    each event.*)
 
-    <Frame caption="“Test connection” asks for the code if it isn't saved; every attempt is recorded in “Recent sends”.">
-      <img src="/images/pixel-de-meta/24-df-ultimos-envios-y-probar.png" alt="Sends block with the test code box and two test sends received" />
-    </Frame>
+    Click **Probar conexión** (*Test connection*). If you didn't save the test
+    code, a box appears to paste it: paste it and click **Probar** (*Test*)
+    (that code is used only for that test and is not saved). If Meta accepts,
+    you'll see *«Meta recibió el evento de prueba. Míralo en Events Manager →
+    Probar eventos.»* (*Meta received the test event. See it in Events Manager →
+    Test events.*) Click **Últimos envíos** (*Recent sends*) and you'll have an
+    **Enviado** (*Sent*) row with **Lead · prueba** (*Lead · test*) and *Meta
+    lo recibió* (*Meta received it*).
+
+    If Meta rejects it, the notice starts with *«Meta rechazó el evento:»*
+    (*Meta rejected the event:*) followed by the reason, which also stays in
+    **Últimos envíos**.
   </Step>
   <Step title="Remove the test code when you're done">
-    While the code is saved, real notifications also go out marked as tests:
-    Meta counts them all the same, but they show up in **Test events** mixed in
-    with your tests. The card flags this with the **Test mode** badge; **Remove
-    test code** takes it out without touching anything else.
+    If you saved the test code in the pixel, its card carries the **Modo
+    prueba** (*Test mode*) badge. While it's there, real notifications also go
+    out marked as tests and, in Meta, they get mixed in with your tests. Click
+    **Quitar código de prueba** (*Remove test code*): it takes it out without
+    touching anything else.
   </Step>
 </Steps>
 
 So far Meta knows you exist. You still haven't told it **when** to notify it:
-that's what the rules are for, and without them nothing is sent.
+that's what the rules are for, and **without rules nothing is sent, except the
+test**.
 
 ## The rules: when each event is sent
 
 Each rule is a sentence: *when a customer in this funnel does such a thing, Meta
-receives such an event*. You write it with **Add rule**:
+receives such an event*. For almost every business two are enough: **records a
+sale → Purchase** and **the chapter where the customer has already shown
+interest → Lead**.
 
 <Steps>
+  <Step title="Open «Nueva regla» (New rule)">
+    On the pixel's card, next to **Reglas** (*Rules*), click **Añadir regla**
+    (*Add rule*). The window opens set up for the most common case: **Registra
+    una venta** (*Records a sale*) with **Compra (Purchase)**.
+  </Step>
   <Step title="Choose the funnel">
-    In **Funnel**, the agent whose customers count for this rule. Each rule
-    names a single funnel.
+    In **Embudo** (*Funnel*), the agent whose customers count for this rule. If
+    you only have one, it's already selected. Each rule names a single funnel:
+    if you sell with two, create a rule for each one.
   </Step>
   <Step title="Say what has to happen">
-    In **When the customer**, choose between reaching a chapter or recording a
-    conversion. If it's a chapter, choose which one in **Chapter**.
+    In **Cuando el cliente** (*When the customer*), leave **Registra una
+    venta** or choose another option from the table below. With **Llega a un
+    capítulo** (*Reaches a chapter*), **Capítulo** (*Chapter*) appears, with
+    the chapters of that funnel's playbook.
   </Step>
-  <Step title="Leave the suggested event or change it">
-    In **Event Meta receives** the usual event for that case is already filled
-    in. The full sentence is assembled below: read it and click **Save rule**.
+  <Step title="Check the event and save">
+    In **Evento que recibe Meta** (*Event Meta receives*) the usual event for
+    that case is already filled in. You can swap it for another one from the
+    list or for a **Personalizado…** (*Custom…*) one with your own name
+    (letters, numbers and underscores, starting with a letter). The full
+    sentence is assembled below, for example *«Cuando un cliente de «Moda Sol»
+    compra, Meta recibe Compra (Purchase).»* (*When a customer of “Moda Sol”
+    buys, Meta receives Compra (Purchase).*) Read it and click **Guardar
+    regla** (*Save rule*).
   </Step>
 </Steps>
 
-<Frame caption="The rule reads as a whole before you save it: funnel, chapter and event.">
-  <img src="/images/pixel-de-meta/23-df-nueva-regla.png" alt="“New rule” editor with the sentence describing the rule" />
+<Frame caption="The «Nueva regla» (New rule) window: funnel, when and event, and below, the rule written out as a sentence before you save it.">
+  <img src="/images/pixel-de-meta/23-df-nueva-regla.png" alt="«Nueva regla» (New rule) window with the Embudo (Funnel), Cuando el cliente (When the customer) and Evento que recibe Meta (Event Meta receives) fields, and the rule's sentence" />
 </Frame>
 
 | When the customer… | Suggested event | What it tells Meta |
 | --- | --- | --- |
-| **Reaches a chapter** | `Lead` | Someone advanced to that point in the sales playbook. |
-| **Records a sale** | `Purchase` | Someone bought, with amount and currency: Meta requires them on a purchase. |
-| **Books an appointment** | `Schedule` | Someone booked, through the chat or from your booking page. |
-| **Leaves their details (lead)** | `Lead` | Someone left a name and contact details. |
-| **Signs up for a service** | `Purchase` | Same as a sale. |
-| **Any conversion** | `Purchase` | Any of the above. Careful: with this rule an appointment or a lead reaches Meta as a purchase. |
-
-The suggested event can be swapped for another one from the catalog or for a
-**custom** one with your own name. For almost every business two rules are
-enough: **the chapter where the customer has already shown interest → Lead** and
-**records a sale → Purchase**.
+| **Llega a un capítulo** (*Reaches a chapter*) | Cliente potencial (`Lead`) | Someone advanced to that point in the playbook. Here **Compra is not offered**: reaching a chapter doesn't say how much was sold. |
+| **Registra una venta** (*Records a sale*) | Compra (`Purchase`) | Someone bought. It goes with the amount and the currency your agent recorded; if the sale is missing either of the two, it goes without an amount. |
+| **Agenda una cita** (*Books an appointment*) | Cita agendada (`Schedule`) | Someone booked an appointment. |
+| **Deja sus datos (lead)** (*Leaves their details (lead)*) | Cliente potencial (`Lead`) | Someone left their contact details. |
+| **Contrata un servicio** (*Signs up for a service*) | Compra (`Purchase`) | Someone signed up for a service. If the conversion carries an amount, it goes with it. |
+| **Cualquier conversión** (*Any conversion*) | Compra (`Purchase`) | Any sale, appointment, lead or service your agent records (reaching a chapter doesn't count). Careful: with this rule an appointment or a lead reaches Meta as a purchase, and if they carry no amount, as a purchase with no amount. |
 
 The details worth knowing:
 
-- **Chapter 1 can't be chosen.** Every contact is born there, so nobody
-  “reaches” it. Rules start at 2.
+- **Chapter 1 can't be chosen.** Every contact is born there. Rules start at 2.
 - **The rule points at the chapter number, not at its name.** If you reorder or
-  delete chapters in the sales playbook, the rule keeps pointing at the same
-  number: the dashboard reminds you of this when you create it, and it's worth
+  delete chapters in the playbook, the rule keeps pointing at the same number:
+  the dashboard reminds you of this when you create it, and it's worth
   reviewing your rules after touching the playbook.
 - **A jump skips the ones in between.** If your agent moves the customer from
   chapter 2 to 4, the rule for 3 doesn't fire.
 - **Each arrival is sent once.** The system records what it has already
   delivered and doesn't repeat it. If the customer leaves the chapter and comes
-  back in later, that's another arrival and another notification goes out. If
-  two rules on the same pixel match the same occurrence, the first one you wrote
-  wins.
+  back in later, that's another arrival and another notification goes out.
+- **If two rules on the same pixel match the same occurrence, the one you
+  created first wins.** If you have two pixels, each one sends its own
+  notification.
 - **Moving the customer between chapters by hand also counts.** If you drag a
   customer in the funnel or change their chapter from their profile, the rule
   fires just as if your agent had done it.
+- **A rule can't be edited.** To change it, remove it with the wastebasket icon
+  on its row and create the new one.
+- **Each pixel allows up to 50 rules.**
 - **Voiding a sale doesn't subtract anything.** The Conversions API has no
-  refund notification and doesn't accept subtracting a purchase: the `Purchase`
+  refund notification and doesn't accept subtracting a purchase: the Purchase
   already sent stays.
-- **With click attribution, Meta understands a short list of events** (purchase,
-  lead, cart, order…). We translate `Lead` into the name Meta expects there; an
-  appointment or an event with its own name may not count in that mode.
 
 <Note>
-Pausing the pixel with its toggle stops sending everything, without deleting
-rules or history. What happens while it's paused is not sent afterwards: when
-you switch it back on, only new occurrences go out.
+Pausing the pixel with its toggle stops sending your rules' notifications,
+without deleting rules or history (the **Probar conexión** test keeps working).
+What happens while it's paused is not sent afterwards: when you switch it back
+on, only new occurrences go out.
 </Note>
 
-{/* Product figure: the source is MAX_EVENT_AGE_MS in runtime/src/pixels/meta.ts
-    (7 days: a limit of Meta's own API; cited several times on this page).
-    If it changes there, change it here — these docs are a static deploy with no database access. */}
+### If you have an old «chapter → Compra» rule
+
+It used to be possible to send **Compra** (*Purchase*) on reaching a chapter.
+Today the dashboard no longer allows it, because that purchase reaches Meta
+**without the amount** of the sale. If you type «Purchase» as a custom event in
+a chapter rule, the dashboard rejects it with *«Compra necesita el monto de la
+venta…»* (*Purchase needs the sale amount…*).
+
+If your pixel already had a rule like that, it keeps working (and sending
+purchases with no amount) until you delete it. You'll see it with this notice
+in red underneath:
+
+<Warning>
+*«Esta regla manda Compra sin el monto de la venta. Primero bórrala y después
+crea «Registra una venta» → «Compra (Purchase)»: con las dos a la vez, Meta
+contaría dos compras.»* (*This rule sends Purchase without the sale amount. First
+delete it and then create “Records a sale” → “Purchase”: with both at once, Meta
+would count two purchases.*)
+</Warning>
+
+**Do it in that order.** If you try to create the sale rule first (or any other
+one that sends Compra on recording a conversion in that same funnel), the
+dashboard won't let you and warns you: *«Este embudo ya manda Compra al llegar
+a un capítulo. Borra esa regla antes de crear Compra al registrar una venta, o
+Meta contará dos compras.»* (*This funnel already sends Purchase on reaching a
+chapter. Delete that rule before creating Purchase on recording a sale, or Meta
+will count two purchases.*)
+
+{/* "7 days": the age limit for notifications (set by Meta) and the window of
+    the "Cobertura del píxel" line. It's cited several times on this page: if
+    it changes in the product, change it here. */}
 
 ## What each send tells you
 
-**Recent sends**, on the pixel card, is the proof of life: the last 20
-notifications, one row each with its outcome. You don't have to ask anyone for a
-technical log: here you see what happened to each one.
+Two things on the tab tell you whether the pixel is working: the **Cobertura
+del píxel** (*Pixel coverage*) line, at the top, and **Últimos envíos**
+(*Recent sends*), on each pixel. You don't have to ask anyone for a technical
+log.
+
+### Pixel coverage
+
+As soon as you have a pixel, the **Manda tus ventas reales a Meta** card adds a
+line like this one:
+
+*Cobertura del píxel: 8 de 10 ventas de los últimos 7 días llegaron a Meta con
+su monto.* (*Pixel coverage: 8 of 10 sales from the last 7 days reached Meta
+with their amount.*)
+
+It counts the sales your agent recorded in the last 7 days, across all your
+funnels, and how many of them reached Meta as a **Purchase** with their amount.
+If your agent didn't sell that week, it tells you so: *«tu agente no registró
+ventas en los últimos 7 días»* (*your agent didn't record any sales in the last
+7 days*). If you see a dash (—), it couldn't be calculated at that moment: open
+the tab again later.
+
+If the two numbers don't match, the difference is usually in one of these
+cases:
+
+- **The funnel of those sales has no sale rule.** That funnel needs **Registra
+  una venta → Compra (Purchase)** (or **Cualquier conversión → Compra**).
+- **The pixel was paused, or didn't exist yet, when the sale was made.** Those
+  sales count in the total, but they weren't sent and won't be. The figure
+  catches up on its own as the days go by.
+- **The send came out Omitido (Skipped) or Falló (Failed).** The reason is in
+  **Últimos envíos**.
+- **The sale rule sends another event** (a custom one, for example): it reaches
+  Meta, but this line only counts Purchases.
+- **The Purchase went out through an old chapter rule.** That one carries no
+  amount and doesn't count.
+- **The sale was recorded without an amount or without a currency.** It reaches
+  Meta as a Purchase, but without an amount, and this line doesn't count it.
+
+### Recent sends
+
+Click **Últimos envíos** on the pixel's card: you'll see the last 20
+notifications, one row each with its status, the event, where it came from
+(**capítulo** (*chapter*), **conversión** (*conversion*) or **prueba**
+(*test*)), the reason if something went wrong, and the time. To close it,
+**Ocultar envíos** (*Hide sends*).
 
 | Status | What it means | What to do |
 | --- | --- | --- |
-| **Sent** | Meta received it. | Nothing. |
-| **Failed** | Meta rejected it or it couldn't be reached. The reason appears in the row. | If it mentions the token (“OAuth”, invalid, revoked), generate another one in Events Manager, delete the pixel and create it again. If it says there was no response, it was a momentary outage: that notification is not repeated, but the next one will go out normally. |
-| **Skipped** | The rule matched, but there was nothing Meta could match on: the contact had no usable phone number (hidden number or no recognized country) and didn't come from an ad, or the occurrence was more than 7 days old. | Nothing to fix on that contact. If it's all of them, read “Common problems”. |
+| **Enviado** (*Sent*) | Meta replied that it received it (*Meta lo recibió*, *Meta received it*). | Nothing. |
+| **Falló** (*Failed*) | Meta rejected it, didn't reply, or the pixel has no token (*No hay token guardado para este píxel.*, *There's no token saved for this pixel.*). The reason appears in the row. | If it mentions the token (“OAuth”, invalid, revoked) or says there's no token, generate another one in Events Manager, delete the pixel and create it again. If it mentions the network or that there was no response, it's usually a momentary outage: that notification is not repeated; once the outage is over, the next one goes out normally. |
+| **Omitido** (*Skipped*) | The rule matched, but the notification wasn't sent: *El contacto no tiene teléfono real ni clic de anuncio: Meta no podría emparejarlo.* (*The contact has no real phone number and no ad click: Meta couldn't match them.*), or *El evento tenía más de 7 días; Meta no acepta eventos tan antiguos.* (*The event was more than 7 days old; Meta doesn't accept events that old.*) | Nothing to fix on that contact. If it's almost all of them, read [Common problems](/en/guides/meta-pixel#common-problems). |
 
 Failures with Meta **are not retried automatically**: a revoked token is not
 going to start working again by insisting. That's why the error stays visible
 here instead of spinning silently.
 
-On Meta's side, the **Test events** tab only gives you instructions and the
-code; it doesn't list what's coming in. The real activity is visible in the
-dataset's **Overview** tab, and Meta warns it can take up to 30 minutes to show
-it.
+On Meta's side, the activity shows up in the dataset's **Overview** tab, and
+Meta warns it can take up to 30 minutes to show it.
 
 ## The ad click
 
-When a customer messages you from a **“Send WhatsApp message”** ad, their first
-message usually carries hidden the ad they came from and a click identifier. We
-store it alongside the contact without you having to do anything (you won't see
-it on their profile: only the send to Meta uses it), and if the same customer
-comes back through another ad, the latest one is kept.
+When a customer messages you from a **“Send WhatsApp message”** ad, their
+message usually carries, hidden, the ad they came from and a click identifier.
+We store it alongside the contact without you having to do anything, and if the
+same customer comes back through another ad, the latest one is kept. You won't
+see the click identifier on their profile: the send to Meta uses it.
 
-With that there are two ways of telling Meta about the sale:
+With that there are two ways of telling Meta what happened:
 
-- **By phone number**, which is the usual one. Meta receives the fingerprint of
-  the number and matches it to the person; if that person saw or tapped your
-  ads, it attributes it with its usual rules. It works with a number connected
-  by QR as long as the customer writes with a visible number and with a country:
-  the ones that arrive with a hidden number are skipped.
-- **By the exact click**, if you also save the **WhatsApp Business account ID**
-  in the pixel. That ID belongs to numbers that are on the WhatsApp Business
-  Platform (Meta's official API, the one for numbers registered through a
-  provider or with Meta directly), and it's visible in **Business settings →
-  Accounts → WhatsApp accounts**. If you connected by QR, you normally won't
-  have it: leave it empty. With both pieces of information, the notification
-  goes out marked as a messaging conversion and Meta hangs it off the specific
-  ad.
+- **By phone number**, the usual one. Meta receives the fingerprint of the
+  number and matches it to the person; if that person saw or tapped your ads,
+  it attributes it with its usual rules. The customer needs to write with a
+  visible number and with a recognized country. If they arrive with a hidden
+  number and didn't come from an ad either, the notification is skipped. If
+  they came from an ad, it goes out anyway, but without the WhatsApp Business
+  account ID (the one in the next point) the click doesn't travel: Meta only
+  receives the fingerprints of the first name, the last name and the country,
+  and an internal identifier, so it's hard for Meta to match it.
+- **By the exact click**, if, when creating the pixel, you also save the
+  **WhatsApp Business account ID**. That ID belongs to numbers registered on
+  the WhatsApp Business Platform (Meta's official API), and it's visible in
+  **Business settings → Accounts → WhatsApp accounts**.
 
-The **Click attribution** badge on the card tells you the second route is
-enabled; each notification uses it only if that customer arrived from an ad, and
-if not, it goes by phone number.
+**In DarkFunnels your number is connected by scanning a QR code or with a code,
+not through that API.** That's why you normally won't have that ID: leave it
+empty and the notifications will go by phone number, as explained above. If
+your number is also on that platform and you save the ID, the card shows the
+**Atribución por clic** (*Click attribution*) badge: the notification for a
+customer who arrived from an ad goes out marked as a messaging conversion and
+Meta hangs it off the specific ad; the notification for everyone else goes by
+phone number. In that mode, `Lead` travels with the name Meta uses for
+messaging, and Meta understands a shorter list of events there: an appointment
+or a custom event may not count.
+
+The ad each customer came from is also used by the **Anuncios** (*Ads*) page,
+which brings together what you spend on Meta with what happened in your chats.
+If you don't see it in your Ventas menu, it isn't available on your account
+yet. It's covered in [Connect your Meta ads](/en/guides/meta-ads).
 
 ## In Ads Manager
 
@@ -341,16 +473,22 @@ reports later, with Meta's delay. If you've just connected, give it a few hours
 before concluding that something is broken.
 
 <Note>
-Meta offers a purchase optimization for click-to-WhatsApp ads that is only
-enabled once your account has shared a minimum number of purchases with it
-through the Conversions API (Meta has published different figures depending on
-the channel). When that objective appears on your account is decided by Meta,
-not by this dashboard.
+Meta enables purchase optimization for click-to-WhatsApp ads once your account
+has already shared enough purchases with it through the Conversions API (Meta
+has published different figures depending on the channel). The exact figure
+and the timing are decided by Meta, not by this dashboard.
 </Note>
 
 ## Common problems
 
 <AccordionGroup>
+  <Accordion title="I don't see «Personalizar» (Customize) in the menu">
+    Personalizar lives inside the **Ventas** (*Sales*) app, under **Ajustes**
+    (*Settings*). If you don't see **Ventas** in your menu either, your user
+    doesn't have access to that app: ask whoever administers your account for
+    it. It's covered in
+    [Invite your team](/en/getting-started/invite-your-team).
+  </Accordion>
   <Accordion title="“Generate access token” is greyed out">
     You're missing the permission on the business portfolio that owns the pixel
     (**Full control** or **Apps and integrations**). Ask whoever administers the
@@ -358,51 +496,76 @@ not by this dashboard.
     dataset in a portfolio where you're already an admin (**Connect data →
     Web**).
   </Accordion>
-  <Accordion title="In “Connect data” I chose “Messaging” and it says no Page meets the requirements">
-    That route is for numbers that are on the WhatsApp Business Platform. With a
-    number connected by QR, Meta doesn't find an eligible Page. Go back and
-    choose **Web**: the classic pixel receives this dashboard's notifications
-    just the same.
+  <Accordion title="In “Connect data” I chose “Messaging” and Meta says my Page doesn't meet the requirements">
+    That route is for numbers that are on the WhatsApp Business Platform. With
+    your number connected by QR, Meta normally won't find an eligible Page. Go
+    back and choose **Web**: the classic pixel receives this dashboard's
+    notifications just the same.
   </Accordion>
-  <Accordion title="“Test connection” says Meta received it, but I don't see anything in “Test events”">
-    That's expected: that Meta tab only gives instructions and the code, it
-    doesn't list the notifications. The confirmation is in **Recent sends** (a
-    **Sent** row) and, with up to 30 minutes of delay, in the dataset's
-    **Overview**. If it doesn't show up there either after a few hours, check
-    that the ID you pasted is the one for the dataset you're looking at.
+  <Accordion title="«Probar conexión» (Test connection) says Meta received it, but I see nothing in Meta">
+    An **Enviado** (*Sent*) row in **Últimos envíos** (*Recent sends*) means
+    Meta replied that it received it. The test travels with your test code, so
+    it shows up in the dataset's **Test events** tab, and that code has to
+    belong to that same dataset. Meta asks for that tab to stay open during the
+    test: open it before clicking **Probar conexión** and don't close it.
+
+    If it doesn't appear, compare the ID: on the pixel's card you see its last
+    four digits, and they have to match those of the dataset you're looking at
+    in Meta. Real notifications, on the other hand, show up in the **Overview**
+    tab, and Meta warns it can take up to 30 minutes to show them.
   </Accordion>
-  <Accordion title="Meta rejected the event: “Invalid OAuth access token”">
+  <Accordion title="«Meta rechazó el evento» (Meta rejected the event): “Invalid OAuth access token”">
     The token belongs to another pixel, it was pasted incomplete or someone
     revoked it in Events Manager. Generate a new one, delete the pixel from the
     dashboard and create it with the good token. Write down the rules first:
     deleting erases them.
   </Accordion>
   <Accordion title="A customer bought and there's no send at all">
-    Check in this order: the pixel is **active** (green toggle); there's a sale
-    rule **for that funnel** (each rule names its funnel); the sale was recorded
-    by **your agent** in the conversation, you didn't enter it by hand; and the
-    sale is less than 7 days old. If it all checks out, the send is in **Recent
-    sends** with its status.
+    Check in this order:
+
+    - The pixel already existed and was **active** (toggle on) when the sale
+      was recorded. What happened before you created it or while it was paused
+      is not sent afterwards.
+    - There's a sale rule **for that funnel** (each rule names its funnel).
+    - The sale was recorded by **your agent** in the conversation, not entered
+      by you on the customer's profile.
+    - It isn't the sale the system records on its own when an order is
+      charged.
+
+    If it all checks out, the send is in **Últimos envíos** with its status
+    (the list shows the 20 most recent). The **Cobertura del píxel** (*Pixel
+    coverage*) line tells you at a glance how many of the week's sales got
+    through.
   </Accordion>
-  <Accordion title="Almost everything comes out as “Skipped”">
+  <Accordion title="It won't let me save the sale rule: «Este embudo ya manda Compra al llegar a un capítulo…»">
+    That funnel has an old rule that sends Compra (*Purchase*) on reaching a
+    chapter, and with both Meta would count each purchase twice. First delete
+    the chapter rule (it's the one with the notice in red) and then create
+    **Registra una venta → Compra (Purchase)**.
+  </Accordion>
+  <Accordion title="Almost everything comes out «Omitido» (Skipped)">
     The reason is in each row. If it says the contact has no real phone number
     and no ad click, these are customers who wrote with their number hidden
-    (WhatsApp lets you hide it; in your inbox you see them without a full phone
-    number) or with no recognized country, and who didn't arrive from an ad:
-    there is nothing Meta could match on and they are skipped on purpose. If it
-    says the notification was too old, the system was down and recovered old
-    occurrences: Meta doesn't accept anything more than 7 days old, so they are
-    not sent.
+    (WhatsApp lets you hide it; in your inbox they show up with their name but
+    no flag or number or, if they have no name, as «Contacto» (*Contact*)
+    followed by four digits) or with no recognized country, and who didn't
+    arrive from an ad: there is nothing Meta could match and they are skipped
+    on purpose. If it says the event was more than 7 days old, the send was
+    delayed (for example, because the system was down) and the occurrence was
+    already old: Meta doesn't accept anything more than 7 days old, so it isn't
+    sent.
   </Accordion>
-  <Accordion title="I want to change the token or the name">
-    Today the dashboard doesn't let you edit them: delete the pixel and create
-    it again with the new information. You lose its rules and its send history,
-    not your contacts' click information.
+  <Accordion title="I want to change the token, the name or a rule">
+    The dashboard doesn't let you edit the token, the name or the WhatsApp
+    Business account ID: delete the pixel (wastebasket icon, **Eliminar**
+    (*Delete*)) and create it again with the new information. You lose its
+    rules and its send history, not your contacts' click information. A rule
+    can't be edited either: remove it and create the new one.
   </Accordion>
   <Accordion title="I don't want to send anything yet">
     Create the pixel anyway and leave it with no rules, or switch it off with
-    the toggle. In both cases no notification goes out, except the test one if
-    you click **Test connection**.
+    the toggle. In both cases nothing is sent to Meta, except the test if you
+    click **Probar conexión**.
   </Accordion>
 </AccordionGroup>
 
@@ -410,17 +573,20 @@ not by this dashboard.
 
 So you don't get a surprise:
 
-- It doesn't send the sales you record by hand from **Customers**. Nor the sale
-  the system records on its own when an order your agent didn't record in the
-  chat is charged: for Meta only what the agent recorded exists.
+- It doesn't send the sales you enter yourself on the customer's profile (from
+  **Clientes** or **Conversaciones**), even if the AI filled in the form for
+  you. Nor the sale the system records on its own when an order your agent
+  didn't record in the chat is charged: for Meta, what counts is what the agent
+  recorded.
 - It doesn't subtract anything when a sale is voided.
 - It doesn't send notifications more than 7 days old, nor while the pixel is
   paused or has no rules.
-- It doesn't pass Meta the content of any conversation. What does travel: the
-  fingerprints of the phone number, the name, the country and of an internal
-  contact identifier; on sales, the amount, the currency, the product code and
-  the order number; and, if you use click attribution, the click identifier and
-  the one for your WhatsApp Business account, which are Meta's data, not yours.
+- It doesn't pass Meta the content of the conversations. What does travel: the
+  fingerprints of the phone number, the first name and the last name, the
+  country and an internal contact identifier; on conversions, the amount, the
+  currency, the product code and the order identifier, when there are any;
+  and, if you use click attribution, the click identifier and the one for your
+  WhatsApp Business account, which are Meta's data, not yours.
 - It doesn't move money and doesn't touch your campaigns or your ads: it only
   sends notifications to Meta.
 
@@ -428,15 +594,19 @@ So you don't get a surprise:
 
 Message your agent from another phone (with the number visible, and with the
 test code already removed if you don't want it to come out as a test), let it
-take you to your rule's chapter and look at **Recent sends**: that's the honest
-test. If the ad reads from that dataset, in a few hours the real purchases start
-appearing next to your ads.
+take you to your rule's chapter and look at **Últimos envíos**: that's the
+honest test. When your agent starts selling, the **Cobertura del píxel** line
+will tell you how many of those sales reached Meta. If the ad reads from that
+dataset, in a few hours the real purchases start appearing next to your ads.
 
-<CardGroup cols={2}>
+<CardGroup cols={3}>
   <Card title="The sales playbook" icon="book" href="/en/guides/sales-playbook">
     The chapters your rules point at are born here.
   </Card>
   <Card title="Orders and metrics" icon="receipt" href="/en/guides/orders-and-metrics">
     What each sale your agent records really measures.
+  </Card>
+  <Card title="Connect your Meta ads" icon="chart-line" href="/en/guides/meta-ads">
+    The other half: how much you spend on each ad and what it brings in.
   </Card>
 </CardGroup>

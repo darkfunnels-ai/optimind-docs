@@ -1,7 +1,7 @@
 ---
 title: "Send files from a WhatsApp AI agent: the Library"
 sidebarTitle: "The file Library"
-description: "Send files from a WhatsApp AI agent: where the photos, catalogs, PDFs and audio are uploaded, how each agent is given permission, how to ask for them from the script."
+description: "Upload photos, catalogs, PDFs and audio so your WhatsApp AI agent can send them or use them as memory, and what to do if a file doesn't arrive."
 keywords:
   - "send files from a WhatsApp AI agent"
   - "WhatsApp AI agent send PDF"
@@ -10,254 +10,324 @@ keywords:
   - "AI agent knowledge files"
 ---
 
-{/* es-source: guias/libreria.mdx @ aa064f9 */}
+{/* es-source: guias/libreria.mdx @ 7f8188d */}
 
-Your agent does not only write: it sends the product photo, the catalog in PDF,
-the price list, the welcome audio. **All those files live in the Library**, and
-this guide is the full walkthrough, click by click.
+Your agent doesn't only write: it sends the product photo, the PDF catalog, the
+price list, the welcome audio. **All those files live in the Library.** Some of
+them it can also *read* to answer questions. This guide is the full
+walkthrough, click by click.
+
+The dashboard is in Spanish, so buttons and menus are named here the way you'll
+see them on screen, with the English meaning in parentheses the first time they
+appear.
 
 <Note>
 **Where it is.** Go to the dashboard at
-[optimind.darkfunnels.ai](https://optimind.darkfunnels.ai) and, in the left-hand
-menu, under **AGENT** (*AGENTE*), click **Library** (*Librería*). The screen
-that opens is titled **«Archivos»** (*Files*) — it is the same one. (If you
-prefer to go straight there, type `optimind.darkfunnels.ai/files` in the
-browser's address bar.)
+[optimind.darkfunnels.ai](https://optimind.darkfunnels.ai). In the left-hand
+menu, inside **Ventas** (*Sales*), press **Librería** (*Library*) — it's in the
+**Agente** (*Agent*) group. The screen that opens is titled **«Archivos»**
+(*Files*): it's the same one. You can also type `optimind.darkfunnels.ai/files`
+in the browser's address bar. On your phone, you'll find it under **Más**
+(*More*).
+
+The people on your team who have access to the **Ventas** app can see it. How
+that access is given is explained in
+[Invite your team](/en/getting-started/invite-your-team).
 </Note>
 
 <Tip>
 **The golden rule, before anything else: first you grant the permission, then
 you name the file in the script.** If you do it the other way round, the
-customer receives a sentence promising a photo that never arrives — or, worse,
-a different photo arrives — and nobody warns you. Everything else in this guide
-exists so that order is kept.
+customer gets a sentence promising a photo that doesn't arrive — or, worse, a
+different photo arrives — and they don't see any error. Everything else in this
+guide exists so that order is kept.
 </Tip>
 
 ## The five words on this screen
 
-These five words appear in every column and in every paragraph. If you are
-clear on them, the rest is mechanical.
+These five words come up throughout this guide. Once they're clear to you, the
+rest is mechanical.
 
 | Word | What it means, in plain language |
 | --- | --- |
-| **File** (*Archivo*) | The PDF, the photo or the audio itself. It is stored **once for your whole business**, even if you have several agents. |
+| **File** (*Archivo*) | The PDF, the photo or the audio itself. It's uploaded **once for your whole business**, and each agent uses it with its own permissions. |
 | **Permission** (*Permiso*) | What each agent can do with that file. There are two, independent of each other: **send it** or **study it**. |
-| **Send via WhatsApp** (*Enviar por WhatsApp*) | The permission to send it to the customer. It is the switch in the fourth column. |
-| **Agent memory** (*Memoria del agente*) | The permission to *read* it in order to answer questions. The agent never sends it; it only learns what it says. |
-| **Send trigger** (*Condición de envío*) | The file's nickname: the word you call it by from the agent's script. By default it is the file's name without the extension. |
+| **Send via WhatsApp** (*Enviar por WhatsApp*) | The permission to send it to the customer. It's the switch in the **enviar por WhatsApp** column. |
+| **Agent memory** (*Memoria del agente*) | The permission to *read* it in order to answer questions. With this permission alone, the agent doesn't send it: it learns what it says. |
+| **Send trigger** (*Condición de envío*) | The file's nickname: the word you call it by from the agent's script. By default it's the file's name without the extension. |
+
+The table's columns can be dragged to another position, and the table remembers
+the order. Look for them by their title, not by where they sit.
 
 <Note>
-**Three words that look alike and are not the same thing.** **The customer** is
+**Three words that look alike and aren't the same thing.** **The customer** is
 the person who writes to you on WhatsApp — the one who buys from you. **The
 copilot** is the help that lives inside the dashboard. And **your assistant** is
-Claude, ChatGPT or Codex connected from outside: optional, and it only shows up
-in the last section.
+Claude, ChatGPT, Codex or another assistant connected from outside: optional,
+and it only shows up in the last section.
 </Note>
 
 ## Step by step: getting your agent to send the catalog
 
 <Steps>
   <Step title="Open the Library and choose the right agent">
-    At the top of the left-hand menu there is a circle with your agent's initial
-    and its name next to it: click it and the list drops down. Choose the agent
-    you want to send the file. Then, in the menu, click **Library**
-    (*Librería*).
+    The Library belongs to your whole business, but the table shows you the
+    files **of one agent**: the one you have selected in the agent selector.
 
-    The dashboard interface is in Spanish, so buttons and labels are named here
-    in English with the Spanish wording you will see on screen in parentheses.
+    With the menu open, that selector is inside **Ventas**, right below its
+    title: it shows the agent's photo or initial and its name. Press it and
+    choose the agent you want to send the file. With the menu collapsed, the
+    selector moves to the very top; on your phone it's under **Más**.
 
-    <Frame caption="The Library lives in the side menu, inside the AGENTE (Agent) block.">
-      <img src="/images/libreria/01-menu-libreria.png" alt="Dashboard side menu with the Librería (Library) option highlighted" />
+    <Frame caption="Ventas → Librería in the menu, and the «Archivos» (Files) screen with its Archivos, Ubicaciones and Papelera (Files, Locations, Trash) tabs, still empty: «Aún no hay archivos» (No files yet).">
+      <img src="/images/libreria/01-menu-libreria.png" alt="Side menu with Ventas expanded and the Librería (Library) option highlighted, next to the empty Archivos (Files) screen with the «Aún no hay archivos» notice and the Insertar button" />
     </Frame>
 
     <Warning>
-    **The list you see depends on the selected agent** (the selector is at the
-    top of the menu, with the agent's initial). If you switch agents, you will
-    see «Aún no hay archivos» (*There are no files yet*) even if you have fifty
-    uploaded: the files are still there, what changed is whose permissions they
-    are. Always check the agent before concluding that you have lost something.
+    **The list you see depends on the selected agent.** If you switch agents,
+    you may see «Aún no hay archivos» (*There are no files yet*) even if you have
+    fifty uploaded: the files are still there; what changes is whose
+    permissions they are. Check which agent is selected before concluding that
+    you've lost something.
     </Warning>
-
-    <Frame caption="With the Library empty, the screen itself tells you what it is for.">
-      <img src="/images/libreria/02-vacio.png" alt="Empty state of the Library: «Aún no hay archivos» (There are no files yet)" />
-    </Frame>
   </Step>
 
   <Step title="Upload the file with the «+ Insertar» (Insert) button">
-    The button is called **Insertar** (*Insert*), not «Subir» (*Upload*). It is
+    The button is called **Insertar** (*Insert*), not «Subir» (*Upload*). It's
     at the top, next to the three tabs (**Archivos · Ubicaciones · Papelera** —
-    *Files · Locations · Trash*), and it **only appears on the Archivos tab**:
-    if you are in Papelera, you will not see it.
+    *Files · Locations · Trash*), and it **only appears on the Archivos tab**: if
+    you're on Papelera, you won't see it.
 
     A window opens titled **«Agregar archivos enviables»** (*Add sendable
-    files*) («enviable» = a file with the send permission switched on; it is the
-    word the dashboard uses). Drag the files onto it or press **Seleccionar
-    archivos** (*Select files*). You can drop several at once.
+    files*). Drag the files onto it or press **Seleccionar archivos** (*Select
+    files*). You can drop several at once.
 
     <Frame caption="The upload window accepts drag and drop, or your computer's file browser.">
-      <img src="/images/libreria/03-insertar-modal.png" alt="«Agregar archivos enviables» (Add sendable files) window with the drop zone" />
+      <img src="/images/libreria/03-insertar-modal.png" alt="«Agregar archivos enviables» (Add sendable files) window with the drop zone, the Seleccionar archivos (Select files) link and the Cancelar and Agregar archivos buttons" />
     </Frame>
 
     Below it appears **«Archivos seleccionados (N)»** (*Selected files (N)*)
-    with each one's size, a wastebasket icon to take it off the list and a
-    **Sticker** checkbox. That checkbox **can only be ticked on images**; on a
-    PDF or an audio it comes up disabled with the notice *«Sólo las imágenes
-    pueden ser stickers»* (*Only images can be stickers*). Finish with
-    **Agregar archivos** (*Add files*).
-
-    <Frame caption="Each queued file shows its size and the Sticker checkbox (only enabled on images).">
-      <img src="/images/libreria/04-archivos-seleccionados.png" alt="List of selected files before uploading them" />
-    </Frame>
+    with each one's size, a trash-can icon to take it off the list and a
+    **Sticker** checkbox. That checkbox **can only be ticked on images**: on a
+    PDF or an audio it's greyed out, and if you hover over it, it says *«Sólo
+    las imágenes pueden ser stickers»* (*Only images can be stickers*). Finish
+    with **Agregar archivos** (*Add files*).
 
     <Warning>
     **The error notice arrives AFTER the window closes.** When you press
-    «Agregar archivos» the window always closes and the list is emptied; if some
-    file was not valid, the error appears afterwards as a floating message
-    (*«El archivo X excede el límite de 20MB»* — *File X exceeds the 20MB limit*
-    — or *«El tipo de archivo X no está permitido»* — *File type X is not
-    allowed*) and that file is no longer on any list. Count the files in the
-    table before calling it done.
+    «Agregar archivos», the window closes right away and the list empties. If
+    some file wasn't valid, the error shows up afterwards as a floating message
+    (*«El archivo X excede el límite de 20MB»* — *File X exceeds the 20MB
+    limit* — or *«El tipo de archivo X no está permitido»* — *File type X is
+    not allowed*), along with *«Error al agregar archivos»* (*Error adding
+    files*). In that case the table may not show the ones that did go in yet:
+    press **Actualizar** (*Refresh*), at the top right, and count the rows.
     </Warning>
-  </Step>
-
-  <Step title="Switch on «enviar por WhatsApp» (send via WhatsApp)">
-    Here is the trap that trips everybody up: **the window is called «archivos
-    enviables» (sendable files), but the file is NOT born sendable.** A PDF, an
-    image, a DOCX or a CSV are born with **agent memory switched on** and
-    sending **switched off**. An audio, a video or an image you marked as
-    **Sticker** are born with no memory and with sending switched off — and in
-    audio and video the memory is not merely off: it does not exist, the switch
-    is locked.
-
-    <Frame caption="Freshly uploaded: «enviar por WhatsApp» (send via WhatsApp) off and «memoria del agente» (agent memory) on in the formats that can be read.">
-      <img src="/images/libreria/05-tabla-recien-subido.png" alt="The Library table right after uploading four files" />
-    </Frame>
-
-    Press the switch in the **enviar por WhatsApp** column. When you switch it
-    on, the **condición de envío** (send trigger) column fills itself in with
-    the file's name without the extension: `catalogo_verano.pdf` ⇒
-    `catalogo_verano`. You did not invent it and it is not a good idea to delete
-    it: it is the nickname the script will ask for the file by.
-
-    <Frame caption="When you switch sending on, the send trigger fills itself in with the name minus the extension.">
-      <img src="/images/libreria/06-enviar-por-whatsapp.png" alt="«enviar por WhatsApp» (send via WhatsApp) switch on and the send trigger auto-filled" />
-    </Frame>
 
     <Note>
-    **The switch goes first.** With sending off, the «condición de envío» (send
-    trigger) and «mensaje» (message) cells show a dash **—**: they let you open
-    them and type, but on confirming, the change is discarded with the notice
-    *«Activa "Enviar por WhatsApp" para editar la condición de envío»* (*Switch
-    on "Send via WhatsApp" to edit the send trigger*) (or *«…para editar el
-    mensaje»* — *…to edit the message*). That dash does not mean "empty", it
-    means "this file is not sent".
+    **An audio can take as long to upload as it lasts.** Before uploading it,
+    the dashboard converts it to the WhatsApp voice-note format, and that
+    conversion runs in real time: a one-minute audio takes about a minute.
+    Don't close the tab in the meantime.
     </Note>
   </Step>
 
+  <Step title="Switch on «enviar por WhatsApp» (send via WhatsApp)">
+    Here's the trap that trips everyone up: **the window is called «archivos
+    enviables» (sendable files), but what you upload with Insertar is not born
+    sendable.**
+
+    - A PDF, an image, a DOCX or a CSV are born with **memoria del agente**
+      (*agent memory*) switched on and sending switched **off**.
+    - An audio, a video or an image you marked as **Sticker** are born with no
+      memory and with sending switched off. In audio and video the memory can't
+      even be switched on: the switch is locked.
+
+    <Frame caption="Two files in the table: the PDF with «enviar por WhatsApp» (send via WhatsApp) already on and its condición de envío filled in by itself (catalogo-moda-sol); the image, with sending off and the dash. Both have «memoria del agente» (agent memory) on.">
+      <img src="/images/libreria/05-tabla-recien-subido.png" alt="Library table with two files: catalogo-moda-sol.pdf with enviar por WhatsApp on, condición de envío catalogo-moda-sol and the status «Hubo un problema»; polo-pima-blanco.png with sending off, condición de envío and mensaje showing a dash, and the status «Aprendido ✓»; memoria del agente on for both" />
+    </Frame>
+
+    Press the switch in the **enviar por WhatsApp** column: it saves instantly.
+    The first time you switch it on, the **condición de envío** (*send
+    trigger*) column fills itself in with the file's name without the
+    extension: `catalogo_verano.pdf` ⇒ `catalogo_verano`. It's the nickname the
+    script will ask for the file by, so it's best not to touch it.
+
+    <Note>
+    **The switch goes first.** With sending off, the «condición de envío» and
+    «mensaje» (*message*) cells show a dash **—**. They let you open them and
+    type, but when you confirm, the change is discarded with the notice
+    *«Activa "Enviar por WhatsApp" para editar la condición de envío»* (*Switch
+    on "Send via WhatsApp" to edit the send trigger*) (or *«…para editar el
+    mensaje»* — *…to edit the message*). What you typed may stay on screen until
+    the table refreshes (for example, when you press **Actualizar**), but it
+    wasn't saved.
+
+    Careful: the dash means «nothing is written here», not «this file isn't
+    sent». With sending on, «mensaje» also shows **—** if you didn't give it a
+    message. To know whether a file is sent, look at the switch, not the dash.
+    </Note>
+
+    If you upload the file from the playbook, on the other hand, it's born
+    sendable: you'll see that in step 6.
+  </Step>
+
   <Step title="Write the message that goes with the file">
-    A click on the **mensaje** (message) cell opens a box above the cell itself.
-    The **Enter** key saves, **Esc** cancels and **Shift+Enter** starts a new
-    line; there is also a button to open it large if the text is long.
+    A click on the **mensaje** cell opens a box over the cell itself. **Enter**
+    leaves the text ready, **Esc** cancels and **Shift+Enter** starts a new
+    line. If the text is long, the **Abrir en grande** (*Open large*) button
+    opens it in a window: there, Enter starts a new line and the text is
+    confirmed with **Guardar cambios** (*Save changes*).
 
     That text is the **caption** the file travels with. If you leave it empty,
-    the file goes out without any words.
+    the file goes out without a text caption.
 
-    <Frame caption="Text cells are edited in a floating box: ⏎ saves, Esc cancels.">
-      <img src="/images/libreria/07-mensaje-editor.png" alt="Floating editor for the mensaje (message) cell with its shortcuts" />
-    </Frame>
+    <Tip>
+    **You can use your business details.** If next to the photo of your QR
+    code you write `Paga al {{dato:yape}}` (*Pay to …*), the customer receives
+    the value you have saved in **Configuración → Datos del negocio**
+    (*Settings → Business details*), not the label. Copy the label exactly as
+    it appears next to each detail in that section. If the detail is empty, the
+    customer reads its name followed by «(pendiente)» (*pending*), so fill it
+    in first. It's all explained in
+    [Agent settings](/en/guides/agent-settings).
+    </Tip>
 
     <Warning>
-    **On audio and on stickers that message is NEVER sent.** WhatsApp does not
-    draw a text caption on voice notes or on stickers, so whatever you write
+    **On audio and on stickers, that message isn't sent.** WhatsApp doesn't
+    show a text caption on voice notes or on stickers, so whatever you write
     there is wasted work. Whatever you want to say around an audio, write it in
-    the script, before or after the marker. Photos, videos, PDFs and DOCX, on
-    the other hand, **do** carry it visibly.
+    the script, before or after the marker. Photos, videos, PDFs and other
+    documents, on the other hand, **do** carry it visibly.
     </Warning>
   </Step>
 
-  <Step title="Save — because half the table does not save itself">
-    This is the number one cause of "my changes were lost":
+  <Step title="Save — because half the table doesn't save itself">
+    This is the number-one cause of «my changes were lost»:
 
-    - The **two switches** (send via WhatsApp, agent memory) are saved
+    - The **two switches** (enviar por WhatsApp, memoria del agente) save
       **instantly**, without pressing anything.
     - The **name**, the **send trigger** and the **message** stay *pending*
-      until you press the big button at the top right.
+      until you press the button at the top right. Neither Enter in the cell
+      nor «Guardar cambios» in the large window saves them yet: they only leave
+      them ready.
 
-    While something is pending, that button stops saying «Actualizar» (*Update*)
-    and starts saying **«Guardar N cambio(s)»** (*Save N change(s)*), and next
-    to it appears the notice **«Cambios sin guardar»** (*Unsaved changes*).
-
-    <Frame caption="The button is only called «Guardar» (Save) when there is something to save; next to it, the «Cambios sin guardar» (Unsaved changes) notice.">
-      <img src="/images/libreria/08-guardar-cambios.png" alt="«Guardar 2 cambio(s)» (Save 2 change(s)) button and the «Cambios sin guardar» (Unsaved changes) indicator" />
-    </Frame>
+    While something is pending, that button stops saying «Actualizar» and
+    says **«Guardar N cambio(s)»** (*Save N change(s)*), and next to it the
+    notice **«Cambios sin guardar»** (*Unsaved changes*) appears.
 
     <Warning>
-    **Switching tabs discards the pending changes, without asking.** If you have
-    «Cambios sin guardar» and you press **Ubicaciones** (*Locations*) or
-    **Papelera** (*Trash*), what you wrote is lost silently. Save before you
-    move.
+    **Switching tab, agent or page discards the pending changes, without
+    asking.** If you have «Cambios sin guardar» and you press **Ubicaciones**
+    or **Papelera**, choose another agent or go to another screen, what you
+    wrote is lost silently. Save before you move.
     </Warning>
   </Step>
 
-  <Step title="Tell the agent WHEN to send it (in the sales playbook)">
-    Granting the permission does not make the file go out: it only authorises
-    it. What decides the moment is **the agent's script**, in [the sales
-    playbook](/en/guides/sales-playbook) — side menu → **Manual**
-    (*Playbook*).
+  <Step title="Tell the agent WHEN to send it (in the playbook)">
+    Granting the permission doesn't make the file go out: it only authorizes
+    it. What decides the moment is **the agent's script**, in
+    [the playbook](/en/guides/sales-playbook) — **Ventas → Manual** (*Sales →
+    Playbook*).
 
     Inside a chapter's text you write a mark at the exact point where you want
-    the file to go out. We call that mark a **marker** and it has this shape:
+    the file to go out. We call that mark a **marker**, and it looks like this:
 
     ```
     Te dejo el catálogo completo. ###SEND_FILES: catalogo_verano### Dime si lo abres bien.
     ```
 
-    *(Here is the full catalog. ###SEND_FILES: catalogo_verano### Tell me if it
-    opens all right.)*
+    *(Here's the full catalog. ###SEND_FILES: catalogo_verano### Let me know if
+    it opens fine.)*
 
-    **You do not have to write it by hand** — and it is better not to. In the
-    playbook editor you have three ways of inserting it correctly placed:
+    **You don't need to type it by hand** — and it's better not to. In the
+    playbook editor you have three ways to insert it correctly:
 
-    1. The **Recursos** (*Resources*) button in the top bar opens a drawer that
-       starts on the **Archivos** (*Files*) tab: choose the file and press
-       **Insertar** (*Insert*).
-    2. Type **`@`** on any line and choose the file from the list.
-    3. The **✦ ¿Dónde?** (*✦ Where?*) button, which asks the AI for the sentence
-       with the marker already inside.
+    1. The **Recursos** (*Resources*) button in the bar opens the **«Recursos
+       del agente»** (*Agent resources*) drawer on the **Archivos** tab: hover
+       over the file and press **Insertar**.
+    2. Type **`@`** and choose the file in the **Archivos** group.
+    3. The **✦ ¿Dónde?** (*✦ Where?*) button, which appears on files that no
+       chapter uses yet: the AI suggests a chapter and a sentence with the
+       marker already inside, and you decide whether to insert it.
 
-    <Frame caption="The playbook's «Recursos» (Resources) drawer inserts the marker with the correct spelling.">
-      <img src="/images/libreria/09-manual-recursos.png" alt="Playbook editor with the Recursos (Resources) drawer open on the Archivos (Files) tab" />
+    <Frame caption="The «Recursos del agente» (Agent resources) drawer on the Archivos (Files) tab: the search box, the ↑ Subir (Upload) button and, since this agent has no files yet, «Sin recursos de este tipo para el agente» (No resources of this type for the agent). At the bottom, the «Gestionar en Librería →» (Manage in Library) link.">
+      <img src="/images/libreria/09-manual-recursos.png" alt="Recursos del agente (Agent resources) drawer next to the playbook editor, open on the Archivos (Files) tab, with the search box, the Subir button, the «Sin recursos de este tipo para el agente» notice and the Gestionar en Librería link" />
     </Frame>
 
+    <Frame caption="The playbook's @ menu. This agent has no files yet, so you see the Herramientas, Variables, Capítulos and Envío groups; once you upload files, the Archivos (Files) group appears too.">
+      <img src="/images/manual/02-menu-arroba.png" alt="The playbook's @ menu open with the «Buscar recurso…» search box and the Herramientas, Variables, Capítulos and Envío groups (Tools, Variables, Chapters, Sending)" />
+    </Frame>
+
+    In the drawer, each file tells you whether the playbook already uses it
+    (*en N cap.* — *in N chapters*) or not (*sin usar* — *unused*), and it has
+    *pausado* (*paused*) in front of it if its sending is switched off in the
+    Library.
+
+    <Tip>
+    **Shortcut: upload the file without leaving the playbook.** In the Recursos
+    drawer, Archivos tab, the **↑ Subir** (*↑ Upload*) button uploads one file
+    at a time. That file is born **already sendable** for the selected agent,
+    with its send trigger set and **no memory**: *«Archivo subido — ya puedes
+    insertarlo con @ o desde esta lista.»* (*File uploaded — you can now insert
+    it with @ or from this list.*) If you also want the agent to study it,
+    switch on **memoria del agente** in the Library.
+    </Tip>
+
     <Note>
-    **This is desktop only.** Below 900 px wide the whole playbook opens
-    **read-only**: from the phone you cannot rewrite the script or insert files.
-    The only thing editable from mobile is the hard data (prices, phone numbers,
-    links), in «Retoques» (*Touch-ups*).
+    **This is a computer job.** On a screen less than 900 px wide, the playbook
+    opens **read-only**: from your phone you can't rewrite the script or insert
+    files. What you can fix from your phone is the data — prices, phone
+    numbers, links — with the **Retocar datos** (*Touch up data*) button.
     </Note>
 
     <Warning>
-    **If you write the marker by hand, copy it in its exact shape.** Three `#`
-    signs, the word `SEND_FILES`, a colon, the nickname and `###` again. The
-    space after the colon does not matter.
+    **If you write the marker by hand, copy its exact shape.** Three `#` signs,
+    the word `SEND_FILES`, a colon, the nickname and `###` again. The space
+    after the colon doesn't matter.
 
-    If you write **fewer than three `#`** (`##SEND_FILES: catalogo##`), the
-    system does not recognise it and **that text goes out as-is in the
-    customer's chat**. If the mistake is a different one — you are missing the
-    colon, or you write another word — it is worse: the mark is deleted silently
-    and the message goes out without the file.
+    With **fewer than three `#`** (`##SEND_FILES: catalogo##`) the system
+    doesn't recognize it as a marker and **that text may reach the customer's
+    chat as-is**. If the mistake is a different one — you're missing the colon,
+    or you write another word — the mark is deleted from the text and the file
+    may not go out.
     </Warning>
   </Step>
 
   <Step title="Test it yourself before a customer does">
-    Write to your agent's number **from another phone** (a relative's or an
-    employee's): your own WhatsApp will not do, because that is precisely the
-    agent's number and it does not reply to itself. Ask it for the file the way
-    a customer would. It is the only check that counts.
+    It's worth doing two tests, in this order.
 
-    If it does not arrive, go down to [If something is not
-    working](#if-something-is-not-working): the list is in the order it is worth
-    checking in.
+    **1. In the dashboard, with Probar.** The **Probar** (*Test*) button in the
+    playbook's bar opens a test chat next to the document. Write as if you were
+    the customer and ask for the file. If the button is grey, hover over it: it
+    tells you what's missing.
+
+    The agent replies with the **saved** playbook and along the same path as on
+    WhatsApp, but nothing goes out on WhatsApp. In the test chat the file shows
+    up as *«Archivo adjunto»* (*Attached file*), or as «Archivo ·» followed by
+    its message if you gave it one.
+
+    Below each reply, the trace tells you which tools the agent used. If the
+    sending tool couldn't send anything, it's marked as skipped. Careful: the
+    test thread consumes balance like a real conversation. More in
+    [the playbook guide](/en/guides/sales-playbook).
+
+    <Frame caption="The test chat sits next to the document: you write as a customer, the agent replies, and the trace marks the tools it used («Advance Chapter», «Reminder») and the move to «Capítulo 2 · En venta».">
+      <img src="/images/manual/04-probar.png" alt="Test phone docked next to the playbook, with the «1 · Saludo» chapter selector, the Reiniciar (Restart) button, a customer asking for polo shirts in size M, the agent's reply and the move to «Capítulo 2 · En venta»" />
+    </Frame>
+
+    **2. On a real phone.** That way you see the file exactly as it reaches the
+    customer: the PDF thumbnail, the voice note, the photo caption. Write to
+    your agent's number from a personal phone and ask for it the way a customer
+    would. Yours works if it's the one you entered when you signed up. Another
+    WhatsApp line connected to your business won't work. If you use another
+    phone that receives reports, sales notices or alerts — yours or someone on
+    your team's — add it first under **Números de prueba** (*Test numbers*), in
+    [Settings](/en/guides/agent-settings).
+
+    If it doesn't arrive, go down to
+    [If something is not working](#if-something-is-not-working): the list is in
+    the order it's worth checking.
   </Step>
 </Steps>
 
@@ -267,37 +337,43 @@ in the last section.
 | --- | --- |
 | Image | JPG, PNG, GIF, WebP, SVG |
 | Document | PDF, DOCX, CSV |
-| Audio | MP3, WAV, OGG, M4A, AAC, OPUS, WebM |
+| Audio | MP3, WAV, OGG, M4A, AAC, OPUS |
 | Video | MP4, MKV |
 
-**Word (DOCX)**, PDF and lists saved as **CSV** (a spreadsheet saved as text)
-do go in. **Excel (XLSX), PowerPoint (PPTX), ZIP and TXT are not accepted.** If
-your price list is in Excel, open it and use "Save as → CSV", or export it to
-PDF.
+For photos, use JPG or PNG; for videos, MP4. An SVG or an MKV can be uploaded,
+but we can't guarantee that WhatsApp will show them as a photo or a video.
 
-**The ceiling is 20 MB per file.** There is no limit on quantity.
+**Word (DOCX)**, PDF and lists saved as **CSV** (a spreadsheet saved as text)
+are accepted. **Excel (XLSX), PowerPoint (PPTX), old Word (DOC), ZIP and TXT
+are not.** If your price list is in Excel, open it and use «Save as → CSV», or
+export it to PDF.
+
+**The limit is 20 MB per file.** There's no limit on the number of files.
 
 <Note>
-**Audio files usually change extension on upload, and that is normal.** Unless
-they already come in the exact format of WhatsApp voice notes, they are
-re-encoded on upload: you upload `bienvenida.mp3` and in the table
-`bienvenida.webm` appears (or `.opus`, depending on the browser). It is the same
-audio; it sounds the same. From **Safari** (Mac or iPhone) that conversion does
-not happen and the name does not change; to upload audio it is worth using
-Chrome.
+**Audio files usually change extension when you upload them, and that's
+normal.** Unless they already come as a WhatsApp voice note, the dashboard
+converts them: you upload `bienvenida.mp3` and the table shows
+`bienvenida.webm` (or `.opus`, depending on the browser). It's the same audio.
+If your browser can't do that conversion, the audio is uploaded as-is, with its
+original name.
 </Note>
 
 <Note>
-**Uploading the same file twice does not duplicate it.** The system compares the
-content, not the name: if those bytes were already there, it tells you with
-*«Ya tenías este archivo»* (*You already had this file*), reuses the row that
-already existed and only adds the permissions it was missing. Renaming it on
-your computer and uploading it again does not create a copy either.
+**Uploading the same document or photo twice doesn't duplicate it.** The system
+compares the content, not the name: if those bytes were already in your Library
+(outside the trash), it tells you *«Ya tenías este archivo»* (*You already had
+this file*) and reuses the row that already existed, with the name it already
+had. If the selected agent is missing the permission that upload is born with
+(memory, for PDFs, photos, DOCX and CSV), it gets it. Careful: if you had
+switched that file's memory off, uploading it again switches it back on and it's
+processed again. Renaming it on your computer and uploading it again doesn't
+create a copy either.
 </Note>
 
 ## How it reaches the customer
 
-How the message looks in WhatsApp is decided by the format, not by you:
+How the message looks on WhatsApp is decided by the format, not by you:
 
 | What you upload | How it arrives | Does it carry the «mensaje» (message)? |
 | --- | --- | --- |
@@ -305,382 +381,487 @@ How the message looks in WhatsApp is decided by the format, not by you:
 | PDF | Document, with a thumbnail of the first page | Yes |
 | DOCX, CSV | Document, as a card with an icon | Yes |
 | Audio | **Voice note** | **No** |
-| Sticker | Sticker | **No** |
+| Sticker | Sticker (if the image can't be converted, it arrives as a photo) | **No** |
 
 The name you gave the file is the one the customer sees on documents. Give it a
 readable one.
 
 <Note>
 **A PDF looks better than a DOCX.** A PDF usually arrives with a preview of its
-first page; a DOCX always arrives as a card with an icon. For a catalog, that
-difference sells — but the preview is not guaranteed: PDFs over 15 MB and those
-the system cannot manage to draw also arrive as a plain card.
+first page; a DOCX arrives as a card with an icon. For a catalog, that
+difference sells — but the preview isn't guaranteed: PDFs over 15 MB and those
+the system can't render also arrive as a plain card.
 </Note>
 
-### The voice note keeps you waiting
+### The voice note keeps them waiting
 
-Audio goes out as a voice note and **the sending is delayed by the length of
-the audio**: the customer sees "recording audio…" for that time, as if a person
-were recording it. The ceiling on that wait is **2 minutes**, even if the audio
-is longer.
+Audio goes out as a voice note, and **the sending is delayed by the length of
+the audio**, as if a person were recording it: the customer may see «recording
+audio…» during that time. The ceiling on that wait is **2 minutes**, even if
+the audio is longer.
 
 Count that time: a two-minute welcome audio leaves the customer two minutes
 without receiving anything else. **For greetings, stay under 20 or 30
 seconds.**
 
-### The same file is not repeated within 6 hours
+### The same file isn't repeated within 6 hours
 
 If the agent already sent that file to that conversation less than **6 hours**
-ago, it does not repeat it: the customer who insists three times in five minutes
-receives the quote only once. The text message does go out; what is missing is
-the attachment.
+ago, it doesn't repeat it: the customer who insists three times in five minutes
+gets the quote only once. The text message does go out; what's missing is the
+attachment.
 
 <Warning>
-**Two consequences that come as a surprise.** (1) The block counts per **Library
-row**, not per document: two PDFs of the same catalog exported separately are
-not the same file even if they look identical, and if both are sendable each one
-carries its own block — the customer may receive it twice. (2) A scheduled
-reminder pays the same block: if you send the catalog now and the reminder falls
-due within those 6 hours, the follow-up **arrives without the attachment**.
+**Two consequences that come as a surprise.** (1) The block counts per
+**Library row**, not per document: two PDFs of the same catalog exported
+separately aren't the same file even if they look identical, and if both are
+sendable, each one has its own block — the customer may receive it twice. (2) A
+scheduled reminder is subject to the same block: if you send the catalog now
+and the reminder falls due within those 6 hours, the follow-up **arrives
+without the attachment**.
 </Warning>
 
 ### Each reply has a ceiling of 12 messages
 
-Every time the agent replies it can send at most **12 messages in a row**, and
-each file takes up one. The text is not lost: if it does not fit, the ending is
-all bunched into the last message, so the closing arrives cramped instead of
-well spread out. Even so, one file per chapter is the healthy amount. (This does
-not spend extra credits: it is only the number of messages.)
+Each time the agent replies it can send at most **12 messages in a row**, and
+each file takes up one. Normally the text isn't lost: if it doesn't fit, the
+ending is merged into the last message, so the closing arrives cramped instead
+of nicely spread out. But if a single reply sends so many files that they alone
+nearly fill the 12, the reply can go over the ceiling, and what's left over
+doesn't arrive: precisely the closing. One file per chapter is the healthy
+amount.
 
 ## How the agent chooses which file to send
 
-It is the part that causes the most problems, so it is worth understanding.
-When the moment to send arrives, the agent looks for the file **in this order**:
+It's the part that causes the most problems, so it's worth understanding. When
+the time comes to send, the agent looks for the file among **that agent's
+sendable files**, **in this order**:
 
 1. **The file's name, as-is** (with its extension).
 2. **The file's name without the extension.** Here capitals, accents and dashes
-   do not bother it.
+   don't bother it.
 3. **The send trigger**, with that same tolerance — but it has to be the
-   **whole** nickname, not a part of it.
+   **whole** nickname, not part of it.
 4. If none of the above matches: **word similarity**.
 
 Three practical rules come out of that order:
 
 <Warning>
 **1. The send trigger is a nickname, not a sentence.** The field is called
-"condición" (*condition*) and that invites you to write *«cuando el cliente pida
-la lista de precios»* (*when the customer asks for the price list*). **Written
-that way it hardly ever hits what you want**: to find it by the nickname, the
-nickname has to match in full. A condition written in prose can only win on the
-last layer, the word-similarity one — the same one that can deliver the wrong
-file. Leave the default value (the name without the extension) or put a single
-short word. Capitals and accents make no difference: the system ignores them.
+«condición» (*condition*), and that invites you to write *«cuando el cliente
+pida la lista de precios»* (*when the customer asks for the price list*).
+**Written like that, it only matches if the agent copies it whole, word for
+word**: to find the file by nickname, the nickname has to match in full. If the
+agent changes a single word when copying it, a condition written as a sentence
+can only win on the last layer, word similarity — the same one that can deliver
+the wrong file. Leave the default value (the name without the
+extension) or put a single short word. Capitals and accents don't matter.
 </Warning>
 
 <Warning>
-**2. If the marker names a file that does not exist, ANOTHER file may go out.**
-This is the expensive failure on this screen. When the nickname does not match
-anything, the system does not always stay quiet: it falls back to word
+**2. If the marker names a file that doesn't exist, ANOTHER file may go out.**
+This is the expensive failure on this screen. When the nickname doesn't match
+anything, the system doesn't always stay quiet: it falls back to word
 similarity and **may deliver a different file that shares a word** — the price
-list for another city, last year's catalog. Only when no file resembles anything
-does what you would expect happen: the marker is deleted from the text and the
-message goes out without an attachment, with no visible error.
+list for another city, last year's catalog. If no file resembles it at all,
+what you'd expect happens: the marker is deleted from the text and the message
+goes out without an attachment, without the customer seeing any error.
 
-That is why the golden rule holds: **permission first, marker second**, and
-copying the nickname exactly as it is in the table.
+That's why the golden rule holds: **permission first, marker second**, copying
+the nickname exactly as it appears in the table.
 </Warning>
 
 <Warning>
 **3. Give each file a different nickname.** Watch out for extensions:
 `catalogo.pdf` and `catalogo.jpg` are two different files, but without the
-extension both are called `catalogo` — and by default they would inherit the
-same nickname. When two files share a nickname and their names differ only in
-the extension, the agent **sends neither**: it declares the tie and stays quiet.
-(If both names are identical — a re-upload — the most recent one wins.) Rename
-one before making both sendable for the same agent.
+extension both are called `catalogo` and inherit the same nickname. If the
+marker says `catalogo`, the system doesn't choose on its own: it hands both
+names back to the agent so it asks for an exact one, and the agent may end up
+sending the one you didn't want, or neither. (If both names are identical — a
+re-upload — the most recent one wins.) Rename one before making both sendable
+for the same agent.
 </Warning>
 
+**The playbook helps you follow the rule.** If you hover over a file mention in
+the script, you see its status: *Activo* (*Active*), *Pausado en la Librería*
+(*Paused in the Library* — it exists, but the agent won't send it) or *No
+existe en la Librería* (*Doesn't exist in the Library*). And the playbook's
+**Doctor** lists the mentions whose status is *No existe en la Librería*, with a
+button to reconnect them when it finds a candidate. More about the Doctor in
+[the playbook guide](/en/guides/sales-playbook).
+
+<Frame caption="The playbook's Doctor: at the top, the count («0 errores · 16 avisos», 0 errors · 16 warnings); below, each warning with its «Ir al sitio» (Go to the spot) button. Here they are all «El capítulo N no es alcanzable» (Chapter N is unreachable).">
+  <img src="/images/manual/03-doctor.png" alt="«Doctor del manual» (Playbook Doctor) panel with 0 errors and 16 warnings of the «El capítulo N no es alcanzable» kind, each with the Ir al sitio button" />
+</Frame>
+
 <Note>
-**If you do not write any marker, the file may go out anyway** — but at the end
-of the reply, not where you wanted it. The marker does not authorise the
-sending: it decides **where** it lands. And if in the playbook you marked a
-passage of text to go out all together in a single message (the editor's
-«Enviar en bloque» — *Send as a block* — option), the file goes out right
-**after** that passage, never in the middle; if you have never used that option,
-forget about this.
+**If you don't write any marker, the file may go out anyway** — but at the end
+of the reply, not where you wanted it. The marker doesn't authorize the
+sending: it decides **where** it lands. And if the marker ended up inside a
+passage you marked with «Enviar en bloque» (*Send as a block*, so it all goes
+out together in a single message), the file goes out right **after** that
+passage, not in the middle. If your playbook has no passages marked with
+«Enviar en bloque», forget about this.
 </Note>
 
 ## The other switch: «memoria del agente» (agent memory)
 
-With this permission the file **is not sent**: the agent reads it so it can
-answer questions about its content. It is what you want for the warranty manual,
-the shipping policies or a spec sheet.
+With this permission the agent **reads** the file so it can answer questions
+about its content. It's what you want for the warranty manual, the shipping
+policies or a spec sheet. With images, the agent «looks at» the photo and learns
+the text, the figures and the details visible in it.
 
 When you switch it on, the system starts reading the file by itself and cutting
 it into pieces so it can search inside it. The **estado** (*status*) column
-keeps you posted and **the table refreshes itself every 5 seconds**:
+keeps you posted, and **the table refreshes itself every 5 seconds** while
+something is in progress:
 
 | What «estado» says | What it means |
 | --- | --- |
-| **El agente está aprendiendo…** (*The agent is learning…*) | In progress. It cannot answer with that content yet. |
+| **El agente está aprendiendo…** (*The agent is learning…*) | In progress. It can't answer with that content yet. |
 | **Aprendido ✓** (*Learned ✓*) | Ready. It can use it now. |
-| **Hubo un problema** (*There was a problem*) + **Reintentar** (*Retry*) | It failed. Leave the cursor over it for a second and a little label comes up with the real reason. |
+| **Hubo un problema** (*There was a problem*) + **Reintentar** (*Retry*) | It failed. Leave the cursor over it for a second and a small label comes up with the reason. |
 
-<Frame caption="The «estado» (status) column is the only place where you can see whether the agent has already learned the file.">
-  <img src="/images/libreria/11-estado-memoria.png" alt="The Library's estado (status) column with the different indexing states" />
-</Frame>
+The most common reasons you'll see in that label, and what to do about each one
+(if you see a different one, write to us from **Ayuda → Escríbenos por
+WhatsApp** — *Help → Write to us on WhatsApp*):
 
-<Warning>
-**If your balance is at zero, the memory fails.** The status stays at «Hubo un
-problema» and the reason, hidden in the label, says *«sin créditos: recarga el
-saldo para procesar este archivo»* (*no credits: top up the balance to process
-this file*). It is not a fault in your file: top up and press **Reintentar**.
-The whole story is in [Credits and top-ups](/en/getting-started/credits-and-top-ups).
-</Warning>
+| The reason says | What to do |
+| --- | --- |
+| *sin créditos: recarga el saldo para procesar este archivo* (*no credits: top up your balance to process this file*) | It's not a fault in your file: top up and press **Reintentar**. It's explained in [Credits and top-ups](/en/getting-started/credits-and-top-ups). |
+| *no se pudo extraer texto del archivo (¿escaneado sin OCR?)* (*couldn't extract text from the file (scanned without OCR?)*) | It's a PDF made of photos of the pages, with no text inside. Export it again from the original program, or upload the pages as images (JPG or PNG): images do get read. |
+| *el CSV no tiene filas con datos* (*the CSV has no rows with data*) | Check that the CSV has rows below the column headings. |
+| *no se pudo descargar el archivo* (*couldn't download the file*) | Press **Reintentar**. If it happens again, write to us from **Ayuda → Escríbenos por WhatsApp**. |
 
-Two other things worth knowing:
+Other things worth knowing:
 
-- **Audio and video do not contribute memory.** The switch does not even let
-  itself be touched and warns *«Este formato aún no aporta memoria»* (*This
-  format does not contribute memory yet*). If the content matters to you,
-  transcribe it and paste the text into a chapter of the playbook.
-- **Switching the memory off is not cosmetic: the agent stops seeing that
-  content immediately.** Switching it back on recovers it at once, but it also
+- **Audio and video don't add memory.** The switch won't even let you touch it
+  and warns *«Este formato aún no aporta memoria»* (*This format doesn't add
+  memory yet*). If the content matters to you, write it as text in the
+  playbook.
+- **Switching memory off isn't cosmetic: the agent stops seeing that content
+  immediately.** Switching it back on recovers it at once, but it also
   processes the file again from scratch, so it consumes balance again.
+  **Careful:** if that file was born with memory switched on (you uploaded it
+  with **Insertar**) and you never switched «enviar por WhatsApp» on for it in
+  this agent, switching memory off makes it disappear from the agent's table,
+  even though the file is still stored in your business. To get it back, upload
+  it again with **Insertar**: the system recognizes it's the same file and gives
+  it its memory back, which is processed again.
+- **A very long document is learned up to 200,000 characters.** Whatever goes
+  beyond that, the agent doesn't see. If your catalog is huge, split it into
+  several files.
+- **To check what it learned**, open the playbook and press **Memoria a Largo
+  Plazo (RAG)** (*Long-term memory*), above the document. Its **Probar**
+  (*Test*) search box runs the same search as the agent: type a question the way
+  a customer would and you'll see which passages it finds and which file each
+  one comes from. If you don't see that button in your playbook, this check
+  isn't available for your agent.
 
 <Note>
-**Audio files are transcribed, even though they do not give memory.** In the
-«estado» column you will see *Transcribiendo…* (*Transcribing…*), *Transcrito ✓*
-(*Transcribed ✓*) or *No se pudo transcribir* (*Could not be transcribed*).
+**Audio files do get transcribed, even though they don't add memory.** In the
+«estado» column you'll see *Transcribiendo…* (*Transcribing…*), *Transcrito ✓*
+(*Transcribed ✓*) or *No se pudo transcribir* (*Couldn't be transcribed*). It
+lets the agent know what the voice note it sends says, so it writes what goes
+around it without contradicting it; it doesn't use it to answer questions.
 Press the file's name in the **archivo** (*file*) column and the viewer shows
-you, under the player, **«Lo que dice (transcripción automática)»** (*What it
-says (automatic transcription)*). If it failed, there is no retry button: it has
-to be uploaded again.
+you, under the player, **«Lo que dice (transcripción automática):»** (*What it
+says (automatic transcription):*). If it failed, there's no retry button: use
+**Reemplazar** (*Replace*), choose the same audio, and it's transcribed again.
 </Note>
 
-## Things you will need later
+## Things you'll need later
 
 <AccordionGroup>
   <Accordion title="Swap the file for a new version (without breaking the script)">
-    Use **Reemplazar** (*Replace*) — the paperclip icon in the actions column,
-    with the hint *«Sube una versión nueva de este archivo»* (*Upload a new
-    version of this file*). It keeps the name, the nickname, the message and the
-    switches; it only changes the content, and it puts the memory back in the
-    queue.
+    Use **Reemplazar** (*Replace*): the paperclip button in the **acciones**
+    (*actions*) column, with the hint *«Sube una versión nueva de este
+    archivo»* (*Upload a new version of this file*). It keeps the name, the
+    nickname, the message and the switches; only the content changes. If the
+    file was memory, the agent learns it again (and that consumes balance); if
+    it's an audio, it's transcribed again.
 
-    **It is the correct way to update a price list in this agent.** Deleting it
-    and uploading another one breaks every marker that named it; replacing it
-    does not.
+    **It's the right way to update a price list in this agent.** Sending it to
+    the trash and uploading another one leaves the markers that named it
+    without a file, or pointing to a similar one, until the new one has the
+    same name and sending switched on; if the name changes, they stay broken.
+    Replacing it doesn't touch them.
 
     <Warning>
-    **If that file is used by several agents, the replacement does NOT reach
-    them.** On replacing it, a copy is split off for the agent you have selected
-    and the others are left with the old version. Repeat the replacement in each
-    agent.
+    **If several agents use that file, the replacement doesn't reach them.**
+    When you replace it, a copy is split off for the agent you have selected
+    and the others keep the old version. Repeat the replacement in each agent.
     </Warning>
 
-    If the new version is of another format and the name carried an extension,
-    the system corrects it and keeps the stem: `catalogo.pdf` comes to be called
+    If the new version is in another format and the name had an extension, the
+    system corrects it and keeps the stem: `catalogo.pdf` becomes
     `catalogo.png` — and then it will reach the customer as a photo, not as a
-    document. If the name had no extension, none is invented for it.
+    document. If the name had no extension, none is made up for it.
   </Accordion>
 
-  <Accordion title="Rename a file (and what happens to the sales playbook)">
-    A click on the **nombre** (*name*) cell. Careful: if the nickname was the
-    default name, renaming **also rewrites the playbook**, and it tells you so
-    on saving: *«También se actualizó 1 mención de ese archivo en el manual.»*
-    (*1 mention of that file in the playbook was also updated.*)
+  <Accordion title="Rename a file (and what happens to the playbook)">
+    Click the **nombre** (*name*) cell, then **Guardar N cambio(s)**. Careful:
+    if the nickname was the default name, renaming **also changes the nickname
+    and rewrites the playbook**, and it tells you so when you save: *«También
+    se actualizó 1 mención de ese archivo en el manual.»* (*1 mention of that
+    file in the playbook was also updated.*)
 
-    If it tells you it updated **zero** mentions and you were expecting some,
-    open the playbook and search for the old name by hand: almost certainly a
-    marker was left pointing at nothing. That happens when another file of the
-    same agent still uses the old nickname.
+    If that notice doesn't appear and you expected the playbook to change, open
+    the playbook and search for the old name. It happens, for example, when
+    another file of the same agent uses the same nickname: this file's
+    nickname does change, but the playbook isn't touched, and the markers with
+    the old nickname will keep delivering the **other** file. Fix them by hand.
+
+    If several agents use the file, the new name only applies to the selected
+    agent; the others keep theirs.
   </Accordion>
 
   <Accordion title="Take a file away from an agent (without deleting it)">
-    Switch off the **enviar por WhatsApp** (*send via WhatsApp*) switch. The
-    file stays in the Library and stays available to your other agents; what
-    disappears is that agent's permission to send it — and with it, the markers
-    that named it in its playbook stop working.
+    Switch off **enviar por WhatsApp**. The file stays in the Library and stays
+    available to your other agents; what disappears is that agent's permission
+    to send it. With it, the markers that named it in its playbook are left
+    without their file (there the mention shows as *Pausado en la Librería*)
+    and, as rule 2 of
+    [How the agent chooses which file to send](#how-the-agent-chooses-which-file-to-send)
+    explains, they may end up delivering another similar file: remove them or
+    reconnect them with the Doctor. If the agent also had it in memory, switch
+    off **memoria del agente**.
   </Accordion>
 
   <Accordion title="Send a file to the trash (and get it back)">
-    In the actions column, the three-dot menu → **Enviar a la papelera** (*Send
-    to trash*, in red). It asks for confirmation at the top centre of the screen
-    — *«¿Enviar "catalogo_verano.pdf" a la papelera?»* (*Send
+    In the **acciones** column, the three-dot menu → **Enviar a la papelera**
+    (*Send to trash*, in red). It asks for confirmation at the top center of the
+    screen — *«¿Enviar "catalogo_verano.pdf" a la papelera?»* (*Send
     "catalogo_verano.pdf" to the trash?*), with **Confirmar** (*Confirm*) and
-    **Cancelar** (*Cancel*) — so do not look for it next to the row.
+    **Cancelar** (*Cancel*) — so don't look for it next to the row.
 
-    You can also tick several rows with the checkboxes: the top bar turns into
-    **«N seleccionado(s)»** (*N selected*) with the **Eliminar** (*Delete*) and
-    **Limpiar** (*Clear*) buttons. Despite the name, **«Eliminar» does not
-    delete: it sends to the trash.**
+    You can also tick several rows with the checkboxes: at the top,
+    **«N seleccionado(s)»** (*N selected*) appears with the **Eliminar**
+    (*Delete*) and **Limpiar** (*Clear*) buttons. Despite the name,
+    **«Eliminar» doesn't delete: it sends to the trash.**
 
-    In the **Papelera** (*Trash*) tab each row has a **Restaurar** (*Restore*)
-    button that acts instantly, without confirming. The file comes back with
-    everything it had configured.
+    As soon as it's in the trash, the agent stops sending it and, if the file
+    belongs only to this agent, it also stops using what it learned from it. If
+    several agents used the file, it only leaves the selected agent's Library:
+    the others keep it. In that case, if it had memory switched on, switch it
+    off first and then send it to the trash: that way you make sure the
+    selected agent stops using its content. (If the file disappears from the
+    table when you switch it off, you're done: nothing else is needed.)
+
+    In the **Papelera** tab each row has a **Restaurar** (*Restore*) button
+    that acts instantly, without asking for confirmation. The file comes back
+    with everything it had configured. The notice says *«…el agente lo está
+    re-aprendiendo»* (*…the agent is re-learning it*), but if it was memory, it
+    actually recovers what it had already learned instantly, without
+    processing it again or consuming balance.
 
     <Warning>
-    **The trash empties itself after 30 days.** A daily process purges the
-    records that have gone 30 days untouched, and then you can no longer recover
-    the file from the dashboard. And careful: the file's public address goes on
-    working even though the record disappears, so the trash is not a way to
-    "unpublish" anything either. The screen warns of none of this: do not use the
-    trash as a historical archive.
+    **The trash empties itself after 30 days.** A daily process permanently
+    deletes the files that have been in the trash for 30 days, and then you can
+    no longer recover them. The screen doesn't warn you about this deadline:
+    don't use the trash as a historical archive.
     </Warning>
   </Accordion>
 
   <Accordion title="Turn an image into a sticker">
     In the three-dot menu: **Marcar como sticker** (*Mark as sticker*) /
     **Quitar de stickers** (*Remove from stickers*). It only appears on images.
-    Remember that a sticker **carries no text caption**.
+    Remember that a sticker **carries no text caption**. If several agents use
+    the image, the change only applies to the selected agent.
   </Accordion>
 
   <Accordion title="View a file without leaving the dashboard">
-    Press the name in the **archivo** (*file*) column: a viewer opens with
-    **Abrir en una pestaña nueva** (*Open in a new tab*) and **Descargar**
-    (*Download*). DOCX and CSV are not drawn in the browser and show *«Este
-    formato no se puede ver aquí»* (*This format cannot be viewed here*) — the
-    file is fine, it is the browser that does not know how to draw it.
+    Press the name in the **archivo** column: a viewer opens with **Abrir en
+    una pestaña nueva** (*Open in a new tab*) and **Descargar** (*Download*).
+    DOCX and CSV files aren't rendered in the browser and show *«Este formato
+    no se puede ver aquí»* (*This format can't be viewed here*) — the file is
+    fine, it's the browser that can't display it.
+
+    If the viewer says *«No pudimos mostrar este archivo»* (*We couldn't
+    display this file*), reload the page: the link the dashboard uses to open
+    each file expires after 24 hours. If it's still the same after that, your
+    browser can't play that format (it happens with some MKV videos). Press
+    **Descargar** and open it on your computer.
   </Accordion>
 
   <Accordion title="The «Ubicaciones» (Locations) tab is a different thing">
-    It shares a screen with the Library but has nothing to do with the files:
-    they are your business's **premises**, which the agent sends as a map pin.
+    It shares a screen with the Library but has nothing to do with files: these
+    are your **business's premises** (your shop, your pickup point), which the
+    agent sends as a map pin. Like file permissions, **they belong to each
+    agent**: the ones you add apply to the selected agent.
+
     The button is **Agregar ubicación** (*Add location*) and it asks for
     **Nombre de la sede** (*Name of the premises*), **Dirección** (*Address*)
-    and **Cuándo enviarla (opcional)** (*When to send it (optional)*).
+    and **Cuándo enviarla (opcional)** (*When to send it (optional)*). Here
+    there is a **Guardar** (*Save*) button inside the window: it doesn't work
+    like the rest of the screen.
 
-    If saving fails, it is almost always the address: add the district and the
-    city to it. And careful, here there is a **Guardar** (*Save*) button inside
-    the window; it does not work like the rest of the screen.
+    <Frame caption="The Ubicaciones (Locations) tab, still empty («Aún no hay ubicaciones», No locations yet), with the «Agregar ubicación» (Add location) button at the top.">
+      <img src="/images/libreria/12-ubicaciones.png" alt="The Library's empty Ubicaciones (Locations) tab, with the Nombre, Dirección, Cuándo enviarla, Coordenadas and Acciones columns and the Agregar ubicación (Add location) button" />
+    </Frame>
+
+    When you save, the address is placed on the map by itself. If you get
+    *«No pudimos ubicar esa dirección en el mapa»* (*We couldn't find that
+    address on the map*), complete it with street, number, district and city.
+    To remove a location, open the three-dot menu on its row → **Eliminar**
+    (*Delete*): it asks for confirmation and the agent can no longer send it.
   </Accordion>
 </AccordionGroup>
 
 ## If something is not working
 
-| What you see | It is almost always | How it is fixed |
+| What you see | It's almost always | How to fix it |
 | --- | --- | --- |
-| **«Aún no hay archivos»** (*There are no files yet*) and you know you uploaded them | You have another agent selected | Switch agents in the selector at the top of the menu |
-| I uploaded the file and **the agent does not send it** | The «enviar por WhatsApp» switch was born switched off | Switch it on; the send trigger fills itself in |
-| The text goes out, **but without the attachment** | The nickname does not match any sendable file of that agent (files in the trash or with sending off do not count) | Copy the nickname exactly as it is in the «condición de envío» column |
-| **A file arrives that was not the right one** | Two files with similar names and the marker did not match either of them | Give them different, clear nicknames |
-| **The marker comes out written in the chat** | The marker is malformed | Delete it and insert it again with **Recursos** (*Resources*) or with **@** |
-| **My changes were lost** | Name, nickname and message do not save themselves | Press **Guardar N cambio(s)** (*Save N change(s)*) before switching tabs |
-| **«Hubo un problema»** (*There was a problem*) in the memory | No balance, or a format that does not contribute memory | Top up and press **Reintentar** (*Retry*); audio and video never contribute memory |
-| The customer **asks for the file again and it does not arrive** | The 6-hour block | It is normal; after the 6 h it goes out again |
-| I uploaded an `.mp3` and **`.webm` appears** | Audio files are re-encoded on upload | It is correct: same audio |
-| **Everything shows but nothing responds** | The agent is deactivated | Activate it from **Inicio** (*Home*): your agent's card has an Activo/Pausado (Active/Paused) switch |
-| I cannot find **the search box** | This screen has no search box | Sort by the **tipo** (*type*) or **nombre** (*name*) columns |
+| **«Aún no hay archivos»** (*There are no files yet*) and you know you uploaded them | You have another agent selected | Switch agents in the selector, inside **Ventas** in the menu |
+| I uploaded the file and **the agent doesn't send it** | You uploaded it with Insertar and sending was born switched off | Switch on «enviar por WhatsApp»; the send trigger fills itself in |
+| The text goes out, **but without the attachment** | The nickname doesn't match any sendable file of that agent (files in the trash or with sending off don't count), or it already sent it less than 6 hours ago | Copy the nickname exactly as it appears in the «condición de envío» column and check the mention's status in the playbook |
+| **The wrong file arrives** | Two files with similar names and the marker didn't match either of them | Give them different, clear nicknames |
+| **The marker shows up written in the chat** | The marker is malformed | Delete it and insert it again with **Recursos** or with **@** |
+| **My changes were lost** | Name, nickname and message don't save themselves | Press **Guardar N cambio(s)** before switching tab, agent or screen |
+| **«Hubo un problema»** in the memory | No balance, a scanned PDF with no text, or an empty CSV | Hover to read the reason and check [the table of reasons](#the-other-switch-memoria-del-agente-agent-memory) |
+| The customer **asks for the file again and it doesn't arrive** | The 6-hour block | It's normal; after the 6 hours it goes out again |
+| I uploaded an `.mp3` and **`.webm` appears** | Audio files are converted on upload | That's correct: same audio |
+| **«Agente desactivado»** (*Agent deactivated*) and you can't touch anything | The agent is paused and the Library is read-only | Activate it from **Inicio** (*Home* — the switch on your agent's card) or from **Personalizar → Canales** (*Customize → Channels*) |
+| The viewer says **«No pudimos mostrar este archivo»** | The file's link expired (they last 24 hours), or your browser can't play that format | Reload the page; if it's still the same, press **Descargar** and open it on your computer |
+| I can't find **the search box** | This screen has no search box | Sort by the **tipo** (*type*) or **nombre** columns |
+
+## Who can see your files
+
+The Library keeps your files private. The dashboard opens them with temporary
+links that expire after 24 hours, and within your team, the people with access
+to the **Ventas** app can see it.
 
 <Warning>
-**Each file has its own internet address** — the one you see when you press
-«Abrir en una pestaña nueva» (*Open in a new tab*) in the viewer. It is long and
-it does not show up in Google or in any listing, but **it does not ask for a
-password**: whoever receives it gets in. It has to be that way so WhatsApp can
-deliver the file, and it holds equally for the ones you only use as memory, even
-though the agent does not send them.
+Even so, keep three things in mind:
 
-**Never upload internal costs, margins, other customers' data or contracts to
-the Library.** If the agent needs to know something of that sort, write it as
-text in a chapter of the playbook: text generates no link.
+- **While a temporary link is valid, anyone who has it can open it without
+  signing in.** Don't paste the «Abrir en una pestaña nueva» link in public
+  places.
+- **What the agent sends on WhatsApp stays on the customer's phone.**
+- **What you put in memory, the agent uses to answer your customers.**
+
+So **don't upload internal costs, margins, other customers' data or contracts
+to the Library**: neither to send nor as memory.
 </Warning>
 
 ## Frequently asked questions
 
 <AccordionGroup>
-  <Accordion title="Does sending files cost me credits separately?">
-    Sending a file does not have a charge of its own distinct from the
-    conversation's. Two things that happen by themselves on upload do consume
-    balance: processing a file for **memory** (with the balance at zero it fails
-    with *«sin créditos»* — *no credits*) and **transcribing an audio**, which is
-    always done — even if the audio contributes no memory and even if you never
-    send it. The details are in [Credits and
-    top-ups](/en/getting-started/credits-and-top-ups).
+  <Accordion title="Does sending files cost me extra credits?">
+    Sending a file has no charge of its own, separate from the conversation's.
+    Two things that happen on their own do consume balance: processing a file
+    for **memory** and **transcribing an audio**.
+
+    The first happens when you upload a PDF, a photo (unless you mark it as
+    Sticker), a DOCX or a CSV with **Insertar**, because they're born with
+    memory switched on; and also when you switch memory on, when you replace
+    the file or when you switch memory back on; without balance, it fails with
+    *«sin créditos»* (*no credits*). If a photo is only for sending, switch off
+    **memoria del agente**. The second is done for every audio, even though
+    audio doesn't add memory and even if you never send it. The details are in
+    [Credits and top-ups](/en/getting-started/credits-and-top-ups).
   </Accordion>
   <Accordion title="Can I have the same file in two agents?">
-    Yes. The file is stored once for the whole business and each agent has its
-    own permissions. You can have the catalog sendable for Sales and in memory
-    for Support, or both things at once for the same agent.
+    Yes. The file is uploaded once and each agent has its own permissions. You
+    can have the catalog sendable for one agent and in memory for another, or
+    both at once for the same agent.
+
+    If you later change the file itself from one of them — replace it, rename
+    it, turn it into a sticker or send it to the trash — the change only
+    applies to the selected agent: the others keep their version.
+  </Accordion>
+  <Accordion title="What happens to the Library if I duplicate a funnel?">
+    The new funnel uses the same files with the same permissions: they aren't
+    copied, and the ones in the trash are left out. Whatever was in memory, the
+    new agent learns again, and that consumes balance. How to duplicate one is
+    in [Your funnels](/en/guides/your-funnels).
   </Accordion>
   <Accordion title="Does the customer see my file's name?">
-    On documents, yes: WhatsApp shows the name. On photos and videos, no. Give a
-    presentable name to whatever you are going to send as a document.
+    On documents, yes: WhatsApp shows the name. On photos and videos, no. Give
+    a presentable name to whatever you're going to send as a document.
   </Accordion>
-  <Accordion title="Can I change the nickname without touching the sales playbook?">
-    You can, but there is no need: when you change the send trigger the system
-    repoints the markers that named it by itself. The exception is when another
-    live file of the same agent still uses the old nickname; then nothing is
-    touched and you have to review the playbook by hand.
+  <Accordion title="Can I change the nickname without touching the playbook?">
+    You can, and you don't need to touch the playbook: when you save a new send
+    trigger, the system repoints the markers that named the old one by itself.
+    The exception is when another sendable file of the same agent still uses
+    the old nickname; then the playbook isn't touched and you have to review it
+    by hand.
   </Accordion>
   <Accordion title="How many files fit?">
-    There is no limit on quantity. The limit is 20 MB per file.
+    There's no limit on the number of files. The limit is 20 MB per file.
   </Accordion>
-  <Accordion title="My catalog weighs 40 MB, what do I do?">
+  <Accordion title="My catalog is 40 MB, what do I do?">
     Split it into two PDFs (by category, for example) or export it at a lower
-    resolution. Almost any PDF program has a "reduce size" option.
+    resolution. Almost any PDF program has a «reduce size» option.
   </Accordion>
-  <Accordion title="The customer says the audio does not play for them">
-    It is almost always in the source file, not in the sending: the Library
-    re-encodes the audio to a mono voice note on upload, which is exactly what
-    avoids the iPhone's "this audio is no longer available". If the file will not
-    let itself be processed, the upload fails with a notice. If it happens to you
-    repeatedly, write to us from the **Ayuda** (*Help*) button in the dashboard
-    and tell us the file's name.
+  <Accordion title="The customer says the audio won't play">
+    Before sending it, the system converts the audio to the WhatsApp voice-note
+    format, so it also plays on iPhone. If the file can't be processed when you
+    upload it, the upload fails with the notice *«No se pudo procesar el archivo
+    de audio»* (*The audio file couldn't be processed*). If a customer tells you
+    it won't play, or it happens to you repeatedly, write to us from **Ayuda →
+    Escríbenos por WhatsApp** and tell us the file's name.
   </Accordion>
 </AccordionGroup>
 
 ## The same thing, from your assistant
 
 <Note>
-This section is **optional and only applies if you connected Claude, ChatGPT or
-Codex** to your business. If you work in the dashboard, you are done.
+This section is **optional and only applies if you connected an assistant**
+(Claude, ChatGPT, Codex or another) to your business. If you work in the
+dashboard, you're done.
 </Note>
 
 With the assistant connection you can ask for all of this in your own language.
-The Library **does not come switched on out of the box**: it has to be activated
-when you connect. The page [The connection
-URL](/en/reference/connection-url) brings the address ready-made to copy and
-paste — copy it from there as-is, do not type it by hand.
+If you connected with the dashboard link (**Personalizar → Asistentes IA →
+Copiar link** — *Customize → AI assistants → Copy link*), the Library is
+already included. You'd only be missing it if you use the bare address with
+nothing after it, or a list of groups that doesn't include `library`:
+[The connection URL](/en/reference/connection-url) explains it, with the
+address ready to copy and paste. Also, it only works if your user has access to
+the Ventas app.
 
-What it can and cannot do:
+What it can and can't do:
 
-- **It can** upload files (up to **2.5 MB**, much less than the dashboard's 20
-  MB), list them, grant and revoke send permissions, change the nickname and
-  write the markers in the playbook.
-- **It can** write the message that goes with the file, but only on uploading it
-  or on granting the permission. **It cannot** change it afterwards, nor send
-  files to the trash or restore them, nor mark stickers. That belongs to the
-  dashboard.
-- **It cannot upload SVG** for security reasons, even though the dashboard does
-  accept it.
-- **If you have many files, the list reaches it trimmed** and it will tell you
-  so. Ask for it filtered: "list the sendable files of my sales agent".
+- **It can** upload files (up to **2.5 MB**, much less than the dashboard's
+  20 MB), list them (including the ones in the trash), read a file's text,
+  grant and revoke the send and memory permissions, and change the nickname,
+  which repoints the playbook's markers by itself. If you also gave it
+  permission to edit the playbook, it can write the markers too.
+- **It can** write the message that goes with the file, but only when uploading
+  it or granting the permission: to change it later it would have to revoke the
+  permission and grant it again, so it's easier to do in the dashboard. **It
+  can't** send files to the trash or restore them, or mark stickers. That's
+  done in the dashboard.
+- **It can't upload SVG**, for security reasons, even though the dashboard
+  accepts it.
+- **If you have many files, the list reaches it trimmed**, and it will tell
+  you so. Ask for it filtered: «list the sendable files of my sales agent».
 
 Phrases that work:
 
 - *"List my agent's sendable files with their send trigger."*
-- *"Upload this PDF to the library and leave it sendable for my sales agent,
+- *"Upload this PDF to the library and make it sendable for my sales agent,
   with the send trigger 'catalogo'."*
-- *"Search the playbook for all the file markers and tell me which ones do not
-  correspond to any active sendable file."*
+- *"Search the playbook for all the file markers and tell me which ones don't
+  match any active sendable file."*
 - *"Before touching the playbook, tell me the exact send triggers of this
   agent's files."*
-- *"I already uploaded the catalogue to the Library: read it, leave it sendable
-  for my agent and write the shared section from what it says."*
+- *"I already uploaded the catalog to the Library: read it, make it sendable
+  for my agent and write the shared section with what it says."*
 
 <Warning>
-**If the file weighs more than 2.5 MB the upload fails.** Your assistant may
-explain it to you and you may only see an error. Either way the solution is the
-same: upload it via the dashboard and then ask it to link it.
+**If the file is over 2.5 MB, the upload fails.** Your assistant may explain it
+to you, or you may only see an error. Either way the fix is the same: upload it
+through the dashboard and then ask your assistant to link it.
 </Warning>
 
 <CardGroup cols={3}>
-  <Card title="The agent's sales playbook" icon="book" href="/en/guides/sales-playbook">
-    Where the markers are written and how the script is edited.
+  <Card title="The agent's playbook" icon="book" href="/en/guides/sales-playbook">
+    Where the markers are written and how the script is tested.
   </Card>
   <Card title="Credits and top-ups" icon="wallet" href="/en/getting-started/credits-and-top-ups">
-    What consumes balance and how it is topped up.
+    What consumes balance and how to top up.
   </Card>
   <Card title="Tool reference" icon="list" href="/en/reference/tools">
     The Library's tools, with their exact parameters.

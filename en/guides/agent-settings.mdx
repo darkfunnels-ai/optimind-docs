@@ -1,0 +1,704 @@
+---
+title: "Agent settings"
+description: "Your agent's Configuración (Settings) screen, section by section: who it notifies, business details, test numbers, daily summary, model and quiet hours."
+---
+
+{/* es-source: guias/configuracion-del-agente.mdx @ 326224a */}
+
+The [playbook](/en/guides/sales-playbook) says **what** your agent does. The
+**Configuración** (*Settings*) screen says **with what details and whom it
+notifies**: which phones get each sale and the morning summary, your Yape and
+your bank account, which numbers you can test it from, which AI model it uses
+and at what hours it does not bother your customers. This guide walks through
+it from top to bottom, in the same order you see it.
+
+<Note>
+**Where it is.** In the left-hand menu, inside **Ventas** (*Sales*), choose
+your agent in the selector (the circle with its photo or its initial and its
+name). Then, under the **AJUSTES** (*Settings*) divider, click
+**Configuración**. The screen is titled **«Configuración»** and underneath it
+says *«Configura cómo trabaja»* (*Set up how it works*) followed by your
+agent's name. (Direct: `optimind.darkfunnels.ai/ajustes`.) In some notices in
+the playbook this screen appears as **Ajustes**: it is the same one.
+
+The dashboard is in Spanish, so buttons and labels are written here as you see
+them on screen, with their English meaning in parentheses.
+</Note>
+
+<Warning>
+**Each agent has its own Configuración.** What you change applies to the agent
+chosen in the selector, not to the others. If you have two agents, check both.
+There are two exceptions, and you will see them in their section: **Números de
+prueba** (*Test numbers*) applies to all your business's lines, and the **Zona
+horaria del negocio** (*Business time zone*) belongs to the whole company.
+</Warning>
+
+<Tip>
+**Nothing is saved until you click «Guardar cambios»** (*Save changes*), in the
+bar that stays fixed at the bottom of the screen. You can touch several
+sections and save everything at once.
+</Tip>
+
+<Frame caption="The top of Configuración: the agent's name and the first sections; at the bottom, the fixed bar with «Guardar cambios» (Save changes).">
+  <img src="/images/configuracion/01-ajustes.png" alt="Agent Configuración (Settings) screen: the Identidad (Identity) section with the Nombre del agente (Agent name) field; below, Números frecuentes (Frequent numbers) with Sin contactos guardados (No contacts saved) and Datos del negocio (Business details) with Sin datos guardados (No details saved); at the bottom, the Sin cambios pendientes (No pending changes) bar with the Guardar cambios (Save changes) button" />
+</Frame>
+
+The agent's WhatsApp connection is not here: it is in **Personalizar**
+(*Customize*), the entry just above it in the menu.
+
+## The sections at a glance
+
+| Section | What it is for |
+| --- | --- |
+| **Identidad** (*Identity*) | The agent's name inside your dashboard. |
+| **Números frecuentes** (*Frequent numbers*) | Your contact book: the name and WhatsApp of the people you notify. |
+| **Datos del negocio** (*Business details*) | Your Yape, your account, your social media… written once for the whole playbook. |
+| **Envío de imágenes y archivos** (*Sending images and files*) | Who gets forwarded what the customer sends you: photos, documents, videos. |
+| **Moneda de las ventas** (*Sales currency*) | The currency of a sale when the chat does not make it clear. |
+| **Informar de las ventas** (*Report sales*) | Who gets the 💰 notice for each sale. |
+| **Números de prueba** (*Test numbers*) | The phones you test your agent from. |
+| **Reportes** (*Reports*) | The summary every morning on WhatsApp. |
+| **Alertas de error** (*Error alerts*) | Who is notified if the agent fails or runs out of balance. |
+| **Herramientas** (*Tools*) | The «Consultar stock» (*Check stock*) switch. It only appears with the Inventario (*Inventory*) app active. |
+| **Cerebro** (*Brain*) | The AI model and how much of the conversation it remembers. |
+| **Escritura** (*Writing*) | Typing slips so it sounds more human. |
+| **Comportamiento** (*Behavior*) | Time zones, do-not-disturb hours, voice-note language, deletion phrase and location. |
+
+Some accounts also see a section that is still in testing. If you do not see it
+in yours, you are not missing anything.
+
+## Identity
+
+A single field: **Nombre del agente** (*Agent name*). It is the name you see
+this agent by in your dashboard —the menu, **Inicio** (*Home*)— and the one
+that appears in the summary and in the notices you get on WhatsApp. If you have
+several agents, give them names that tell them apart («Moda Sol · Store», «Moda
+Sol · Wholesale»).
+
+It cannot be left empty: the screen warns *«El nombre no puede estar vacío»*
+(*The name cannot be empty*) and does not let you save.
+
+<Warning>
+**Changing the name requires permission to manage the company's apps.** If you
+do not have it, when you save you get *«Cambiar el nombre del agente requiere
+administrar las apps de la empresa»* (*Changing the agent's name requires
+managing the company's apps*) and that save is not applied, nor is anything
+else you had changed in the agent. Put the name back the way it was and save
+again, or ask whoever manages your account. Permissions are explained in
+[Invite your team](/en/getting-started/invite-your-team).
+</Warning>
+
+## Frequent numbers: your contact book
+
+It is the list of people your agent can notify: you, your salesperson, the
+warehouse. **Each contact is a name and a WhatsApp number.** You save the
+number once and afterwards you pick it by its name: in the lists on this same
+screen and in the playbook.
+
+<Steps>
+  <Step title="Click «Agregar contacto» (Add contact)">
+    A new row appears with three fields: name, country and number.
+  </Step>
+  <Step title="Type the name">
+    The way you recognize them: «Andrea», «Warehouse». Up to 40 characters.
+  </Step>
+  <Step title="Choose the country and type the number without the code">
+    The country comes set to **Perú (+51)**. The number goes without the
+    country code, which the selector already adds: `987654321`. The list has 16
+    countries: a good part of Latin America, Spain and the United States /
+    Canada.
+  </Step>
+  <Step title="Save">
+    Click **Guardar cambios** in the bar at the bottom.
+  </Step>
+</Steps>
+
+If the row is missing something, the field tells you: *«Ponle un nombre»*
+(*Give it a name*), *«Falta el número»* (*Number missing*), *«Elige el país»*
+(*Choose the country*) or *«Número demasiado corto»* (*Number too short*).
+While there is a half-finished contact, the screen does not save.
+
+### How it is used in the playbook
+
+In the playbook editor, type `@` (or use the **＋** button) and look for the
+**Números** (*Numbers*) group: when you choose a contact, its full number, with
+the country code, is pasted in **as text**. If that number changes, you will
+have to fix it in the playbook too.
+
+What does stay up to date is the notice by name. In the **Avisar a un tercero**
+(*Notify a third party*) tool you choose the person **by their name**: the
+playbook says «Andrea» and the number stays here. If tomorrow Andrea changes
+phones, you fix it on this screen and that notice is not touched.
+[The agent's tools](/en/guides/tools) explains it.
+
+### Rules worth knowing
+
+- **If you fix a contact's number, the lists it is in update themselves.** You
+  do not have to look for it in Reportes or in Alertas.
+- **A contact that is in a list cannot be deleted.** The trash can is greyed
+  out and the row says, for example, *«Se usa en Informar de las ventas y
+  Reportes. Quítalo de ahí primero.»* (*Used in Informar de las ventas and
+  Reportes. Remove it from there first.*) Take it out of those lists and then
+  delete it.
+- **If a notice in the playbook names it, the contact book and the playbook
+  move together.** Renaming it here also renames it in the playbook's notices,
+  and a new version is left in the **Historial** (*History*). That holds if you
+  only change its name: if in the same save you change its name and its
+  number, it is treated as removing it. Do it in two saves. Removing it, on the
+  other hand, is refused on save with *««Andrea» avisa en el manual de este
+  embudo: cámbialo en el manual antes de quitarlo de la agenda»* (*«Andrea»
+  sends a notice in this funnel's playbook: change it in the playbook before
+  removing it from the contact book*).
+- **There can be «pending» contacts.** If you received a funnel that another
+  account shared with you, it may bring contacts with a name and no number:
+  their field says *«Pendiente: escribe su WhatsApp»* (*Pending: type their
+  WhatsApp*). They can be saved like that, but the notices to that contact do
+  not go out until you give it its number. See
+  [Your funnels](/en/guides/your-funnels).
+
+## Business details
+
+Your Yape number, your bank account, the account holder, your Instagram, your
+payment link. **You write them once here and in the playbook you insert them
+as a mention.** The agent reads the value from this screen: if tomorrow you
+change banks, you change it in a single place and every chapter is up to date.
+
+<Frame caption="Datos del negocio, still empty («Sin datos guardados» — No details saved): the one-click suggestions and «Agregar dato» (Add detail).">
+  <img src="/images/configuracion/03-datos-del-negocio.png" alt="Datos del negocio (Business details) section of Configuración with the text Sin datos guardados (No details saved), suggestion buttons such as Datos de pago (Payment details), Yape, Plin and Cuenta bancaria (Bank account), and the Agregar dato (Add detail) button; below, Envío de imágenes y archivos (Sending images and files) and Moneda de las ventas (Sales currency)" />
+</Frame>
+
+<Steps>
+  <Step title="Create the item">
+    Click one of the suggestions —**＋ Datos de pago**, **＋ Yape**,
+    **＋ Plin**, **＋ Cuenta bancaria**, **＋ CCI**, **＋ Titular**,
+    **＋ Instagram**, **＋ TikTok**, **＋ Facebook**, **＋ Página web**,
+    **＋ Link de pago**, **＋ Calendly**, **＋ Ubicación**, **＋ Grupo de
+    WhatsApp**— or **Agregar dato** (*Add item*) for one with another name.
+    (In English: payment details, Yape, Plin, bank account, CCI, account
+    holder, Instagram, TikTok, Facebook, website, payment link, Calendly,
+    location, WhatsApp group.) The suggestions you have already used disappear
+    from the list.
+  </Step>
+  <Step title="Type the value">
+    In the value field: Moda Sol's Yape number, the link to your Instagram. The
+    name takes up to 40 characters and the value up to 500.
+  </Step>
+  <Step title="Save">
+    When you save, its code appears under the row, for example
+    `{{dato:yape}}`. It is the way the playbook names it.
+  </Step>
+  <Step title="Insert it in the playbook">
+    In the playbook editor, type `@` and look for the **Datos del negocio**
+    group. The item goes in as a pill with a tag icon.
+  </Step>
+</Steps>
+
+<Warning>
+**The value does not accept double quotes (`"`), `###` or double braces.** They
+would break the playbook at the point where it is substituted. If you type any
+of them, the field warns *«Escríbelo sin comillas, ### ni llaves dobles»*
+(*Write it without quotes, ### or double braces*) and the screen does not save.
+</Warning>
+
+What happens next:
+
+- **An item with no value stays pending.** You can save «Titular» (*Account
+  holder*) empty and fill it in later; the field says *«Pendiente: escribe el
+  dato»* (*Pending: type the detail*). Meanwhile, the agent reads «Titular
+  (pendiente)» instead of the value and does not make it up. The
+  [playbook Doctor](/en/guides/sales-playbook#the-doctor) flags it for you:
+  *«Titular» no tiene valor en Ajustes* (*«Titular» has no value in
+  Settings*).
+- **You can rename an item without breaking anything.** The code is born from
+  the first name and does not change after that: if «Yape» becomes «Yape de la
+  tienda» (*Store Yape*), the playbook keeps working.
+- **You cannot remove an item the playbook uses.** On save you get *«El manual
+  usa* `{{dato:yape}}`*: cámbialo en el manual antes de quitar ese dato»*
+  (*The playbook uses* `{{dato:yape}}`*: change it in the playbook before
+  removing that item*). Remove it from the playbook first.
+- **«Copiar de otro embudo…»** (*Copy from another funnel…*), which appears if
+  you have more than one agent, adds the items from another agent that you do
+  not have here yet, with their values.
+- **They can also be created from the playbook.** In the `@` menu, the option
+  **«＋ Crear dato del negocio «X»»** (*Create business detail «X»*) creates it
+  right here, with no value: then you come back to this screen to write it.
+- **When you share the funnel with another account, your values do not
+  travel.** The item's name travels and whoever receives it puts in their own.
+  When you duplicate it within your account, on the other hand, the copy keeps
+  your values. See [Your funnels](/en/guides/your-funnels).
+
+## How the numbers in the lists are chosen
+
+Five sections on this screen are lists of phones: **Envío de imágenes y
+archivos**, **Informar de las ventas**, **Números de prueba**, **Reportes** and
+**Alertas de error**. In them you do not type a loose number: **they are chosen
+from your contact book**, or added to it at that moment.
+
+<Frame caption="The notice lists are filled by choosing contacts from Números frecuentes; here, still empty.">
+  <img src="/images/configuracion/02-numeros.png" alt="Informar de las ventas (Report sales) and Números de prueba (Test numbers) sections with no numbers set, each with the Elegir de mis números frecuentes… (Choose from my frequent numbers…) selector, and the start of Reportes (Reports)" />
+</Frame>
+
+- **To add someone**, open **«Elegir de mis números frecuentes…»** (*Choose
+  from my frequent numbers…*) and click their name. Each contact comes with its
+  number, for example «Andrea · +51 987654321».
+- **If they are not in your contact book yet**, choose **«＋ Agregar un número
+  nuevo»** (*Add a new number*): type name, country and number and click
+  **Guardar** (*Save*). As the screen itself warns, *«Se guardará también en
+  «Números frecuentes»»* (*It will also be saved in «Números frecuentes»*).
+- **To take someone out**, click the trash can on their row. They leave that
+  list, but stay in your contact book.
+- **The same contact can be in several lists at once.** The usual thing is for
+  your own number to be in Informar de las ventas, Reportes and Alertas de
+  error.
+
+<Note>
+**Do you see a number with «Sin nombre» (*No name*) and the notice «No está en
+tus números frecuentes» (*Not in your frequent numbers*)?** It is a number that
+was already in the list without going through the contact book. It is usually
+the WhatsApp you signed up with, which was copied automatically to Informar de
+las ventas, Reportes and Alertas de error when the agent was created. **It
+still receives the notices**; it only lacks a name. Click **Guardar en la
+agenda** (*Save to contact book*), type whose it is and click **Guardar**.
+</Note>
+
+## Sending images and files
+
+What the customer sends your agent —the Yape screenshot, the photo of the
+product they want, a PDF— **is forwarded just as it arrived** to the numbers on
+this list, with the customer's name and number at the bottom. It goes out
+**before** the AI reads it, so it arrives even if the AI fails to read it. It
+is the most practical way to check payment receipts without opening the
+dashboard.
+
+In **Qué se reenvía** (*What gets forwarded*) you choose the types with three
+switches: **Fotos** (*Photos*), **Documentos** (*Documents*) and **Videos**.
+Videos come switched off: as the screen explains, they are heavy and take a
+while to reach each phone.
+
+- **Voice notes are not forwarded.** They are conversation, not receipts; you
+  see them in the inbox.
+- **With the list empty, nothing is forwarded to your team.** The screen says
+  so: *«Sin números configurados: no se reenvía nada.»* (*No numbers set up:
+  nothing is forwarded.*) Watch out: photos and documents still reach a
+  WhatsApp of the DarkFunnels team, with the list empty or full.
+  [Security and privacy](/en/security#2-which-outside-companies-does-my-data-travel-to)
+  explains it.
+- **If you choose numbers but switch off all three types, it does not let you
+  save**: *«Elige al menos un tipo de archivo para reenviar»* (*Choose at least
+  one file type to forward*).
+
+## Sales currency
+
+When the agent records a sale, it needs to know in what currency. **What the
+chat says wins**: if the customer wrote the symbol (for example «S/ 120») or
+the product already has a price in the [catalog](/en/guides/catalog), that
+currency is used. The **Moneda por defecto** (*Default currency*) in this
+section is the one used when there is neither of those two clues.
+
+The list has eight: **PEN** (soles), **USD** (dollars), **COP**, **MXN**,
+**CLP**, **ARS**, **BOB** and **EUR**. It comes set to soles.
+
+<Warning>
+**The platform does not convert currencies.** Each sale is saved in the
+currency it came in. Changing this currency does not touch sales already
+recorded: only the ones that come afterwards.
+</Warning>
+
+## Reporting sales
+
+**Every sale the agent records arrives instantly on WhatsApp** to the numbers
+on this list, with a 💰 in front: the product, the total and the details the
+agent captured from the customer. Empty fields are not sent.
+
+- **It reports sales and services.** Appointments and leads do not come in
+  here: appointments appear in the morning summary.
+- **It reports the sales that get recorded.** Almost always your agent records
+  them with the **Registrar una venta / conversión** (*Record a sale /
+  conversion*) tool: if your playbook does not ask for it, do not count on the
+  agent recording sales. With the **Órdenes** (*Orders*) app, you also get the notice
+  when an order from a chat is paid in full and nobody had recorded that sale.
+  See [The agent's tools](/en/guides/tools).
+- **With the list empty, the notice does not reach anyone on your team**:
+  *«Sin números configurados: no se avisa ninguna venta.»* (*No numbers set
+  up: no sale is reported.*) A copy of each notice still reaches a WhatsApp of
+  the DarkFunnels team.
+  [Security and privacy](/en/security#2-which-outside-companies-does-my-data-travel-to)
+  explains it.
+
+<Tip>
+This same list is the playbook's **«Equipo de ventas»** (*Sales team*). In the
+**Avisar a un tercero** tool you can choose «Equipo de ventas» instead of a
+person, and the notice reaches everyone on this list.
+</Tip>
+
+## Test numbers
+
+The phones you test your agent from as if you were a customer. The screen
+explains it like this: *«El agente les contesta como a un cliente en todas las
+líneas de tu negocio, aunque también estén en Reportes, Informar de las ventas
+o Alertas de error.»* (*The agent replies to them as to a customer on all your
+business's lines, even if they are also in Reportes, Informar de las ventas or
+Alertas de error.*)
+
+<Steps>
+  <Step title="Add the phone you are going to test with">
+    It is mainly useful for someone on your team who is already in Reportes,
+    Informar de las ventas or Alertas de error, like your salesperson: that way
+    the agent replies to them as to a customer. A personal phone that is not in
+    those lists on any of your agents does not need to be added: the agent
+    already replies to it like any customer. Choose it from your contact book or add it with
+    **«＋ Agregar un número nuevo»**, and save.
+  </Step>
+  <Step title="Write to your agent's number from that phone">
+    A «hola» (*hello*) is enough. You will see the conversation come into
+    [Conversations](/en/guides/conversations).
+  </Step>
+</Steps>
+
+- **Your own WhatsApp already counts as a test number**: the one you entered
+  when signing up does not need to be added. The exception: if that same
+  number is the line you connected to an agent, it does not work for testing
+  (see the next point).
+- **It applies to all your business's lines**, even if you save it in a single
+  agent.
+- **Your business's WhatsApp lines do not work as test numbers**, even if you
+  put them on this list: it is the protection so that two of your agents do
+  not reply to each other in a loop. If you have two agents, do not test one by
+  writing to it from the other's line: test from a personal phone.
+
+<Note>
+If you only want to see how the script responds, without sending anything over
+WhatsApp, use the inbox's **chat de prueba** (*test chat*).
+[Conversations](/en/guides/conversations) explains it.
+</Note>
+
+## Reports
+
+Every morning you get on WhatsApp **what happened the day before**: the sales
+closed with what each customer ordered, the appointments booked, how many
+people were talked to and an idea for selling more.
+
+<Frame caption="Reportes, with the «Enviar el resumen cada mañana» (Send the summary every morning) switch (here Apagado — Off — and with no numbers); below, Alertas de error, Herramientas and Cerebro.">
+  <img src="/images/configuracion/04-reportes.png" alt="Reportes (Reports) section of Configuración with the Enviar el resumen cada mañana (Send the summary every morning) switch on Apagado (Off) and its list of numbers empty; below, Alertas de error (Error alerts), Herramientas (Tools) and the start of Cerebro (Brain)" />
+</Frame>
+
+If you gave your WhatsApp when signing up, a new agent usually comes with the
+summary **switched on** and your number on the list. To check or change it:
+
+<Steps>
+  <Step title="Check that «Enviar el resumen cada mañana» is switched on">
+    Next to the switch it reads **Encendido** (*On*) or **Apagado** (*Off*).
+  </Step>
+  <Step title="Choose who receives it">
+    In the list below, like the other lists on this screen.
+  </Step>
+  <Step title="Save">
+    Click **Guardar cambios** in the bar at the bottom.
+  </Step>
+</Steps>
+
+**It goes out at 8:00, in the agent's time zone** (the one in
+[Behavior](#behavior)), and summarizes from 00:00 to 24:00 of the previous
+day. Each agent sends its own summary.
+
+<Warning>
+**The summary includes your customers' names and phone numbers.** Only put it
+on trusted phones.
+</Warning>
+
+If you switch it on with nobody on the list, the screen warns *«Nadie lo
+recibirá: agrega abajo al menos un número, o apaga el resumen.»* (*Nobody will
+receive it: add at least one number below, or switch the summary off.*) and
+does not let you save.
+
+**When it does not arrive even though it is on:**
+
+- The list is empty: *«Sin números configurados: no se envía el resumen.»*
+  (*No numbers set up: the summary is not sent.*)
+- The agent is **paused** and had no activity yesterday. With the agent
+  active, the summary goes out even if the day was a zero: that zero also
+  tells you something.
+- The summary goes out through your agent's WhatsApp line. If that line has
+  been disconnected for more than a day, or you never connected it, it does
+  not go out that day. See
+  [Connect your WhatsApp](/en/getting-started/connect-whatsapp#common-problems).
+
+## Error alerts
+
+**Who is notified on WhatsApp if the agent fails** when replying or when
+delivering a message. The notice names the agent and what happened, and asks
+you to check that conversation.
+
+It does not notify every bump. If the agent could not reply, it is retried
+first, and the notice goes out when the retry also fails. If what failed is
+the sending, it goes out when the failure is not a passing one.
+
+This list also gets **your account's notices**: that your agent stopped
+replying because you ran out of enough balance, or because your trial ended.
+Those notices do not reach your customer. See
+[Credits and top-ups](/en/getting-started/credits-and-top-ups).
+
+<Warning>
+**Keep your number on this list.** If you leave it empty (*«Sin números
+configurados.»* — *No numbers set up.*), those notices do not reach anyone in
+your business, and you find out that the agent went quiet when a customer
+complains.
+</Warning>
+
+## Tools
+
+**This section only appears if the Inventario (*Inventory*) app is active** in
+your business. It has one switch: **Consultar stock (Inventario)** (*Check
+stock (Inventory)*). Switched on, the agent checks the real availability
+before promising units or delivery times, and does not offer what is not
+there.
+
+For it to work you also need products in the catalog.
+[The agent's tools](/en/guides/tools) explains it.
+
+## Brain
+
+**Modelo LLM** (*LLM model*) is the AI model that reasons and writes the
+replies. As the screen says, *«Determina la capacidad de razonamiento y el
+costo por mensaje»* (*It determines the reasoning ability and the cost per
+message*): how much each conversation spends is explained in
+[Credits and top-ups](/en/getting-started/credits-and-top-ups).
+
+<Warning>
+**If your model appears with «(fuera de catálogo)» (*out of catalog*), that
+model is no longer offered.** While it is still selected, this screen does
+not save any change to the agent: when you click **Guardar cambios** a notice appears that
+starts with *«modelo inválido»* (*invalid model*). Choose another model from
+the list and save again.
+</Warning>
+
+**Ventana de contexto** (*Context window*) is how much conversation the agent
+reads before replying. It is measured in **intercambios** (*exchanges*): each
+customer message with its reply. It goes from **1 to 50** and comes set to
+**15**. With more exchanges, the agent remembers further back in the
+conversation.
+
+## Writing
+
+**Deslices de tipeo** (*Typing slips*) makes some bubbles come out with a
+small, natural mistake, the way a person in a hurry would write:
+
+- a stretched letter («holaa»),
+- an irregular laugh («jajaj»),
+- a missing accent («esta» for «está»),
+- or the first letter in lowercase.
+
+The slider goes from **0% to 100%** and comes **Apagado** (*Off*, 0%). Each
+bubble carries **at most one slip**. It does not touch any word that has a
+number, an @ or a web address, so prices, phone numbers, emails and links come
+out as they are.
+
+<Tip>
+Start low, at 5 or 10%. With a high percentage the agent seems careless more
+than human.
+</Tip>
+
+## Behavior
+
+The last section, **Comportamiento**, brings together several loose settings.
+
+### Time zone and business time zone
+
+- **Zona horaria** (*Time zone*) is **the agent's**. It uses it to greet
+  («buenas noches», *good evening*) and to talk about dates and times. It also
+  rules the 8:00 summary and the do-not-disturb hours.
+- **Zona horaria del negocio** (*Business time zone*) is **the company's**: the
+  copilot and the dates across your whole business use it. It comes set to
+  *«Default de la plataforma (Lima)»* (*Platform default (Lima)*). Changing it
+  requires admin permissions.
+
+They can be different on purpose: an agent that sells in Madrid works on
+Madrid time even if your company is in Lima.
+
+### Do not disturb: from / to
+
+**No molestar: desde / hasta** (*Do not disturb: from / to*) is a range of
+hours in which **scheduled follow-ups do not go out**: the ones due within the
+range wait until it ends. It is there so that a follow-up does not reach your
+customer at 3 in the morning. It goes by the agent's time and comes set to
+**12:00 a.m. to 6:00 a.m.**
+
+Reminders of a booked appointment and notices to the customer about their
+order do not wait: they go out on time.
+
+What piled up does not all go out at once when the range ends: it is spread at
+random over the following hour. With the factory range, between 6:00 a.m. and
+7:00 a.m.
+
+To remove it, choose **«Sin franja (a cualquier hora)»** (*No range (any
+time)*) in either of the two fields: both are cleared and follow-ups go out on
+time, also in the small hours.
+
+### Voice-note language
+
+**Idioma de las notas de voz** (*Voice-note language*) is what language your
+customers speak to you in their audio messages. It is passed on to the system
+that turns them into text. It comes set to **Español** (*Spanish*); there are
+also Inglés, Portugués, Francés, Italiano, Alemán (*English, Portuguese,
+French, Italian, German*) and **Detectar automáticamente** (*Detect
+automatically*).
+
+Leave it on your customers' real language. If you set it to «Detectar
+automáticamente», an audio in Spanish may come out transcribed into another
+language and the agent reply that it did not understand.
+
+### Deletion phrase
+
+**Frase de borrado** (*Deletion phrase*) is the word a customer writes to your
+agent to **delete their data**. It comes set to **«borrar»** (*delete*). It
+works when the message is only that phrase: upper or lower case does not
+matter, but it does not work inside a longer sentence. On receiving it, their
+data with this agent is deleted and their next message starts a conversation
+from scratch. What exactly the deletion reaches is covered in
+[Security and privacy](/en/security).
+
+You can change it to another one (up to 64 characters). If you leave the field
+empty, it goes back to «borrar». The change can take up to a minute to take
+effect.
+
+<Tip>
+If in your business it is normal for a customer to write «borrar» for another
+reason («borrar mi pedido», *delete my order*), nothing happens: it has to be
+the whole message. But if it worries you, choose a phrase nobody would write on
+its own by accident.
+</Tip>
+
+### Base location: name and address
+
+**Ubicación base** (*Base location*) is where your business is, as a reference
+for the agent: a name («Downtown Store») and an address. **This does not send
+the map pin.** For the agent to send your location on WhatsApp, save the
+branch in the Library, **Ubicaciones** (*Locations*) tab:
+[The file Library](/en/guides/library) explains it.
+
+## Saving: the bar at the bottom
+
+The bar stays fixed at the bottom while you move around the screen. On the left
+it says what state you are in:
+
+| What it says | What it means |
+| --- | --- |
+| **Sin cambios pendientes** (*No pending changes*) | Everything you see is already saved. |
+| **Cambios sin guardar** (*Unsaved changes*) | You touched something. The **Descartar** (*Discard*) button appears. |
+| **Guardando…** (*Saving…*) | It is sending your changes. |
+| **Guardado** (*Saved*) | Done. The notice *«Ajustes guardados»* (*Settings saved*) also appears. |
+
+**Descartar** takes the screen back to the last thing you saved. **Guardar
+cambios** saves all the sections at once.
+
+If **Guardar cambios** is grey even though you changed something, the bar
+tells you why:
+
+| Message in the bar | What is missing |
+| --- | --- |
+| *«Escribe un nombre para guardar»* (*Type a name to save*) | The **Nombre del agente** is empty. |
+| *«Completa el nombre y el número de cada contacto»* (*Complete the name and number of each contact*) | There is a half-finished contact in **Números frecuentes**. |
+| *«Elige al menos un tipo de archivo para reenviar»* (*Choose at least one file type to forward*) | In **Envío de imágenes y archivos** there are numbers but no type switched on. |
+| *«Elige a quién le llega el resumen, o apágalo»* (*Choose who gets the summary, or switch it off*) | **Reportes** is on with nobody on the list. |
+
+If the problem is in **Datos del negocio** (an item without a name or with
+characters it does not accept), the bar does not name it: the warning is in
+red on the row itself.
+
+## If something does not work
+
+| What you see | It is almost always | How to fix it |
+| --- | --- | --- |
+| The screen says **«Selecciona un agente»** (*Select an agent*) | No agent chosen in the selector | Choose one at the top of the menu, inside **Ventas** |
+| I changed something and **on the other agent it is still the same** | Configuración is per agent | Repeat the change with the other agent selected |
+| **Guardar cambios** cannot be clicked | Something is missing: the bar says what, or there is a business detail in red | See the [Saving](#saving-the-bar-at-the-bottom) table and the **Datos del negocio** section |
+| *«Cambiar el nombre del agente requiere administrar las apps de la empresa»* | You do not have that permission | Leave the name as it was and save, or ask whoever manages the account |
+| *«El manual usa* `{{dato:…}}`*: cámbialo en el manual…»* | You tried to remove an item the playbook uses | Remove it from the playbook first |
+| *««Andrea» avisa en el manual de este embudo…»* | You tried to remove a contact that a notice names | Change that notice in the playbook and try again |
+| A contact's trash can **is greyed out** | The contact is in a list | Take it out of the list the row names |
+| A number shows as **«Sin nombre»** | It entered the list without going through the contact book | **Guardar en la agenda** and give it a name; meanwhile, it keeps receiving |
+| **I do not get the 💰 notice** | Empty list, or the agent did not record the sale | Check **Informar de las ventas** and that the playbook uses **Registrar una venta / conversión** |
+| **I do not get the summary** | Switch off, empty list or WhatsApp line disconnected | Check **Reportes** and the connection in **Personalizar** |
+| **The summary arrives at an odd time** | The agent's time zone is not yours | Change it in **Comportamiento → Zona horaria** |
+| The agent **did not reply to my test number** | You wrote from another of your business's lines, or the agent is paused | Test from a personal phone and check that the agent is active in **Inicio** |
+| The agent says **«Yape (pendiente)»** | That item has no value | Write it in **Datos del negocio** and save |
+| **«No se pudieron cargar los ajustes»** (*Settings could not be loaded*) | A failure when opening the screen | Reload the page; if it persists, write to us from the dashboard's **Ayuda** (*Help*) button |
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Can I put the same number in several lists?">
+    Yes. A contact can be in Informar de las ventas, Reportes, Alertas de
+    error, Envío de imágenes y archivos and Números de prueba at the same time.
+    Each list sends it its own thing: the sale notices through one, the summary
+    through another.
+  </Accordion>
+  <Accordion title="I entered my WhatsApp number wrong when signing up">
+    Fix it here, **agent by agent**: that number was copied to Informar de las
+    ventas, Reportes and Alertas de error of every agent you created. Add the
+    right number to the contact book and choose it in those three lists. Also
+    add it in **Números de prueba**, so that the agent replies to you as to a
+    customer when you write to it from that number. Then remove the old one.
+
+    The wrong number is still saved in your account, so the agents you create
+    later will be born with it again. To change it in your account, write to
+    us. [Create your account](/en/getting-started/create-your-account) explains
+    it.
+  </Accordion>
+  <Accordion title="What happens to these settings if I duplicate or share the funnel?">
+    When you **duplicate** it within your account, the copy is born with the
+    same settings, numbers and details included. When you **share** it with
+    another account, your numbers and the values of your business details do
+    not travel: whoever receives it puts in their own.
+    [Your funnels](/en/guides/your-funnels) explains it.
+  </Accordion>
+  <Accordion title="Does changing the model affect conversations already in progress?">
+    The new model is used in the replies that come after you save. What the
+    agent already sent does not change.
+  </Accordion>
+</AccordionGroup>
+
+## The same thing, from your assistant
+
+<Note>
+This section is **optional and only applies if you connected Claude, ChatGPT or
+Codex** to your business. If you work in the dashboard, you are already done.
+</Note>
+
+Your assistant can **read** these settings without switching anything on. To
+**change** them it needs the `agents_write` group in your connection URL (or
+`features=all`); how the URL is put together is explained in
+[The connection URL](/en/reference/connection-url). With that group it can
+change the name, the model, the context window, the typing slips, the deletion
+phrase, the agent's time zone, the do-not-disturb hours, the voice-note
+language, the currency, the daily summary, the notice lists, the file
+forwarding, «Consultar stock» and the location.
+
+It **cannot touch** Números frecuentes, Números de prueba, Datos del negocio
+or the business time zone: that belongs to the dashboard. Two more things:
+
+- A list you ask it to change **replaces the existing one entirely**. Always
+  give it the complete list.
+- If your assistant puts a number on a list that is not in your contact book,
+  in the dashboard it shows as **«Sin nombre»** until you save it in Números
+  frecuentes. It receives the notices all the same.
+
+Phrases that work:
+
+- *"Tell me how my sales agent is set up: model, daily summary and who gets the
+  notices."*
+- *"Raise my agent's typing slips to 5%."*
+- *"Set my agent's do-not-disturb hours from 10 at night to 7 in the
+  morning."*
+
+<CardGroup cols={3}>
+  <Card title="The agent's playbook" icon="book" href="/en/guides/sales-playbook">
+    Where your contacts and your business details are inserted.
+  </Card>
+  <Card title="The agent's tools" icon="wrench" href="/en/guides/tools">
+    Record a sale / conversion, notify a third party and check stock.
+  </Card>
+  <Card title="Your funnels" icon="copy" href="/en/guides/your-funnels">
+    What travels from this screen when you duplicate or share a funnel.
+  </Card>
+</CardGroup>

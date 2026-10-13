@@ -1,7 +1,7 @@
 ---
 title: "Connect Claude to your WhatsApp AI agent"
 sidebarTitle: "claude.ai"
-description: "Connect Claude — web, desktop or mobile — to your DarkFunnels WhatsApp AI agent in two minutes: add the connector, paste one URL and authorize with your own account."
+description: "Connect Claude to your DarkFunnels business: copy the dashboard link, add it as a custom connector, authorize with your account and revoke access anytime."
 keywords:
   - "Claude MCP connector"
   - "connect Claude to WhatsApp"
@@ -10,40 +10,311 @@ keywords:
   - "MCP server URL"
 ---
 
-{/* es-source: quickstarts/claude-ai.mdx @ 4897911 */}
+{/* es-source: quickstarts/claude-ai.mdx @ 27e5e29 */}
 
-Works even on Claude's **free plan**, which allows one connector. The connection
-lives in your account, so browser, desktop app and mobile all share it.
+**With Claude connected, you ask about your business from Claude's own chat**:
+what happened in yesterday's conversations, where sales are dropping off, how to
+improve your agent's sales playbook. Claude reads your real DarkFunnels data
+and, if you ask it to, saves changes.
+
+It is **optional**: your agent sells just the same without it. And it works
+even on **Claude's free plan**, which allows one connector.
+
+The dashboard interface is in Spanish, so its buttons and menus are named here
+in Spanish with the English meaning in parentheses.
+
+<Note>
+**What you need.** A Claude account (the free one works) and the account you
+use to sign in to the DarkFunnels dashboard. They are two different accounts:
+on this page you link them.
+
+Is your Claude account part of a team? The connector is added by the
+organization's owner.
+</Note>
+
+## Where the link is in your dashboard
+
+Go to the dashboard at [optimind.darkfunnels.ai](https://optimind.darkfunnels.ai).
+In the left-hand menu, inside **Ventas** (*Sales*), click **Personalizar**
+(*Customize*) — it is in the **Ajustes** (*Settings*) group — and choose the
+**Asistentes IA** (*AI assistants*) tab. You can also get there by typing
+`optimind.darkfunnels.ai/customize?panel=asistentes` in the browser's address
+bar.
+
+The first card, **Conecta tu asistente** (*Connect your assistant*), has
+everything you need: the link, the **Copiar link** (*Copy link*) button, three
+steps with your account's email already filled in, and the **Abrir Conectores
+en Claude** (*Open Connectors in Claude*) button.
+
+<Frame caption="The «Conecta tu asistente» (Connect your assistant) card: the link with its Copiar link (Copy link) button, the three steps and the button that opens Claude's connectors.">
+  <img src="/images/asistentes/01-conecta-tu-asistente.png" alt="Conecta tu asistente (Connect your assistant) card with the connection link, the Copiar link button, three numbered steps and the Abrir Conectores en Claude button" />
+</Frame>
+
+<Tip>
+**You can also get there from Home.** While you see the **Pon tu empresa a
+operar** (*Get your business running*) card on your Home (if it is folded into a
+single bar, click **Ver pasos** — *View steps*), under **Cuando quieras**
+(*Whenever you like*) there is the row **Conecta tu asistente de IA y
+pregúntale por tus ventas** (*Connect your AI assistant and ask it about your
+sales*). Its **Ver cómo →** (*See how*) button takes you to this same tab. It is
+explained in [Your first look](/en/getting-started/first-look).
+</Tip>
+
+**Personalizar is part of Ventas.** If you don't see Ventas in your menu, you
+can still connect: the link is the same one you have in step 1 below. That
+said, your assistant will only be able to use the apps you have access to. And
+the list for removing its access is also in Personalizar: without Ventas you
+can't reach it. If you ever want to cut it off, ask whoever manages your company
+for access to Ventas.
+
+## Connect Claude, step by step
 
 <Steps>
-  <Step title="Add the connector">
-    In claude.ai: **Customize → Connectors → Add → Add custom connector**. On a
-    team account, the organization owner adds it from the organization settings.
-  </Step>
-  <Step title="Paste the URL">
+  <Step title="Copy the link">
+    On the card, click **Copiar link**: the notice *«Link copiado»* (*Link
+    copied*) appears. This is it:
+
     ```
     https://mcp.darkfunnels.ai/mcp?features=all
     ```
-    `?features=all` is the link you never have to revisit: features published
-    later show up on their own.
   </Step>
-  <Step title="Authorize">
-    Press **Connect** and authorize with the **same account you use to sign in
-    to the DarkFunnels dashboard**. The authorization screen tells you which
-    account you are signing in with — check it there.
+  <Step title="Open Claude's connectors">
+    Click **Abrir Conectores en Claude**: it takes you straight to the screen
+    where you paste the link.
+
+    If you'd rather get there by hand, in claude.ai go to **Customize →
+    Connectors → Add → Add custom connector**.
+  </Step>
+  <Step title="Paste the link and click Connect">
+    If Claude asks you for a name for the connector, use one you'll recognize,
+    for example DarkFunnels.
+  </Step>
+  <Step title="Authorize with your dashboard account">
+    A DarkFunnels tab opens. If you weren't signed in to the dashboard, it
+    first asks you to sign in and then comes back to this screen on its own.
+
+    The screen is titled **Autorizar acceso** (*Authorize access*) and tells you
+    which assistant wants to connect to your account. Right below it is the
+    line **Autorizas como** (*You are authorizing as*), with an email. **That
+    email has to be the one for your dashboard account.** If it's a different
+    one, click **Denegar** (*Deny*) and see the first item in
+    [Common problems](#common-problems).
+
+    If it's yours, click **Autorizar** (*Authorize*). You'll see **Acceso
+    autorizado** (*Access authorized*) and you go back to Claude.
+
+    If you had already authorized with that account before, this screen may not
+    appear: you go straight back to Claude.
   </Step>
 </Steps>
 
-Try it: *"Go through yesterday's conversations and tell me where I'm losing
-sales."*
+<Warning>
+**Picking the wrong account doesn't give an error.** Claude connects anyway,
+but to the account you authorized with: you'll see another business, or an
+empty one. That's why the screen shows you the email. Check it before you click
+**Autorizar**.
+</Warning>
+
+## Try it
+
+Open a **new chat** in Claude and paste one of these messages. They are the ones
+on the dashboard's **Pruébalo con estos mensajes** (*Try it with these
+messages*) card, where they appear in Spanish, each with its **Copiar**
+(*Copy*) button:
+
+- *"Review my conversations from yesterday and tell me where sales are being
+  lost."*
+- *"Read my agent's sales playbook and suggest an improvement to the closing
+  chapter; save it once I approve it."*
+- *"Give me the customers who have gone more than 3 days without a reply, and
+  what the agent would say to them to pick things back up."*
+
+Once your assistant has worked on your business, go back to **Personalizar →
+Asistentes IA**. Next to the **Conecta tu asistente** title, **Conectado ·
+última actividad** (*Connected · last activity*) appears, with the date. If you
+connected in another tab, it updates when you return to the dashboard tab. On
+Home, the **Conecta tu asistente de IA y pregúntale por tus ventas** row stops
+showing **Ver cómo →**.
+
+<Note>
+**That badge, and the mark on Home, are seen by whoever manages your company's
+apps** (to begin with, whoever created the account). It counts the activity of
+any assistant connected to your company — yours or that of another person on
+your team — and it is the date of the last time one worked, not a switch: it
+doesn't turn off when you revoke an access.
+</Note>
+
+## What your assistant can do with this link
+
+The same things the dashboard's **Qué puede hacer tu asistente** (*What your
+assistant can do*) card lists:
+
+- Read and edit your agent's sales playbook, with version history so you can
+  undo.
+- Review, create and update the products in your catalog.
+- Review your conversations and customers, and tag the ones who need
+  follow-up.
+- Warn you when your balance is about to run out, if your account can see the
+  balance.
+
+**It works with your account's permissions, not more.** If in your company you
+don't have access to an app — for example, **Órdenes** (*Orders*), which your
+assistant calls «Pedidos» —, your assistant can't use its features. Nor those
+of an app that isn't active in your company.
+
+**You don't need to touch the link again.** The `?features=all` ending turns on all the
+features, including the ones we publish later: they show up for you in a new
+chat, if your account has access to the app they use.
+
+<Warning>
+**That link also turns on the features that write and send.** For example,
+saving the playbook, deleting a product or sending a customer a real WhatsApp
+message, as an operator. Those features are marked as writes, and Claude
+usually uses that mark to ask your permission before using them. When it asks,
+read what it is going to do before you accept.
+
+Would you rather it only read? Add `&read_only=true` to the end of the link:
+
+```
+https://mcp.darkfunnels.ai/mcp?features=all&read_only=true
+```
+
+If you already had it connected, to change the link, remove the connector in
+Claude and add it again with the new one.
+</Warning>
+
+Two more things:
+
+- **It doesn't charge or transfer money.** What some features do spend is
+  balance: optimizing the playbook with AI, asking the copilot, each reply from
+  your agent when you test it, and reading the text in an image from the
+  Library. It comes out of the same balance as your dashboard. And creating or
+  duplicating a funnel takes up a slot in your plan.
+- **Your customers' messages reach it marked as data, not as commands.** They
+  are there for your assistant to analyze, not to obey.
+
+All the link's options are in [The connection URL](/en/reference/connection-url),
+and how your data is protected, in [Security](/en/security).
+
+## Removing its access
+
+In **Personalizar → Asistentes IA**, the **Seguridad y acceso** (*Security and
+access*) card has the **Asistentes con acceso a tu cuenta** (*Assistants with
+access to your account*) list: one row per assistant, with its name, the date
+you authorized it (**Autorizado el …** — *Authorized on …*) and a **Revocar**
+(*Revoke*) button.
+
+<Frame caption="«Seguridad y acceso» (Security and access): how the connection is protected and the «Asistentes con acceso a tu cuenta» (Assistants with access to your account) list. In this screenshot it is empty; each assistant you authorize shows up there with its «Revocar» (Revoke) button.">
+  <img src="/images/asistentes/03-seguridad-y-acceso.png" alt="Seguridad y acceso (Security and access) card with three bullet points about the connection and the Asistentes con acceso a tu cuenta (Assistants with access to your account) list, which reads Ningún asistente tiene acceso a tu cuenta ahora (No assistant has access to your account right now)" />
+</Frame>
+
+<Steps>
+  <Step title="Click Revocar next to the assistant">
+    In its place the notice *«… pierde el acceso a tu cuenta en unos segundos.
+    Para volver a usarlo, tendrás que conectarlo de nuevo.»* (*… loses access to
+    your account in a few seconds. To use it again, you'll have to connect it
+    again.*) appears, with the **Revocar** and **Cancelar** (*Cancel*) buttons.
+  </Step>
+  <Step title="Confirm with Revocar">
+    The notice *«Acceso revocado: …»* (*Access revoked: …*) appears and the
+    assistant disappears from the list. Within a few seconds it can no longer
+    get into your account.
+  </Step>
+  <Step title="Remove the connector from Claude too">
+    Revoking cuts off the access, but the connector stays in your Claude list.
+    To remove it from there, in claude.ai go to **Customize → Connectors** and
+    delete it.
+  </Step>
+</Steps>
+
+**The list belongs to your account.** It doesn't show the assistants that other
+people on your team connected with their own accounts, and revoking yours
+doesn't affect them. To use it again, connect it again from Claude and authorize
+once more.
 
 ## Common problems
 
-- **It can't see your data, or sees it empty** — you authorized with a different
-  account. Ask it "which DarkFunnels account are you connected to?"; if it isn't
-  yours, remove the connector, sign in to darkfunnels.ai with the right account
-  and connect again.
-- **New tools don't show up** — start a NEW chat: the tool list is frozen per
-  conversation. Reconnecting is only needed to change the URL.
-- **"Out of credits"** — top up in the dashboard (Billing); the agent's AI
-  features stay paused until you do.
+<AccordionGroup>
+  <Accordion title="It can't see your data, or sees it empty">
+    The most common cause is that you authorized with **another account**. Ask
+    Claude *"which DarkFunnels account are you connected to?"*: it has a feature
+    that tells it which email and which company it is connected with.
+
+    If the email isn't yours:
+
+    1. In claude.ai, go to **Customize → Connectors** and delete the connector.
+    2. In the dashboard, open your account menu (the circle with your initials,
+       top right), click **Cerrar sesión** (*Sign out*) and sign in with the
+       right account.
+    3. Connect again with the steps above. In **Autorizar acceso**, check that
+       **Autorizas como** shows your email.
+
+    If the email is yours but the company isn't, see the next item.
+  </Accordion>
+  <Accordion title="It says your account changed company">
+    It happens if your account is in **several companies** and you switch
+    company in the dashboard or accept an invitation to another one (that leaves
+    the new one active). Also, if your access to the connection's company was
+    removed.
+
+    Each connection stays **pinned, for saving changes, to the company you had
+    active the first time your assistant used it**. If you later switch company
+    — on your computer or on your phone, it makes no difference —, your
+    assistant doesn't save changes: it warns you and touches nothing, so as not
+    to write in the wrong company. **What it reads, on the other hand, already
+    comes from the company you have active now**: if you were comparing figures,
+    first go back to the connection's company.
+
+    You have two ways out:
+
+    - **To stay in the connection's company**, choose it again in your account
+      menu, with **Cambiar a esta empresa** (*Switch to this company*).
+    - **To work in the other one**, delete the connector in Claude and connect
+      it again while you are in that company.
+
+    Retrying without one of those two steps doesn't help. If the notice says
+    your account no longer has access to the connection's company, only the
+    second one works. How to switch company is in
+    [Invite your team](/en/getting-started/invite-your-team#one-account-in-several-businesses).
+
+    A different notice: *«No se pudo confirmar en qué empresa trabaja esta
+    conexión»* (*It couldn't be confirmed which company this connection works
+    in*). It's a hiccup while checking, not a change of company: your assistant
+    touched nothing, and retrying in a few seconds is enough.
+  </Accordion>
+  <Accordion title="It says you don't have access to an app">
+    Your assistant works with **the same permissions you have in the
+    dashboard**, in the connection's company. If it replies with something like
+    *«Esta persona no tiene acceso a Ventas…»* (*This person doesn't have access
+    to Ventas…*), ask whoever manages your company for that access: it is
+    granted in **Personas y accesos** (*People and access*)
+    ([Invite your team](/en/getting-started/invite-your-team)). Once you have
+    it, wait a minute and open a new chat.
+
+    If it says the app **isn't active**, it first has to be switched on in your
+    company ([The apps](/en/getting-started/the-apps)). Then wait a minute and
+    open a new chat.
+  </Accordion>
+  <Accordion title="New features don't show up">
+    Open a **new chat**: each conversation keeps the list of features that
+    existed when it started. If a new chat still doesn't show them, delete the
+    connector and connect it again.
+  </Accordion>
+  <Accordion title="It says «sin créditos» (out of credits)">
+    It's the **same balance as your dashboard**, and it has run out. The AI
+    features stay paused until you top up, and your WhatsApp agent also stops
+    replying. The notice itself carries the link to top up.
+
+    You top up in **Administración → Dinero → Saldo y facturación**
+    (*Administration → Money → Balance and billing*). If you don't see that
+    screen, ask whoever manages your company for access to the balance. All the
+    details are in [Credits and top-ups](/en/getting-started/credits-and-top-ups).
+  </Accordion>
+  <Accordion title="The screen says «No se pudo autorizar» (Authorization failed)">
+    If below it says *«La solicitud de autorización expiró o no es válida»*
+    (*The authorization request expired or isn't valid*), go back to Claude and
+    click **Connect** again: a new request opens.
+  </Accordion>
+</AccordionGroup>
+
+Still not working? [Write to us](/en/security#how-to-reach-us).

@@ -1,147 +1,286 @@
 ---
-title: "WhatsApp AI sales agent and MCP server"
+title: "DarkFunnels documentation"
 sidebarTitle: "Overview"
-description: "DarkFunnels is a WhatsApp AI sales agent that answers your own number after a QR scan, plus a WhatsApp MCP server so Claude, ChatGPT or Codex can run the business."
+description: "Where to start with your WhatsApp sales agent: create your account, complete its playbook, connect your number by QR without the official API and track sales."
 keywords:
   - "WhatsApp AI sales agent"
-  - "WhatsApp MCP server"
   - "connect WhatsApp without the Business API"
+  - "WhatsApp MCP server"
   - "WhatsApp sales automation"
-  - "MCP connector for WhatsApp"
+  - "WhatsApp chatbot without the official API"
 ---
 
-{/* es-source: index.mdx @ 0e16194 */}
+{/* es-source: index.mdx @ a03b25b */}
 
 **DarkFunnels answers the WhatsApp messages that reach your number for you.** It
-is not a bot of loose replies: it follows a sales script that you write — it
-greets, works out what the customer is looking for, sends them the photo and the
-price, handles the objection and closes — and it tells you when it has sold. It
-replies within some safety limits: up to 150 messages and 150 distinct customers
-per day and per number, and as long as you have balance and the agent is active.
+is not a bot of loose replies: it follows your business's sales script — it
+greets, works out what the customer is looking for, sends them the photo and
+the price, handles the objection and closes — and it lets you know on WhatsApp
+when it records a sale.
 
-You connect the WhatsApp number you already use by scanning a QR from the
-dashboard — no Meta Cloud API application, no message templates to get approved,
-no per-conversation fee.
+Once you are connected, your account needs three things for the agent to
+reply: the agent has to be **switched on**, you need **balance** (at least
+**US\$ 0.10**) and your **trial must still be running** or you need a
+**subscription**. If one of them is missing, it stops replying to new messages.
+When the trial or the balance runs out, Home tells you.
 
-**What you need:** the WhatsApp number your customers already write to, and some
-time the first time round.
-**What you do NOT need:** to change number, to know how to code, or to put in a
-card to try it.
+On top of that, each chat has its own **«Piloto automático»** (*Autopilot*)
+switch: when it is off, your agent stays quiet in that conversation and you
+reply yourself. If a customer was left without a reply, go through
+[My agent didn't reply to a customer](/en/reference/faq).
 
-<Frame caption="This is what the dashboard looks like: the menu on the left, your agents in the middle and the day's numbers at the top.">
-  <img src="/images/inicio/01-panel-inicio.png" alt="DarkFunnels dashboard home screen with the side menu and an agent card" />
+**What you need:**
+
+- the WhatsApp number your customers already write to, with its phone at hand
+  to scan a QR code;
+- a computer to complete your agent's playbook (on your phone you can touch up
+  individual details, such as prices, phone numbers and links, and test your
+  agent, but the script is rewritten from the computer);
+- and a little time the first time round.
+
+**What you do NOT need:** to change number, to know how to code, to put in a
+card to try it, or the WhatsApp Business API.
+
+<Frame caption="Your Home: the greeting at the top; in the middle, how many conversations your agents handled, how many are waiting for a reply and each agent's card.">
+  <img src="/images/inicio/01-panel-inicio.png" alt="Dashboard Home screen with the side menu, the greeting «Hola, César», the headline «Tus agentes atendieron 54 conversaciones.», the «Esperan respuesta» (Waiting for a reply) card showing 2 and the cards of two agents next to «Crear agente»" />
 </Frame>
 
-The dashboard interface is in Spanish, so the screenshots on this site show it
-that way; the English pages give each button and label with its Spanish wording
-in parentheses.
+The dashboard is in Spanish, so the screenshots show it that way; these English
+pages give each button and menu name in Spanish, with its translation in
+parentheses the first time.
 
 <CardGroup cols={2}>
   <Card title="Start here" icon="rocket" href="/en/getting-started/create-your-account">
-    Five pages, in order, from creating the account to your agent replying on
-    its own. It is the recommended path if you have just arrived.
+    The **Getting started** pages, in order: from creating the account to your
+    agent replying on your WhatsApp. It is the recommended path if you have
+    just arrived.
   </Card>
   <Card title="Open the dashboard" icon="arrow-right" href="https://optimind.darkfunnels.ai">
     **The dashboard** is `optimind.darkfunnels.ai`: where you sign in with your
-    email and where everything this documentation describes happens.
-  </Card>
-  <Card title="Connect WhatsApp" icon="whatsapp" href="/en/getting-started/connect-whatsapp">
-    The QR step by step, and what exactly happens to that number's chats.
+    email (or with Google) and where everything this documentation describes
+    happens.
   </Card>
   <Card title="What does it cost?" icon="tag" href="/en/getting-started/pricing">
     The 7-day trial, what happens the day it expires and how much the
     subscription is. With the figures.
   </Card>
+  <Card title="Frequently asked questions" icon="circle-question" href="/en/reference/faq">
+    The everyday questions. For example: **"my agent didn't reply to a
+    customer"**.
+  </Card>
 </CardGroup>
+
+## The words you will read all over this site
+
+Before anything else, seven words. With these seven you will understand almost
+the whole site; the rest are in the [glossary](/en/reference/glossary).
+
+| Word | What it is |
+| --- | --- |
+| **Agent** (*Agente*) | Your automatic salesperson: a name, a way of speaking, a script and a WhatsApp number. You will also see it called **funnel** (*embudo*) or, in the Home headline, **person** (*persona*: «Personas que venden por ti», *People who sell for you*): it is the same thing. Careful: the **«Personas nuevas»** (*New people*) chart on Home counts customers, not agents. |
+| **Playbook** (*Manual*) | The agent's script, written in **chapters**, like the one you would give a new salesperson. It is what you will edit most. |
+| **Placeholder** (*Hueco*) | A detail of your business still to fill in, written in capitals with underscores and between « », like `«PRODUCTO_MARCA»`. It comes in the playbook of a sales agent created with the Ecommerce template or from scratch. While any are left, you cannot connect WhatsApp. |
+| **Catalog** (*Catálogo*) | Your products with their prices and variants. The agent checks it when a customer asks about a product, to give the exact price. |
+| **Library** (*Librería*) | Your business's files: the ones the agent sends to the customer (photos, PDF catalogs, audio) and the ones it only reads so it knows how to answer (warranties, shipping policies). |
+| **Copilot** (*Copiloto*) | The AI that lives **inside** the dashboard, in the drawer on the right, and helps you build and fix your agent. |
+| **Credits** (*Créditos*) | The balance the AI spends: your agent when it chats, and the copilot too. If your balance drops below US\$ 0.10, your agent stops replying to new messages, even if you see some balance left on screen. |
+
+<Note>
+**"Customer"**, in this documentation, is **the person who writes to you on
+WhatsApp**: the one who buys from you.
+
+**optiMind** is the name of the DarkFunnels product. You will see it in the
+dashboard, for example in the copilot's header: you are in the right place.
+</Note>
+
+## The path, in order
+
+<Steps>
+  <Step title="Create your account">
+    Two screens and no card. Your account starts with **US\$ 10** of balance to
+    build and test your agent, and with four apps already active: **Ventas**
+    (*Sales*), **Calendario** (*Calendar*), **Órdenes** (*Orders*) and
+    **Inventario** (*Inventory*).
+    [Create your account](/en/getting-started/create-your-account)
+  </Step>
+  <Step title="Get to know the dashboard">
+    What each thing on the Home screen is, and what each entry in the left-hand
+    menu is.
+    [Your first look](/en/getting-started/first-look) ·
+    [The DarkFunnels apps](/en/getting-started/the-apps)
+  </Step>
+  <Step title="Create your agent with the copilot">
+    The copilot asks you what you sell (it also works if you book appointments
+    or screen job applicants). If you sell over WhatsApp, you choose between
+    **«Usar la plantilla de Ecommerce»** (*Use the Ecommerce template*), a
+    playbook with base content to adapt to your business, or **«Armar mi flujo
+    desde 0»** (*Build my flow from scratch*), with the same chapters and the
+    steps empty.
+    [Your first agent](/en/getting-started/your-first-agent)
+  </Step>
+  <Step title="Complete the playbook">
+    Fill the placeholders with your business details and write whatever is
+    missing, from the computer. With the playbook's **«Probar»** (*Test*)
+    button you talk to your agent without WhatsApp, to see how it replies
+    before you let it loose on your customers.
+    [The sales playbook](/en/guides/sales-playbook)
+  </Step>
+  <Step title="Connect your WhatsApp">
+    In **«Personalizar → Canales»** (*Customize → Channels*) you scan a QR code
+    with your number's phone, just like when you open WhatsApp Web. The day you
+    connect, your 7-day trial starts and your agent begins to reply, if you
+    have balance left: no new balance arrives when you connect, because you
+    already had the US\$ 10 welcome balance from sign-up.
+
+    If your agent was born from the Ecommerce template (or from scratch) and its
+    playbook is missing something, instead of the QR you will see **«Antes de
+    conectar:»** (*Before connecting:*) with what is missing: placeholders,
+    chapters without steps, or your payment and shipping details not yet
+    confirmed.
+
+    <Frame caption="With a template agent's playbook incomplete, Channels shows you «Antes de conectar:» with each pending item and a link to resolve it.">
+      <img src="/images/agente/03-antes-de-conectar.png" alt="An agent's channels with WhatsApp selected, «Sin número conectado» (No number connected) and the «Antes de conectar:» block with two pending items: «20 huecos (ver)» and «Datos de pago y envío sin confirmar (confirmar)»" />
+    </Frame>
+
+    [Connect your WhatsApp](/en/getting-started/connect-whatsapp)
+  </Step>
+  <Step title="Understand your balance">
+    What spends credits, what happens if they run out, how to top up and how
+    much it costs to keep going when the trial ends.
+    [Credits and top-ups](/en/getting-started/credits-and-top-ups) ·
+    [Pricing](/en/getting-started/pricing)
+  </Step>
+  <Step title="Bring in your team, if you work with more people">
+    Invite the people who help you and decide which apps each one can use.
+    [Invite your team](/en/getting-started/invite-your-team)
+  </Step>
+</Steps>
+
+From the moment you connect, **your agent replies to the one-to-one chats that
+reach that number**: it does not reply to groups or statuses, or to the
+contacts you have opted out. That is why the order matters: first the complete
+playbook, then the QR. The rest — catalog, files, settings — you fine-tune with
+the guides below.
 
 ## Guides by task
 
 <CardGroup cols={2}>
   <Card title="The sales playbook" icon="book" href="/en/guides/sales-playbook">
-    The script: chapters, rules, examples. With versions and undo.
+    The script, chapter by chapter: filling placeholders, testing it without
+    WhatsApp and going back to an earlier version from the History
+    (*Historial*).
   </Card>
   <Card title="The agent's tools" icon="bolt" href="/en/guides/tools">
     What it does besides writing: record the sale, hand the chat to a person,
     schedule follow-ups, look up prices. And how each one is asked for.
   </Card>
-  <Card title="The catalog" icon="tag" href="/en/guides/catalog">
-    Products, prices and variants — so the agent does not make anything up.
+  <Card title="Agent settings" icon="sliders" href="/en/guides/agent-settings">
+    Your payment and business details, who gets the notice of each sale, the
+    summary every morning, the test numbers and the error alerts.
   </Card>
-  <Card title="The file library" icon="paperclip" href="/en/guides/library">
-    The photos, the PDFs and the audios that your agent sends over WhatsApp.
+  <Card title="The catalog" icon="tag" href="/en/guides/catalog">
+    Products, prices and variants, so the agent gives the exact price.
+  </Card>
+  <Card title="The file Library" icon="paperclip" href="/en/guides/library">
+    The photos, the PDFs and the audio that your agent sends over WhatsApp.
   </Card>
   <Card title="Conversations" icon="comments" href="/en/guides/conversations">
-    Reviewing what happened in the chats and where sales are being lost.
+    Your chat inbox: which ones are waiting for a reply, how to take over a
+    conversation yourself and what to do when a message doesn't arrive.
   </Card>
   <Card title="Orders and metrics" icon="chart-line" href="/en/guides/orders-and-metrics">
-    What was sold, what it cost and how the business is doing.
+    **Órdenes**, **Clientes** and **Resultados** (*Orders, Customers and
+    Results*): what you sold, how you record the payment of each order and what
+    each number measures.
   </Card>
-  <Card title="Frequently asked questions" icon="circle-question" href="/en/reference/faq">
-    Starting with the one that hurts most: **"my agent did not reply to a
-    customer"**.
+  <Card title="The referral network" icon="thumbs-up" href="/en/guides/referral-network">
+    Get your customers to recommend you: your agent notes down who they refer
+    to you, you set the rewards and keep track of their payouts.
+  </Card>
+  <Card title="Your funnels" icon="copy" href="/en/guides/your-funnels">
+    Duplicate a funnel, share it with another account, receive one that was
+    shared with you or delete it.
+  </Card>
+  <Card title="Invite your team" icon="users" href="/en/getting-started/invite-your-team">
+    People and access: inviting your team, what each person can see and do,
+    and how to switch company if your account is in more than one.
+  </Card>
+  <Card title="The Meta pixel" icon="bullseye" href="/en/guides/meta-pixel">
+    Let Facebook and Instagram know who really bought from you, even if you
+    don't have a website.
+  </Card>
+  <Card title="Meta ads" icon="bullhorn" href="/en/guides/meta-ads">
+    Which click-to-WhatsApp ad brings you chats that buy, and how much each one
+    cost you. It is in pilot: if you don't see **«Anuncios»** (*Ads*) in your
+    menu, it is not available on your account yet.
   </Card>
 </CardGroup>
 
 ## Before you connect your WhatsApp
 
 It is exactly what everybody asks: *is it safe for an AI to answer my customers
-and read my chats?* The long answer — what is stored, who sees it and what does
-not happen — is in **[Security](/en/security)**.
+and read my chats?* The long answer — who sees your chats, which outside
+companies your data travels to, how long each thing is kept and how to delete
+a customer — is in **[Security](/en/security)**.
 
-The short answer about money: **your agent never charges your customers
-anything.** It records the sale; collecting it is up to you. The only thing
-charged automatically is your own subscription and, if you switch it on, the
-balance top-up to the card you left stored.
+The short answer about money: **your agent does not process payments.** It
+records the sale and, when the customer decides to buy, it gives them the
+payment details it has in its playbook and asks them for a photo of the
+receipt. Confirming that the payment arrived is up to you or your team.
+
+If you save your Yape or your bank account in **«Configuración → Datos del
+negocio»** (*Settings → Business details*), insert them into the playbook with
+**@**: the agent reads them wherever the playbook names them.
+[Agent settings](/en/guides/agent-settings) explains how.
+
+What is charged automatically, to the card you left saved, is your own
+subscription and, if you turn it on, the automatic balance top-up.
 
 ## Optional: run it from Claude or ChatGPT
 
-Once your agent is selling, you can connect your business to **the assistant you
-already use** and ask it things or make changes by talking to it: *"go through
-yesterday's conversations and tell me where sales are being lost"* or *"propose
-an improvement to the closing chapter and save it once I approve it"*.
+Once your agent is selling, you can connect your business to **the assistant
+you already use** to ask it things and make changes by chatting: *"go through
+yesterday's conversations and tell me where sales are being lost"* or
+*"propose an improvement to the closing chapter and save it once I approve
+it"*.
 
 <Note>
 This uses **MCP**, the standard that Claude and ChatGPT use to connect to
 external tools; our connection to that standard is what these pages call **the
-bridge**. **It is not needed in order to sell**: it is a convenience for anyone
-who already uses one of those assistants.
+bridge**. **You don't need it to sell**: it is a convenience for anyone who
+already uses one of those assistants. The link to connect it is in
+**«Personalizar → Asistentes IA»** (*Customize → AI assistants*).
 
-Always authorize with **the same account you use to sign in to the dashboard** —
-with any other one you would be connecting a business that is not yours.
+Authorize with **the same account you use to sign in to the dashboard**. Your
+assistant gets in with your permissions: whatever your account can't do in the
+dashboard, it can't do either. If your account is in several companies, each
+connection stays tied to the company you had selected the first time your
+assistant used it. If you later switch company in the dashboard, that
+connection stops saving changes until you go back to the first one, and your
+assistant tells you so. To stay in the first one, select it again in the
+dashboard. To work in the new one, disconnect the connector and connect it
+again.
 </Note>
-
-One URL for everything:
-
-```
-https://mcp.darkfunnels.ai/mcp?features=all
-```
 
 <CardGroup cols={2}>
   <Card title="claude.ai" icon="message" href="/en/quickstarts/claude-ai">
-    Two minutes. Works on the free plan.
+    Claude on the web, in the desktop app or on your phone.
   </Card>
   <Card title="Claude Code" icon="terminal" href="/en/quickstarts/claude-code">
     The connector in your terminal.
   </Card>
   <Card title="Codex" icon="code" href="/en/quickstarts/codex">
-    App, editor or terminal — connect once.
+    The Codex app, editor extension or terminal.
   </Card>
   <Card title="ChatGPT" icon="bolt" href="/en/quickstarts/chatgpt">
-    Developer mode (paid plans).
+    With developer mode. ChatGPT's free plan does not support connectors.
+  </Card>
+  <Card title="Cursor, VS Code and others" icon="plug" href="/en/quickstarts/other-mcp-clients">
+    Any MCP client that accepts remote servers with sign-in (OAuth): the same
+    URL.
+  </Card>
+  <Card title="The connection URL" icon="link" href="/en/reference/connection-url">
+    What your assistant can do depending on the link: read-only, full phone
+    numbers or a single agent.
   </Card>
 </CardGroup>
-
-### What the bridge does not do
-
-The bridge **does not move money**: none of its tools charges, transfers, issues
-payment links or touches your payment provider. Sales are recorded by your
-WhatsApp agent; the bridge only reads them. The details are in
-[Security](/en/security).
-
-<Note>
-**The English mirror of this site is being completed.** Anything that is not
-mirrored here yet is available in the [Spanish documentation](/), which covers
-getting started, the sales playbook, the catalog, the library, conversations,
-orders and metrics, and the FAQ in full. The [tool
-reference](/en/reference/tools) is already in English.
-</Note>

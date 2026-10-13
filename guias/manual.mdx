@@ -1,6 +1,6 @@
 ---
 title: "El manual del vendedor"
-description: "El guion de tu agente, pantalla por pantalla: dónde se edita, qué es cada cosa que ves en el editor, cómo se guarda, cómo volver atrás y qué revisa el Doctor."
+description: "Cómo se escribe el guion de tu agente en el Manual: capítulos, menciones con @, guardar, probar, volver atrás, cambios medidos y el Doctor."
 ---
 
 El manual es el guion de tu agente. No es documentación interna: es lo que tu
@@ -17,33 +17,46 @@ conversación de cada cliente vive en uno solo a la vez.
 izquierda, dentro de **Ventas** → bloque **AGENTE**, pulsa **Manual**. (Si
 prefieres ir directo: `optimind.darkfunnels.ai/manual`.)
 
-Si en vez del manual te aparece una pantalla que dice **«App no activa»**, la
-app **Ventas** no está encendida en tu cuenta: escribe a soporte y te la
-activan.
+Y al revés: el botón **Guía** de la barra del Manual abre esta misma página en
+otra pestaña.
 </Note>
 
+<Info>
+**Si en vez del manual ves otra pantalla:**
+
+- **«App no activa»**: la app **Ventas** no está encendida en tu empresa. Si
+  administras la cuenta, el mensaje trae el botón **Ir a Apps** para activarla;
+  si no, te pide que se lo digas a quien administra.
+- **«No tienes acceso a Ventas»**: la app está activa, pero tu usuario no
+  tiene permiso para usarla. El permiso se da desde **Personas y accesos**: lo
+  cuenta [Invita a tu equipo](/primeros-pasos/invita-a-tu-equipo).
+</Info>
+
 <Warning>
-**El guion se escribe en computadora.** En pantallas estrechas (menos de 900 px
-de ancho, o sea el teléfono) el manual se abre en **solo lectura**: puedes
-leerlo y **«Retocar datos»**, pero no reescribirlo. Al final de esta página
-está lo que sí se puede hacer desde el móvil.
+**El guion se escribe en computadora.** En pantallas de menos de 900 px de
+ancho (el teléfono, y también muchas tabletas en vertical) el manual se abre en
+**solo lectura**: puedes
+leerlo, **retocar datos** (precios, teléfonos, enlaces), **probarlo** y ver los
+**cambios medidos**, pero no reescribirlo. Lo cuenta
+[Desde el teléfono](#desde-el-telefono).
 </Warning>
 
 <Note>
 **Dos palabras que no son lo mismo.** **El copiloto** es la IA que vive dentro
 del panel y te propone cambios. **Tu asistente** es Claude, ChatGPT o Codex
-conectados por fuera: opcional, y solo aparece en las dos últimas secciones.
+conectados por fuera: es opcional, y sale sobre todo al final de esta página, en
+«Cómo se llama cada cosa fuera del editor» y «Desde tu asistente».
 
 Y una tercera: si en un vídeo antiguo oyes **«etapa»**, es lo mismo que
-**capítulo**. Se renombró. (La dirección vieja `/stages-editor` sigue llevando
-al Manual.)
+**capítulo**. Se renombró.
 </Note>
 
 ## Lo que le llega a tu agente en cada mensaje
 
 De los capítulos, **le llega uno solo**: aquel en el que está esa conversación.
-Lo que escribiste en el capítulo 4 no existe para él mientras la conversación
-está en el 1. Si una regla tiene que valer siempre, escríbela en cada capítulo
+(La excepción es un salto marcado «ejecuta ya»: en ese mismo mensaje también le
+llega el capítulo de destino.) Lo que escribiste en el capítulo 4 no existe para él mientras la conversación
+está en el 1. Si una regla tiene que valer en todos, escríbela en cada capítulo
 donde importe —o ponla en una **sección compartida §**, que verás más abajo.
 
 El capítulo no viaja solo. Además le acompañan, en cada turno:
@@ -51,48 +64,106 @@ El capítulo no viaja solo. Además le acompañan, en cada turno:
 - **la persona activa** (si no hay ninguna elegida, no viaja nada de la
   persona),
 - **los datos del cliente**, sus notas y sus citas,
-- **las reglas de estilo** del negocio,
-- las **herramientas** y los **archivos** de ese capítulo.
+- **las reglas de estilo** para escribir por WhatsApp,
+- las **herramientas** y los **archivos** de ese capítulo,
+- y, si el manual usa **datos del negocio** (tu Yape, tu cuenta, tus redes),
+  el valor que tienen hoy en Configuración.
+
+## Un cambio, de principio a fin
+
+Este es el ciclo completo. El resto de la página explica cada paso con detalle.
+
+<Steps>
+  <Step title="Elige el agente">
+    En el menú de la izquierda, justo debajo del encabezado **Ventas**, está el
+    selector de agente: la foto o la inicial de tu agente y su nombre. Elige el
+    agente cuyo manual quieres cambiar y pulsa **Manual**.
+  </Step>
+  <Step title="Escribe el cambio">
+    Haz clic en la línea que quieres cambiar y escribe. Para nombrar un archivo,
+    una herramienta, un dato o un capítulo, teclea **`@`** (ver
+    [El menú «@»](#el-menu-mencionar-cosas)).
+  </Step>
+  <Step title="Mira el Doctor">
+    Si el botón **Doctor** lleva un número, ábrelo. Son problemas verificados
+    sobre tu texto, cada uno con su arreglo o con **Ir al sitio**.
+  </Step>
+  <Step title="Guarda">
+    Pulsa **Guardar cambios**. **Hasta entonces, tu agente sigue con el manual
+    de antes.**
+  </Step>
+  <Step title="Pruébalo">
+    Pulsa **Probar** y escríbele como si fueras un cliente. Contesta con el
+    manual que acabas de guardar, y nada sale por WhatsApp.
+  </Step>
+  <Step title="Mira cómo le fue">
+    Cuando el cambio termina de medirse —la propia fila te dice qué día—,
+    **Cambios medidos** te dice si las conversaciones fueron mejor o peor desde
+    ese cambio, y te deja volver a como estaba.
+  </Step>
+</Steps>
 
 ## Lo primero que ves al entrar
 
 ### Si aún no has elegido agente: la vista de ejemplo
 
-El Manual **no arranca vacío**. Si no hay ningún agente seleccionado, carga un
-manual de muestra completo para que veas cómo es uno bien escrito. La barra de
-arriba lo avisa: **«Vista de ejemplo · selecciona un agente para editar su
-manual»**, y los botones **Historial**, **Datos**, **Doctor** y el de guardar
-salen apagados.
+Sin un agente seleccionado, el Manual carga un manual de muestra completo, para
+que veas cómo es uno bien escrito. La barra de arriba lo avisa: **«Vista de
+ejemplo · selecciona un agente para editar su manual»**, y **Historial**,
+**Cambios medidos**, **Datos**, **Doctor**, **Probar** y el de guardar salen
+apagados.
 
-No estás editando nada tuyo. Elige tu agente en el selector de arriba del menú
-(el círculo con su inicial) y el documento se cambia por el tuyo.
+No estás editando nada tuyo. Elige tu agente en el selector del menú de la
+izquierda, debajo de **Ventas**, y el documento se cambia por el tuyo.
 
 ### Si tu agente no tiene manual todavía
 
-Un manual vacío no es un callejón sin salida. En computadora te ofrece cuatro
-salidas con nombre propio:
+Esta pantalla aparece cuando el manual se queda sin capítulos (por ejemplo, si
+borras el último). No trae explicaciones: solo las salidas. En computadora son
+cuatro:
 
 | Botón | Para qué |
 | --- | --- |
-| **Armarlo conversando** | Abre el copiloto con este agente en foco: te enseña el manual y, si se lo pides, te escribe el embudo entero. |
-| **Cargar un manual de ejemplo** | Un manual armado que puedes editar encima. Es lo que recomienda la propia pantalla si es tu primera vez. |
+| **💬 Armarlo conversando** | Abre el copiloto con este agente: te explica cómo funciona el manual y lo arman capítulo por capítulo, con voz o por escrito. |
+| **📄 Cargar un manual de ejemplo** | Un manual ya armado que puedes editar encima. En un embudo de venta donde se puede cargar la plantilla de Ecommerce, en su lugar sale **🛍️ Cargar plantilla de Ecommerce**. |
 | **＋ Crear el primer capítulo en blanco** | Empezar de cero, a mano. |
-| **✦ Redactar un capítulo con IA** | Un solo capítulo escrito por IA. |
-| **Cargar plantilla de Ecommerce** | Solo en embudos de venta: el manual pasa a ser la plantilla de Ecommerce (bloque compartido y tres capítulos con huecos). La ves también con un solo capítulo escrito. |
+| **✦ Redactar un capítulo con IA** | Describes lo que quieres y la IA redacta un capítulo. Revisas el título y las instrucciones antes de aceptarlo. |
 
-Las dos de IA —conversar y redactar un capítulo— solo aparecen con un agente ya
-elegido. Desde el teléfono quedan dos: **Armarlo conversando** y
-**💻 Enviármelo a la computadora**.
+Desde el teléfono quedan dos: **💬 Armarlo conversando** y **💻 Enviármelo a la
+computadora**.
 
 **Si lo armas conversando, los archivos los subes tú.** El material de tu
 producto (catálogo, flyer, lista de precios, fotos) va a la
 [Librería](/guias/libreria), y ahí decides cuáles puede enviar el agente.
 
-### El cartel que enseña a usar el editor
+### Los avisos de arriba del documento
 
-Cuando no hay ningún otro aviso pendiente, arriba del documento sale la
-instrucción de uso más útil que tiene el producto, y conviene leerla entera una
-vez:
+Entre la barra y el documento pueden aparecer varias bandas. Algunas conviven;
+otras se turnan.
+
+**Las que pueden salir a la vez:**
+
+- **«Tu agente está listo. Conéctalo a WhatsApp para que empiece a responder a
+  tus clientes.»**, con el botón **Conectar WhatsApp →**. Sale cuando tu manual
+  tiene capítulos y tu WhatsApp todavía no está conectado (si el copiloto te
+  está acompañando en la puesta en marcha, puede no salir). En un embudo de la
+  plantilla de Ecommerce al que aún le falta algo, en su lugar ves **«Antes de
+  conectar:»** con la lista de lo que falta.
+- **«Datos por revisar de la copia.»** Solo en un embudo que te compartió otra
+  cuenta y que todavía trae datos suyos. Te ofrece **Completar en Ajustes**,
+  **Buscar en el manual** o **Ver archivos**, y se va cuando pulsas **Ya lo
+  revisé**. Ver [Tus embudos](/guias/tus-embudos).
+- **«Faltan N huecos…»**, con **Ayúdame a rellenarlo**. Solo en un embudo
+  nacido de la plantilla de Ecommerce: lo cuenta
+  [su sección](#un-manual-nacido-de-la-plantilla-de-ecommerce).
+- **Las propuestas del copiloto** que esperan tu decisión: ver
+  [Lo que te propone el copiloto](#lo-que-te-propone-el-copiloto).
+
+**Las que se turnan (una a la vez):** en el teléfono, la banda para retocar
+datos. En computadora, por orden: el aviso de que tienes cambios sin guardar de
+la última visita; si no, el de secciones compartidas casi duplicadas; y cuando
+no queda nada pendiente, el consejo de uso del editor, que conviene leer entero
+una vez:
 
 > ✏️ Todo el documento es el editor: clic en cualquier línea y escribe · teclea
 > @ para mencionar archivos, herramientas, variables y capítulos · clic en una
@@ -100,15 +171,12 @@ vez:
 > capítulos y secciones § desde el índice · guarda cuando quieras (queda
 > respaldo en el historial)
 
-Solo se muestra **un cartel a la vez**, y hay cola: si tienes cambios sin
-guardar de la última visita, primero sale el aviso de recuperación; si hay
-capítulos casi duplicados, sale ese; y solo cuando no queda nada pendiente sale
-el consejo. Por eso tu pantalla puede no coincidir con la de un compañero.
+Por eso tu pantalla puede no coincidir con la de un compañero.
 
 ## La pantalla, de arriba abajo
 
-<Frame caption="El editor completo en computadora: el índice de capítulos a la izquierda, el documento en el centro y el cajón «Recursos» abierto a la derecha.">
-  <img src="/images/manual/01-editor.png" alt="Pantalla del Manual en el panel: barra con Historial, Recursos, Datos, Doctor y Guardar; índice de capítulos a la izquierda; documento «Manual del agente» en el centro; cajón «Recursos del agente» abierto a la derecha." />
+<Frame caption="El editor en computadora: la barra de botones arriba, el índice de capítulos a la izquierda, el documento en el centro y el cajón Recursos abierto a la derecha.">
+  <img src="/images/manual/01-editor.png" alt="Pantalla del Manual en el panel: barra con Historial, el icono de Cambios medidos, Recursos, Datos, Doctor con un 16, Probar, Guía, el indicador Cambios sin guardar, Descartar cambios y Guardar cambios; índice de seis capítulos a la izquierda; los capítulos 1 y 2 en el centro; el cajón Recursos del agente, vacío, a la derecha." />
 </Frame>
 
 ### La barra de botones
@@ -117,41 +185,44 @@ En computadora, de izquierda a derecha:
 
 | Botón | Qué hace |
 | --- | --- |
-| **Deshacer / Rehacer** | Hasta **100 pasos** atrás. Atajos: `⌘Z` / `Ctrl+Z` y `⌘⇧Z` o `⌘Y`. |
+| **Deshacer / Rehacer** | Hasta **100 pasos** atrás. Atajos: `⌘Z` / `Ctrl+Z` para deshacer; `⌘⇧Z`, `⌘Y` o `Ctrl+Y` para rehacer. |
 | **Historial** | Las versiones guardadas del manual, para comparar y volver atrás. |
+| **Cambios medidos** | Cada cambio que guardaste, con la semana de antes y la de después. Con cambios sin guardar se queda en solo el icono, o se esconde si la barra no tiene sitio, hasta que guardes o descartes. |
 | **Recursos** | El cajón con los archivos, herramientas, variables y capítulos del agente. |
 | **Datos** | Los enlaces, precios, teléfonos y frases exactas del manual, todos juntos. |
 | **Huecos** | Solo en un embudo nacido de la plantilla de Ecommerce, y mientras le queden huecos: lleva el número de huecos por rellenar y abre su panel. |
-| **Doctor** | Los problemas del manual, con su arreglo. Lleva encima el número de problemas encontrados. |
-| *(indicador de guardado)* | Te dice si hay cambios pendientes. |
+| **Doctor** | Los problemas del manual, con su arreglo. Lleva encima el número de errores y avisos. |
+| **Probar** | Un chat de prueba con tu agente, junto al documento. |
+| **Guía** | Abre esta guía en otra pestaña. |
+| *(indicador)* | **«Cambios sin guardar»**, **«Guardando…»** o **«Guardado»**. |
 | **Descartar cambios** | Solo aparece si has tocado algo. |
 | **Guardar cambios** | El botón que escribe el manual en el servidor. |
 
-Sin agente seleccionado, **Historial**, **Datos**, **Doctor** y el de guardar
-están apagados a propósito.
+Sin agente seleccionado, **Historial**, **Cambios medidos**, **Datos**,
+**Doctor**, **Probar** y el de guardar están apagados a propósito.
 
 <Note>
-**Los atajos de teclado tienen tres puertas.** `⌘Z` y compañía funcionan solo
-en computadora, y **no** mientras tengas abierta la ventana del Historial ni
-con el cursor dentro de un campo de formulario. Los **botones** de deshacer y
-rehacer sí siguen funcionando en esos casos. (En el teléfono esos botones solo
-aparecen cuando tienes cambios sin guardar.)
+**Los atajos de teclado no funcionan en todas partes.** `⌘Z` y compañía funcionan
+solo en computadora, y **no** mientras tengas abierta la ventana del
+**Historial** o la de **Cambios medidos**, ni con el cursor dentro de un campo
+de formulario. Los **botones** de deshacer y rehacer sí siguen funcionando en
+esos casos. (En el teléfono esos botones solo aparecen cuando tienes cambios
+sin guardar.)
 </Note>
 
 ### El índice de la izquierda
 
-Lista tus capítulos con su número y su nombre, y abajo trae los cuatro botones
-para crear cosas nuevas:
+Lista tus capítulos con su número y su nombre, y después las secciones
+compartidas § con los capítulos a los que aplican. Debajo trae los botones para
+crear cosas nuevas:
 
 - **＋ Nuevo capítulo**
-- **✦ Nuevo capítulo con IA** (necesita un agente elegido)
 - **＋ Sección compartida**
 - **＋ Insertar patrón** — que también se abre **tecleando `/` en una línea
   vacía**.
-
-Al pie, el editor resume su propia filosofía: *«**Sin bloques, sin doble
-representación:** capítulos = niveles del embudo, menciones = tinta, las
-secciones § declaran su alcance. Lo que lees es lo que el agente obedece.»*
+- **＋ Cargar plantilla de Ecommerce** — solo en un embudo de venta con un
+  capítulo, cuando la plantilla se puede cargar. Lo cuenta
+  [su sección](#un-manual-nacido-de-la-plantilla-de-ecommerce), al final.
 
 <Tip>
 **«＋ Insertar patrón» te ahorra escribir el guion desde cero.** Trae seis
@@ -166,9 +237,13 @@ El índice entero **no aparece en el teléfono**.
 ### El documento
 
 Arriba del todo, el título **«Manual del agente»** y la frase que resume para
-qué existe. Debajo, la pastilla de la **persona** (con foto y nombre) y, en los
-agentes creados con el sistema nuevo, el botón **«Memoria a Largo Plazo
-(RAG)»**. Después empiezan los capítulos.
+qué existe. Debajo, la pastilla de la **persona** (con su foto o su inicial, y
+su nombre) y, en los agentes creados con el sistema nuevo, el botón
+**«Memoria a Largo Plazo (RAG)»**. Después empiezan los capítulos, y detrás las
+secciones compartidas §.
+
+En computadora, el cajón **Recursos** se abre solo al entrar. Si lo cierras, el
+documento gana ancho.
 
 ## Un capítulo por dentro
 
@@ -177,83 +252,99 @@ documento no hay formularios ni campos con rótulo. Esto es lo que ves en cada
 capítulo:
 
 **El número y el nombre.** A la izquierda, el rótulo **«Capítulo 3»**; al lado,
-el nombre, que escribes tú. Si dejas el nombre en blanco y guardas, el sistema
-lo bautiza **«Capítulo N»** por su número. El mismo número vuelve a salir en la
-píldora **«capítulo 3»** de la fila de etiquetas y en el índice de la
-izquierda: son los tres el mismo número.
+el nombre, que escribes tú. El mismo número sale en el índice de la izquierda.
+Si dejas el nombre en blanco, el capítulo se queda **sin nombre**: en el índice
+verás «(sin nombre)» y tu agente solo recibirá su número. Conviene ponerle uno
+corto.
 
 <Tip>
 **No le pongas el número al nombre.** Escribe «Calificación», no «2.
-Calificación». Dentro del Manual el nombre se muestra **tal cual lo escribas**,
-así que verías «Capítulo 2» y «2. Calificación» pegados, repetido. Fuera del
-Manual —en los chips de Clientes y Conversaciones, y en las listas de destino—
-ese número inicial sí se recorta solo.
+Calificación». En la cabecera del capítulo y en el índice el nombre se muestra
+**tal cual lo escribas**, así que verías «Capítulo 2» y «2. Calificación»
+pegados, repetido. En el menú `@` y en las listas para elegir capítulo ese
+número inicial sí se recorta solo.
 </Tip>
 
 **Las líneas del capítulo.** Es el guion: lo que tu agente ejecuta. **No lleva
 ningún rótulo dentro del editor**; son sencillamente las líneas que escribes
 debajo del nombre. Es la parte que más vas a tocar. Para añadir una línea al
 final, pasa el ratón por el capítulo: aparece una línea fina **«＋ añadir
-instrucción»**; al hacer clic se convierte en la caja de escribir (en un
-capítulo vacío y en el teléfono se ve siempre).
+instrucción»**; al hacer clic se convierte en la caja **«＋ Escribe una
+instrucción — teclea @ para mencionar»** (en un capítulo vacío y en pantallas
+táctiles se ve sin pasar el ratón).
 
-**«Quién eres» o «Tu papel aquí:».** Es quién es tu agente. Aparece de una de
-tres formas, y cambia sola:
+**«Tu papel aquí:».** Es quién es tu agente en ese capítulo. En computadora
+aparece en cada capítulo, aunque esté vacío, con la ayuda *«(opcional) el papel
+propio de este capítulo»*. En el teléfono solo se ve si tiene algo escrito.
 
-- Si **todos** los capítulos dicen lo mismo sobre quién es el agente, sale **una
-  sola vez arriba**, con el título **«Quién eres»**.
-- Si un capítulo dice algo distinto, se parte: cada capítulo enseña su propio
-  **«Tu papel aquí:»**.
-- Si nadie tiene nada escrito ahí, no aparece por ningún lado.
+<Note>
+**Si recuerdas un bloque «Quién eres» arriba del todo, ya no existe.** Antes, si
+todos los capítulos decían lo mismo sobre quién es el agente, el editor lo
+juntaba arriba. Desde septiembre de 2026 el papel se ve dentro de su propio
+capítulo. Lo que tu agente recibe no cambió: solo dónde se pinta.
+</Note>
 
 **El chip de ejecución**, junto al nombre: dice **«se ejecuta cada vez»** o
 **«se ejecuta 1 vez → pasa a capítulo N»**. Se explica más abajo.
 
 **Los botones de la cabecera.** Para no llenar la fila, solo el chip de
-ejecución está siempre a la vista. Al pasar el ratón por el capítulo aparecen
-dos botones cortos, y el menú **⋯** guarda el resto:
+ejecución y el menú **⋯** están fijos a la vista. Al pasar el ratón por el
+capítulo aparecen dos botones cortos más, y el **⋯** guarda el resto:
 
-- **«Ver»** (en el menú, «Ver como lo recibe el agente») — abre una ventana con
-  el texto de ese capítulo tal como queda guardado.
+- **«Ver»** — abre una ventana con el texto de ese capítulo tal como quedará
+  guardado.
 - **«✦ Reescribir»** — selecciona el capítulo entero y abre las acciones de
   ✦ IA.
-- En el menú **⋯**: **«Probar desde aquí»** (arranca el chat de prueba en ese
-  capítulo) y **«Eliminar capítulo»** (mira la sección de más abajo antes de
-  usarlo).
+- En el menú **⋯**: **«Ver como lo recibe el agente»**, **«✦ Reescribir el
+  capítulo»**, **«Probar desde aquí»** (arranca el chat de prueba en ese
+  capítulo), **«Ayúdame a rellenarlo»** (solo en un embudo de la plantilla, si
+  a ese capítulo le quedan huecos) y **«Eliminar capítulo»** (mira
+  [Borrar un capítulo](#borrar-un-capitulo) antes de usarlo).
 
-En el teléfono no hay «pasar el ratón»: los botones se ven siempre.
+En pantallas táctiles no hay «pasar el ratón»: los botones se ven fijos.
+
+**El pie «Le aplican:».** Al final de cada capítulo, la lista de secciones
+compartidas § que se le suman. Un clic en una te lleva a ella.
 
 <Note>
 **«Ver como lo recibe el agente» enseña tu texto, no el mensaje completo.** Es
-lo que quedará guardado, palabra por palabra — muy útil para comprobar lo que
+lo que quedará guardado, palabra por palabra, con las menciones ya convertidas
+—incluidos los cambios que aún no guardaste—. Muy útil para comprobar lo que
 acabas de escribir. Pero al mandárselo de verdad, el sistema le añade encima la
 persona, los datos del cliente, los rótulos de cada parte, las herramientas y
-los archivos. El bloque **«Quién eres»** no tiene ese botón; las secciones §,
-sí.
+los archivos. Las secciones § también tienen ese botón.
 </Note>
 
 ### Las líneas se tiñen solas
 
 No te asustes si ves colores que tú no pusiste: el editor detecta la intención
-de cada línea. Las que empiezan por **«Si…»** se pintan como condición y las que
-empiezan por **«Nunca…»** como prohibición. Es una ayuda visual del editor: el
-texto que se guarda es exactamente el que escribiste.
+de cada línea por cómo empieza. Las que empiezan por **«Si…»** se pintan como
+condición, y las que empiezan por **«Nunca…»** o **«Siempre…»**, como regla
+fija. También vale detrás de un encabezado: «PASO 2: Si el cliente insiste…» se
+tiñe. Es una ayuda visual del editor: el texto que se guarda es exactamente el
+que escribiste.
 
 ### El índice como mapa
 
-A la izquierda, cada capítulo lleva un **punto de color**: rojo si el Doctor
-le encontró un error, ámbar si tiene avisos, verde si no hay nada. Pasa el
-ratón por la fila y el tooltip te dice qué le pasa; un clic en el punto te
-lleva a la línea del primer hallazgo. Bajo el rótulo «Manual» se resume el
-total («1 error · 2 avisos»). Además, **«1×»** marca los capítulos que se
-ejecutan una sola vez y **«vacío»** los que no tienen líneas propias (solo les
-aplican las secciones §).
+A la izquierda, cada capítulo lleva un **punto de color**: rojo si el Doctor le
+encontró un error, ámbar si tiene avisos, verde si no hay nada. Pasa el ratón
+por la fila y el tooltip te dice qué le pasa; un clic en el punto te lleva a la
+línea del primer hallazgo. Bajo el rótulo «Manual» se resume el total («1 error
+· 2 avisos»).
+
+Además:
+
+- **«1×»** marca los capítulos que se ejecutan una sola vez.
+- **«vacío»** marca los que no tienen líneas propias (solo les aplican las
+  secciones §).
+- **«N huecos»** marca, en un embudo de la plantilla de Ecommerce, los
+  capítulos y secciones a los que les quedan huecos por rellenar.
 
 ### Plegar capítulos
 
 Con seis capítulos el documento se hace largo. El chevrón a la izquierda de
 cada rótulo **pliega** el capítulo: queda la cabecera y una línea que lo
-resume (cuántos PASOS tiene, qué archivos y herramientas menciona, a qué
+resume (cuántos PASOS tiene, cuántos archivos y herramientas menciona, a qué
 capítulos sale y cuántas secciones § le aplican). Un clic en el chevrón o en
 ese resumen lo vuelve a abrir. En el índice, **«Plegar todo»** pliega todos
 los capítulos de una vez y **«Desplegar todo»** los abre.
@@ -269,7 +360,7 @@ Una **sección compartida** es un bloque marcado con el símbolo **§** que apli
 a varios capítulos a la vez. Lo escribes una vez y sirve para todos los que
 elijas. Lleva un chip que dice a cuáles aplica: **«aplica a capítulos 1–2, 4»**
 (los números seguidos se juntan con una raya) o **«sin capítulos»** si no aplica
-a ninguno.
+a ninguno. En computadora, un clic en ese chip te deja cambiar el alcance.
 
 <Note>
 **Para ti es un bloque; para tu agente son copias.** Al guardar, el texto de la
@@ -281,7 +372,7 @@ tu agente no la ve.
 
 <Warning>
 **«PUNTOS CLAVE:» no es decoración: es estructura.** Dentro de una sección, esa
-línea literal separa el conocimiento de las prohibiciones, y **tiene que ir al
+línea literal separa el conocimiento de las reglas, y **tiene que ir al
 principio del texto o justo después de una línea en blanco**, con lo que sigue
 en la línea de abajo. Si la borras o la metes a mitad de párrafo, el sistema
 deja de distinguir las dos cosas y lo trata todo como contexto.
@@ -291,18 +382,19 @@ deja de distinguir las dos cosas y lo trata todo como contexto.
 **Vaciar una sección § que sí aplica a capítulos te bloquea el guardado, y menos
 mal.** Si borras su contenido y pulsas guardar, el sistema **no guarda** y te
 explica por qué: guardarla vacía borraría ese contexto en todos los capítulos
-donde aplica. El aviso nombra la primera sección vacía que encuentra, aunque
-haya varias.
+donde aplica. Para salir, deshaz con `⌘Z`, escribe algo dentro o elimínala
+desde su menú **⋯** → **«Eliminar sección»**. El aviso nombra la primera
+sección vacía que encuentra, aunque haya varias.
 
 Esa red **no cubre** las secciones sin alcance (las que dicen «sin capítulos»):
-de esas te avisa el Doctor. La red existe porque un negocio real perdió así
-13.716 caracteres de contexto en agosto de 2026.
+de esas te avisa el Doctor.
 </Warning>
 
 <Tip>
 Si tienes dos secciones § que dicen casi lo mismo, el editor te lo señala
-—**«Copias casi idénticas (no colapsan)»**— y trae un asistente para
-unificarlas. Es un problema frecuente en manuales que llevan tiempo.
+arriba del documento —**«Copias casi idénticas (no colapsan)»**— y, en
+computadora, trae un asistente para unificarlas con el botón **«Unificar →»**.
+Es un problema frecuente en manuales que llevan tiempo.
 </Tip>
 
 ## Escribir el guion: los PASOS
@@ -316,13 +408,15 @@ texto para que empiece justo ahí.
 PASO 1: Saluda por su nombre y pregunta qué producto le interesa.
 PASO 2: Si pide precio, dile esto exactamente: «...»
 PASO 3: Cuando tengas el distrito, pasa al PASO 4.
+PASO 4: Confirma el pedido y Llama a la herramienta advance_chapter con el capítulo 3
 ```
 
 - Cada paso lleva su acción y su salida («Si …», «Cuando tengas X, salta al
   PASO N»).
-- Si el capítulo tiene que **rutear** según la situación del cliente (típico del
-  primero), su **«REGLA DE EJECUCIÓN:»** va antes del PASO 1 y dice qué paso
-  ejecutar en cada caso.
+- Si el capítulo **cambia de camino** según la situación del cliente (típico
+  del primero), la condición va **dentro del paso al que afecta**, no en un
+  párrafo antes del PASO 1. Por ejemplo: «PASO 2: Si el cliente ya dijo qué
+  busca, sáltate este paso y ve al PASO 3».
 - Los guiones que deben salir literales van con **«dile esto:»** o **«dile esto
   exactamente:»**.
 
@@ -333,17 +427,32 @@ y entonces le manda a tu agente **el capítulo entero** desde el principio. No
 falla ruidosamente: falla haciendo de más.
 </Warning>
 
-<Tip>
-**No tienes que estructurarlo a mano.** Selecciona el texto desordenado, pulsa
-la píldora **«✦ IA»** que aparece y elige **«Estructurar en pasos»**: te
-propone la versión con PASO 1 / PASO 2 / … Nada cambia hasta que aceptas la
-propuesta (y nada llega al servidor hasta que guardas).
-</Tip>
+### La píldora «✦ IA»: que la IA te ordene el texto
+
+No tienes que estructurarlo a mano. Selecciona un trozo del capítulo y pulsa la
+píldora **«✦ IA»** que aparece encima:
+
+| Acción | Qué te propone |
+| --- | --- |
+| **Estructurar en pasos** | El texto desordenado, convertido en PASO 1 / PASO 2 / … |
+| **Acortar sin perder datos** | La misma información con menos palabras. |
+| **Extraer condiciones** | Las reglas del texto, como líneas «Si…» y «Nunca…». |
+
+La propuesta llega como una comparación: **nada cambia hasta que pulsas
+«Aceptar»**, y nada llega al servidor hasta que guardas. Estas tres acciones
+usan saldo de tu cuenta.
+
+En el mismo menú puede aparecer **«Enviar en bloque»**, que no usa IA (ver «Un
+pasaje que salga tal cual», en
+[Mandar un archivo desde el guion](#mandar-un-archivo-desde-el-guion)) y, si la
+selección tiene una herramienta mal escrita, **«Arreglar herramienta»**.
 
 ## Hacer que el embudo avance
 
-Que la conversación pase del capítulo 1 al 2 lo decide **una marca dentro del
-texto del capítulo**. Lo natural es escribirla en las líneas del guion.
+Hay dos formas de que la conversación pase de un capítulo a otro. La habitual
+es **una marca dentro del texto del capítulo**, escrita en las líneas del guion.
+La otra es el chip «se ejecuta 1 vez», que hace saltar al capítulo elegido en
+cuanto ese capítulo termina; se explica más abajo en esta misma sección.
 
 **La forma cómoda:** teclea **`@`**, elige el grupo **Capítulos** y elige el
 capítulo destino. Queda una **mención** en la línea (esa «tinta» de color del
@@ -363,21 +472,23 @@ Si el cliente acepta la recomendación, Llama a la herramienta advance_chapter c
 ```
 
 <Warning>
-**Escribirlo en prosa no ejecuta nada.** «Avanza al capítulo 5», «pasa al
-siguiente» o «continúa» no mueven nada: el embudo se queda clavado en ese
-capítulo y nadie te avisa. Es el fallo más caro y el más silencioso de todo el
-producto.
+**Escribirlo en prosa no es fiable.** Tu agente tiene orden de usar la
+herramienta de avanzar solo cuando la línea literal se lo pide. Por eso, con
+«Avanza al capítulo 5», «pasa al siguiente» o «continúa», lo normal es que el
+embudo se quede clavado en ese capítulo, sin un error a la vista en la
+conversación. Es de los fallos más caros y más silenciosos. En los capítulos
+intermedios, el Doctor sí lo detecta: **«El capítulo N no avanza a ningún
+capítulo»**.
 </Warning>
 
 Detalles que conviene saber:
 
-- **El destino tiene que existir.** Si no hay un capítulo con ese número, el
-  avance se rechaza y la conversación se queda donde estaba. El Doctor detecta
-  las menciones a capítulos que ya no existen.
+- **El destino tiene que existir.** Si no hay un capítulo con ese número —por
+  ejemplo, si tu agente intenta avanzar más allá del último—, el avance se
+  rechaza y la conversación se queda donde estaba. El Doctor detecta las
+  menciones a capítulos que ya no existen.
 - **El avance se aplica al entregar la respuesta.** Un turno que se interrumpe
   (el cliente escribe encima) no avanza.
-- **El último capítulo no avanza.** Tu agente recibe un aviso explícito de que
-  es el final del manual, aunque el cliente cierre la compra ahí mismo.
 
 ### Saltar en el mismo mensaje
 
@@ -386,8 +497,9 @@ cliente. Si quieres que ejecute el capítulo destino **en ese mismo mensaje**,
 hay una marca para eso:
 
 **Haz clic sobre una mención de capítulo ya escrita** y aparece la casilla
-**«Ejecutar ese capítulo de inmediato»**, con su explicación: *«sin esperar a
-que el cliente escriba»*.
+**«Ejecutar ese capítulo de inmediato»**, con su explicación: *«en el mismo
+turno, sin esperar a que el cliente escriba»*. Con la casilla marcada, la
+mención lo dice: **«· ejecuta ya»**.
 
 <Note>
 **Esa casilla no está al insertar la mención por primera vez**, solo al hacer
@@ -403,7 +515,7 @@ El saludo es el caso típico: se dice una vez y se pasa al siguiente. Eso se
 maneja desde el **chip junto al nombre del capítulo**, que dice **«se ejecuta
 cada vez»** o **«se ejecuta 1 vez → pasa a capítulo N»**.
 
-Al pulsarlo se abre una ventanita —**«Ejecución de "Saludo"»**, con el nombre de
+Al pulsarlo se abre una ventanita —**«Ejecución de «Saludo»»**, con el nombre de
 tu capítulo— con dos controles:
 
 1. La casilla **«Se ejecuta una sola vez»**.
@@ -422,23 +534,91 @@ en «una sola vez»: si dice «se ejecuta cada vez», ahí no se muestra nada.
 
 ## El menú «@»: mencionar cosas
 
-Teclea **`@`** en cualquier línea y se abre el menú de menciones, con hasta seis
-grupos:
+Teclea **`@`** en cualquier línea y se abre el menú de menciones, con hasta
+siete grupos:
+
+<Frame caption="El menú @: cada grupo es una clase de cosa que puedes mencionar. En este agente salen cuatro: Herramientas, Variables, Capítulos y Envío.">
+  <img src="/images/manual/02-menu-arroba.png" alt="Menú @ del Manual con el buscador y los grupos Herramientas, Variables, Capítulos y Envío" />
+</Frame>
 
 | Grupo | Para qué |
 | --- | --- |
-| **Archivos** | Los archivos enviables de la Librería. |
+| **Archivos** | Los archivos enviables de la Librería. Los pausados salen marcados **«· pausado»**. |
 | **Herramientas** | Las acciones que tu agente puede ejecutar. Cuáles son y qué necesita cada una: [Las herramientas del agente](/guias/herramientas). |
 | **Variables** | Los datos del cliente (su nombre, su distrito…). |
 | **Capítulos** | El salto a otro capítulo. |
-| **Envío** | Marcar un trozo para que salga junto. |
-| **Números** | Tus números frecuentes, si tienes alguno guardado. |
+| **Envío** | **«Enviar en bloque»**: que un pasaje salga entero en una sola burbuja. |
+| **Datos del negocio** | Tu Yape, tu cuenta, el titular, tus redes…, guardados en Configuración. Cada uno muestra su valor o **«pendiente»**. |
+| **Números** | Tus **Números frecuentes** de Configuración. Inserta el número tal cual, con su código de país. |
 
 **Un grupo vacío no se muestra.** Si todavía no has subido archivos, «Archivos»
 no sale — no está roto, está vacío. Y «Números» solo aparece al insertar una
 mención nueva, no al cambiar una que ya existe.
 
-Un clic sobre una mención ya escrita la cambia; `⌫` la borra.
+**Si lo que tecleaste no existe**, el menú te ofrece crearlo:
+**«＋ Crear variable «X»»** o **«＋ Crear dato del negocio «X»»**.
+
+Un clic sobre una mención ya escrita abre el menú para cambiarla, pero solo con
+las opciones de su misma clase (un archivo por otro archivo, un capítulo por
+otro capítulo), con un buscador y **«✕ Quitar mención»**; `⌫` la borra. Si la mención está rota y hay
+un recurso que se le parece, el menú te propone arriba **«✓ Corregir a «…»»**.
+
+### Avisar a alguien por su nombre
+
+La herramienta **Avisar a un tercero** (que tu agente le mande un WhatsApp a
+otra persona, como el encargado del almacén) tiene un campo para decir **a
+quién**. Ahí, teclea `@` o pulsa **＋** y elige:
+
+- **Equipo de ventas**: tu lista **«Informar de las ventas»** de Configuración.
+- Cualquier contacto de tus **Números frecuentes**.
+
+El manual guarda **el nombre, no el número**:
+`Dile a «Equipo de ventas» que …`. Así, si cambia el número, lo cambias en
+Configuración y el manual no se toca. Si aún no tienes contactos guardados, el formulario te lo recuerda. Un
+número tecleado a mano también vale, con su código de país.
+
+### Datos del negocio: tus datos, en un solo sitio
+
+Tu Yape, tu número de cuenta, el titular, tu Instagram o tu link de pago no
+tienen por qué estar escritos a mano en cada capítulo. Se escriben una vez en
+**Configuración** y el manual los **menciona**.
+
+<Steps>
+  <Step title="Escribe el dato en Configuración">
+    En el menú, dentro de **Ventas** → bloque **AJUSTES**, pulsa
+    **Configuración** y baja a **«Datos del negocio»**. Usa **Agregar dato** o
+    una de las sugerencias (Yape, Plin, Cuenta bancaria, Titular, Instagram…).
+    Cada dato es un nombre y un valor. Guarda.
+  </Step>
+  <Step title="Menciónalo en el manual">
+    En la línea donde va, teclea `@` → **Datos del negocio** y elige el dato.
+    Queda una mención con un icono de etiqueta. Por dentro se guarda como
+    `{{dato:yape}}`.
+  </Step>
+  <Step title="Guarda el manual">
+    Pulsa **Guardar cambios**. Desde ese momento, tu agente lee el valor que
+    tenga el dato en Configuración.
+  </Step>
+</Steps>
+
+<Frame caption="La sección «Datos del negocio» de la Configuración, todavía sin datos: las sugerencias de un clic y «Agregar dato».">
+  <img src="/images/configuracion/03-datos-del-negocio.png" alt="Sección Datos del negocio de la Configuración con el texto Sin datos guardados, sugerencias como Datos de pago, Yape, Plin y Cuenta bancaria, y el botón Agregar dato" />
+</Frame>
+
+- **Si cambias de banco, lo cambias en un solo sitio**: en Configuración. El
+  manual no se toca.
+- **Un dato sin valor queda «pendiente».** Tu agente lee «Yape (pendiente)» y
+  no se lo inventa; el Doctor te avisa.
+- **«＋ Crear dato del negocio «X»»**, desde el menú `@`, lo crea al momento en
+  Configuración, sin valor. Un mensaje te ofrece ir a escribirlo.
+- **Al compartir el embudo con otra cuenta, tus valores no viajan**: quien lo
+  recibe pone los suyos. Ver [Tus embudos](/guias/tus-embudos).
+
+<Note>
+Algunos mensajes del panel dicen **«Ajustes»** donde el menú dice
+**«Configuración»**. Es la misma pantalla. La cuenta entera:
+[La configuración del agente](/guias/configuracion-del-agente).
+</Note>
 
 ## Mandar un archivo desde el guion
 
@@ -452,8 +632,8 @@ PASO 2: Si pide ver el catálogo, envíalo aquí: ###SEND_FILES: catalogo###
 
 **No hace falta escribirlo a mano** —y es mejor no hacerlo—. Tienes tres formas
 de insertarlo bien puesto: el cajón **Recursos** de la barra, el menú **`@` →
-Archivos**, o el botón **✦ ¿Dónde?**, que le pide a la IA la frase con el
-marcador ya dentro.
+Archivos**, o el botón **✦ ¿Dónde?** de Recursos, que le pide a la IA la frase
+con el marcador ya dentro.
 
 - **El apodo por defecto es el nombre del archivo sin la extensión**, y es el
   que conviene dejar: así el marcador, la búsqueda de tu agente y el menú `@`
@@ -487,23 +667,35 @@ horas— vive en [La Librería de archivos](/guias/libreria).
 
 Tu agente reparte su respuesta en varias burbujas cortas. Si tienes un texto que
 debe salir entero y sin retocar —unos datos de pago, unas condiciones—,
-envuélvelo:
+envuélvelo. Selecciónalo y elige **«Enviar en bloque»** en la píldora **✦ IA**
+(o en el menú `@` → **Envío**), y el editor pone los marcadores:
 
 ```
 ###BLOCK###
 Datos para el depósito:
 Banco — cuenta 000-0000000
-A nombre de: Tu Negocio S.A.C.
+A nombre de: Moda Sol
 ###/BLOCK###
 ```
 
-Ese pasaje sale en **una sola burbuja, literal**. El tope son 4.000 caracteres
-por bloque y 3 bloques por respuesta; lo que se pase, o un bloque que no cierre,
-sale como texto normal. El Doctor detecta los bloques sin cerrar.
+Ese pasaje sale en **una sola burbuja, literal**, con sus saltos de línea. El
+tope son 4.000 caracteres por bloque y 3 bloques por respuesta; lo que se pase,
+o un bloque que no cierre, sale como texto normal. El Doctor detecta los
+bloques sin cerrar.
+
+<Tip>
+**Si tu agente copia el pasaje pero se olvida de los marcadores**, el sistema
+reconoce el pasaje y lo manda igual en una sola burbuja, sin cambiarle una
+palabra. Si en vez de copiarlo lo cuenta con otras palabras, sale repartido
+como texto normal.
+</Tip>
 
 <Note>
-Los precios de tus productos no se escriben aquí: viven en el catálogo, y tu
-agente los lee de ahí. Ver [El catálogo de productos](/guias/catalogo).
+Si tienes tus productos en el [catálogo](/guias/catalogo), tu agente puede
+consultar ahí el precio: así no tienes que repetirlo en el manual. Si lo
+escribes también en el manual, el Doctor te avisa cuando no coincide con el del
+catálogo. Y tus datos de pago, mejor como datos del negocio (ver
+[El menú «@»](#el-menu-mencionar-cosas)).
 </Note>
 
 ## El panel «Datos»
@@ -513,10 +705,18 @@ reúne, en una sola lista, los **enlaces · precios · teléfonos · frases exac
 del manual**. Es la respuesta a «me cambió el precio, ¿dónde lo toco?» sin tener
 que releer el manual entero.
 
-- Los **enlaces, precios y teléfonos** traen un botón **«Actualizar»** que
-  cambia ese valor en todas sus apariciones de una vez.
+- Cada valor dice cuántas veces aparece y en qué capítulos. Un clic te lleva a
+  la primera aparición. Arriba tienes un buscador, **«Buscar valor…»**.
+- Los **enlaces, precios y teléfonos** traen un botón **«Actualizar»**. Abre una
+  ventana donde escribes el **nuevo valor** y eliges en qué apariciones
+  aplicarlo (vienen todas marcadas). Termina con **«Actualizar N»**.
 - Las **frases exactas** solo se listan: puedes saltar a ellas y editarlas a
   mano, pero **no tienen botón «Actualizar»**.
+- Si el mismo producto aparece con precios distintos, o el mismo enlace con
+  variantes, el panel te lo avisa arriba.
+
+Como todo en el editor, el cambio queda pendiente hasta que pulsas **«Guardar
+cambios»**.
 
 <Note>
 **«Todas las apariciones» tiene una excepción y el sistema te la dice.** Si
@@ -525,21 +725,33 @@ un aviso del estilo *«N apariciones se omitieron: el nuevo valor alteraría una
 mención del manual»*. Cuando lo veas, ve a esas líneas a mano.
 </Note>
 
-Es el único panel que también está disponible desde el teléfono.
+En el teléfono este panel es la puerta de **«Retocar datos»**: ahí muestra solo
+precios, teléfonos y enlaces. Lo cuenta [Desde el teléfono](#desde-el-telefono).
 
 ## El panel «Recursos»
 
 El botón **Recursos** abre un cajón a la derecha (solo en computadora) con lo
 que tu agente tiene disponible, en cuatro pestañas: **Archivos**,
 **Herramientas**, **Variables** y **Capítulos**. Debajo del título te dice si
-cada cosa está **usado / sin usar en el manual**. Desde ahí puedes:
+cada cosa está **usado / sin usar en el manual**.
 
-- **subir un archivo** sin salir del manual,
+<Frame caption="El cajón «Recursos del agente», acoplado al manual, en la pestaña Archivos: este agente aún no tiene ninguno.">
+  <img src="/images/libreria/09-manual-recursos.png" alt="Panel Recursos del agente con las pestañas Archivos, Herramientas, Variables y Capítulos, el buscador, el botón Subir, el aviso Sin recursos de este tipo para el agente y el enlace Gestionar en Librería" />
+</Frame>
+
+Desde ahí puedes:
+
+- **subir un archivo** sin salir del manual (**↑ Subir**, en la pestaña
+  Archivos),
 - **saltar a dónde se usa** cada recurso dentro del guion,
-- **insertarlo** en el punto donde tienes el cursor, o **colocarlo** en un
-  capítulo.
+- **insertarlo** en el punto donde tienes el cursor (**Insertar**),
+- y, en un archivo que el manual aún no usa, pedirle a la IA dónde ponerlo
+  (**✦ ¿Dónde?**): te propone una frase con el marcador ya dentro, y tú decides
+  si la insertas.
 
-Es la pieza que conecta la [Librería](/guias/libreria) con el guion.
+En la pestaña Archivos, al pie, **«Gestionar en Librería →»** abre la Librería
+en otra pestaña, para no perder lo que estás editando. Es la pieza que conecta la
+[Librería](/guias/libreria) con el guion.
 
 ## La persona del agente
 
@@ -549,38 +761,69 @@ nombre, cargo, cara y voz. Es lo que hace que se presente como «Valentina, de
 Moda Sol» y no como un robot.
 </Note>
 
-En lo alto del manual hay una pastilla con la foto y el nombre de la persona
-activa. Si el agente no tiene ninguna, la pastilla lo dice: **«No hay persona
+Un agente nuevo nace con su persona ya creada y **activa**, con nombre y tono.
+En lo alto del manual hay una pastilla con su foto (o su inicial) y su nombre.
+Si el agente no tiene ninguna activa, la pastilla lo dice: **«No hay persona
 seleccionada»**.
 
 Al pulsarla se abre el panel **«Persona activa»**. Cada persona aparece con:
 
 - su **nombre** y su **cargo** (o **«Sin cargo»**),
-- dos marcas, **«Cara»** y **«Voz»**, que indican si tiene foto y voz
+- dos marcas, **«Cara»** y **«Voz»**, que se encienden si tiene foto y voz
   configuradas,
-- la etiqueta **«Activa»** en la elegida, y un botón **«Activar»** en las demás.
+- la etiqueta **«Activa»** en la elegida, y un botón **«Activar»** en las demás,
+- y un botón **«Editar»**.
+
+**«Editar»** abre ahí mismo el editor de la persona, sin salir del manual
+(**«← Volver a Personas»** te devuelve a la lista). **«Nueva persona»**, arriba,
+crea otra. Y **«Gestionar Personas →»**, al pie, abre la pantalla completa de
+Personas.
 
 Al mensaje de tu agente viajan el **nombre, el cargo, la personalidad y el
-contexto** de esa persona. La **cara** y la **voz** las usan el avatar y las
-notas de voz.
+contexto** de la persona activa. La **cara** y la **voz** las usan el avatar y
+las notas de voz.
+
+<Note>
+**Si borras el agente, su persona se borra con él**, salvo que otro agente la
+tenga asignada. Las personas que creaste a mano y no asignaste a nadie no se
+tocan.
+</Note>
 
 ### Memoria a Largo Plazo (RAG)
 
 Junto a la persona puede haber un segundo botón, **«Memoria a Largo Plazo
 (RAG)»**. Abre un documento de conocimiento aparte del manual, con un tope de
-**200.000 caracteres**.
+**200.000 caracteres**. Tu agente lo consulta con la herramienta **Consultar
+conocimiento (RAG)** cuando un cliente pregunta algo.
 
 La diferencia con el manual, en una línea: **el manual son órdenes; la memoria
 es conocimiento.** Lo que tu agente debe *hacer* va en el manual; lo que debe
 *saber* para contestar preguntas, en la memoria.
 
+Por dentro tiene:
+
+- **Editar** y **Vista previa**: el documento admite títulos, negritas y listas
+  (formato Markdown), y la barra de arriba te los pone.
+- **Probar**: un buscador donde escribes una pregunta *como lo haría un
+  cliente* y ves lo que recibiría tu agente. Sirve para comprobar si algo ya
+  está escrito antes de volver a escribirlo. Lo recién guardado puede tardar
+  hasta un minuto en encontrarse por significado; mientras tanto, el buscador
+  lo encuentra por las palabras exactas.
+- **Su propio botón Guardar**, distinto del del manual: guarda al momento y te
+  dice en cuántos fragmentos quedó. Guardar el documento vacío retira la
+  memoria: tu agente deja de consultarla.
+
+También puedes pedírselo al copiloto: «agrega a la memoria nuestra política de
+cambios». El copiloto añade una sección al documento y la guarda sin pedirte
+aprobación. La verás aquí, y puedes editarla como cualquier otra.
+
 Ese botón **solo aparece en los agentes creados con el sistema nuevo**. Si tu
 agente es antiguo, no lo verás.
 
 <Warning>
-**Si tu cuenta está en solo lectura** (por ejemplo, suspendida por saldo), el
-manual **sí** se puede guardar, pero **la persona y la memoria no**: el botón
-**«Activar»** de las personas sale apagado. Es una asimetría rara, pero es así.
+**Si tu agente está desactivado**, la persona y la memoria se ven pero no se
+cambian: el botón **«Activar»** sale apagado, **«Nueva persona»** no aparece y
+la memoria dice **«Solo lectura»** en lugar de Guardar.
 </Warning>
 
 ## Cómo se guarda
@@ -595,29 +838,36 @@ El botón de la derecha te dice en qué punto estás:
 | Lo que dice | Qué significa |
 | --- | --- |
 | **Guardar** (apagado) | No hay nada que guardar. No está roto: está al día. |
-| **Guardar cambios** | Tienes cambios pendientes. |
+| **Guardar cambios** | Tienes cambios pendientes. Lleva un punto al lado. |
 | **Guardando…** | Está escribiendo. |
-| **Guardado** ✓ | Entró. El tic dura un segundo y medio. |
+| **Guardado** ✓ | Entró. El tic se va solo en menos de dos segundos. |
 
 Y si te arrepientes antes de guardar, **«Descartar cambios»** (que solo aparece
 cuando hay algo que descartar) devuelve el documento a la última versión
 guardada.
 
+Si al guardar el sistema ve que tu cambio crea un problema nuevo de estructura
+en los PASOS, el **Doctor se abre solo** para que lo veas antes de irte. Los
+problemas que ya estaban de antes no lo abren: esos los ves en el número del
+botón.
+
 ### La copia local: una red de un día para otro
 
 Mientras escribes, el editor guarda una copia **en tu navegador**: medio segundo
 después de que dejes de teclear, y al instante cuando creas o borras un
-capítulo. Sirve para que, si recargas la página o te vas a otra pantalla, no
-pierdas el trabajo: al volver sale el aviso **«Todavía tienes cambios en el
-manual sin guardar»**, con los botones para **seguir editando** o para
-**guardar**.
+capítulo. Sirve para que no pierdas el trabajo si recargas la página o te vas a
+otra pantalla: al volver, tus cambios siguen ahí y **«Guardar cambios»** sigue
+encendido. Si es la primera vez que entras al Manual desde que abriste o
+recargaste el panel, además sale el aviso **«Todavía tienes cambios en el
+manual sin guardar»**, con **Seguir editando** y **Guardar**.
 
 <Warning>
-**Esa copia no es un respaldo.** Caduca a los **7 días** y se descarta sola si
-el manual cambió en el servidor mientras tanto —porque lo guardó otra persona,
-o porque tú lo guardaste desde el panel del chat—. En ese caso se pierde el
-borrador local: el sistema prefiere perderlo antes que escribir encima del
-trabajo de otro.
+**Esa copia no es un respaldo.** Vive solo en ese navegador (en otra
+computadora no está), caduca a los **7 días** y se descarta sola si el manual
+cambió en el servidor mientras tanto —porque lo guardó otra persona, o porque
+tú lo guardaste desde el panel del chat—. En ese caso se pierde el borrador
+local: el sistema prefiere perderlo antes que escribir encima del trabajo de
+otro.
 </Warning>
 
 ### Un guardado, una versión
@@ -626,87 +876,245 @@ trabajo de otro.
 hayas cambiado diez capítulos a la vez. Si no cambiaste nada de verdad, no se
 crea versión.
 
-**El Historial guarda solo las 10 versiones más recientes**: la número 11 borra
-a la más antigua.
+También crean una versión: guardar desde el panel de Conversaciones o desde tu
+asistente, aplicar una propuesta del copiloto, cargar la plantilla de Ecommerce
+y **«Volver a como estaba»** desde Cambios medidos.
+
+**El Historial guarda solo las 10 versiones más recientes**: la número 11 saca
+de la lista a la más antigua.
 
 <Tip>
-De ahí la única regla de higiene que importa: **junta los cambios y guarda por
+De ahí la regla de higiene que más importa: **junta los cambios y guarda por
 tandas**. Cinco capítulos guardados de uno en uno queman cinco de tus diez
 ranuras en una tarde; los mismos cinco en un guardado queman una.
 </Tip>
 
 ## El Historial: volver atrás
 
-El botón **Historial** abre una ventana titulada **«Historial del embudo»**
-(*embudo* = tu agente; es la misma cosa). Ahí puedes comparar el manual actual
-contra cualquier versión guardada.
+El botón **Historial** (en computadora) abre una ventana titulada **«Historial
+del embudo»** (*embudo* = tu agente; es la misma cosa). Ahí ves las versiones
+guardadas, la **más reciente** arriba, con cuándo se guardó cada una y cuántos
+capítulos tenía.
 
-**Restaurar no es todo o nada:** puedes aceptar solo los trozos que te
-interesen, capítulo a capítulo.
+<Frame caption="El Historial del embudo: cada versión guardada con su fecha, hace cuánto se guardó y cuántos capítulos tenía. Aquí hay una sola, la más reciente.">
+  <img src="/images/manual/06-historial.png" alt="Ventana Historial del embudo con una versión, 12 oct, 22:51, marcada más reciente, hace 2 h · 3 capítulos, y la nota Se conservan las últimas 10 versiones por agente" />
+</Frame>
+
+Al elegir una se abre la comparación: **Actual** contra **Versión**, capítulo a
+capítulo. **Restaurar no es todo o nada:** puedes aceptar solo los trozos que
+te interesen, capítulo a capítulo, o usar **Aceptar todo** / **Descartar
+todo**.
 
 <Note>
 **Restaurar del Historial no escribe nada por sí solo.** Deja los cambios en el
 editor, como si los hubieras escrito tú, y hay que pulsar **«Guardar cambios»**
-para que entren. Puedes mirar y probar sin miedo a romper nada.
+para que entren. Puedes mirarlos sin miedo a romper nada: si no te convencen,
+**Descartar cambios** lo deja como estaba. Ojo: **Probar** contesta con el
+manual guardado, así que para probar lo restaurado primero tienes que guardarlo.
 </Note>
 
-En el Historial —y en las tarjetas de propuesta del copiloto— las partes del
-capítulo aparecen con otros nombres, en castellano: **Rol**, **Cadena de
-pensamiento** y **Contexto**. Son las mismas piezas que ves en el editor sin
-rótulo.
+En el Historial —y en la revisión de las propuestas del copiloto— las partes del
+capítulo aparecen con otros nombres: **Rol**, **Cadena de pensamiento** y
+**Contexto**. Son las mismas piezas que ves en el editor sin rótulo.
+
+## Cambios medidos: qué pasó después de cada cambio
+
+Cambiaste el saludo, ¿vendiste más o menos? **Cambios medidos** te lo dice. Cada
+cambio que guardas se mide solo: el panel compara la semana de antes con la de
+después y te da una lectura. Si el cambio salió mal, puedes devolver el manual
+a como estaba con un botón.
+
+<Frame caption="La ventana «Cambios medidos» de un embudo que todavía no tiene ninguno: cuando guardes un cambio, aquí saldrá su antes y después.">
+  <img src="/images/manual/05-cambios-medidos.png" alt="Ventana Cambios medidos vacía, con el texto Aún no hay cambios medidos en este embudo" />
+</Frame>
+
+**Cómo cuenta un «cambio».** Los guardados del mismo embudo con menos de 24
+horas entre uno y otro cuentan como **un solo cambio**. Cada fila dice el día,
+cuántos guardados lo forman y su estado.
+
+**Qué compara.** Hasta 7 días antes y hasta 7 días después del cambio (menos si
+hiciste otro cambio en medio), con los mismos anuncios a los dos lados:
+
+| Medida | Qué es |
+| --- | --- |
+| **Respondieron al primer mensaje** | Qué parte de los clientes contestó al primer mensaje de tu agente. |
+| **Siguieron conversando** | Qué parte siguió hablando después. |
+| **Ventas en 48 h** | Se muestra, pero con la nota *«todavía no dice nada»*. |
+
+**Los estados que verás:**
+
+| Estado | Qué significa |
+| --- | --- |
+| **Mejoró** / **Empeoró** / **Sin cambio claro** | La lectura ya está. Es *«una señal, no una prueba»*. |
+| **Midiendo** | Aún no termina. La fila te dice qué día sale la lectura. |
+| **Lo volviste a cambiar** | Hiciste otro cambio antes de poder medirlo. |
+| **Poco tráfico** | Muy pocas conversaciones para medirlo. |
+| **No se puede leer** | Esa semana tu línea falló, también cambió otra cosa de tu agente (el modelo, la persona, la configuración) o cambiaron tus anuncios: no se puede separar tu cambio. |
+
+La lectura no cambia nada por sí sola. Como dice la propia ventana: *«si no
+haces nada, no cambia nada»*.
+
+### Volver a como estaba
+
+Despliega la fila del cambio y pulsa **«Volver a como estaba el …»** (con la
+fecha). Te pide confirmar: tu agente usará el manual de ese día **desde su
+próximo mensaje**, y tu persona y tus datos del embudo no cambian. Si tenías
+cambios sin guardar en el manual, se descartan.
+
+- La vuelta **crea una versión nueva** en el Historial, y se mide como
+  cualquier otro cambio.
+- **Funciona también desde el teléfono**: no es una edición del guion, la hace
+  el servidor.
+- Exige el mismo permiso que guardar el manual.
+
+El botón no aparece, o la vuelta se rechaza, en estos casos (la fila te dice
+cuál):
+
+- después de ese cambio **hiciste otros** — para elegir qué recuperar, usa el
+  [Historial](#el-historial-volver-atras);
+- el cambio **no tocó el texto de ningún capítulo**;
+- **ya lo volviste atrás**;
+- **esa versión ya no está guardada**;
+- **esa versión no tiene capítulos**;
+- volver **borraría un capítulo donde hoy hay clientes**, o hacia el que tienen
+  un avance pendiente: muévelos antes;
+- tu capítulo de referidos o una regla de envíos **apunta a un capítulo que la
+  vuelta borraría**;
+- **no tienes permiso** para cambiar el manual.
+
+## Lo que te propone el copiloto
+
+Cuando le pides al copiloto que cambie tu manual, no lo cambia por su cuenta: te
+deja una **propuesta**. Las propuestas de cambios en el manual que esperan tu
+decisión aparecen en una franja arriba del documento —también en el teléfono—:
+*«El copiloto propuso cambios en el manual y esperan tu decisión»*, una fila por
+propuesta.
+
+<Steps>
+  <Step title="Abre la propuesta">
+    Pulsa **«Revisar y elegir»**. Se abre **«Revisar propuesta del copiloto»**,
+    con tu texto actual y el propuesto, cambio por cambio.
+  </Step>
+  <Step title="Elige qué aplicar">
+    En cada cambio eliges **«Aplicar este cambio»** o **«Mantener actual»**.
+  </Step>
+  <Step title="Aplica">
+    Pulsa **«Aplicar N cambios»**. A diferencia del Historial, **aquí aplicar sí
+    guarda**: el copiloto escribe los cambios y deja una versión nueva en el
+    Historial. El manual se refresca solo.
+  </Step>
+</Steps>
+
+Si no te convence, **«Rechazar»** la descarta.
+
+Si el copiloto te propone **el embudo entero**, esa propuesta no sale en la
+franja: se aprueba en su propio chat y reemplaza el manual completo. El que
+tenías queda en el [Historial](#el-historial-volver-atras).
+
+<Note>
+**Con cambios sin guardar, primero guarda los tuyos.** La franja lo dice —*«guarda
+los tuyos antes de revisarlos: aplicar encima de una edición sin guardar
+termina en conflicto»*— y en lugar de «Revisar y elegir» te ofrece **Guardar
+cambios**. Las propuestas que quedaron viejas porque el manual cambió después
+se retiran solas.
+</Note>
+
+Si pediste tú la propuesta, también la verás en la tarjeta **«Pendientes»** de
+tu Inicio.
 
 ## El Doctor
 
 El botón **Doctor** revisa el manual entero y lista lo que está roto, con el
-número de problemas a la vista. No es IA ni opinión: son *«problemas verificados
-del manual, con su arreglo»*, como dice el propio botón.
+número de errores y avisos a la vista. No es IA ni opinión: son *«problemas
+verificados del manual, con su arreglo»*, como dice el propio botón. Revisa
+mientras escribes, sin esperar a que guardes.
 
-Hoy hace **dieciséis comprobaciones**. Entre ellas:
+<Frame caption="El panel «Doctor del manual» con 0 errores y 16 avisos: cada aviso con su explicación y su botón «Ir al sitio».">
+  <img src="/images/manual/03-doctor.png" alt="Panel Doctor del manual con 0 errores y 16 avisos del tipo El capítulo N no es alcanzable, cada uno con el botón Ir al sitio" />
+</Frame>
 
-- **PASOS fuera de orden, referencias a un paso que no existe y capítulos
-  intermedios que no avanzan a ninguno** — la misma regla con la que el
-  asistente rechaza un embudo nuevo, corriendo mientras escribes; un salto de
-  numeración (PASO 1, 2, 3, 5) se renumera a un clic, referencias incluidas,
-- **menciones rotas** (un archivo al que ya no apunta nada, una variable que no
-  existe),
-- **menciones a un capítulo que ya no existe**,
-- **capítulos con el mismo nombre**,
-- **huecos en la numeración**,
-- **capítulos a los que no se puede llegar** (nadie avanza hacia ellos),
-- **huecos de plantilla sin rellenar**,
-- **herramientas escritas sin formato, o con sus datos mal puestos**,
-- **bloques de envío sin cerrar**,
-- **secciones § sin alcance**,
-- **marcadores de capítulo del formato viejo**.
+Cada hallazgo trae su explicación; **«Ir al sitio»**, que te lleva al capítulo
+y, cuando la hay, a la línea exacta; y, si hay un arreglo seguro, un botón de un
+clic: **«Reconectar a «…»»**, **«Formatear como «…»»**, **«Renumerar
+PASOS»**, **«Poner … (precio del catálogo)»**, **«Eliminar §»**…
+
+Lo que revisa, agrupado:
+
+- **La estructura del guion.** Capítulos que no están escritos en PASOS; PASOS
+  fuera de orden o que no empiezan en 1 (se renumeran a un clic, referencias
+  incluidas); referencias a un PASO que no existe; capítulos intermedios que no
+  avanzan a ningún capítulo; capítulos a los que no se puede llegar; huecos en
+  la numeración; capítulos con el mismo nombre; y una regla que valdría para
+  toda la conversación metida dentro de un capítulo (esa va en **PUNTOS CLAVE**
+  de la sección compartida).
+- **Las menciones.** Menciones rotas (un archivo o una variable que no
+  existe), menciones a un capítulo que ya no existe, marcadores de capítulo del
+  formato viejo, herramientas escritas sin formato o con sus datos fuera de la
+  mención, bloques de envío sin cerrar y secciones § sin alcance.
+- **Los precios.** Un precio del manual distinto al de tu catálogo para ese
+  producto. (Se coteja cuando el catálogo está cargado.)
+- **Los datos del negocio.** Una mención a un dato que no existe en
+  Configuración (error) o a uno sin valor (aviso).
+- **Los avisos a terceros.** Un número que la herramienta va a rechazar (sin
+  código de país, con espacios dentro…) y un aviso por nombre a alguien que no
+  está en tus Números frecuentes. En los dos casos, el aviso no sale.
 
 <Note>
-**Nada de lo que arregla el Doctor se guarda solo.** Sus arreglos quedan como
+**Los arreglos del Doctor no se guardan solos en el manual.** Quedan como
 cambios pendientes en el editor hasta que pulses **«Guardar cambios»**.
 </Note>
 
-### Los huecos de plantilla: revísalos tú
+### Datos escritos a mano
 
-Si tu manual arrastra huecos sin rellenar del estilo `«PRECIO_1»` —en
-mayúsculas, con guion bajo y entre comillas angulares—, el Doctor te los
-enumera. **No cuentes con que el sistema te impida guardarlos**: la guardia que
-podría bloquear ese guardado viene **de serie** configurada para avisar y dejar
-pasar, y además solo mira los capítulos que estás guardando en ese momento, no
-los que ya estaban. Y solo reconoce ese formato exacto: un `PRECIO_1` sin las
-comillas angulares no lo detecta nadie.
+En su propia sección, el Doctor te muestra **números, cuentas, redes y enlaces
+de tu negocio escritos dentro del manual**: una línea de pago, el titular de la
+cuenta, un @usuario, un enlace. No están mal, pero conviene sacarlos del texto:
 
-Dicho claro: **cuenta con que el Doctor te los enseñe, no con que el sistema te
-frene.** Míralos antes de dar el manual por bueno. En un embudo nacido de la
-plantilla de Ecommerce los huecos tienen además su propio panel y sus reglas:
-las cuenta la sección siguiente.
+- un **dato propio** escrito a mano → **«Pasar a Datos del negocio»**: crea el
+  dato en Configuración con ese valor y pone su mención donde estaba escrito;
+- un **aviso al número de alguien que ya tienes guardado** →
+  **«Avisar a «…» por nombre»**.
+
+Con más de uno, **«Pasar todos (N)»** los pasa de una vez. Así cambian en un
+solo sitio y, si compartes el embudo, no viajan.
+
+Ojo con el orden: **el dato se crea en Configuración al pulsar**, pero el
+cambio del texto del manual, como todo, espera a **«Guardar cambios»**. Los
+datos propios son informativos: no suman en el número del botón.
+
+### Los huecos de relleno
+
+Al final, el Doctor lista aparte el **texto entre corchetes** que tu agente
+completa al escribir, como `[nombre si lo da]`. No es un error ni hay nada que
+arreglar: solo se listan por si alguno debería ser una variable de verdad. No
+cuentan en el número del botón.
+
+<Note>
+**Otra cosa son los huecos «EN_MAYÚSCULAS»** del estilo `«PRECIO_1»` (en
+mayúsculas, con guion bajo y entre comillas angulares). Esos los cuentan el
+aviso «Faltan N huecos», el índice y el panel **Huecos**, solo en un embudo
+nacido de la plantilla de Ecommerce. En cualquier embudo, **la línea que
+contiene uno de esos huecos no le llega a tu agente**: se queda fuera entera,
+sin aviso. Si en otro manual ves uno, cámbialo por el dato real o borra la
+frase.
+</Note>
 
 ## Un manual nacido de la plantilla de Ecommerce
 
-Si tu embudo nació de la plantilla de Ecommerce (desde el alta de venta o con
-**Cargar plantilla de Ecommerce**), el manual trae un bloque compartido y tres
-capítulos —Saludo, En venta y Pedido confirmado— con **huecos** del estilo
-`«PRODUCTO_MARCA»` donde va lo que es de tu negocio. El editor los pinta en
-ámbar, y arriba del documento un aviso dice cuántos faltan: *«Faltan 20 huecos:
-16 en el bloque y 4 en los capítulos»*.
+Si tu embudo nació de la plantilla de Ecommerce (desde la puesta en marcha de un
+embudo de venta, o con **Cargar plantilla de Ecommerce**), el manual trae un
+bloque compartido y tres capítulos —Saludo, En venta y Pedido confirmado— con
+**huecos** del estilo `«PRODUCTO_MARCA»` donde va lo que es de tu negocio. El
+editor los pinta en ámbar, y arriba del documento un aviso dice cuántos faltan:
+*«Faltan N huecos: X en el bloque y Y en los capítulos»*.
+
+Todo esto vale también si en la puesta en marcha elegiste **Armar mi flujo
+desde 0**: trae el mismo bloque y los mismos tres capítulos, pero con los pasos
+de los capítulos en blanco.
+
+<Frame caption="Un manual de la plantilla: el aviso «Faltan 20 huecos» arriba, los huecos marcados en el texto y contados en el índice, y el botón Huecos (aquí solo el icono y el 20) en la barra.">
+  <img src="/images/agente/02-manual-con-huecos.png" alt="Manual de un embudo nacido de la plantilla de Ecommerce con el aviso Faltan 20 huecos: 16 en el bloque y 4 en los capítulos y el botón Ayúdame a rellenarlo, huecos como «HORAS_SEGUIMIENTO_1» y «PRODUCTO_QUE_ES» marcados en el texto, los huecos de cada capítulo en el índice, el botón Huecos con el 20 en la barra y el copiloto abierto a la derecha" />
+</Frame>
 
 ### El panel Huecos
 
@@ -725,69 +1133,105 @@ capítulo.
 
 ### Que el copiloto te ayude
 
-**«Ayúdame a rellenarlo»**, junto al aviso de huecos, le pide ayuda al copiloto
-en una conversación aparte. Lee tu manual, te pide primero los archivos del
-producto, te hace una pregunta por vez y te propone los cambios para que los
-apruebes. Un cambio del bloque se aplica a los tres capítulos a la vez.
+**«Ayúdame a rellenarlo»**, junto al aviso de huecos (o en el menú ⋯ de un
+capítulo con huecos), abre el copiloto y le manda el pedido en tu nombre: lo
+verás como un mensaje tuyo. El copiloto lee tu manual, te pide primero los
+archivos del producto, te hace una pregunta por vez y te propone los cambios
+para que los apruebes. Un cambio del bloque se aplica a los tres capítulos a la
+vez.
 
 ### Cuándo puedes probar y conectar
 
 - **Probar** se enciende cuando el capítulo 1 y las secciones **PRODUCTO** y
-  **PRECIOS Y PROMOCIONES** del bloque ya no tienen huecos; mientras tanto, el
-  botón te dice cuántos faltan. Los capítulos 2 y 3 pueden seguir en plantilla.
+  **PRECIOS Y PROMOCIONES** del bloque ya no tienen huecos; mientras tanto, al
+  pasar el ratón por el botón te dice cuántos faltan. Los capítulos 2 y 3
+  pueden seguir en plantilla, y el aviso de arriba te lo recuerda.
 - **Conectar WhatsApp** pide tres cosas: ningún hueco, ningún capítulo sin
-  pasos y los datos de pago, ubicación y envío confirmados. Canales te muestra
-  esas tres secciones tal como quedaron y te pide un **«Sí, son correctos»**.
-  Mientras falte algo, en lugar del QR ves **«Antes de conectar:»** con lo que
-  falta y un enlace a cada punto.
+  pasos y los datos de pago, ubicación y envío confirmados. Mientras falte algo,
+  el manual y la pantalla de Canales te muestran **«Antes de conectar:»** con
+  lo que falta y un enlace a cada punto. Para confirmar, te enseñan esas tres
+  secciones tal como quedaron y te piden un **«Sí, son correctos»**.
 
 <Note>
-**Un hueco nunca le llega a un cliente.** Mientras no lo rellenes, tu agente no
-lo recibe en sus instrucciones: la línea que lo contiene se queda fuera.
+**Un hueco no llega a tus clientes.** Mientras no lo rellenes, tu agente no lo
+recibe en sus instrucciones: la línea que lo contiene se queda fuera.
 </Note>
 
 ### Cargar la plantilla en un embudo que ya existe
 
-En un embudo de venta con el manual vacío o con un solo capítulo, el índice te
-ofrece **＋ Cargar plantilla de Ecommerce**. Te pide el nombre del vendedor, si
-es **Asesora** o **Asesor** y el producto, y reemplaza el manual por la
-plantilla. La versión anterior queda en el [Historial](#el-historial-volver-atras).
-Si el embudo ya atiende un WhatsApp conectado, primero hay que pausarlo.
+En computadora, en un embudo de venta con el manual vacío o con un solo
+capítulo, el índice (o el manual vacío) te ofrece **Cargar plantilla de
+Ecommerce**, si la plantilla está disponible para ese embudo.
+
+<Steps>
+  <Step title="Rellena los tres datos">
+    **Nombre del vendedor**, si se presenta como **Asesora** o **Asesor**, y el
+    **Producto**.
+  </Step>
+  <Step title="Confirma">
+    Pulsa **Cargar plantilla**. El manual se reemplaza por la plantilla; el que
+    tenías queda en el [Historial](#el-historial-volver-atras).
+  </Step>
+</Steps>
+
+Si el agente ya atiende un WhatsApp conectado, primero hay que pausarlo. Si
+pulsas **Cargar plantilla** con el agente activo, la plantilla no se carga y la
+ventana te muestra **«Pausa el agente en Canales antes de cargar la
+plantilla.»**, con el enlace **Ir a Canales**.
 
 ## Probar el manual
 
 El botón **Probar** de la barra abre, junto al documento, un chat de prueba con
-tu agente. Escribes como si fueras el cliente y el agente responde con el
+tu agente que se ve como el WhatsApp de tu cliente: la foto y el nombre de tu
+vendedor arriba, **«en línea»** o **«escribiendo…»**, y las burbujas sobre el
+papel tapiz. Escribes como si fueras el cliente y el agente responde con el
 manual **guardado**: es el mismo motor que atiende WhatsApp, pero nada sale por
 WhatsApp.
 
+<Frame caption="El teléfono de prueba junto al documento: arriba, el selector de capítulo y el botón de reiniciar; en el hilo, la traza con el capítulo y las herramientas que usó el agente.">
+  <img src="/images/manual/04-probar.png" alt="Chat de prueba con aspecto de WhatsApp acoplado al manual: en la cabecera, Sofía en línea, el selector 1 · Saludo y el botón de reiniciar; en el hilo, un cliente pregunta por polos en talla M, el agente responde, debajo las herramientas que usó y el paso a Capítulo 2 · En venta" />
+</Frame>
+
 Mientras el agente contesta, el manual se mueve contigo: el capítulo en el que
 está se ilumina, pulsa mientras piensa, y el PASO cuya herramienta se está
-ejecutando respira. Debajo de cada respuesta ves la traza: en qué capítulo
-entró y qué herramientas usó. Un clic en el capítulo de la traza te lleva a él.
+ejecutando respira. Dentro del hilo ves la traza: el capítulo en el que entró
+(**«Capítulo N · nombre»**, o **«→ Capítulo N»** si avanzó) y las herramientas
+que usó. Un clic en el capítulo de la traza te lleva a él. Debajo del teléfono,
+una línea dice en qué capítulo está ahora.
 
-- **Probar desde aquí**, en el menú ⋯ de la cabecera de un capítulo,
-  reinicia el hilo de prueba en ese capítulo. Lo mismo hace **Empezar en**
-  dentro del panel.
-- Si tienes **cambios sin guardar**, el panel lo dice: el agente no los ve
-  hasta que guardes. **Guardar y probar** guarda y sigue.
+- **Elegir dónde empezar.** En la cabecera del teléfono hay un selector con
+  los capítulos (**«N · nombre»**) y un botón **Reiniciar** (la flecha
+  circular), que **borra el hilo de prueba y lo abre en ese capítulo**.
+- **Probar desde aquí**, en el menú ⋯ de la cabecera de un capítulo, hace lo
+  mismo con ese capítulo.
+- Cerrar y volver a abrir **Probar** conserva el hilo que tenías.
+- Si tienes **cambios sin guardar**, el teléfono lo dice: *«Probando la versión
+  guardada. Tienes cambios sin guardar.»* El agente no los ve hasta que
+  guardes. **Guardar y probar** guarda y sigue.
 
 <Note>
-El hilo de prueba es real: consume saldo como cualquier conversación, y lo que
-el agente registre en él (una venta, un pedido) queda anotado como en cualquier
-chat. Solo la entrega se queda dentro del panel.
+El hilo de prueba es real: consume saldo como cualquier conversación y tu agente
+usa sus herramientas como con un cliente. Pero no ensucia tus números: no
+aparece en la bandeja ni en Clientes, y no cuenta en Resultados. Y nada sale por
+WhatsApp: la entrega se queda dentro del panel.
 </Note>
+
+**Probar** funciona también en el teléfono. Sale apagado sin un agente elegido,
+en un agente creado con el sistema antiguo (*«El chat de prueba solo está
+disponible para agentes nuevos»*), si el manual no tiene capítulos o, en un
+embudo de la plantilla, mientras queden huecos en el capítulo 1 o en las
+secciones PRODUCTO y PRECIOS Y PROMOCIONES del bloque.
 
 ## Borrar un capítulo
 
-Al elegir «Eliminar capítulo» en el menú ⋯ se abre una confirmación con el botón **«Eliminar
-capítulo»** (o **«Eliminar sección»**). Antes de que decidas, te avisa de cuatro
-cosas, y vale la pena leerlas:
+Al elegir **«Eliminar capítulo»** en el menú ⋯ se abre una confirmación con el
+botón **«Eliminar capítulo»** (o **«Eliminar sección»**). Antes de que decidas,
+te avisa de hasta cuatro cosas, y vale la pena leerlas:
 
 1. **«El borrado se aplica al guardar los cambios.»** Todavía no ha pasado nada.
 2. **Cuántas menciones a ese capítulo quedarán rotas** — o, si no hay ninguna,
    *«Ninguna mención de capítulo quedará rota»*.
-3. **Cuántas secciones § se quedarán sin dueño** y se irán con él, si las hay.
+3. **Cuántas secciones § se quedarán sin alcance** y se irán con él, si las hay.
 4. **Cuántos clientes están hoy parados en ese capítulo.** A veces está
    contándolos (*«Comprobando cuántos clientes están hoy en este capítulo…»*) y
    a veces no puede saberlo, y entonces te pide que lo compruebes tú: *«Si hay
@@ -795,10 +1239,10 @@ cosas, y vale la pena leerlas:
 
 <Warning>
 **Ese cuarto aviso es el daño real.** Los clientes que se queden dentro del
-capítulo borrado pasan a ser atendidos con **el primer capítulo**: tu agente les
-vuelve a saludar como si acabaran de llegar, aunque ya hubieran comprado. El
-aviso trae un enlace a **Clientes** (se abre en otra pestaña, para no perder lo
-que estás editando) para reasignarlos antes.
+capítulo borrado pasan a ser atendidos con **el primer capítulo** hasta que los
+reasignes: tu agente puede volver a saludarlos como si acabaran de llegar,
+aunque ya hubieran comprado. El aviso trae un enlace a **Clientes** (se abre en
+otra pestaña, para no perder lo que estás editando) para reasignarlos antes.
 </Warning>
 
 <Note>
@@ -832,32 +1276,111 @@ y ese cambio se guarda sin gastar una de tus diez versiones del Historial.
 
 ## Desde el teléfono
 
-Con el manual abierto en el móvil el documento está en **solo lectura**, y la
-barra se queda casi vacía: **Datos**, más deshacer y rehacer cuando tienes
-cambios sin guardar. El índice de la izquierda no aparece.
+Con el manual abierto en el móvil el documento está en **solo lectura**. El
+índice de la izquierda no aparece, y la barra se queda con lo que funciona ahí:
+**Cambios medidos** (solo el icono), **Datos**, **Probar** y el de guardar, más
+deshacer, rehacer y **Descartar cambios** cuando tienes cambios sin guardar.
 
-Lo que sí puedes hacer es **«Retocar datos»**: precios, teléfonos y enlaces.
-Toca el dato, elige en qué apariciones aplicarlo y pulsa **«Guardar cambios»** —
-y eso gasta **una sola** de tus diez versiones del Historial.
+Arriba sale una banda: *«En el teléfono puedes retocar datos: precios,
+teléfonos y enlaces, en todas las veces que aparezcan…»*, con dos botones.
+
+<Steps>
+  <Step title="Pulsa «Retocar datos»">
+    Se abre la lista de precios, teléfonos y enlaces de tu manual, con cuántas
+    veces aparece cada uno.
+  </Step>
+  <Step title="Toca el dato">
+    Escribe el valor nuevo, elige en qué apariciones aplicarlo (vienen todas
+    marcadas) y pulsa **«Actualizar N»**.
+  </Step>
+  <Step title="Guarda">
+    Pulsa **«Guardar cambios»** en la barra. Gasta **una sola** de tus diez
+    versiones del Historial, aunque cambies varios datos.
+  </Step>
+</Steps>
+
+Si la lista sale vacía es porque no encontró precios ni teléfonos: un precio se
+detecta cuando lleva delante su símbolo de moneda, como «S/ 89».
+
+Además, desde el teléfono puedes **Probar** tu agente y **volver atrás un
+cambio** desde **Cambios medidos**.
 
 Para **reescribir el guion** —crear capítulos, cambiar los pasos, mover
-secciones— o **rellenar los huecos** de la plantilla hace falta una computadora. El botón **«Enviármelo»** (en el manual
-vacío, **«💻 Enviármelo a la computadora»**) está ahí justamente para eso:
-continuar en la pantalla grande.
+secciones— o **rellenar los huecos** de la plantilla hace falta una
+computadora. El botón **«Enviármelo»** (en el manual vacío, **«💻 Enviármelo a
+la computadora»**) está ahí justamente para eso: abre el menú de compartir de tu
+teléfono, o copia el enlace, para que sigas en la pantalla grande.
+
+## Si algo falla
+
+<AccordionGroup>
+  <Accordion title="Cambié el manual y mi agente sigue diciendo lo de antes">
+    Mira el indicador de la barra: si dice **«Cambios sin guardar»**, tu agente
+    todavía no los tiene. Tu agente (y también **Probar**) usa el manual
+    **guardado**. Pulsa **Guardar cambios** y vuelve a probar.
+  </Accordion>
+  <Accordion title="El embudo no pasa al siguiente capítulo">
+    Lo primero que hay que mirar: un avance escrito en prosa («pasa al
+    siguiente»). Abre el **Doctor**: si dice **«El capítulo N no avanza a
+    ningún capítulo»**, en el paso final teclea `@` → **Capítulos** y elige el
+    destino. Comprueba también que el capítulo destino existe. Ver
+    [Hacer que el embudo avance](#hacer-que-el-embudo-avance).
+  </Accordion>
+  <Accordion title="El archivo no le llega al cliente">
+    Pasa el ratón por la mención del archivo: si su punto es ámbar está
+    **pausado**; si es rojo, **no existe**. Si el marcador lo escribiste a mano,
+    revisa los `#` y el apodo. Lo demás está en
+    [La Librería de archivos](/guias/libreria).
+  </Accordion>
+  <Accordion title="Mi agente dice «(pendiente)» en vez de mi Yape">
+    El dato del negocio no tiene valor, o ya no existe en Configuración (por
+    ejemplo, porque lo borraron). Escríbelo, o vuelve a crearlo, en
+    **Configuración** → **«Datos del negocio»** y guarda. El Doctor te avisa de
+    los dos casos: del dato sin valor, con **«… no tiene valor en Ajustes»**.
+  </Accordion>
+  <Accordion title="El aviso a un tercero no llega">
+    Abre el **Doctor**. Si el aviso va a un número, tiene que llevar código de
+    país y escribirse pegado, sin espacios en medio (por ejemplo 51987654321; un
+    `+` delante no molesta). Si va por nombre, ese nombre tiene que estar en tus
+    **Números frecuentes** (o ser **Equipo de ventas**) con su número.
+  </Accordion>
+  <Accordion title="Al guardar me dice que una sección «se quedó sin contenido»">
+    Vaciaste una sección compartida que aplica a capítulos, y guardarla así
+    borraría ese contexto. Deshaz con `⌘Z`, escribe algo dentro o elimínala
+    desde su menú **⋯**.
+  </Accordion>
+  <Accordion title="Volví y mis cambios sin guardar no están">
+    La copia local vive en el navegador donde escribiste, dura 7 días y se
+    descarta si el manual cambió en el servidor mientras tanto. Cuando pasa eso
+    último, el panel te avisa: *«El manual cambió en el servidor desde tus
+    cambios sin guardar — se descartó el borrador local.»*
+  </Accordion>
+  <Accordion title="«Probar» está apagado">
+    Pasa el ratón por el botón: te dice por qué. Las causas son no tener un
+    agente elegido, un agente del sistema antiguo, un manual sin capítulos o,
+    en un embudo de la plantilla, huecos sin rellenar en el capítulo 1 o en
+    PRODUCTO y PRECIOS Y PROMOCIONES.
+  </Accordion>
+  <Accordion title="En «Cambios medidos» no me deja volver atrás">
+    Despliega la fila: te dice el motivo. Si dice que después hiciste otros
+    cambios, usa el [Historial](#el-historial-volver-atras) para elegir qué
+    recuperar.
+  </Accordion>
+</AccordionGroup>
 
 ## Cómo se llama cada cosa fuera del editor
 
-Esta tabla es **el único sitio de esta guía** donde aparecen los nombres
-técnicos. Sirve si manejas el manual desde tu asistente por el puente, o si te
-topas con ellos en el panel: asoman en la ventana **«Ver como lo recibe el
-agente»** y en la ventanita de ejecución del capítulo.
+Esta tabla es **el sitio de esta guía** donde se juntan los nombres técnicos.
+Sirve si manejas el manual desde tu asistente por el puente, o si te topas con
+ellos en el panel: asoman en la ventana **«Ver como lo recibe el agente»** y en
+la ventanita de ejecución del capítulo.
 
 | Lo que ves en el editor | Cómo se llama en la conexión para asistentes | Qué es |
 | --- | --- | --- |
 | El **nombre** del capítulo, encima de cada bloque | `chapter_label` | El título. Va sin número. |
-| El número: **«Capítulo 3»**, la píldora **«capítulo 3»** y el número del índice | `display_order` | El número del capítulo en el embudo. Es el que se escribe en las líneas de avance. |
+| El número: **«Capítulo 3»** y el número del índice | `display_order` | El número del capítulo en el embudo. Es el que se escribe en las líneas de avance. |
 | Las **líneas del capítulo** (el editor no les pone rótulo) | `thought_chain` | El guion: lo que tu agente ejecuta paso a paso. |
-| **«Quién eres»** arriba, o **«Tu papel aquí:»** dentro de cada capítulo | `role` | Quién es tu agente en ese capítulo. |
+| **«Tu papel aquí:»** dentro de cada capítulo | `role` | Quién es tu agente en ese capítulo. |
 | La **sección compartida §** y su alcance | `context` | El conocimiento y las reglas que aplican a varios capítulos. |
 | El chip **«se ejecuta 1 vez»** y la casilla **«Se ejecuta una sola vez»** | `execute_once` | Que el capítulo se diga una vez y pase de largo. |
 | La lista **«al terminar pasa a»** | `advance_to` | A qué capítulo salta al terminar. |
@@ -867,22 +1390,20 @@ agente»** y en la ventanita de ejecución del capítulo.
 <Warning>
 **Los ejemplos de conversación ya no existen, y guardar los borra.** Si tu
 manual venía con ejemplos de una época anterior, el editor **no los muestra** y,
-la primera vez que guardes un capítulo, los deja vacíos. En el último censo (28
-de agosto de 2026) ninguno de los 623 capítulos guardados tenía nada escrito
-ahí, así que en la práctica nadie pierde nada — pero conviene saberlo antes de
-buscarlos.
+cada vez que guardas un capítulo, ese campo se escribe vacío. Conviene saberlo
+antes de buscarlos.
 </Warning>
 
 <Note>
 **Los mismos tres nombres cambian según dónde mires.** En el editor no llevan
-rótulo. En **«Ver como lo recibe el agente»** salen ya traducidos: *role — quién
-es*, *thought_chain — qué hace*, *context — conocimiento y límites*. Y en el
-**Historial** y en las propuestas del copiloto son **Rol**, **Cadena de
-pensamiento** y **Contexto**. Es la misma pieza tres veces.
+rótulo (salvo «Tu papel aquí:»). En **«Ver como lo recibe el agente»** salen ya
+traducidos: *role — quién es*, *thought_chain — qué hace*, *context —
+conocimiento y límites*. Y en el **Historial** y en las propuestas del copiloto
+son **Rol**, **Cadena de pensamiento** y **Contexto**. Es la misma pieza tres
+veces.
 
 Y si tu asistente te devuelve algún nombre en inglés que no reconoces, no está
-roto: por dentro conviven dos vocabularios heredados y el sistema entiende los
-dos.
+roto: el sistema entiende los nombres en inglés y en español.
 </Note>
 
 ### En qué orden le llega el capítulo a tu agente
@@ -891,8 +1412,9 @@ Primero la **persona**, los **datos del cliente**, sus **notas** y sus
 **citas**. Después el capítulo: su **nombre**, quién es (**ROL:**), el guion
 (**CADENA DE PENSAMIENTO:**, con una instrucción añadida detrás), el
 **contexto** —que trae dentro sus propios rótulos **CONTEXTO:** y **PUNTOS
-CLAVE:**—, las **herramientas** y los **archivos** del capítulo. Entre el nombre y el rol pueden colarse dos avisos del sistema: desde
-qué PASO entra, y si el manual está vacío.
+CLAVE:**—, las **herramientas** y los **archivos** del capítulo. Entre el
+nombre y el rol pueden colarse dos avisos del sistema: desde qué PASO entra, y
+si el manual está vacío.
 
 Cada parte **solo aparece si tiene contenido**.
 
@@ -902,7 +1424,7 @@ Si has conectado Claude, ChatGPT o Codex por [el
 puente](/referencia/url-de-conexion), puedes leer y cambiar el manual
 conversando. **Leer** el manual y su historial viene activado de serie;
 **guardar** no —es una escritura destructiva— y hay que pedirlo en la URL con la
-que conectas:
+que conectas. La URL que te da el panel ya lo trae:
 
 ```
 https://mcp.darkfunnels.ai/mcp?features=all
@@ -927,15 +1449,21 @@ enseñe la propuesta **antes** de guardar.
   no. Si ves que tu asistente edita «de memoria» dos veces seguidas sin releer,
   párale.
 
-También puedes revisar en el panel lo que proponga **el copiloto**: sus
-propuestas se aprueban o se rechazan desde esta misma pantalla del Manual.
+Lo que proponga **el copiloto**, en cambio, se revisa en esta misma pantalla: ver
+[Lo que te propone el copiloto](#lo-que-te-propone-el-copiloto).
 
 <CardGroup cols={2}>
   <Card title="La Librería de archivos" icon="paperclip" href="/guias/libreria">
     Los archivos que tu agente manda, y el apodo con el que los pides desde el guion.
   </Card>
+  <Card title="Las herramientas del agente" icon="wrench" href="/guias/herramientas">
+    Qué hace cada herramienta, qué datos pide y cómo se escribe en el manual.
+  </Card>
+  <Card title="La configuración del agente" icon="gear" href="/guias/configuracion-del-agente">
+    Los datos del negocio, los números frecuentes y los avisos que el manual nombra.
+  </Card>
   <Card title="El catálogo" icon="tag" href="/guias/catalogo">
-    Los precios no se escriben en el manual: viven aquí.
+    Tus productos y sus precios, para que tu agente los consulte.
   </Card>
   <Card title="Las conversaciones" icon="comments" href="/guias/conversaciones">
     Ver qué contestó de verdad, y en qué capítulo estaba.

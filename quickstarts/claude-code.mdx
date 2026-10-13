@@ -1,33 +1,265 @@
 ---
 title: "Claude Code"
-description: "El conector de DarkFunnels en tu terminal."
+description: "Conecta Claude Code a tu negocio en DarkFunnels: el comando de la terminal, cómo autorizar con /mcp, qué hacer si se queda esperando y cómo cortar el acceso."
 ---
 
+**Claude Code** es el asistente de Anthropic que trabaja desde la terminal de tu
+computadora. Si ya lo usas, puedes conectarlo a tu negocio y pedirle cosas
+conversando: que revise tus conversaciones, que te proponga una mejora del
+manual o que ponga al día tu catálogo.
+
+<Note>
+**No hace falta para vender.** Es una comodidad para quien ya trabaja con Claude
+Code. Si no usas la terminal, lo más simple es [claude.ai](/quickstarts/claude-ai):
+sirve en el navegador, en la app de escritorio y en el móvil.
+</Note>
+
+<Tip>
+**¿Ya lo conectaste en claude.ai?** Si entras a Claude Code con tu cuenta de
+Claude (no con una clave de API), Claude Code hereda los conectores de esa
+cuenta y puedes saltarte los pasos de abajo. Escribe `/mcp` dentro de Claude
+Code para ver qué conectores tienes.
+</Tip>
+
+## Antes de empezar
+
+- Claude Code instalado en tu computadora.
+- **La misma cuenta con la que entras al panel de DarkFunnels.** Es la que vas a
+  autorizar. Con otra cuenta no sale un error: Claude se conecta al negocio de
+  esa otra cuenta y simplemente no ve tus datos.
+
+<Warning>
+**Hoy, la autorización desde la terminal puede no completarse.** Es una
+limitación de nuestro proveedor de identidad con la forma en que la terminal
+recibe la respuesta. Puede verse como un error en el navegador en lugar de la
+pantalla **Autorizar acceso**, o como una terminal que se queda esperando
+después de pulsar **Autorizar**. Si te pasa, conéctalo en
+[claude.ai](/quickstarts/claude-ai) y entra a Claude Code con esa misma cuenta
+de Claude: Claude Code hereda los conectores de tu cuenta.
+</Warning>
+
+## Conéctalo desde la terminal
+
 <Steps>
-  <Step title="Añade el servidor">
+  <Step title="Copia el comando">
+    Está en el panel. En el menú de la izquierda, dentro de **Ventas**, pulsa
+    **Personalizar** (grupo **Ajustes**) y elige **Asistentes IA**. En la
+    tarjeta **¿Dónde lo pego?**, abre la pestaña **Claude Code** y pulsa
+    **Copiar**. Si no ves **Ventas** en tu menú, usa el comando de aquí abajo:
+    es el mismo.
+
     ```bash
-    claude mcp add --transport http DarkFunnels "https://mcp.darkfunnels.ai/mcp?features=all"
+    claude mcp add --transport http optimind "https://mcp.darkfunnels.ai/mcp?features=all"
     ```
-    Las comillas importan: sin ellas el `?` dispara el glob de la shell.
+
+    <Frame caption="La tarjeta «¿Dónde lo pego?» tiene una pestaña por asistente; la de Claude Code trae el comando con su botón «Copiar».">
+      <img src="/images/asistentes/02-donde-lo-pego.png" alt="Tarjeta ¿Dónde lo pego? del panel Asistentes IA con las pestañas claude.ai, Claude Code, Codex y ChatGPT, la de Claude Code elegida y su comando claude mcp add con el botón Copiar" />
+    </Frame>
   </Step>
-  <Step title="Autoriza">
+  <Step title="Pégalo en la terminal">
+    Pégalo tal cual y pulsa Enter. **Las comillas van incluidas:** sin ellas, la
+    terminal del Mac puede responder `no matches found` por el signo `?` del
+    link.
+
+    `optimind` es el nombre con el que Claude Code guarda la conexión. Es el que
+    verás al escribir `/mcp` y el que usan los demás comandos de esta página.
+  </Step>
+  <Step title="Abre la autorización">
+    Abre Claude Code **en la misma carpeta donde pegaste el comando**, escribe
+    `/mcp` y elige **optimind** para autorizarlo. Si
+    prefieres no abrir una sesión, este comando hace lo mismo:
+
     ```bash
-    claude mcp login DarkFunnels
+    claude mcp login optimind
     ```
-    Se abre el navegador: entra con la **misma cuenta del panel de DarkFunnels**.
+
+    Se abre tu navegador en la pantalla **Autorizar acceso** de DarkFunnels. Si
+    no tenías la sesión del panel abierta, primero te pide entrar.
+  </Step>
+  <Step title="Comprueba la cuenta y pulsa «Autorizar»">
+    Debajo del título, la pantalla dice **«Autorizas como»** y un correo. **Si
+    es el correo de tu panel**, pulsa **Autorizar**. Verás **Acceso autorizado**:
+    ya puedes volver a Claude Code.
+
+    Si es otro correo, pulsa **Denegar**. En el panel, abre tu menú de cuenta
+    (arriba a la derecha) y pulsa **Cerrar sesión**. Entra con la cuenta
+    correcta y repite el paso anterior.
   </Step>
 </Steps>
 
-<Note>
-Si iniciaste sesión en Claude Code con tu suscripción (no con API key), los
-conectores de claude.ai se sincronizan solos y puedes saltarte estos pasos.
-</Note>
+<Tip>
+**¿Lo quieres en todas tus carpetas?** El comando de arriba deja la conexión
+solo en la carpeta donde lo corres. Para tenerla en cualquier carpeta, añade
+`--scope user`:
 
-Si el asistente no ve tu negocio (o lo ve vacío), autorizaste con una cuenta
-distinta a la del panel: borra el conector y vuelve a conectarlo con la correcta.
+```bash
+claude mcp add --transport http --scope user optimind "https://mcp.darkfunnels.ai/mcp?features=all"
+```
+</Tip>
 
-<Warning>
-El login OAuth desde terminal puede quedarse esperando hoy por una limitación
-del proveedor de identidad (puerto de callback dinámico). Si te pasa, conéctalo
-en claude.ai: Claude Code hereda los conectores de tu cuenta.
-</Warning>
+## Pruébalo
+
+Abre una sesión nueva de Claude Code y pégale uno de estos mensajes. Son los
+mismos que trae el panel:
+
+- *«Revisa mis conversaciones de ayer y dime dónde se están perdiendo ventas.»*
+- *«Lee el manual de mi agente y proponme una mejora del capítulo de cierre;
+  guárdala cuando te la apruebe.»*
+- *«Pásame los clientes que llevan más de 3 días sin respuesta y qué les diría
+  el agente para retomar.»*
+
+**Para confirmar que está bien conectado**, pregúntale *«¿con qué cuenta de
+DarkFunnels estás conectado y en qué empresa?»*. Debe responderte con tu correo
+y el nombre de tu empresa.
+
+Si administras las apps de tu empresa, en **Personalizar → Asistentes IA**
+verás la insignia **Conectado · última actividad**, con la fecha, en cuanto un
+asistente haya trabajado en tu empresa. Quien no administra las apps no ve esa
+insignia.
+
+## Qué puede hacer y cómo frenarlo
+
+El link lleva `?features=all`: activa todas las funciones, también las que
+**guardan cambios** (el manual, el catálogo) y las que **envían mensajes** por
+WhatsApp. Las funciones que publiquemos más adelante llegan solas, sin tocar el
+link.
+
+Según cómo tengas configurado Claude Code, te pide permiso antes de usar una
+herramienta del conector. Cuando te lo pida, **lee qué va a hacer antes de
+aceptar**, sobre todo si va a guardar, borrar o enviar algo.
+
+**¿Prefieres que solo lea?** Añade `&read_only=true` al final del link:
+
+```bash
+claude mcp add --transport http optimind "https://mcp.darkfunnels.ai/mcp?features=all&read_only=true"
+```
+
+Si ya lo tenías añadido, primero quítalo con `claude mcp remove optimind` y
+después añádelo con el link nuevo (si lo tenías con `--scope user`, añade
+también `--scope user`) y vuelve a autorizarlo: cambiar el link exige
+conectarlo otra vez. Todas las opciones del link están en
+[La URL de conexión](/referencia/url-de-conexion), y la lista de funciones, en la
+[Referencia de herramientas](/referencia/tools).
+
+## Con qué permisos y en qué empresa trabaja
+
+**Claude trabaja con tus permisos.** Lo que tu cuenta no puede hacer en el
+panel, él tampoco. Le aparecen las herramientas de las apps que tú puedes usar
+en esa empresa y que están activas en ella. Si alguna vez intenta usar una que
+tu cuenta no puede usar, se rechaza y no hace el cambio. Por ejemplo, si no tienes
+acceso a **Ventas**, no verá tus conversaciones ni el manual de tus agentes.
+
+**Cada conexión queda fijada a una empresa.** Si tu cuenta está en varias
+empresas, la conexión se queda con la que tenías activa cuando Claude se conectó
+por primera vez, que suele ser justo después de autorizarlo.
+
+Si después cambias de empresa en el panel, Claude deja de guardar cambios:
+rechaza la acción sin tocar nada y te explica qué hacer. **Lo que lea, en
+cambio, ya es de la empresa que tienes activa ahora.** Si estabas comparando
+cifras, vuelve primero a la empresa de la conexión. Y si abres una sesión nueva
+de Claude Code mientras tanto, puede quedarse solo con las funciones básicas,
+como decirte con qué cuenta y en qué empresa está conectado.
+
+- **Para seguir en la empresa de la conexión**, vuelve a ella desde tu menú de
+  cuenta (**Cambiar a esta empresa**).
+- **Para trabajar en la otra**, desconecta y vuelve a conectar:
+
+  ```bash
+  claude mcp logout optimind
+  ```
+
+  Después, con la empresa en la que quieres trabajar ya activa en el panel,
+  autoriza otra vez con `/mcp` (o con `claude mcp login optimind`). La conexión
+  nueva se queda con la empresa que esté activa cuando Claude se conecte.
+
+Si tu cuenta está en una sola empresa, no tienes que hacer nada de esto. Cómo se
+cambia de empresa lo cuenta
+[Invita a tu equipo](/primeros-pasos/invita-a-tu-equipo#una-cuenta-en-varias-empresas).
+
+## Cortar el acceso
+
+<Steps>
+  <Step title="Revócalo en el panel">
+    En **Personalizar → Asistentes IA**, baja a la tarjeta **Seguridad y
+    acceso**. En **Asistentes con acceso a tu cuenta** ves cada asistente que
+    autorizaste, con la fecha en que lo hiciste. Pulsa **Revocar** junto al que
+    quieras cortar y confirma con **Revocar**.
+
+    Pierde el acceso a tu cuenta en unos segundos. Para volver a usarlo, tendrás
+    que conectarlo de nuevo.
+  </Step>
+  <Step title="Quítalo también de Claude Code">
+    Revocar corta el acceso, pero la conexión **optimind** sigue en tu lista de
+    Claude Code.
+    Para quitarlo:
+
+    ```bash
+    claude mcp remove optimind
+    ```
+
+    Si lo tenías heredado de claude.ai, quítalo allí: **Personalizar →
+    Conectores**.
+  </Step>
+</Steps>
+
+<Frame caption="«Seguridad y acceso»: cómo se protege la conexión y la lista «Asistentes con acceso a tu cuenta». En esta captura está vacía; cada asistente que autorices aparece ahí con su botón «Revocar».">
+  <img src="/images/asistentes/03-seguridad-y-acceso.png" alt="Tarjeta Seguridad y acceso con tres viñetas sobre la conexión y la lista Asistentes con acceso a tu cuenta, que dice Ningún asistente tiene acceso a tu cuenta ahora" />
+</Frame>
+
+Qué queda registrado y qué ve tu asistente de tus clientes lo cuenta
+[Seguridad](/seguridad).
+
+## Si algo falla
+
+<AccordionGroup>
+  <Accordion title="La autorización no termina o la terminal se queda esperando">
+    Es la limitación del proveedor de identidad que cuenta el aviso de
+    [Antes de empezar](#antes-de-empezar). Conéctalo en
+    [claude.ai](/quickstarts/claude-ai) y entra a Claude Code con esa misma
+    cuenta de Claude: lo hereda sin pasar por la terminal.
+  </Accordion>
+  <Accordion title="No ve tus datos, o los ve vacíos">
+    Lo más común es que hayas autorizado con otra cuenta. Pregúntale *«¿con qué cuenta de
+    DarkFunnels estás conectado?»*. Si no es la tuya, corre
+    `claude mcp logout optimind`, cierra sesión en el panel, entra con la
+    cuenta correcta y autoriza otra vez con `/mcp`.
+
+    Si la cuenta es la correcta, revisa dos cosas más: **en qué empresa** está
+    activa tu cuenta en el panel (si estás en varias) y si tienes acceso a
+    **Ventas** en esa empresa.
+  </Accordion>
+  <Accordion title="Dice que la cuenta cambió de empresa y no guarda nada">
+    La conexión está fijada a otra empresa. Vuelve a esa empresa en el panel, o
+    desconecta y conecta otra vez desde la empresa que quieres. Lo explica
+    [Con qué permisos y en qué empresa trabaja](#con-que-permisos-y-en-que-empresa-trabaja).
+  </Accordion>
+  <Accordion title="Dice que no tienes acceso a una app, o que la app no está activa">
+    Claude trabaja con tus mismos permisos. Si no tienes acceso a esa app, pide
+    a quien administra tu empresa que te lo dé
+    ([Invita a tu equipo](/primeros-pasos/invita-a-tu-equipo)). Si la app no
+    está activa en tu empresa, quien administra tu empresa la activa en
+    **Administración → Apps** ([Las apps](/primeros-pasos/las-apps)).
+
+    Después de un cambio de permisos o de apps, espera un minuto y abre una
+    sesión nueva de Claude Code.
+  </Accordion>
+  <Accordion title="«claude mcp login optimind» no encuentra el servidor">
+    Hay dos causas comunes. Lo añadiste con otro nombre (si seguiste una versión
+    anterior de esta página, puede llamarse `DarkFunnels`), o lo añadiste en
+    otra carpeta. Corre `claude mcp list` en la carpeta donde lo añadiste para
+    ver cómo se llama, y usa ese nombre en los comandos. Si no aparece, añádelo
+    otra vez con el comando del paso 1, o con `--scope user` para tenerlo en
+    todas tus carpetas.
+  </Accordion>
+  <Accordion title="No aparecen funciones nuevas">
+    Abre una sesión **nueva** de Claude Code: cada sesión se queda con la lista
+    de funciones que había al empezarla.
+  </Accordion>
+  <Accordion title="Dice «sin créditos»">
+    Las funciones de IA quedan detenidas hasta que recargues. Recarga en el
+    panel, en **Administración → Dinero → Saldo y facturación** → **Recargar
+    créditos**; el mismo aviso trae el enlace. Si no ves esa pantalla, pide el
+    acceso al saldo a quien administra tu empresa. Lo explica
+    [Créditos y recarga](/primeros-pasos/creditos-y-recarga).
+  </Accordion>
+</AccordionGroup>

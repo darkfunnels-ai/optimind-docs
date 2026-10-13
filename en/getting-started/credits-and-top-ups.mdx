@@ -1,163 +1,518 @@
 ---
 title: "WhatsApp AI agent credits and top-ups"
 sidebarTitle: "Credits and top-ups"
-description: "WhatsApp AI agent credits and usage explained: what spends balance, how long it lasts, exactly what happens when you hit zero, and how to top up from the dashboard."
+description: "What spends balance in DarkFunnels, how long it lasts, what happens when it runs out, how to top up or turn on auto top-up, and where to see daily usage."
 keywords:
   - "WhatsApp AI agent credits"
   - "usage based pricing"
   - "top up credits"
+  - "auto top-up"
   - "cost per conversation"
   - "balance and billing"
 ---
-{/* es-source: primeros-pasos/creditos-y-recarga.mdx @ 18fea5d */}
+{/* es-source: primeros-pasos/creditos-y-recarga.mdx @ 1668fb3 */}
 
 Credits are **dollars**: US\$ 1 of credit = US\$ 1. There are no points, no packs
 with odd equivalences, and no monthly expiry on the balance you bought.
 
 The dashboard interface is in Spanish, so buttons and menus are named here in
-Spanish with the English meaning in parentheses.
+Spanish, with the English meaning in parentheses the first time they appear.
+
+<Note>
+**Where it is.** In the left-hand menu, expand **Administración**
+(*Administration*) and, in the **Dinero** (*Money*) group, click **Saldo y
+facturación** (*Balance and billing*). You can also get there with one click on
+the **Saldo** (*Balance*) chip in the top bar. Your balance lives in the
+**Créditos** (*Credits*) card on that screen.
+
+Only people with access to balance and billing see these screens. If you cannot
+find them in your menu, ask whoever manages your account to switch on **Ver
+saldo y facturación** (*View balance and billing*) for you in **Personas y
+accesos** (*People and access*)
+([Invite your team](/en/getting-started/invite-your-team)).
+</Note>
+
+<Frame caption="Saldo y facturación (Balance and billing): what your apps bill this month and, in the side column, the Suscripción and Créditos (Subscription and Credits) cards. This account's trial has expired: that is why the red notice shows at the top.">
+  <img src="/images/saldo/01-saldo-y-facturacion.png" alt="Saldo y facturación (Balance and billing) screen with the «Tu prueba gratuita terminó» (Your free trial has ended) notice, the current October invoice, the apps table and the Suscripción (Subscription) box, with the trial expired and «Activar suscripción» (Activate subscription), and the Créditos (Credits) box, with «Recargar créditos» (Top up credits) and auto top-up switched off" />
+</Frame>
 
 ## Where the first ones come from
 
-{/* Product figure: the source is billing.welcome_amounts() (migration z×187).
-    If it changes there, change it here — these docs are a static deploy with no
-    access to the database. */}
+{/* Welcome and referral figures: an automatic check compares them with the
+    product. If they change there, they change here. */}
 
-Your trial brings **US\$10 in credit and 7 days with up to 5 active agents** —
-plus **US\$25** if you signed up with a referral code.
+Your trial brings **US\$ 10 in credit and 7 days with up to 5 active agents**.
+If you signed up with a referral code, you receive **US\$ 25** more when you
+activate your subscription, not during the trial.
 
-Your account is born with **the full US\$ 10**, advanced at sign-up so that you
-can build and test your agent without stopping halfway. Connecting your WhatsApp
-brings **no balance** — you already have all of it — but it is where the 7-day
-clock starts and where your agent begins attending that number. If you signed up
-with a referral code, your **US\$ 25** arrive when you activate your subscription.
-It is covered by
-[Connect your WhatsApp](/en/getting-started/connect-whatsapp).
+Your account is born with **the full US\$ 10**, advanced at sign-up so you can
+build and test your agent without stopping halfway. Connecting your WhatsApp
+**brings no balance** — you already have all of it — but that is where the
+7-day clock starts and where your agent begins attending that number. It is
+covered in [Connect your WhatsApp](/en/getting-started/connect-whatsapp).
 
 <Note>
-Welcome credits are granted **once per account**, for life. Disconnecting and
-reconnecting the channel neither duplicates them nor takes them away.
+Welcome credits are granted **only once per company**. Disconnecting and
+reconnecting the channel neither duplicates them nor takes them away. If you
+work with several companies from the same account, each company has **its own
+balance** and its own welcome credits.
 </Note>
 
 ## What consumes balance
 
-What consumes it is **the AI's work**, and it is measured for real: there is no
-flat rate per message and no rounding in your favour or in ours.
+What consumes it is **the AI's work**, and it is measured by real usage: there
+is no flat rate per message.
+
+**With your customers:**
 
 - **Each turn your agent answers** — what it reads from the thread and what it
   writes. A long conversation costs more than a "how much is it?" answered in
   one line.
 - **The audio it transcribes**, per second of audio.
 - **The photos it interprets** when a customer sends an image.
-- **The documents it reads** when assembling your product's context.
-- **Funnel generation and playbook proposals**, every time you ask for them.
+- **The videos customers send you**: the AI looks at a few frames and
+  transcribes their audio.
+- **The voice notes and avatar videos** your agent generates, unless you use
+  your own key from the voice or video provider.
+- **Each conversation answered by Responder con IA** (*Reply with AI*) from the
+  inbox.
 
-What does **not** consume: having the WhatsApp session connected, or using the
-dashboard. The spending is generated by the AI when it works, not by the fact of
-being signed up.
+**In the dashboard:**
+
+- **The copilot**, also when it guides you with **Guíame** (*Guide me*) or helps
+  you build your agent. No matter who uses it: the copilot used by the people on
+  your team draws from the same company balance.
+- **The AI buttons**, the ones with the ✦ sparkle: for example **✦ Redactar un
+  capítulo con IA** (*✦ Draft a chapter with AI*, in an empty playbook) and the
+  playbook's text fixes (**Estructurar en pasos**, **Acortar sin perder datos**,
+  **Extraer condiciones** — *Structure into steps*, *Shorten without losing
+  data*, *Extract conditions*). In a chat you are handling yourself, **Lectura
+  de la IA** (*AI read*) and the sparkle next to the text box that suggests
+  replies (**Recomendar respuesta** — *Suggest a reply*).
+- **Agent memory**: when a Library file has **memoria del agente** (*agent
+  memory*) switched on, the AI reads it and prepares it so your agent can
+  consult it.
+- **Funnel generation**, when you ask for it.
+- And some AI jobs that run on their own, in the background, on your
+  conversations.
+
+**Having WhatsApp connected does not spend balance**, and neither does opening
+the dashboard to look at your screens. The spending is generated by the AI when
+it works.
 
 ## How much each conversation costs you
 
-The unit that really matters is not the token, it is the conversation. That is
-why the credits card in **Saldo y facturación** ("Balance and billing")
-translates it with your own data: *"This month, each conversation cost you
-~US\$ 0.15"*, followed by how many conversations your agents started this month
-and how much they consumed between them all.
+What the AI spends is measured in *tokens* (the little pieces of text it reads
+and writes), but the unit that really helps you is the conversation. That is
+why the **Créditos** card in **Saldo y facturación** translates it with your own
+data: *«Este mes, cada conversación te costó ~US\$ 0.15»* (*"This month, each
+conversation cost you ~US\$ 0.15"*), followed by how many conversations your
+agents started this month and how much they consumed between them.
 
 It is an **average for the current month**, not a rate: it comes from dividing
-what your agents consumed by the conversations they started, and it is the same
-number you see on Home as **Costo por conversación** ("Cost per conversation").
-While there are no conversations in the month, the card tells you so instead of
-inventing a figure.
+what your agents consumed by the conversations they started. It is the same
+calculation as **Costo por conversación** (*Cost per conversation*) on
+**Inicio** (*Home*) (there, for the period you choose at the top). If some agent
+could not be measured, the line admits it with *«sobre N de M agentes»*
+(*"across N of M agents"*). And while there are no conversations in the month,
+the card tells you so instead of inventing a figure.
 
 <Tip>
-If the average looks high to you, it is nearly always long conversations or lots
-of audio: the playbook decides how much your agent talks, and a script that
-closes in fewer steps also costs less.
+If the average looks high to you, look at what pushes it up: long
+conversations, lots of audio, and the voice notes or avatar videos your agent
+generates (those two spend no balance if you use your own provider key). The
+playbook decides how much your agent talks, and a script that closes in fewer
+steps also costs less.
 </Tip>
 
 ## How long it lasts you
 
 It depends on how many conversations you have and how long they are, so any
-number we put here would be a lie for somebody.
+number we put here would be untrue for someone.
 
-The dashboard tells you with your data: in **Saldo y facturación** ("Balance and
-billing"), the credits card projects *"At your consumption rate, the balance
-lasts ~N days"* using your real consumption for the month. It is the one figure
-worth trusting.
+The dashboard tells you with your data: the **Créditos** card projects *«A tu
+ritmo de consumo, el saldo dura ~N días»* (*"At your consumption rate, the
+balance lasts ~N days"*) using your real usage for the month, which you see
+right below it (for example, *«Consumo de octubre»* — *"October usage"*). That
+is the figure worth trusting.
+
+That line changes depending on the case:
+
+| What you see | What it means |
+| --- | --- |
+| **Proyección disponible a partir del día 3.** (*Projection available from day 3.*) | It is too early in the month to calculate a pace. |
+| **Más de 90 días a tu ritmo actual.** (*More than 90 days at your current pace.*) | You have balance to spare for a good while. |
+| **Sin consumo este mes: tu saldo no está bajando.** (*No usage this month: your balance is not going down.*) | No balance has been spent yet this month. |
+| **Sin saldo disponible.** (*No balance available.*) | There is nothing to project: top up. |
+
+## Seeing where your balance went
+
+The detail is in **Administración → Dinero → Consumo** (*Administration → Money
+→ Usage*). The screen is titled **Consumo de tokens** (*Token usage*) and shows
+**what the AI spends day by day**, with the detail of each call.
+
+<Frame caption="Consumo (Usage): each day's spend (here, September 2026), with the Todas · Ventas · Copiloto (All · Sales · Copilot) filter and the unit in dollars or in tokens.">
+  <img src="/images/saldo/03-consumo.png" alt="Consumo de tokens (Token usage) screen for September 2026 with the period's four figures (spend, tokens, daily average and peak day), the daily bar chart, the app and unit filters and the «Ver eventos» (View events) button" />
+</Frame>
+
+- **You choose the period at the top.** The chart and the figures follow that
+  choice.
+- **Todas · Ventas · Copiloto** (*All · Sales · Copilot*) lets you see
+  separately what the copilot spent.
+- **With Ventas** (*Sales*) **selected**, if the spend comes from more than one
+  funnel, a selector appears so you can look at just one (by default, **Todos
+  los embudos** — *All funnels*).
+- **US\$ · Tokens** switches the chart's unit.
+- The figures for the period: **Gasto del período** (*Spend for the period*),
+  **Tokens del período** (*Tokens for the period*), the average and the peak
+  (**Promedio diario** — *Daily average* — and **Día pico** — *Peak day* — when
+  the chart goes by day).
+- **Ver eventos** (*View events*) opens the audit table: one row for each call
+  to the model, with **fecha**, **modelo**, **app**, **tokens** and **precio**
+  (*date*, *model*, *app*, *tokens* and *price*). It shows the 200 most recent
+  and is read-only.
+
+<Tip>
+If one day spikes, filter by **Ventas** and by funnel to see which agent it
+was, and then review its conversations from that day.
+</Tip>
 
 ## What happens when you reach zero
 
 <Warning>
-When you run out of balance **your agents stop answering new turns**. The
-conversations are not deleted and the number stays connected: it is simply that
-nobody answers until you top up.
+When you run out of balance **your agents stop answering new turns**, and the
+copilot stops too. Conversations are not deleted and the number stays
+connected: your agent does not answer until you top up, but you can still reply
+from the inbox.
 </Warning>
+
+Meanwhile:
+
+- **The messages people write to you are saved** and you see them in the inbox.
+- **Audio, photos and videos that come in arrive without being transcribed or
+  described.**
+- **The dashboard's AI buttons stop too**, and the copilot answers *«Tu cuenta
+  no tiene saldo disponible. Recarga créditos para seguir usando el copiloto.»*
+  (*"Your account has no balance available. Top up credits to keep using the
+  copilot."*)
+- **Some background jobs keep running and keep spending**, for example
+  transcribing the audio files in your Library. That is why your balance can end
+  up negative even though your agent has already gone quiet. The red notice
+  reminds you: *«Tus apps y los trabajos en segundo plano siguen activos, y su
+  cargo estimado sigue corriendo.»* (*"Your apps and background jobs are still
+  active, and their estimated charge keeps running."*) Whatever is left negative
+  is deducted from your next top-up.
+- **You get a WhatsApp message** when a customer writes and your agent cannot
+  answer. You do not get one for each message: as a rule it repeats once a day
+  per agent. It says *«⚠️ optiMind: tu cuenta se quedó sin saldo suficiente para
+  responder…»* (*"⚠️ optiMind: your account no longer has enough balance to
+  reply…"*) and goes to the numbers you have in your agent's **Alertas de
+  error** (*Error alerts*) ([Agent settings](/en/guides/agent-settings)). If you
+  have no numbers there, that notice does not reach you.
 
 <Warning>
 **What is lost: the turn that was not answered.** The messages people write to
 you while you have no balance **are saved and you see them in the inbox**, but
-they do not sit in a queue: on topping up, your agent **does not answer the
+they do not sit in a queue: when you top up, your agent **does not answer the
 backlog**. It picks up with the next message that customer writes. If nobody
 writes again, nobody gets a reply — which is why it is better to top up
-beforehand, and to review by hand what came in in the meantime.
+beforehand.
 </Warning>
 
+**To catch up after topping up**, turn on the **Esperando respuesta**
+(*Awaiting reply*) view in the inbox: it gathers the customers whose last
+message was left unanswered. Reply to them yourself or, if you see
+**Seleccionar** (*Select*) above the list, pick several and press **Responder
+con IA**: the AI answers them one per minute, from 8:00 to 21:00 in your agent's
+time zone (anything that falls outside that window goes out the next day). It
+skips anyone who wrote more than 7 days ago and chats with autopilot switched
+off, and each batch first asks you to accept a notice about the risk of
+WhatsApp banning your number. It is covered in
+[Conversations](/en/guides/conversations).
+
+### The notices, before and during the cut-off
+
 The cut-off does not wait for exactly US\$ 0: your agent goes quiet when the
-balance drops below **US\$ 0.10**, so you can see a remainder on screen and have
-it silent all the same. That is why the dashboard distinguishes three notices,
-and each one tells the truth about its number:
+balance drops below **US\$ 0.10**, so you can see a remainder on screen and still
+have it silent. That is why the dashboard uses several notices, and each one
+explains what is happening with the balance you see on screen:
 
-| Notice | What happened |
-| --- | --- |
-| **Saldo insuficiente** ("Insufficient balance") | You have something left, but less than a turn costs. |
-| **Saldo agotado** ("Balance exhausted") | You reached zero. |
-| **Saldo en deuda** ("Balance in debt") | The balance went negative. Your next top-up deducts the debt automatically. |
+| Notice | Color | What happened |
+| --- | --- | --- |
+| **Saldo bajo** (*Low balance*) | Amber | You have less than US\$ 5 left and your agent still answers. If there is already data for the month, it tells you in how many days it runs out at your pace. |
+| **Saldo insuficiente** (*Insufficient balance*) | Red | You have something left, but less than it costs to answer a message. |
+| **Saldo agotado** (*Balance exhausted*) | Red | Your balance is at US\$ 0. |
+| **Saldo en deuda** (*Balance in debt*) | Red | The balance went negative: something cost more than what was left (a long last turn or a background job, such as transcribing a Library audio file). Your next top-up deducts the debt automatically. |
 
-The **Saldo** ("Balance") chip in the top bar turns amber when little is left and
-red when the agent no longer answers: it is the notice you will see first,
-without going into any screen.
+The red notices appear at the top of **Saldo y facturación** and also on
+**Inicio**, with a **Recargar créditos** (*Top up credits*) button that opens
+the top-up window directly. The amber one appears in **Saldo y facturación**;
+while you are on the trial, that spot is taken by the notice of the days you
+have left.
+
+The **Saldo** chip in the top bar carries a colored dot that follows your
+balance: green when it is enough, amber when it is low, and red when it is no
+longer enough for your agent to answer. It is the notice you will see first,
+without going into another screen.
+
+Careful: the dot looks at your balance, not at your trial. If your trial has
+ended, it can stay green even though your agent does not answer; you see that
+notice in **Saldo y facturación**.
+
+<Frame caption="The Saldo (Balance) chip in the top bar, here with the green dot: its colored dot warns you before any screen does, and one click takes you to Saldo y facturación.">
+  <img src="/images/inicio/02-barra-superior.png" alt="Dashboard top bar with «Agentes contratados 0» (Agents hired 0), the Saldo (Balance) chip with its green dot, the search box, the copilot and the buttons on the right" />
+</Frame>
+
+**And by email:** if you do not have auto top-up switched on, when your balance
+gets low the account owner receives the email **«Tu saldo de créditos está
+bajo»** (*Your credit balance is low*), with a button to top up and another to
+set up auto top-up. During the trial, it only arrives if you have already
+connected your WhatsApp. Outside the trial, the warning line adapts to your
+pace: if you spend a lot per day, it warns you with about 3 days of margin. It
+does not repeat until your balance recovers.
 
 ## How to top up
 
 <Steps>
-  <Step title="Go into Saldo y facturación">
-    In the side menu, block **Administración → Dinero** ("Administration →
-    Money"). Or press the **Saldo** ("Balance") chip in the top bar, which leads
-    to the same place.
+  <Step title="Open the «Recargar créditos» (Top up credits) window">
+    In **Saldo y facturación**, press **Recargar créditos** in the **Créditos**
+    card. If a red balance notice appears (here or on **Inicio**), its
+    **Recargar créditos** button opens the same window directly.
   </Step>
-  <Step title="Press 'Recargar créditos'">
-    The pack picker opens: **US\$ 20, 50, 100 or 200**. Choose and confirm.
-    Everything is paid **in dollars, by card**.
+  <Step title="Press «Comprar» (Buy) on the pack you want">
+    There are four: **Recarga US\$ 20**, **Recarga US\$ 50**, **Recarga US\$ 100**
+    and **Recarga US\$ 200** (*Recarga* = *Top-up*). Each one gives exactly
+    those dollars in credits and has its own **Comprar** button.
+
+    <Frame caption="The «Recargar créditos» (Top up credits) window: one Comprar (Buy) button per pack and, at the bottom, how you will be charged (here, with no saved card: you pay in Culqi's secure widget).">
+      <img src="/images/saldo/02-recargar.png" alt="Recargar créditos (Top up credits) window with the 20, 50, 100 and 200 dollar packs, each with its Comprar (Buy) button, and the note «Pagas en el widget seguro de Culqi; tu tarjeta queda guardada para tus próximos cobros.» (You pay in Culqi's secure widget; your card is saved for your next charges.)" />
+    </Frame>
+
+    <Warning>
+    **If you already have a saved card, «Comprar» charges on the spot**,
+    without opening anything else or asking you for another confirmation. The
+    note at the foot of the window reminds you: *«Se cobra a tu tarjeta
+    guardada…»* (*"It is charged to your saved card…"*). Check the pack
+    carefully before pressing.
+    </Warning>
+
+    If you do not have a saved card yet, the payment gateway's secure payment
+    window opens so you can type in your card details. That card stays saved
+    for your next charges.
   </Step>
-  <Step title="Pay by card">
-    The charge goes through the payment gateway; your card is stored for the
-    next top-ups, which are charged instantly without typing it again. The
-    balance is credited straight away and you will see it in the history as a
-    **Recarga** ("Top-up") movement with its reference.
+  <Step title="Check the receipt">
+    When the charge goes through, the **Recarga acreditada** (*Top-up
+    credited*) receipt opens: **Pago completado** (*Payment completed*), the
+    total, **Pagado con** (*Paid with* — the card), **Fecha** (*Date*) and the
+    **N.º de operación** (*Transaction number*). Your balance and the **Saldo**
+    chip go up instantly.
+
+    You also get the receipt by email. **Keep it**: **Saldo y facturación**
+    does not show a list of your past top-ups.
   </Step>
 </Steps>
 
+Online top-ups are paid **by card, in dollars**. If you need to pay another way,
+write to us on WhatsApp and we will sort it out with you.
+
 <Tip>
-Top up **before** you hit zero. While the balance is exhausted your agent does
-not answer, and a sale that was not answered in time costs quite a bit more than
-US\$ 10.
+Top up **before** you run out of balance. While it is exhausted your agent does
+not answer, and a sale that was not answered in time costs quite a bit more
+than the smallest top-up. The way to not have to remember is auto top-up.
 </Tip>
 
-If the payment does not go through or the packs do not load, the dashboard
-itself offers **Contactar al equipo** ("Contact the team") over WhatsApp and we
-apply it by hand.
+## Auto top-up
+
+Auto top-up **buys a pack on its own when your balance drops below a threshold
+you choose**. It is the best protection against a silent agent.
+
+<Note>
+**What you need:** a **saved card** (it gets saved when you activate your
+subscription or make a top-up by card) and an **active subscription**. During
+the trial it cannot be switched on yet: when you save it, it will tell you that
+you need an active subscription.
+</Note>
+
+<Steps>
+  <Step title="Find the «Auto-recarga» (Auto top-up) block">
+    It is at the end of the **Créditos** card, in **Saldo y facturación**.
+    Without a saved card, the switch appears locked with the notice *«Guarda
+    una tarjeta primero…»* (*"Save a card first…"*).
+  </Step>
+  <Step title="Turn on the switch and set your threshold">
+    In **Cuando el saldo baje de (US\$)** (*When the balance drops below
+    (US\$)*), type the amount that triggers the top-up. It has to be greater
+    than 0.
+  </Step>
+  <Step title="Choose the pack">
+    In **Recargar este pack** (*Top up this pack*), choose which one is bought
+    each time.
+  </Step>
+  <Step title="Press «Guardar auto-recarga» (Save auto top-up)">
+    If everything is in order you will see *«Auto-recarga actualizada.»*
+    (*"Auto top-up updated."*). To switch it off, turn the switch off and press
+    **Guardar auto-recarga** again.
+  </Step>
+</Steps>
+
+How it works behind the scenes, so it does not catch you by surprise:
+
+- **When your balance drops below the threshold**, within the following minutes
+  the pack is charged to your **primary card** and the balance goes up. You get
+  the receipt by email (**«Autorecarga de créditos ejecutada»** — *Credit auto
+  top-up completed*).
+- **It fires at most once every 24 hours**, even if the charge fails. That is
+  why a threshold with some margin and a pack that lasts you more than a day are
+  a good idea: if you spend more than one pack a day, auto top-up alone will not
+  keep up.
+- **If the bank declines your primary card** and you have a **backup card**,
+  that one is charged on the spot. You add it in the **Métodos de pago**
+  (*Payment methods*) card → **Agregar tarjeta de respaldo** (*Add backup
+  card*).
+- **If the bank declines the charge** (and the backup card too, if you have
+  one), nothing is charged and you get the email **«Tu auto-recarga de créditos
+  no se pudo procesar»** (*Your credit auto top-up could not be processed*). If
+  your balance is still below the threshold, the next attempt comes once the 24
+  hours have passed.
+- **If your subscription stops being active** — for example, because the
+  renewal failed three times and it was left past due —, auto top-up stops
+  firing.
 
 ## Trial, subscription and balance are three different things
 
 It is worth not mixing them up:
 
 - **The trial** is 7 days with up to 5 active agents. When it ends, your agents
-  stop answering new turns even if you have balance to spare.
-- **The subscription** is what gives you back the active agents when the trial
-  ends.
+  and the copilot stop answering even if you have balance to spare. Topping up
+  does not reactivate them: you need to subscribe.
+- **The subscription** is what gives you back active agents when the trial
+  ends, and it is what enables auto top-up.
 - **The balance** is the AI's fuel. It is spent with use and topped up whenever
-  you like, whether you are on trial or on a subscription.
+  you like, whether you are on the trial or on a subscription.
 
 The balance you bought **does not expire** when the trial ends: it is still
-there when you subscribe.
+there when you subscribe. How much the subscription costs and what part of it
+comes back to you as balance is explained in
+[Plans and pricing](/en/getting-started/pricing).
+
+## Invite other businesses and earn credits
+
+<Note>
+**This is not the Red de referidos** (*Referral network*). This program is for
+**other businesses** to subscribe to DarkFunnels with your code. The
+[Referral network](/en/guides/referral-network) is something else: the program
+for **your customers** to bring you customers.
+</Note>
+
+It is in **Administración → Plataforma → Referidos** (*Administration →
+Platform → Referrals*), and whoever has access to the balance can see it. Share
+your link; when a business signs up with it and **activates its subscription**:
+
+- **they receive US\$ 25 in credit**;
+- **you earn US\$ 15 in credit** for that payment and for each of their
+  renewals, up to **6 charges**. The size of their subscription makes no
+  difference.
+
+If they stop paying, they stop generating rewards; if they come back, the count
+picks up where it left off until it completes the 6.
+
+<Frame caption="Referidos (Referrals): your code, the link to share, the four figures and the Tus referidos (Your referrals) table, still empty here.">
+  <img src="/images/saldo/05-referidos-darkfunnels.png" alt="Referidos (Referrals) screen with the referral code «MODASOL1», the link to share with «Copiar link» (Copy link) and «Copiar solo el código» (Copy only the code), the four figures at zero and the empty Tus referidos (Your referrals) table («Aún no tienes referidos…», You have no referrals yet…)" />
+</Frame>
+
+What you see on the screen:
+
+- **Tu código de referido** (*Your referral code*) and the **Link para
+  compartir** (*Link to share*), with **Copiar link** (*Copy link*) and
+  **Copiar solo el código** (*Copy code only*). The link goes straight to
+  sign-up with your code already filled in.
+- Four figures: **Referidos** (*Referrals*), **Pagando** (*Paying*), **Agentes
+  activos** (*Active agents*) and **Ganado en créditos** (*Earned in credits*).
+- The **Tus referidos** (*Your referrals*) table: each business with its status
+  — **Registrado** (*Registered*: not paying), **Suscrito** (*Subscribed*:
+  paying) or **Completado** (*Completed*: it has already rewarded you for the 6
+  charges) —, what you earned with it and the **premiados** (*rewarded*) column,
+  which counts the rewarded charges, for example *2/6 cobros* (*2/6 charges*).
+
+You get an email when someone signs up with your link and another each time
+your US\$ 15 is credited. These credits are balance for the AI inside
+DarkFunnels: they cannot be exchanged for money or refunded.
+
+## If something goes wrong
+
+<AccordionGroup>
+  <Accordion title="I have balance and my agent does not answer">
+    Check in this order:
+
+    1. **Does it say «Saldo insuficiente» (*Insufficient balance*)?** Below
+       US\$ 0.10 the agent no longer answers, even if you see a remainder on
+       screen.
+    2. **Has your trial ended?** Without a subscription the agent does not
+       answer even if you have balance to spare; topping up does not fix it.
+    3. **Is the agent paused, or is autopilot switched off in that chat?** When
+       paused, your agent answers nobody; with autopilot off, that chat is
+       handled by a person.
+    4. **Is your WhatsApp still connected?** Check the common problems in
+       [Connect your WhatsApp](/en/getting-started/connect-whatsapp).
+  </Accordion>
+  <Accordion title="I pressed «Comprar» (Buy) and got an error from the bank">
+    The bank declined the charge and **you were not charged anything**. The
+    reason appears in the window and you also get it by email. Try again:
+    sometimes the bank declines for security reasons and the second attempt
+    goes through. If it keeps failing, change the card in **Métodos de pago →
+    Cambiar tarjeta** (*Payment methods → Change card*), or write to us if you
+    need to pay another way.
+  </Accordion>
+  <Accordion title="It says «el cobro se realizó pero la acreditación quedó pendiente» (the charge went through but crediting is pending)">
+    **Do not pay again.** The charge went through and the balance is credited
+    on its own within a few minutes. If you still do not see it after a while,
+    write to us.
+  </Accordion>
+  <Accordion title="The window says online payment is not enabled, or it shows no packs">
+    At the bottom you will see **Contactar al equipo →** (*Contact the team →*):
+    it takes you to our WhatsApp and we apply the top-up by hand.
+  </Accordion>
+  <Accordion title="I cannot save auto top-up">
+    If it tells you *«necesitas una suscripción activa para usar la
+    autorecarga»* (*"you need an active subscription to use auto top-up"*), you
+    are still on the trial or your subscription is not active. If the switch
+    appears locked, you are missing a saved card. And check that the threshold
+    is greater than 0 and that you have chosen a pack.
+  </Accordion>
+  <Accordion title="Auto top-up did not top up">
+    The most common cause is one of these: it already fired in the last 24
+    hours, the bank declined the card (you will have received the email saying
+    it could not be processed), your subscription is no longer active, or the
+    pack you chose is no longer on sale (choose one again in **Recargar este
+    pack** and press **Guardar auto-recarga**). Bear in mind that the charge
+    goes out a few minutes after the balance crosses the threshold. While you
+    sort it out, top up by hand.
+  </Accordion>
+  <Accordion title="I topped up and my agent did not answer the people who wrote before">
+    That is expected: the backlog is not answered on its own. Use the inbox's
+    **Esperando respuesta** view and reply to them yourself or with
+    **Responder con IA**, if you have it. Further up this page you will find
+    how to catch up.
+  </Accordion>
+  <Accordion title="The Créditos card says the balance and the last movement do not match">
+    It is a reconciliation check: it compares your balance with the last
+    recorded movement. If the *«estamos conciliando»* (*"we are reconciling"*)
+    notice does not go away, write to us.
+  </Accordion>
+</AccordionGroup>
+
+To write to us, use the **Ayuda** (*Help*) button in the top bar →
+**Escríbenos por WhatsApp** (*Write to us on WhatsApp*).
+
+## And now
+
+<CardGroup cols={2}>
+  <Card title="Plans and pricing" icon="tag" href="/en/getting-started/pricing">
+    The trial, the subscription and what part of it comes back to you as
+    balance.
+  </Card>
+  <Card title="Conversations" icon="comments" href="/en/guides/conversations">
+    The inbox, the Esperando respuesta (Awaiting reply) view and how to take
+    over a chat yourself.
+  </Card>
+</CardGroup>

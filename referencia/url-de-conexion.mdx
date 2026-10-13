@@ -1,101 +1,388 @@
 ---
 title: "La URL de conexión"
-description: "Los cuatro parámetros que deciden qué puede hacer tu asistente: features, read_only, pii y agent."
+description: "Arma la URL que conecta Claude o ChatGPT a DarkFunnels: grupos de herramientas, solo lectura, teléfonos, agente fijo, permisos, empresa y límites."
 ---
 
-Toda la configuración del puente vive en la URL con la que conectas. No hay
-ajustes escondidos: lo que pone ahí es exactamente lo que tu asistente puede
-hacer.
+<Note>
+Esta página es **opcional y solo aplica si conectas tu asistente** (Claude,
+ChatGPT o Codex) a tu negocio por fuera del panel. Si trabajas solo en el
+panel, no la necesitas.
+</Note>
+
+La URL de conexión es la dirección que pegas en tu asistente para conectarlo a
+tu negocio. **Con ella eliges qué le ofreces**: solo mirar, editar el catálogo,
+responder chats, probar el agente…
+
+Lo que tu asistente puede hacer de verdad no depende solo de la URL. Cuentan
+también **tus permisos**, **la empresa** en la que trabaja la conexión y **unos
+límites de uso**. Lo ves en [Lo que la URL no decide](#lo-que-la-url-no-decide).
+
+## La URL, sin nada y con todo
+
+La base es esta:
 
 ```
 https://mcp.darkfunnels.ai/mcp
 ```
 
-Esa URL pelada ya sirve para trabajar: trae las **lecturas** del negocio (manual,
-catálogo, conversaciones, clientes y la base de la cuenta) y una sola escritura
-no destructiva, las etiquetas de clientes.
+Así, sin nada más, ya sirve para trabajar. Trae las **lecturas** de tu negocio
+—tus agentes, el manual, el catálogo, las conversaciones y los clientes— y tres
+escrituras menores: crear etiquetas de clientes, cambiar las etiquetas de un
+cliente y registrar una petición que tu asistente no pudo cumplir, que nos
+llega para construir lo que falta.
+
+La que te da el panel es la completa. Está en **Personalizar → Asistentes IA**,
+botón **Copiar link**:
+
+```
+https://mcp.darkfunnels.ai/mcp?features=all
+```
+
+<Frame caption="La tarjeta «Conecta tu asistente»: el link completo, el botón «Copiar link», los tres pasos y, al pie, cómo dejarlo en solo lectura.">
+  <img src="/images/asistentes/01-conecta-tu-asistente.png" alt="Tarjeta Conecta tu asistente en Personalizar, Asistentes IA, con el link de conexión, el botón Copiar link, tres pasos numerados y una nota sobre el modo solo lectura" />
+</Frame>
+
+Si no ves **Personalizar** en tu menú, copia la URL de aquí: es la misma.
+
+### Cómo se arma
+
+<Steps>
+  <Step title="Parte de la base">
+    `https://mcp.darkfunnels.ai/mcp`, o la del panel, que ya trae
+    `?features=all`.
+  </Step>
+  <Step title="Elige qué grupos viajan">
+    Añade `?features=` con los grupos separados por comas, o `all` para
+    todos. Los grupos están en la sección siguiente.
+  </Step>
+  <Step title="Suma los demás parámetros">
+    El primero va detrás de `?` y los siguientes, detrás de `&`. Por ejemplo:
+    `?features=all&read_only=true`.
+  </Step>
+  <Step title="Conecta">
+    Pégala como conector nuevo en tu asistente y autoriza con tu cuenta. Si ya
+    lo tenías conectado, mira [Cambiar la URL después](#cambiar-la-url-despues).
+  </Step>
+</Steps>
 
 <Note>
-Los parámetros se combinan con `&`, como en cualquier URL:
-`?features=all&pii=full`. Si añades uno, **conserva los que ya tenías** — es el
-error más común al reconectar.
+Si añades un parámetro, **conserva los que ya tenías**: es el error más común
+al reconectar. Y escribe los valores **en minúsculas y tal cual** aparecen
+aquí: con `ALL`, `True` o `FULL`, el parámetro no hace efecto.
 </Note>
 
 ## `?features=` — qué grupos de herramientas viajan
 
-Sin este parámetro viajan cuatro grupos: `core`, `manual`, `catalog` y
-`conversations`. Todo lo demás es opt-in.
+Las herramientas del puente van en **grupos**. Sin este parámetro viaja el
+conjunto por defecto: `core`, `manual`, `catalog` y `conversations`, más las
+lecturas de algunas apps que solo aparecen en ciertas cuentas. Lo demás hay
+que pedirlo.
 
-| Grupo | Qué añade |
-|---|---|
-| `agents_write` | Crear un embudo nuevo — **consume un cupo de tu suscripción** |
-| `manual_write` | Guardar capítulos, restaurar versiones y aplicar un embudo completo |
-| `catalog_write` | Crear, editar y borrar productos |
-| `library` | Subir archivos y vincularlos a un agente |
-| `operations` | Responder como operador, cambiar el modo de un chat, recordatorios |
-| `manual_ai` | Generar y optimizar el manual con IA (gasta créditos) |
-| `testing` | Simular mensajes — **salen por WhatsApp de verdad** |
-| `orders` | Pedidos y stock (necesita las apps activas) |
-| `metrics` | Métricas de uso y scorecard del agente |
-| `copilot` | Preguntar al Copiloto (gasta créditos) |
+Si tu cuenta tiene una de esas apps y usas una lista, nombra también su grupo:
+lo encuentras en la [Referencia de herramientas](/referencia/tools).
+
+La última columna dice qué acceso necesitas en tu empresa. Son los nombres de
+los interruptores de **Personas y accesos**.
+
+**Vienen por defecto**
+
+| Grupo | Qué trae | Acceso que pide |
+| --- | --- | --- |
+| `core` | La base: quién eres, en qué empresa trabaja la conexión, tus agentes con sus ajustes, su resumen y el estado de su WhatsApp, la puesta en marcha de tu cuenta, tu saldo y una ayuda rápida del producto (unos temas básicos, con su enlace al panel). Una escritura: registrar una petición que no pudo cumplir. | Lo de tus agentes, **Ventas**. El saldo, **Ver saldo y facturación**. Quién eres, la empresa, la ayuda rápida y el registro de peticiones no piden permiso de una app. |
+| `manual` | Leer el manual de tus agentes, su historial de versiones y revisarlo sin guardar. | **Ventas** |
+| `catalog` | Leer tus productos y la ficha de cada uno. | **Ventas** |
+| `conversations` | Leer conversaciones, la lista de clientes y la ficha de cada uno, y explicar qué hizo el agente en un turno. Dos escrituras: crear etiquetas y cambiar las de un cliente. | **Ventas** |
+
+**Hay que pedirlos**
+
+| Grupo | Qué añade | Acceso que pide |
+| --- | --- | --- |
+| `manual_write` | Guardar capítulos, escribir uno nuevo, editar el bloque compartido de todos los capítulos, restaurar una versión y aplicar un embudo completo. **Destructivas.** | **Ventas** |
+| `catalog_write` | Crear, editar y borrar productos. **Borrar es definitivo.** | **Ventas** |
+| `agents_write` | Crear o duplicar un embudo —**consume un cupo de tu suscripción**—, pausarlo o reanudarlo (reanudar vuelve a ocupar cupo), cambiar sus ajustes, editar la persona y encender o apagar su personalidad. | **Ventas** |
+| `library` | Ver, subir y leer archivos de la Librería, vincularlos a un agente (para enviarlos o para su memoria) o desvincularlos, y cambiar su condición de envío. Leer el texto de una imagen gasta créditos. | **Ventas** |
+| `operations` | Responder como operador —**sale por WhatsApp de verdad**—, cambiar quién responde en un chat, ver, programar y cancelar recordatorios, y borrar una etiqueta de todos los clientes. | **Ventas** |
+| `manual_ai` | Optimizar el manual con IA. No guarda: devuelve sugerencias. Gasta créditos. | **Ventas** |
+| `testing` | Probar el agente. En el chat de prueba del panel no sale nada por WhatsApp; simular un mensaje en un chat real, o abrir uno nuevo con un número, **sí sale por WhatsApp de verdad**. Cada respuesta del agente gasta créditos. | **Ventas** |
+| `orders` | Leer pedidos y stock. Solo lectura. | Pedidos, **Órdenes**. Stock, **Inventario**. |
+| `metrics` | El consumo de IA por día y los resultados del agente por semana o mes. | El consumo, **Ver saldo y facturación**. Los resultados, **Ventas**. |
+| `copilot` | Preguntarle al copiloto del panel. Gasta créditos. | **Copiloto** |
 
 <Warning>
-**Una lista explícita SUSTITUYE al set base, no lo amplía.** Conectar con
-`?features=orders` te deja con `orders` y `core` **solamente**: pierdes manual,
-catálogo y conversaciones.
+**Una lista explícita SUSTITUYE al conjunto por defecto, no lo amplía.**
+Conectar con `?features=orders` te deja con `orders` y `core` **solamente**:
+pierdes manual, catálogo y conversaciones.
 
-Para sumar sin perder nada, nómbralos todos:
+Para sumar sin perder nada, lo más simple es `?features=all`. Si prefieres una
+lista, nombra también los que venían por defecto:
 `?features=manual,catalog,conversations,orders`.
 </Warning>
 
-Un grupo `_write` arrastra siempre su grupo de lectura: `?features=catalog_write`
-trae también `catalog`, porque para reescribir una fila entera hay que poder
-leerla primero.
+Tres detalles más:
 
-**`?features=all`** activa todo, incluidos los grupos que publiquemos más
-adelante. Es la URL que no hay que volver a tocar, y la que damos en los
-quickstarts. A cambio, conecta también las escrituras destructivas: si tu
-asistente solo va a leer, no la uses.
+- **`core` viaja con cualquier URL**, aunque no lo nombres.
+- **Escribir trae leer.** `manual_write` trae también `manual`, y
+  `catalog_write` trae `catalog`: para reescribir algo, tu asistente tiene que
+  poder leerlo primero.
+- **Un nombre mal escrito se ignora sin avisar.** Si en tu lista no queda
+  ninguno válido, vuelves al conjunto por defecto.
+
+**`?features=all`** activa todos los grupos, también los que publiquemos más
+adelante. Es la URL que da el panel y la de los quickstarts: la que no hay que
+volver a tocar.
+
+**`all` no te da más permisos.** De todos esos grupos, tu asistente recibe solo
+lo que tu cuenta puede usar en esa empresa. A cambio, conecta también las
+escrituras destructivas. Esas acciones viajan marcadas como destructivas, y
+los asistentes suelen usar esa marca para pedirte confirmación. Si quieres que
+solo mire, súmale `&read_only=true`.
 
 ## `?read_only=true` — el freno de mano
 
 Desactiva **toda** escritura y manda sobre cualquier otra opción, `all`
-incluido. Útil para dejar mirar sin poder tocar.
+incluido. Sirve para dejar mirar sin poder tocar.
 
 ```
 https://mcp.darkfunnels.ai/mcp?features=all&read_only=true
 ```
 
+Cuentan como escritura, y por eso tampoco viajan: preguntarle al copiloto,
+optimizar el manual con IA, abrir el chat de prueba y registrar una petición.
+Si tu URL trae `library` (o `all`), leer el texto de un archivo de la Librería
+sí sigue disponible, y con una imagen gasta créditos.
+
+<Warning>
+Escríbelo exactamente así: `read_only=true`. Con `True`, `TRUE` o `1` **no se
+activa**, y la conexión conserva sus escrituras.
+</Warning>
+
 ## `?pii=full` — teléfonos completos
 
-Por defecto el teléfono de tus clientes finales llega enmascarado
-(`51•••••4321`). Con `pii=full` llega entero. Las herramientas que operan
-sobre un chat existente direccionan por la conversación, así que el enmascarado
-no cierra esas operaciones: es solo lo que tu asistente llega a leer. La única
-que pide un número es `simulate_new_chat` (grupo de pruebas), y ahí lo tecleas
-tú. La otra mella es de comodidad — la búsqueda de clientes admite teléfono, y
-tapado no se puede encadenar. Los detalles y el porqué, en
-[Seguridad](/seguridad).
+Por defecto, el teléfono de tus clientes llega tapado: `51•••••4321`. Conserva
+la pista de país y los cuatro últimos dígitos, suficiente para reconocer un
+número que ya conoces. Con `pii=full` llega entero:
+
+```
+https://mcp.darkfunnels.ai/mcp?features=all&pii=full
+```
+
+El tapado vale para la lista de conversaciones, la de clientes, la ficha de un
+cliente y los pedidos. **Lo que se tapa es el teléfono.** El nombre, el
+documento y la dirección de un pedido, y lo que tus clientes escriben en sus
+mensajes, llegan tal cual.
+
+Que llegue tapado casi no estorba. Las herramientas que actúan sobre un chat lo
+buscan por la conversación, no por el número. Las que sí piden un número
+—simular un chat nuevo o cambiar las listas de números de los ajustes del
+agente— te lo piden a ti, y lo tecleas tú. Lo que pierdes es comodidad, en dos
+cosas: tu asistente no puede darte el número completo (en el panel sí lo ves),
+y aunque la búsqueda de clientes admite teléfono, un número tapado no sirve
+para buscar.
+
+Cualquier variante mal escrita, como `pii=FULL`, deja el teléfono tapado. Los
+detalles y el porqué, en [Seguridad](/seguridad).
 
 ## `?agent=<uuid>` — fijar un agente
 
-Si tienes varios agentes de ventas, casi todas las herramientas piden a cuál te
-refieres. Este parámetro lo deja fijado para toda la conexión, y tu asistente
-deja de tener que preguntártelo.
+Si tienes varios agentes de ventas, casi todas las herramientas necesitan saber
+de cuál hablas. Este parámetro deja uno como **agente por defecto** de la
+conexión, y tu asistente deja de preguntártelo. Con un solo agente no hace
+falta: se usa ese.
 
 ```
 https://mcp.darkfunnels.ai/mcp?features=all&agent=8f14e45f-ceea-467a-9c1d-2d4a6bcbb3f5
 ```
 
-El identificador te lo da `list_agents`. Tiene que ser el UUID completo: si va
-mal escrito, se ignora sin avisar y vuelves al comportamiento normal (tu
-asistente te preguntará por el agente).
+El identificador te lo da tu propio asistente: pídele *«dame el identificador
+de mis agentes»*. Tiene que ir completo, con sus guiones. Si no tiene esa
+forma, se ignora sin avisar y tu asistente te vuelve a preguntar por el agente.
+
+Fijarlo no te encierra: si le pides expresamente otro agente, trabaja con ese.
+
+## Lo que la URL no decide
+
+### Tus permisos y las apps de tu empresa
+
+Tu asistente entra **con tu cuenta y con tus permisos**. De lo que pida la URL,
+le aparecen las herramientas de las apps que tú puedes usar en esa empresa y
+que la empresa tiene activas. Y si alguna vez le apareciera otra, no podría
+usarla. Es la regla de tu menú del panel: lo que tu cuenta no puede abrir ahí,
+tu asistente tampoco lo puede usar.
+
+Por eso dos personas con la misma URL pueden ver listas distintas. Por ejemplo,
+alguien de tu equipo que solo tiene **Órdenes**, conectado con la URL sin nada,
+ve solo la base: quién es, en qué empresa trabaja, la ayuda rápida del
+producto y el registro de peticiones. Para leer pedidos necesita
+`?features=orders` o `all`. Para el stock, además, el acceso a **Inventario**.
+
+- **Si tu asistente prueba una herramienta sin permiso, o de una app apagada**,
+  recibe un aviso de que no tiene ese acceso y no hace nada. El aviso puede
+  nombrar la app distinto del interruptor: para los pedidos dice «Pedidos», y el
+  interruptor se llama **Órdenes**; para el saldo dice «Saldo y consumo», y el
+  interruptor es **Ver saldo y facturación**.
+- **Los permisos los da quien administra tu equipo**, en
+  [Personas y accesos](/primeros-pasos/invita-a-tu-equipo#que-puede-ver-y-hacer-cada-persona).
+  Las apps se encienden en **Administración → Apps**.
+- **Si te acaban de dar un permiso**, espera un minuto y abre un chat nuevo en
+  tu asistente.
+
+### La empresa de la conexión
+
+Si tu cuenta está en
+[varias empresas](/primeros-pasos/invita-a-tu-equipo#una-cuenta-en-varias-empresas),
+**cada conexión queda fijada a la empresa que tenías activa al conectarla**,
+y trabaja con tus permisos de esa empresa. Si tu cuenta está en una sola, esto
+no te cambia nada.
+
+Si después cambia tu empresa activa, porque elegiste otra en el menú de tu
+cuenta o porque aceptaste la invitación de otra empresa (al aceptarla, esa
+empresa queda activa):
+
+- **Sus escrituras se rechazan sin ejecutarse**, para no guardar nada en la
+  empresa equivocada. El aviso dice en qué empresa trabaja la conexión y cuál
+  tienes activa ahora.
+- **Sus lecturas siguen**, pero muestran los datos de la empresa que tienes
+  activa ahora.
+
+<Warning>
+**Después de cambiar de empresa, lo que lea tu asistente ya es de la otra.**
+Si estabas comparando cifras, vuelve primero a la empresa de la conexión.
+</Warning>
+
+Para que vuelva a guardar cambios, una de dos:
+
+1. **Vuelve a elegir esa empresa** en el menú de tu cuenta, con **Cambiar a
+   esta empresa**. La conexión sigue como antes, sin reconectar.
+2. **Desconecta el conector y vuelve a conectarlo.** La conexión nueva queda
+   fijada en la empresa que tengas activa al conectarla: si quieres trabajar
+   en otra, cámbiate antes en el menú de tu cuenta.
+
+Si te quitan el acceso a la empresa de la conexión, sus escrituras también se
+rechazan. Para trabajar en otra, desconecta y vuelve a conectar.
+
+¿Dudas de dónde está trabajando? Pregúntale *«¿en qué empresa estás
+trabajando?»*. Tiene una herramienta para eso, que dice además con qué permisos
+trabaja y si la empresa activa sigue siendo la de la conexión.
+
+### Los límites de uso
+
+- **Por cuenta.** Si tu asistente pasa de 60 peticiones en un minuto o de 300
+  en una hora, el puente lo frena y responde *«rate limit; reintenta en N s»*.
+  Cuenta lo que haces con todos tus asistentes juntos. Pasa sobre todo con
+  trabajos en lote, como revisar cientos de chats seguidos. **La espera es la
+  que dice N**: unos segundos si pasó el tope del minuto, y hasta una hora si
+  pasó el de la hora. Para trabajos grandes, pídele que vaya por partes.
+- **Por empresa.** Hay un cupo diario de llamadas a herramientas —por defecto,
+  20 000— que se renueva a medianoche, hora de Lima. Si se agota, tu asistente
+  te lo dice. Si tu negocio necesita más,
+  [escríbenos](/seguridad#como-escribirnos).
 
 ## Cambiar la URL después
 
-Cambiar cualquiera de estos parámetros exige **reconectar** el conector: borra
-el que tenías y añádelo con la URL nueva.
+Cambiar cualquiera de estos parámetros exige **reconectar**: en tu asistente,
+borra el conector que tenías y añádelo con la URL nueva. Ojo si estás en
+varias empresas: la conexión nueva queda fijada en la empresa que tengas activa
+al conectarla. Elige antes la empresa en el menú de tu cuenta.
 
-No confundas eso con las herramientas nuevas. La lista de herramientas se
-congela **por conversación**: si añadimos una y no te aparece, casi siempre basta
-con abrir un chat nuevo. Reconectar solo hace falta cuando cambia la URL.
+No confundas eso con las herramientas nuevas. **La lista de herramientas se
+congela por conversación**: si añadimos una, o te acaban de dar un permiso, y
+no te aparece, lo normal es que baste con abrir un chat nuevo. Si con un chat
+nuevo sigue sin aparecer, borra el conector y vuelve a conectarlo.
+
+Reconectar hace falta cuando cambia la URL, cuando quieres que la conexión
+trabaje en otra empresa y después de revocar el acceso.
+
+### Cortar el acceso
+
+<Steps>
+  <Step title="Abre Asistentes IA">
+    En el panel, entra a **Personalizar → Asistentes IA** y baja hasta la
+    tarjeta **Seguridad y acceso**.
+  </Step>
+  <Step title="Pulsa Revocar">
+    En **Asistentes con acceso a tu cuenta** ves cada asistente que autorizaste,
+    con la fecha. Pulsa **Revocar** junto al que quieras cortar y confirma con
+    **Revocar**.
+  </Step>
+  <Step title="Listo">
+    Ese asistente pierde el acceso a tu cuenta en unos segundos. Para volver a
+    usarlo, tendrás que conectarlo de nuevo.
+  </Step>
+</Steps>
+
+Personalizar es parte de **Ventas**: si no lo ves en tu menú, pide a quien
+administra tu equipo el acceso a Ventas para poder revocar desde aquí. Mientras
+tanto, quita el conector en tu asistente.
+
+<Frame caption="«Seguridad y acceso»: cómo se protege la conexión y la lista «Asistentes con acceso a tu cuenta». En esta captura está vacía; cada asistente que autorices aparece ahí con su botón «Revocar».">
+  <img src="/images/asistentes/03-seguridad-y-acceso.png" alt="Tarjeta Seguridad y acceso con tres viñetas sobre la conexión y la lista Asistentes con acceso a tu cuenta, que dice Ningún asistente tiene acceso a tu cuenta ahora" />
+</Frame>
+
+Revocar corta el acceso, pero el conector sigue en tu asistente. Para quitarlo
+también de allí: en claude.ai, **Personalizar → Conectores**; en Codex,
+**Ajustes → MCP servers**.
+
+## Si algo falla
+
+<AccordionGroup>
+  <Accordion title="Añadí un parámetro y mi asistente perdió funciones">
+    Suele ser una de dos. O pusiste una lista en `?features=` y sustituyó al
+    conjunto por defecto, o al reconectar dejaste fuera lo que tenías antes. Rearma la URL con todo junto, por ejemplo
+    `?features=all&pii=full`, y reconecta.
+  </Accordion>
+  <Accordion title="Mi asistente no ve una herramienta que debería">
+    Revisa en este orden:
+
+    1. **El grupo no está en tu URL, o tu URL lleva `read_only=true`**, que
+       quita todas las escrituras. Búscalo en las tablas de arriba.
+    2. **No tienes acceso a esa app, o está apagada en tu empresa.**
+       Pregúntale *«¿en qué empresa estás trabajando y con qué permisos?»*.
+    3. **Es un chat viejo.** Abre uno nuevo.
+    4. **Sigue sin aparecer.** Borra el conector y vuelve a conectarlo.
+  </Accordion>
+  <Accordion title="No guarda: dice que la cuenta cambió de empresa">
+    Tu empresa activa cambió después de conectar: la cambiaste en el menú de
+    tu cuenta o aceptaste una invitación de otra empresa. Vuelve a esa empresa
+    desde el menú de tu cuenta, o desconecta y vuelve a conectar el conector
+    para trabajar en la que tienes activa.
+    → [La empresa de la conexión](#la-empresa-de-la-conexion)
+  </Accordion>
+  <Accordion title="Cambié la URL y no cambió nada">
+    Primero, ¿reconectaste? Cambiar la URL exige borrar el conector y
+    añadirlo de nuevo. Si lo hiciste, revisa cómo está escrita. Un grupo mal
+    escrito se ignora, y `read_only=True` o `pii=FULL` no hacen efecto: van en
+    minúsculas. Un `agent=` incompleto también se ignora. Corrige y reconecta.
+  </Accordion>
+  <Accordion title="No ve tus datos, o los ve vacíos">
+    Lo más común es que autorizaras con otra cuenta. Pregúntale *«¿con qué
+    cuenta de DarkFunnels estás conectado?»*. Si no es la tuya, borra el conector, entra
+    al panel en `optimind.darkfunnels.ai` con la cuenta correcta (cierra antes
+    la otra sesión si hace falta) y vuelve a conectarlo. Al autorizar, la
+    pantalla dice «Autorizas como» y tu correo: comprueba que sea el tuyo. Si la
+    cuenta es la buena, pregúntale en qué empresa está trabajando.
+  </Accordion>
+  <Accordion title="Dice «rate limit; reintenta en N s»">
+    Hizo demasiadas peticiones seguidas. Espera el tiempo que indica: unos
+    segundos si pasó el tope por minuto, o hasta una hora si pasó el de la
+    hora. Si trabaja en lote, pídele que vaya por partes.
+  </Accordion>
+  <Accordion title="Dice que la empresa alcanzó su cupo diario">
+    Se renueva a medianoche, hora de Lima. Si tu negocio necesita más,
+    [escríbenos](/seguridad#como-escribirnos).
+  </Accordion>
+</AccordionGroup>
+
+<CardGroup cols={2}>
+  <Card title="Referencia de herramientas" icon="wrench" href="/referencia/tools">
+    Cada herramienta del puente, grupo por grupo.
+  </Card>
+  <Card title="Seguridad" icon="shield" href="/seguridad">
+    El teléfono tapado, el registro de cada llamada y qué no puede hacer.
+  </Card>
+  <Card title="Invita a tu equipo" icon="users" href="/primeros-pasos/invita-a-tu-equipo">
+    Los permisos de cada persona y una cuenta en varias empresas.
+  </Card>
+  <Card title="Conecta Claude" icon="plug" href="/quickstarts/claude-ai">
+    El paso a paso para conectar tu asistente.
+  </Card>
+</CardGroup>

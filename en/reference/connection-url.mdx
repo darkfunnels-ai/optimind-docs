@@ -1,7 +1,7 @@
 ---
 title: "MCP connection URL parameters"
 sidebarTitle: "Connection URL"
-description: "The four MCP connection URL parameters that decide what your assistant can do: features, read_only, pii and agent — all set on the URL you connect with."
+description: "Build the URL that connects Claude or ChatGPT to DarkFunnels: tool groups, read-only mode, phone numbers, a pinned agent, permissions, business and limits."
 keywords:
   - MCP connection URL parameters
   - features parameter
@@ -10,100 +10,404 @@ keywords:
   - MCP server URL
 ---
 
-{/* es-source: referencia/url-de-conexion.mdx @ 7bf99f7 */}
+{/* es-source: referencia/url-de-conexion.mdx @ a79c6da */}
 
-The bridge's entire configuration lives in the URL you connect with. There are
-no hidden settings: what it says there is exactly what your assistant can do.
+<Note>
+This page is **optional and only applies if you connect your assistant**
+(Claude, ChatGPT or Codex) to your business from outside the dashboard. If you
+work only in the dashboard, you don't need it.
+</Note>
+
+The connection URL is the address you paste into your assistant to connect it
+to your business. **With it you choose what you offer it**: just looking,
+editing the catalog, answering chats, testing the agent…
+
+What your assistant can actually do doesn't depend on the URL alone. **Your
+permissions**, **the business** the connection works in and **some usage
+limits** count too. You'll see this in
+[What the URL does not decide](#what-the-url-does-not-decide).
+
+The dashboard interface is in Spanish, so its buttons and menus are named here
+in Spanish with the English meaning in parentheses.
+
+## The URL, bare and complete
+
+The base is this one:
 
 ```
 https://mcp.darkfunnels.ai/mcp
 ```
 
-That bare URL is already enough to work with: it brings the business **reads**
-(playbook, catalog, conversations, customers and the account basics) and a
-single non-destructive write, customer tags.
+Like that, with nothing else, it already works. It brings your business's
+**reads** — your agents, the playbook, the catalog, the conversations and the
+customers — and three minor writes: creating customer tags, changing a
+customer's tags and logging a request your assistant couldn't fulfill, which
+reaches us so we can build what's missing.
+
+The one the dashboard gives you is the complete one. It's in **Personalizar →
+Asistentes IA** ("Customize → AI assistants"), with the **Copiar link** ("Copy
+link") button:
+
+```
+https://mcp.darkfunnels.ai/mcp?features=all
+```
+
+<Frame caption="The «Conecta tu asistente» (Connect your assistant) card: the full link, the «Copiar link» (Copy link) button, the three steps and, at the bottom, how to make it read-only.">
+  <img src="/images/asistentes/01-conecta-tu-asistente.png" alt="Conecta tu asistente (Connect your assistant) card in Personalizar, Asistentes IA, with the connection link, the Copiar link button, three numbered steps and a note about read-only mode" />
+</Frame>
+
+If you don't see **Personalizar** in your menu, copy the URL from here: it's the
+same one.
+
+### How to build it
+
+<Steps>
+  <Step title="Start from the base">
+    `https://mcp.darkfunnels.ai/mcp`, or the dashboard's, which already comes
+    with `?features=all`.
+  </Step>
+  <Step title="Choose which groups travel">
+    Add `?features=` with the groups separated by commas, or `all` for all of
+    them. The groups are in the next section.
+  </Step>
+  <Step title="Add the other parameters">
+    The first one goes after `?` and the following ones after `&`. For example:
+    `?features=all&read_only=true`.
+  </Step>
+  <Step title="Connect">
+    Paste it as a new connector in your assistant and authorize with your
+    account. If you already had it connected, see
+    [Changing the URL afterwards](#changing-the-url-afterwards).
+  </Step>
+</Steps>
 
 <Note>
-Parameters combine with `&`, as in any URL: `?features=all&pii=full`. If you add
-one, **keep the ones you already had** — it is the most common mistake when
-reconnecting.
+If you add a parameter, **keep the ones you already had**: it's the most common
+mistake when reconnecting. And write the values **in lowercase and exactly as**
+they appear here: with `ALL`, `True` or `FULL`, the parameter has no effect.
 </Note>
 
 ## `?features=` — which tool groups travel
 
-Without this parameter four groups travel: `core`, `manual`, `catalog` and
-`conversations`. Everything else is opt-in.
+The bridge's tools come in **groups**. Without this parameter, the default set
+travels: `core`, `manual`, `catalog` and `conversations`, plus the reads of
+some apps that only appear in certain accounts. Everything else has to be asked
+for.
 
-| Group | What it adds |
-|---|---|
-| `agents_write` | Create a new funnel — **uses up a slot in your subscription** |
-| `manual_write` | Save chapters, restore versions and apply a complete funnel |
-| `catalog_write` | Create, edit and delete products |
-| `library` | Upload files and link them to an agent |
-| `operations` | Reply as the operator, change a chat's mode, reminders |
-| `manual_ai` | Generate and optimize the playbook with AI (spends credits) |
-| `testing` | Simulate messages — **they really go out over WhatsApp** |
-| `orders` | Orders and stock (needs the apps active) |
-| `metrics` | Usage metrics and the agent scorecard |
-| `copilot` | Ask the Copilot (spends credits) |
+If your account has one of those apps and you use a list, name its group too:
+you'll find it in the [Tools reference](/en/reference/tools).
+
+The last column says which access you need in your business. They are the names
+of the switches in **Personas y accesos** ("People and access").
+
+**Included by default**
+
+| Group | What it brings | Access it requires |
+| --- | --- | --- |
+| `core` | The basics: who you are, which business the connection works in, your agents with their settings, their summary and the status of their WhatsApp, your account's setup, your balance and quick product help (a few basic topics, each with its link to the dashboard). One write: logging a request it couldn't fulfill. | Your agents' data, **Ventas** ("Sales"). The balance, **Ver saldo y facturación** ("See balance and billing"). Who you are, the business, the quick help and logging requests don't require any app permission. |
+| `manual` | Reading your agents' playbook, its version history and reviewing it without saving. | **Ventas** |
+| `catalog` | Reading your products and each one's detail sheet. | **Ventas** |
+| `conversations` | Reading conversations, the customer list and each customer's profile, and explaining what the agent did in a turn. Two writes: creating tags and changing a customer's tags. | **Ventas** |
+
+**You have to ask for these**
+
+| Group | What it adds | Access it requires |
+| --- | --- | --- |
+| `manual_write` | Saving chapters, writing a new one, editing the block shared by all chapters, restoring a version and applying a complete funnel. **Destructive.** | **Ventas** |
+| `catalog_write` | Creating, editing and deleting products. **Deleting is permanent.** | **Ventas** |
+| `agents_write` | Creating or duplicating a funnel — **it uses up a slot in your subscription** —, pausing or resuming it (resuming takes up a slot again), changing its settings, editing the persona and switching its personality on or off. | **Ventas** |
+| `library` | Viewing, uploading and reading Library files, linking them to an agent (to send them or for its memory) or unlinking them, and changing their send trigger. Reading the text in an image spends credits. | **Ventas** |
+| `operations` | Replying as the operator — **it really goes out over WhatsApp** —, changing who replies in a chat, viewing, scheduling and cancelling reminders, and deleting a tag from all customers. | **Ventas** |
+| `manual_ai` | Optimizing the playbook with AI. It doesn't save: it returns suggestions. Spends credits. | **Ventas** |
+| `testing` | Testing the agent. In the dashboard's test chat nothing goes out over WhatsApp; simulating a message in a real chat, or opening a new one with a number, **does really go out over WhatsApp**. Each reply from the agent spends credits. | **Ventas** |
+| `orders` | Reading orders and stock. Read-only. | Orders, **Órdenes** ("Orders"). Stock, **Inventario** ("Inventory"). |
+| `metrics` | AI usage per day and the agent's results per week or month. | Usage, **Ver saldo y facturación**. Results, **Ventas**. |
+| `copilot` | Asking the dashboard's copilot. Spends credits. | **Copiloto** ("Copilot") |
 
 <Warning>
-**An explicit list REPLACES the default set, it does not extend it.** Connecting
-with `?features=orders` leaves you with `orders` and `core` **only**: you lose
-playbook, catalog and conversations.
+**An explicit list REPLACES the default set, it does not extend it.**
+Connecting with `?features=orders` leaves you with `orders` and `core`
+**only**: you lose playbook, catalog and conversations.
 
-To add without losing anything, name them all:
+To add without losing anything, the simplest option is `?features=all`. If you
+prefer a list, also name the ones that came by default:
 `?features=manual,catalog,conversations,orders`.
 </Warning>
 
-A `_write` group always drags its read group along: `?features=catalog_write`
-also brings `catalog`, because to rewrite a whole row you have to be able to
-read it first.
+Three more details:
 
-**`?features=all`** turns on everything, including the groups we publish later
-on. It is the URL you do not have to touch again, and the one we give in the
-quickstarts. In exchange, it also connects the destructive writes: if your
-assistant is only going to read, do not use it.
+- **`core` travels with any URL**, even if you don't name it.
+- **Writing brings reading.** `manual_write` also brings `manual`, and
+  `catalog_write` brings `catalog`: to rewrite something, your assistant has to
+  be able to read it first.
+- **A misspelled name is ignored without warning.** If no valid one is left in
+  your list, you go back to the default set.
+
+**`?features=all`** turns on all the groups, including the ones we publish
+later on. It's the URL the dashboard gives you and the one in the quickstarts:
+the one you don't have to touch again.
+
+**`all` doesn't give you more permissions.** Out of all those groups, your
+assistant gets only what your account can use in that business. In exchange,
+it also connects the destructive writes. Those actions travel marked as
+destructive, and assistants usually use that mark to ask you for confirmation.
+If you want it only to look, add `&read_only=true`.
 
 ## `?read_only=true` — the handbrake
 
-Disables **every** write and overrides any other option, `all` included. Useful
-for letting someone look without being able to touch.
+It disables **every** write and overrides any other option, `all` included.
+It's for letting your assistant look without being able to touch.
 
 ```
 https://mcp.darkfunnels.ai/mcp?features=all&read_only=true
 ```
 
+These count as writes, so they don't travel either: asking the copilot,
+optimizing the playbook with AI, opening the test chat and logging a request.
+If your URL brings `library` (or `all`), reading the text of a Library file is
+still available, and with an image it spends credits.
+
+<Warning>
+Write it exactly like this: `read_only=true`. With `True`, `TRUE` or `1` **it
+doesn't turn on**, and the connection keeps its writes.
+</Warning>
+
 ## `?pii=full` — full phone numbers
 
-By default your end customers' phone number arrives masked (`51•••••4321`).
-With `pii=full` it arrives whole. The tools that operate on an existing chat
-address it by the conversation, so masking does not close off those operations:
-it is only what your assistant gets to read. The only one that asks for a
-number is `simulate_new_chat` (the testing group), and there you type it
-yourself. The other dent is one of convenience — customer search accepts a
-phone number, and masked it cannot be chained. The details and the why, in
-[Security](/en/security).
+By default, your customers' phone number arrives masked: `51•••••4321`. It
+keeps the country hint and the last four digits, enough to recognize a number
+you already know. With `pii=full` it arrives whole:
+
+```
+https://mcp.darkfunnels.ai/mcp?features=all&pii=full
+```
+
+The masking applies to the conversation list, the customer list, a customer's
+profile and orders. **What gets masked is the phone number.** The name, the ID
+document and the address on an order, and what your customers write in their
+messages, arrive as they are.
+
+Having it masked hardly gets in the way. The tools that act on a chat find it by
+the conversation, not by the number. The ones that do ask for a number —
+simulating a new chat or changing the number lists in the agent's settings —
+ask you for it, and you type it yourself. What you lose is convenience, in two
+ways: your assistant can't give you the full number (the panel does show it),
+and although customer search accepts a phone number, a masked number can't be
+used to search.
+
+Any misspelled variant, like `pii=FULL`, leaves the phone masked. The details
+and the why, in [Security](/en/security).
 
 ## `?agent=<uuid>` — pinning an agent
 
-If you have several sales agents, almost every tool asks which one you mean.
-This parameter leaves it pinned for the whole connection, and your assistant
-stops having to ask you.
+If you have several sales agents, almost every tool needs to know which one you
+mean. This parameter sets one as the connection's **default agent**, and your
+assistant stops asking you. With a single agent you don't need it: that one is
+used.
 
 ```
 https://mcp.darkfunnels.ai/mcp?features=all&agent=8f14e45f-ceea-467a-9c1d-2d4a6bcbb3f5
 ```
 
-`list_agents` gives you the identifier. It has to be the complete UUID: if it is
-written wrong, it is ignored without warning and you go back to the normal
-behavior (your assistant will ask you which agent).
+Your own assistant gives you the identifier: ask it *"give me my agents'
+identifiers"*. It has to be complete, with its hyphens. If it doesn't have that
+shape, it's ignored without warning and your assistant asks you about the agent
+again.
+
+Pinning it doesn't lock you in: if you expressly ask for another agent, it works
+with that one.
+
+## What the URL does not decide
+
+### Your permissions and your business's apps
+
+Your assistant gets in **with your account and with your permissions**. Of
+what the URL asks for, it gets the tools of the apps that you can use in that
+business and that the business has active. And if another one ever appeared to
+it, it couldn't use it. It's the rule of your dashboard menu: whatever your
+account can't open there, your assistant can't use either.
+
+That's why two people with the same URL can see different lists. For example,
+someone on your team who only has **Órdenes**, connected with the bare URL,
+sees only the basics: who they are, which business they work in, the quick
+product help and logging requests. To read orders they need `?features=orders`
+or `all`. For stock, they also need access to **Inventario**.
+
+- **If your assistant tries a tool without permission, or from an app that's
+  switched off**, it gets a notice that it doesn't have that access and does
+  nothing. The notice may name the app differently from the switch: for orders
+  it says «Pedidos», while the switch is called **Órdenes** (both mean
+  "Orders"); for the balance it says «Saldo y consumo» ("Balance and usage"),
+  while the switch is **Ver saldo y facturación**.
+- **Permissions are given by whoever manages your team**, in
+  [Personas y accesos](/en/getting-started/invite-your-team#what-each-person-can-see-and-do).
+  Apps are switched on in **Administración → Apps** ("Administration → Apps").
+- **If you were just given a permission**, wait a minute and open a new chat in
+  your assistant.
+
+### The business the connection works in
+
+If your account is in
+[several businesses](/en/getting-started/invite-your-team#one-account-in-several-businesses),
+**each connection stays pinned to the business you had active when you
+connected it**, and it works with your permissions in that business. If your
+account is in only one, this changes nothing for you.
+
+If your active business changes later on, because you chose another one in
+your account menu or because you accepted another business's invitation (when
+you accept it, that business becomes the active one):
+
+- **Its writes are rejected without running**, so that nothing gets saved in
+  the wrong business. The notice says which business the connection works in
+  and which one you have active now.
+- **Its reads keep working**, but they show the data of the business you have
+  active now.
+
+<Warning>
+**After switching business, what your assistant reads is already from the
+other one.** If you were comparing figures, first go back to the connection's
+business.
+</Warning>
+
+To make it save changes again, do one of two things:
+
+1. **Choose that business again** in your account menu, with **Cambiar a esta
+   empresa** ("Switch to this business"). The connection carries on as before,
+   without reconnecting.
+2. **Disconnect the connector and connect it again.** The new connection stays
+   pinned to the business you have active when you connect it: if you want to
+   work in another one, switch first in your account menu.
+
+If your access to the connection's business is removed, its writes are rejected
+too. To work in another business, disconnect and connect again.
+
+Not sure where it's working? Ask it *"which business are you working in?"*. It
+has a tool for that, which also says which permissions it works with and
+whether the active business is still the connection's.
+
+### Usage limits
+
+- **Per account.** If your assistant goes over 60 requests in a minute or 300
+  in an hour, the bridge holds it back and replies *«rate limit; reintenta en
+  N s»* ("rate limit; retry in N s"). It counts what you do with all your
+  assistants together. It happens above all with batch jobs, like reviewing
+  hundreds of chats in a row. **The wait is the one N says**: a few seconds if
+  it went over the per-minute cap, and up to an hour if it went over the hourly
+  one. For big jobs, ask it to go in parts.
+- **Per business.** There's a daily quota of tool calls — by default, 20,000 —
+  that resets at midnight, Lima time. If it runs out, your assistant tells you.
+  If your business needs more, [write to us](/en/security#how-to-reach-us).
 
 ## Changing the URL afterwards
 
-Changing any of these parameters requires **reconnecting** the connector: remove
-the one you had and add it with the new URL.
+Changing any of these parameters requires **reconnecting**: in your assistant,
+delete the connector you had and add it with the new URL. Careful if you're in
+several businesses: the new connection stays pinned to the business you have
+active when you connect it. Choose the business in your account menu first.
 
-Do not confuse that with the new tools. The tool list is frozen **per
-conversation**: if we add one and it does not appear for you, opening a new chat
-is almost always enough. Reconnecting is only needed when the URL changes.
+Don't confuse that with new tools. **The tool list is frozen per
+conversation**: if we add one, or you were just given a permission, and it
+doesn't show up, opening a new chat is normally enough. If it still doesn't
+show up in a new chat, delete the connector and connect it again.
+
+Reconnecting is needed when the URL changes, when you want the connection to
+work in another business and after revoking access.
+
+### Cutting off access
+
+<Steps>
+  <Step title="Open Asistentes IA">
+    In the dashboard, go to **Personalizar → Asistentes IA** and scroll down to
+    the **Seguridad y acceso** ("Security and access") card.
+  </Step>
+  <Step title="Click Revocar">
+    Under **Asistentes con acceso a tu cuenta** ("Assistants with access to
+    your account") you see each assistant you authorized, with the date. Click
+    **Revocar** ("Revoke") next to the one you want to cut off and confirm with
+    **Revocar**.
+  </Step>
+  <Step title="Done">
+    That assistant loses access to your account within a few seconds. To use it
+    again, you'll have to connect it again.
+  </Step>
+</Steps>
+
+Personalizar is part of **Ventas**: if you don't see it in your menu, ask
+whoever manages your team for access to Ventas so you can revoke from here. In
+the meantime, remove the connector in your assistant.
+
+<Frame caption="«Seguridad y acceso» (Security and access): how the connection is protected and the «Asistentes con acceso a tu cuenta» (Assistants with access to your account) list. In this screenshot it is empty; each assistant you authorize shows up there with its «Revocar» (Revoke) button.">
+  <img src="/images/asistentes/03-seguridad-y-acceso.png" alt="Seguridad y acceso (Security and access) card with three bullet points about the connection and the Asistentes con acceso a tu cuenta (Assistants with access to your account) list, which reads Ningún asistente tiene acceso a tu cuenta ahora (No assistant has access to your account right now)" />
+</Frame>
+
+Revoking cuts off the access, but the connector stays in your assistant. To
+remove it from there too: in claude.ai, **Customize → Connectors**; in Codex,
+**Settings → MCP servers**.
+
+## If something goes wrong
+
+<AccordionGroup>
+  <Accordion title="I added a parameter and my assistant lost features">
+    It's usually one of two things. Either you put a list in `?features=` and
+    it replaced the default set, or when reconnecting you left out what you had
+    before. Rebuild the URL with everything together, for example
+    `?features=all&pii=full`, and reconnect.
+  </Accordion>
+  <Accordion title="My assistant doesn't see a tool it should">
+    Check in this order:
+
+    1. **The group isn't in your URL, or your URL has `read_only=true`**, which
+       removes all writes. Look for it in the tables above.
+    2. **You don't have access to that app, or it's switched off in your
+       business.** Ask it *"which business are you working in, and with what
+       permissions?"*.
+    3. **It's an old chat.** Open a new one.
+    4. **It still doesn't show up.** Delete the connector and connect it again.
+  </Accordion>
+  <Accordion title="It won't save: it says the account changed business">
+    Your active business changed after you connected: you switched it in your
+    account menu or accepted an invitation from another business. Go back to
+    that business from your account menu, or disconnect and reconnect the
+    connector to work in the one you have active.
+    → [The business the connection works in](#the-business-the-connection-works-in)
+  </Accordion>
+  <Accordion title="I changed the URL and nothing changed">
+    First, did you reconnect? Changing the URL requires deleting the connector
+    and adding it again. If you did, check how it's written. A misspelled group
+    is ignored, and `read_only=True` or `pii=FULL` have no effect: they go in
+    lowercase. An incomplete `agent=` is ignored too. Fix it and reconnect.
+  </Accordion>
+  <Accordion title="It can't see your data, or sees it empty">
+    The most common cause is that you authorized with another account. Ask it
+    *"which DarkFunnels account are you connected to?"*. If it isn't yours,
+    delete the connector, go into the dashboard at `optimind.darkfunnels.ai`
+    with the right account (sign out of the other session first if needed) and
+    connect it again. When you authorize, the screen says «Autorizas como»
+    ("You are authorizing as") and your email: check that it's yours. If the
+    account is the right one, ask it which business it's working in.
+  </Accordion>
+  <Accordion title="It says «rate limit; reintenta en N s» (rate limit; retry in N s)">
+    It made too many requests in a row. Wait the time it says: a few seconds if
+    it went over the per-minute cap, or up to an hour if it went over the hourly
+    one. If it's working in batch, ask it to go in parts.
+  </Accordion>
+  <Accordion title="It says the business has reached its daily quota">
+    It resets at midnight, Lima time. If your business needs more,
+    [write to us](/en/security#how-to-reach-us).
+  </Accordion>
+</AccordionGroup>
+
+<CardGroup cols={2}>
+  <Card title="Tools reference" icon="wrench" href="/en/reference/tools">
+    Every bridge tool, group by group.
+  </Card>
+  <Card title="Security" icon="shield" href="/en/security">
+    The masked phone number, the log of every call and what it can't do.
+  </Card>
+  <Card title="Invite your team" icon="users" href="/en/getting-started/invite-your-team">
+    Each person's permissions and one account in several businesses.
+  </Card>
+  <Card title="Connect Claude" icon="plug" href="/en/quickstarts/claude-ai">
+    The step-by-step guide to connecting your assistant.
+  </Card>
+</CardGroup>

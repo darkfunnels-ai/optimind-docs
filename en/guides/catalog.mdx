@@ -1,7 +1,7 @@
 ---
 title: "Product catalog for a WhatsApp AI agent"
 sidebarTitle: "The catalog"
-description: "Build the product catalog for a WhatsApp AI agent from the dashboard, click by click: price, sizes, stock and photo, so the agent quotes what you entered."
+description: "How to load your products into the Catalog (price, sizes and colors, stock, photos, quantity pricing) so your agent quotes exact prices on WhatsApp."
 keywords:
   - "product catalog for a WhatsApp AI agent"
   - "product variants and SKU"
@@ -10,7 +10,7 @@ keywords:
   - "bulk edit products CSV"
   - "stock tracking"
 ---
-{/* es-source: guias/catalogo.mdx @ 61e146b */}
+{/* es-source: guias/catalogo.mdx @ 9869090 */}
 
 Your agent does not know what anything costs until you tell it. **The catalog is
 where you tell it**: a product, a price, its sizes, its photo. That is where it
@@ -18,200 +18,237 @@ takes the numbers from when the customer asks "how much is it?".
 
 This guide is the full walkthrough from the screen, click by click. The examples
 use a made-up clothing store, **Moda Sol**, and its star product: the **Polo
-oversize de algodón pima**.
+oversize de algodón pima** (an oversized pima cotton T-shirt).
+
+The dashboard is in Spanish, so buttons and on-screen messages are quoted here
+exactly as you will see them, with the English meaning in parentheses.
 
 <Note>
 **Where it is.** Go into the dashboard at
 [optimind.darkfunnels.ai](https://optimind.darkfunnels.ai) and, in the left-hand
-menu, inside the **Ventas** ("Sales") row, press **Catálogo** ("Catalog"). (If
-you prefer to go straight there, type `optimind.darkfunnels.ai/catalog` into the
-browser bar. The old address, `/catalogo`, takes you to the new one on its own.)
+menu, inside **Ventas** (*Sales*), under the **Comercio** (*Commerce*) divider,
+click **Catálogo** (*Catalog*). (If you prefer to go straight there, type
+`optimind.darkfunnels.ai/catalog` into the browser's address bar. The old
+address, `/catalogo`, takes you to the new one on its own.)
+
+The catalog is part of the **Ventas** app. If you do not see **Ventas** in your
+menu, your user does not have access to that app: ask whoever manages your
+account for it (see [Invite your team](/en/getting-started/invite-your-team)).
 </Note>
 
-<Frame caption="This is what the Catalog looks like on day one: «No products yet» and an orange button at the top right.">
-  <img src="/images/catalogo/01-vacio.png" alt="Empty Catalog screen with the message «No products yet» and the Add product button" />
+<Frame caption="This is what the Catalog looks like on day one: «Aún no hay productos» (No products yet), and at the top right the Plantilla CSV and Añadir producto buttons.">
+  <img src="/images/catalogo/01-vacio.png" alt="Empty Catálogo screen with the message «Aún no hay productos» (No products yet) and the Plantilla CSV and Añadir producto buttons" />
 </Frame>
 
-The dashboard interface is in Spanish, so buttons and labels are given here in
-English with the Spanish wording you will actually see in parentheses.
+<Tip>
+**A shortcut from Home.** While your **Inicio** (*Home*) shows the **Pon tu
+empresa a operar** (*Get your business up and running*) card, expand it (if it
+is collapsed, with **Ver pasos**, *See steps*): under **Cuando quieras**
+(*Whenever you like*) is the step *«Carga tu catálogo para que dé precios
+exactos»* (*Load your catalog so it gives exact prices*). As long as you have no
+products at all, its **Añadir producto** (*Add product*) button takes you to
+the Catalog with the new-product form already open.
+</Tip>
 
 ## What the catalog is for
 
-The screen itself sums it up under the title: *"Your products, synced from your
-store or created by hand. The price comes from here; the agent never makes it
-up."* (If you have more than one agent that sentence changes, and it warns you
-that the list is trimmed to the agent you have open.)
+The screen itself sums it up under the title: *«El precio sale de aquí»* (*The
+price comes from here*). (If you have more than one agent, that sentence starts
+by saying which agent you are looking at: *«Lo que vende «…», más los productos
+sin embudo asignado»*, *What «…» sells, plus the products with no funnel
+assigned*. The list is trimmed to that agent.)
 
-That is literal: the agent carries a written instruction to look the catalog up
+That is literal: the agent carries a written instruction to check the catalog
 every time the customer asks about a product or its price, and not to make
-prices up. The practical consequence is simple: **what is not in the catalog is
-what your agent does not know how to quote.**
+prices up. The practical consequence is simple: **if a product is not in the
+catalog, your agent has nowhere to get its exact price from.**
 
 <Tip>
 **Loading it is all you have to do.** There is no need to link the product to
-the sales playbook, or to name it in any chapter, or to switch anything else on.
-As soon as you save it, the agent can already find it and offer it. Two honest
-caveats: changes can take **up to a minute** to reach a conversation that is
-already under way, and if you tick specific sales funnels on the product, the
-rest stop seeing it (told in
-[Visible and Active are not the same](#visible-and-active-are-not-the-same)).
+the sales playbook, to name it in any chapter, or to switch anything else on. As
+soon as you save it, the agent can already find it and offer it. Two honest
+caveats: what you change can take **up to a minute** to reach the agent, and if
+you tick specific funnels on the product, the others stop seeing it (see
+[Visible and Active](#visible-and-active-are-not-the-same)).
 </Tip>
 
 ## The words on this screen
 
 | Word | What it means, in plain language |
 | --- | --- |
-| **Product** (*Producto*) | The complete record: name, description, photos and price. |
-| **Variant** (*Variante*) | Each sellable version of that product: the black size M, the 500 ml bottle. Each one has **its own price and its own code**. |
-| **SKU** | The code you use to identify a variant (`POLO-NEG-M`). It is optional; it is there for searching. |
-| **Type** (*Tipo*) | Whether what you sell is a **Physical product**, a **Service** or an **Info product**. It is chosen first and it changes the rest of the form. |
-| **Active** (*Activo*) | Whether the agent can find it when it searches. |
-| **Visible in the catalog** (*Visible en el catálogo*) | Whether it appears in the catalog WhatsApp shows inside your business profile. **It is not the same as Active.** |
+| **Producto** (*Product*) | The complete record: name, description, photos and price. |
+| **Variante** (*Variant*) | Each sellable version of that product: the black size M, the 500 ml bottle. Each one has **its own price and its own code**. |
+| **SKU** | The code you use to identify a variant (`POLO-NEGR-M`). It is optional; it is there for searching. |
+| **Tipo** (*Type*) | Whether what you sell is a **Producto físico** (*Physical product*), a **Servicio** (*Service*) or an **Infoproducto** (*Info product*). It is chosen first and it changes the rest of the form. |
+| **Activo** (*Active*) | Whether the agent can find it when it searches. |
+| **Visible en el catálogo** (*Visible in the catalog*) | Whether it appears in the catalog WhatsApp shows inside your business profile. **It is not the same as Activo.** |
 
 ## Your first product, click by click
 
 <Steps>
-  <Step title="Press «Add product»">
-    It is at the top right, in orange, next to another button called **CSV
-    template** (*Plantilla CSV*). With the catalog empty you also have the same
-    button in the middle of the screen, under *"No products yet"*.
+  <Step title="Click «Añadir producto» (Add product)">
+    It is at the top right, next to another button called **Plantilla CSV**
+    (*CSV template*). With the catalog empty you also have the same button in
+    the middle of the screen, under *«Aún no hay productos»*.
 
     **No new page opens.** A panel slides in from the right-hand side, top to
-    bottom, over the dimmed background. It is titled **New product** (*Nuevo
-    producto*) — and **Edit product** (*Editar producto*) when you open one that
-    already exists. Do not look for a "back" button: there is none, it closes
-    with **Close** (*Cerrar*) or **Cancel** (*Cancelar*).
+    bottom, over the dimmed background. It is titled **Nuevo producto** (*New
+    product*) — and **Editar producto** (*Edit product*) when you open one that
+    already exists. Do not look for a "back" button: there is none. It closes
+    with **Cerrar** (*Close*, at the top), with **Cancelar** (*Cancel*, at the
+    bottom) or with the **Esc** key.
   </Step>
 
   <Step title="Choose what you are going to sell">
-    The first and only thing you will see is the heading **"What are you going to
-    sell?"** (*"¿Qué vas a vender?"*) with three cards: **Physical product**
-    (*Producto físico*), **Service** (*Servicio*) and **Info product**
-    (*Infoproducto*). Until you choose one, the rest of the form does not exist
-    and the **Save** (*Guardar*) button is off: it will not let you press it.
+    The first and only thing you will see is the heading **«¿Qué vas a
+    vender?»** (*What are you going to sell?*) with three cards: **Producto
+    físico** (*Physical product*), **Servicio** (*Service*) and **Infoproducto**
+    (*Info product*). Until you choose one, the rest of the form does not exist
+    and the **Guardar** (*Save*) button is greyed out: it will not let you click
+    it.
 
-    For the Moda Sol polo shirt: **Physical product**.
+    For the Moda Sol T-shirt: **Producto físico**.
 
     <Frame caption="The panel starts by asking what you sell. Each card tells you what the agent will do if you choose it.">
-      <img src="/images/catalogo/02-nuevo-producto-tipo.png" alt="«New product» panel at the «What are you going to sell?» step with the Physical product, Service and Info product cards" />
+      <img src="/images/catalogo/02-nuevo-producto-tipo.png" alt="«Nuevo producto» panel at the «¿Qué vas a vender?» step, with the Producto físico, Servicio and Infoproducto cards" />
     </Frame>
   </Step>
 
   <Step title="Give it a name and describe how it is sold">
-    Once the type is chosen the whole form unfolds. In **Title and description**
-    (*Título y descripción*) there is only one field with an asterisk: **Name
-    \*** (*Nombre \**). Type `Polo oversize de algodón pima`.
+    Once the type is chosen, the whole form unfolds. In **Título y
+    descripción** (*Title and description*) there is only one field with an
+    asterisk: **Nombre \*** (*Name*). Type `Polo oversize de algodón pima`.
 
-    The **Description** (*Descripción*) is optional, but it is not decorative:
-    the field says so — *"Details the agent can use when selling."* — and it is
-    text the agent reads when it finds the product. It reaches the agent
-    **trimmed to around 240 characters**, so put what sells in the first lines:
-    *"Peruvian pima cotton, unisex oversize cut. Machine washable. Shipping
-    anywhere in Peru."*
+    The **Descripción** (*Description*) is optional, but it is not decorative:
+    the field says so — *«Detalles que el agente puede usar al vender.»*
+    (*Details the agent can use when selling.*) — and it is text the agent
+    reads when it finds the product. It reaches the agent **trimmed to around
+    240 characters**, so put what sells in the first lines: *"Peruvian pima
+    cotton, unisex oversize cut. Machine washable. Shipping anywhere in Peru."*
 
     <Warning>
     **The name is what the customer has to be able to say.** The agent searches
     by the product name and by the name or the code of its variants — **it does
-    not search inside the description**. Putting "polo", "camiseta" and "remera"
-    only in the description does not help it find the product: put them in the
-    name.
+    not search inside the description**. Putting "polo", "camiseta" and
+    "remera" (the words for a T-shirt in different countries) only in the
+    description does not help it find the product: put them in the name.
     </Warning>
   </Step>
 
   <Step title="Upload the photos">
-    In **Media** (*Medios*), drag the images in or press where it says **"Drag or
-    click to upload"** (*"Arrastra o haz clic para subir"*). Underneath it reads
-    *"PNG, JPG or WEBP. The first image is the main one."* — that is a
-    **recommendation**, not a filter: the system accepts any image file, so a GIF
-    or a HEIC also gets in.
+    In **Medios** (*Media*), drag the images in or click where it says
+    **«Arrastra o haz clic para subir»** (*Drag or click to upload*).
+    Underneath it reads *«PNG, JPG o WEBP. La primera imagen es la principal.»*
+    (*PNG, JPG or WEBP. The first image is the main one.*) — that is a
+    **recommendation**, not a filter: the dashboard accepts any image file.
 
-    The first photo carries the **Main** (*Principal*) label; the others are
-    removed with the **×**. **They cannot be reordered by dragging**: to change
-    the main one you have to remove the ones in front of it.
+    The first photo carries the **Principal** (*Main*) label. Any of them, the
+    main one included, is removed with the **×**. **They cannot be reordered by
+    dragging**: to change the main one you have to remove the ones in front of
+    it.
 
     <Warning>
-    **The photos are the only thing in this panel that does not wait for the save
-    button.** They are uploaded on the spot, and removing one deletes it from
-    storage at that same moment. If you upload a photo and then cancel the
-    product, the photo has already been uploaded. If you remove a photo and then
-    cancel, the photo really has already been deleted — and on a product that
-    already existed, its record is left pointing at a file that is no longer
-    there until you save it again.
+    **Photos do not wait for the Guardar button.** They are uploaded on the
+    spot, and removing one deletes it from storage at that same moment. If you
+    upload a photo and then cancel the product, the photo has already been
+    uploaded. If you remove a photo from a product that already existed and
+    then cancel, the photo really has already been deleted, but the product's
+    record still names it: it will be left as a broken photo. Open the product,
+    remove that photo and save.
     </Warning>
-
-    <Frame caption="The form for a physical product: Type, Title and description, Media and Prices.">
-      <img src="/images/catalogo/03-formulario-fisico.png" alt="Physical product form filled in with name, description, photo and price" />
-    </Frame>
   </Step>
 
   <Step title="Set the price">
-    In **Prices** (*Precios*) there are two fields: **Price \*** (*Precio \**)
-    and the currency. The currency has **only two options — "PEN (S/)" and "USD
-    (\$)" — and comes set to PEN**. From this screen there are no other
+    In **Precios** (*Prices*) there are two fields: **Precio \*** (*Price*) and
+    **Moneda** (*Currency*). The currency has **only two options — «PEN (S/)»
+    and «USD (\$)» — and comes set to PEN**. From this screen there are no other
     currencies.
 
-    For the polo shirt: `79` and `PEN (S/)`. If you leave the price empty or type
-    something that is not a number, on saving you get *"Enter a valid price."*
-    (*"Pon un precio válido."*)
+    For the T-shirt: `79` and `PEN (S/)`. If you have cents, type them with a
+    point, not a comma: `79.90`. If you leave the price empty or type something
+    that is not a number, on saving you get *«Pon un precio válido.»* (*Enter a
+    valid price.*)
 
-    Underneath you will see the **Quantity pricing** (*Precios por cantidad*)
-    switch. Leave it off for now: we look at it in
+    Below it you will see the **Precios por cantidad** (*Quantity pricing*)
+    switch. Leave it off for now: we cover it in
     [its own section](#quantity-pricing-wholesale).
+
+    <Frame caption="The form for a physical product, from the top down to Precios: Tipo, Título y descripción with the polo shirt, Medios, and Precios with 79 in PEN (S/) and «Precios por cantidad» off.">
+      <img src="/images/catalogo/03-formulario-fisico.png" alt="Nuevo producto panel with the Producto físico type, the name Polo oversize de algodón pima and its description, the Medios area, the price 79 in PEN (S/) and the Precios por cantidad switch off" />
+    </Frame>
   </Step>
 
   <Step title="Decide whether you keep count of stock">
-    In **Inventory** (*Inventario*) there is a **Track stock** (*Controlar
+    In **Inventario** (*Inventory*) there is a **Controlar stock** (*Track
     stock*) switch and a **SKU** field (with the example `XL-25`). Turn it on
     only if you really want the agent to stop offering what has run out — it
-    explains it right there: *"The agent warns when something runs out and does
-    not offer what you do not have."*
+    explains it right there: *«El agente avisa cuando algo se agota y no ofrece
+    lo que no tienes.»* (*The agent warns when something runs out and does not
+    offer what you do not have.*)
 
     <Warning>
-    **Quantities are not typed here.** When you turn on **Track stock**,
-    **Available quantity** (*Cantidad disponible*) appears, but it is
-    **read-only**: it will not let you type. Underneath, the panel itself says so
-    — *"Inventory handles it. To move it, record a movement in Inventory"* —
-    with a link to that screen. It is the most common confusion in this form.
+    **Quantities are not typed here.** When you turn on **Controlar stock**,
+    **Cantidad disponible** (*Available quantity*) appears, but it is
+    **read-only**: it will not let you type. Underneath, the panel itself says
+    so — *«Lo lleva Inventario. Para moverlo, registra un movimiento en
+    Inventario»* (*Inventario handles it. To change it, record a movement in
+    Inventario*) — with a link to that screen. It is the most common confusion
+    in this form. See [Stock: when to turn it on](#stock-when-to-turn-it-on).
     </Warning>
   </Step>
 
   <Step title="Add sizes and colors, if you have them">
-    On a physical product the block is called **Variants** (*Variantes*) and
-    comes with the **Generate variants from options** (*Generar variantes por
-    opciones*) button: you give it the axes (Color: black, white, sand / Size: S,
-    M, L, XL) and it creates the combinations for you in one click, with an
-    **automatic SKU** (*SKU automático*) if you ask for it. It takes up to **3
-    axes** and **100 combinations**.
+    On a physical product the block is called **Variantes** (*Variants*) and
+    comes with the **Generar variantes por opciones** (*Generate variants from
+    options*) button: you give it the axes (Color: Negro, Blanco, Arena /
+    Talla: S, M, L, XL) and it creates the combinations in one click, each with
+    its own code. It takes up to **3 axes** and **100 combinations**.
 
     The [Variants](#variants-sizes-and-colors) section tells the whole story.
-
-    <Frame caption="The bottom half of the panel: Inventory with its SKU, the Variants and Availability.">
-      <img src="/images/catalogo/04-inventario-variantes.png" alt="Inventory, SKU, Variants and Availability blocks of the product form" />
-    </Frame>
   </Step>
 
-  <Step title="Save — and check that it turned up in the table">
-    The last block is **Availability** (*Disponibilidad*), with **Visible in the
-    catalog** and **Active** switched on. Leave them like that and press
-    **Save**.
+  <Step title="Save — and check that it shows up in the table">
+    The last block is **Disponibilidad** (*Availability*), with **Visible en el
+    catálogo** and **Activo** switched on. Leave them like that and click
+    **Guardar**.
 
     The product appears at the very top of the table, with its columns:
-    *producto, sku, precio, inventario, embudos, visible, origen* ("product, sku,
-    price, inventory, funnels, visible, source") and a last one with the actions.
+    *producto, sku, precio, inventario, embudos, visible, origen* (*product,
+    SKU, price, inventory, funnels, visible, source*) and a last one with the
+    actions.
 
-    <Frame caption="The saved product, with its columns. The «inventario» column says «Sin control» (Not tracked) when you do not track it.">
-      <img src="/images/catalogo/05-tabla-con-producto.png" alt="Catalog table with a saved product and all its columns" />
+    <Frame caption="The table with three products: each row with its SKU, its price, its inventory («Sin control»), the funnels that sell it («Todos»), the «visible» switch on and the Editar button.">
+      <img src="/images/catalogo/05-tabla-con-producto.png" alt="Catalog table with three products, Polo cuello V de algodón pima, Pack 3 polos básicos pima and Polo oversize de algodón pima, with inventario Sin control, embudos Todos, visible on and origen Propio" />
     </Frame>
 
     <Warning>
     **Closing the panel throws away everything you typed, with no warning.** It
-    makes no difference whether you press **Close** at the top, **Cancel** at the
-    bottom, or click outside the panel, on the dark area: there is no
-    confirmation and no saved draft. The only thing that keeps your work is
-    **Save**.
+    makes no difference whether you click **Cerrar** at the top, **Cancelar**
+    at the bottom, press the **Esc** key or click outside the panel, on the
+    dark area: there is no confirmation and no saved draft. The only thing that
+    keeps your work is **Guardar**.
     </Warning>
   </Step>
 </Steps>
+
+## How to read the table
+
+Each cell in the table tells you something about the product. These are the
+ones that raise the most questions:
+
+| What you see | Where | What it means |
+| --- | --- | --- |
+| **«Desde …»** (*From …*) before the price | precio | The product has variants and that is the price of the cheapest one. |
+| **«· 3 tramos»** (*· 3 tiers*) after the price | precio | It has [quantity pricing](#quantity-pricing-wholesale). The price you see is the 1-unit price. |
+| **«PROMO»** before the price | precio | There is a promotion in force, and that is its 1-unit price. |
+| **«12 variantes»** (*12 variants*) under the name | producto | How many versions it has. On a service it says **«Servicio · 3 modalidades»** (*Service · 3 options*). |
+| **«Infoproducto · ⚠️ sin entrega»** (*Info product · ⚠️ no delivery*) | producto | It is an info product with no delivery file or link. See [Automatic delivery](#if-you-sell-a-course-or-an-ebook-automatic-delivery). |
+| A number, **«Agotado»** (*Out of stock*) or **«Sin control»** (*Not tracked*) | inventario | Explained in [Stock: when to turn it on](#stock-when-to-turn-it-on). |
+| **«Todos»** (*All*) | embudos | You did not tick any funnels: all your agents sell it. |
+| Agent names | embudos | Only those agents sell it. |
+| **«Embudo eliminado»** (*Funnel deleted*) | embudos | It was ticked for an agent that is no longer in your list. Open it and tick the agents that should sell it. |
+
+The dimmed rows, with lighter text, are products with **Activo** switched off.
 
 ## The three types, and how they really differ
 
@@ -220,91 +257,112 @@ does afterwards**. Each card tells you so when you choose it.
 
 | Type | What the card says | What changes in the form |
 | --- | --- | --- |
-| **Physical product** (*Producto físico*) | *"The agent quotes shipping and generates the waybill."* | A **Variants** block, with the size and color generator. |
-| **Service** (*Servicio*) | *"The agent sells it and arranges it over chat. It does not generate shipping."* | The block is called **Modalidades** ("Service options"): it asks for the name and price of each option. |
-| **Info product** (*Infoproducto*) | *"Its delivery is digital: it is delivered on its own, as soon as payment is confirmed."* | It has **no** variants block. Instead, **Automatic delivery** (*Entrega automática*) appears. |
+| **Producto físico** (*Physical product*) | *«El agente cotiza el envío y genera la guía.»* (*The agent quotes shipping and generates the waybill.*) | A **Variantes** (*Variants*) block, with the size and color generator. |
+| **Servicio** (*Service*) | *«El agente lo vende y coordina por chat. No genera envío.»* (*The agent sells it and arranges it over chat. It does not generate a shipment.*) | The block is called **Modalidades** (*Options*): it asks for the name and price of each option. |
+| **Infoproducto** (*Info product*) | *«Su envío es digital: se entrega solo, apenas se confirma el pago.»* (*Its delivery is digital: it is delivered on its own as soon as payment is confirmed.*) | It has **no** variants block. Instead, **Entrega automática** (*Automatic delivery*) appears. |
 
 The stock-tracking notice changes too: on a physical product it talks about
-stock on hand, on a service about **available slots** (*cupos disponibles*)
-(*"The agent does not offer what has run out."*) and on an info product about
-**limited licenses or accesses**. So "stock" here is not just boxes in a
-warehouse.
+stock on hand, on a service about **cupos disponibles** (*available slots*)
+(*«El agente no ofrece lo que se agotó.»*, *The agent does not offer what has
+run out.*) and on an info product about **limited licenses or accesses**. So
+"stock" here is not just boxes in a warehouse.
+
+<Note>
+**Does your service need a date and time?** When you choose **Servicio**, the
+panel warns you: *«¿Necesita fecha y hora (citas)? Eso se programa en
+Calendario; aquí solo se vende y cotiza.»* (*Does it need a date and time
+(appointments)? That is scheduled in Calendario; here it is only sold and
+quoted.*) The catalog sets the price; the schedule lives in the **Calendario**
+(*Calendar*) app.
+</Note>
 
 <Note>
 **Changing the type of a product that already exists does not delete anything
-straight away.** The panel itself says: *"Changing the type hides what no longer
-applies. Nothing is deleted until you save."* If the change is going to remove
-data — turning a product that has several variants into an info product, for
-example — saving asks you for a two-step confirmation with the **Convert and
-save** (*Convertir y guardar*) button.
+straight away.** The panel itself says: *«Cambiar el tipo oculta lo que ya no
+aplica. Nada se borra hasta que guardes.»* (*Changing the type hides what no
+longer applies. Nothing is deleted until you save.*) If the change is going to
+remove data — turning a product that has several variants into an info product,
+or turning an info product that had automatic delivery into another type — saving
+asks you for a two-step confirmation with the **Convertir y guardar** (*Convert
+and save*) button.
 </Note>
 
-### If you sell a course or an ebook: "Automatic delivery"
+### If you sell a course or an ebook: automatic delivery
 
-On an info product a block appears that is not in the other two, and it explains
-on its own what it is for: *"When payment is confirmed (voucher approved), the
-agent sends this to the customer without you doing anything."* You have two
-options:
+On an info product a block appears that is not in the other two, and it
+explains on its own what it is for: *«Cuando el pago se confirma (voucher
+aprobado), el agente le manda esto al cliente sin que tú hagas nada.»* (*When
+payment is confirmed (voucher approved), the agent sends this to the customer
+without you doing anything.*) You have two options:
 
-- **A file from the Library** — only the files already marked as sendable for the
-  agent you have open are offered. They are prepared in
+- **A file from the Librería** (*Library*) — only the files already marked as
+  sendable for the agent you have open are offered. If there are none, the
+  panel tells you: *«Sube un archivo a la Librería y márcalo como enviable para
+  poder entregarlo aquí.»* (*Upload a file to the Library and mark it as
+  sendable to be able to deliver it here.*) They are prepared in
   [The file Library](/en/guides/library).
-- **A link** — it has to start with `http://` or `https://`.
+- **A link** — it has to start with `http://` or `https://`. If not, on saving
+  you get *«El enlace debe empezar con http:// o https://»* (*The link must
+  start with http:// or https://*).
 
 If you save with neither of the two, the product **is saved anyway**, but the
-panel warns you: *"Careful: with no file and no link, the agent will not be able
-to deliver it on its own."* And in the list, that product is marked under its
-name as **"Infoproducto · ⚠️ sin entrega"** ("Info product · ⚠️ no delivery"). It
-is worth fixing: otherwise the agent can charge for something it then does not
-know how to deliver.
+panel warns you: *«Ojo: sin archivo ni enlace, el agente no podrá entregarlo
+solo.»* (*Careful: with no file and no link, the agent will not be able to
+deliver it on its own.*) And in the list, that product is marked under its name
+as **«Infoproducto · ⚠️ sin entrega»**. It is worth fixing: otherwise the agent
+can charge for something it then does not know how to deliver.
 
 ## The form, block by block
 
-Once the type is chosen, the panel shows **seven blocks**. Six are always the
-same; the seventh depends on the type and sits between **Inventory** and
-**Availability**.
+Once the type is chosen, the panel shows **seven blocks**. Six are the same for
+all three types; the seventh depends on the type and sits between
+**Inventario** and **Disponibilidad**.
 
 | Order | Block | What it is for |
 | --- | --- | --- |
-| 1 | **Type** (*Tipo*) | What you sell. It is chosen first and it conditions the rest. |
-| 2 | **Title and description** (*Título y descripción*) | The name (required) and the text the agent uses when selling. |
-| 3 | **Media** (*Medios*) | The photos. |
-| 4 | **Prices** (*Precios*) | Price, currency and the quantity scale. |
-| 5 | **Inventory** (*Inventario*) | The stock-tracking switch and the SKU. |
-| 6 | **Variants** / **Modalidades** / **Automatic delivery** | Depending on the type. The info product has no variants. |
-| 7 | **Availability** (*Disponibilidad*) | Visible, Active and — if you have more than one agent — which sales funnels sell it. |
+| 1 | **Tipo** (*Type*) | What you sell. It is chosen first and it conditions the rest. |
+| 2 | **Título y descripción** (*Title and description*) | The name (required) and the text the agent uses when selling. |
+| 3 | **Medios** (*Media*) | The photos. |
+| 4 | **Precios** (*Prices*) | Price, currency and the quantity scale. |
+| 5 | **Inventario** (*Inventory*) | The stock-tracking switch and the SKU. |
+| 6 | **Variantes** / **Modalidades** / **Entrega automática** | Depending on the type. The info product has no variants. |
+| 7 | **Disponibilidad** (*Availability*) | Visible, Activo and — if you have more than one agent — which funnels sell it. |
 
 ### What is really required
 
 Not much. **Three things**, in this order:
 
 1. **The type.** Without it no other field is shown.
-2. **Name \***. If it is missing: *"Name is required."* (*"El nombre es
-   obligatorio."*)
-3. **Price \***. If it is empty or not a number: *"Enter a valid price."*
+2. **Nombre \***. If it is missing: *«El nombre es obligatorio.»* (*The name
+   is required.*)
+3. **Precio \***. If it is empty or not a number: *«Pon un precio válido.»*
 
-Everything else — description, photos, SKU, variants, stock, sales funnels — is
+Everything else — description, photos, SKU, variants, stock, funnels — is
 optional and can be filled in later.
 
 <Note>
-**With "Quantity pricing" on, the required price moves.** The field at the top is
-locked and the one you have to fill in becomes the **1 unit** row of the scale.
-The warning changes too: it will talk to you about the price for 1 unit, not
-about "Enter a valid price".
+**With «Precios por cantidad» on, the required price moves.** The field at the
+top is locked and the one you have to fill in becomes the **1 unit** row of the
+scale. The warning changes too: it will ask you for the 1-unit price, not
+*«Pon un precio válido»*.
+
+**With variants, the price is asked for on each one**, not at the top. See
+[Variants](#variants-sizes-and-colors).
 </Note>
 
 <Warning>
 **Do not leave products with a price of 0.** They are saved without complaint,
-but afterwards **they do not appear in the product dropdown** when you record a
-sale or an order by hand: that dropdown only brings in active products whose
-variants cost more than zero.
+but the agent would see a price of 0 and, on top of that, **they do not appear
+in the product dropdown** when you record a sale or an order by hand: that
+dropdown only brings in active products whose variants cost more than 0. Watch
+out for variants generated without a base price: they are born at 0.
 </Warning>
 
 ## Quantity pricing (wholesale)
 
 It is the most powerful feature on this screen and the least obvious. Turn on
-**Quantity pricing** (*Precios por cantidad*) and you declare the **exact total
-price for each quantity**, not a percentage discount:
+**Precios por cantidad** and you declare the **exact total price for each
+quantity**, not a percentage discount:
 
 | Quantity | Total price |
 | --- | --- |
@@ -312,220 +370,349 @@ price for each quantity**, not a percentage discount:
 | 2 | S/ 149 |
 | 3 | S/ 209 |
 
-Rows are added with **+ Add tier** (*+ Añadir tramo*). And with **+ From N and
-up (price per unit)** (*+ De N a más (precio por unidad)*) you define the open
-tier: *from 6 and up, S/ 65 each*.
+Rows are added with **+ Añadir tramo** (*+ Add tier*). And with **+ De N a más
+(precio por unidad)** (*+ From N up (price per unit)*) you define the open tier:
+*from 6 up, S/ 65 each*. Each tier has to cost more than the previous one: if
+the 3-unit tier costs less than the 2-unit one, the panel will not let you save
+and tells you which one to fix.
+
+<Frame caption="Quantity pricing switched on: the total price for each quantity (1 → 79 and 3 → 199 PEN) and, underneath, the promotion (1 → 69 PEN) with its end date.">
+  <img src="/images/catalogo/07-precios-por-cantidad.png" alt="Precios block with the Precios por cantidad switch on, the tiers 1 → 79 and 3 → 199 PEN, and the promotion 1 → 69 PEN with Vigente hasta set to 31/10/2026" />
+</Frame>
 
 <Warning>
-**The moment you turn it on, the "Price" field at the top is locked** and it is
-renamed **Price (1 unit, from the scale)** (*Precio (1 unidad, de la escala)*).
+**The moment you turn it on, the «Precio» field at the top is locked** and it is
+renamed **Precio (1 unidad, de la escala)** (*Price (1 unit, from the scale)*).
 It is not a fault: the price is now typed into the 1-unit row of the table.
 </Warning>
 
-**For the quantities that are not on your scale, the agent combines tiers and
-adds them up.** If the customer asks for 10 polo shirts and your scale goes up to
-3, it charges 3 + 3 + 3 + 1. If you prefer a clean per-unit price from a certain
-quantity onwards, define the open **From N and up** tier.
+**For quantities that are not on your scale, the agent combines tiers and adds
+them up.** If the customer asks for 10 T-shirts and your scale goes up to 3, it
+charges 3 + 3 + 3 + 1. If you prefer a clean per-unit price from a certain
+quantity onwards, define the open **De N a más** tier. The agent does not do the
+arithmetic: when it looks up the product with the quantity the customer asked
+for, it receives the total already calculated.
 
-There is also a **Promotion with an end date** (*Promoción con fecha de fin*),
-with the **Valid until** (*Vigente hasta*) field. While it is in force, that
-price overrides the list scale in the conversation.
+There is also **Promoción con fecha de fin** (*Promotion with an end date*): a
+separate scale, with its own tiers and the **Vigente hasta** (*Valid until*)
+field. While it is in force, the promotion overrides the list scale in the
+conversation.
 
 <Note>
-**The promotion does not travel to the WhatsApp catalog.** In the catalog
-WhatsApp shows on your business profile, the **list** price for 1 unit is always
-published, never the promotional one. It is on purpose: if the promo were
-published, it would stay stuck there once it expired. In the chat, the promotion
-does apply.
+**The scale belongs to the whole product.** If you turn it on for a product with
+sizes, the agent quotes with the scale and stops looking at each size's price.
+If your sizes cost different amounts, do not use the scale on that product, or
+split it into separate products.
 </Note>
 
 <Note>
-**The scale is only removed from this panel.** Leaving its cell blank in the CSV
-file does not delete it: it leaves it as it was.
+**The promotion does not travel to the WhatsApp catalog.** In the catalog
+WhatsApp shows on your business profile, the 1-unit **list** price is
+published, not the promotional one. It is on purpose: if the promo were
+published, it would stay stuck there once it expired. In the chat, the
+promotion does apply.
+</Note>
+
+<Note>
+**In the CSV file, leaving the scale cell blank does not delete it**: it leaves
+it as it was. To remove it, turn off **Precios por cantidad** on the product and
+save.
 </Note>
 
 ## Variants: sizes and colors
 
-Moda Sol sells the same polo shirt in 3 colors and 4 sizes. That is **12
+Moda Sol sells the same T-shirt in 3 colors and 4 sizes. That is **12
 variants**, and there is no need to type them one by one.
 
 <Steps>
-  <Step title="Press «Generate variants from options»">
-    It is in the **Variants** (*Variantes*) block.
+  <Step title="Type the base price first">
+    In **Precio**, at the top. New combinations are born with that price; if
+    the field is empty, they are born at 0.
   </Step>
-  <Step title="Declare the axes">
-    *Color*: black, white, sand. *Size*: S, M, L, XL. You can use up to **3
-    axes** (color, size and, for example, sleeve).
+  <Step title="Click «Generar variantes por opciones»">
+    It is in the **Variantes** block. Two axes open, already named **Color**
+    and **Talla** (*Size*).
   </Step>
-  <Step title="Generate">
-    The 12 combinations come out in one click. Tick **Automatic SKU** (*SKU
-    automático*) and each one is born with its code. The cap is **100
-    combinations** per product.
+  <Step title="Type the values for each axis">
+    Separated by commas. *Color*: Negro, Blanco, Arena (black, white, sand).
+    *Talla*: S, M, L, XL. With **+ Añadir eje** (*+ Add axis*) you can go up to
+    **3 axes** (color, size and, for example, sleeve). Underneath, the panel
+    keeps telling you how many will come out: *«Se generarán 12 variantes.»*
+    (*12 variants will be generated.*)
+  </Step>
+  <Step title="Click «Generar» (Generate)">
+    The 12 combinations come out in one click, with titles like «Negro / M».
+    The **SKU automático** (*Automatic SKU*) checkbox comes ticked: each one is
+    born with its code (`POLO-NEGR-M`, for example). The generator goes up to
+    **100 combinations** at once.
   </Step>
   <Step title="Adjust the prices that fall outside the norm">
-    Each row carries its own price. If the XL costs S/ 10 more, it is changed
-    there.
+    Each row carries its own price. If the XL costs S/ 10 more, change it on its
+    row. And if you want to change the price of all of them at once, use the
+    **Mismo precio para las 12 variantes** (*Same price for the 12 variants*)
+    row and click **Aplicar a todas** (*Apply to all*). Then click **Guardar**:
+    until then nothing is saved.
   </Step>
 </Steps>
 
-<Warning>
-**The moment the product has several variants, the "Price" and the "SKU" at the
-top stop being in charge.** Each variant keeps its own, and what you type at the
-top is not saved: it only serves as the base price when generating the matrix.
-When you reopen the product, that field at the top shows you **the cheapest** of
-its variants.
+<Note>
+**With variants, the price at the top is no longer typed.** The field is
+renamed **Desde (el más barato)** (*From (the cheapest)*), it is locked and it
+shows the price of the cheapest variant. Underneath it explains: *«Lo lleva
+cada variante. Para cambiarlo, edítalo abajo en Variantes.»* (*Each variant
+carries it. To change it, edit it below in Variantes.*) The **SKU** at the top
+gets the same treatment.
 
-If you change the price at the top and swear it did not save, this is why.
-**Change the price on the variant's row.**
-</Warning>
+**The currency is changed at the top**, and it applies to all the variants. But
+it does not convert anything; the panel warns you: *«La moneda se aplica a las
+12 variantes. Los precios no se convierten: 79 sigue siendo 79, solo cambia la
+moneda.»* (*The currency applies to the 12 variants. Prices are not converted:
+79 is still 79, only the currency changes.*) If you switch from PEN to USD,
+correct the prices.
+</Note>
+
+<Tip>
+**If you generate again on a product that already had variants**, the ones that
+fit the new combination are kept with their price, and those that do not fit are
+left at the end of the list with a warning, so that you remove them yourself if
+they are not needed. This also happens to the single variant of a product you
+created without sizes.
+</Tip>
 
 <Note>
-**On a service they are called "Modalidades" and they are the same thing** under
+**On a service they are called «Modalidades» and they are the same thing** under
 another name: *Express consultation*, *Full consultation*, *Package of 4
-sessions*. They ask for a name and a price. The **Slots** (*Cupos*) are shown but
-not typed — same as stock, Inventory handles them. An info product does not have
-this block: a single presentation.
+sessions*. They are added with **Agregar modalidad** (*Add option*) and ask for
+a name and a price. The **Cupos** (*Slots*) are shown but not typed — same as
+stock, Inventario handles them. An info product does not have this block: a
+single presentation.
 </Note>
 
 ## Stock: when to turn it on
 
-**Turn on "Track stock" only if you are going to record the movements.** If you
-turn it on and never load any stock, the agent will believe you have none left.
+**Turn on «Controlar stock» only if you are going to record the movements.** If
+you turn it on and never load any stock, the agent will believe you have none
+left.
 
 | What you see in the **inventario** column | What it means |
 | --- | --- |
 | A number | You are tracking and you have that many units left. |
-| **Agotado** ("Out of stock") | You are tracking and you are at zero: it reaches the agent marked as out of stock, with the instruction not to promise it. |
-| **Sin control** ("Not tracked") | You are not keeping count. The agent can offer it without looking at stock. |
+| **Agotado** (*Out of stock*) | You are tracking and you are at 0 (or below): it reaches the agent marked as out of stock, with the instruction not to promise it. |
+| **Sin control** (*Not tracked*) | You are not keeping count: the agent can offer it without looking at stock. Careful: it also shows like this if you turned on **Controlar stock** and have not yet recorded any movement in Inventario. In that case the agent treats it as **out of stock**: do the initial load. |
 
-With tracking on and stock at zero, that variant reaches the agent marked as
-**out of stock and with the instruction not to promise it** — which is what the
-screen sums up as *"The agent warns when something runs out and does not offer
-what you do not have."* With tracking off there is nothing that can run out: it
-is the right option for a service you can provide with no cap on slots, or for a
-product you make to order.
+With **Controlar stock** off (the table reads **Sin control**) there is nothing
+that can run out: it is the right option for a service you can provide with no
+cap on slots, or for a product you make to order.
 
-Quantities are moved on the **Inventory** screen, by recording a movement. From
-the catalog you only declare **whether** the product is tracked.
+**Quantities are loaded in another app: Inventario.** From the catalog you only
+declare **whether** the product is tracked. The first load is done in
+Inventario with **Registrar movimiento** (*Record movement*) → **Carga inicial
+(+)** (*Initial load (+)*); after that, every purchase, return or adjustment is
+also recorded there.
+
+<Frame caption="The Inventario screen, still empty («El catálogo está vacío»): this is where quantities are loaded and moved, with «Registrar movimiento».">
+  <img src="/images/apps/02-inventario.png" alt="Inventario screen with the four counters at 0, the Stock and Movimientos tabs, the Registrar movimiento button and the «El catálogo está vacío» notice" />
+</Frame>
+
+<Warning>
+**Inventario comes switched on in new accounts, but it can be switched off.** If
+the *«Inventario»* link in the product panel takes you to a screen that says
+**«App no activa»** (*App not active*), it is switched off in your company:
+switch it on in **Administración → Apps** (*Administration → Apps*) (or ask
+whoever manages the account). If it says **«No tienes acceso a Inventario»**
+(*You do not have access to Inventario*), the app is on but your user does not
+have it: ask to be given it in **Administración → Personas y accesos**
+(*Administration → People and access*).
+
+In both cases, sort it out **before** turning on **Controlar stock**. Otherwise
+the agent will treat the product as **out of stock** (even though the
+inventario column reads «Sin control») and you will not be able to load units
+into it.
+</Warning>
 
 ## Visible and Active are not the same
 
 This is the costliest confusion on the screen. Both switches are in
-**Availability** and **only one of them silences the agent**.
+**Disponibilidad** and **only one of them silences the agent**.
 
 | Switch | What it does when you turn it off |
 | --- | --- |
-| **Active** (*Activo*) | The agent **stops finding it** when it searches the catalog. It is the right way to withdraw something. |
-| **Visible in the catalog** (*Visible en el catálogo*) | It takes it out of the catalog WhatsApp shows on your business profile, **but the agent still finds it** and can carry on offering it in the conversation. |
+| **Activo** (*Active*) | The agent **stops finding it** when it searches the catalog. It is the right way to withdraw something. |
+| **Visible en el catálogo** (*Visible in the catalog*) | It takes it out of the catalog WhatsApp shows on your business profile, **but the agent still finds it** and can carry on offering it in the conversation. |
 
 <Warning>
-**To withdraw a product, turn off "Active".** Turning off only "Visible in the
-catalog" does not stop the agent from carrying on selling it over chat.
+**To withdraw a product, turn off «Activo».** Turning off only «Visible en el
+catálogo» does not stop the agent from carrying on selling it over chat.
 </Warning>
 
-### "Sales funnels that sell it"
+### Funnels that sell it
 
-That list **only appears if your business has more than one agent**. If you have
-one, you will not even see it. And the rule is not the one it looks like: *"With
-none ticked, every sales funnel quotes it."* — **ticking nothing means "all",
-not "none"**.
+That list, **Embudos que lo venden** (*Funnels that sell it*), **only appears if
+your business has more than one agent**. If you have one, you will not even see
+it. And the rule is not the one it looks like: *«Sin marcar ninguno, lo cotizan
+todos los embudos.»* (*With none ticked, every funnel quotes it.*) — **ticking
+nothing means "all", not "none"**. As soon as you tick one, the text changes:
+*«Solo los embudos marcados podrán cotizarlo.»* (*Only the ticked funnels will
+be able to quote it.*)
 
 <Note>
 **It is an organizing rule, not a security barrier.** It is there so that your
-wholesale agent does not quote the retailer's products. But do not use it to
+wholesale agent does not quote the retail one's products. But do not use it to
 hide sensitive information: if the system cannot read the assignments, it opens
 up instead of closing down, and the agent sees everything.
 </Note>
 
-**The sales funnels are saved in a second step, after the product.** If that step
-fails you will see *"The product was saved, but the sales funnels were not"*: the
-product is fine; reopen it and tick them again.
+**Funnels are saved in a second step, after the product.** If that step fails,
+you will see an error message and the panel will stay open, even though the
+product has already been saved. If it was a new product, **do not click Guardar
+again**: you would create an identical one. Close the panel, reload the page,
+open it with **Editar** (*Edit*) and tick the funnels again.
 
 And if on saving you take the product away from the agent you have open, it
-warns you — *"The open sales funnel no longer sells it: it drops out of this
-list."* — and it disappears from the table. **It has not been deleted**: it
-stopped belonging to that sales funnel.
+warns you — *«Ya no lo vende el embudo abierto: sale de esta lista.»* (*The open
+funnel no longer sells it: it leaves this list.*) — and it disappears from the
+table. **It has not been deleted**: it stopped belonging to that funnel.
+
+Two things other screens do with your products, so they do not take you by
+surprise (see [Your funnels](/en/guides/your-funnels)):
+
+- **If you duplicate a funnel**, the copy is born selling the same products the
+  original had ticked.
+- **If you accept a funnel that another account shared with you**, its products
+  arrive in your catalog as new products, ticked only for that funnel and
+  **without stock tracking**.
 
 <Warning>
 **With more than one agent, the list you see is trimmed.** `/catalog` shows what
-the agent you have selected in the top bar sells, plus whatever is not assigned
-to any of them. The counter at the foot (*"Showing N of M products"*) counts
-already trimmed, and the CSV template you download will come out trimmed the
-same way. Before concluding that you lost products, **switch agents in that
-selector**.
+the agent you have chosen in the agent selector sells — the dropdown with its
+name, just below **Ventas** in the left-hand menu (with the menu collapsed it
+sits at the top; on the phone, inside **Más**, *More*) — plus whatever is not
+assigned to any agent. The counter at the foot (*«Mostrando N de M
+productos»*, *Showing N of M products*) counts what is already trimmed, and the
+CSV template you download will come out trimmed the same way. Before concluding
+that you lost products, **switch agents in that selector**.
+
+One exception: a product ticked **only** for an agent you have already deleted
+does not appear in any agent's list, and your agents stop offering it. That is
+why, **before deleting an agent**, open each product ticked only for it and tick
+it for another agent too, or untick all the funnels so that all of them sell it.
 </Warning>
 
 ## Editing many products at once: the CSV template
 
 To load a hundred products, or to raise the price of a whole season, the
-one-by-one form is no use. The **CSV template** (*Plantilla CSV*) button (next to
-"Add product") opens the **"Bulk-edit catalog (CSV)"** (*"Editar catálogo en
-bloque (CSV)"*) box, with two numbered steps.
+one-by-one form is no use. The **Plantilla CSV** button (next to «Añadir
+producto») opens the **«Editar catálogo en bloque (CSV)»** (*Bulk-edit catalog
+(CSV)*) box, with two numbered steps.
 
-<Frame caption="The «Bulk-edit catalog (CSV)» box: first you download, you edit in your spreadsheet, and then you upload.">
-  <img src="/images/catalogo/06-plantilla-csv.png" alt="«Bulk-edit catalog (CSV)» modal with the Download the template and Upload your changes steps" />
+<Frame caption="The «Editar catálogo en bloque (CSV)» box: first you download, you edit in your spreadsheet, and then you upload.">
+  <img src="/images/catalogo/06-plantilla-csv.png" alt="«Editar catálogo en bloque (CSV)» window with the Descarga la plantilla and Sube tus cambios steps" />
 </Frame>
 
 <Steps>
   <Step title="Download the template">
-    **Download template (.csv)** (*Descargar plantilla (.csv)*) button. It
+    The **Descargar plantilla (.csv)** (*Download template (.csv)*) button. It
     downloads a file with your current products, which you can open in Excel or
-    in Google Sheets.
+    Google Sheets.
 
-    Watch what it brings: **only your own products** (the ones synced from a
-    store do not come out) and **only those of the agent you have open**.
+    Watch what it contains. The box itself says so: *«los productos editables
+    de la lista que tienes debajo»* (*the editable products in the list you
+    have below*). In other words, **only those of the agent you have open**,
+    and at most **1000 products, the most recent ones**.
   </Step>
   <Step title="Edit it in your spreadsheet">
-    Change what you need and save as CSV.
+    Change what you need and save as CSV. Do not delete any column. The `id`,
+    `handle` and `variant_id` columns are the ones that let what already exists
+    be updated, and if the `handle`, `name` or `currency` column is missing,
+    the whole file is rejected.
   </Step>
-  <Step title="Upload it">
-    **Choose CSV file** (*Elegir archivo CSV*) and then **Apply changes**
-    (*Aplicar cambios*). The cap is **500 products per upload**.
+  <Step title="Upload it and check the preview">
+    Click **Elegir archivo CSV** (*Choose CSV file*). Before applying anything,
+    the box shows you a summary — how many products, how many **nuevos**
+    (*new*), how many **a actualizar** (*to update*) and how many **variantes**
+    (*variants*) — and, if there are rows with errors, the list of those that
+    *«se omitirán»* (*will be skipped*) and why.
+  </Step>
+  <Step title="Apply the changes">
+    **Aplicar cambios** (*Apply changes*). When it finishes you will see how
+    many were created, how many were updated and how many gave an error, and
+    the reason for the errors. The cap is **500 products per upload**: with
+    more, the whole upload is rejected; split it into several files.
   </Step>
 </Steps>
 
 ### The rules of the file
 
 - A row **with an id** updates the product that already exists.
-- A row **without an id** creates a new one… unless it repeats the **handle** of
-  a product that is already there, and then **it overwrites it**.
+- A row **without an id** creates a new product. **Careful:** if you delete the
+  id from a template row, the original is not updated: an identical one is
+  born, because the handle the template comes with is not the one the product
+  has stored. To change a product that already exists, always keep its id.
+- And the other way round: if you type by hand a **handle** equal to the one the
+  system stores for an existing product, that row without an id **updates it**.
+  For a product created in the dashboard, that handle is its name in lowercase
+  with hyphens (`polo-oversize-de-algodon-pima`), not the one the template
+  comes with.
 - **A product that is not in the file is not touched.** Deleting a product row
   does not delete the product.
-- **But removing a variant's row does delete that variant** from the product.
+- **Removing a variant's row deletes that variant** from the product.
+- **But removing all the variant rows of a product that has several does not
+  delete anything**: that row is rejected with an error warning that the
+  product *«tiene N variantes y esta fila no las trae»* (*has N variants and
+  this row does not include them*), and the product is left intact. The same
+  happens if none of its variant rows carries its `variant_id`.
+- **With variant rows, the price goes in `variant_price`**, not in `price`. If
+  you write a price in the product row, that product is skipped with the
+  warning *«el precio de la fila maestra no se aplica cuando hay filas de
+  variante»* (*the master row's price is not applied when there are variant
+  rows*).
+- For clothing, one row per combination, with `variant_title` («Negro / M»)
+  **and** `variant_options` («Color:Negro; Talla:M»).
 
 <Warning>
-**What is in charge is the "handle" column, not the name.** It is the grouping
-key that the template comes with already filled in (something like
-`polo-oversize-de-algodon-pima-` followed by a long code). If you copy a whole
-row to create a variation of the polo shirt and leave the handle the same, **you
-wipe out the original product in silence**.
+**What is in charge is the «handle» column, not the name.** It is the grouping
+key the template comes with already filled in (something like
+`polo-oversize-de-algodon-pima-` followed by a long code). **All the rows with
+the same handle are a single product.** If you copy a row to create another
+product and leave the same handle, the product you expect is not born: the two
+rows are treated as one thing, and one is ignored or overwrites the other.
 
-To really create: leave the **id** empty and put in a **handle** that does not
-exist. A row without a handle is not accepted — the file rejects it with *"The
-handle (grouping key) is missing."*
+To really create one: leave the **id** empty and put in a clearly new
+**handle**, for example with `-copia` at the end. Do not use the product's bare
+name, in lowercase with hyphens: it is usually the handle the original already
+has stored, and you would overwrite it. A row without a handle is not accepted
+— it is skipped with *«Falta el handle (clave de agrupación).»* (*The handle
+(grouping key) is missing.*)
 
-From the **Add product** button this does not happen: two products with the same
-name created there are two different products.
+From the **Añadir producto** button this does not happen: two products with the
+same name created there are two different products.
 </Warning>
 
 <Note>
-**Two columns that do not do what they look like.** **Photos are not edited by
-CSV** (only from the product editor), and **the stock quantity is exported but
-ignored on import**: you can write "40" in the sheet, upload it, and nothing will
-happen and you will see no error. Stock is moved in **Inventory**.
+**What the file does not change.** **Photos are not edited by CSV** (only from
+the product editor), nor is an info product's **automatic delivery**. And **the
+stock quantity is exported but ignored on import**: you can write «40» in the
+sheet, upload it, and nothing will happen and you will see no error. Stock is
+moved in **Inventario**. What the file does declare is *whether* the product is
+tracked, in the `track_inventory` column.
 </Note>
 
 | In the file | What it is |
 | --- | --- |
-| `id` | The product identifier. With an id, it updates; without an id, it creates. |
-| `handle` | The grouping key. **It is the one that decides what gets overwritten.** |
-| `price_tiers` | The quantity pricing scale. Leaving it blank does not delete it. |
+| `id` | The product identifier. With an id, it updates. Always keep it on products that already exist. |
+| `handle` | The grouping key. **It is the one that decides which rows are the same product.** |
+| `product_type` | `fisico`, `servicio` or `infoproducto` (physical product, service or info product). Left empty, it does not touch the type (and a new product is born physical). |
+| `variant_id` | The identifier of each variant. It is what lets the variant be updated in place. |
+| `price_tiers` | The quantity pricing scale, like `1:79; 2:149; 3:209`. The open tier goes at the end, like `6+:65`. Leaving it blank does not delete it. |
 
 <Tip>
-**From the dashboard, it is the only route for duplicating a product.** The
-screen does not know how to clone: there is no "Duplicate" button. The real route
-is to download the template, copy the product's row, **delete its id and change
-its handle**, and upload it again.
+**There is no «Duplicar» (*Duplicate*) button.** If you do not want to fill in
+the form again, the shortcut is the template: download the file, copy the
+product's rows, **delete their id and give all of them the same new handle**
+(for example, the one they come with plus `-copia` at the end), and upload it
+again. The copy arrives **without photos**, without **automatic delivery** and
+with no funnels ticked (all your agents sell it). You complete that afterwards
+with **Editar**.
 </Tip>
 
 ## How your catalog reaches the customer
@@ -538,14 +725,17 @@ When the customer asks about a product or its price, the agent searches the
 catalog and answers with what it finds. It searches by **the product name** and
 by **the name or the code (SKU) of its variants**. Useful things to know:
 
-- **It does not search inside the description**, although it does show it to the
-  agent (trimmed) once it has found the product.
-- It has to get **at least half the words** right. And the one- or two-letter
-  words — "S", "M", "XL" — have to stand on their own to count.
+- **It does not search inside the description**, although it does show it to
+  the agent (trimmed) once it has found the product.
+- It has to match **at least half the words**. And one- or two-letter words —
+  «S», «M», «XL» — have to stand on their own to count.
 - **It returns at most 5 products.** If you have forty similar items, the agent
   will name a few, not the whole list.
 - The variant's color and size help to **narrow down among what it already
   found**, not to find something that did not match by name or by code.
+- When the agent looks up a product with the quantity the customer asked for,
+  it receives **the total already calculated**, with the scale and the
+  promotion if there are any.
 
 Translated into a recommendation: **the product name has to be the name your
 customer would ask for it by.**
@@ -556,148 +746,177 @@ It is the products tab WhatsApp shows inside your business profile. It fills
 itself, but with conditions:
 
 - Your number has to be a **WhatsApp Business account** and be connected. If it
-  is not, nothing is published there (and the agent carries on selling over chat
-  all the same).
+  is not, nothing is published there (and the agent carries on selling over
+  chat all the same).
 - **One entry is published per variant**, not per product. That is why the
-  12-combination polo shirt appears 12 times.
-- Only the products that are **"Active" and "Visible in the catalog" at the same
-  time** get in, and only if they have a price and a currency.
-- With quantity pricing, the **1 unit list** price is published, never the
+  12-combination T-shirt appears 12 times, each with the product's main photo.
+- Only the products that are **both «Activo» and «Visible en el catálogo»** get
+  in, and only if they have a price and a currency.
+- With quantity pricing, the 1-unit **list** price is published, not the
   promotion.
-- If you ticked sales funnels on the product, each number publishes its own. **A
-  product with no sales funnels ticked — which is the normal case — is published
-  by all your numbers.**
+- If you ticked funnels on the product, each number publishes its own. **A
+  product with no funnels ticked — which is the normal case — is published by
+  all your numbers.**
 
 <Note>
-**Deactivating or hiding also deletes it from WhatsApp.** It is not left hanging
-there. And do not worry: only the products DarkFunnels published are touched; the
-ones you had created by hand in WhatsApp stay as they are.
+**Deactivating or hiding also deletes it from WhatsApp.** It is not left
+hanging there. And do not worry: only the products the dashboard published are
+touched; the ones you had created by hand in WhatsApp stay as they are.
 </Note>
+
+### If the playbook says a different price
+
+Your agent takes prices from the catalog, but also from the text of its
+[sales playbook](/en/guides/sales-playbook) and from the files in the
+[Library](/en/guides/library) it reads to know how to answer (a price list in
+PDF, for example). If the playbook says "the Polo oversize de algodón pima costs
+S/ 89" and the catalog has S/ 79, the agent can contradict itself in front of
+the customer.
+
+That is what the playbook's **Doctor** is for: when a line of the playbook puts
+a price near the full name of a catalog product (or its SKU) and it does not
+match, it warns you. If there is only one possible price, it offers to fix it
+in one click with the **Poner S/ 79 (precio del catálogo)** (*Set S/ 79
+(catalog price)*) button; if the product has several variants, it shows you
+their prices and you decide. Products with quantity pricing are not compared.
+See [The Doctor](/en/guides/sales-playbook#the-doctor).
+
+<Tip>
+The healthiest approach is **not to write prices in the playbook**: leave them
+in the catalog and let the agent look them up there.
+</Tip>
 
 ## Things you are going to need later
 
 <AccordionGroup>
   <Accordion title="Editing a product that already exists">
-    In the actions column of its row, press **Edit** (*Editar*). **Pressing the
-    row does not open anything** — no row in this table is clickable — so if you
-    click on it and nothing happens, it is not broken: use the action.
+    In the actions column of its row, click **Editar** (*Edit*). **Clicking the
+    row does not open the product** — in this table it only opens with that
+    action — so if you click on it and it does not open, it is not broken: use
+    the action.
   </Accordion>
 
-  <Accordion title="Withdrawing a product without deleting it (the recommended way)">
-    Tick the checkbox on its row and press **Deactivate** (*Desactivar*) in the
+  <Accordion title="Withdrawing a product without deleting it (recommended)">
+    Tick the checkbox on its row and click **Desactivar** (*Deactivate*) in the
     bar that appears at the top. The product stays in your catalog with all its
     history, but the agent stops finding it.
 
-    In that same bar you have the four bulk actions — **Activate** (*Activar*),
-    **Deactivate** (*Desactivar*), **Show** (*Mostrar*) and **Hide** (*Ocultar*)
-    — which are applied straight away to everything you have ticked. It is the
-    quick way to withdraw a whole season.
+    In that same bar (*«N seleccionado(s)»*, *N selected*) you have the four
+    bulk actions — **Activar** (*Activate*), **Desactivar** (*Deactivate*),
+    **Mostrar** (*Show*) and **Ocultar** (*Hide*) — which apply straight away to
+    everything you have ticked. It is the quick way to withdraw a whole season.
+    **Limpiar** (*Clear*) removes the selection.
   </Accordion>
 
   <Accordion title="Really deleting a product">
-    There is no trash can and no delete button inside the product panel. **From
-    the dashboard, the only way is to tick the checkbox on the row and press
-    "Delete"** (*Eliminar*) in the selection bar.
+    There is no trash can and no delete button inside the product panel. From
+    the dashboard you delete it like this: **tick the checkbox on the row and
+    click «Eliminar»** (*Delete*, in red) in the selection bar.
 
     <Warning>
-    **That button does not ask for confirmation and cannot be undone.** One click
-    and the product disappears with its variants; it is not archived. The only
-    thing that does stop it is one of its variants having an open charge: then
-    the deletion bounces back with an error.
-
-    An order or a sale that has already been recorded does **not** stop it: the
-    product is deleted and those records are left not knowing which variant was
-    sold. That is why, almost always, what you want is **Deactivate**, not
-    **Delete**.
+    **That button does not ask for confirmation and cannot be undone.** One
+    click and the product disappears with its variants; it is not archived.
+    Having orders or sales already recorded does **not** stop it: the product is
+    deleted anyway and those records lose their link to it. That is why, almost
+    always, what you want is **Desactivar**, not **Eliminar**.
     </Warning>
   </Accordion>
 
   <Accordion title="Finding something in a large catalog">
-    Two tools work: the search box **"Search products..."** (*"Buscar
-    productos..."*) (it searches by product name and by the SKU of its variants;
-    it does not search the description) and the **Filter** (*Filtrar*) button,
-    which opens **"Filter catalog"** (*"Filtrar catálogo"*) with three filters:
-    **Type** (*Tipo*), **Visibility** (*Visibilidad*) (Visible / Hidden) and
-    **Status** (*Estado*) (Active / Inactive).
+    Two tools work: the **«Buscar productos...»** (*Search products...*) search
+    box (it searches by product name and by the SKU of its variants; it does
+    not search the description) and the **Filtrar** (*Filter*) button, which
+    opens **«Filtrar catálogo»** (*Filter catalog*) with three filters: **Tipo**
+    (*Type*), **Visibilidad** (*Visibility*: Visible / Oculto, *Hidden*) and
+    **Estado** (*Status*: Activo / Inactivo, *Active / Inactive*).
 
-    The list loads **50 at a time** as you scroll down, with no page numbers, and
-    at the foot it says **"Showing N of M products"**.
+    The list loads **50 at a time** as you scroll down, with no page numbers,
+    and at the foot it says **«Mostrando N de M productos»**.
 
     <Warning>
     **Two controls on this screen do nothing today, and we would rather tell
-    you.** The **Todos · Manual · Shopify** ("All · Manual · Shopify") tabs do not
-    filter: switching tabs does not change what you see. And the **Sort**
-    (*Ordenar*) button opens its box with "Name", "Price", "Inventory" and
-    "Updated", but the list does not change order: it always comes out from the
-    most recent product to the oldest (the column headers do not sort either).
-    Use the search box and **Filter**, which do work.
+    you.** The **Todos · Manual · Shopify** (*All · Manual · Shopify*) tabs do
+    not filter: switching tabs does not change what you see. And the
+    **Ordenar** (*Sort*) button opens its box with «Nombre», «Precio»,
+    «Inventario» and «Actualizado» (*Name, Price, Inventory, Updated*), but the
+    list does not change order: it comes out from the most recent product to
+    the oldest (the column headers do not sort either). Use the search box and
+    **Filtrar**, which do work.
     </Warning>
   </Accordion>
 
-  <Accordion title="My products come from Shopify and it will not let me touch them">
-    The products synced from a store are **read-only**. On their row you will not
-    see **Edit** but **Import** (*Importar*) (*"Copy to the editable catalog"*),
-    and they cannot be ticked with the checkbox or have their **visible** switch
-    changed either.
+  <Accordion title="Who on my team can touch the catalog?">
+    **Anyone with access to the Ventas app.** Inside Ventas there are no finer
+    permissions for the catalog: that person can create, edit, hide and also
+    **delete** products, with the **Eliminar** button that does not ask for
+    confirmation. Anyone without Ventas does not see the catalog.
 
-    Import them first and then edit the copy.
+    Each person's access is granted in **Administración → Personas y accesos**.
+    See [Invite your team](/en/getting-started/invite-your-team).
   </Accordion>
 
-  <Accordion title="Who on my team can touch the catalog?">
-    **Anyone invited to your business**: there are no role permissions on this
-    screen. They can create, edit, hide and also **delete** products, with the
-    **Delete** button that does not ask for confirmation. Bear it in mind when
-    you invite people.
+  <Accordion title="Who sees my product photos?">
+    Photos are stored in a private space belonging to your company, not at a
+    public internet address. The dashboard shows them to you with temporary
+    links that expire on their own.
+
+    What is public is what you publish: **the main photo of each product that
+    goes into the WhatsApp catalog can be seen by anyone who opens your
+    business profile**. If a photo must not be seen by anyone outside, do not
+    make it the main one on an active, visible product.
   </Accordion>
 
   <Accordion title="Things this screen does not have">
-    So that you do not go looking for them: **there are no categories, no tags, no
-    weight, and no "was price / struck-through price"**. There is no
+    So that you do not go looking for them: **there are no categories, no tags,
+    no weight, and no "was price / struck-through price"**. There is no
     **duplicate** button (it is done by CSV), **no undo** and **no trash can**.
   </Accordion>
 </AccordionGroup>
 
 ## If something does not work
 
-| What you see | Almost always it is | How it is fixed |
+| What you see | Almost always it is | How to fix it |
 | --- | --- | --- |
-| **"No products yet"** — or **"… has nothing to sell"** with the name of your agent — and you know you loaded them | You have another agent selected and the list is trimmed to it | Switch agents in the selector in the top bar |
-| **"No results"** (*"Sin resultados"*) | You have a search or a filter set | Press **Clear filters** (*Limpiar filtros*) |
-| The panel opens **almost empty** | You have not chosen the type yet | Choose **Physical product**, **Service** or **Info product** |
-| **It will not let me type the price** | You have **Quantity pricing** on | Type it into the **1 unit** row of the scale |
-| **I change the price at the top and it does not save** | The product has several variants: the price of each one is in charge | Change the price on the variant's row |
-| **It will not let me type the stock quantity** | Here you only declare *whether* it is tracked | Record the movement in **Inventory** |
-| **I lost what I was typing** | You closed the panel (or clicked outside) without saving | There is no draft: it has to be redone. Always press **Save** |
+| **«… no tiene nada que vender»** (*… has nothing to sell*) with your agent's name, and you know you loaded products | The list is trimmed to the agent you have chosen and those products belong to another one | Switch agents in the selector, just below **Ventas** in the left-hand menu |
+| **«Sin resultados»** (*No results*) | You have a search or a filter set | Click **Limpiar filtros** (*Clear filters*) |
+| The panel opens **almost empty** | You have not chosen the type yet | Choose **Producto físico**, **Servicio** or **Infoproducto** |
+| **It will not let me type the price** and the field says **«Precio (1 unidad, de la escala)»** | You have **Precios por cantidad** on | Type it into the **1 unit** row of the scale |
+| The price at the top is locked and says **«Desde (el más barato)»** | The product has variants: each one carries its own price | Change it on the variant's row, or use **Mismo precio para las N variantes** and **Aplicar a todas** |
+| **I switched from PEN to USD and the numbers stayed the same** | The currency does not convert prices | Correct the prices by hand |
+| **It will not let me type the stock quantity** | Here you only declare *whether* it is tracked | Record the movement in **Inventario** |
+| The Inventario link opens **«App no activa»** | The Inventario app is switched off in your company | Switch it on in **Administración → Apps**, or ask whoever manages the account |
+| The Inventario link opens **«No tienes acceso a Inventario»** | The app is on, but your user does not have it | Ask to be given it in **Administración → Personas y accesos** |
+| **I lost what I was typing** | You closed the panel (with **Cerrar**, **Cancelar**, **Esc** or a click outside) without saving | There is no draft: it has to be redone. Always click **Guardar** |
 | **I saved and the product disappeared** from the table | You took it away from the agent you have open | It was not deleted: switch to an agent that does sell it |
-| **"The product was saved, but the sales funnels were not"** | The second step of the save failed | Reopen the product and tick the sales funnels again |
-| The agent **still does not name** a product you have just created | Changes can take up to a minute to reach a conversation under way | Wait a minute and try again |
-| The agent **does not find it** even though it is active | The customer names it differently from what it is called | Rename the product with the words the customer uses |
-| **I turned "Visible" off and the agent carries on offering it** | "Visible" does not silence the agent | Turn off **Active** |
-| **The search box and the filters disappeared** | You ticked a product's checkbox: the selection bar replaces them | Press **Clear** (*Limpiar*) |
-| **I uploaded the CSV and wiped out a product** | You repeated the **handle** of one that already existed | To create, empty id and a new handle |
-| **I edited the stock in the CSV and nothing changed** | That column is exported but ignored on import | Record it in **Inventory** |
-| **"Infoproducto · ⚠️ sin entrega"** in the list | You gave it neither a delivery file nor a link | Open it and fill in **Automatic delivery** |
-| **It does not come up in the dropdown** when recording a sale | Its price is 0 | Give it a price greater than zero |
-
-<Warning>
-**Your product photos sit at a public internet address.** It has to be that way
-so that WhatsApp can show them: anyone with that link sees it, without logging
-into your account. And **deleting the product does not delete the photo**: that
-link carries on working. Do not upload anything here that should not be public.
-</Warning>
+| On saving, an **error message** appears and the panel **stays open** | The second step of the save (the funnels) may have failed: the product may already be saved | If it was new, do not click **Guardar** again. Close, reload the page and, if the product is already in the table, open it with **Editar** and tick the funnels again |
+| **«Embudo eliminado»** in the embudos column | It was ticked for an agent that no longer exists | Open it and tick the agents that should sell it |
+| The agent **still does not name** a product you just created | Changes can take up to a minute to reach it | Wait a minute and try again |
+| The agent **does not find it** even though it is active | The customer calls it something different from its name | Rename the product with the words the customer uses |
+| **I turned «Visible» off and the agent still offers it** | «Visible» does not silence the agent | Turn off **Activo** |
+| **The search box and the filters disappeared** | You ticked a product's checkbox: the selection bar replaces them | Click **Limpiar** |
+| On uploading the CSV, a product gives an error saying it **«tiene N variantes»** (*has N variants*) | The sheet is missing its variant rows, or its `variant_id` | Download the template again and edit on top of it, without removing those rows or that column |
+| On uploading the CSV, a product is skipped with **«el precio de la fila maestra no se aplica…»** | You put `price` in the product row and it has variants | Put the price in `variant_price` and leave `price` empty |
+| **I uploaded the CSV and two products got mixed up** | You repeated another product's **handle** | To create one, empty id and a new handle |
+| **I edited the stock in the CSV and nothing changed** | That column is exported but ignored on import | Record it in **Inventario** |
+| **«Infoproducto · ⚠️ sin entrega»** in the list | You gave it neither a delivery file nor a link | Open it and fill in **Entrega automática** |
+| **It does not appear in the dropdown** when recording a sale | Another agent sells it, it is inactive or its price is 0 | Switch to the agent that sells it in the menu selector (or tick it for this one too), activate it or give it a price greater than 0 |
 
 ## The same thing, from your assistant
 
 <Note>
-This section is **optional and only applies if you connected Claude, ChatGPT or
-Codex** to your business. If you work in the dashboard, you are already done.
+This section is **optional and only applies if you connected an AI assistant**
+(Claude, ChatGPT, Codex or another compatible one) to your business. If you
+work in the dashboard, you are already done.
 </Note>
 
 Your assistant can read the whole catalog, load it in bulk from a file you hand
-it, and correct it. **Reading works with the basic connection; writing does
-not**: you have to ask for the catalog write permission in the address you
-connect with. It is set up ready to copy and paste in
-[The connection URL](/en/reference/connection-url).
+it, and correct it. With the link the dashboard gives you (**Personalizar →
+Asistentes IA → Copiar link**, *Customize → AI assistants → Copy link*, the same
+one as in the connection guides), your assistant can already **read and write**
+the catalog, and also **delete products**. If you connected with the base
+address, with nothing after it, it can only read the catalog: to write, you
+need to add `catalog_write`. See [The connection URL](/en/reference/connection-url).
+And, as in the dashboard, your user has to have access to the **Ventas** app.
 
 | Tool | What it does |
 | --- | --- |
@@ -707,49 +926,50 @@ connect with. It is set up ready to copy and paste in
 | `delete_product` | Deletes a product. **Final, with no trash can.** |
 
 **The rule that avoids disasters:** when writing, each product is a **complete
-row that replaces the one that was there** — whatever is not sent is written
-empty. That is why the right order is always to read the record, change only your
-own bit, send it back whole and read it again to check. The system does force your
-hand quite a bit: it rejects incomplete rows before touching anything.
+row that replaces the one that was there** — whatever is not sent may be left
+empty. That is why the right order is to read the record, change only your
+part, send it back whole and read it again to check. The system helps quite a
+bit: it rejects incomplete rows before touching anything.
 
 <Warning>
-**Three things that can indeed cost you dearly from the assistant.**
+**Two things that really can cost you dearly from the assistant.**
 
-1. Telling it that a product **has no variants** when it does **wipes out all of
-   them** and replaces them with a single one. It is the costliest mistake in the
-   catalog.
-2. When updating a product with variants you have to send **all** of them: a
-   variant that is not sent **is deleted**, and one that is sent without its
-   identifier creates another new one and deletes the old one — the orders and
-   the stock that pointed at it are left with no reference.
-3. A product **with no identifier** is looked up by name: a name equal to that of
-   one that already exists **overwrites it**. Have your assistant always use the
-   identifier when updating.
+1. When updating a product with variants you have to send **all** of them,
+   **each one with its identifier**. A variant that is not sent **is deleted**,
+   and one sent without its identifier comes in as new and the old one is
+   deleted — the orders and stock that pointed at it are left with no
+   reference. There is a safety net: on a product with several variants, if
+   none arrives with its identifier, or if the assistant says the product has
+   no variants, that row is rejected without touching anything.
+2. A product **with no identifier** is looked up by name: a name equal to that
+   of an existing one **overwrites it**. Ask your assistant to update using the
+   identifier.
 </Warning>
 
 And three limits worth keeping in mind:
 
-- **The photos are not touched** from the assistant: uploading a batch does not
+- **Photos are not touched** from the assistant: uploading a batch does not
   delete or change your products' images. They are managed in the dashboard.
-- **The stock quantity is not either.** Even if your assistant sends a number, it
-  is not written: it lives in Inventory. What it can declare from outside is
+- **Nor is the stock quantity.** Even if your assistant sends a number, it is
+  not written: it lives in Inventario. What it can declare from outside is
   *whether* the product is stock-tracked.
-- **The products synced from a store are read, not edited.**
+- **The price scale** stays as it is if the assistant does not mention it, and
+  is deleted if you ask it to remove it.
 
 Phrases that work:
 
 - *"List my catalog before writing anything, so as not to duplicate."*
 - *"Raise the price of the Polo oversize de algodón pima to 89 soles. Read its
   record first and send the whole row back with that single change."*
-- *"Set the Combo Verano to inactive: read its record, change only that and send
-  the complete row back."*
-- *"Open three of the ones you have just uploaded and show me the price and the
-  currency of each variant."*
+- *"Set the Combo Verano to inactive: read its record, change only that and
+  send the complete row back."*
+- *"Open three of the ones you just uploaded and show me the price and currency
+  of each variant."*
 
 <Tip>
 That last phrase matters. In the listing, the price you see is **the cheapest**
-among the variants and the code is the one from that same variant, so a batch
-that uploaded the wrong currency on a single variant **can look correct from a
+among the variants and the code is that same variant's, so a batch that
+uploaded the wrong currency on a single variant **can look correct from a
 distance**.
 </Tip>
 

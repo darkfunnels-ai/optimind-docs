@@ -1,64 +1,109 @@
 ---
 title: "Créditos y recarga"
-description: "Qué gasta saldo, cuánto te dura, qué pasa exactamente cuando llegas a cero y cómo recargar desde el panel."
+description: "Qué gasta saldo en DarkFunnels, cuánto te dura, qué pasa si se acaba, cómo recargar o activar la auto-recarga y dónde ver tu consumo día a día."
 ---
 
 Los créditos son **dólares**: US\$ 1 de crédito = US\$ 1. No hay puntos, ni packs
 con equivalencias raras, ni caducidad mensual del saldo que compraste.
 
+<Note>
+**Dónde está.** En el menú de la izquierda, despliega **Administración** y, en
+el grupo **Dinero**, pulsa **Saldo y facturación**. También llegas con un clic
+en el chip **Saldo** de la barra superior. Tu saldo vive en la tarjeta
+**Créditos** de esa pantalla.
+
+Estas pantallas solo las ve quien tiene acceso al saldo y la facturación. Si no
+las encuentras en tu menú, pídele a quien administra tu cuenta que te encienda
+**Ver saldo y facturación** en **Personas y accesos**
+([Invita a tu equipo](/primeros-pasos/invita-a-tu-equipo#que-puede-ver-y-hacer-cada-persona)).
+</Note>
+
+<Frame caption="Saldo y facturación: lo que facturan tus apps este mes y, en la columna lateral, las tarjetas Suscripción y Créditos. Esta cuenta tiene la prueba vencida: por eso sale el aviso rojo de arriba.">
+  <img src="/images/saldo/01-saldo-y-facturacion.png" alt="Pantalla Saldo y facturación con el aviso «Tu prueba gratuita terminó», la factura de octubre en curso, la tabla de apps y las tarjetas Suscripción (prueba vencida, con «Activar suscripción») y Créditos (con «Recargar créditos» y la auto-recarga apagada)" />
+</Frame>
+
 ## De dónde salen los primeros
 
-{/* Cifra de producto: la fuente es billing.welcome_amounts() (migración z×187).
-    Si cambia allá, cambia aquí — estos docs son un deploy estático sin acceso a la BD. */}
+{/* Cifras de bienvenida y referido: un control automático las compara con el
+    producto. Si cambian allá, cambian aquí. */}
 
-Tu prueba trae **US\$10 de crédito y 7 días con hasta 5 agentes activos** —
-más **US\$25** si te registraste con un código de referido.
+Tu prueba trae **US\$ 10 de crédito y 7 días con hasta 5 agentes activos**. Si
+te registraste con un código de referido, recibes **US\$ 25** más cuando
+actives tu suscripción, no durante la prueba.
 
 Tu cuenta nace con **los US\$ 10 completos**, adelantados al registrarte para que
 armes y pruebes tu agente sin quedarte a medias. Al conectar tu WhatsApp **no
 llega saldo** —ya lo tienes entero—, pero sí arranca ahí el reloj de los 7 días
-y tu agente empieza a atender ese número. Si te registraste con un código de
-referido, tus **US\$ 25** llegan cuando actives tu suscripción. Lo cuenta
+y tu agente empieza a atender ese número. Lo cuenta
 [Conecta tu WhatsApp](/primeros-pasos/conecta-whatsapp).
 
 <Note>
-Los créditos de bienvenida se otorgan **una sola vez por cuenta**, de por vida.
-Desconectar y reconectar el canal no los duplica ni los quita.
+Los créditos de bienvenida se dan **una sola vez por empresa**. Desconectar y
+reconectar el canal no los duplica ni los quita. Si trabajas con varias
+empresas desde la misma cuenta, cada empresa tiene **su propio saldo** y su
+propia bienvenida.
 </Note>
 
 ## Qué consume saldo
 
-Lo que consume es **el trabajo de la IA**, y se mide de verdad: no hay tarifa
-plana por mensaje ni redondeos a tu favor ni al nuestro.
+Lo que consume es **el trabajo de la IA**, y se mide por uso real: no hay una
+tarifa plana por mensaje.
+
+**Con tus clientes:**
 
 - **Cada turno que responde tu agente** — lo que lee del hilo y lo que escribe.
   Una conversación larga cuesta más que un «¿cuánto cuesta?» respondido en una
   línea.
 - **Los audios que transcribe**, por segundo de audio.
 - **Las fotos que interpreta** cuando un cliente manda una imagen.
-- **Los documentos que lee** al montar el contexto de tu producto.
-- **La generación de embudos y las propuestas del manual**, cada vez que las
-  pides.
+- **Los videos que te mandan**: la IA mira algunos fotogramas y transcribe su
+  audio.
+- **Las notas de voz y los videos del avatar** que genera tu agente, salvo que
+  uses tu propia llave del proveedor de voz o de video.
+- **Cada conversación que contesta Responder con IA** desde la bandeja.
 
-Lo que **no** consume: tener la sesión de WhatsApp conectada, ni usar el panel.
-El gasto lo genera la IA cuando trabaja, no el hecho de estar dado de alta.
+**En el panel:**
+
+- **El copiloto**, también cuando te guía con **Guíame** o te ayuda a armar tu
+  agente. Lo use quien lo use: el copiloto de las personas de tu equipo
+  descuenta del mismo saldo de la empresa.
+- **Los botones de IA**, los que llevan el destello ✦: por ejemplo **✦ Redactar
+  un capítulo con IA** (en un manual vacío) y los arreglos de texto del manual
+  (**Estructurar en pasos**, **Acortar sin perder datos**, **Extraer
+  condiciones**). En un chat
+  que atiendes tú, **Lectura de la IA** y el destello junto al cuadro de texto
+  que te propone respuestas (**Recomendar respuesta**).
+- **La memoria del agente**: cuando un archivo de la Librería tiene **memoria
+  del agente** encendida, la IA lo lee y lo prepara para que tu agente lo
+  consulte.
+- **La generación de embudos** cuando la pides.
+- Y algunos trabajos de la IA que corren solos, en segundo plano, sobre tus
+  conversaciones.
+
+**Tener WhatsApp conectado no gasta**, y abrir el panel para mirar tus
+pantallas tampoco. El gasto lo genera la IA cuando trabaja.
 
 ## Cuánto te cuesta cada conversación
 
-La unidad que de verdad importa no es el token, es la conversación. Por eso la
-tarjeta de créditos de **Saldo y facturación** te lo traduce con tus propios
+Lo que gasta la IA se mide en *tokens* (los pedacitos de texto que lee y
+escribe), pero la unidad que de verdad te sirve es la conversación. Por eso la
+tarjeta **Créditos** de **Saldo y facturación** te lo traduce con tus propios
 datos: *«Este mes, cada conversación te costó ~US\$ 0.15»*, seguido de cuántas
 conversaciones iniciaron tus agentes este mes y cuánto consumieron entre todos.
 
 Es un **promedio del mes en curso**, no una tarifa: sale de dividir lo que
-consumieron tus agentes entre las conversaciones que iniciaron, y es el mismo
-número que ves en el Inicio como **Costo por conversación**. Mientras no haya
-conversaciones en el mes, la tarjeta te lo dice en vez de inventar una cifra.
+consumieron tus agentes entre las conversaciones que iniciaron. Es la misma
+cuenta que el **Costo por conversación** del Inicio (allí, para el periodo que
+elijas arriba). Si algún agente no se pudo medir, la línea lo confiesa con un
+*«sobre N de M agentes»*. Y mientras no haya conversaciones en el mes, la
+tarjeta te lo dice en vez de inventar una cifra.
 
 <Tip>
-Si el promedio te parece alto, casi siempre son conversaciones largas o muchos
-audios: el manual decide cuánto habla tu agente, y un guion que cierra en
-menos pasos también cuesta menos.
+Si el promedio te parece alto, mira qué lo sube: conversaciones largas, muchos
+audios y las notas de voz o videos del avatar que genera tu agente (estos dos
+no gastan saldo si usas tu propia llave del proveedor). El manual decide
+cuánto habla tu agente, y un guion que cierra en menos pasos también cuesta
+menos.
 </Tip>
 
 ## Cuánto te dura
@@ -66,79 +111,354 @@ menos pasos también cuesta menos.
 Depende de cuántas conversaciones tengas y de lo largas que sean, así que
 cualquier número que pusiéramos aquí sería mentira para alguien.
 
-El panel te lo dice con tus datos: en **Saldo y facturación**, la tarjeta de
-créditos proyecta *«A tu ritmo de consumo, el saldo dura ~N días»* usando tu
-consumo real del mes. Es la única cifra en la que conviene fiarse.
+El panel te lo dice con tus datos: la tarjeta **Créditos** proyecta *«A tu
+ritmo de consumo, el saldo dura ~N días»* usando tu consumo real del mes, que
+ves justo debajo (por ejemplo, *«Consumo de octubre»*). Es la cifra en la que
+conviene fiarse.
+
+Esa línea cambia según el caso:
+
+| Lo que ves | Qué significa |
+| --- | --- |
+| **Proyección disponible a partir del día 3.** | Es muy pronto en el mes para calcular un ritmo. |
+| **Más de 90 días a tu ritmo actual.** | Te sobra saldo para rato. |
+| **Sin consumo este mes: tu saldo no está bajando.** | Este mes todavía no se gastó saldo. |
+| **Sin saldo disponible.** | No hay nada que proyectar: recarga. |
+
+## Ver en qué se fue tu saldo
+
+En **Administración → Dinero → Consumo** está el detalle. La pantalla se titula
+**Consumo de tokens** y muestra **lo que gasta la IA día a día**, con el
+detalle de cada llamada.
+
+<Frame caption="Consumo: el gasto de cada día (aquí, septiembre de 2026), con el filtro Todas · Ventas · Copiloto y la unidad en dólares o en tokens.">
+  <img src="/images/saldo/03-consumo.png" alt="Pantalla Consumo de tokens de septiembre de 2026 con las cuatro cifras del periodo (gasto, tokens, promedio diario y día pico), la gráfica de barras diaria, los filtros de app y de unidad y el botón «Ver eventos»" />
+</Frame>
+
+- **Arriba eliges el periodo.** La gráfica y las cifras siguen esa elección.
+- **Todas · Ventas · Copiloto** te deja ver aparte lo que gastó el copiloto.
+- **Con Ventas elegido**, si el gasto viene de más de un embudo, aparece un
+  selector para mirar uno solo (por defecto, **Todos los embudos**).
+- **US\$ · Tokens** cambia la unidad de la gráfica.
+- Las cifras del periodo: **Gasto del período**, **Tokens del período**, el
+  promedio y el pico (**Promedio diario** y **Día pico** cuando la gráfica va
+  por días).
+- **Ver eventos** abre la tabla de auditoría: una fila por cada llamada al
+  modelo, con **fecha**, **modelo**, **app**, **tokens** y **precio**. Muestra
+  las 200 más recientes y es de solo lectura.
+
+<Tip>
+Si un día se dispara, filtra por **Ventas** y por embudo para ver qué agente
+fue, y luego revisa sus conversaciones de ese día.
+</Tip>
 
 ## Qué pasa cuando llegas a cero
 
 <Warning>
-Al quedarte sin saldo **tus agentes dejan de responder turnos nuevos**. Las
-conversaciones no se borran y el número sigue conectado: simplemente nadie
-contesta hasta que recargues.
+Al quedarte sin saldo **tus agentes dejan de responder turnos nuevos**, y el
+copiloto también se detiene. Las conversaciones no se borran y el número sigue
+conectado: tu agente no contesta hasta que recargues, pero tú sí puedes
+responder desde la bandeja.
 </Warning>
+
+Mientras tanto:
+
+- **Los mensajes que te escriban se guardan** y los ves en la bandeja.
+- **Los audios, fotos y videos que lleguen entran sin transcribir ni
+  describir.**
+- **Los botones de IA del panel también se detienen**, y el copiloto te
+  contesta *«Tu cuenta no tiene saldo disponible. Recarga créditos para seguir
+  usando el copiloto.»*
+- **Algunos trabajos en segundo plano siguen y siguen gastando**, por ejemplo
+  transcribir los audios de tu Librería. Por eso tu saldo puede quedar en
+  negativo aunque tu agente ya esté callado. El aviso rojo te lo recuerda:
+  *«Tus apps y los trabajos en segundo plano siguen activos, y su cargo
+  estimado sigue corriendo.»* Lo que quede en negativo se descuenta de tu
+  próxima recarga.
+- **Te llega un WhatsApp** cuando un cliente escribe y tu agente no puede
+  contestar. No llega uno por cada mensaje: por lo general se repite una vez al
+  día por agente. Dice *«⚠️ optiMind: tu cuenta se quedó sin saldo suficiente
+  para responder…»* y va a los números que tengas en **Alertas de error** de tu
+  agente ([Configuración del agente](/guias/configuracion-del-agente#alertas-de-error)).
+  Si no tienes números ahí, ese aviso no te llega.
 
 <Warning>
 **Lo que sí se pierde: el turno que no se respondió.** Los mensajes que te
 escriban mientras estás sin saldo **se guardan y los ves en la bandeja**, pero
 no quedan en una cola: al recargar, tu agente **no contesta lo atrasado**.
 Retoma con el siguiente mensaje que escriba ese cliente. Si nadie vuelve a
-escribir, nadie recibe respuesta — por eso conviene recargar antes, y revisar a
-mano lo que entró mientras tanto.
+escribir, nadie recibe respuesta — por eso conviene recargar antes.
 </Warning>
+
+**Para ponerte al día después de recargar**, en la bandeja activa la vista
+**Esperando respuesta**: junta a los clientes cuyo último mensaje quedó sin
+contestar. Respóndeles tú o, si arriba de la lista ves **Seleccionar**, elige
+varios y pulsa **Responder con IA**: la IA les contesta de a uno por minuto, de
+8:00 a 21:00 en la hora de tu agente (lo que caiga fuera sale al día
+siguiente). Se salta a quien escribió hace más de 7 días y los chats con el
+piloto apagado, y cada tanda te pide aceptar antes un aviso sobre el riesgo de
+que WhatsApp banee tu número. Lo cuenta
+[Conversaciones](/guias/conversaciones#responder-con-ia-a-quien-quedo-esperando).
+
+### Los avisos, antes y durante el corte
 
 El corte no espera al US\$ 0 exacto: tu agente se queda mudo cuando el saldo baja
 de **US\$ 0,10**, así que puedes ver un resto en pantalla y tenerlo callado igual.
-Por eso el panel distingue tres avisos, y cada uno dice la verdad de su número:
+Por eso el panel usa varios avisos, y cada uno te explica qué pasa con el saldo
+que ves en pantalla:
 
-| Aviso | Qué pasó |
-| --- | --- |
-| **Saldo insuficiente** | Te queda algo, pero menos de lo que cuesta un turno. |
-| **Saldo agotado** | Llegaste a cero. |
-| **Saldo en deuda** | El saldo quedó en negativo. Tu próxima recarga descuenta la deuda automáticamente. |
+| Aviso | Color | Qué pasó |
+| --- | --- | --- |
+| **Saldo bajo** | Ámbar | Te quedan menos de US\$ 5 y tu agente todavía responde. Si ya hay datos del mes, te dice en cuántos días se agota a tu ritmo. |
+| **Saldo insuficiente** | Rojo | Te queda algo, pero menos de lo que cuesta responder un mensaje. |
+| **Saldo agotado** | Rojo | Tu saldo está en US\$ 0. |
+| **Saldo en deuda** | Rojo | El saldo quedó en negativo: algo costó más de lo que quedaba (un último turno largo o un trabajo en segundo plano, como transcribir un audio de la Librería). Tu próxima recarga descuenta la deuda automáticamente. |
 
-El chip **Saldo** de la barra superior se pone ámbar cuando queda poco y rojo
-cuando el agente ya no responde: es el aviso que verás primero, sin entrar a
-ninguna pantalla.
+Los avisos rojos salen arriba de **Saldo y facturación** y también en el
+**Inicio**, con un botón **Recargar créditos** que abre directo la ventana de
+recarga. El ámbar sale en **Saldo y facturación**; mientras estás en la prueba,
+ese lugar lo ocupa el aviso de los días que te quedan.
+
+El chip **Saldo** de la barra superior lleva un punto de color según tu saldo:
+verde cuando alcanza, ámbar con poco saldo y rojo cuando ya no alcanza para que
+tu agente responda. Es el aviso que verás primero, sin entrar a otra pantalla.
+
+Ojo: el punto mira tu saldo, no tu prueba. Si tu prueba terminó, puede seguir
+verde aunque tu agente no conteste; ese aviso lo ves en **Saldo y
+facturación**.
+
+<Frame caption="El chip Saldo de la barra superior, aquí con el punto verde: su punto de color te avisa antes que cualquier pantalla, y un clic te lleva a Saldo y facturación.">
+  <img src="/images/inicio/02-barra-superior.png" alt="Barra superior del panel con «Agentes contratados 0», el chip Saldo con su punto verde, el buscador, el copiloto y los botones de la derecha" />
+</Frame>
+
+**Y por correo:** si no tienes la auto-recarga encendida, cuando tu saldo baja
+le llega al correo del dueño de la cuenta **«Tu saldo de créditos está bajo»**,
+con un botón para recargar y otro para configurar la auto-recarga. En la
+prueba, solo llega si ya conectaste tu WhatsApp. Fuera de la prueba, la línea
+de aviso se adapta a tu ritmo: si gastas mucho al
+día, te avisa con unos 3 días de margen. No se repite mientras tu saldo no se
+recupere.
 
 ## Cómo recargar
 
 <Steps>
-  <Step title="Entra a Saldo y facturación">
-    En el menú lateral, bloque **Administración → Dinero**. O pulsa el chip
-    **Saldo** de la barra superior, que lleva al mismo sitio.
+  <Step title="Abre la ventana «Recargar créditos»">
+    En **Saldo y facturación**, pulsa **Recargar créditos** en la tarjeta
+    **Créditos**. Si te sale un aviso rojo de saldo (aquí o en el Inicio), su
+    botón **Recargar créditos** abre la misma ventana directamente.
   </Step>
-  <Step title="Pulsa «Recargar créditos»">
-    Se abre el selector de paquetes: **US\$ 20, 50, 100 o 200**. Elige y
-    confirma. Todo se paga **en dólares, con tarjeta**.
+  <Step title="Pulsa «Comprar» en el pack que quieras">
+    Hay cuatro: **Recarga US\$ 20**, **Recarga US\$ 50**, **Recarga US\$ 100** y
+    **Recarga US\$ 200**. Cada uno da exactamente esos dólares en créditos y
+    tiene su propio botón **Comprar**.
+
+    <Frame caption="La ventana «Recargar créditos»: un botón Comprar por pack y, abajo, cómo se va a cobrar (aquí, sin tarjeta guardada: se paga en el widget seguro de Culqi).">
+      <img src="/images/saldo/02-recargar.png" alt="Ventana Recargar créditos con los paquetes de 20, 50, 100 y 200 dólares, cada uno con su botón Comprar, y la nota «Pagas en el widget seguro de Culqi; tu tarjeta queda guardada para tus próximos cobros.»" />
+    </Frame>
+
+    <Warning>
+    **Si ya tienes una tarjeta guardada, «Comprar» cobra en el acto**, sin
+    abrir nada más ni pedirte otra confirmación. La nota al pie de la ventana
+    te lo recuerda: *«Se cobra a tu tarjeta guardada…»*. Mira bien el pack
+    antes de pulsar.
+    </Warning>
+
+    Si todavía no tienes tarjeta guardada, se abre la ventana de pago segura
+    de la pasarela para que escribas los datos de tu tarjeta. Esa tarjeta queda
+    guardada para tus próximos cobros.
   </Step>
-  <Step title="Paga con tarjeta">
-    El cobro va por la pasarela; tu tarjeta queda guardada para las próximas
-    recargas, que se cobran al instante sin volver a escribirla. El saldo se
-    acredita en el momento y lo verás en el historial como un movimiento
-    **Recarga** con su referencia.
+  <Step title="Revisa el recibo">
+    Cuando el cobro pasa se abre el recibo **Recarga acreditada**: **Pago
+    completado**, el total, **Pagado con** (la tarjeta), **Fecha** y el **N.º
+    de operación**. Tu saldo y el chip **Saldo** suben al instante.
+
+    Además te llega el recibo por correo. **Guárdalo**: en **Saldo y
+    facturación** no aparece una lista de tus recargas pasadas.
   </Step>
 </Steps>
 
+La recarga en línea se paga **con tarjeta, en dólares**. Si necesitas pagar de
+otra forma, escríbenos por WhatsApp y lo resolvemos contigo.
+
 <Tip>
-Recarga **antes** de quedarte en cero. Mientras el saldo está agotado tu agente
-no contesta, y una venta que no se respondió a tiempo cuesta bastante más que
-US\$ 10.
+Recarga **antes** de quedarte sin saldo. Mientras está agotado tu agente no
+contesta, y una venta que no se respondió a tiempo cuesta bastante más que la
+recarga más chica. La forma de no tener que acordarte es la auto-recarga.
 </Tip>
 
-Si el pago no sale o los paquetes no cargan, el propio panel te ofrece
-**Contactar al equipo** por WhatsApp y lo aplicamos a mano.
+## Auto-recarga
+
+La auto-recarga **compra un pack sola cuando tu saldo baja de un umbral que tú
+eliges**. Es la mejor protección contra el agente mudo.
+
+<Note>
+**Qué necesitas:** una **tarjeta guardada** (queda guardada al activar tu
+suscripción o al hacer una recarga con tarjeta) y una **suscripción activa**.
+Durante la prueba todavía no se puede encender: al guardarla te dirá que
+necesitas una suscripción activa.
+</Note>
+
+<Steps>
+  <Step title="Busca el bloque «Auto-recarga»">
+    Está al final de la tarjeta **Créditos**, en **Saldo y facturación**. Sin
+    tarjeta guardada, el interruptor sale bloqueado con el aviso *«Guarda una
+    tarjeta primero…»*.
+  </Step>
+  <Step title="Enciende el interruptor y pon tu umbral">
+    En **Cuando el saldo baje de (US\$)** escribe el monto que dispara la
+    recarga. Tiene que ser mayor que 0.
+  </Step>
+  <Step title="Elige el pack">
+    En **Recargar este pack**, elige cuál se compra cada vez.
+  </Step>
+  <Step title="Pulsa «Guardar auto-recarga»">
+    Si todo está en orden verás *«Auto-recarga actualizada.»*. Para apagarla,
+    baja el interruptor y vuelve a pulsar **Guardar auto-recarga**.
+  </Step>
+</Steps>
+
+Cómo funciona por dentro, para que no te sorprenda:
+
+- **Cuando tu saldo baja del umbral**, en los minutos siguientes se cobra el
+  pack a tu **tarjeta principal** y el saldo sube. Te llega el recibo por correo
+  (**«Autorecarga de créditos ejecutada»**).
+- **Se dispara como máximo una vez cada 24 horas**, aunque el cobro falle. Por
+  eso conviene un umbral con margen y un pack que te dure más de un día: si
+  gastas más de un pack al día, la auto-recarga no te alcanza sola.
+- **Si el banco rechaza tu tarjeta principal** y tienes una **tarjeta de
+  respaldo**, se le cobra a esa en el acto. La agregas en la tarjeta **Métodos
+  de pago → Agregar tarjeta de respaldo**.
+- **Si el banco rechaza el cobro** (y también la de respaldo, si la tienes), no
+  se te cobra nada y te llega el correo **«Tu auto-recarga de créditos no se pudo
+  procesar»**. Si tu saldo sigue bajo el umbral, el siguiente intento llega
+  pasadas las 24 horas.
+- **Si tu suscripción deja de estar activa** —por ejemplo, porque la
+  renovación falló tres veces y quedó en pago vencido—, la auto-recarga deja de
+  dispararse.
 
 ## Prueba, suscripción y saldo son tres cosas distintas
 
 Conviene no mezclarlas:
 
 - **La prueba** son 7 días con hasta 5 agentes activos. Cuando termina, tus
-  agentes dejan de responder turnos nuevos aunque te sobre saldo.
+  agentes y el copiloto dejan de responder aunque te sobre saldo. Recargar no
+  los reactiva: hace falta suscribirte.
 - **La suscripción** es lo que te devuelve los agentes activos cuando la prueba
-  termina.
+  termina, y la que habilita la auto-recarga.
 - **El saldo** es el combustible de la IA. Se gasta con el uso y se recarga
   cuando quieras, tengas prueba o suscripción.
 
 Tu saldo comprado **no caduca** al acabar la prueba: sigue ahí cuando te
-suscribas.
+suscribas. Cuánto cuesta la suscripción y qué parte vuelve a ti como saldo lo
+explica [Planes y precios](/primeros-pasos/planes-y-precios).
+
+## Invita a otros negocios y gana créditos
+
+<Note>
+**No es la Red de referidos.** Este programa es para que **otros negocios** se
+suscriban a DarkFunnels con tu código. La
+[Red de referidos](/guias/red-de-referidos) es otra cosa: el programa para que
+**tus clientes** te traigan clientes.
+</Note>
+
+Está en **Administración → Plataforma → Referidos**, y la ve quien tiene acceso
+al saldo. Comparte tu link; cuando un negocio se registra con él y **activa su
+suscripción**:
+
+- **él recibe US\$ 25 de crédito**;
+- **tú ganas US\$ 15 de crédito** por ese pago y por cada renovación suya, hasta
+  **6 cobros**. Da igual de qué tamaño sea su suscripción.
+
+Si deja de pagar, deja de generar premios; si vuelve, la cuenta sigue donde se
+quedó hasta completar los 6.
+
+<Frame caption="Referidos: tu código, el link para compartir, las cuatro cifras y la tabla Tus referidos, aquí todavía vacía.">
+  <img src="/images/saldo/05-referidos-darkfunnels.png" alt="Pantalla Referidos con el código de referido «MODASOL1», el link para compartir con «Copiar link» y «Copiar solo el código», las cuatro cifras en cero y la tabla Tus referidos vacía («Aún no tienes referidos…»)" />
+</Frame>
+
+Lo que ves en la pantalla:
+
+- **Tu código de referido** y el **Link para compartir**, con **Copiar link** y
+  **Copiar solo el código**. El link lleva directo al registro con tu código ya
+  puesto.
+- Cuatro cifras: **Referidos**, **Pagando**, **Agentes activos** y **Ganado en
+  créditos**.
+- La tabla **Tus referidos**: cada negocio con su estado —**Registrado** (no está
+  pagando), **Suscrito** (está pagando) o **Completado** (ya te premió los 6
+  cobros)—, lo que ganaste con él y la columna **premiados**, que cuenta los
+  cobros premiados, por ejemplo *2/6 cobros*.
+
+Te llega un correo cuando alguien se registra con tu link y otro cada vez que
+se te acreditan tus US\$ 15. Estos créditos son saldo para la IA dentro de
+DarkFunnels: no se canjean por dinero ni se reembolsan.
+
+## Si algo falla
+
+<AccordionGroup>
+  <Accordion title="Tengo saldo y mi agente no responde">
+    Revisa en este orden:
+
+    1. **¿Te sale «Saldo insuficiente»?** Con menos de US\$ 0,10 el agente ya no
+       contesta, aunque veas un resto en pantalla.
+    2. **¿Terminó tu prueba?** Sin suscripción el agente no responde aunque te
+       sobre saldo; recargar no lo arregla.
+    3. **¿El agente está en pausa, o el piloto está apagado en ese chat?** En
+       pausa, tu agente no responde a nadie; con el piloto apagado, ese chat lo
+       atiende una persona.
+    4. **¿Tu WhatsApp sigue conectado?** Míralo en
+       [Problemas frecuentes](/primeros-pasos/conecta-whatsapp#problemas-frecuentes).
+  </Accordion>
+  <Accordion title="Pulsé «Comprar» y salió un error del banco">
+    El banco rechazó el cobro y **no se te cobró nada**. El motivo sale en la
+    ventana y además te llega por correo. Vuelve a intentarlo: a veces el banco
+    rechaza por seguridad y el segundo intento pasa. Si sigue fallando, cambia
+    la tarjeta en **Métodos de pago → Cambiar tarjeta**, o escríbenos si
+    necesitas pagar de otra forma.
+  </Accordion>
+  <Accordion title="Dice «el cobro se realizó pero la acreditación quedó pendiente»">
+    **No vuelvas a pagar.** El cobro salió y el saldo se acredita solo en unos
+    minutos. Si después de un rato no lo ves, escríbenos.
+  </Accordion>
+  <Accordion title="La ventana dice que el pago en línea no está habilitado, o no muestra packs">
+    Abajo aparece **Contactar al equipo →**: te lleva a nuestro WhatsApp y
+    aplicamos la recarga a mano.
+  </Accordion>
+  <Accordion title="No puedo guardar la auto-recarga">
+    Si te dice *«necesitas una suscripción activa para usar la autorecarga»*,
+    todavía estás en la prueba o tu suscripción no está activa. Si el
+    interruptor sale bloqueado, te falta guardar una tarjeta. Y revisa que el
+    umbral sea mayor que 0 y que hayas elegido un pack.
+  </Accordion>
+  <Accordion title="La auto-recarga no recargó">
+    Lo más común es una de estas: ya se disparó en las últimas 24 horas, el
+    banco rechazó la tarjeta (te habrá llegado el correo de que no se pudo
+    procesar), tu suscripción ya no está activa o el pack que elegiste ya no
+    está a la venta (vuelve a elegir uno en **Recargar este pack** y pulsa
+    **Guardar auto-recarga**). Ten en cuenta que el cobro sale unos minutos
+    después de que el saldo cruza el umbral. Mientras lo resuelves, recarga a
+    mano.
+  </Accordion>
+  <Accordion title="Recargué y mi agente no contestó a los que escribieron antes">
+    Es lo esperado: lo atrasado no se contesta solo. Usa la vista **Esperando
+    respuesta** de la bandeja y respóndeles tú o con **Responder con IA**, si lo
+    tienes. Más arriba, en esta misma página, está cómo ponerte al día.
+  </Accordion>
+  <Accordion title="La tarjeta Créditos dice que el saldo y el último movimiento no coinciden">
+    Es un chequeo de cuadre: compara tu saldo con el último movimiento
+    registrado. Si el aviso *«estamos conciliando»* no desaparece, escríbenos.
+  </Accordion>
+</AccordionGroup>
+
+Para escribirnos, usa el botón **Ayuda** de la barra superior →
+**Escríbenos por WhatsApp**.
+
+## Y ahora
+
+<CardGroup cols={2}>
+  <Card title="Planes y precios" icon="tag" href="/primeros-pasos/planes-y-precios">
+    La prueba, la suscripción y qué parte de ella vuelve a ti como saldo.
+  </Card>
+  <Card title="Las conversaciones" icon="comments" href="/guias/conversaciones">
+    La bandeja, la vista Esperando respuesta y cómo tomar tú un chat.
+  </Card>
+</CardGroup>

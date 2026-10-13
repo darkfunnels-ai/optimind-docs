@@ -36,7 +36,8 @@
               "primeros-pasos/tu-primer-agente",
               "primeros-pasos/conecta-whatsapp",
               "primeros-pasos/creditos-y-recarga",
-              "primeros-pasos/planes-y-precios"
+              "primeros-pasos/planes-y-precios",
+              "primeros-pasos/invita-a-tu-equipo"
             ]
           },
           {
@@ -44,10 +45,13 @@
             "pages": [
               "guias/manual",
               "guias/herramientas",
+              "guias/configuracion-del-agente",
               "guias/catalogo",
               "guias/libreria",
               "guias/conversaciones",
               "guias/pedidos-y-metricas",
+              "guias/red-de-referidos",
+              "guias/tus-embudos",
               "guias/pixel-de-meta",
               "guias/anuncios-de-meta"
             ]
@@ -97,7 +101,8 @@
               "en/getting-started/your-first-agent",
               "en/getting-started/connect-whatsapp",
               "en/getting-started/credits-and-top-ups",
-              "en/getting-started/pricing"
+              "en/getting-started/pricing",
+              "en/getting-started/invite-your-team"
             ]
           },
           {
@@ -105,10 +110,13 @@
             "pages": [
               "en/guides/sales-playbook",
               "en/guides/tools",
+              "en/guides/agent-settings",
               "en/guides/catalog",
               "en/guides/library",
               "en/guides/conversations",
               "en/guides/orders-and-metrics",
+              "en/guides/referral-network",
+              "en/guides/your-funnels",
               "en/guides/meta-pixel",
               "en/guides/meta-ads"
             ]
