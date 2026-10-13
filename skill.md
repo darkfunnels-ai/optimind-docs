@@ -108,7 +108,7 @@ Full reference: [Connection URL](https://docs.darkfunnels.ai/en/reference/connec
 
 ## What the tools cover
 
-62 tools in 14 feature groups. Every tool declares a `title` and the
+64 tools in 14 feature groups. Every tool declares a `title` and the
 applicable `readOnlyHint` / `destructiveHint`, so a client can show the owner
 what it is about to do. **Tool titles and descriptions are written in
 Spanish** on purpose: that text is what the connector sends verbatim to the
@@ -116,16 +116,16 @@ model, refined against real operational failures with Spanish-speaking owners.
 
 | Group | What it does |
 |---|---|
-| `core` (always on) | `whoami`, `get_connection_company` (the company and permissions the connection acts with), `list_agents`, `get_agent_settings`, `get_agent_variables`, `get_whatsapp_status`, `get_credit_balance`, `search_docs` (searches this documentation and returns the passages with their links), `get_funnel_template`, `get_agent_overview` (one-call snapshot of an agent), `get_setup_checklist` (what is still missing to go live), `list_agent_tools` (the exact mention grammar of the agent's own tools), `get_manual_tutorial` (the step-by-step script for writing a playbook with the owner), `report_unsupported_request` |
+| `core` (always on) | `whoami`, `get_connection_company` (the company and permissions the connection acts with), `list_agents`, `get_agent_settings`, `get_agent_variables`, `get_whatsapp_status`, `get_credit_balance`, `search_docs` (searches this documentation and returns the passages with their links), `get_funnel_template`, `get_agent_overview` (one-call snapshot of an agent), `get_setup_checklist` (what is still missing to go live), `get_account_digest` (what happened since a date: new chats, sales, pending replies, WhatsApp lines with problems, balance and the judge's top findings, urgent first), `list_agent_tools` (the exact mention grammar of the agent's own tools), `get_manual_tutorial` (the step-by-step script for writing a playbook with the owner), `report_unsupported_request` |
 | `manual` / `manual_write` | Read the playbook chapters and version history, lint the live playbook or a draft without saving (`lint_manual`); save chapters in one batch, write ONE chapter at a time (`write_funnel_chapter`), restore a version, apply a whole funnel, edit the shared context block |
 | `catalog` / `catalog_write` | List and read products; create/update products in bulk, delete a product |
 | `conversations` | List chats, read a thread, list customers (CRM), the 360° customer profile (`get_client_profile`), explain one agent turn — model, cost, tools it ran (`explain_turn`), create and assign tags |
-| `metrics` | AI usage, and sales results (`get_agent_scorecard`) for the whole company or one funnel over any period — today, yesterday, last 7/30/90 days, week, month, year or explicit dates; the same calculation as the dashboard's Results screen |
+| `metrics` | AI usage, and sales results (`get_agent_scorecard`) for the whole company or one funnel over any period — today, yesterday, last 7/30/90 days, week, month, year or explicit dates; the same calculation as the dashboard's Results screen. Where the agent loses sales (`get_quality_report`): the quality judge's findings by type — purchase ignored, price without a number, unanswered question… — against the previous period, each with a link that opens the exact message in the dashboard |
 | `library` | Upload files and link them to agents, read the text of a file (`extract_library_file_text`; images are read with vision and consume credits) |
 | `operations` | Send an operator message, switch a chat between AI and manual, schedule reminders, delete a tag |
 | `manual_ai` | Optimize playbook chapters with AI (`optimize_manual`: returns suggestions, saves nothing; consumes credits) |
 | `testing` | Simulate conversations (agent turns consume credits). `simulate_new_chat`, and `simulate_inbound_message` on a real chat, **send real WhatsApp messages**; `simulate_open_chat` opens the dashboard test chat, where nothing goes out over WhatsApp |
-| `orders` | Read orders and stock |
+| `orders` | Read orders and stock (stock can be filtered by product) |
 | `copilot` | Ask the in-product copilot (consumes credits) |
 | `agents_write` | Create or duplicate a sales agent, change its settings, pause or resume it, edit or toggle its persona. Creating, duplicating and resuming take a subscription seat (fails closed at the limit); pausing frees it |
 
