@@ -10,7 +10,7 @@ keywords:
   - "WhatsApp sales automation script"
 ---
 
-{/* es-source: guias/manual.mdx @ 3d56a79 */}
+{/* es-source: guias/manual.mdx @ 6acb23f */}
 
 The playbook is your agent's script. It is not internal documentation: it is
 what your agent obeys, word for word, every time a customer writes. The screen
@@ -178,8 +178,8 @@ take turns.
   **Buscar en el manual** (*Search the playbook*) or **Ver archivos** (*See
   files*), and it goes away when you click **Ya lo revisé** (*I've reviewed
   it*). See [Your funnels](/en/guides/your-funnels).
-- **«Faltan N huecos…»** (*N placeholders missing…*), with **Ayúdame a
-  rellenarlo** (*Help me fill it in*). Only in a funnel born from the Ecommerce
+- **«Faltan N datos por completar…»** (*N details left to complete…*), with
+  **Ayúdame a completarlo** (*Help me complete it*). Only in a funnel born from the Ecommerce
   template: [its section](#a-playbook-born-from-the-ecommerce-template) covers
   it.
 - **The copilot's proposals** waiting for your decision: see
@@ -216,7 +216,7 @@ On a computer, left to right:
 | **Cambios medidos** (*Measured changes*) | Every change you saved, with the week before and the week after. With unsaved changes it shrinks to just its icon, or hides if the bar has no room, until you save or discard. |
 | **Recursos** (*Resources*) | The drawer with the agent's files, tools, variables and chapters. |
 | **Datos** (*Data*) | The playbook's links, prices, phone numbers and exact phrases, all together. |
-| **Huecos** (*Placeholders*) | Only in a funnel born from the Ecommerce template, and while it has placeholders left: it carries the number of placeholders to fill and opens their panel. |
+| **Por completar** (*To complete*) | Only in a funnel born from the Ecommerce template, and while it has placeholders left: it carries the number of placeholders to fill and opens their panel. |
 | **Doctor** | The playbook's problems, with their fix. It carries the number of errors and warnings on top. |
 | **Probar** (*Test*) | A test chat with your agent, next to the document. |
 | **Guía** (*Guide*) | Opens this guide in another tab. |
@@ -327,7 +327,7 @@ buttons, and the **⋯** holds the rest:
 - In the **⋯** menu: **«Ver como lo recibe el agente»** (*See it as the agent
   receives it*), **«✦ Reescribir el capítulo»** (*Rewrite the chapter*),
   **«Probar desde aquí»** (*Test from here*; it starts the test chat at that
-  chapter), **«Ayúdame a rellenarlo»** (*Help me fill it in*; only in a
+  chapter), **«Ayúdame a completarlo»** (*Help me complete it*; only in a
   template funnel, if that chapter has placeholders left) and **«Eliminar
   capítulo»** (*Delete chapter*; read [Deleting a chapter](#deleting-a-chapter)
   before using it).
@@ -369,7 +369,7 @@ Also:
 - **«1×»** marks the chapters that run only once.
 - **«vacío»** (*empty*) marks those with no lines of their own (only the §
   sections apply to them).
-- **«N huecos»** (*N placeholders*) marks, in a funnel from the Ecommerce
+- **«N por completar»** (*N to complete*) marks, in a funnel from the Ecommerce
   template, the chapters and sections that still have placeholders to fill.
 
 ### Collapsing chapters
@@ -1180,7 +1180,7 @@ the change to the playbook's text, like everything, waits for **«Guardar
 cambios»**. Your own details are informational: they do not add to the button's
 number.
 
-### The fill-in blanks
+### The blanks the agent fills in
 
 At the end, the Doctor lists separately the **text in square brackets** that
 your agent completes when writing, like `[nombre si lo da]` (*[name if they
@@ -1191,8 +1191,8 @@ the button's number.
 <Note>
 **The «EN_MAYÚSCULAS» (*IN_CAPITALS*) placeholders are something else**, the
 `«PRECIO_1»` kind (in capitals, with an underscore and inside angle quotes).
-Those are counted by the «Faltan N huecos» notice, the index and the **Huecos**
-panel, only in a funnel born from the Ecommerce template. In any funnel, **the
+Those are counted by the «Faltan N datos por completar» notice, the index and
+the **Por completar** panel, only in a funnel born from the Ecommerce template. In any funnel, **the
 line that contains one of those placeholders does not reach your agent**: it is
 left out entirely, without warning. If you see one in another playbook, replace
 it with the real data or delete the sentence.
@@ -1203,26 +1203,26 @@ it with the real data or delete the sentence.
 If your funnel was born from the Ecommerce template (from the setup of a sales
 funnel, or with **Cargar plantilla de Ecommerce**), the playbook brings a shared
 block and three chapters — Saludo, En venta and Pedido confirmado (*Greeting,
-Selling, Order confirmed*) — with **placeholders** (*huecos*) of the
+Selling, Order confirmed*) — with **placeholders** (*datos por completar*) of the
 `«PRODUCTO_MARCA»` kind where what belongs to your business goes. The editor
 paints them amber, and above the document a notice says how many are missing:
-*«Faltan N huecos: X en el bloque y Y en los capítulos»* (*N placeholders
-missing: X in the block and Y in the chapters*).
+*«Faltan N datos por completar: X en el bloque y Y en los capítulos»* (*N
+details left to complete: X in the block and Y in the chapters*).
 
 All of this also applies if in the setup you chose **Armar mi flujo desde 0**
 (*Build my flow from scratch*): it brings the same block and the same three
 chapters, but with the chapters' steps blank.
 
-<Frame caption="A playbook from the template: the «Faltan 20 huecos» (20 placeholders missing) notice at the top, the placeholders marked in the text and counted in the index, and the «Huecos» (Placeholders) button (here just the icon and the 20) in the bar.">
-  <img src="/images/agente/02-manual-con-huecos.png" alt="Playbook of a funnel born from the Ecommerce template with the notice Faltan 20 huecos: 16 en el bloque y 4 en los capítulos (20 placeholders missing: 16 in the block and 4 in the chapters) and the Ayúdame a rellenarlo (Help me fill it in) button, placeholders such as «HORAS_SEGUIMIENTO_1» and «PRODUCTO_QUE_ES» marked in the text, each chapter's placeholders in the index, the Huecos (Placeholders) button with the 20 in the bar and the copilot open on the right" />
+<Frame caption="A playbook from the template: the «Faltan 20 datos por completar» (20 details left to complete) notice at the top, the placeholders marked in the text and counted in the index, and the «Por completar» (To complete) button with the 20 in the bar.">
+  <img src="/images/agente/02-manual-con-huecos.png" alt="Playbook of a funnel born from the Ecommerce template with the notice Faltan 20 datos por completar: 16 en el bloque y 4 en los capítulos (20 details left to complete: 16 in the block and 4 in the chapters) and the Ayúdame a completarlo (Help me complete it) button, placeholders such as «HORAS_SEGUIMIENTO_1» and «PRODUCTO_QUE_ES» marked in the text, each chapter's placeholders in the index, the Por completar (To complete) button with the 20 in the bar and the Recursos (Resources) panel open on the right" />
 </Frame>
 
-### The Huecos (Placeholders) panel
+### The Por completar (To complete) panel
 
-The **Huecos** button in the bar opens a panel with each placeholder once, in
+The **Por completar** button in the bar opens a panel with each placeholder once, in
 the playbook's order: first the shared block and then each chapter.
 
-- **Type the data and click «Rellenar en N sitios»** (*Fill in N places*): the
+- **Type the data and click «Completar en N sitios»** (*Complete in N places*): the
   placeholder changes everywhere it appears (the block counts once, even though
   the three chapters share it).
 - **File placeholders** (`«ARCHIVO_PRECIOS»`, `«ARCHIVO_PRODUCTO»`…) are not
@@ -1234,7 +1234,7 @@ the playbook's order: first the shared block and then each chapter.
 
 ### Letting the copilot help
 
-**«Ayúdame a rellenarlo»** (*Help me fill it in*), next to the placeholders
+**«Ayúdame a completarlo»** (*Help me complete it*), next to the placeholders
 notice (or in the ⋯ menu of a chapter with placeholders), opens the copilot and
 sends it the request in your name: you will see it as a message from you. The
 copilot reads your playbook, first asks you for the product files, asks you one

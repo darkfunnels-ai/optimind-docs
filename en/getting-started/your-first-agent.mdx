@@ -10,7 +10,7 @@ keywords:
   - "WhatsApp agent onboarding"
 ---
 
-{/* es-source: primeros-pasos/tu-primer-agente.mdx @ 2c41ee6 */}
+{/* es-source: primeros-pasos/tu-primer-agente.mdx @ 716d464 */}
 
 An agent is **a salesperson**: it has a name it introduces itself with, a way of
 speaking and a script. To get started you don't need a blank page: **you tell
@@ -176,14 +176,14 @@ too, and they're filled in the same way.
 
 **Filling in the placeholders is your next task**, and it's done in the Manual.
 The placeholders are highlighted in the text, and above the document a notice
-tells you how many are missing (*«Faltan N huecos…»* — *N placeholders
-missing…*).
+tells you how many are missing (*«Faltan N datos por completar…»* — *N details
+left to complete…*).
 
-<Frame caption="The notice at the top counts the placeholders that are missing (here, 20: 16 in the block and 4 in the chapters); the «Huecos» (Placeholders) button, which in this bar shows as a tag with the number, lists them so you can fill them in.">
-  <img src="/images/agente/02-manual-con-huecos.png" alt="Playbook of a funnel born from the template, with the notice «Faltan 20 huecos: 16 en el bloque y 4 en los capítulos» (20 placeholders missing: 16 in the block and 4 in the chapters) and the «Ayúdame a rellenarlo» (Help me fill it in) button, placeholders such as «HORAS_SEGUIMIENTO_1» highlighted in the text, the index with each chapter's placeholders, the placeholders button with the 20 in the bar, the Recursos (Resources) panel open with an unused PDF, and the copilot open on the right" />
+<Frame caption="The notice at the top counts the placeholders that are missing (here, 20: 16 in the block and 4 in the chapters); the «Por completar» (To complete) button, with the number next to it, lists them so you can fill them in.">
+  <img src="/images/agente/02-manual-con-huecos.png" alt="Playbook of a funnel born from the template, with the notice «Faltan 20 datos por completar: 16 en el bloque y 4 en los capítulos» (20 details left to complete: 16 in the block and 4 in the chapters) and the «Ayúdame a completarlo» (Help me complete it) button, placeholders such as «HORAS_SEGUIMIENTO_1» highlighted in the text, the index with each chapter's placeholders, the Por completar (To complete) button with the 20 in the bar, and the Recursos (Resources) panel open on the right with an unused PDF" />
 </Frame>
 
-- **The «Huecos» (*Placeholders*) button** in the bar lists them one by one. You
+- **The «Por completar» (*To complete*) button** in the bar lists them one by one. You
   type the detail once and it goes into every place where it appears.
 - **File placeholders** (the price image, the product photo) aren't typed: you
   pick one of the files your agent can send, that is, the ones that have **send
@@ -191,7 +191,7 @@ missing…*).
   [Library](/en/guides/library) (or the ones you uploaded from the playbook's
   **«Recursos»** (*Resources*) panel). If you don't have it, **«No tengo este
   archivo»** (*I don't have this file*) removes it from the playbook.
-- **«Ayúdame a rellenarlo»** (*Help me fill it in*), next to the notice, asks the
+- **«Ayúdame a completarlo»** (*Help me complete it*), next to the notice, asks the
   copilot for help: it first asks you for your product's files, asks you one
   question at a time and proposes the changes for you to approve.
 - What you fill in by hand is saved when you press **«Guardar cambios»** (*Save
@@ -220,7 +220,7 @@ rewrite the script it asks you to open it on the computer.
   item.
 
 <Frame caption="While the playbook is incomplete, Channels tells you what's missing before showing you the QR code: here, 20 placeholders and the payment and shipping details still unconfirmed.">
-  <img src="/images/agente/03-antes-de-conectar.png" alt="The card of the agent «Sofía - Venta de Polos de algodón pima» in Canales (Channels), «Sin número conectado» (No number connected), with the «Antes de conectar:» (Before connecting:) block: «20 huecos (ver)» (20 placeholders, see) and «Datos de pago y envío sin confirmar (confirmar)» (Payment and shipping details unconfirmed, confirm)" />
+  <img src="/images/agente/03-antes-de-conectar.png" alt="The card of the agent «Sofía - Venta de Polos de algodón pima» in Canales (Channels), «Sin número conectado» (No number connected) and «Todavía no podemos generar tu código QR.» (We can't generate your QR code yet.), with the «Antes de conectar:» (Before connecting:) block: «20 datos por completar (ver)» (20 details to complete, see) and «Datos de pago y envío sin confirmar (confirmar)» (Payment and shipping details unconfirmed, confirm)" />
 </Frame>
 
 As long as a placeholder is still unfilled, the line that contains it **doesn't
@@ -381,8 +381,9 @@ You'll also find it in the copilot's **«Sesiones»** (*Sessions*) tab: right be
     Your PDF catalog, the flyer, the price list and the photos are uploaded in
     the **Library** (*Librería*), and there you decide which ones it can send
     over WhatsApp. If your funnel was born from the template, upload them and
-    switch on **send via WhatsApp** before filling in the file placeholders:
-    the Placeholders panel only offers you the files your agent can send.
+    switch on **send via WhatsApp** before choosing the template's files: the
+    «Por completar» (*To complete*) panel only offers you the files your agent
+    can send.
     [The file library](/en/guides/library).
   </Step>
   <Step title="Connect your WhatsApp">
@@ -497,7 +498,7 @@ versions.
 - **«Probar» is switched off in my playbook** — in a template funnel, Probar
   waits until chapter 1 and the PRODUCTO and PRECIOS Y PROMOCIONES sections have
   no placeholders. The notice at the top of the playbook tells you how many are
-  left, and **«Huecos»** lists them.
+  left, and **«Por completar»** (*To complete*) lists them.
 - **Channels shows me «Antes de conectar:» instead of the QR code** — your
   playbook still has placeholders to fill in, steps missing in some chapter or
   the payment and shipping details unconfirmed. Placeholders and chapters are

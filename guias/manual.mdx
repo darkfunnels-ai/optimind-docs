@@ -153,7 +153,7 @@ otras se turnan.
   cuenta y que todavía trae datos suyos. Te ofrece **Completar en Ajustes**,
   **Buscar en el manual** o **Ver archivos**, y se va cuando pulsas **Ya lo
   revisé**. Ver [Tus embudos](/guias/tus-embudos).
-- **«Faltan N huecos…»**, con **Ayúdame a rellenarlo**. Solo en un embudo
+- **«Faltan N datos por completar…»**, con **Ayúdame a completarlo**. Solo en un embudo
   nacido de la plantilla de Ecommerce: lo cuenta
   [su sección](#un-manual-nacido-de-la-plantilla-de-ecommerce).
 - **Las propuestas del copiloto** que esperan tu decisión: ver
@@ -190,7 +190,7 @@ En computadora, de izquierda a derecha:
 | **Cambios medidos** | Cada cambio que guardaste, con la semana de antes y la de después. Con cambios sin guardar se queda en solo el icono, o se esconde si la barra no tiene sitio, hasta que guardes o descartes. |
 | **Recursos** | El cajón con los archivos, herramientas, variables y capítulos del agente. |
 | **Datos** | Los enlaces, precios, teléfonos y frases exactas del manual, todos juntos. |
-| **Huecos** | Solo en un embudo nacido de la plantilla de Ecommerce, y mientras le queden huecos: lleva el número de huecos por rellenar y abre su panel. |
+| **Por completar** | Solo en un embudo nacido de la plantilla de Ecommerce, y mientras le queden datos por completar: lleva cuántos faltan y abre su panel. |
 | **Doctor** | Los problemas del manual, con su arreglo. Lleva encima el número de errores y avisos. |
 | **Probar** | Un chat de prueba con tu agente, junto al documento. |
 | **Guía** | Abre esta guía en otra pestaña. |
@@ -297,8 +297,8 @@ capítulo aparecen dos botones cortos más, y el **⋯** guarda el resto:
   ✦ IA.
 - En el menú **⋯**: **«Ver como lo recibe el agente»**, **«✦ Reescribir el
   capítulo»**, **«Probar desde aquí»** (arranca el chat de prueba en ese
-  capítulo), **«Ayúdame a rellenarlo»** (solo en un embudo de la plantilla, si
-  a ese capítulo le quedan huecos) y **«Eliminar capítulo»** (mira
+  capítulo), **«Ayúdame a completarlo»** (solo en un embudo de la plantilla, si
+  a ese capítulo le quedan datos por completar) y **«Eliminar capítulo»** (mira
   [Borrar un capítulo](#borrar-un-capitulo) antes de usarlo).
 
 En pantallas táctiles no hay «pasar el ratón»: los botones se ven fijos.
@@ -337,8 +337,8 @@ Además:
 - **«1×»** marca los capítulos que se ejecutan una sola vez.
 - **«vacío»** marca los que no tienen líneas propias (solo les aplican las
   secciones §).
-- **«N huecos»** marca, en un embudo de la plantilla de Ecommerce, los
-  capítulos y secciones a los que les quedan huecos por rellenar.
+- **«N por completar»** marca, en un embudo de la plantilla de Ecommerce, los
+  capítulos y secciones a los que les quedan datos por completar.
 
 ### Plegar capítulos
 
@@ -1082,7 +1082,7 @@ Ojo con el orden: **el dato se crea en Configuración al pulsar**, pero el
 cambio del texto del manual, como todo, espera a **«Guardar cambios»**. Los
 datos propios son informativos: no suman en el número del botón.
 
-### Los huecos de relleno
+### Los espacios que completa el agente
 
 Al final, el Doctor lista aparte el **texto entre corchetes** que tu agente
 completa al escribir, como `[nombre si lo da]`. No es un error ni hay nada que
@@ -1090,11 +1090,12 @@ arreglar: solo se listan por si alguno debería ser una variable de verdad. No
 cuentan en el número del botón.
 
 <Note>
-**Otra cosa son los huecos «EN_MAYÚSCULAS»** del estilo `«PRECIO_1»` (en
-mayúsculas, con guion bajo y entre comillas angulares). Esos los cuentan el
-aviso «Faltan N huecos», el índice y el panel **Huecos**, solo en un embudo
-nacido de la plantilla de Ecommerce. En cualquier embudo, **la línea que
-contiene uno de esos huecos no le llega a tu agente**: se queda fuera entera,
+**Otra cosa son los datos por completar «EN_MAYÚSCULAS»** del estilo
+`«PRECIO_1»` (en mayúsculas, con guion bajo y entre comillas angulares). Esos
+los cuentan el aviso «Faltan N datos por completar», el índice y el panel
+**Por completar**, solo en un embudo nacido de la plantilla de Ecommerce. En
+cualquier embudo, **la línea que contiene uno de esos datos no le llega a tu
+agente**: se queda fuera entera,
 sin aviso. Si en otro manual ves uno, cámbialo por el dato real o borra la
 frase.
 </Note>
@@ -1104,28 +1105,29 @@ frase.
 Si tu embudo nació de la plantilla de Ecommerce (desde la puesta en marcha de un
 embudo de venta, o con **Cargar plantilla de Ecommerce**), el manual trae un
 bloque compartido y tres capítulos —Saludo, En venta y Pedido confirmado— con
-**huecos** del estilo `«PRODUCTO_MARCA»` donde va lo que es de tu negocio. El
-editor los pinta en ámbar, y arriba del documento un aviso dice cuántos faltan:
-*«Faltan N huecos: X en el bloque y Y en los capítulos»*.
+**datos por completar** del estilo `«PRODUCTO_MARCA»` donde va lo que es de tu
+negocio. El editor los pinta en ámbar, y arriba del documento un aviso dice
+cuántos faltan: *«Faltan N datos por completar: X en el bloque y Y en los
+capítulos»*.
 
 Todo esto vale también si en la puesta en marcha elegiste **Armar mi flujo
 desde 0**: trae el mismo bloque y los mismos tres capítulos, pero con los pasos
 de los capítulos en blanco.
 
-<Frame caption="Un manual de la plantilla: el aviso «Faltan 20 huecos» arriba, los huecos marcados en el texto y contados en el índice, y el botón Huecos (aquí solo el icono y el 20) en la barra.">
-  <img src="/images/agente/02-manual-con-huecos.png" alt="Manual de un embudo nacido de la plantilla de Ecommerce con el aviso Faltan 20 huecos: 16 en el bloque y 4 en los capítulos y el botón Ayúdame a rellenarlo, huecos como «HORAS_SEGUIMIENTO_1» y «PRODUCTO_QUE_ES» marcados en el texto, los huecos de cada capítulo en el índice, el botón Huecos con el 20 en la barra y el copiloto abierto a la derecha" />
+<Frame caption="Un manual de la plantilla: el aviso «Faltan 20 datos por completar» arriba, los datos marcados en el texto y contados en el índice, y el botón Por completar con el 20 en la barra.">
+  <img src="/images/agente/02-manual-con-huecos.png" alt="Manual de un embudo nacido de la plantilla de Ecommerce con el aviso Faltan 20 datos por completar: 16 en el bloque y 4 en los capítulos y el botón Ayúdame a completarlo, datos como «HORAS_SEGUIMIENTO_1» y «PRODUCTO_QUE_ES» marcados en el texto, los que faltan en cada capítulo en el índice, el botón Por completar con el 20 en la barra y el panel Recursos abierto a la derecha" />
 </Frame>
 
-### El panel Huecos
+### El panel Por completar
 
-El botón **Huecos** de la barra abre un panel con cada hueco una sola vez,
+El botón **Por completar** de la barra abre un panel con cada dato una sola vez,
 ordenados como en el manual: primero el bloque compartido y después cada
 capítulo.
 
-- **Escribe el dato y pulsa «Rellenar en N sitios»**: el hueco se cambia en
+- **Escribe el dato y pulsa «Completar en N sitios»**: el dato se cambia en
   todos los lugares donde aparece (el bloque cuenta una vez, aunque lo compartan
   los tres capítulos).
-- **Los huecos de archivo** (`«ARCHIVO_PRECIOS»`, `«ARCHIVO_PRODUCTO»`…) no se
+- **Los de archivo** (`«ARCHIVO_PRECIOS»`, `«ARCHIVO_PRODUCTO»`…) no se
   escriben: eliges un archivo de tu **Librería** y queda su mención. Si no lo
   tienes, **«No tengo este archivo»** lo quita del manual.
 - Nada se escribe hasta que pulsas **«Guardar cambios»**, como cualquier otro
@@ -1133,8 +1135,8 @@ capítulo.
 
 ### Que el copiloto te ayude
 
-**«Ayúdame a rellenarlo»**, junto al aviso de huecos (o en el menú ⋯ de un
-capítulo con huecos), abre el copiloto y le manda el pedido en tu nombre: lo
+**«Ayúdame a completarlo»**, junto al aviso (o en el menú ⋯ de un capítulo
+con datos por completar), abre el copiloto y le manda el pedido en tu nombre: lo
 verás como un mensaje tuyo. El copiloto lee tu manual, te pide primero los
 archivos del producto, te hace una pregunta por vez y te propone los cambios
 para que los apruebes. Un cambio del bloque se aplica a los tres capítulos a la
@@ -1143,17 +1145,20 @@ vez.
 ### Cuándo puedes probar y conectar
 
 - **Probar** se enciende cuando el capítulo 1 y las secciones **PRODUCTO** y
-  **PRECIOS Y PROMOCIONES** del bloque ya no tienen huecos; mientras tanto, al
+  **PRECIOS Y PROMOCIONES** del bloque ya no tienen datos por completar;
+  mientras tanto, al
   pasar el ratón por el botón te dice cuántos faltan. Los capítulos 2 y 3
   pueden seguir en plantilla, y el aviso de arriba te lo recuerda.
-- **Conectar WhatsApp** pide tres cosas: ningún hueco, ningún capítulo sin
+- **Conectar WhatsApp** pide tres cosas: ningún dato por completar, ningún
+  capítulo sin
   pasos y los datos de pago, ubicación y envío confirmados. Mientras falte algo,
   el manual y la pantalla de Canales te muestran **«Antes de conectar:»** con
   lo que falta y un enlace a cada punto. Para confirmar, te enseñan esas tres
   secciones tal como quedaron y te piden un **«Sí, son correctos»**.
 
 <Note>
-**Un hueco no llega a tus clientes.** Mientras no lo rellenes, tu agente no lo
+**Un dato por completar no llega a tus clientes.** Mientras no lo completes, tu
+agente no lo
 recibe en sus instrucciones: la línea que lo contiene se queda fuera.
 </Note>
 
@@ -1164,7 +1169,7 @@ capítulo, el índice (o el manual vacío) te ofrece **Cargar plantilla de
 Ecommerce**, si la plantilla está disponible para ese embudo.
 
 <Steps>
-  <Step title="Rellena los tres datos">
+  <Step title="Completa los tres datos">
     **Nombre del vendedor**, si se presenta como **Asesora** o **Asesor**, y el
     **Producto**.
   </Step>
@@ -1219,7 +1224,8 @@ WhatsApp: la entrega se queda dentro del panel.
 **Probar** funciona también en el teléfono. Sale apagado sin un agente elegido,
 en un agente creado con el sistema antiguo (*«El chat de prueba solo está
 disponible para agentes nuevos»*), si el manual no tiene capítulos o, en un
-embudo de la plantilla, mientras queden huecos en el capítulo 1 o en las
+embudo de la plantilla, mientras queden datos por completar en el capítulo 1 o
+en las
 secciones PRODUCTO y PRECIOS Y PROMOCIONES del bloque.
 
 ## Borrar un capítulo
@@ -1306,7 +1312,7 @@ Además, desde el teléfono puedes **Probar** tu agente y **volver atrás un
 cambio** desde **Cambios medidos**.
 
 Para **reescribir el guion** —crear capítulos, cambiar los pasos, mover
-secciones— o **rellenar los huecos** de la plantilla hace falta una
+secciones— o **completar los datos** de la plantilla hace falta una
 computadora. El botón **«Enviármelo»** (en el manual vacío, **«💻 Enviármelo a
 la computadora»**) está ahí justamente para eso: abre el menú de compartir de tu
 teléfono, o copia el enlace, para que sigas en la pantalla grande.
@@ -1358,7 +1364,7 @@ teléfono, o copia el enlace, para que sigas en la pantalla grande.
   <Accordion title="«Probar» está apagado">
     Pasa el ratón por el botón: te dice por qué. Las causas son no tener un
     agente elegido, un agente del sistema antiguo, un manual sin capítulos o,
-    en un embudo de la plantilla, huecos sin rellenar en el capítulo 1 o en
+    en un embudo de la plantilla, datos por completar en el capítulo 1 o en
     PRODUCTO y PRECIOS Y PROMOCIONES.
   </Accordion>
   <Accordion title="En «Cambios medidos» no me deja volver atrás">

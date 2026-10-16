@@ -296,11 +296,11 @@ Poco. **Tres cosas**, en este orden:
 3. **Precio \***. Si está vacío o no es un número: *«Pon un precio válido.»*
 
 Todo lo demás —descripción, fotos, SKU, variantes, stock, embudos— es opcional
-y se puede rellenar después.
+y se puede completar después.
 
 <Note>
 **Con «Precios por cantidad» encendido, el precio obligatorio se muda.** El
-campo de arriba se bloquea y el que hay que rellenar pasa a ser la fila de **1
+campo de arriba se bloquea y el que hay que completar pasa a ser la fila de **1
 unidad** de la escala. El aviso también cambia: te pedirá el precio de 1
 unidad, no *«Pon un precio válido»*.
 
@@ -603,7 +603,7 @@ numerados.
 
 <Warning>
 **Quien manda es la columna «handle», no el nombre.** Es la clave de agrupación
-que la plantilla trae ya rellena (algo como `polo-oversize-de-algodon-pima-`
+que la plantilla trae ya puesta (algo como `polo-oversize-de-algodon-pima-`
 seguido de un código largo). **Todas las filas con el mismo handle son un solo
 producto.** Si copias una fila para crear otro producto y le dejas el mismo
 handle, no nace el producto que esperas: las dos filas se tratan como una
@@ -637,7 +637,7 @@ control, en la columna `track_inventory`.
 | `price_tiers` | La escala de precios por cantidad, como `1:79; 2:149; 3:209`. El tramo abierto va al final, como `6+:65`. Dejarla en blanco no la borra. |
 
 <Tip>
-**No hay botón de «Duplicar».** Si no quieres rellenar el formulario otra vez,
+**No hay botón de «Duplicar».** Si no quieres completar el formulario otra vez,
 el atajo es la plantilla: baja el archivo, copia las filas del producto,
 **bórrales el id y ponles a todas el mismo handle nuevo** (por ejemplo, el que
 traen con `-copia` al final), y vuelve a subirla. La copia llega **sin fotos**,
@@ -821,7 +821,7 @@ que el agente los consulte ahí.
 | Al subir el CSV, un producto se omite con **«el precio de la fila maestra no se aplica…»** | Pusiste `price` en la fila del producto y tiene variantes | Pon el precio en `variant_price` y deja `price` vacío |
 | **Subí el CSV y se mezclaron dos productos** | Repetiste el **handle** de otro | Para crear, id vacío y handle nuevo |
 | **Edité el stock en el CSV y no cambió nada** | Esa columna se exporta pero al importar se ignora | Regístralo en **Inventario** |
-| **«Infoproducto · ⚠️ sin entrega»** en la lista | No le pusiste ni archivo ni enlace de entrega | Ábrelo y rellena **Entrega automática** |
+| **«Infoproducto · ⚠️ sin entrega»** en la lista | No le pusiste ni archivo ni enlace de entrega | Ábrelo y completa **Entrega automática** |
 | **No sale en el desplegable** al registrar una venta | Lo vende otro agente, está inactivo o su precio es 0 | Cambia al agente que lo vende en el selector del menú (o márcalo también para este), actívalo o ponle un precio mayor que 0 |
 
 ## Lo mismo, desde tu asistente
