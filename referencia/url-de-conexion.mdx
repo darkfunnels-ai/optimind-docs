@@ -1,6 +1,6 @@
 ---
 title: "La URL de conexión"
-description: "Arma la URL que conecta Claude o ChatGPT a DarkFunnels: grupos de herramientas, solo lectura, teléfonos, agente fijo, permisos, empresa y límites."
+description: "Arma la URL que conecta Claude o ChatGPT a DarkFunnels: grupos de herramientas, solo lectura, teléfonos, embudo fijo, permisos, empresa y límites."
 ---
 
 <Note>
@@ -26,7 +26,7 @@ https://mcp.darkfunnels.ai/mcp
 ```
 
 Así, sin nada más, ya sirve para trabajar. Trae las **lecturas** de tu negocio
-—tus agentes, el manual, el catálogo, las conversaciones y los clientes— y tres
+—tus embudos, el manual, el catálogo, las conversaciones y los clientes— y tres
 escrituras menores: crear etiquetas de clientes, cambiar las etiquetas de un
 cliente y registrar una petición que tu asistente no pudo cumplir, que nos
 llega para construir lo que falta.
@@ -88,8 +88,8 @@ los interruptores de **Personas y accesos**.
 
 | Grupo | Qué trae | Acceso que pide |
 | --- | --- | --- |
-| `core` | La base: quién eres, en qué empresa trabaja la conexión, tus agentes con sus ajustes, su resumen y el estado de su WhatsApp, la puesta en marcha de tu cuenta, tu saldo y una ayuda rápida del producto (unos temas básicos, con su enlace al panel). Una escritura: registrar una petición que no pudo cumplir. | Lo de tus agentes, **Ventas**. El saldo, **Ver saldo y facturación**. Quién eres, la empresa, la ayuda rápida y el registro de peticiones no piden permiso de una app. |
-| `manual` | Leer el manual de tus agentes, su historial de versiones y revisarlo sin guardar. | **Ventas** |
+| `core` | La base: quién eres, en qué empresa trabaja la conexión, tus embudos con sus ajustes, su resumen y el estado de su WhatsApp, la puesta en marcha de tu cuenta, tu saldo y una ayuda rápida del producto (unos temas básicos, con su enlace al panel). Una escritura: registrar una petición que no pudo cumplir. | Lo de tus embudos, **Ventas**. El saldo, **Ver saldo y facturación**. Quién eres, la empresa, la ayuda rápida y el registro de peticiones no piden permiso de una app. |
+| `manual` | Leer el manual de tus embudos, su historial de versiones y revisarlo sin guardar. | **Ventas** |
 | `catalog` | Leer tus productos y la ficha de cada uno. | **Ventas** |
 | `conversations` | Leer conversaciones, la lista de clientes y la ficha de cada uno, y explicar qué hizo el agente en un turno. Dos escrituras: crear etiquetas y cambiar las de un cliente. | **Ventas** |
 
@@ -100,12 +100,12 @@ los interruptores de **Personas y accesos**.
 | `manual_write` | Guardar capítulos, escribir uno nuevo, editar el bloque compartido de todos los capítulos, restaurar una versión y aplicar un embudo completo. **Destructivas.** | **Ventas** |
 | `catalog_write` | Crear, editar y borrar productos. **Borrar es definitivo.** | **Ventas** |
 | `agents_write` | Crear o duplicar un embudo —**consume un cupo de tu suscripción**—, pausarlo o reanudarlo (reanudar vuelve a ocupar cupo), cambiar sus ajustes, editar la persona y encender o apagar su personalidad. | **Ventas** |
-| `library` | Ver, subir y leer archivos de la Librería, vincularlos a un agente (para enviarlos o para su memoria) o desvincularlos, y cambiar su condición de envío. Leer el texto de una imagen gasta créditos. | **Ventas** |
+| `library` | Ver, subir y leer archivos de la Librería, vincularlos a un embudo (para enviarlos o para la memoria de su agente) o desvincularlos, y cambiar su condición de envío. Leer el texto de una imagen gasta créditos. | **Ventas** |
 | `operations` | Responder como operador —**sale por WhatsApp de verdad**—, cambiar quién responde en un chat, ver, programar y cancelar recordatorios, y borrar una etiqueta de todos los clientes. | **Ventas** |
 | `manual_ai` | Optimizar el manual con IA. No guarda: devuelve sugerencias. Gasta créditos. | **Ventas** |
 | `testing` | Probar el agente. En el chat de prueba del panel no sale nada por WhatsApp; simular un mensaje en un chat real, o abrir uno nuevo con un número, **sí sale por WhatsApp de verdad**. Cada respuesta del agente gasta créditos. | **Ventas** |
 | `orders` | Leer pedidos y stock. Solo lectura. | Pedidos, **Órdenes**. Stock, **Inventario**. |
-| `metrics` | El consumo de IA por día y los resultados del agente por semana o mes. | El consumo, **Ver saldo y facturación**. Los resultados, **Ventas**. |
+| `metrics` | El consumo de IA por día y los resultados de tus embudos por semana o mes. | El consumo, **Ver saldo y facturación**. Los resultados, **Ventas**. |
 | `copilot` | Preguntarle al copiloto del panel. Gasta créditos. | **Copiloto** |
 
 <Warning>
@@ -174,7 +174,7 @@ mensajes, llegan tal cual.
 Que llegue tapado casi no estorba. Las herramientas que actúan sobre un chat lo
 buscan por la conversación, no por el número. Las que sí piden un número
 —simular un chat nuevo o cambiar las listas de números de los ajustes del
-agente— te lo piden a ti, y lo tecleas tú. Lo que pierdes es comodidad, en dos
+embudo— te lo piden a ti, y lo tecleas tú. Lo que pierdes es comodidad, en dos
 cosas: tu asistente no puede darte el número completo (en el panel sí lo ves),
 y aunque la búsqueda de clientes admite teléfono, un número tapado no sirve
 para buscar.
@@ -182,22 +182,22 @@ para buscar.
 Cualquier variante mal escrita, como `pii=FULL`, deja el teléfono tapado. Los
 detalles y el porqué, en [Seguridad](/seguridad).
 
-## `?agent=<uuid>` — fijar un agente
+## `?agent=<uuid>` — fijar un embudo
 
-Si tienes varios agentes de ventas, casi todas las herramientas necesitan saber
-de cuál hablas. Este parámetro deja uno como **agente por defecto** de la
-conexión, y tu asistente deja de preguntártelo. Con un solo agente no hace
-falta: se usa ese.
+Si tienes varios embudos, casi todas las herramientas necesitan saber de cuál
+hablas. Este parámetro deja uno como **embudo por defecto** de la conexión, y
+tu asistente deja de preguntártelo. Con un solo embudo no hace falta: se usa
+ese.
 
 ```
 https://mcp.darkfunnels.ai/mcp?features=all&agent=8f14e45f-ceea-467a-9c1d-2d4a6bcbb3f5
 ```
 
 El identificador te lo da tu propio asistente: pídele *«dame el identificador
-de mis agentes»*. Tiene que ir completo, con sus guiones. Si no tiene esa
-forma, se ignora sin avisar y tu asistente te vuelve a preguntar por el agente.
+de mis embudos»*. Tiene que ir completo, con sus guiones. Si no tiene esa
+forma, se ignora sin avisar y tu asistente te vuelve a preguntar por el embudo.
 
-Fijarlo no te encierra: si le pides expresamente otro agente, trabaja con ese.
+Fijarlo no te encierra: si le pides expresamente otro embudo, trabaja con ese.
 
 ## Lo que la URL no decide
 

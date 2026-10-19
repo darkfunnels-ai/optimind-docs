@@ -1,7 +1,7 @@
 ---
 title: "MCP connection URL parameters"
 sidebarTitle: "Connection URL"
-description: "Build the URL that connects Claude or ChatGPT to DarkFunnels: tool groups, read-only mode, phone numbers, a pinned agent, permissions, business and limits."
+description: "Build the URL that connects Claude or ChatGPT to DarkFunnels: tool groups, read-only mode, phone numbers, a pinned funnel, permissions, business and limits."
 keywords:
   - MCP connection URL parameters
   - features parameter
@@ -10,7 +10,7 @@ keywords:
   - MCP server URL
 ---
 
-{/* es-source: referencia/url-de-conexion.mdx @ b61d16b */}
+{/* es-source: referencia/url-de-conexion.mdx @ 3347bea */}
 
 <Note>
 This page is **optional and only applies if you connect your assistant**
@@ -39,7 +39,7 @@ https://mcp.darkfunnels.ai/mcp
 ```
 
 Like that, with nothing else, it already works. It brings your business's
-**reads** — your agents, the playbook, the catalog, the conversations and the
+**reads** — your funnels, the playbook, the catalog, the conversations and the
 customers — and three minor writes: creating customer tags, changing a
 customer's tags and logging a request your assistant couldn't fulfill, which
 reaches us so we can build what's missing.
@@ -104,8 +104,8 @@ of the switches in **Personas y accesos** ("People and access").
 
 | Group | What it brings | Access it requires |
 | --- | --- | --- |
-| `core` | The basics: who you are, which business the connection works in, your agents with their settings, their summary and the status of their WhatsApp, your account's setup, your balance and quick product help (a few basic topics, each with its link to the dashboard). One write: logging a request it couldn't fulfill. | Your agents' data, **Ventas** ("Sales"). The balance, **Ver saldo y facturación** ("See balance and billing"). Who you are, the business, the quick help and logging requests don't require any app permission. |
-| `manual` | Reading your agents' playbook, its version history and reviewing it without saving. | **Ventas** |
+| `core` | The basics: who you are, which business the connection works in, your funnels with their settings, their summary and the status of their WhatsApp, your account's setup, your balance and quick product help (a few basic topics, each with its link to the dashboard). One write: logging a request it couldn't fulfill. | Your funnels' data, **Ventas** ("Sales"). The balance, **Ver saldo y facturación** ("See balance and billing"). Who you are, the business, the quick help and logging requests don't require any app permission. |
+| `manual` | Reading your funnels' playbook, its version history and reviewing it without saving. | **Ventas** |
 | `catalog` | Reading your products and each one's detail sheet. | **Ventas** |
 | `conversations` | Reading conversations, the customer list and each customer's profile, and explaining what the agent did in a turn. Two writes: creating tags and changing a customer's tags. | **Ventas** |
 
@@ -116,12 +116,12 @@ of the switches in **Personas y accesos** ("People and access").
 | `manual_write` | Saving chapters, writing a new one, editing the block shared by all chapters, restoring a version and applying a complete funnel. **Destructive.** | **Ventas** |
 | `catalog_write` | Creating, editing and deleting products. **Deleting is permanent.** | **Ventas** |
 | `agents_write` | Creating or duplicating a funnel — **it uses up a slot in your subscription** —, pausing or resuming it (resuming takes up a slot again), changing its settings, editing the persona and switching its personality on or off. | **Ventas** |
-| `library` | Viewing, uploading and reading Library files, linking them to an agent (to send them or for its memory) or unlinking them, and changing their send trigger. Reading the text in an image spends credits. | **Ventas** |
+| `library` | Viewing, uploading and reading Library files, linking them to a funnel (to send them or for its agent's memory) or unlinking them, and changing their send trigger. Reading the text in an image spends credits. | **Ventas** |
 | `operations` | Replying as the operator — **it really goes out over WhatsApp** —, changing who replies in a chat, viewing, scheduling and cancelling reminders, and deleting a tag from all customers. | **Ventas** |
 | `manual_ai` | Optimizing the playbook with AI. It doesn't save: it returns suggestions. Spends credits. | **Ventas** |
 | `testing` | Testing the agent. In the dashboard's test chat nothing goes out over WhatsApp; simulating a message in a real chat, or opening a new one with a number, **does really go out over WhatsApp**. Each reply from the agent spends credits. | **Ventas** |
 | `orders` | Reading orders and stock. Read-only. | Orders, **Órdenes** ("Orders"). Stock, **Inventario** ("Inventory"). |
-| `metrics` | AI usage per day and the agent's results per week or month. | Usage, **Ver saldo y facturación**. Results, **Ventas**. |
+| `metrics` | AI usage per day and your funnels' results per week or month. | Usage, **Ver saldo y facturación**. Results, **Ventas**. |
 | `copilot` | Asking the dashboard's copilot. Spends credits. | **Copiloto** ("Copilot") |
 
 <Warning>
@@ -189,7 +189,7 @@ messages, arrive as they are.
 
 Having it masked hardly gets in the way. The tools that act on a chat find it by
 the conversation, not by the number. The ones that do ask for a number —
-simulating a new chat or changing the number lists in the agent's settings —
+simulating a new chat or changing the number lists in the funnel's settings —
 ask you for it, and you type it yourself. What you lose is convenience, in two
 ways: your assistant can't give you the full number (the panel does show it),
 and although customer search accepts a phone number, a masked number can't be
@@ -198,24 +198,24 @@ used to search.
 Any misspelled variant, like `pii=FULL`, leaves the phone masked. The details
 and the why, in [Security](/en/security).
 
-## `?agent=<uuid>` — pinning an agent
+## `?agent=<uuid>` — pinning a funnel
 
-If you have several sales agents, almost every tool needs to know which one you
-mean. This parameter sets one as the connection's **default agent**, and your
-assistant stops asking you. With a single agent you don't need it: that one is
+If you have several funnels, almost every tool needs to know which one you
+mean. This parameter sets one as the connection's **default funnel**, and your
+assistant stops asking you. With a single funnel you don't need it: that one is
 used.
 
 ```
 https://mcp.darkfunnels.ai/mcp?features=all&agent=8f14e45f-ceea-467a-9c1d-2d4a6bcbb3f5
 ```
 
-Your own assistant gives you the identifier: ask it *"give me my agents'
+Your own assistant gives you the identifier: ask it *"give me my funnels'
 identifiers"*. It has to be complete, with its hyphens. If it doesn't have that
-shape, it's ignored without warning and your assistant asks you about the agent
-again.
+shape, it's ignored without warning and your assistant asks you about the
+funnel again.
 
-Pinning it doesn't lock you in: if you expressly ask for another agent, it works
-with that one.
+Pinning it doesn't lock you in: if you expressly ask for another funnel, it
+works with that one.
 
 ## What the URL does not decide
 

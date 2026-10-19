@@ -10,7 +10,7 @@ keywords:
   - "WhatsApp sales automation script"
 ---
 
-{/* es-source: guias/manual.mdx @ 6acb23f */}
+{/* es-source: guias/manual.mdx @ 7b972ff */}
 
 The playbook is your agent's script. It is not internal documentation: it is
 what your agent obeys, word for word, every time a customer writes. The screen
@@ -27,7 +27,7 @@ first time.
 <Note>
 **Where it is.** Go to the dashboard at
 [optimind.darkfunnels.ai](https://optimind.darkfunnels.ai) and, in the
-left-hand menu, inside **Ventas** (*Sales*) → the **AGENTE** (*Agent*) block,
+left-hand menu, inside **Ventas** (*Sales*) → the **EMBUDO** (*Funnel*) block,
 click **Manual** (*Playbook*). (If you prefer to go straight there:
 `optimind.darkfunnels.ai/manual`.)
 
@@ -90,9 +90,9 @@ The chapter does not travel alone. Along with it, on every turn, go:
 This is the complete cycle. The rest of the page explains each step in detail.
 
 <Steps>
-  <Step title="Choose the agent">
-    In the left-hand menu, right below the **Ventas** heading, is the agent
-    selector: your agent's photo or initial and its name. Choose the agent
+  <Step title="Choose the funnel">
+    In the left-hand menu, right below the **Ventas** heading, is the funnel
+    selector: your funnel's photo or initial and its name. Choose the funnel
     whose playbook you want to change and click **Manual**.
   </Step>
   <Step title="Write the change">
@@ -124,19 +124,19 @@ This is the complete cycle. The rest of the page explains each step in detail.
 
 ## The first thing you see when you go in
 
-### If you have not chosen an agent yet: the sample view
+### If you have not chosen a funnel yet: the sample view
 
-With no agent selected, the Playbook loads a complete sample playbook, so you
+With no funnel selected, the Playbook loads a complete sample playbook, so you
 can see what a well-written one looks like. The top bar warns you: **«Vista de
-ejemplo · selecciona un agente para editar su manual»** (*Sample view · select
-an agent to edit its playbook*), and **Historial** (*History*), **Cambios
+ejemplo · selecciona un embudo para editar su manual»** (*Sample view · select
+a funnel to edit its playbook*), and **Historial** (*History*), **Cambios
 medidos**, **Datos** (*Data*), **Doctor**, **Probar** and the save button are
 grayed out.
 
-You are not editing anything of yours. Choose your agent in the selector of the
+You are not editing anything of yours. Choose your funnel in the selector of the
 left-hand menu, below **Ventas**, and the document is swapped for yours.
 
-### If your agent does not have a playbook yet
+### If your funnel does not have a playbook yet
 
 This screen appears when the playbook is left with no chapters (for example, if
 you delete the last one). It brings no explanations: only the ways out. On a
@@ -144,7 +144,7 @@ computer there are four:
 
 | Button | What it is for |
 | --- | --- |
-| **💬 Armarlo conversando** (*Build it by talking*) | Opens the copilot with this agent: it explains how the playbook works and the two of you build it chapter by chapter, by voice or in writing. |
+| **💬 Armarlo conversando** (*Build it by talking*) | Opens the copilot with this funnel: it explains how the playbook works and the two of you build it chapter by chapter, by voice or in writing. |
 | **📄 Cargar un manual de ejemplo** (*Load a sample playbook*) | A ready-made playbook you can edit on top of. In a sales funnel where the Ecommerce template can be loaded, **🛍️ Cargar plantilla de Ecommerce** (*Load the Ecommerce template*) appears in its place. |
 | **＋ Crear el primer capítulo en blanco** (*Create the first blank chapter*) | Start from scratch, by hand. |
 | **✦ Redactar un capítulo con IA** (*Draft a chapter with AI*) | You describe what you want and the AI drafts a chapter. You review the title and the instructions before accepting it. |
@@ -224,7 +224,7 @@ On a computer, left to right:
 | **Descartar cambios** (*Discard changes*) | Only appears if you have touched something. |
 | **Guardar cambios** (*Save changes*) | The button that writes the playbook to the server. |
 
-With no agent selected, **Historial**, **Cambios medidos**, **Datos**,
+With no funnel selected, **Historial**, **Cambios medidos**, **Datos**,
 **Doctor**, **Probar** and the save button are grayed out on purpose.
 
 <Note>
@@ -264,7 +264,7 @@ The whole index **does not appear on the phone**.
 
 Right at the top, the title **«Manual del agente»** (*Agent playbook*) and the
 sentence that sums up why it exists. Below it, the **persona** pill (with its
-photo or its initial, and its name) and, in agents created with the new system,
+photo or its initial, and its name) and, in funnels created with the new system,
 the **«Memoria a Largo Plazo (RAG)»** (*Long-Term Memory (RAG)*) button. Then
 the chapters begin, and after them the shared sections §.
 
@@ -491,7 +491,7 @@ does not use AI (see «A passage that goes out as-is», in
 [Sending a file from the script](#sending-a-file-from-the-script)) and, if the
 selection has a wrongly written tool, **«Arreglar herramienta»** (*Fix tool*).
 
-## Making the sales funnel advance
+## Making the conversation advance
 
 There are two ways for the conversation to move from one chapter to another.
 The usual one is **a mark inside the chapter's text**, written in the script's
@@ -525,8 +525,8 @@ chapter 4.)*
 **Writing it in prose is not reliable.** Your agent is instructed to use the
 advance tool only when the literal line asks it to. That is why, with «Avanza
 al capítulo 5» (*Advance to chapter 5*), «pasa al siguiente» (*go to the next
-one*) or «continúa» (*continue*), the usual outcome is that the funnel stays
-stuck in that chapter, with no visible error in the conversation. It is one of
+one*) or «continúa» (*continue*), the usual outcome is that the conversation
+stays stuck in that chapter, with no visible error. It is one of
 the most expensive and most silent failures. In the in-between chapters, the
 Doctor does detect it: **«El capítulo N no avanza a ningún capítulo»**
 (*Chapter N does not advance to any chapter*).
@@ -590,7 +590,7 @@ it says «se ejecuta cada vez», nothing is shown there.
 
 Type **`@`** on any line and the mentions menu opens, with up to seven groups:
 
-<Frame caption="The @ menu: each group is a kind of thing you can mention. This agent shows four: Herramientas (Tools), Variables, Capítulos (Chapters) and Envío (Sending).">
+<Frame caption="The @ menu: each group is a kind of thing you can mention. This funnel shows four: Herramientas (Tools), Variables, Capítulos (Chapters) and Envío (Sending).">
   <img src="/images/manual/02-menu-arroba.png" alt="The Playbook's @ menu with the search box and the groups Herramientas (Tools), Variables, Capítulos (Chapters) and Envío (Sending)" />
 </Frame>
 
@@ -678,7 +678,7 @@ them.
 <Note>
 Some dashboard messages say **«Ajustes»** where the menu says
 **«Configuración»**. Both mean *Settings*, and it is the same screen. The whole
-story: [Agent settings](/en/guides/agent-settings).
+story: [Funnel settings](/en/guides/funnel-settings).
 </Note>
 
 ## Sending a file from the script
@@ -808,7 +808,7 @@ your agent has available, in four tabs: **Archivos** (*Files*), **Herramientas**
 tells you whether each thing is **usado / sin usar en el manual** (*used /
 unused in the playbook*).
 
-<Frame caption="The «Recursos del agente» (Agent resources) drawer, docked to the playbook, on the Archivos (Files) tab: this agent has none yet.">
+<Frame caption="The «Recursos del agente» (Agent resources) drawer, docked to the playbook, on the Archivos (Files) tab: this funnel has none yet.">
   <img src="/images/libreria/09-manual-recursos.png" alt="Recursos del agente (Agent resources) panel with the tabs Archivos (Files), Herramientas (Tools), Variables and Capítulos (Chapters), the search box, the Subir (Upload) button, the notice Sin recursos de este tipo para el agente (No resources of this type for the agent) and the Gestionar en Librería (Manage in Library) link" />
 </Frame>
 
@@ -836,8 +836,8 @@ name, job title, face and voice. It is what makes it introduce itself as
 "Valentina, from Moda Sol" and not as a robot.
 </Note>
 
-A new agent is born with its persona already created and **active**, with a
-name and a tone. At the top of the playbook there is a pill with its photo (or
+A new funnel is born with its agent's persona already created and **active**,
+with a name and a tone. At the top of the playbook there is a pill with its photo (or
 its initial) and its name. If the agent has no active persona, the pill says
 so: **«No hay persona seleccionada»** (*No persona selected*).
 
@@ -862,8 +862,8 @@ personality and the context** of the active persona. The **face** and the
 **voice** are used by the avatar and the voice notes.
 
 <Note>
-**If you delete the agent, its persona is deleted with it**, unless another
-agent has it assigned. Personas you created by hand and did not assign to
+**If you delete the funnel, its persona is deleted with it**, unless another
+funnel has it assigned. Personas you created by hand and did not assign to
 anyone are not touched.
 </Note>
 
@@ -898,11 +898,11 @@ cambios» (*add our exchange policy to the memory*). The copilot adds a section
 to the document and saves it without asking for your approval. You will see it
 here, and you can edit it like any other.
 
-That button **only appears in agents created with the new system**. If your
-agent is an old one, you will not see it.
+That button **only appears in funnels created with the new system**. If your
+funnel is an old one, you will not see it.
 
 <Warning>
-**If your agent is deactivated**, the persona and the memory can be seen but
+**If your funnel is deactivated**, the persona and the memory can be seen but
 not changed: the **«Activar»** button comes up grayed out, **«Nueva persona»**
 does not appear and the memory says **«Solo lectura»** (*Read-only*) instead of
 Guardar.
@@ -975,12 +975,11 @@ afternoon; the same five in one save burn one.
 ## The History: rolling back
 
 The **Historial** button (on a computer) opens a window titled **«Historial del
-embudo»** (*Funnel history*; *embudo* = your agent, it is the same thing).
-There you see the saved versions, the **most recent** at the top, with when
-each one was saved and how many chapters it had.
+embudo»** (*Funnel history*). There you see the saved versions, the **most
+recent** at the top, with when each one was saved and how many chapters it had.
 
 <Frame caption="The «Historial del embudo» (Funnel history): each saved version with its date, how long ago it was saved and how many chapters it had. Here there is only one, the most recent.">
-  <img src="/images/manual/06-historial.png" alt="Historial del embudo (Funnel history) window with one version, 12 oct, 22:51, marked más reciente (most recent), hace 2 h · 3 capítulos (2 h ago · 3 chapters), and the note Se conservan las últimas 10 versiones por agente (The last 10 versions per agent are kept)" />
+  <img src="/images/manual/06-historial.png" alt="Historial del embudo (Funnel history) window with one version, 12 oct, 22:51, marked más reciente (most recent), hace 2 h · 3 capítulos (2 h ago · 3 chapters), and the note Se conservan las últimas 10 versiones por embudo (The last 10 versions per funnel are kept)" />
 </Frame>
 
 Choosing one opens the comparison: **Actual** (*Current*) against **Versión**
@@ -1280,11 +1279,11 @@ Ecommerce**, if the template is available for that funnel.
   </Step>
 </Steps>
 
-If the agent already serves a connected WhatsApp, it has to be paused first. If
-you click **Cargar plantilla** with the agent active, the template is not
-loaded and the window shows you **«Pausa el agente en Canales antes de cargar
-la plantilla.»** (*Pause the agent in Channels before loading the template.*),
-with the link **Ir a Canales** (*Go to Channels*).
+If that funnel's agent already serves a connected WhatsApp, the funnel has to be
+paused first. If you click **Cargar plantilla** with the funnel active, the
+template is not loaded and the window shows you **«Pausa el embudo en Canales
+antes de cargar la plantilla.»** (*Pause the funnel in Channels before loading
+the template.*), with the link **Ir a Canales** (*Go to Channels*).
 
 ## Testing the playbook
 
@@ -1326,10 +1325,10 @@ it does not count in **Resultados** (*Results*). And nothing goes out over
 WhatsApp: the delivery stays inside the dashboard.
 </Note>
 
-**Probar** also works on the phone. It comes up grayed out with no agent
-chosen, in an agent created with the old system (*«El chat de prueba solo está
-disponible para agentes nuevos»* — *The test chat is only available for new
-agents*), if the playbook has no chapters or, in a template funnel, while there
+**Probar** also works on the phone. It comes up grayed out with no funnel
+chosen, in a funnel created with the old system (*«El chat de prueba solo está
+disponible para embudos nuevos»* — *The test chat is only available for new
+funnels*), if the playbook has no chapters or, in a template funnel, while there
 are placeholders left in chapter 1 or in the block's PRODUCTO and PRECIOS Y
 PROMOCIONES sections.
 
@@ -1371,8 +1370,8 @@ Renumbering would leave those customers pointing at the wrong chapter. The
 Doctor warns you about the gap, but it does not "fix" it by itself.
 
 What is worth reviewing when you delete: who was naming that chapter. A mention
-of a chapter that no longer exists is rejected, and that is where the funnel
-stops.
+of a chapter that no longer exists is rejected, and that is where the
+conversation stops.
 </Note>
 
 ## Editing the playbook from Conversations
@@ -1441,12 +1440,12 @@ share menu, or copies the link, so you can carry on on the big screen.
     agent does not have them yet. Your agent (and **Probar** too) uses the
     **saved** playbook. Click **Guardar cambios** and test again.
   </Accordion>
-  <Accordion title="The funnel does not move on to the next chapter">
+  <Accordion title="The conversation does not move on to the next chapter">
     The first thing to check: an advance written in prose («pasa al siguiente»
     — *go to the next one*). Open the **Doctor**: if it says **«El capítulo N no
     avanza a ningún capítulo»**, in the final step type `@` → **Capítulos** and
     choose the destination. Also check that the destination chapter exists. See
-    [Making the sales funnel advance](#making-the-sales-funnel-advance).
+    [Making the conversation advance](#making-the-conversation-advance).
   </Accordion>
   <Accordion title="The file does not reach the customer">
     Hover over the file mention: if its dot is amber it is **paused**; if it is
@@ -1482,8 +1481,8 @@ share menu, or copies the link, so you can carry on on the big screen.
     draft was discarded.*)
   </Accordion>
   <Accordion title="«Probar» is grayed out">
-    Hover over the button: it tells you why. The causes are not having an agent
-    chosen, an agent from the old system, a playbook with no chapters or, in a
+    Hover over the button: it tells you why. The causes are not having a funnel
+    chosen, a funnel from the old system, a playbook with no chapters or, in a
     template funnel, unfilled placeholders in chapter 1 or in PRODUCTO and
     PRECIOS Y PROMOCIONES.
   </Accordion>
@@ -1587,7 +1586,7 @@ screen: see [What the copilot proposes to you](#what-the-copilot-proposes-to-you
   <Card title="The agent's tools" icon="wrench" href="/en/guides/tools">
     What each tool does, what data it asks for and how it is written in the playbook.
   </Card>
-  <Card title="Agent settings" icon="gear" href="/en/guides/agent-settings">
+  <Card title="Funnel settings" icon="gear" href="/en/guides/funnel-settings">
     The business details, the frequent numbers and the notices the playbook names.
   </Card>
   <Card title="The catalog" icon="tag" href="/en/guides/catalog">

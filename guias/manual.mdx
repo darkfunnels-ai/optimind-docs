@@ -14,7 +14,7 @@ conversación de cada cliente vive en uno solo a la vez.
 <Note>
 **Dónde está.** Entra al panel en
 [optimind.darkfunnels.ai](https://optimind.darkfunnels.ai) y, en el menú de la
-izquierda, dentro de **Ventas** → bloque **AGENTE**, pulsa **Manual**. (Si
+izquierda, dentro de **Ventas** → bloque **EMBUDO**, pulsa **Manual**. (Si
 prefieres ir directo: `optimind.darkfunnels.ai/manual`.)
 
 Y al revés: el botón **Guía** de la barra del Manual abre esta misma página en
@@ -74,10 +74,10 @@ El capítulo no viaja solo. Además le acompañan, en cada turno:
 Este es el ciclo completo. El resto de la página explica cada paso con detalle.
 
 <Steps>
-  <Step title="Elige el agente">
+  <Step title="Elige el embudo">
     En el menú de la izquierda, justo debajo del encabezado **Ventas**, está el
-    selector de agente: la foto o la inicial de tu agente y su nombre. Elige el
-    agente cuyo manual quieres cambiar y pulsa **Manual**.
+    selector de embudo: la foto o la inicial de tu embudo y su nombre. Elige el
+    embudo cuyo manual quieres cambiar y pulsa **Manual**.
   </Step>
   <Step title="Escribe el cambio">
     Haz clic en la línea que quieres cambiar y escribe. Para nombrar un archivo,
@@ -105,18 +105,18 @@ Este es el ciclo completo. El resto de la página explica cada paso con detalle.
 
 ## Lo primero que ves al entrar
 
-### Si aún no has elegido agente: la vista de ejemplo
+### Si aún no has elegido embudo: la vista de ejemplo
 
-Sin un agente seleccionado, el Manual carga un manual de muestra completo, para
+Sin un embudo seleccionado, el Manual carga un manual de muestra completo, para
 que veas cómo es uno bien escrito. La barra de arriba lo avisa: **«Vista de
-ejemplo · selecciona un agente para editar su manual»**, y **Historial**,
+ejemplo · selecciona un embudo para editar su manual»**, y **Historial**,
 **Cambios medidos**, **Datos**, **Doctor**, **Probar** y el de guardar salen
 apagados.
 
-No estás editando nada tuyo. Elige tu agente en el selector del menú de la
+No estás editando nada tuyo. Elige tu embudo en el selector del menú de la
 izquierda, debajo de **Ventas**, y el documento se cambia por el tuyo.
 
-### Si tu agente no tiene manual todavía
+### Si tu embudo no tiene manual todavía
 
 Esta pantalla aparece cuando el manual se queda sin capítulos (por ejemplo, si
 borras el último). No trae explicaciones: solo las salidas. En computadora son
@@ -124,7 +124,7 @@ cuatro:
 
 | Botón | Para qué |
 | --- | --- |
-| **💬 Armarlo conversando** | Abre el copiloto con este agente: te explica cómo funciona el manual y lo arman capítulo por capítulo, con voz o por escrito. |
+| **💬 Armarlo conversando** | Abre el copiloto con este embudo: te explica cómo funciona el manual y lo arman capítulo por capítulo, con voz o por escrito. |
 | **📄 Cargar un manual de ejemplo** | Un manual ya armado que puedes editar encima. En un embudo de venta donde se puede cargar la plantilla de Ecommerce, en su lugar sale **🛍️ Cargar plantilla de Ecommerce**. |
 | **＋ Crear el primer capítulo en blanco** | Empezar de cero, a mano. |
 | **✦ Redactar un capítulo con IA** | Describes lo que quieres y la IA redacta un capítulo. Revisas el título y las instrucciones antes de aceptarlo. |
@@ -198,7 +198,7 @@ En computadora, de izquierda a derecha:
 | **Descartar cambios** | Solo aparece si has tocado algo. |
 | **Guardar cambios** | El botón que escribe el manual en el servidor. |
 
-Sin agente seleccionado, **Historial**, **Cambios medidos**, **Datos**,
+Sin embudo seleccionado, **Historial**, **Cambios medidos**, **Datos**,
 **Doctor**, **Probar** y el de guardar están apagados a propósito.
 
 <Note>
@@ -238,7 +238,7 @@ El índice entero **no aparece en el teléfono**.
 
 Arriba del todo, el título **«Manual del agente»** y la frase que resume para
 qué existe. Debajo, la pastilla de la **persona** (con su foto o su inicial, y
-su nombre) y, en los agentes creados con el sistema nuevo, el botón
+su nombre) y, en los embudos creados con el sistema nuevo, el botón
 **«Memoria a Largo Plazo (RAG)»**. Después empiezan los capítulos, y detrás las
 secciones compartidas §.
 
@@ -447,7 +447,7 @@ pasaje que salga tal cual», en
 [Mandar un archivo desde el guion](#mandar-un-archivo-desde-el-guion)) y, si la
 selección tiene una herramienta mal escrita, **«Arreglar herramienta»**.
 
-## Hacer que el embudo avance
+## Hacer que la conversación avance
 
 Hay dos formas de que la conversación pase de un capítulo a otro. La habitual
 es **una marca dentro del texto del capítulo**, escrita en las líneas del guion.
@@ -474,9 +474,9 @@ Si el cliente acepta la recomendación, Llama a la herramienta advance_chapter c
 <Warning>
 **Escribirlo en prosa no es fiable.** Tu agente tiene orden de usar la
 herramienta de avanzar solo cuando la línea literal se lo pide. Por eso, con
-«Avanza al capítulo 5», «pasa al siguiente» o «continúa», lo normal es que el
-embudo se quede clavado en ese capítulo, sin un error a la vista en la
-conversación. Es de los fallos más caros y más silenciosos. En los capítulos
+«Avanza al capítulo 5», «pasa al siguiente» o «continúa», lo normal es que la
+conversación se quede clavada en ese capítulo, sin un error a la vista. Es de
+los fallos más caros y más silenciosos. En los capítulos
 intermedios, el Doctor sí lo detecta: **«El capítulo N no avanza a ningún
 capítulo»**.
 </Warning>
@@ -537,7 +537,7 @@ en «una sola vez»: si dice «se ejecuta cada vez», ahí no se muestra nada.
 Teclea **`@`** en cualquier línea y se abre el menú de menciones, con hasta
 siete grupos:
 
-<Frame caption="El menú @: cada grupo es una clase de cosa que puedes mencionar. En este agente salen cuatro: Herramientas, Variables, Capítulos y Envío.">
+<Frame caption="El menú @: cada grupo es una clase de cosa que puedes mencionar. En este embudo salen cuatro: Herramientas, Variables, Capítulos y Envío.">
   <img src="/images/manual/02-menu-arroba.png" alt="Menú @ del Manual con el buscador y los grupos Herramientas, Variables, Capítulos y Envío" />
 </Frame>
 
@@ -617,7 +617,7 @@ tienen por qué estar escritos a mano en cada capítulo. Se escriben una vez en
 <Note>
 Algunos mensajes del panel dicen **«Ajustes»** donde el menú dice
 **«Configuración»**. Es la misma pantalla. La cuenta entera:
-[La configuración del agente](/guias/configuracion-del-agente).
+[La configuración del embudo](/guias/configuracion-del-embudo).
 </Note>
 
 ## Mandar un archivo desde el guion
@@ -735,7 +735,7 @@ que tu agente tiene disponible, en cuatro pestañas: **Archivos**,
 **Herramientas**, **Variables** y **Capítulos**. Debajo del título te dice si
 cada cosa está **usado / sin usar en el manual**.
 
-<Frame caption="El cajón «Recursos del agente», acoplado al manual, en la pestaña Archivos: este agente aún no tiene ninguno.">
+<Frame caption="El cajón «Recursos del agente», acoplado al manual, en la pestaña Archivos: este embudo aún no tiene ninguno.">
   <img src="/images/libreria/09-manual-recursos.png" alt="Panel Recursos del agente con las pestañas Archivos, Herramientas, Variables y Capítulos, el buscador, el botón Subir, el aviso Sin recursos de este tipo para el agente y el enlace Gestionar en Librería" />
 </Frame>
 
@@ -761,7 +761,8 @@ nombre, cargo, cara y voz. Es lo que hace que se presente como «Valentina, de
 Moda Sol» y no como un robot.
 </Note>
 
-Un agente nuevo nace con su persona ya creada y **activa**, con nombre y tono.
+Un embudo nuevo nace con la persona de su agente ya creada y **activa**, con
+nombre y tono.
 En lo alto del manual hay una pastilla con su foto (o su inicial) y su nombre.
 Si el agente no tiene ninguna activa, la pastilla lo dice: **«No hay persona
 seleccionada»**.
@@ -784,7 +785,7 @@ contexto** de la persona activa. La **cara** y la **voz** las usan el avatar y
 las notas de voz.
 
 <Note>
-**Si borras el agente, su persona se borra con él**, salvo que otro agente la
+**Si borras el embudo, su persona se borra con él**, salvo que otro embudo la
 tenga asignada. Las personas que creaste a mano y no asignaste a nadie no se
 tocan.
 </Note>
@@ -817,11 +818,11 @@ También puedes pedírselo al copiloto: «agrega a la memoria nuestra política 
 cambios». El copiloto añade una sección al documento y la guarda sin pedirte
 aprobación. La verás aquí, y puedes editarla como cualquier otra.
 
-Ese botón **solo aparece en los agentes creados con el sistema nuevo**. Si tu
-agente es antiguo, no lo verás.
+Ese botón **solo aparece en los embudos creados con el sistema nuevo**. Si tu
+embudo es antiguo, no lo verás.
 
 <Warning>
-**Si tu agente está desactivado**, la persona y la memoria se ven pero no se
+**Si tu embudo está desactivado**, la persona y la memoria se ven pero no se
 cambian: el botón **«Activar»** sale apagado, **«Nueva persona»** no aparece y
 la memoria dice **«Solo lectura»** en lugar de Guardar.
 </Warning>
@@ -892,12 +893,11 @@ ranuras en una tarde; los mismos cinco en un guardado queman una.
 ## El Historial: volver atrás
 
 El botón **Historial** (en computadora) abre una ventana titulada **«Historial
-del embudo»** (*embudo* = tu agente; es la misma cosa). Ahí ves las versiones
-guardadas, la **más reciente** arriba, con cuándo se guardó cada una y cuántos
-capítulos tenía.
+del embudo»**. Ahí ves las versiones guardadas, la **más reciente** arriba, con
+cuándo se guardó cada una y cuántos capítulos tenía.
 
 <Frame caption="El Historial del embudo: cada versión guardada con su fecha, hace cuánto se guardó y cuántos capítulos tenía. Aquí hay una sola, la más reciente.">
-  <img src="/images/manual/06-historial.png" alt="Ventana Historial del embudo con una versión, 12 oct, 22:51, marcada más reciente, hace 2 h · 3 capítulos, y la nota Se conservan las últimas 10 versiones por agente" />
+  <img src="/images/manual/06-historial.png" alt="Ventana Historial del embudo con una versión, 12 oct, 22:51, marcada más reciente, hace 2 h · 3 capítulos, y la nota Se conservan las últimas 10 versiones por embudo" />
 </Frame>
 
 Al elegir una se abre la comparación: **Actual** contra **Versión**, capítulo a
@@ -1179,10 +1179,10 @@ Ecommerce**, si la plantilla está disponible para ese embudo.
   </Step>
 </Steps>
 
-Si el agente ya atiende un WhatsApp conectado, primero hay que pausarlo. Si
-pulsas **Cargar plantilla** con el agente activo, la plantilla no se carga y la
-ventana te muestra **«Pausa el agente en Canales antes de cargar la
-plantilla.»**, con el enlace **Ir a Canales**.
+Si el agente de ese embudo ya atiende un WhatsApp conectado, primero hay que
+pausar el embudo. Si pulsas **Cargar plantilla** con el embudo activo, la
+plantilla no se carga y la ventana te muestra **«Pausa el embudo en Canales
+antes de cargar la plantilla.»**, con el enlace **Ir a Canales**.
 
 ## Probar el manual
 
@@ -1221,9 +1221,9 @@ aparece en la bandeja ni en Clientes, y no cuenta en Resultados. Y nada sale por
 WhatsApp: la entrega se queda dentro del panel.
 </Note>
 
-**Probar** funciona también en el teléfono. Sale apagado sin un agente elegido,
-en un agente creado con el sistema antiguo (*«El chat de prueba solo está
-disponible para agentes nuevos»*), si el manual no tiene capítulos o, en un
+**Probar** funciona también en el teléfono. Sale apagado sin un embudo elegido,
+en un embudo creado con el sistema antiguo (*«El chat de prueba solo está
+disponible para embudos nuevos»*), si el manual no tiene capítulos o, en un
 embudo de la plantilla, mientras queden datos por completar en el capítulo 1 o
 en las
 secciones PRODUCTO y PRECIOS Y PROMOCIONES del bloque.
@@ -1259,7 +1259,7 @@ Renumerar dejaría a esos clientes apuntando al capítulo equivocado. El Doctor 
 avisa del hueco, pero no lo «arregla» solo.
 
 Lo que sí conviene revisar al borrar: quién nombraba a ese capítulo. Una mención
-a un capítulo que ya no existe se rechaza, y ahí se para el embudo.
+a un capítulo que ya no existe se rechaza, y ahí se para la conversación.
 </Note>
 
 ## Editar el manual desde Conversaciones
@@ -1325,12 +1325,12 @@ teléfono, o copia el enlace, para que sigas en la pantalla grande.
     todavía no los tiene. Tu agente (y también **Probar**) usa el manual
     **guardado**. Pulsa **Guardar cambios** y vuelve a probar.
   </Accordion>
-  <Accordion title="El embudo no pasa al siguiente capítulo">
+  <Accordion title="La conversación no pasa al siguiente capítulo">
     Lo primero que hay que mirar: un avance escrito en prosa («pasa al
     siguiente»). Abre el **Doctor**: si dice **«El capítulo N no avanza a
     ningún capítulo»**, en el paso final teclea `@` → **Capítulos** y elige el
     destino. Comprueba también que el capítulo destino existe. Ver
-    [Hacer que el embudo avance](#hacer-que-el-embudo-avance).
+    [Hacer que la conversación avance](#hacer-que-la-conversacion-avance).
   </Accordion>
   <Accordion title="El archivo no le llega al cliente">
     Pasa el ratón por la mención del archivo: si su punto es ámbar está
@@ -1363,7 +1363,7 @@ teléfono, o copia el enlace, para que sigas en la pantalla grande.
   </Accordion>
   <Accordion title="«Probar» está apagado">
     Pasa el ratón por el botón: te dice por qué. Las causas son no tener un
-    agente elegido, un agente del sistema antiguo, un manual sin capítulos o,
+    embudo elegido, un embudo del sistema antiguo, un manual sin capítulos o,
     en un embudo de la plantilla, datos por completar en el capítulo 1 o en
     PRODUCTO y PRECIOS Y PROMOCIONES.
   </Accordion>
@@ -1465,7 +1465,7 @@ Lo que proponga **el copiloto**, en cambio, se revisa en esta misma pantalla: ve
   <Card title="Las herramientas del agente" icon="wrench" href="/guias/herramientas">
     Qué hace cada herramienta, qué datos pide y cómo se escribe en el manual.
   </Card>
-  <Card title="La configuración del agente" icon="gear" href="/guias/configuracion-del-agente">
+  <Card title="La configuración del embudo" icon="gear" href="/guias/configuracion-del-embudo">
     Los datos del negocio, los números frecuentes y los avisos que el manual nombra.
   </Card>
   <Card title="El catálogo" icon="tag" href="/guias/catalogo">

@@ -39,9 +39,9 @@ lleva al Catálogo con el alta de producto ya abierta.
 ## Para qué sirve el catálogo
 
 La propia pantalla lo resume debajo del título: *«El precio sale de aquí»*. (Si
-tienes más de un agente, esa frase empieza diciendo qué agente estás mirando:
+tienes más de un embudo, esa frase empieza diciendo qué embudo estás mirando:
 *«Lo que vende «…», más los productos sin embudo asignado»*. La lista está
-recortada a ese agente.)
+recortada a ese embudo.)
 
 Eso es literal: el agente lleva escrita la orden de consultar el catálogo cada
 vez que el cliente pregunta por un producto o su precio, y de no inventarse
@@ -212,9 +212,9 @@ dudas dan:
 | **«12 variantes»** bajo el nombre | producto | Cuántas versiones tiene. En un servicio dice **«Servicio · 3 modalidades»**. |
 | **«Infoproducto · ⚠️ sin entrega»** | producto | Es un infoproducto sin archivo ni enlace de entrega. Ver [Entrega automática](#si-vendes-un-curso-o-un-ebook-entrega-automatica). |
 | Un número, **«Agotado»** o **«Sin control»** | inventario | Lo explica [Stock: cuándo encenderlo](#stock-cuando-encenderlo). |
-| **«Todos»** | embudos | No le marcaste embudos: lo venden todos tus agentes. |
-| Nombres de agentes | embudos | Solo esos agentes lo venden. |
-| **«Embudo eliminado»** | embudos | Estaba marcado para un agente que ya no está en tu lista. Ábrelo y marca los agentes que sí deben venderlo. |
+| **«Todos»** | embudos | No le marcaste embudos: lo venden todos tus embudos. |
+| Nombres de embudos | embudos | Solo esos embudos lo venden. |
+| **«Embudo eliminado»** | embudos | Estaba marcado para un embudo que ya no está en tu lista. Ábrelo y marca los embudos que sí deben venderlo. |
 
 Las filas atenuadas, con el texto más claro, son productos con **Activo**
 apagado.
@@ -258,7 +258,7 @@ solo para qué sirve: *«Cuando el pago se confirma (voucher aprobado), el agent
 le manda esto al cliente sin que tú hagas nada.»* Tienes dos opciones:
 
 - **Un archivo de la Librería** — solo se ofrecen los archivos que ya estén
-  marcados como enviables para el agente abierto. Si no hay ninguno, el panel
+  marcados como enviables para el embudo abierto. Si no hay ninguno, el panel
   te lo dice: *«Sube un archivo a la Librería y márcalo como enviable para
   poder entregarlo aquí.»* Se preparan en
   [La Librería de archivos](/guias/libreria).
@@ -285,7 +285,7 @@ los tres tipos; el séptimo depende del tipo y va entre **Inventario** y
 | 4 | **Precios** | Precio, moneda y la escala por cantidad. |
 | 5 | **Inventario** | El interruptor de control de stock y el SKU. |
 | 6 | **Variantes** / **Modalidades** / **Entrega automática** | Según el tipo. El infoproducto no tiene variantes. |
-| 7 | **Disponibilidad** | Visible, Activo y —si tienes más de un agente— qué embudos lo venden. |
+| 7 | **Disponibilidad** | Visible, Activo y —si tienes más de un embudo— qué embudos lo venden. |
 
 ### Qué es obligatorio de verdad
 
@@ -489,17 +489,17 @@ catálogo» no impide que el agente lo siga vendiendo por chat.
 
 ### Embudos que lo venden
 
-Esa lista **solo aparece si tu negocio tiene más de un agente**. Si tienes uno,
+Esa lista **solo aparece si tu negocio tiene más de un embudo**. Si tienes uno,
 ni la verás. Y la regla no es la que parece: *«Sin marcar ninguno, lo cotizan
 todos los embudos.»* — **no marcar nada significa «todos», no «ninguno»**. En
 cuanto marcas alguno, el texto cambia: *«Solo los embudos marcados podrán
 cotizarlo.»*
 
 <Note>
-**Es una regla de organización, no una barrera de seguridad.** Sirve para que tu
-agente de mayoreo no cotice lo del minorista. Pero no la uses para esconder
-información delicada: si el sistema no consigue leer las asignaciones, se abre
-en vez de cerrarse, y el agente ve todo.
+**Es una regla de organización, no una barrera de seguridad.** Sirve para que el
+agente de tu embudo de mayoreo no cotice lo del minorista. Pero no la uses para
+esconder información delicada: si el sistema no consigue leer las asignaciones,
+se abre en vez de cerrarse, y el agente ve todo.
 </Note>
 
 **Los embudos se guardan en un segundo paso, después del producto.** Si ese paso
@@ -508,7 +508,7 @@ ya se guardó. Si era un producto nuevo, **no vuelvas a pulsar Guardar**:
 crearías otro igual. Cierra el panel, recarga la página, ábrelo con **Editar** y
 vuelve a marcar los embudos.
 
-Y si al guardar le quitas el producto al agente que tienes abierto, te avisa
+Y si al guardar le quitas el producto al embudo que tienes abierto, te avisa
 —*«Ya no lo vende el embudo abierto: sale de esta lista.»*— y desaparece de la
 tabla. **No se ha borrado**: dejó de pertenecer a ese embudo.
 
@@ -522,18 +522,18 @@ sorprendan (las cuenta [Tus embudos](/guias/tus-embudos)):
   control de stock**.
 
 <Warning>
-**Con más de un agente, la lista que ves está recortada.** `/catalog` muestra lo
-que vende el agente que tienes elegido en el selector de agente —el desplegable
+**Con más de un embudo, la lista que ves está recortada.** `/catalog` muestra lo
+que vende el embudo que tienes elegido en el selector de embudo —el desplegable
 con su nombre, justo debajo de **Ventas** en el menú de la izquierda (con el
 menú plegado queda arriba; en el teléfono, dentro de **Más**)—, más lo que no
 está asignado a ninguno. El contador del pie (*«Mostrando N de M productos»*)
 cuenta ya recortado, y la plantilla CSV que descargues saldrá recortada igual.
-Antes de concluir que perdiste productos, **cambia de agente en ese selector**.
+Antes de concluir que perdiste productos, **cambia de embudo en ese selector**.
 
-Una excepción: un producto marcado **solo** para un agente que ya eliminaste no
-aparece en la lista de ningún agente, y tus agentes dejan de ofrecerlo. Por eso,
-**antes de eliminar un agente**, abre cada producto marcado solo para él y
-márcalo también para otro agente, o desmarca todos los embudos para que lo
+Una excepción: un producto marcado **solo** para un embudo que ya eliminaste no
+aparece en la lista de ningún embudo, y tus agentes dejan de ofrecerlo. Por eso,
+**antes de eliminar un embudo**, abre cada producto marcado solo para él y
+márcalo también para otro embudo, o desmarca todos los embudos para que lo
 vendan todos.
 </Warning>
 
@@ -554,7 +554,7 @@ numerados.
     actuales, que puedes abrir en Excel o en Google Sheets.
 
     Ojo con lo que trae. El propio cuadro lo dice: *«los productos editables de
-    la lista que tienes debajo»*. O sea, **solo los del agente que tengas
+    la lista que tienes debajo»*. O sea, **solo los del embudo que tengas
     abierto**, y como mucho **1000 productos, los más recientes**.
   </Step>
   <Step title="Edítala en tu hoja de cálculo">
@@ -642,7 +642,7 @@ el atajo es la plantilla: baja el archivo, copia las filas del producto,
 **bórrales el id y ponles a todas el mismo handle nuevo** (por ejemplo, el que
 traen con `-copia` al final), y vuelve a subirla. La copia llega **sin fotos**,
 sin **entrega automática** y sin embudos marcados (la venden todos tus
-agentes). Eso lo completas después con **Editar**.
+embudos). Eso lo completas después con **Editar**.
 </Tip>
 
 ## Cómo llega tu catálogo al cliente
@@ -800,7 +800,7 @@ que el agente los consulte ahí.
 
 | Lo que ves | Casi siempre es | Cómo se arregla |
 | --- | --- | --- |
-| **«… no tiene nada que vender»** con el nombre de tu agente, y tú sabes que cargaste productos | La lista va recortada al agente que tienes elegido y esos productos son de otro | Cambia de agente en el selector, justo debajo de **Ventas** en el menú de la izquierda |
+| **«… no tiene nada que vender»** con el nombre de tu embudo, y tú sabes que cargaste productos | La lista va recortada al embudo que tienes elegido y esos productos son de otro | Cambia de embudo en el selector, justo debajo de **Ventas** en el menú de la izquierda |
 | **«Sin resultados»** | Tienes puesta una búsqueda o un filtro | Pulsa **Limpiar filtros** |
 | El panel se abre **casi vacío** | Todavía no elegiste el tipo | Elige **Producto físico**, **Servicio** o **Infoproducto** |
 | **No me deja escribir el precio** y el campo dice **«Precio (1 unidad, de la escala)»** | Tienes **Precios por cantidad** encendido | Escríbelo en la fila de **1 unidad** de la escala |
@@ -810,9 +810,9 @@ que el agente los consulte ahí.
 | El enlace a Inventario abre **«App no activa»** | La app Inventario está apagada en tu empresa | Actívala en **Administración → Apps**, o pídeselo a quien administra |
 | El enlace a Inventario abre **«No tienes acceso a Inventario»** | La app está encendida, pero tu usuario no la tiene | Pide que te la den en **Administración → Personas y accesos** |
 | **Perdí lo que estaba escribiendo** | Cerraste el panel (con **Cerrar**, **Cancelar**, **Esc** o un clic fuera) sin guardar | No hay borrador: hay que rehacerlo. Pulsa siempre **Guardar** |
-| **Guardé y el producto desapareció** de la tabla | Se lo quitaste al agente que tienes abierto | No se borró: cámbiate a un agente que sí lo venda |
+| **Guardé y el producto desapareció** de la tabla | Se lo quitaste al embudo que tienes abierto | No se borró: cámbiate a un embudo que sí lo venda |
 | Al guardar sale un **aviso de error** y el panel **se queda abierto** | Pudo fallar el segundo paso del guardado (los embudos): el producto quizá ya se guardó | Si era nuevo, no pulses **Guardar** otra vez. Cierra, recarga la página y, si el producto ya está en la tabla, ábrelo con **Editar** y vuelve a marcar los embudos |
-| **«Embudo eliminado»** en la columna embudos | Estaba marcado para un agente que ya no está | Ábrelo y marca los agentes que sí deben venderlo |
+| **«Embudo eliminado»** en la columna embudos | Estaba marcado para un embudo que ya no está | Ábrelo y marca los embudos que sí deben venderlo |
 | El agente **sigue sin nombrar** un producto recién creado | Los cambios pueden tardar hasta un minuto en llegarle | Espera un minuto y vuelve a probar |
 | El agente **no lo encuentra** aunque está activo | El cliente lo nombra distinto a como se llama | Renombra el producto con las palabras que usa el cliente |
 | **Apagué «Visible» y el agente lo sigue ofreciendo** | «Visible» no calla al agente | Apaga **Activo** |
@@ -822,7 +822,7 @@ que el agente los consulte ahí.
 | **Subí el CSV y se mezclaron dos productos** | Repetiste el **handle** de otro | Para crear, id vacío y handle nuevo |
 | **Edité el stock en el CSV y no cambió nada** | Esa columna se exporta pero al importar se ignora | Regístralo en **Inventario** |
 | **«Infoproducto · ⚠️ sin entrega»** en la lista | No le pusiste ni archivo ni enlace de entrega | Ábrelo y completa **Entrega automática** |
-| **No sale en el desplegable** al registrar una venta | Lo vende otro agente, está inactivo o su precio es 0 | Cambia al agente que lo vende en el selector del menú (o márcalo también para este), actívalo o ponle un precio mayor que 0 |
+| **No sale en el desplegable** al registrar una venta | Lo vende otro embudo, está inactivo o su precio es 0 | Cambia al embudo que lo vende en el selector del menú (o márcalo también para este), actívalo o ponle un precio mayor que 0 |
 
 ## Lo mismo, desde tu asistente
 

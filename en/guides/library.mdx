@@ -10,7 +10,7 @@ keywords:
   - "AI agent knowledge files"
 ---
 
-{/* es-source: guias/libreria.mdx @ adc4123 */}
+{/* es-source: guias/libreria.mdx @ b372cc0 */}
 
 Your agent doesn't only write: it sends the product photo, the PDF catalog, the
 price list, the welcome audio. **All those files live in the Library.** Some of
@@ -25,7 +25,7 @@ appear.
 **Where it is.** Go to the dashboard at
 [optimind.darkfunnels.ai](https://optimind.darkfunnels.ai). In the left-hand
 menu, inside **Ventas** (*Sales*), press **Librería** (*Library*) — it's in the
-**Agente** (*Agent*) group. The screen that opens is titled **«Archivos»**
+**Embudo** (*Funnel*) group. The screen that opens is titled **«Archivos»**
 (*Files*): it's the same one. You can also type `optimind.darkfunnels.ai/files`
 in the browser's address bar. On your phone, you'll find it under **Más**
 (*More*).
@@ -50,8 +50,8 @@ rest is mechanical.
 
 | Word | What it means, in plain language |
 | --- | --- |
-| **File** (*Archivo*) | The PDF, the photo or the audio itself. It's uploaded **once for your whole business**, and each agent uses it with its own permissions. |
-| **Permission** (*Permiso*) | What each agent can do with that file. There are two, independent of each other: **send it** or **study it**. |
+| **File** (*Archivo*) | The PDF, the photo or the audio itself. It's uploaded **once for your whole business**, and each funnel uses it with its own permissions. |
+| **Permission** (*Permiso*) | What each funnel's agent can do with that file. There are two, independent of each other: **send it** or **study it**. |
 | **Send via WhatsApp** (*Enviar por WhatsApp*) | The permission to send it to the customer. It's the switch in the **enviar por WhatsApp** column. |
 | **Agent memory** (*Memoria del agente*) | The permission to *read* it in order to answer questions. With this permission alone, the agent doesn't send it: it learns what it says. |
 | **Send trigger** (*Condición de envío*) | The file's nickname: the word you call it by from the agent's script. By default it's the file's name without the extension. |
@@ -70,24 +70,25 @@ and it only shows up in the last section.
 ## Step by step: getting your agent to send the catalog
 
 <Steps>
-  <Step title="Open the Library and choose the right agent">
+  <Step title="Open the Library and choose the right funnel">
     The Library belongs to your whole business, but the table shows you the
-    files **of one agent**: the one you have selected in the agent selector.
+    files **of one funnel**: the one you have selected in the funnel selector.
 
     With the menu open, that selector is inside **Ventas**, right below its
-    title: it shows the agent's photo or initial and its name. Press it and
-    choose the agent you want to send the file. With the menu collapsed, the
-    selector moves to the very top; on your phone it's under **Más**.
+    title: it shows the funnel's name, with its agent's photo or an initial.
+    Press it and choose the funnel whose agent you want to send the file. With
+    the menu collapsed, the selector moves to the very top; on your phone it's
+    under **Más**.
 
     <Frame caption="Ventas → Librería in the menu, and the «Archivos» (Files) screen with its Archivos, Ubicaciones and Papelera (Files, Locations, Trash) tabs, still empty: «Aún no hay archivos» (No files yet).">
       <img src="/images/libreria/01-menu-libreria.png" alt="Side menu with Ventas expanded and the Librería (Library) option highlighted, next to the empty Archivos (Files) screen with the «Aún no hay archivos» notice and the Insertar button" />
     </Frame>
 
     <Warning>
-    **The list you see depends on the selected agent.** If you switch agents,
+    **The list you see depends on the selected funnel.** If you switch funnels,
     you may see «Aún no hay archivos» (*There are no files yet*) even if you have
     fifty uploaded: the files are still there; what changes is whose
-    permissions they are. Check which agent is selected before concluding that
+    permissions they are. Check which funnel is selected before concluding that
     you've lost something.
     </Warning>
   </Step>
@@ -190,7 +191,7 @@ and it only shows up in the last section.
     it appears next to each detail in that section. If the detail is empty, the
     customer reads its name followed by «(pendiente)» (*pending*), so fill it
     in first. It's all explained in
-    [Agent settings](/en/guides/agent-settings).
+    [Funnel settings](/en/guides/funnel-settings).
     </Tip>
 
     <Warning>
@@ -217,9 +218,9 @@ and it only shows up in the last section.
     notice **«Cambios sin guardar»** (*Unsaved changes*) appears.
 
     <Warning>
-    **Switching tab, agent or page discards the pending changes, without
+    **Switching tab, funnel or page discards the pending changes, without
     asking.** If you have «Cambios sin guardar» and you press **Ubicaciones**
-    or **Papelera**, choose another agent or go to another screen, what you
+    or **Papelera**, choose another funnel or go to another screen, what you
     wrote is lost silently. Save before you move.
     </Warning>
   </Step>
@@ -251,11 +252,11 @@ and it only shows up in the last section.
        chapter uses yet: the AI suggests a chapter and a sentence with the
        marker already inside, and you decide whether to insert it.
 
-    <Frame caption="The «Recursos del agente» (Agent resources) drawer on the Archivos (Files) tab: the search box, the ↑ Subir (Upload) button and, since this agent has no files yet, «Sin recursos de este tipo para el agente» (No resources of this type for the agent). At the bottom, the «Gestionar en Librería →» (Manage in Library) link.">
+    <Frame caption="The «Recursos del agente» (Agent resources) drawer on the Archivos (Files) tab: the search box, the ↑ Subir (Upload) button and, since this funnel has no files yet, «Sin recursos de este tipo para el agente» (No resources of this type for the agent). At the bottom, the «Gestionar en Librería →» (Manage in Library) link.">
       <img src="/images/libreria/09-manual-recursos.png" alt="Recursos del agente (Agent resources) drawer next to the playbook editor, open on the Archivos (Files) tab, with the search box, the Subir button, the «Sin recursos de este tipo para el agente» notice and the Gestionar en Librería link" />
     </Frame>
 
-    <Frame caption="The playbook's @ menu. This agent has no files yet, so you see the Herramientas, Variables, Capítulos and Envío groups; once you upload files, the Archivos (Files) group appears too.">
+    <Frame caption="The playbook's @ menu. This funnel has no files yet, so you see the Herramientas, Variables, Capítulos and Envío groups; once you upload files, the Archivos (Files) group appears too.">
       <img src="/images/manual/02-menu-arroba.png" alt="The playbook's @ menu open with the «Buscar recurso…» search box and the Herramientas, Variables, Capítulos and Envío groups (Tools, Variables, Chapters, Sending)" />
     </Frame>
 
@@ -267,7 +268,7 @@ and it only shows up in the last section.
     <Tip>
     **Shortcut: upload the file without leaving the playbook.** In the Recursos
     drawer, Archivos tab, the **↑ Subir** (*↑ Upload*) button uploads one file
-    at a time. That file is born **already sendable** for the selected agent,
+    at a time. That file is born **already sendable** for the selected funnel,
     with its send trigger set and **no memory**: *«Archivo subido — ya puedes
     insertarlo con @ o desde esta lista.»* (*File uploaded — you can now insert
     it with @ or from this list.*) If you also want the agent to study it,
@@ -318,12 +319,12 @@ and it only shows up in the last section.
 
     **2. On a real phone.** That way you see the file exactly as it reaches the
     customer: the PDF thumbnail, the voice note, the photo caption. Write to
-    your agent's number from a personal phone and ask for it the way a customer
+    your funnel's number from a personal phone and ask for it the way a customer
     would. Yours works if it's the one you entered when you signed up. Another
     WhatsApp line connected to your business won't work. If you use another
     phone that receives reports, sales notices or alerts — yours or someone on
     your team's — add it first under **Números de prueba** (*Test numbers*), in
-    [Settings](/en/guides/agent-settings).
+    [Settings](/en/guides/funnel-settings).
 
     If it doesn't arrive, go down to
     [If something is not working](#if-something-is-not-working): the list is in
@@ -364,7 +365,7 @@ original name.
 compares the content, not the name: if those bytes were already in your Library
 (outside the trash), it tells you *«Ya tenías este archivo»* (*You already had
 this file*) and reuses the row that already existed, with the name it already
-had. If the selected agent is missing the permission that upload is born with
+had. If the selected funnel is missing the permission that upload is born with
 (memory, for PDFs, photos, DOCX and CSV), it gets it. Careful: if you had
 switched that file's memory off, uploading it again switches it back on and it's
 processed again. Renaming it on your computer and uploading it again doesn't
@@ -434,7 +435,7 @@ amount.
 ## How the agent chooses which file to send
 
 It's the part that causes the most problems, so it's worth understanding. When
-the time comes to send, the agent looks for the file among **that agent's
+the time comes to send, the agent looks for the file among **its funnel's
 sendable files**, **in this order**:
 
 1. **The file's name, as-is** (with its extension).
@@ -479,7 +480,7 @@ marker says `catalogo`, the system doesn't choose on its own: it hands both
 names back to the agent so it asks for an exact one, and the agent may end up
 sending the one you didn't want, or neither. (If both names are identical — a
 re-upload — the most recent one wins.) Rename one before making both sendable
-for the same agent.
+for the same funnel.
 </Warning>
 
 **The playbook helps you follow the rule.** If you hover over a file mention in
@@ -544,7 +545,7 @@ Other things worth knowing:
   processes the file again from scratch, so it consumes balance again.
   **Careful:** if that file was born with memory switched on (you uploaded it
   with **Insertar**) and you never switched «enviar por WhatsApp» on for it in
-  this agent, switching memory off makes it disappear from the agent's table,
+  this funnel, switching memory off makes it disappear from the funnel's table,
   even though the file is still stored in your business. To get it back, upload
   it again with **Insertar**: the system recognizes it's the same file and gives
   it its memory back, which is processed again.
@@ -556,7 +557,7 @@ Other things worth knowing:
   (*Test*) search box runs the same search as the agent: type a question the way
   a customer would and you'll see which passages it finds and which file each
   one comes from. If you don't see that button in your playbook, this check
-  isn't available for your agent.
+  isn't available for your funnel.
 
 <Note>
 **Audio files do get transcribed, even though they don't add memory.** In the
@@ -581,16 +582,16 @@ says (automatic transcription):*). If it failed, there's no retry button: use
     file was memory, the agent learns it again (and that consumes balance); if
     it's an audio, it's transcribed again.
 
-    **It's the right way to update a price list in this agent.** Sending it to
+    **It's the right way to update a price list in this funnel.** Sending it to
     the trash and uploading another one leaves the markers that named it
     without a file, or pointing to a similar one, until the new one has the
     same name and sending switched on; if the name changes, they stay broken.
     Replacing it doesn't touch them.
 
     <Warning>
-    **If several agents use that file, the replacement doesn't reach them.**
-    When you replace it, a copy is split off for the agent you have selected
-    and the others keep the old version. Repeat the replacement in each agent.
+    **If several funnels use that file, the replacement doesn't reach them.**
+    When you replace it, a copy is split off for the funnel you have selected
+    and the others keep the old version. Repeat the replacement in each funnel.
     </Warning>
 
     If the new version is in another format and the name had an extension, the
@@ -608,17 +609,17 @@ says (automatic transcription):*). If it failed, there's no retry button: use
 
     If that notice doesn't appear and you expected the playbook to change, open
     the playbook and search for the old name. It happens, for example, when
-    another file of the same agent uses the same nickname: this file's
+    another file of the same funnel uses the same nickname: this file's
     nickname does change, but the playbook isn't touched, and the markers with
     the old nickname will keep delivering the **other** file. Fix them by hand.
 
-    If several agents use the file, the new name only applies to the selected
-    agent; the others keep theirs.
+    If several funnels use the file, the new name only applies to the selected
+    funnel; the others keep theirs.
   </Accordion>
 
-  <Accordion title="Take a file away from an agent (without deleting it)">
+  <Accordion title="Take a file away from a funnel (without deleting it)">
     Switch off **enviar por WhatsApp**. The file stays in the Library and stays
-    available to your other agents; what disappears is that agent's permission
+    available to your other funnels; what disappears is that funnel's permission
     to send it. With it, the markers that named it in its playbook are left
     without their file (there the mention shows as *Pausado en la Librería*)
     and, as rule 2 of
@@ -641,12 +642,13 @@ says (automatic transcription):*). If it failed, there's no retry button: use
     **«Eliminar» doesn't delete: it sends to the trash.**
 
     As soon as it's in the trash, the agent stops sending it and, if the file
-    belongs only to this agent, it also stops using what it learned from it. If
-    several agents used the file, it only leaves the selected agent's Library:
+    belongs only to this funnel, it also stops using what it learned from it. If
+    several funnels used the file, it only leaves the selected funnel's Library:
     the others keep it. In that case, if it had memory switched on, switch it
     off first and then send it to the trash: that way you make sure the
-    selected agent stops using its content. (If the file disappears from the
-    table when you switch it off, you're done: nothing else is needed.)
+    selected funnel's agent stops using its content. (If the file disappears
+    from the table when you switch it off, you're done: nothing else is
+    needed.)
 
     In the **Papelera** tab each row has a **Restaurar** (*Restore*) button
     that acts instantly, without asking for confirmation. The file comes back
@@ -666,8 +668,8 @@ says (automatic transcription):*). If it failed, there's no retry button: use
   <Accordion title="Turn an image into a sticker">
     In the three-dot menu: **Marcar como sticker** (*Mark as sticker*) /
     **Quitar de stickers** (*Remove from stickers*). It only appears on images.
-    Remember that a sticker **carries no text caption**. If several agents use
-    the image, the change only applies to the selected agent.
+    Remember that a sticker **carries no text caption**. If several funnels use
+    the image, the change only applies to the selected funnel.
   </Accordion>
 
   <Accordion title="View a file without leaving the dashboard">
@@ -688,7 +690,7 @@ says (automatic transcription):*). If it failed, there's no retry button: use
     It shares a screen with the Library but has nothing to do with files: these
     are your **business's premises** (your shop, your pickup point), which the
     agent sends as a map pin. Like file permissions, **they belong to each
-    agent**: the ones you add apply to the selected agent.
+    funnel**: the ones you add apply to the selected funnel.
 
     The button is **Agregar ubicación** (*Add location*) and it asks for
     **Nombre de la sede** (*Name of the premises*), **Dirección** (*Address*)
@@ -712,16 +714,16 @@ says (automatic transcription):*). If it failed, there's no retry button: use
 
 | What you see | It's almost always | How to fix it |
 | --- | --- | --- |
-| **«Aún no hay archivos»** (*There are no files yet*) and you know you uploaded them | You have another agent selected | Switch agents in the selector, inside **Ventas** in the menu |
+| **«Aún no hay archivos»** (*There are no files yet*) and you know you uploaded them | You have another funnel selected | Switch funnels in the selector, inside **Ventas** in the menu |
 | I uploaded the file and **the agent doesn't send it** | You uploaded it with Insertar and sending was born switched off | Switch on «enviar por WhatsApp»; the send trigger fills itself in |
-| The text goes out, **but without the attachment** | The nickname doesn't match any sendable file of that agent (files in the trash or with sending off don't count), or it already sent it less than 6 hours ago | Copy the nickname exactly as it appears in the «condición de envío» column and check the mention's status in the playbook |
+| The text goes out, **but without the attachment** | The nickname doesn't match any sendable file of that funnel (files in the trash or with sending off don't count), or it already sent it less than 6 hours ago | Copy the nickname exactly as it appears in the «condición de envío» column and check the mention's status in the playbook |
 | **The wrong file arrives** | Two files with similar names and the marker didn't match either of them | Give them different, clear nicknames |
 | **The marker shows up written in the chat** | The marker is malformed | Delete it and insert it again with **Recursos** or with **@** |
-| **My changes were lost** | Name, nickname and message don't save themselves | Press **Guardar N cambio(s)** before switching tab, agent or screen |
+| **My changes were lost** | Name, nickname and message don't save themselves | Press **Guardar N cambio(s)** before switching tab, funnel or screen |
 | **«Hubo un problema»** in the memory | No balance, a scanned PDF with no text, or an empty CSV | Hover to read the reason and check [the table of reasons](#the-other-switch-memoria-del-agente-agent-memory) |
 | The customer **asks for the file again and it doesn't arrive** | The 6-hour block | It's normal; after the 6 hours it goes out again |
 | I uploaded an `.mp3` and **`.webm` appears** | Audio files are converted on upload | That's correct: same audio |
-| **«Agente desactivado»** (*Agent deactivated*) and you can't touch anything | The agent is paused and the Library is read-only | Activate it from **Inicio** (*Home* — the switch on your agent's card) or from **Personalizar → Canales** (*Customize → Channels*) |
+| **«Embudo desactivado»** (*Funnel deactivated*) and you can't touch anything | The funnel is paused and the Library is read-only | Activate it from **Inicio** (*Home* — the switch on your funnel's card) or from **Personalizar → Canales** (*Customize → Channels*) |
 | The viewer says **«No pudimos mostrar este archivo»** | The file's link expired (they last 24 hours), or your browser can't play that format | Reload the page; if it's still the same, press **Descargar** and open it on your computer |
 | I can't find **the search box** | This screen has no search box | Sort by the **tipo** (*type*) or **nombre** columns |
 
@@ -761,14 +763,14 @@ to the Library**: neither to send nor as memory.
     audio doesn't add memory and even if you never send it. The details are in
     [Credits and top-ups](/en/getting-started/credits-and-top-ups).
   </Accordion>
-  <Accordion title="Can I have the same file in two agents?">
-    Yes. The file is uploaded once and each agent has its own permissions. You
-    can have the catalog sendable for one agent and in memory for another, or
-    both at once for the same agent.
+  <Accordion title="Can I have the same file in two funnels?">
+    Yes. The file is uploaded once and each funnel has its own permissions. You
+    can have the catalog sendable for one funnel and in memory for another, or
+    both at once for the same funnel.
 
     If you later change the file itself from one of them — replace it, rename
     it, turn it into a sticker or send it to the trash — the change only
-    applies to the selected agent: the others keep their version.
+    applies to the selected funnel: the others keep their version.
   </Accordion>
   <Accordion title="What happens to the Library if I duplicate a funnel?">
     The new funnel uses the same files with the same permissions: they aren't
@@ -783,7 +785,7 @@ to the Library**: neither to send nor as memory.
   <Accordion title="Can I change the nickname without touching the playbook?">
     You can, and you don't need to touch the playbook: when you save a new send
     trigger, the system repoints the markers that named the old one by itself.
-    The exception is when another sendable file of the same agent still uses
+    The exception is when another sendable file of the same funnel still uses
     the old nickname; then the playbook isn't touched and you have to review it
     by hand.
   </Accordion>
@@ -836,19 +838,19 @@ What it can and can't do:
 - **It can't upload SVG**, for security reasons, even though the dashboard
   accepts it.
 - **If you have many files, the list reaches it trimmed**, and it will tell
-  you so. Ask for it filtered: «list the sendable files of my sales agent».
+  you so. Ask for it filtered: «list the sendable files of my sales funnel».
 
 Phrases that work:
 
-- *"List my agent's sendable files with their send trigger."*
-- *"Upload this PDF to the library and make it sendable for my sales agent,
+- *"List my funnel's sendable files with their send trigger."*
+- *"Upload this PDF to the library and make it sendable for my sales funnel,
   with the send trigger 'catalogo'."*
 - *"Search the playbook for all the file markers and tell me which ones don't
   match any active sendable file."*
 - *"Before touching the playbook, tell me the exact send triggers of this
-  agent's files."*
+  funnel's files."*
 - *"I already uploaded the catalog to the Library: read it, make it sendable
-  for my agent and write the shared section with what it says."*
+  for my funnel and write the shared section with what it says."*
 
 <Warning>
 **If the file is over 2.5 MB, the upload fails.** Your assistant may explain it

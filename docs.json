@@ -33,7 +33,7 @@
               "primeros-pasos/crea-tu-cuenta",
               "primeros-pasos/tu-primer-inicio",
               "primeros-pasos/las-apps",
-              "primeros-pasos/tu-primer-agente",
+              "primeros-pasos/tu-primer-embudo",
               "primeros-pasos/conecta-whatsapp",
               "primeros-pasos/creditos-y-recarga",
               "primeros-pasos/planes-y-precios",
@@ -45,7 +45,7 @@
             "pages": [
               "guias/manual",
               "guias/herramientas",
-              "guias/configuracion-del-agente",
+              "guias/configuracion-del-embudo",
               "guias/catalogo",
               "guias/libreria",
               "guias/conversaciones",
@@ -98,7 +98,7 @@
               "en/getting-started/create-your-account",
               "en/getting-started/first-look",
               "en/getting-started/the-apps",
-              "en/getting-started/your-first-agent",
+              "en/getting-started/your-first-funnel",
               "en/getting-started/connect-whatsapp",
               "en/getting-started/credits-and-top-ups",
               "en/getting-started/pricing",
@@ -110,7 +110,7 @@
             "pages": [
               "en/guides/sales-playbook",
               "en/guides/tools",
-              "en/guides/agent-settings",
+              "en/guides/funnel-settings",
               "en/guides/catalog",
               "en/guides/library",
               "en/guides/conversations",
@@ -206,6 +206,26 @@
     {
       "source": "/en/quickstarts/otros-clientes",
       "destination": "/en/quickstarts/other-mcp-clients",
+      "permanent": true
+    },
+    {
+      "source": "/primeros-pasos/tu-primer-agente",
+      "destination": "/primeros-pasos/tu-primer-embudo",
+      "permanent": true
+    },
+    {
+      "source": "/guias/configuracion-del-agente",
+      "destination": "/guias/configuracion-del-embudo",
+      "permanent": true
+    },
+    {
+      "source": "/en/getting-started/your-first-agent",
+      "destination": "/en/getting-started/your-first-funnel",
+      "permanent": true
+    },
+    {
+      "source": "/en/guides/agent-settings",
+      "destination": "/en/guides/funnel-settings",
       "permanent": true
     }
   ],

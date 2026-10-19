@@ -3,7 +3,7 @@ title: "The referral network"
 description: "Let your customers bring you customers: your agent records each WhatsApp recommendation, you set the rewards per level and keep track of the payouts."
 ---
 
-{/* es-source: guias/red-de-referidos.mdx @ 20dd4bc */}
+{/* es-source: guias/red-de-referidos.mdx @ fec213e */}
 
 A happy customer knows others like them. **The referral network turns those
 recommendations into sales you can measure and reward.** Your agent records,
@@ -13,7 +13,7 @@ screen you keep track of what you owe and what you have already paid.
 
 <Note>
 **Where it is.** In the left-hand menu, inside **Ventas** (*Sales*), choose your
-agent in the selector (the circle with its photo or its initial and its name).
+funnel in the selector (the circle with its photo or its initial and its name).
 Then, under the **COMERCIO** (*COMMERCE*) divider, click **Red de referidos**
 (*Referral network*), just below **Catálogo** (*Catalog*). (Direct:
 `optimind.darkfunnels.ai/red-referidos`.) Anyone on your team with access to
@@ -137,7 +137,7 @@ What happens next depends on what you chose in **¿Quién escribe primero?**:
     - In the same chat, the agent sends your customer **a separate message with
       your introduction**, exactly as you wrote it in Programa (or the default
       one).
-    - The introduction carries **your agent's WhatsApp number as text**.
+    - The introduction carries **your funnel's WhatsApp number as text**.
       WhatsApp turns it on its own into a tap that opens the chat with you.
     - If you chose a photo, a video or a PDF, it goes **in that same message**,
       with the introduction as its caption. That way your customer forwards a
@@ -163,7 +163,7 @@ What happens next depends on what you chose in **¿Quién escribe primero?**:
       or two lines written by the AI (the greeting for the time of day, who you
       are, who it comes from and the context, if there is any), then your text
       and, if you want, a photo, a video or a PDF.
-    - It goes out **during the day**: between 8:00 and 20:00 in the agent's
+    - It goes out **during the day**: between 8:00 and 20:00 in the funnel's
       time zone, and outside its do-not-disturb hours. If your customer passes
       the contact at night, the message goes out in the morning.
     - There is a **daily cap on referrals** (3 by default, up to 20). When the
@@ -187,7 +187,7 @@ What happens next depends on what you chose in **¿Quién escribe primero?**:
 
 ### The rules the agent already knows
 
-- **Someone who already wrote to this agent does not count.** If that number
+- **Someone who already wrote to this funnel does not count.** If that number
   has already talked with this funnel, the agent tells your customer kindly and
   registers nothing.
 - **If the same customer passes you again someone they already recommended**,
@@ -260,7 +260,7 @@ reaches that number of recommended people with a deposit becomes an
   escribe un embajador de tu programa de referidos»* (*⭐ An ambassador of your
   referral program is writing to you*). It goes to the numbers in **Informar de
   las ventas** (*Report sales*), in
-  [Configuración](/en/guides/agent-settings#reporting-sales).
+  [Configuración](/en/guides/funnel-settings#reporting-sales).
 
 It is decided when a deposit is marked: if a customer was already past that
 number before you set it, they become an ambassador with their next
@@ -268,8 +268,8 @@ recommended person with a deposit. The same happens with the **Bono por
 cantidad** (*Quantity bonus*).
 
 That notice to the team goes out at most once every 6 hours per chat, between
-7:00 and 22:00 in the agent's time, and not from your test chat. It only reaches
-the numbers on the list that wrote to your agent's line in the last 30 days.
+7:00 and 22:00 in the funnel's time, and not from your test chat. It only reaches
+the numbers on the list that wrote to your funnel's line in the last 30 days.
 
 ## The screen, tab by tab
 
@@ -279,10 +279,10 @@ At the top, the title **«Red de referidos»** and seven tabs: **Resumen**
 **Avisos** (*Notices*).
 
 <Warning>
-**Everything is per agent.** What you see and what you configure belongs to the
-agent chosen in the selector. If you switch agents, the whole network changes.
-With no agent chosen, the screen says **«Selecciona un agente»** (*Select an
-agent*).
+**Everything is per funnel.** What you see and what you configure belongs to the
+funnel chosen in the selector. If you switch funnels, the whole network changes.
+With no funnel chosen, the screen says **«Selecciona un embudo»** (*Select a
+funnel*).
 </Warning>
 
 **The first five tabs refresh on their own every 10 seconds** while the browser
@@ -315,7 +315,7 @@ Below come four blocks:
   sections: **Invitados, aún sin escribir** (*Invited, not written yet*) ·
   **Esperando respuesta** (*Waiting for a reply*) · **Respondieron** (*Replied*)
   · **Adelanto, por pagar** (*Deposit, to pay*) · **Pagados** (*Paid*).
-- **Embudo del programa** (*Program funnel*). It measures the program since it
+- **Avance del programa** (*Program progress*). It measures the program since it
   started. At the top, three figures: **Pedidos de referidos** (*Referral
   requests*: how many times your agent asked and what the customer answered,
   whether they gave contacts, said no, replied without passing contacts or
@@ -423,7 +423,7 @@ The columns are **referido** (*referral*), **referido por** (*referred by*),
     When you mark it, the rewards for the whole chain are created, only on the
     levels with an amount greater than 0. If the **«Cuando su referido da el
     adelanto»** (*When their referral makes the deposit*) notice is on, each
-    person who earns is sent a WhatsApp through your agent's line. The notice
+    person who earns is sent a WhatsApp through your funnel's line. The notice
     that appears on screen tells you what happened: who was notified, whether
     that notice is off, whether any WhatsApp didn't go out or whether someone
     has no open conversation. **Whoever didn't get it, write to them yourself
@@ -647,7 +647,7 @@ This section changes its name depending on the mode.
       forwards*). Write it in your customer's voice, because they are the one
       who sends it. Up to 500 characters. You can name `{{nombre}}` (the
       referral), `{{referido_por}}` (your customer) and `{{numero}}` (your
-      agent's WhatsApp, as text). If you remove `{{numero}}`, it is added at
+      funnel's WhatsApp, as text). If you remove `{{numero}}`, it is added at
       the end. If it's empty, the default one goes out, which you see in grey:
 
       > «`{{nombre}}`, te paso el contacto de `{{agente}}`, de `{{empresa}}`.
@@ -665,7 +665,7 @@ This section changes its name depending on the mode.
     - **Foto, video o PDF** (*Photo, video or PDF*). **Sin adjunto** (*No
       attachment*), or **Una foto, un video o un PDF de la librería** (*A
       photo, a video or a PDF from the library*). The photos, videos and PDFs
-      linked to this agent in the [Library](/en/guides/library) appear.
+      linked to this funnel in the [Library](/en/guides/library) appear.
 
     Your number goes as text and not as a link: a link in a forwarded message
     reads as spam.
@@ -867,10 +867,10 @@ chat** and **Devolvió el adelanto** are only in the
 
 | What you see | It's almost always | How to fix it |
 | --- | --- | --- |
-| The screen says **«Selecciona un agente»** | No agent is chosen | Choose one in the selector, inside **Ventas** |
-| **The network comes up empty** even though you have referrals | You have another agent chosen: the program is per agent | Choose the right agent in the selector |
+| The screen says **«Selecciona un embudo»** | No funnel is chosen | Choose one in the selector, inside **Ventas** |
+| **The network comes up empty** even though you have referrals | You have another funnel chosen: the program is per funnel | Choose the right funnel in the selector |
 | The agent **doesn't ask for referrals** | No chapter of your playbook tells it to, and the requests in Avisos are off | Write the request in the playbook with **Registrar un referido**, or switch on the requests in **Avisos** |
-| The agent **didn't register the contact** | Your agent's WhatsApp is disconnected | Check the connection in **Personalizar** (*Customize*) |
+| The agent **didn't register the contact** | Your funnel's WhatsApp is disconnected | Check the connection in **Personalizar** (*Customize*) |
 | The agent said **that number doesn't count** | It already talked with this funnel, another customer recommended it first or it is the customer's own number | Those are [the rules](#the-rules-the-agent-already-knows): it's not a fault |
 | The agent **asked for the country code** | The number arrived without it | Have your customer share the contact card or the full number |
 | **The automatic requests don't go out** | The switch is off or there is no level 1 reward | Switch them on in **Avisos** and set level 1 in **Programa** |
@@ -880,10 +880,10 @@ chat** and **Devolvió el adelanto** are only in the
 | **«Sin pago confirmado en Pedidos»** | There is no recorded payment or approved receipt from that referral | Record the payment in Pedidos, or **Marcar igual: entró por fuera** |
 | *«…no tiene conversación abierta, así que no se envió aviso»* (*…has no open conversation, so no notice was sent*) | That person has no chat with your agent | Let them know yourself some other way |
 | *«…un aviso por WhatsApp no salió»* (*…a WhatsApp notice didn't go out*) | The send failed | Write to them yourself from their chat |
-| *«Este agente no tiene recompensas configuradas…»* (*This agent has no rewards set up…*) | There are no levels in Programa, or the levels that apply to that chain are at 0 | Set amounts greater than 0 in **Programa**: they apply to the deposits you mark afterwards |
+| *«Este embudo no tiene recompensas configuradas…»* (*This funnel has no rewards set up…*) | There are no levels in Programa, or the levels that apply to that chain are at 0 | Set amounts greater than 0 in **Programa**: they apply to the deposits you mark afterwards |
 | A reward in **Retenido** | The same PayPal email or the same name appears twice in the chain | Review the chain and, if everything is fine, **Revisé la cadena: pagar igual** |
 | **Guardar cambios** is grey | A field has an error | Look for the red text; the button tells you what to check when you hover over it |
-| *«Ese archivo ya no está en tu librería…»* (*That file is no longer in your library…*) | You deleted the attachment or unlinked it from the agent | Choose another file or **Sin adjunto**, and save |
+| *«Ese archivo ya no está en tu librería…»* (*That file is no longer in your library…*) | You deleted the attachment or unlinked it from the funnel | Choose another file or **Sin adjunto**, and save |
 
 ## Frequently asked questions
 
@@ -893,8 +893,8 @@ chat** and **Devolvió el adelanto** are only in the
     payment with its reference and, if you want, the receipt. Recording it asks
     for the PayPal email and reference.
   </Accordion>
-  <Accordion title="Can I have a different program on each agent?">
-    Yes. Programa, Avisos and the whole network are per agent: each one with
+  <Accordion title="Can I have a different program on each funnel?">
+    Yes. Programa, Avisos and the whole network are per funnel: each one with
     its own rewards, messages and referrals.
   </Accordion>
   <Accordion title="I changed the amounts: what happens to what was already earned?">

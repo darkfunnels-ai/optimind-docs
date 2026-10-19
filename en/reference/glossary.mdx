@@ -1,7 +1,7 @@
 ---
 title: "WhatsApp AI sales agent glossary"
 sidebarTitle: "Glossary"
-description: "What DarkFunnels words mean: agent, funnel, playbook, turn, library, copilot, balance, conversion, active business and permissions."
+description: "What DarkFunnels words mean: funnel, agent, playbook, turn, library, copilot, balance, conversion, active business and permissions."
 keywords:
   - WhatsApp AI sales agent glossary
   - sales funnel terminology
@@ -10,7 +10,7 @@ keywords:
   - agent turn
 ---
 
-{/* es-source: referencia/glosario.mdx @ 756d738 */}
+{/* es-source: referencia/glosario.mdx @ 11d6323 */}
 
 The DarkFunnels words this documentation uses as if you already knew them, in a
 few lines each. If you run into one mid-page, come back here.
@@ -25,19 +25,21 @@ between two words, start with this table.**
 
 | This… | …is not this | The difference |
 | --- | --- | --- |
+| **Funnel** (*Embudo*) | **Agent** (*Agente*) | The funnel is what you create, select and set up in Ventas (*Sales*). The agent is the AI that chats with your customers inside each funnel. |
+| **Agent** | **Persona** | The agent is the AI that chats. The persona is how it introduces itself: its name, its photo and its personality. |
 | **Copilot** (*Copiloto*) | **Your assistant** | The copilot lives inside the dashboard. Your assistant is Claude, ChatGPT or Codex connected from outside, and it's optional. |
 | **Agent memory** (*Memoria del agente*) | **Long-Term Memory** (*Memoria a Largo Plazo*) | The first is a per-file permission, in the Library. The second is a knowledge document you edit in the Playbook. |
 | **Agent memory** | **Copilot memory** | The agent's is used by your WhatsApp salesperson. The copilot's is notes for the copilot, in its **Memoria** (*Memory*) tab. |
 | **Test chat** (*Chat de prueba*) | **Test numbers** (*Números de prueba*) | The test chat doesn't go out over WhatsApp. Test numbers are real phones your agent answers as if they were a customer. |
-| **Autopilot** (*Piloto automático*) | **Activo / Pausado** (*Active / Paused*) | Autopilot is switched off in **one** conversation. Activo / Pausado switches off the whole agent, on its card on Inicio (*Home*). |
+| **Autopilot** (*Piloto automático*) | **Activo / Pausado** (*Active / Paused*) | Autopilot is switched off in **one** conversation. Activo / Pausado pauses the whole funnel, on its card on Inicio (*Home*). |
 | **Red de referidos** (*Referral network*) | **Referidos** (*Referrals*) | The network is **your customers'** referral program. Referidos is your code for inviting other businesses to DarkFunnels. |
 | **Agent tool** | **Bridge tool** | The agent's is used by your salesperson on WhatsApp. The bridge's is used by your assistant to work on your business. |
-| **Dar de baja** (*Unsubscribe*) | **Borrar datos de usuario** (*Delete user data*) | Unsubscribing can be reversed and applies to your whole business. Deleting data can't be undone and affects that customer with a single agent. |
+| **Dar de baja** (*Unsubscribe*) | **Borrar datos de usuario** (*Delete user data*) | Unsubscribing can be reversed and applies to your whole business. Deleting data can't be undone and affects that customer with a single funnel. |
 
 ## The basics
 
-<Frame caption="The side menu: Inicio at the top, then your apps (Ventas expanded, with its agent selector) and Administración at the end.">
-  <img src="/images/apps/09-menu-lateral.png" alt="Expanded side menu of the dashboard with Inicio, the apps, Ventas open with its agent selector and its entries, and the Administración block" />
+<Frame caption="The side menu: Inicio at the top, then your apps (Ventas expanded, with its funnel selector) and Administración at the end.">
+  <img src="/images/apps/09-menu-lateral.png" alt="Expanded side menu of the dashboard with Inicio, the apps, Ventas open with its funnel selector and its entries, and the Administración block" />
 </Frame>
 
 <AccordionGroup>
@@ -50,7 +52,7 @@ between two words, start with this table.**
   </Accordion>
   <Accordion title="Inicio (Home)">
     The first screen in the menu. It's the day's summary, and it's built from
-    your apps: your agents and their numbers, the customers waiting for a
+    your apps: your funnels and their numbers, the customers waiting for a
     reply, your appointments. Don't look for a "Dashboard" entry: it's called
     **Inicio** (*Home*).
 
@@ -70,37 +72,42 @@ between two words, start with this table.**
 
     → [The DarkFunnels apps](/en/getting-started/the-apps)
   </Accordion>
-  <Accordion title="Agent">
-    Your automatic salesperson. It has a name it introduces itself with (its
-    **persona**), a script (its **playbook**) and **its own WhatsApp number**:
-    there's no WhatsApp "for the account". That number is connected in
+  <Accordion title="Funnel (embudo)">
+    What you create in **Ventas** (*Sales*) to sell over WhatsApp. Each funnel
+    has **its own WhatsApp number** (there's no WhatsApp "for the account"),
+    its script (its **playbook**), its settings and **one agent** that chats
+    with your customers following that playbook. The number is connected in
     **Ventas → Personalizar → Canales** (*Sales → Customize → Channels*). If
-    you sell two very different things, that's two agents.
+    you sell two very different things, that's two funnels.
 
-    → [Your first agent](/en/getting-started/your-first-agent)
-  </Accordion>
-  <Accordion title="Funnel">
-    **Another name for the whole agent.** The dashboard uses both words
-    (*agente* and *embudo*): the menu on the agent's card says **Duplicar
-    embudo** (*Duplicate funnel*) and **Compartir embudo…** (*Share funnel…*),
-    and when you delete it, it asks *«¿Eliminar el embudo…?»* (*Delete the
-    funnel…?*). Sometimes «embudo» refers only to its script: the sales
-    conversation written in chapters. When a screen says «embudo», think of
-    the agent.
+    You select the funnel in the selector, set it up, pause it, duplicate it,
+    share it or delete it, and each active funnel takes up a slot in your plan.
 
     → [Your funnels](/en/guides/your-funnels)
   </Accordion>
-  <Accordion title="Agent selector">
-    The dropdown under **Ventas** in the menu, with an agent's photo (or
-    initial) and name. It decides which agent you're working with inside
+  <Accordion title="Agent (agente)">
+    Your automatic salesperson: the AI that chats with your customers **inside
+    a funnel**. Each funnel has its own. It replies on WhatsApp following that
+    funnel's playbook, sends files, moves from chapter to chapter, records
+    sales and uses its tools. The identity it introduces itself with — its
+    name, its personality — is its **persona**.
+
+    You create and set up the funnel; the agent is the one who serves your
+    customers inside it.
+
+    → [Your first funnel](/en/getting-started/your-first-funnel)
+  </Accordion>
+  <Accordion title="Funnel selector">
+    The dropdown under **Ventas** in the menu, with a funnel's photo (or
+    initial) and name. It decides which funnel you're working with inside
     Ventas: the playbook, the conversations or the customers you see are that
-    agent's. **If a list comes up empty, first check which agent is
+    funnel's. **If a list comes up empty, first check which funnel is
     selected.**
   </Accordion>
   <Accordion title="Copilot">
     The AI that lives **inside** the dashboard. It opens with its button in the
     top bar or with **⌘J** (**Ctrl+J** on Windows). It helps you build and
-    correct your agent, and it can read, search and analyze your
+    correct your funnel, and it can read, search and analyze your
     conversations.
 
     When it's going to change something in your business, it usually proposes
@@ -113,12 +120,12 @@ between two words, start with this table.**
     outside).
   </Accordion>
   <Accordion title="Setup (puesta en marcha)">
-    The conversation with the copilot that creates your first agent. If you
+    The conversation with the copilot that creates your first funnel. If you
     leave it halfway, your progress stays saved: you pick it up from the
     copilot's **Sesiones** tab (*«Tu puesta en marcha»*, Your setup) or with
-    **Crear agente** (*Create agent*).
+    **Crear embudo** (*Create funnel*).
 
-    → [Your first agent](/en/getting-started/your-first-agent)
+    → [Your first funnel](/en/getting-started/your-first-funnel)
   </Accordion>
   <Accordion title="Guíame (Guide me)">
     The copilot mode that points out on screen where to click. You open it
@@ -162,22 +169,22 @@ between two words, start with this table.**
     business details.
   </Accordion>
   <Accordion title="Ecommerce template">
-    The starting point for an agent that sells over WhatsApp: a shared block
-    and three chapters (**Saludo**, **En venta** and **Pedido confirmado** —
+    The starting point for a WhatsApp sales funnel: a shared block and three
+    chapters (**Saludo**, **En venta** and **Pedido confirmado** —
     *Greeting*, *Selling* and *Order confirmed*) with your business's details
-    left to fill in. It's created when you build a sales agent with the
-    copilot. If your account has it and a sales agent wasn't born from it,
+    left to fill in. It's created when you build a sales funnel with the
+    copilot. If your account has it and a sales funnel wasn't born from it,
     with an empty playbook or a single chapter, you can load it from a
     computer with **Cargar plantilla de Ecommerce** (*Load the Ecommerce
     template*).
 
-    → [Your first agent](/en/getting-started/your-first-agent)
+    → [Your first funnel](/en/getting-started/your-first-funnel)
   </Accordion>
   <Accordion title="Placeholder (dato por completar)">
     In a template playbook, each of your details left to fill in, written
     between « » (for example `«PRODUCTO_MARCA»`). The editor highlights them,
     and the Playbook's **Por completar** (*To complete*) button lists them so you
-    can fill them in. **While any are left, you can't connect that agent's
+    can fill them in. **While any are left, you can't connect that funnel's
     WhatsApp.**
   </Accordion>
   <Accordion title="Turn">
@@ -233,7 +240,7 @@ between two words, start with this table.**
     Playbook, the **Probar** (*Test*) button opens it; with an empty inbox,
     **Pruébalo en el chat de prueba** (*Try it in the test chat*).
 
-    The **Resultados** (*Results*) screen doesn't count it, but the agent's
+    The **Resultados** (*Results*) screen doesn't count it, but the funnel's
     card on Inicio does: if the agent records a sale during the test, that
     sale adds to its numbers. And it consumes balance, because the agent
     thinks just as it does with a real customer.
@@ -259,7 +266,7 @@ between two words, start with this table.**
     The business's files: photos, PDF catalogs, price lists, audio, videos. In
     the menu it's called **Librería** (*Library*) and the screen is titled
     **«Archivos»** (*Files*). Each file is uploaded **once for your whole
-    business**, and each agent has its own permissions over it.
+    business**, and each funnel has its own permissions over it.
 
     The screen has three tabs: **Archivos**; **Ubicaciones** (*Locations*),
     your business's branches that the agent sends as a map pin; and
@@ -283,7 +290,7 @@ between two words, start with this table.**
   </Accordion>
   <Accordion title="Agent memory (memoria del agente)">
     Permission for the agent to **read** a file from the Library in order to
-    answer questions about it. It's given per file and per agent, in the
+    answer questions about it. It's given per file and per funnel, in the
     **memoria del agente** (*agent memory*) column.
 
     **It's independent of «enviar por WhatsApp» (send via WhatsApp).** With
@@ -295,16 +302,18 @@ between two words, start with this table.**
     A knowledge document separate from the playbook, of up to 200,000
     characters, that your agent consults when a customer asks something. It
     opens in the Playbook, with the **Memoria a Largo Plazo (RAG)**
-    (*Long-Term Memory (RAG)*) button next to the persona (in older agents it
+    (*Long-Term Memory (RAG)*) button next to the persona (in older funnels it
     may not appear). The difference in one line: **the playbook is
     instructions; the memory is knowledge.**
 
     → [The sales playbook](/en/guides/sales-playbook)
   </Accordion>
   <Accordion title="Persona">
-    The identity your agent adopts: its name, its role, its personality and,
-    if you set them up, its face and its voice. **It's not a flesh-and-blood
-    person.** In the Playbook it's chosen in the **Persona activa** (*Active
+    The identity a funnel's agent introduces itself with: its name, its role,
+    its personality and, if you set them up, its face and its voice. **It's
+    not a flesh-and-blood person**, and it isn't the funnel either: the funnel
+    is what you set up; the persona is how its agent presents itself to your
+    customers. In the Playbook it's chosen in the **Persona activa** (*Active
     persona*) panel.
 
     Note: on Inicio, when there are no conversations to count yet, the
@@ -313,9 +322,9 @@ between two words, start with this table.**
   </Accordion>
 </AccordionGroup>
 
-## The agent's settings
+## The funnel's settings
 
-Each agent has its own settings screen: **Ventas → Configuración** (*Sales →
+Each funnel has its own settings screen: **Ventas → Configuración** (*Sales →
 Settings*).
 
 <AccordionGroup>
@@ -326,7 +335,7 @@ Settings*).
     in one place.** When you share the funnel with another account, these
     values don't travel.
 
-    → [Agent settings](/en/guides/agent-settings)
+    → [Funnel settings](/en/guides/funnel-settings)
   </Accordion>
   <Accordion title="Frequent numbers (Números frecuentes)">
     Your business's contact book. You save them once and in the Playbook you
@@ -344,7 +353,7 @@ Settings*).
   </Accordion>
   <Accordion title="Deletion phrase (Frase de borrado)">
     The word that, if a customer writes it exactly, deletes their data with
-    that agent; their next message starts a new conversation. By default it's
+    that funnel; their next message starts a new conversation. By default it's
     «borrar» (*delete*; capitals make no difference). It's changed in
     Configuración. It's useful, for example, to repeat a test from the
     beginning.
@@ -355,7 +364,7 @@ Settings*).
 
 <AccordionGroup>
   <Accordion title="Conversations (the inbox)">
-    The screen with the selected agent's chats, one by one: **Ventas →
+    The screen with the selected funnel's chats, one by one: **Ventas →
     Conversaciones** (*Sales → Conversations*; on the phone, **Chats**). Above
     the list it reads **Centro de mensajería** (*Messaging center*).
 
@@ -374,8 +383,9 @@ Settings*).
     **Manual** mark. You switch it off, or the agent itself does when it hands
     the chat to a person.
 
-    To switch off the whole agent, the switch is a different one: **Activo /
-    Pausado** (*Active / Paused*), on its card on Inicio.
+    To pause the whole funnel — so its agent answers no one — the switch is a
+    different one: **Activo / Pausado** (*Active / Paused*), on its card on
+    Inicio.
 
     → [Conversations](/en/guides/conversations)
   </Accordion>
@@ -386,16 +396,16 @@ Settings*).
     reply consumes balance.
 
     If you don't see the **Seleccionar** (*Select*) button above the list,
-    it isn't available in your account yet, or that agent is paused or has no
+    it isn't available in your account yet, or that funnel is paused or has no
     WhatsApp line.
 
     → [Conversations](/en/guides/conversations)
   </Accordion>
   <Accordion title="Customer record (ficha)">
-    What you know about a customer **with one agent**: their details, their
+    What you know about a customer **with one funnel**: their details, their
     internal notes, their conversions. You open it from Conversaciones or from
-    **Clientes** (*Customers*). **It's per agent:** if the same number writes
-    to two of your agents, it has two records, one in each.
+    **Clientes** (*Customers*). **It's per funnel:** if the same number writes
+    to two of your funnels, it has two records, one in each.
   </Accordion>
   <Accordion title="Variables and captured data">
     The details your agent saves about each customer while it chats: the
@@ -414,12 +424,12 @@ Settings*).
       manages your business's apps; for everyone else, the dashboard refuses
       it.
     - **Borrar datos de usuario** (*Delete user data*): deletes that
-      customer's data **with this agent**: their conversations, their
+      customer's data **with this funnel**: their conversations, their
       messages, their record and the sales or appointments recorded with
       them, which stop counting in your results. Their orders stay in
       Órdenes, but without their name or address: they now say «Cliente
       borrado» (*Deleted customer*). It can't be undone, and whatever they
-      have with your other agents isn't touched.
+      have with your other funnels isn't touched.
 
     → [Conversations](/en/guides/conversations)
   </Accordion>
@@ -447,7 +457,7 @@ Settings*).
     ends, your agents stop answering even if you have balance left, and
     topping up doesn't fix it: you need to **subscribe**.
 
-    **The subscription** is the monthly payment that keeps your agents
+    **The subscription** is the monthly payment that keeps your funnels
     switched on, and its base comes back in full to your balance each month
     you pay it. Balance is consumed with use, and you top it up whenever you
     like.
@@ -485,7 +495,7 @@ Settings*).
   <Accordion title="Red de referidos (Referral network)">
     **Your customers'** referral program, in **Ventas → Red de referidos**:
     who recommended whom, which deposits came in and which rewards you owe at
-    each level of the network. It's per agent.
+    each level of the network. It's per funnel.
 
     → [Referral network](/en/guides/referral-network)
   </Accordion>
@@ -525,20 +535,20 @@ Settings*).
 
 ## Your funnels
 
-All three actions are on Inicio, in the menu on each agent's card.
+All three actions are on Inicio, in the menu on each funnel's card.
 
 <AccordionGroup>
   <Accordion title="Duplicar embudo (Duplicate funnel)">
-    Creates a copy of the agent **in your same business**: its playbook, its
+    Creates a copy of the funnel **in your same business**: its playbook, its
     persona, its settings and its Library permissions. It doesn't copy
-    conversations or contacts. It needs a free agent slot, just like creating
+    conversations or contacts. It needs a free funnel slot, just like creating
     a new one. If you don't see this option, ask whoever manages your business
     for it.
 
     → [Your funnels](/en/guides/your-funnels)
   </Accordion>
   <Accordion title="Compartir embudo (Share funnel)">
-    Sends a copy of the agent **to another DarkFunnels account**: you type
+    Sends a copy of the funnel **to another DarkFunnels account**: you type
     that account's email and a request reaches them. Afterwards you can also
     copy the link and send it to them over WhatsApp; if they don't have an
     account yet, they create it from that same link. If the other person
@@ -553,15 +563,16 @@ All three actions are on Inicio, in the menu on each agent's card.
 
     → [Your funnels](/en/guides/your-funnels)
   </Accordion>
-  <Accordion title="Deleting an agent">
-    In the menu it's called **Eliminar agente…** (*Delete agent…*), and the
+  <Accordion title="Deleting a funnel">
+    In the menu it's called **Eliminar embudo…** (*Delete funnel…*), and the
     confirmation asks *«¿Eliminar el embudo…?»* (*Delete the funnel…?*). It's
-    permanent: its conversations, its playbook, its contacts and the sales it
-    recorded in its chats are deleted, and its WhatsApp session is closed.
-    Its persona is deleted too, unless another of your agents uses it.
+    permanent: its conversations, its playbook, its contacts and the sales its
+    agent recorded in its chats are deleted, and its WhatsApp session is
+    closed. Its persona is deleted too, unless another of your funnels uses
+    it.
 
-    **The files in your Library stay** for your other agents: only this
-    agent's permission goes. The orders in Órdenes and the usage already
+    **The files in your Library stay** for your other funnels: only this
+    funnel's permission goes. The orders in Órdenes and the usage already
     charged to you also stay. If it has contacts, sales or notes, a copy is
     saved in Excel before deleting.
 
@@ -574,7 +585,7 @@ All three actions are on Inicio, in the menu on each agent's card.
 <AccordionGroup>
   <Accordion title="Business (empresa)">
     Your business inside DarkFunnels: its apps, its team, its balance and its
-    agents. A single account — the email you sign in with — can be in several
+    funnels. A single account — the email you sign in with — can be in several
     businesses: yours and that of a client who invited you, for example. In
     each one you can have different access.
 
@@ -598,7 +609,7 @@ All three actions are on Inicio, in the menu on each agent's card.
     full access.
 
     Ventas is given whole: whoever has it sees the conversations and the
-    customers of all your agents.
+    customers of all your funnels.
 
     → [Invite your team](/en/getting-started/invite-your-team)
   </Accordion>

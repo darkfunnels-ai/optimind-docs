@@ -10,7 +10,7 @@ keywords:
   - "WhatsApp chatbot without the official API"
 ---
 
-{/* es-source: index.mdx @ 8f46416 */}
+{/* es-source: index.mdx @ 89217e4 */}
 
 **DarkFunnels answers the WhatsApp messages that reach your number for you.** It
 is not a bot of loose replies: it follows your business's sales script — it
@@ -19,7 +19,7 @@ the price, handles the objection and closes — and it lets you know on WhatsApp
 when it records a sale.
 
 Once you are connected, your account needs three things for the agent to
-reply: the agent has to be **switched on**, you need **balance** (at least
+reply: its funnel has to be **switched on**, you need **balance** (at least
 **US\$ 0.10**) and your **trial must still be running** or you need a
 **subscription**. If one of them is missing, it stops replying to new messages.
 When the trial or the balance runs out, Home tells you.
@@ -41,8 +41,8 @@ reply yourself. If a customer was left without a reply, go through
 **What you do NOT need:** to change number, to know how to code, to put in a
 card to try it, or the WhatsApp Business API.
 
-<Frame caption="Your Home: the greeting at the top; in the middle, how many conversations your agents handled, how many are waiting for a reply and each agent's card.">
-  <img src="/images/inicio/01-panel-inicio.png" alt="Dashboard Home screen with the side menu, the greeting «Hola, César», the headline «Tus agentes atendieron 54 conversaciones.», the «Esperan respuesta» (Waiting for a reply) card showing 2 and the cards of two agents next to «Crear agente»" />
+<Frame caption="Your Home: the greeting at the top; in the middle, how many conversations your agents handled, how many are waiting for a reply and each funnel's card.">
+  <img src="/images/inicio/01-panel-inicio.png" alt="Dashboard Home screen with the side menu, the greeting «Hola, César», the headline «Tus agentes atendieron 54 conversaciones.», the «Esperan respuesta» (Waiting for a reply) card showing 2 and the cards of two funnels next to «Crear embudo» (Create funnel)" />
 </Frame>
 
 The dashboard is in Spanish, so the screenshots show it that way; these English
@@ -72,17 +72,18 @@ parentheses the first time.
 
 ## The words you will read all over this site
 
-Before anything else, seven words. With these seven you will understand almost
+Before anything else, eight words. With these eight you will understand almost
 the whole site; the rest are in the [glossary](/en/reference/glossary).
 
 | Word | What it is |
 | --- | --- |
-| **Agent** (*Agente*) | Your automatic salesperson: a name, a way of speaking, a script and a WhatsApp number. You will also see it called **funnel** (*embudo*) or, in the Home headline, **person** (*persona*: «Personas que venden por ti», *People who sell for you*): it is the same thing. Careful: the **«Personas nuevas»** (*New people*) chart on Home counts customers, not agents. |
+| **Funnel** (*Embudo*) | What you create in Ventas (*Sales*) to sell over WhatsApp: it has its WhatsApp number, its playbook and **an agent** that serves your customers for you. You select it, set it up, duplicate it or share it, and each active funnel takes up a slot in your plan. |
+| **Agent** (*Agente*) | Your automatic salesperson: the AI that chats with your customers inside a funnel, following its playbook. It introduces itself with a name and a way of speaking, its **persona**; in the Home headline, «Personas que venden por ti» (*People who sell for you*) means your agents. Careful: the **«Personas nuevas»** (*New people*) chart on Home counts customers, not agents. |
 | **Playbook** (*Manual*) | The agent's script, written in **chapters**, like the one you would give a new salesperson. It is what you will edit most. |
-| **Placeholder** (*Dato por completar*) | A detail of your business still to fill in, written in capitals with underscores and between « », like `«PRODUCTO_MARCA»`. It comes in the playbook of a sales agent created with the Ecommerce template or from scratch. While any are left, you cannot connect WhatsApp. |
+| **Placeholder** (*Dato por completar*) | A detail of your business still to fill in, written in capitals with underscores and between « », like `«PRODUCTO_MARCA»`. It comes in the playbook of a sales funnel created with the Ecommerce template or from scratch. While any are left, you cannot connect WhatsApp. |
 | **Catalog** (*Catálogo*) | Your products with their prices and variants. The agent checks it when a customer asks about a product, to give the exact price. |
 | **Library** (*Librería*) | Your business's files: the ones the agent sends to the customer (photos, PDF catalogs, audio) and the ones it only reads so it knows how to answer (warranties, shipping policies). |
-| **Copilot** (*Copiloto*) | The AI that lives **inside** the dashboard, in the drawer on the right, and helps you build and fix your agent. |
+| **Copilot** (*Copiloto*) | The AI that lives **inside** the dashboard, in the drawer on the right, and helps you build and fix your funnel. |
 | **Credits** (*Créditos*) | The balance the AI spends: your agent when it chats, and the copilot too. If your balance drops below US\$ 0.10, your agent stops replying to new messages, even if you see some balance left on screen. |
 
 <Note>
@@ -90,7 +91,9 @@ the whole site; the rest are in the [glossary](/en/reference/glossary).
 WhatsApp**: the one who buys from you.
 
 **optiMind** is the name of the DarkFunnels product. You will see it in the
-dashboard, for example in the copilot's header: you are in the right place.
+dashboard, for example when you hover over the copilot button («Copiloto
+optiMind»): you are in the right place. Inside the dashboard, the copilot
+introduces itself as **Kipu**.
 </Note>
 
 ## The path, in order
@@ -98,9 +101,9 @@ dashboard, for example in the copilot's header: you are in the right place.
 <Steps>
   <Step title="Create your account">
     Two screens and no card. Your account starts with **US\$ 10** of balance to
-    build and test your agent, and with four apps already active: **Ventas**
-    (*Sales*), **Calendario** (*Calendar*), **Órdenes** (*Orders*) and
-    **Inventario** (*Inventory*).
+    build your funnel and test its agent, and with four apps already active:
+    **Ventas** (*Sales*), **Calendario** (*Calendar*), **Órdenes** (*Orders*)
+    and **Inventario** (*Inventory*).
     [Create your account](/en/getting-started/create-your-account)
   </Step>
   <Step title="Get to know the dashboard">
@@ -109,14 +112,14 @@ dashboard, for example in the copilot's header: you are in the right place.
     [Your first look](/en/getting-started/first-look) ·
     [The DarkFunnels apps](/en/getting-started/the-apps)
   </Step>
-  <Step title="Create your agent with the copilot">
+  <Step title="Create your funnel with the copilot">
     The copilot asks you what you sell (it also works if you book appointments
     or screen job applicants). If you sell over WhatsApp, you choose between
     **«Usar la plantilla de Ecommerce»** (*Use the Ecommerce template*), a
     playbook with base content to adapt to your business, or **«Armar mi flujo
     desde 0»** (*Build my flow from scratch*), with the same chapters and the
     steps empty.
-    [Your first agent](/en/getting-started/your-first-agent)
+    [Your first funnel](/en/getting-started/your-first-funnel)
   </Step>
   <Step title="Complete the playbook">
     Fill the placeholders with your business details and write whatever is
@@ -132,14 +135,14 @@ dashboard, for example in the copilot's header: you are in the right place.
     have balance left: no new balance arrives when you connect, because you
     already had the US\$ 10 welcome balance from sign-up.
 
-    If your agent was born from the Ecommerce template (or from scratch) and its
+    If your funnel was born from the Ecommerce template (or from scratch) and its
     playbook is missing something, instead of the QR you will see **«Antes de
     conectar:»** (*Before connecting:*) with what is missing: placeholders,
     chapters without steps, or your payment and shipping details not yet
     confirmed.
 
-    <Frame caption="With a template agent's playbook incomplete, Channels shows you «Antes de conectar:» with each pending item and a link to resolve it.">
-      <img src="/images/agente/03-antes-de-conectar.png" alt="An agent's channels with WhatsApp selected, «Sin número conectado» (No number connected), «Todavía no podemos generar tu código QR.» (We can't generate your QR code yet.) and the «Antes de conectar:» block with two pending items: «20 datos por completar (ver)» and «Datos de pago y envío sin confirmar (confirmar)»" />
+    <Frame caption="With a template funnel's playbook incomplete, Channels shows you «Antes de conectar:» with each pending item and a link to resolve it.">
+      <img src="/images/agente/03-antes-de-conectar.png" alt="A funnel's channels with WhatsApp selected, «Sin número conectado» (No number connected), «Todavía no podemos generar tu código QR.» (We can't generate your QR code yet.) and the «Antes de conectar:» block with two pending items: «20 datos por completar (ver)» and «Datos de pago y envío sin confirmar (confirmar)»" />
     </Frame>
 
     [Connect your WhatsApp](/en/getting-started/connect-whatsapp)
@@ -174,7 +177,7 @@ the guides below.
     What it does besides writing: record the sale, hand the chat to a person,
     schedule follow-ups, look up prices. And how each one is asked for.
   </Card>
-  <Card title="Agent settings" icon="sliders" href="/en/guides/agent-settings">
+  <Card title="Funnel settings" icon="sliders" href="/en/guides/funnel-settings">
     Your payment and business details, who gets the notice of each sale, the
     summary every morning, the test numbers and the error alerts.
   </Card>
@@ -231,7 +234,7 @@ receipt. Confirming that the payment arrived is up to you or your team.
 If you save your Yape or your bank account in **«Configuración → Datos del
 negocio»** (*Settings → Business details*), insert them into the playbook with
 **@**: the agent reads them wherever the playbook names them.
-[Agent settings](/en/guides/agent-settings) explains how.
+[Funnel settings](/en/guides/funnel-settings) explains how.
 
 What is charged automatically, to the card you left saved, is your own
 subscription and, if you turn it on, the automatic balance top-up.
@@ -281,6 +284,6 @@ again.
   </Card>
   <Card title="The connection URL" icon="link" href="/en/reference/connection-url">
     What your assistant can do depending on the link: read-only, full phone
-    numbers or a single agent.
+    numbers or a single funnel.
   </Card>
 </CardGroup>

@@ -10,7 +10,7 @@ keywords:
   - "MCP connector permissions"
 ---
 
-{/* es-source: seguridad.mdx @ 6454fa4 */}
+{/* es-source: seguridad.mdx @ dcc1691 */}
 
 You are about to connect the WhatsApp number your customers buy from. Before
 that you deserve concrete answers, not a brochure. This page gives them, the
@@ -32,7 +32,7 @@ dashboard: it is optional and only shows up in the last section.
 | The question | The short answer |
 | --- | --- |
 | Can another business see my chats? | No. In the inbox and conversations the lock is set by the database itself; in **Órdenes** (*Orders*), **Envíos** (*Shipping*), **Inventario** (*Inventory*), **Facturación electrónica** (*Electronic invoicing*) and **Calendario** (*Calendar*), by a filter in the application (section 1). |
-| And the people on my team? | **Only those who have the Ventas (*Sales*) app.** And whoever has it sees **every** conversation in your business: there is no permission per chat or per agent. |
+| And the people on my team? | **Only those who have the Ventas (*Sales*) app.** And whoever has it sees **every** conversation in your business: there is no permission per chat or per funnel. |
 | And someone from DarkFunnels? | **Yes, to give support**, with a tool that reaches every business, yours included. And a WhatsApp number of our team receives copies of your customers' photos and documents, of every sale and of the morning summary (sections 1 and 2). |
 | Do my chats leave DarkFunnels? | Yes, to the AI that answers them (OpenAI or Google, depending on the model). The table below goes item by item. |
 | Do they train on my data? | What we can honestly state has a section of its own. We don't over-promise. |
@@ -82,13 +82,13 @@ can see and do*), that sums it up in one sentence.
 For chats, the one that rules is **Ventas**:
 
 - **Without Ventas, that person does not see the chats**, nor the contacts, nor
-  your agents, nor their playbook. For example, someone you only gave
+  your funnels, nor their playbook. For example, someone you only gave
   **Órdenes** sees the orders and not the inbox.
 - **With Ventas, they see every conversation in your business**, from all your
-  agents.
+  funnels.
 
 <Warning>
-**Ventas is given whole.** There is no finer permission, neither per agent nor
+**Ventas is given whole.** There is no finer permission, neither per funnel nor
 per conversation. **Assigning a chat to someone (*Asignar a…* — Assign to…) is
 an on-screen notice, not a lock**: it does not stop someone else from opening
 it. Give Ventas to whoever you would trust with your whole inbox.
@@ -194,7 +194,7 @@ everyone else it comes up empty.
 
 <Warning>
 **It is not a log of everything that happens.** Changing the playbook, touching
-an agent's **Configuración** (*Settings*) or editing a customer's record **do
+a funnel's **Configuración** (*Settings*) or editing a customer's record **do
 not appear there**. And it records actions, not reads: **the dashboard does not
 keep track of who opened which chat.** If you were going to make a personnel
 decision leaning on that, don't.
@@ -226,7 +226,7 @@ you turn it on"** does not happen until you switch it on.
 | **Culqi** (the gateway that charges you) | **Your** email, **your** name and **your** phone. Nothing from your customers | When you pay the subscription or top up your balance |
 | **Meta: the pixel** — *only if you turn it on* | From the buyer: phone, first name, last name, country and a code from their record, **all hashed one way**. Unhashed: amount, currency, product and order number; and if the conversation started from an ad, the identifier of that click and the one of the WhatsApp Business account | When one of your rules is met, for example when a sale is recorded |
 | **Meta: your ads** — *only if you connect your ad account in Anuncios (Ads)* | Nothing from your customers. DarkFunnels reads from Meta, with **read-only** permission, the spend, the names and the images of your ads | When you connect, and once a day |
-| **Telegram and Slack** — *only if you connect your agent in Personalizar → Canales (Customize → Channels)* | The messages your agent receives and sends through that channel. In Slack, also the team notifications you choose | While it is connected |
+| **Telegram and Slack** — *only if you connect your funnel in Personalizar → Canales (Customize → Channels)* | The messages your agent receives and sends through that channel. In Slack, also the team notifications you choose | While it is connected |
 | **ElevenLabs and HeyGen** (voice and avatar; on DarkFunnels' account, or with your key if you add your own) | ElevenLabs: the text of the sample you hear when testing a voice, and what the copilot reads out loud to you. HeyGen: the text the avatar will say | When you test a voice or generate a video in the dashboard, when the copilot speaks to you, or when your playbook asks the agent for an avatar video |
 | **Your own tools** — *only if you add a server in Personalizar → Herramientas (Customize → Tools)* | Whatever your agent passes to that tool when it uses it in a conversation | When your agent uses it |
 | **Electronic invoicing** — *only if you turn it on with your own account* | From your customer: document type and number, legal name, address and email | When issuing a receipt or invoice |
@@ -254,7 +254,7 @@ chat with our number.
   for that number.
 - **The summary every morning**, with your customers' names, phones and
   purchases, if you have it switched on in **«Reportes»** (*Reports*).
-- **Your agents' error and balance alerts, and the ones for a line that's down
+- **Your funnels' error and balance alerts, and the ones for a line that's down
   or a QR that couldn't be linked**, with the name of your business and of the
   funnel, your name and your email. These go out through our own line.
 
@@ -285,7 +285,7 @@ Five clarifications that don't fit in the table:
   platform level; it is not a checkbox of yours. ElevenLabs voices play in the
   dashboard: when you test a voice or when the copilot speaks to you.
 - **When the model changes, so does the provider.** You choose your agent's
-  model in its [Configuración](/en/guides/agent-settings#brain) and the
+  model in its funnel's [Configuración](/en/guides/funnel-settings#brain) and the
   copilot's in its **Modelo** (*Model*) menu: the ones that start with «gemini»
   go through Google and the rest through OpenAI. DarkFunnels can also change
   the model each function uses by default, without touching the application. If
@@ -393,11 +393,11 @@ session was already down, remove the device from your phone as well (WhatsApp �
 
 ### The emergency button
 
-The switch on each agent's card, on your **Inicio** (*Home*) (**Activo** /
-**Pausado** — *Active* / *Paused*), is not cosmetic. When you pause it, the
+The switch on each funnel's card, on your **Inicio** (*Home*) (**Activo** /
+**Pausado** — *Active* / *Paused*), is not cosmetic. When you pause it, its
 agent stops answering in all its conversations, **cancels the sends that were
 already queued and the half-done turns**, and its place among your active
-agents is freed up. It is the answer to "what if it goes off the rails?".
+funnels is freed up. It is the answer to "what if it goes off the rails?".
 
 <Note>
 Between your WhatsApp and the agent's brain there is a shared key, and in
@@ -456,9 +456,9 @@ There are two paths, and both delete the same thing:
     They write your agent its **deletion phrase** — by default, **borrar**
     ("delete") — as the whole message, with nothing else; upper or lower case
     doesn't matter. Their data is deleted, they get a confirmation and their
-    next message starts a conversation from scratch. Each agent has its own
+    next message starts a conversation from scratch. Each funnel has its own
     phrase, and you change it in its
-    [Configuración](/en/guides/agent-settings#behavior), in the **Frase de
+    [Configuración](/en/guides/funnel-settings#behavior), in the **Frase de
     borrado** (*Deletion phrase*) field.
   </Step>
 </Steps>
@@ -481,7 +481,7 @@ nor on DarkFunnels' WhatsApp. Nor does it touch the Excel copy of a funnel you
 already deleted.
 </Note>
 
-**If that same number writes to another of your agents, their record there is
+**If that same number writes to another of your funnels, their record there is
 not touched.** Each funnel has its own record of each customer: the deletion
 applies to the funnel where you do it.
 
@@ -504,7 +504,7 @@ opt-out, write to us.
 ### Other kinds of deletion worth knowing about
 
 - **Deleting a funnel deletes its conversations, its contacts, the agent's own
-  files and its persona (if it doesn't share it with another agent)**, and
+  files and its persona (if it doesn't share it with another funnel)**, and
   closes its WhatsApp session. The files in your Library stay. Before deleting,
   it tells you how much is lost and, if it has contacts, sales or notes, it
   saves an **Excel copy** with all of that and its variables, which is emailed
@@ -535,7 +535,7 @@ the account.
 
 <Steps>
   <Step title="Read the card">
-    It tells you what goes: your business, your agents, the conversations, the
+    It tells you what goes: your business, your funnels, the conversations, the
     contacts, the files and the catalog, and that WhatsApp gets unlinked. If you
     have balance left, it warns *«Perderás el saldo restante»* (*You will lose
     the remaining balance*) with the figure. If there are more people on your
@@ -649,7 +649,7 @@ as they are.
   team).
 - **The URL the dashboard gives you carries `?features=all`**: it turns on every
   function, including the ones that write, send real messages to your
-  customers, pause agents or create funnels.
+  customers, pause or create funnels.
 - **`&read_only=true` disables every write** and overrides any other option.
 - **Destructive actions travel marked as such**: it is the marker assistants
   use to ask you for confirmation before running them.

@@ -10,7 +10,7 @@ keywords:
   - "attributed revenue"
   - "shipments and couriers"
 ---
-{/* es-source: guias/pedidos-y-metricas.mdx @ 4c60b4d */}
+{/* es-source: guias/pedidos-y-metricas.mdx @ 72b59ed */}
 
 Your agent closes the sale in the chat. From there on the work is yours: get
 paid, dispatch and know whether the month is going well. This guide is the tour
@@ -24,7 +24,7 @@ left:
 | Screen | What it is for | How to get there |
 | --- | --- | --- |
 | **Órdenes** ("Orders") | Your queue for the day: who owes you, what is left to dispatch | A menu row of its own, outside Ventas: **Órdenes** |
-| **Clientes** ("Customers") | The people who have talked to your agent, with what it learned about them | **Ventas** ("Sales") → **AGENTE** ("AGENT") block → **Clientes** |
+| **Clientes** ("Customers") | The people who have talked to your agent, with what it learned about them | **Ventas** ("Sales") → **EMBUDO** ("FUNNEL") block → **Clientes** |
 | **Resultados** ("Results") | How the business is doing over a period | **Ventas** → **Resultados** (the first one) |
 | **Envíos** ("Shipments") | The parcels, the courier and the waybill | **Envíos**, if it is active in your account |
 
@@ -57,8 +57,8 @@ The title is **Órdenes** ("Orders") and underneath, in small type, it says what
 it is: *Everything the sales funnel achieves — orders, appointments, services
 and leads — from the "yes" to the close.* That sentence explains the four tabs.
 
-**Órdenes shows the orders of your whole business**, not those of one agent. It
-does not matter which agent you have chosen in the menu: the list and the totals
+**Órdenes shows the orders of your whole business**, not those of one funnel. It
+does not matter which funnel you have chosen in the menu: the list and the totals
 are the same.
 
 <Note>
@@ -71,7 +71,7 @@ the other three.
 ### Do I have to sign up for this?
 
 You do not need to install it. New accounts are born with Órdenes switched on,
-and businesses that already existed with their sales agent active had it
+and businesses that already existed with their sales funnel active had it
 switched on for them. It can be switched off and back on from
 **Administración** → **Apps** ("Administration → Apps"), a screen that only the
 person who administers the business can see ([The
@@ -169,7 +169,7 @@ Out of the box, and in this order: **pedido** ("order") · **cliente**
 - **detalle** ("detail") shows the first line of the order (with «+N más» —
   "+N more" — if there are others) and the delivery district, if there is one.
 - You can widen and reorder the columns by dragging. The dashboard remembers the
-  result for each agent separately.
+  result for each funnel separately.
 - **Abrir** ("Open") stays fixed on the right: it does not move and it does not
   narrow.
 
@@ -271,7 +271,7 @@ Two exceptions worth knowing about:
 Nobody declares it: it is inferred, in this order. First, what the agent
 understood from the chat by reading the symbol that was written (`S/` or `$`).
 If not that, the currency of the catalog price. And if not that either, the
-agent's **Moneda de las ventas** ("Sales currency") setting, which is in
+funnel's **Moneda de las ventas** ("Sales currency") setting, which is in
 **Ventas** → **Configuración** ("Sales → Settings") (soles, unless you change
 it).
 
@@ -318,8 +318,8 @@ button is at the top right, in the **Pedidos** ("Orders") tab.
 </Steps>
 
 <Note>
-**The product dropdown only brings in what the agent you have selected sells**
-in the menu on the left. If you cannot find a product, check the agent first.
+**The product dropdown only brings in what the funnel you have selected sells**
+in the menu on the left. If you cannot find a product, check the funnel first.
 </Note>
 
 <Warning>
@@ -719,24 +719,24 @@ if not, it is lost.
 to your agent, with what it learned about them.
 
 <Note>
-**It needs an agent selected.** Without one, the screen says *«Sin agente
-seleccionado»* ("No agent selected"). And the list changes when you change agent
-in the menu: you have not lost contacts.
+**It needs a funnel selected.** Without one, the screen says *«Sin embudo
+seleccionado»* ("No funnel selected"). And the list changes when you change
+funnel in the menu: you have not lost contacts.
 </Note>
 
 ### The three views
 
-Below the title there are three tabs: **Cola** ("Queue"), **Embudo**
-("Funnel") and **Tabla** ("Table").
+Below the title there are three tabs: **Cola** ("Queue"), **Capítulos**
+("Chapters") and **Tabla** ("Table").
 
-<Frame caption="Clientes: the Cola · Embudo · Tabla tabs below the title and, on the right, the Etiquetas button. Here the Cola is empty: «Cola limpia. La IA está al mando.» (Queue clear. The AI is in charge.)">
-  <img src="/images/apps/03-clientes.png" alt="Dashboard Clientes screen on the Cola tab, with the Cola, Embudo and Tabla tabs, the Etiquetas button and the empty Por cerrar section showing «Cola limpia. La IA está al mando.»" />
+<Frame caption="Clientes: the Cola · Capítulos · Tabla tabs below the title and, on the right, the Etiquetas button. Here the Cola is empty: «Cola limpia. La IA está al mando.» (Queue clear. The AI is in charge.)">
+  <img src="/images/apps/03-clientes.png" alt="Dashboard Clientes screen on the Cola tab, with the Cola, Capítulos and Tabla tabs, the Etiquetas button and the empty Por cerrar section showing «Cola limpia. La IA está al mando.»" />
 </Frame>
 
 | View | What it is | When to use it |
 | --- | --- | --- |
 | **Cola** ("Queue") | *"Your closing queue: whoever wrote to you and was left without a reply, from the one who has been waiting longest to the one who has been waiting least; you just empty it."* | Every day |
-| **Embudo** ("Funnel") | *"The funnel at a glance: drag a person to another chapter and the agent will carry on from there."* | To see where people get stuck |
+| **Capítulos** ("Chapters") | *"The chapters at a glance: drag a person to another chapter and the agent will carry on from there."* | To see where people get stuck |
 | **Tabla** ("Table") | *"Every person who talks to your agent: chapter, purchases, what it learned and what needs your attention."* | To supervise and to search |
 
 Normally you land in **Cola** ("Queue"). If you arrive from a link that already
@@ -756,24 +756,24 @@ When it is empty it says *«Cola limpia. La IA está al mando.»* ("Queue clear.
 The AI is in charge.")
 
 <Tip>
-**Dragging a card in the Embudo ("Funnel") view changes that person's
+**Dragging a card in the Capítulos ("Chapters") view changes that person's
 chapter:** your agent will carry on from that chapter on its next turn. It is
 the quickest way to rescue someone who got stuck.
 </Tip>
 
-### One record per agent
+### One record per funnel
 
-**Each agent (each funnel) has its own record of each customer.** If the same
-number writes to two of your agents, it appears in both lists, and each record
+**Each funnel has its own record of each customer.** If the same
+number writes to two of your funnels, it appears in both lists, and each record
 keeps its own: captured data, tags, notes, sales and orders. A customer no
-longer "jumps" from one agent's list to another's.
+longer "jumps" from one funnel's list to another's.
 
 **Of the record, what applies to the whole business is the unsubscribe:** if you
-unsubscribe a number, it stops receiving messages on all your agents. The rest
-of the record belongs to each agent, including the data deletion.
+unsubscribe a number, it stops receiving messages on all your funnels. The rest
+of the record belongs to each funnel, including the data deletion.
 
 <Note>
-That is why an agent you duplicate, or one shared with you from another account,
+That is why a funnel you duplicate, or one shared with you from another account,
 starts with no customers. [Your funnels](/en/guides/your-funnels) explains it.
 </Note>
 
@@ -815,16 +815,16 @@ the **Etiquetas** ("Tags") and **+ Variable** buttons.
 
 ### Filtering the list
 
-In the **Embudo** ("Funnel") and **Tabla** ("Table") views (the Cola cannot be
-filtered):
+In the **Capítulos** ("Chapters") and **Tabla** ("Table") views (the Cola cannot
+be filtered):
 
 - **The search box** searches by name or phone.
 - **Filtrar** ("Filter") opens three filters: **Capítulo** ("Chapter" — not in
-  Embudo, where the chapter is already the column), **Piloto automático**
+  Capítulos, where the chapter is already the column), **Piloto automático**
   ("Autopilot") and **Etiqueta** ("Tag").
 - **Todos · Con compra** ("All · With a purchase"): two segments (below we
   explain what "purchase" means).
-- **The country.** If that agent's customers are from two or more countries,
+- **The country.** If that funnel's customers are from two or more countries,
   tabs with their flag appear: **Todos** ("All") and the countries with the most
   customers. If there are many, the rest go in the **Más países** ("More
   countries") dropdown.
@@ -832,7 +832,7 @@ filtered):
 <Note>
 **Customers with no known country only show up under «Todos» ("All").** It
 happens, for example, when WhatsApp does not let the customer's number be seen.
-And when you change agent, the country goes back to **Todos**.
+And when you change funnel, the country goes back to **Todos**.
 </Note>
 
 If there are no results, the screen offers you **Limpiar filtros** ("Clear
@@ -842,18 +842,18 @@ filters").
 
 <Warning>
 **«conversiones» ("conversions") are not sales.** It counts all the recorded,
-non-voided outcomes for that person **with this agent**: sales, but also
+non-voided outcomes for that person **in this funnel**: sales, but also
 appointments, services and leads. If your funnel books appointments, that number
 is inflated relative to what you sold.
 
 **«Con compra» ("With a purchase") is not "they paid me" either.** That segment
-marks whoever has at least one recorded, non-voided outcome with this agent. It
+marks whoever has at least one recorded, non-voided outcome in this funnel. It
 does not look at whether they paid or whether the order has been collected. For
 the money, the place is the **Por cobrar** ("Awaiting payment") filter in
 Órdenes.
 
 **«costo IA» ("AI cost") falls short.** It is what the AI cost to serve that
-person with this agent, in dollars, but it only counts what happens inside a
+person in this funnel, in dollars, but it only counts what happens inside a
 conversation turn. Transcribing the audio the customer sent or reading an image
 fall outside it. If you add up the column across all your customers and compare
 it with your usage, it is not going to match.
@@ -936,12 +936,12 @@ A sale with no order is voided without further ado.
 **Unsubscribing and deleting data do not reach the same things.**
 
 - **Unsubscribing the contact** applies to your whole business: they stop
-  receiving messages from the agent and from the operator on all your agents. It
-  is reverted from the same record with **Reactivar contacto** ("Reactivate
+  receiving messages from the agent and from the operator on all your funnels.
+  It is reverted from the same record with **Reactivar contacto** ("Reactivate
   contact"), but only whoever administers your business can do that.
-- **Borrar datos de usuario** ("Delete user data") deletes that person **only on
-  this agent** and cannot be undone. Their records on your other agents are not
-  touched, and if they were unsubscribed, the unsubscribe stays.
+- **Borrar datos de usuario** ("Delete user data") deletes that person **only in
+  this funnel** and cannot be undone. Their records in your other funnels are
+  not touched, and if they were unsubscribed, the unsubscribe stays.
 
 The details are in [Conversations](/en/guides/conversations).
 </Warning>
@@ -962,15 +962,15 @@ screen.
 
 At the top there are three controls: the **period**, the **scope** and, if it
 applies, the **country**. The scope is two tabs: the one carrying the name of
-your selected agent and **Toda la organización** ("The whole organization").
+your selected funnel and **Toda la organización** ("The whole organization").
 The verdict writes out what you are looking at, for example *«Veredicto · Moda
 Sol · 120 conversaciones»* ("Verdict · Moda Sol · 120 conversations").
 
 <Warning>
-**Do not try to reconcile the two views.** The sum of your agents individually
+**Do not try to reconcile the two views.** The sum of your funnels individually
 does NOT give the "Toda la organización" ("The whole organization") number, and
-that is on purpose: a conversation that was not assigned to any agent does not
-belong to any funnel, but it does count in the organization's total. And
+that is on purpose: a conversation that was not assigned to any funnel does not
+belong to any of them, but it does count in the organization's total. And
 percentages and latency do not add up.
 </Warning>
 
@@ -1095,11 +1095,12 @@ orders. If you want it to count, record it as well from the customer record.
 Resultados is not the only screen with numbers. On **Inicio** ("Home"), inside
 the Ventas ("Sales") section, there is a band of figures for the period and
 three charts: **Personas nuevas** ("New people"), **Facturación** ("Revenue")
-and **Embudo** ("Funnel"). They have their own period selector, and with
-**Gráficas de** ("Charts for") you choose which agent they are for.
+and **Avance por capítulo** ("Progress by chapter"). They have their own period
+selector, and with **Gráficas de** ("Charts for") you choose which funnel they
+are for.
 
-<Frame caption="The Home charts: Personas nuevas, Facturación and the Embudo by chapter, all for the same period and the same agent.">
-  <img src="/images/inicio/03-graficas.png" alt="Home charts section with Personas nuevas, Facturación and Embudo by chapter" />
+<Frame caption="The Home charts: Personas nuevas, Facturación and Avance por capítulo, all for the same period and the same funnel.">
+  <img src="/images/inicio/03-graficas.png" alt="Home charts section with Personas nuevas, Facturación and Avance por capítulo" />
 </Frame>
 
 **Facturación** ("Revenue") adds up the same as **Ingreso atribuido**
@@ -1110,7 +1111,7 @@ the sales your test chat records also go in, which Resultados leaves out.
 
 ## What reaches you without opening the dashboard
 
-In **Ventas** → **Configuración** ("Sales → Settings"), each agent has two
+In **Ventas** → **Configuración** ("Sales → Settings"), each funnel has two
 settings that send you figures over WhatsApp:
 
 - **Informar de las ventas** ("Report sales"). Every sale the agent records
@@ -1124,7 +1125,7 @@ settings that send you figures over WhatsApp:
   more.
 
 <Frame caption="The Reportes section of Configuración: the «Enviar el resumen cada mañana» switch, here Apagado (Off), and the selector of frequent numbers that receive it. With no numbers chosen, the screen warns «Sin números configurados: no se envía el resumen» (No numbers set up: the summary is not sent).">
-  <img src="/images/configuracion/04-reportes.png" alt="Agent Configuración screen with the Reportes section: the «Enviar el resumen cada mañana» switch off, the «Sin números configurados: no se envía el resumen» notice and the Elegir de mis números frecuentes selector" />
+  <img src="/images/configuracion/04-reportes.png" alt="Funnel Configuración screen with the Reportes section: the «Enviar el resumen cada mañana» switch off, the «Sin números configurados: no se envía el resumen» notice and the Elegir de mis números frecuentes selector" />
 </Frame>
 
 <Warning>
@@ -1134,7 +1135,7 @@ it: the screen warns you with *«Nadie lo recibirá»* ("Nobody will receive it"
 </Warning>
 
 All the settings on that screen are in
-[Agent settings](/en/guides/agent-settings).
+[Funnel settings](/en/guides/funnel-settings).
 
 ## Shipments (only if your business has it switched on)
 
@@ -1312,8 +1313,8 @@ to it); it is not an error.
 | **The Pipeline has fewer cards than the total at the top** | The board only distributes the orders already loaded | Go to **Tabla** ("Table") with **Todos** ("All"), scroll down until what you need is loaded and go back to **Pipeline** |
 | **I cannot drag into «Por cobrar» ("Awaiting payment")** | Money is recorded, not dragged | Open the order and use **Registrar pago** ("Record payment") |
 | **A manual order does not add up in Resultados** | Resultados counts recorded sales, and the manual order has none | Record the sale as well from the customer record |
-| **A customer does not appear in Clientes** | You have another agent selected, or a filter on (country, «Con compra», chapter, tag) | Change agent in the menu, or press **Limpiar filtros** ("Clear filters") |
-| **The same customer shows up under two agents** | They talked to both: each agent has its own record | It is expected |
+| **A customer does not appear in Clientes** | You have another funnel selected, or a filter on (country, «Con compra», chapter, tag) | Change funnel in the menu, or press **Limpiar filtros** ("Clear filters") |
+| **The same customer shows up under two funnels** | They talked to the agent of each one: each funnel has its own record | It is expected |
 | **It will not let me void a sale** | It has an order and you do not have the Órdenes permission, or the Órdenes app is switched off | Without the permission: have someone with Órdenes cancel the order (the sale is voided on its own). With Órdenes switched off: whoever administers switches it on in **Administración** → **Apps** and then the order is cancelled |
 | **«Calidad de venta» ("Sales quality") comes out empty** | In the period there were no already-marked conversations of 6 messages or more | Widen the period. The judge only marks a conversation once it has been still for 2 hours |
 | **An order "will not let itself be cancelled"** | It was already on its way to delivery and left a trace: a shipment created or stock moved | Review it in **Órdenes** ("Orders") |
@@ -1328,9 +1329,9 @@ Said once and plainly, so you do not go looking for it:
   Resultados. The screens that do download a CSV are the
   [Catalog](/en/guides/catalog) and the
   [Referral network](/en/guides/referral-network). If what you need is to take
-  out an agent's contacts, with their data, their sales and their notes, there
-  is an Excel copy: it is downloaded from **Eliminar agente…** ("Delete
-  agent…") → **Descargar copia ahora** ("Download copy now"), without deleting
+  out a funnel's contacts, with their data, their sales and their notes, there
+  is an Excel copy: it is downloaded from **Eliminar embudo…** ("Delete
+  funnel…") → **Descargar copia ahora** ("Download copy now"), without deleting
   anything ([Your funnels](/en/guides/your-funnels) explains it).
 - **Órdenes, Clientes and Envíos do not filter by dates.** Órdenes filters by
   status and by text; Clientes by chapter, autopilot, tag, text, «Con compra»
@@ -1382,7 +1383,7 @@ Phrases that work:
   collected."*
 - *"Compare the catalog stock against the inventory stock and tell me which
   variants do not match."*
-- *"How much did the AI cost me over the last 30 days and which agent took the
+- *"How much did the AI cost me over the last 30 days and which funnel took the
   biggest share?"*
 - *"How is my balance doing and for how many days will it last at this week's
   rate?"*
@@ -1408,7 +1409,7 @@ Details that avoid misunderstandings when you ask it for numbers:
     respuesta** ("Response latency") and **Calidad de venta** ("Sales quality")
     always reach your assistant in that list, because they are not measured
     through this route. To see them, look at **Resultados** in the dashboard.
-    Apart from those three, in a just-switched-on agent or a dead week all the
+    Apart from those three, in a just-switched-on funnel or a dead week all the
     others can arrive there too: that means a period with no activity, not a
     breakdown.
   </Accordion>
@@ -1454,7 +1455,7 @@ back to you that way, this is the equivalence with what you see on screen:
     The chat each sale was born from, and where the ones that do not close get
     lost.
   </Card>
-  <Card title="Agent settings" icon="gear" href="/en/guides/agent-settings">
+  <Card title="Funnel settings" icon="gear" href="/en/guides/funnel-settings">
     The sales currency, the notice for each sale and the 8:00 summary.
   </Card>
   <Card title="Credits and top-ups" icon="wallet" href="/en/getting-started/credits-and-top-ups">

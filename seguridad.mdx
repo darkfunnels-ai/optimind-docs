@@ -19,7 +19,7 @@ opcional y solo aparece en la última sección.
 | La pregunta | La respuesta corta |
 | --- | --- |
 | ¿Otro negocio puede ver mis chats? | No. En la bandeja y las conversaciones el candado lo pone la propia base de datos; en Órdenes, Envíos, Inventario, Facturación electrónica y Calendario, un filtro del programa (sección 1). |
-| ¿Y la gente de mi equipo? | **Solo quien tenga la app Ventas.** Y quien la tiene ve **todas** las conversaciones de tu empresa: no hay un permiso por chat ni por agente. |
+| ¿Y la gente de mi equipo? | **Solo quien tenga la app Ventas.** Y quien la tiene ve **todas** las conversaciones de tu empresa: no hay un permiso por chat ni por embudo. |
 | ¿Y alguien de DarkFunnels? | **Sí, para dar soporte**, con una herramienta que alcanza a todas las empresas, también la tuya. Y a un WhatsApp de nuestro equipo le llegan copias de las fotos y documentos de tus clientes, de cada venta y del resumen de la mañana (secciones 1 y 2). |
 | ¿Mis chats salen de DarkFunnels? | Sí, a la IA que los contesta (OpenAI o Google, según el modelo). Abajo está la tabla, dato por dato. |
 | ¿Entrenan con mis datos? | Lo que podemos afirmar honestamente está en su propia sección. No prometemos de más. |
@@ -67,13 +67,13 @@ recuadro, **Qué puede ver y hacer**, que lo resume en una frase.
 Para los chats, la que manda es **Ventas**:
 
 - **Sin Ventas, esa persona no ve los chats**, ni los contactos, ni tus
-  agentes, ni su manual. Por ejemplo, alguien a quien solo le diste **Órdenes**
+  embudos, ni su manual. Por ejemplo, alguien a quien solo le diste **Órdenes**
   ve los pedidos y no la bandeja.
 - **Con Ventas, ve todas las conversaciones de tu empresa**, de todos tus
-  agentes.
+  embudos.
 
 <Warning>
-**Ventas se da entera.** No hay un permiso más fino, ni por agente ni por
+**Ventas se da entera.** No hay un permiso más fino, ni por embudo ni por
 conversación. **Asignarle un chat a alguien (*Asignar a…*) es un aviso en
 pantalla, no un candado**: no impide que otro lo abra. Dale Ventas a quien le
 confiarías tu bandeja completa.
@@ -176,7 +176,7 @@ demás les sale vacía.
 
 <Warning>
 **No es un registro de todo lo que pasa.** Cambiar el manual, tocar la
-Configuración de un agente o editar la ficha de un cliente **no aparecen ahí**.
+Configuración de un embudo o editar la ficha de un cliente **no aparecen ahí**.
 Y registra acciones, no lecturas: **el panel no guarda quién abrió qué chat.**
 Si ibas a tomar una decisión de personal apoyándote en eso, no lo hagas.
 </Warning>
@@ -207,7 +207,7 @@ lo activas»** no ocurre hasta que tú lo enciendes.
 | **Culqi** (la pasarela que te cobra a ti) | **Tu** correo, **tu** nombre y **tu** teléfono. Nada de tus clientes | Al pagar la suscripción o recargar saldo |
 | **Meta: el píxel** — *solo si lo activas* | Del comprador: teléfono, nombre, apellido, país y un código de su ficha, **todos cifrados en un solo sentido**. Sin cifrar: monto, moneda, producto y número de pedido; y si la conversación nació de un anuncio, el identificador de ese clic y el de la cuenta de WhatsApp Business | Cuando se cumple una de tus reglas, por ejemplo al registrarse una venta |
 | **Meta: tus anuncios** — *solo si conectas tu cuenta publicitaria en Anuncios* | Nada de tus clientes. DarkFunnels lee de Meta, con permiso de **solo lectura**, el gasto, los nombres y las imágenes de tus anuncios | Al conectar y una vez al día |
-| **Telegram y Slack** — *solo si conectas tu agente en Personalizar → Canales* | Los mensajes que tu agente recibe y envía por ese canal. En Slack, además, los avisos al equipo que elijas | Mientras esté conectado |
+| **Telegram y Slack** — *solo si conectas tu embudo en Personalizar → Canales* | Los mensajes que tu agente recibe y envía por ese canal. En Slack, además, los avisos al equipo que elijas | Mientras esté conectado |
 | **ElevenLabs y HeyGen** (voz y avatar; con la cuenta de DarkFunnels, o con tu llave si pones la tuya) | ElevenLabs: el texto de la muestra que escuchas al probar una voz, y lo que el copiloto te lee en voz alta. HeyGen: el texto que dirá el avatar | Al probar una voz o generar un video en el panel, cuando el copiloto te habla, o cuando tu manual le pide al agente un video del avatar |
 | **Tus propias herramientas** — *solo si añades un servidor en Personalizar → Herramientas* | Lo que tu agente le pase a esa herramienta al usarla en una conversación | Cuando tu agente la usa |
 | **Facturación electrónica** — *solo si la activas con tu cuenta* | De tu cliente: tipo y número de documento, nombre legal, dirección y correo | Al emitir un comprobante |
@@ -234,7 +234,7 @@ con nuestro número.
   «Informar de las ventas» apaga el aviso para tu equipo, no para ese número.
 - **El resumen de cada mañana**, con nombres, teléfonos y compras de tus
   clientes, si lo tienes encendido en «Reportes».
-- **Los avisos de error y de saldo de tus agentes, y los de línea caída o de
+- **Los avisos de error y de saldo de tus embudos, y los de línea caída o de
   un QR que no se pudo vincular**, con el nombre de tu negocio y del embudo, tu
   nombre y tu correo. Estos salen por nuestra propia línea.
 
@@ -263,9 +263,9 @@ Cinco precisiones que no caben en la tabla:
 - **Tu agente no responde con notas de voz.** Esa función está apagada a nivel
   de plataforma; no es una casilla tuya. Las voces de ElevenLabs suenan en el
   panel: al probar una voz o cuando el copiloto te habla.
-- **Con el modelo cambia el proveedor.** Tú eliges el modelo de tu agente en su
-  [Configuración](/guias/configuracion-del-agente#cerebro) y el del copiloto en
-  su menú **Modelo**: los que empiezan por «gemini» van por Google y el resto,
+- **Con el modelo cambia el proveedor.** Tú eliges el modelo de tu agente en la
+  [Configuración](/guias/configuracion-del-embudo#cerebro) de su embudo y el del
+  copiloto en su menú **Modelo**: los que empiezan por «gemini» van por Google y el resto,
   por OpenAI. DarkFunnels también puede cambiar el modelo que usa cada función
   por defecto, sin tocar el programa. Si esa lista te importa para un contrato,
   pídenos la versión del día.
@@ -372,10 +372,10 @@ tu teléfono (WhatsApp → **Dispositivos vinculados**).
 
 ### El botón de emergencia
 
-El interruptor de la tarjeta de cada agente, en tu Inicio (**Activo** /
-**Pausado**), no es cosmético. Al pausarlo, el agente deja de responder en todas
+El interruptor de la tarjeta de cada embudo, en tu Inicio (**Activo** /
+**Pausado**), no es cosmético. Al pausarlo, su agente deja de responder en todas
 sus conversaciones, **cancela los envíos que ya estaban en cola y los turnos a
-medias**, y su lugar entre tus agentes activos queda libre. Es la respuesta a
+medias**, y su lugar entre tus embudos activos queda libre. Es la respuesta a
 «¿y si se descontrola?».
 
 <Note>
@@ -434,8 +434,8 @@ Hay dos caminos, y los dos borran lo mismo:
     Le escribe a tu agente su **frase de borrado** —por defecto, **borrar**—
     como mensaje entero, sin nada más; da igual en mayúsculas o minúsculas. Se
     borran sus datos, recibe una confirmación y su siguiente mensaje empieza
-    una conversación desde cero. Cada agente tiene su frase, y la cambias en
-    su [Configuración](/guias/configuracion-del-agente#comportamiento), campo
+    una conversación desde cero. Cada embudo tiene su frase, y la cambias en
+    su [Configuración](/guias/configuracion-del-embudo#comportamiento), campo
     **Frase de borrado**.
   </Step>
 </Steps>
@@ -457,7 +457,7 @@ resumen de la mañana—, ni en los teléfonos de tu equipo ni en el WhatsApp de
 DarkFunnels. Tampoco toca la copia en Excel de un embudo que ya eliminaste.
 </Note>
 
-**Si ese mismo número le escribe a otro de tus agentes, su ficha allá no se
+**Si ese mismo número le escribe a otro de tus embudos, su ficha allá no se
 toca.** Cada embudo tiene su propia ficha de cada cliente: el borrado es del
 embudo donde lo haces.
 
@@ -479,7 +479,7 @@ después necesitas levantar esa baja, escríbenos.
 ### Otras formas de borrado que conviene conocer
 
 - **Eliminar un embudo borra sus conversaciones, sus contactos, los archivos
-  propios del agente y su persona (si no la comparte con otro agente)**, y
+  propios del agente y su persona (si no la comparte con otro embudo)**, y
   cierra su sesión de WhatsApp. Los archivos de tu Librería se quedan. Antes
   de borrar te dice cuánto se pierde y, si tiene contactos, ventas o notas, guarda una **copia en
   Excel** con todo eso y sus variables, que llega por correo a quien borra y al
@@ -509,7 +509,7 @@ decir, quien creó la cuenta.
 
 <Steps>
   <Step title="Lee la tarjeta">
-    Te dice qué se va: tu negocio, tus agentes, las conversaciones, los
+    Te dice qué se va: tu negocio, tus embudos, las conversaciones, los
     contactos, los archivos y el catálogo, y que se desvincula WhatsApp. Si te
     queda saldo, avisa *«Perderás el saldo restante»* con la cifra. Si hay más
     personas en tu equipo, avisa de que también pierden el acceso.
@@ -621,7 +621,7 @@ el texto de los mensajes llegan tal cual.
   DarkFunnels).
 - **La dirección que te da el panel lleva `?features=all`**: activa todas las
   funciones, incluidas las que escriben, envían mensajes reales a tus clientes,
-  pausan agentes o crean embudos.
+  pausan o crean embudos.
 - **`&read_only=true` desactiva toda escritura** y manda sobre cualquier otra
   opción.
 - **Las acciones destructivas viajan marcadas como tales**: es la marca que los

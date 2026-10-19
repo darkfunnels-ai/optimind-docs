@@ -10,7 +10,7 @@ keywords:
   - "bulk edit products CSV"
   - "stock tracking"
 ---
-{/* es-source: guias/catalogo.mdx @ 974186a */}
+{/* es-source: guias/catalogo.mdx @ 3d73ff9 */}
 
 Your agent does not know what anything costs until you tell it. **The catalog is
 where you tell it**: a product, a price, its sizes, its photo. That is where it
@@ -53,10 +53,10 @@ the Catalog with the new-product form already open.
 ## What the catalog is for
 
 The screen itself sums it up under the title: *«El precio sale de aquí»* (*The
-price comes from here*). (If you have more than one agent, that sentence starts
-by saying which agent you are looking at: *«Lo que vende «…», más los productos
+price comes from here*). (If you have more than one funnel, that sentence starts
+by saying which funnel you are looking at: *«Lo que vende «…», más los productos
 sin embudo asignado»*, *What «…» sells, plus the products with no funnel
-assigned*. The list is trimmed to that agent.)
+assigned*. The list is trimmed to that funnel.)
 
 That is literal: the agent carries a written instruction to check the catalog
 every time the customer asks about a product or its price, and not to make
@@ -244,9 +244,9 @@ ones that raise the most questions:
 | **«12 variantes»** (*12 variants*) under the name | producto | How many versions it has. On a service it says **«Servicio · 3 modalidades»** (*Service · 3 options*). |
 | **«Infoproducto · ⚠️ sin entrega»** (*Info product · ⚠️ no delivery*) | producto | It is an info product with no delivery file or link. See [Automatic delivery](#if-you-sell-a-course-or-an-ebook-automatic-delivery). |
 | A number, **«Agotado»** (*Out of stock*) or **«Sin control»** (*Not tracked*) | inventario | Explained in [Stock: when to turn it on](#stock-when-to-turn-it-on). |
-| **«Todos»** (*All*) | embudos | You did not tick any funnels: all your agents sell it. |
-| Agent names | embudos | Only those agents sell it. |
-| **«Embudo eliminado»** (*Funnel deleted*) | embudos | It was ticked for an agent that is no longer in your list. Open it and tick the agents that should sell it. |
+| **«Todos»** (*All*) | embudos | You did not tick any funnels: all your funnels sell it. |
+| Funnel names | embudos | Only those funnels sell it. |
+| **«Embudo eliminado»** (*Funnel deleted*) | embudos | It was ticked for a funnel that is no longer in your list. Open it and tick the funnels that should sell it. |
 
 The dimmed rows, with lighter text, are products with **Activo** switched off.
 
@@ -296,7 +296,7 @@ payment is confirmed (voucher approved), the agent sends this to the customer
 without you doing anything.*) You have two options:
 
 - **A file from the Librería** (*Library*) — only the files already marked as
-  sendable for the agent you have open are offered. If there are none, the
+  sendable for the funnel you have open are offered. If there are none, the
   panel tells you: *«Sube un archivo a la Librería y márcalo como enviable para
   poder entregarlo aquí.»* (*Upload a file to the Library and mark it as
   sendable to be able to deliver it here.*) They are prepared in
@@ -326,7 +326,7 @@ all three types; the seventh depends on the type and sits between
 | 4 | **Precios** (*Prices*) | Price, currency and the quantity scale. |
 | 5 | **Inventario** (*Inventory*) | The stock-tracking switch and the SKU. |
 | 6 | **Variantes** / **Modalidades** / **Entrega automática** | Depending on the type. The info product has no variants. |
-| 7 | **Disponibilidad** (*Availability*) | Visible, Activo and — if you have more than one agent — which funnels sell it. |
+| 7 | **Disponibilidad** (*Availability*) | Visible, Activo and — if you have more than one funnel — which funnels sell it. |
 
 ### What is really required
 
@@ -548,7 +548,7 @@ catálogo» does not stop the agent from carrying on selling it over chat.
 ### Funnels that sell it
 
 That list, **Embudos que lo venden** (*Funnels that sell it*), **only appears if
-your business has more than one agent**. If you have one, you will not even see
+your business has more than one funnel**. If you have one, you will not even see
 it. And the rule is not the one it looks like: *«Sin marcar ninguno, lo cotizan
 todos los embudos.»* (*With none ticked, every funnel quotes it.*) — **ticking
 nothing means "all", not "none"**. As soon as you tick one, the text changes:
@@ -556,9 +556,9 @@ nothing means "all", not "none"**. As soon as you tick one, the text changes:
 be able to quote it.*)
 
 <Note>
-**It is an organizing rule, not a security barrier.** It is there so that your
-wholesale agent does not quote the retail one's products. But do not use it to
-hide sensitive information: if the system cannot read the assignments, it opens
+**It is an organizing rule, not a security barrier.** It is there so that the
+agent of your wholesale funnel does not quote the retail one's products. But do
+not use it to hide sensitive information: if the system cannot read the assignments, it opens
 up instead of closing down, and the agent sees everything.
 </Note>
 
@@ -568,7 +568,7 @@ product has already been saved. If it was a new product, **do not click Guardar
 again**: you would create an identical one. Close the panel, reload the page,
 open it with **Editar** (*Edit*) and tick the funnels again.
 
-And if on saving you take the product away from the agent you have open, it
+And if on saving you take the product away from the funnel you have open, it
 warns you — *«Ya no lo vende el embudo abierto: sale de esta lista.»* (*The open
 funnel no longer sells it: it leaves this list.*) — and it disappears from the
 table. **It has not been deleted**: it stopped belonging to that funnel.
@@ -583,19 +583,19 @@ surprise (see [Your funnels](/en/guides/your-funnels)):
   **without stock tracking**.
 
 <Warning>
-**With more than one agent, the list you see is trimmed.** `/catalog` shows what
-the agent you have chosen in the agent selector sells — the dropdown with its
-name, just below **Ventas** in the left-hand menu (with the menu collapsed it
-sits at the top; on the phone, inside **Más**, *More*) — plus whatever is not
-assigned to any agent. The counter at the foot (*«Mostrando N de M
+**With more than one funnel, the list you see is trimmed.** `/catalog` shows
+what the funnel you have chosen in the funnel selector sells — the dropdown with
+its name, just below **Ventas** in the left-hand menu (with the menu collapsed
+it sits at the top; on the phone, inside **Más**, *More*) — plus whatever is not
+assigned to any funnel. The counter at the foot (*«Mostrando N de M
 productos»*, *Showing N of M products*) counts what is already trimmed, and the
 CSV template you download will come out trimmed the same way. Before concluding
-that you lost products, **switch agents in that selector**.
+that you lost products, **switch funnels in that selector**.
 
-One exception: a product ticked **only** for an agent you have already deleted
-does not appear in any agent's list, and your agents stop offering it. That is
-why, **before deleting an agent**, open each product ticked only for it and tick
-it for another agent too, or untick all the funnels so that all of them sell it.
+One exception: a product ticked **only** for a funnel you have already deleted
+does not appear in any funnel's list, and your agents stop offering it. That is
+why, **before deleting a funnel**, open each product ticked only for it and tick
+it for another funnel too, or untick all the funnels so that all of them sell it.
 </Warning>
 
 ## Editing many products at once: the CSV template
@@ -617,7 +617,7 @@ producto») opens the **«Editar catálogo en bloque (CSV)»** (*Bulk-edit catal
 
     Watch what it contains. The box itself says so: *«los productos editables
     de la lista que tienes debajo»* (*the editable products in the list you
-    have below*). In other words, **only those of the agent you have open**,
+    have below*). In other words, **only those of the funnel you have open**,
     and at most **1000 products, the most recent ones**.
   </Step>
   <Step title="Edit it in your spreadsheet">
@@ -711,7 +711,7 @@ the form again, the shortcut is the template: download the file, copy the
 product's rows, **delete their id and give all of them the same new handle**
 (for example, the one they come with plus `-copia` at the end), and upload it
 again. The copy arrives **without photos**, without **automatic delivery** and
-with no funnels ticked (all your agents sell it). You complete that afterwards
+with no funnels ticked (all your funnels sell it). You complete that afterwards
 with **Editar**.
 </Tip>
 
@@ -877,7 +877,7 @@ in the catalog and let the agent look them up there.
 
 | What you see | Almost always it is | How to fix it |
 | --- | --- | --- |
-| **«… no tiene nada que vender»** (*… has nothing to sell*) with your agent's name, and you know you loaded products | The list is trimmed to the agent you have chosen and those products belong to another one | Switch agents in the selector, just below **Ventas** in the left-hand menu |
+| **«… no tiene nada que vender»** (*… has nothing to sell*) with your funnel's name, and you know you loaded products | The list is trimmed to the funnel you have chosen and those products belong to another one | Switch funnels in the selector, just below **Ventas** in the left-hand menu |
 | **«Sin resultados»** (*No results*) | You have a search or a filter set | Click **Limpiar filtros** (*Clear filters*) |
 | The panel opens **almost empty** | You have not chosen the type yet | Choose **Producto físico**, **Servicio** or **Infoproducto** |
 | **It will not let me type the price** and the field says **«Precio (1 unidad, de la escala)»** | You have **Precios por cantidad** on | Type it into the **1 unit** row of the scale |
@@ -887,9 +887,9 @@ in the catalog and let the agent look them up there.
 | The Inventario link opens **«App no activa»** | The Inventario app is switched off in your company | Switch it on in **Administración → Apps**, or ask whoever manages the account |
 | The Inventario link opens **«No tienes acceso a Inventario»** | The app is on, but your user does not have it | Ask to be given it in **Administración → Personas y accesos** |
 | **I lost what I was typing** | You closed the panel (with **Cerrar**, **Cancelar**, **Esc** or a click outside) without saving | There is no draft: it has to be redone. Always click **Guardar** |
-| **I saved and the product disappeared** from the table | You took it away from the agent you have open | It was not deleted: switch to an agent that does sell it |
+| **I saved and the product disappeared** from the table | You took it away from the funnel you have open | It was not deleted: switch to a funnel that does sell it |
 | On saving, an **error message** appears and the panel **stays open** | The second step of the save (the funnels) may have failed: the product may already be saved | If it was new, do not click **Guardar** again. Close, reload the page and, if the product is already in the table, open it with **Editar** and tick the funnels again |
-| **«Embudo eliminado»** in the embudos column | It was ticked for an agent that no longer exists | Open it and tick the agents that should sell it |
+| **«Embudo eliminado»** in the embudos column | It was ticked for a funnel that no longer exists | Open it and tick the funnels that should sell it |
 | The agent **still does not name** a product you just created | Changes can take up to a minute to reach it | Wait a minute and try again |
 | The agent **does not find it** even though it is active | The customer calls it something different from its name | Rename the product with the words the customer uses |
 | **I turned «Visible» off and the agent still offers it** | «Visible» does not silence the agent | Turn off **Activo** |
@@ -899,7 +899,7 @@ in the catalog and let the agent look them up there.
 | **I uploaded the CSV and two products got mixed up** | You repeated another product's **handle** | To create one, empty id and a new handle |
 | **I edited the stock in the CSV and nothing changed** | That column is exported but ignored on import | Record it in **Inventario** |
 | **«Infoproducto · ⚠️ sin entrega»** in the list | You gave it neither a delivery file nor a link | Open it and fill in **Entrega automática** |
-| **It does not appear in the dropdown** when recording a sale | Another agent sells it, it is inactive or its price is 0 | Switch to the agent that sells it in the menu selector (or tick it for this one too), activate it or give it a price greater than 0 |
+| **It does not appear in the dropdown** when recording a sale | Another funnel sells it, it is inactive or its price is 0 | Switch to the funnel that sells it in the menu selector (or tick it for this one too), activate it or give it a price greater than 0 |
 
 ## The same thing, from your assistant
 

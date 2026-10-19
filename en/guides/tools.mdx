@@ -10,7 +10,7 @@ keywords:
   - "AI agent human handoff"
 ---
 
-{/* es-source: guias/herramientas.mdx @ 13402cf */}
+{/* es-source: guias/herramientas.mdx @ 7f28f19 */}
 
 Your agent does not only write. In the middle of a conversation it **does
 things**: it looks up the price in your catalog, sends a photo, saves the
@@ -34,7 +34,7 @@ lists and do not mix.
 
 **1. Almost all of them come ready.** They are available to every agent from
 day one. The rest depend on something you prepare: a catalog with products, a
-saved location, an active app, Slack connected or a switch in the agent's
+saved location, an active app, Slack connected or a switch in the funnel's
 **Configuración** (*Settings*). The table below says so, tool by tool.
 
 **2. There are two families, and they are asked for differently.** Some **are
@@ -157,7 +157,7 @@ Here goes only what concerns each tool.
 
 It is the most important tool in the product, which is why it has its own
 section in the playbook guide:
-[Making the sales funnel advance](/en/guides/sales-playbook#making-the-sales-funnel-advance).
+[Making the conversation advance](/en/guides/sales-playbook#making-the-conversation-advance).
 In short: it is inserted with **`@` → Capítulos** (*Chapters*) and the literal
 sentence is `Llama a la herramienta advance_chapter con el capítulo 3`. Writing
 «move on to the next one» in prose is not the way to do it: the advance lives in
@@ -187,7 +187,7 @@ What it does when it runs:
 - **It does not charge anything.** Payment is confirmed when your team verifies
   the receipt. See [Orders and metrics](/en/guides/orders-and-metrics).
 - **It notifies you.** If in the
-  [agent's settings](/en/guides/agent-settings), under **Informar de las
+  [funnel's settings](/en/guides/funnel-settings), under **Informar de las
   ventas** (*Report sales*), you chose whom to notify, every sale arrives
   instantly on WhatsApp with a 💰: the product, the total and the customer data
   the agent captured. It notifies sales and services; appointments and leads,
@@ -327,7 +327,7 @@ And for both cases:
   file is attached when it comes due, not now. Up to 4 per reminder.
 - **It respects your «No molestar» (*Do not disturb*) window.** If it comes due
   inside the window you set in **Configuración** (from the factory, from
-  midnight to 6 in the morning, in the agent's time), it waits for the window to
+  midnight to 6 in the morning, in the funnel's time), it waits for the window to
   end and goes out within the following hour.
 - **If more than 8 hours have passed since the agent's last message, it greets
   first** (only in the note case). A reminder that comes due the next morning
@@ -342,7 +342,7 @@ There is one reminder the agent schedules **without the playbook asking for
 it**: when the customer agrees on a day («I'll pay you by Yape on Monday», «I'll
 pay on the 15th», «I'll confirm at 6»). It is set for that day, at the time the
 customer said or, if they did not say a time, at 10 in the morning, in the
-agent's time zone. A day of the week means the next one: if today is Monday and
+funnel's time zone. A day of the week means the next one: if today is Monday and
 they say «on Monday», it is next week's. That reminder replaces the follow-ups
 and actions the agent had scheduled in that chat, and the agent is ordered to
 leave it standing even if the customer writes first. If the agent later
@@ -394,14 +394,14 @@ network → Program*), under **«¿Quién escribe primero?»** (*Who writes firs
 
 - **El cliente lo presenta** (*The customer introduces them*, the factory
   setting): the agent gives your customer, in that same chat and in a separate
-  message, an introduction ready to forward, with your agent's WhatsApp number
+  message, an introduction ready to forward, with your funnel's WhatsApp number
   as text (if that number is not saved for your line, the introduction goes out
   without it and the agent asks your customer to pass it on to their
   acquaintance). The referred person writes to you themselves: your number does
   not write to the referred person first.
 - **El agente le escribe primero** (*The agent writes first*): your WhatsApp
   sends the referred person a single message, during the day (from 8:00 to 20:00
-  in the agent's time and outside your «No molestar» window), with a cap on
+  in the funnel's time and outside your «No molestar» window), with a cap on
   referrals per day to look after your number.
 
 The introduction text, the attachments, the chapter the referred person enters
@@ -414,7 +414,7 @@ person, **Contexto del referido** (*Referral context*).
 
 Rules the agent already knows:
 
-- **Someone who already wrote to this agent does not count.** If that number
+- **Someone who already wrote to this funnel does not count.** If that number
   already talked with your funnel, the agent tells the customer kindly and
   records nothing.
 - **If the same customer passes you again someone they already recommended**,
@@ -446,7 +446,7 @@ doing, the agent answers with their real figures: see
 ### Notify a third party
 
 In the playbook it appears as **«Enviar Mensaje A Tercero Tool»**. It sends a
-WhatsApp message from the agent's number to another person — your sales team,
+WhatsApp message from the funnel's number to another person — your sales team,
 the warehouse manager — outside the conversation with the customer.
 
 The `@` menu form asks you for two things:
@@ -477,7 +477,7 @@ PASO 6: Ejecuta la herramienta "Enviar Mensaje A Tercero Tool" con el query "Dil
 ```
 
 **Better by name than by number.** The number lives in the
-[agent's settings](/en/guides/agent-settings), not in the playbook text: if you
+[funnel's settings](/en/guides/funnel-settings), not in the playbook text: if you
 change salesperson, you change it there and the playbook is not touched. If in
 **Números frecuentes** you rename a contact that a notice names, without
 changing its number, the notice in the playbook renames itself (a new version is
@@ -521,7 +521,7 @@ without data. It searches what the agent **studied**:
   (policies, warranties, shipping times, spec sheets; see
   [The file Library](/en/guides/library)), and
 - the **Memoria a Largo Plazo** (*Long-Term Memory*) document you write from the
-  Playbook itself, if your agent has that button
+  Playbook itself, if your funnel has that button
   ([how it is written](/en/guides/sales-playbook#long-term-memory-rag)).
 
 If that text uses a piece of business data (for example `{{dato:yape}}`), the
@@ -576,7 +576,7 @@ what **Record a sale** uses to tie the sale to the right product.
 
 When the customer asks where you are or how to get there, the agent sends your
 premises as a **WhatsApp map pin**. The address and the point on the map come
-from what you saved under **Librería → Ubicaciones** for that agent: the agent
+from what you saved under **Librería → Ubicaciones** for that funnel: the agent
 only chooses which premises to send if you have several («the Surco one», «the
 warehouse»), and if it does not recognise which one, it sends the first. One pin
 goes per reply.
@@ -585,7 +585,7 @@ goes per reply.
   <img src="/images/libreria/12-ubicaciones.png" alt="The Library's Ubicaciones (Locations) tab, empty (Aún no hay ubicaciones — No locations yet), with the Nombre, Dirección, Cuándo enviarla, Coordenadas and Acciones (Name, Address, When to send it, Coordinates and Actions) columns and the Agregar ubicación (Add location) button" />
 </Frame>
 
-With no locations saved for that agent, there is no pin to send.
+With no locations saved for that funnel, there is no pin to send.
 
 ### Check stock
 
@@ -595,7 +595,7 @@ there is not. It does not use it to give prices: that is the catalog's job.
 
 It needs **three things**: the **Inventario** app active in your business, the
 **«Consultar stock (Inventario)»** (*Check stock (Inventory)*) switch on in that
-agent's **Configuración** (**Herramientas** section — *Tools* — which only
+funnel's **Configuración** (**Herramientas** section — *Tools* — which only
 appears with Inventario active) and a catalog with products. If one fails, the
 agent does not receive it.
 
@@ -610,7 +610,7 @@ service carries a deposit, it collects it by payment receipt and your team
 confirms it. See
 [The DarkFunnels apps](/en/getting-started/the-apps#the-apps-that-exist-today).
 
-For it to really book, load into the Calendario, in that agent's calendar, your
+For it to really book, load into the Calendario, in that funnel's calendar, your
 **services** and your **opening hours**: without them the agent does not offer
 appointments and tells the customer that someone in charge will coordinate the
 time.
@@ -760,7 +760,7 @@ calls went well. It is explained in
     it: if some destination was not valid, it says so there (*«NO avisé a: …»*
     — *I did NOT notify: …*), and if the same notice had already gone out a few
     minutes before, it is not repeated. If it is not that, that person may have
-    gone more than 24 hours without writing to your agent's line: in that case
+    gone more than 24 hours without writing to your funnel's line: in that case
     the sending can be held back to look after your number. Ask them to send a
     message to that line.
   </Accordion>
@@ -785,7 +785,7 @@ calls went well. It is explained in
     after the delay, with the colon, and the text after it.
   </Accordion>
   <Accordion title="I did not get the 💰 notice for a sale">
-    Check in the agent's Configuración that **Informar de las ventas** has
+    Check in the funnel's Configuración that **Informar de las ventas** has
     numbers: without them, the notice does not reach your team. Remember that it
     notifies sales and services, not appointments or leads, and that a second
     sale in the same chat within 24 hours does not notify again. And check in the
@@ -797,8 +797,8 @@ calls went well. It is explained in
   <Accordion title="The agent does not give prices, does not send the location or does not check stock">
     They are tools that depend on something of yours. Prices: active products in
     the catalog. Location: premises under **Librería → Ubicaciones** for that
-    agent. Stock: the **Inventario** app, the **Consultar stock** switch in that
-    agent's Configuración, and the catalog.
+    funnel. Stock: the **Inventario** app, the **Consultar stock** switch in that
+    funnel's Configuración, and the catalog.
   </Accordion>
   <Accordion title="My MCP tool does not show up">
     Wait a few minutes after adding the server. Check that the card says
