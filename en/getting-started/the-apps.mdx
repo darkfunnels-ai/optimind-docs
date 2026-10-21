@@ -11,7 +11,7 @@ keywords:
   - "electronic invoicing"
 ---
 
-{/* es-source: primeros-pasos/las-apps.mdx @ 4f274fe */}
+{/* es-source: primeros-pasos/las-apps.mdx @ b6f7dcf */}
 
 DarkFunnels isn't a single screen: it's **pieces that switch on and off, one by
 one, in your business**. Each piece is an **app**. If an app is on and you have
@@ -92,9 +92,17 @@ assistants*). [The connection URL](/en/reference/connection-url) covers it.
 
 ## The sidebar, top to bottom
 
-**The order is fixed:** it isn't alphabetical and doesn't depend on which app
-you activated first. Apps that are off, or that you don't have access to, leave
-no gap: they're skipped.
+**The menu groups your apps by area.** **Inicio** (*Home*) sits at the top;
+below it, three areas — **Ventas** (*Sales*), **Operación** (*Operations*) and
+**Equipo** (*Team*) — and, at the bottom, **Administración**
+(*Administration*). The order is fixed: it isn't alphabetical and doesn't
+depend on which app you activated first. Apps that are off, or that you don't
+have access to, leave no gap: they're skipped. And an area left with no apps
+for you doesn't show up.
+
+Each area collapses and expands with a click on its name. All three start
+expanded and, if you collapse one, it stays collapsed next time. That
+preference is saved **in your browser**, not in your account.
 
 <Frame caption="The menu groups your apps by area: Ventas, expanded with its funnel selector; Operación, with Órdenes, Inventario, Envíos, Facturación and Calendario; Equipo, with the HR entries; and Administración, expanded at the end.">
   <img src="/images/apps/09-menu-lateral.png" alt="Side menu of the dashboard with Inicio; Ventas open with the selector on «Agente de Ventas» and its entries; Operación with Órdenes, Inventario, Envíos, Facturación and Calendario; Equipo with Personal, Asistencia, Vacaciones, Objetivos, Tracking, Sueldos, Bono, Disputas and Ajustes; and the Administración block expanded with Personas y accesos, Saldo y facturación, Consumo, Referidos, Apps and Ajustes" />
@@ -113,37 +121,21 @@ no gap: they're skipped.
     <Frame caption="Inicio: the day's headline, what's waiting for a reply and your funnels' cards.">
       <img src="/images/inicio/01-panel-inicio.png" alt="Inicio screen with the headline «Tus agentes atendieron 54 conversaciones.» (Your agents handled 54 conversations), the «Esperan respuesta» (Waiting for a reply) card, the Ventas numbers and the funnel cards" />
     </Frame>
-  </Step>
 
-  <Step title="Calendario (Calendar)">
-    The schedule. At the top you choose between **Día**, **Semana** and **Mes**
-    (*Day, Week, Month*), come back to the present with **Hoy** (*Today*) and
-    note down an appointment by hand with **Nueva cita** (*New appointment*).
-
-    <Frame caption="Calendario in week view, still without appointments. Top left, the schedule selector.">
-      <img src="/images/apps/04-calendario.png" alt="Calendario screen in the Semana view for 18–24 October 2026, with no appointments, the schedule selector on «Agente de Ventas», the Día, Semana and Mes buttons, Hoy and Nueva cita" />
-    </Frame>
-  </Step>
-
-  <Step title="Inventario (Inventory)">
-    Stock with a history: every in and every out is recorded. At the top, the
-    counters **Con seguimiento** (*Tracked*), **Unidades** (*Units*),
-    **Sobrevendidos** (*Oversold*) and **Almacenes** (*Warehouses*); in the
-    middle, two tabs — **Stock** and **Movimientos** (*Movements*) — and the
-    **Registrar movimiento** (*Record movement*) button.
-
-    <Frame caption="Inventario, still without products: the counters without figures («—») and «El catálogo está vacío» (The catalog is empty). Once you load products, one without stock control shows the «Sin control» (Not tracked) tag.">
-      <img src="/images/apps/02-inventario.png" alt="Inventario screen with the Con seguimiento, Unidades, Sobrevendidos and Almacenes counters still without figures («—»), the Stock and Movimientos tabs, the Registrar movimiento button and the notice «El catálogo está vacío»" />
-    </Frame>
+    If your business uses the Recursos Humanos (*Human Resources*) app,
+    **Mi espacio** (*My space*) may show up below **Inicio**, with your own HR
+    items: **Mi asistencia** (*My attendance*), **Mis vacaciones** (*My
+    vacation*), **Mi boleta** (*My payslip*) and more. It comes collapsed,
+    except when you're on one of its screens. For someone who only has that,
+    those entries show up on their own, next to **Inicio**.
   </Step>
 
   <Step title="Ventas (Sales)">
-    **It's the app with a submenu, and it starts expanded.** The other apps on
-    this page have a single entry and show up as a direct row.
+    **The area for your funnels.** Right below the **Ventas** header there's a
+    dropdown with your funnel's photo — or initial — and name: that's **the
+    funnel selector**. It picks the funnel you're working with inside Ventas.
 
-    Below the word **Ventas** there's a dropdown with your funnel's photo — or
-    initial — and name: that's **the funnel selector**. It picks the funnel
-    you're working with inside Ventas.
+    Below the selector come the Ventas app's entries:
 
     | Entry | Under the divider | What it is |
     | --- | --- | --- |
@@ -179,16 +171,18 @@ no gap: they're skipped.
     your account yet. When you have it, start with
     [Connect your Meta ads](/en/guides/meta-ads).
     </Note>
-
-    <Tip>
-    If you collapse the Ventas submenu, it stays collapsed next time. That
-    preference is saved **in your browser**, not in your account.
-    </Tip>
   </Step>
 
-  <Step title="Órdenes (Orders)">
-    The orders. If you also have Ventas, there are four tabs at the top:
-    **Pedidos** (*Orders*), **Citas** (*Appointments*), **Servicios**
+  <Step title="Operación (Operations)">
+    The business's day-to-day apps, each one a single row, in the order an
+    order follows: **Órdenes** (*Orders*), **Inventario** (*Inventory*),
+    **Envíos** (*Shipping*), **Facturación** (*Invoicing*) and, last,
+    **Calendario** (*Calendar*). **Envíos** and **Facturación** only show up
+    if you installed them; **Facturación** is the **Facturación electrónica**
+    (*Electronic invoicing*) app, under its short name.
+
+    **Órdenes.** The orders. If you also have Ventas, there are four tabs at
+    the top: **Pedidos** (*Orders*), **Citas** (*Appointments*), **Servicios**
     (*Services*) and **Leads** — yes, appointments and leads live here too.
 
     In **Pedidos** you see the counters **Por cobrar** (*To collect*),
@@ -204,13 +198,46 @@ no gap: they're skipped.
     </Frame>
 
     → [Orders and metrics](/en/guides/orders-and-metrics)
+
+    **Inventario.** Stock with a history: every in and every out is recorded.
+    At the top, the counters **Con seguimiento** (*Tracked*), **Unidades**
+    (*Units*), **Sobrevendidos** (*Oversold*) and **Almacenes**
+    (*Warehouses*); in the middle, two tabs — **Stock** and **Movimientos**
+    (*Movements*) — and the **Registrar movimiento** (*Record movement*)
+    button.
+
+    <Frame caption="Inventario, still without products: the counters without figures («—») and «El catálogo está vacío» (The catalog is empty). Once you load products, one without stock control shows the «Sin control» (Not tracked) tag.">
+      <img src="/images/apps/02-inventario.png" alt="Inventario screen with the Con seguimiento, Unidades, Sobrevendidos and Almacenes counters still without figures («—»), the Stock and Movimientos tabs, the Registrar movimiento button and the notice «El catálogo está vacío»" />
+    </Frame>
+
+    **Envíos and Facturación.** **Envíos** has three tabs: **Envíos**
+    (*Shipments*), **Guías del courier** (*Courier waybills*) and
+    **Couriers**. **Facturación** is where you set up the issuer and look at
+    the receipts.
+
+    **Calendario.** The schedule. At the top you choose between **Día**,
+    **Semana** and **Mes** (*Day, Week, Month*), come back to the present with
+    **Hoy** (*Today*) and note down an appointment by hand with **Nueva cita**
+    (*New appointment*).
+
+    <Frame caption="Calendario in week view, still without appointments. Top left, the schedule selector.">
+      <img src="/images/apps/04-calendario.png" alt="Calendario screen in the Semana view for 18–24 October 2026, with no appointments, the schedule selector on «Agente de Ventas», the Día, Semana and Mes buttons, Hoy and Nueva cita" />
+    </Frame>
   </Step>
 
-  <Step title="Envíos and Facturación electrónica">
-    Only if you installed them. They come in that order, after **Órdenes**.
-    **Envíos** has three tabs: **Envíos** (*Shipments*), **Guías del courier**
-    (*Courier waybills*) and **Couriers**. **Facturación electrónica** is where
-    you set up the issuer and look at the receipts.
+  <Step title="Equipo (Team)">
+    The apps for your staff. Today they're among the ones we're trying out
+    with some accounts, so this area only shows up if your business has one of
+    them and you have access.
+
+    With **Recursos Humanos** (*Human Resources*), its entries go here —
+    **Personal** (*Staff*), **Asistencia** (*Attendance*), **Vacaciones**
+    (*Vacation*), **Objetivos** (*Goals*), **Sueldos** (*Salaries*),
+    **Disputas** (*Disputes*), **Ajustes** (*Settings*) and more. Each one
+    shows up according to your HR access. If you also have **Pantallas**
+    (*Screens*), the app for your business's TVs, its entries **Teles**
+    (*TVs*) and **Comunicados** (*Announcements*) go in the same area, and
+    each app has its name as a divider above its entries.
   </Step>
 
   <Step title="Administración (Administration)">
