@@ -9,7 +9,7 @@ keywords:
   - "cost per chat"
   - "ROAS"
 ---
-{/* es-source: guias/anuncios-de-meta.mdx @ 772a9a4 */}
+{/* es-source: guias/anuncios-de-meta.mdx @ 339b1c6 */}
 
 The **Anuncios** (*Ads*) page brings together two things that until now lived in
 different places: what you spent on Meta on each click-to-WhatsApp ad, and what
@@ -39,53 +39,26 @@ Meta's windows are in Spanish too, and their buttons are named the same way.
 <Warning>
 **1. Connect with the Facebook account that runs your ads.** It must have access
 to the ad account that pays for your click-to-WhatsApp ads (in Ads Manager, it's
-the account you pick at the top left). If chats from ads have already reached
-you and you connect with a Facebook account that can't see that ad account,
-DarkFunnels doesn't find your ads and tells you so. If none has reached you yet,
-it has no way of knowing: check beforehand which Facebook account you're logged
-in with.
+the account you pick at the top left). Meta asks you to choose your business
+portfolio (Meta's company account, formerly Business Manager) and its ad
+accounts: it's easiest if whoever administers the portfolio connects. If chats
+from ads have already reached you and you connect with a Facebook account that
+can't see that ad account, DarkFunnels doesn't find your ads and tells you so.
+If none has reached you yet, it has no way of knowing: check beforehand which
+Facebook account you're logged in with.
 
 **2. DarkFunnels recognizes your account by the ads that bring you chats.**
 If nobody has written to you from a click-to-WhatsApp ad yet, you can still
-connect: if your Facebook account sees a single ad account, that one is
-connected; if it sees several, we add yours on our own when your first chat
-arrives from an ad paid by one of the accounts that Facebook account can see.
+connect: if you give DarkFunnels a single ad account, that one is connected; if
+you give it several, we add yours on our own when your first chat arrives from
+an ad paid by one of them.
 
-**3. To see Facebook's «organic» engagement, that same Facebook account must
-manage the Page that publishes your ads.** Without that, everything else works
-the same and that part doesn't show up.
+**3. Meta doesn't share Facebook's «organic» engagement yet.** It does share
+Instagram's. Everything else works the same.
 
-**4. The Anuncios page is in a pilot and lives in the Ventas (*Sales*) app.** You
-need access to Ventas. If you still don't see it in the menu, or when you open it
-it says *«Todavía no está disponible para tu cuenta»* (*Not available for your
-account yet*), it isn't open for your business yet: if you'd like to try it,
-write to us.
-And until Meta approves the DarkFunnels app for everyone, there's one more step:
-accepting an invitation from Meta (we explain it right below).
+**4. The Anuncios page lives in the Ventas (*Sales*) app.** You need access to
+Ventas.
 </Warning>
-
-### For now: accept Meta's invitation
-
-The app DarkFunnels uses to connect to Meta doesn't have Meta's approval for
-everyone yet, and in the meantime Meta only lets the people the app invited
-connect. So, the first time:
-
-<Steps>
-  <Step title="Send us your Facebook profile">
-    Write to us on the support WhatsApp or at **soporte@darkfunnels.ai** with the
-    profile of the person who will connect (the one who runs your ads): their
-    name as it appears on Facebook or the link to their profile. We invite you as
-    a **tester** of the DarkFunnels app.
-  </Step>
-  <Step title="Accept the invitation">
-    Go to `developers.facebook.com/requests` with that Facebook account and
-    accept the DarkFunnels invitation. If Meta asks you to register as a
-    developer, do it: it's free and doesn't publish anything in your name.
-  </Step>
-</Steps>
-
-From then on you can connect. This step goes away when Meta approves the app for
-everyone; this guide will be updated then.
 
 ## Connect your ad account
 
@@ -106,10 +79,8 @@ everyone; this guide will be updated then.
 
     The **Conexión con Meta** (*Connection with Meta*) sheet opens. Click
     **Conectar con Meta** (*Connect with Meta*): it takes you to Meta's window.
-
-    <Frame caption="The sheet before connecting. We only ask for permission to read: we don't create, change or publish anything.">
-      <img src="/images/anuncios-de-meta/03-hoja-conectar-con-meta.png" alt="Conexión con Meta sheet with the Conectar con Meta button" />
-    </Frame>
+    We only ask for permission to read: we don't create, change or publish
+    anything.
   </Step>
   <Step title="Confirm it's your Facebook account">
     Meta asks **¿Continuar como …?** (*Continue as …?*) with the name of the
@@ -121,42 +92,17 @@ everyone; this guide will be updated then.
       <img src="/images/anuncios-de-meta/04-meta-continuar-como.png" alt="Meta window asking ¿Continuar como …? (Continue as …?) with the Cancelar and Continuar buttons" />
     </Frame>
   </Step>
-  <Step title="Choose your Pages">
-    Meta asks you to choose which Pages DarkFunnels can access. Leave the first
-    option selected (all your Pages, the current ones and the ones you create
-    later), or choose the second one (only the current ones) and check, at
-    least, the Page that publishes your ads. Click **Continuar**.
-
-    <Frame caption="The Pages: from them DarkFunnels reads the organic engagement of the posts your ads use.">
-      <img src="/images/anuncios-de-meta/05-meta-elige-paginas.png" alt="Meta window to choose the Pages you want DarkFunnels to access, with the options of all Pages or only the current ones" />
-    </Frame>
+  <Step title="Choose your portfolio and your ad accounts">
+    Meta asks you to choose your **business portfolio** and the **ad accounts**
+    DarkFunnels can access. Tick at least the one that pays for your
+    click-to-WhatsApp ads. The permission we ask for is to read your ads and
+    their statistics.
   </Step>
-  <Step title="Review the permissions and save">
-    Meta sums up what DarkFunnels asks for under **Revisa la solicitud de acceso
-    de DarkFunnels** (*Review DarkFunnels' access request*): *Acceder a tus
-    anuncios de Facebook y estadísticas relacionadas* (access your Facebook ads
-    and related statistics), *Leer el contenido publicado en la página* (read
-    content posted on the Page), *Leer contenido del usuario en tu página* (read
-    user content on your Page) and *Mostrar una lista de las páginas que
-    administras* (show a list of the Pages you manage). Click **Guardar**
-    (*Save*).
-
-    <Frame caption="The four permissions. The Page ones are what let us count the post's reactions, comments and shares: we count how many there are, we don't read what they say.">
-      <img src="/images/anuncios-de-meta/05b-meta-revisa-permisos.png" alt="Meta window Revisa la solicitud de acceso de DarkFunnels (Review DarkFunnels' access request) with four permissions and the Atrás and Guardar buttons" />
-    </Frame>
-
-    The Page permissions are what let you see Facebook's organic engagement. If
-    you don't grant them, the connection still works, but that part doesn't show
-    up and the ad's detail sheet will ask you to reconnect.
-  </Step>
-  <Step title="Click «De acuerdo»">
-    Meta confirms that your Facebook account **se conectó a DarkFunnels**
-    (*connected to DarkFunnels*). **De acuerdo** (*OK*) takes you back to
-    DarkFunnels.
-
-    <Frame caption="Meta's confirmation. The «ir a las integraciones comerciales» (go to business integrations) link is where, from Facebook, you can remove DarkFunnels' access whenever you want.">
-      <img src="/images/anuncios-de-meta/06-meta-se-conecto.png" alt="Meta window confirming the connection with DarkFunnels and the De acuerdo button" />
-    </Frame>
+  <Step title="Click «Finalizar»">
+    Meta confirms that your portfolio **se conectó a DarkFunnels** (*connected
+    to DarkFunnels*). **Finalizar** (*Finish*) takes you back to DarkFunnels.
+    The **Agregar método de pago** (*Add payment method*) button isn't needed:
+    DarkFunnels only reads statistics.
   </Step>
   <Step title="Check that it worked">
     Back in Anuncios, the sheet says **Listo: conectaste 1 cuenta publicitaria**
@@ -164,28 +110,24 @@ everyone; this guide will be updated then.
     each account with its name, its ID and its currency. At first you'll see
     *«Estamos trayendo el gasto de los últimos 93 días. Vuelve en unos minutos.»*
     (*We're bringing in the spend for the last 93 days. Come back in a few
-    minutes.*); when it finishes, it says when the spend was updated and until
-    when the connection is valid.
-
-    <Frame caption="Connected (demo data: your dates will be different). From this same sheet you reconnect or disconnect.">
-      <img src="/images/anuncios-de-meta/07-hoja-listo.png" alt="Conexión con Meta sheet with the Listo: conectaste 1 cuenta publicitaria notice, the account, the update date and the expiry date" />
-    </Frame>
+    minutes.*); when it finishes, it says when the spend was updated. At the top
+    it says *Conectada como «DarkFunnels System User»* (*Connected as
+    «DarkFunnels System User»*): that's the user Meta creates in your portfolio
+    for this connection. From this same sheet you reconnect or disconnect.
   </Step>
 </Steps>
 
 <Note>
-**Which accounts get connected.** If your Facebook account has access to several
-ad accounts (for example, those of other businesses you manage), DarkFunnels
-keeps the ones that pay for ads that brought chats to your business. The rest
+**Which accounts get connected.** If you give DarkFunnels several ad accounts,
+it keeps the ones that pay for ads that brought chats to your business. The rest
 aren't connected: we don't bring in their spend or their figures. If you connect
-before your first chat from an ad and your Facebook account sees several
-accounts, the sheet says *«Todavía no sabemos cuál de las cuentas publicitarias
-de tu Facebook es la de esta empresa»* (*We don't know yet which of your
-Facebook's ad accounts belongs to this business*) and yours is added on its own
-when that chat arrives. And if you later start paying for ads from another
-account, it's also added on its own. In both cases it comes in with the daily
-update that follows that account's first chat, if the Facebook account you
-connected can see it.
+before your first chat from an ad and you gave it several accounts, the sheet
+says *«Todavía no sabemos cuál de las cuentas publicitarias de tu Facebook es la
+de esta empresa»* (*We don't know yet which of your Facebook's ad accounts
+belongs to this business*) and yours is added on its own when that chat
+arrives. And if you later start paying for ads from another account, it's also
+added on its own. In both cases it comes in with the daily update that follows
+that account's first chat, if you gave it to DarkFunnels when you connected.
 </Note>
 
 ## What you see once it's connected
@@ -359,7 +301,9 @@ Under **La gente** (*The people*), each interaction is read per 1,000 times the
 ad was shown, with a mark for your average: that way you can compare a big ad
 with a small one. Below, **Desde que se publicó** (*Since it was published*)
 splits the post's engagement into what the ads brought (gray) and what came on
-its own (purple), on Facebook and on Instagram.
+its own (purple), on Instagram. Meta doesn't share Facebook's yet: the detail
+sheet says *«Meta todavía no nos deja leer la interacción orgánica de
+Facebook.»* (*Meta doesn't let us read Facebook's organic engagement yet.*)
 
 <Frame caption="«La gente» (The people) per 1,000 times shown and, below, the post's paid and organic engagement.">
   <img src="/images/anuncios-de-meta/10-ficha-la-gente-y-organica.png" alt="Ad detail sheet: reactions, comments, shares and saves per 1,000, and Facebook and Instagram engagement split into paid and organic" />
@@ -379,39 +323,17 @@ its own (purple), on Facebook and on Instagram.
 
 ## When to reconnect
 
-Reconnecting is the same steps as above, starting from the button at the top
-(**Meta conectado** or **Reconectar Meta**, *Reconnect Meta*) → **Volver a
-conectar** (*Reconnect*). Since you've connected before, Meta asks whether you
-want to **continuar con tu configuración anterior** (*continue with your previous
-settings*): **Continuar** reuses what you already accepted and finishes there;
-**Editar configuración** (*Edit settings*) takes you to choose the Pages and
-review the permissions again. If the detail sheet asked you for your Pages
-permission, use **Editar configuración**.
+The connection belongs to your portfolio, not to a person, and it doesn't
+expire: you don't need to renew it. You only need to reconnect if Meta stops
+accepting it, for example because someone removed DarkFunnels from your
+portfolio's integrations. Then the button at the top changes to **Reconectar
+Meta** (*Reconnect Meta*) and the sheet explains that Meta no longer accepts the
+connection: click **Volver a conectar** (*Reconnect*) and repeat the steps
+above.
 
-<Frame caption="When reconnecting: «Continuar» (Continue) repeats what you already accepted; «Editar configuración» (Edit settings) lets you review Pages and permissions.">
-  <img src="/images/anuncios-de-meta/11-meta-configuracion-anterior.png" alt="Meta window asking whether you want to continue with your previous settings, with the Editar configuración and Continuar buttons" />
-</Frame>
-
-The spend we already brought in stays. You need to reconnect in three cases:
-
-1. **Before it expires.** The permission Meta gives you lasts a limited time: at
-   most about 90 days from when you accept the permissions, and it can be less.
-   The exact date is on the sheet: *«La conexión vence el …»* (*The connection
-   expires on …*). In the last 14 days, that same line warns you so you renew it
-   before it's cut off. That warning shows up inside **Meta conectado**: open it
-   every now and then.
-2. **If Meta stops accepting the connection**, for example because you removed
-   the permission from Facebook. The button at the top changes to **Reconectar
-   Meta** and the sheet explains that Meta no longer accepts the connection.
-3. **If the detail sheet asks you to.** If you didn't grant the Pages
-   permissions (or you connected before we asked for them), the Facebook part of
-   **Desde que se publicó** says *«Para leerla falta el permiso de tus
-   páginas.»* (*Reading it needs your Pages permission.*) with a **Volver a
-   conectar** button. When you go back, go in through **Editar configuración**
-   and accept the Pages permissions.
-
-If you start paying for ads from another ad account, you don't need to: it's
-added on its own (see «Which accounts get connected», above).
+You also reconnect to give DarkFunnels another ad account from your portfolio.
+If you start paying for ads from an account you already gave it, you don't need
+to: it's added on its own (see «Which accounts get connected», above).
 
 <Note>
 When you reconnect, the spend for the days the connection was cut off comes in
@@ -426,24 +348,25 @@ and the thumbnails. What we already brought in stays stored: if you connect
 again, it shows up again.
 
 That cuts the connection on DarkFunnels' side. To also remove its access on
-Meta's side, go on Facebook to **Integraciones comerciales** (*Business
-integrations*, the link Meta shows you when you connect) and remove DarkFunnels.
+Meta's side, go to your portfolio's **Configuración del negocio** (*Business
+settings*) → **Integraciones** (*Integrations*) → **Apps conectadas**
+(*Connected apps*) and remove DarkFunnels.
 
 ## What we read from Meta and what we don't
 
 **We read, once a day:** each ad's spend, impressions, clicks and engagement, by
 day and by country; the names of the ad, the ad set and the campaign; and the
-totals of the post each ad uses (reactions, comments and shares on Facebook;
-likes and comments on Instagram). We keep a copy of each ad's thumbnail and, the
-first time you open its detail sheet, of its video (if Meta shares it), to show
-them to you without depending on Meta's links, which expire.
+totals of the Instagram post each ad uses (likes and comments; Facebook's, when
+Meta shares them). We keep a copy of each ad's thumbnail and, the first time you
+open its detail sheet, of its video (if Meta shares it), to show them to you
+without depending on Meta's links, which expire.
 
 **We don't:** we don't create, change, pause or publish anything. Of the
 comments we only count how many there are; we don't read what they say.
 
-The permission Meta gives you is stored encrypted. We also store the name and
-Facebook ID of whoever connected, and the connected ad accounts (name, ID and
-currency). Within your business, the figures are only visible to the people
+The permission Meta gives you is stored encrypted. We also store who on your
+team connected, the connection's Meta user and the connected ad accounts (name,
+ID and currency). Within your business, the figures are only visible to the people
 with access to Ventas. Like the rest of your data, the DarkFunnels support team
 can also see them: [Security](/en/security) explains it. To have us delete what
 we've already stored, write to us.
@@ -451,22 +374,23 @@ we've already stored, write to us.
 ## Common problems
 
 <AccordionGroup>
-  <Accordion title="It says «Todavía no está disponible para tu cuenta» (not available for your account yet)">
-    The page is in a pilot and your business isn't in it yet. If you'd like to
-    try it, write to us; if not, that same screen tells you we'll let you know
-    when it opens to everyone.
-  </Accordion>
-  <Accordion title="Meta won't let me continue, or says the app isn't available">
-    Until Meta approves the DarkFunnels app for everyone, it only lets people who
-    accepted its invitation connect. Check that you accepted it at
-    `developers.facebook.com/requests` and that you're using that same Facebook
-    account in Meta's window. If another name shows up in **¿Continuar como
-    …?**, use **Iniciar sesión en otra cuenta**.
+  <Accordion title="My ad account doesn't appear in Meta's window">
+    Meta only shows the business portfolios and ad accounts that the Facebook
+    account you logged in with manages. If another name shows up in
+    **¿Continuar como …?**, use **Iniciar sesión en otra cuenta**. Otherwise,
+    connect with the Facebook account that manages your portfolio, or ask to be
+    given access to the ad account in Meta. If your ad account is a personal one
+    (it isn't in a business portfolio), write to us.
   </Accordion>
   <Accordion title="It says «No se conectó: cancelaste en Meta o no diste el permiso.» (it didn't connect: you canceled in Meta or didn't grant the permission)">
     You clicked **Cancelar** (*Cancel*) in Meta or didn't accept the
-    permissions. Click **Conectar Meta** again and go all the way to **De
-    acuerdo**.
+    permissions. Click **Conectar Meta** again and go all the way to
+    **Finalizar**.
+  </Accordion>
+  <Accordion title="It says «Meta no nos dio permiso para leer tus anuncios» (Meta didn't give us permission to read your ads)">
+    Meta returned the connection without the permission to read your ads. Start
+    again from **Conectar Meta** and accept that permission. If you already had
+    a connection, it stays as it was: it isn't replaced.
   </Accordion>
   <Accordion title="It says «Meta no aceptó la conexión» or «Meta no respondió como esperábamos» (Meta didn't accept the connection, or didn't respond as expected)">
     Something failed on Meta's side while closing the connection. Wait a few
@@ -474,25 +398,22 @@ we've already stored, write to us.
     to us.
   </Accordion>
   <Accordion title="It says «En tus cuentas publicitarias no encontramos los anuncios que traen chats a esta empresa» (we couldn't find the ads that bring chats to this business in your ad accounts)">
-    Chats from ads have already reached you, but the Facebook account you
-    connected with doesn't have access to the ad account that pays for them.
-    Connect with the Facebook account that manages those ads (or ask to be given
-    access to the ad account in Meta).
+    Chats from ads have already reached you, but the ad account that pays for
+    them isn't among the accounts you gave DarkFunnels. Reconnect and tick that
+    account (or connect with the Facebook account that manages those ads).
   </Accordion>
   <Accordion title="It says «Todavía no sabemos cuál de las cuentas publicitarias de tu Facebook es la de esta empresa» (we don't know yet which of your Facebook's ad accounts belongs to this business)">
-    You connected before your first chat from an ad and your Facebook account
-    sees several ad accounts: DarkFunnels doesn't know yet which one is yours.
-    You don't have to do anything. When a chat arrives from an ad paid by one of
-    those accounts, it's added on its own with the daily update and brings in
-    its last 93 days of spend. If chats from ads are already reaching you and
-    the sheet still looks the same the next day, those ads are paid by an
-    account your Facebook can't see: connect with the Facebook account that
-    manages them.
+    You connected before your first chat from an ad and gave DarkFunnels
+    several ad accounts: it doesn't know yet which one is yours. You don't have
+    to do anything. When a chat arrives from an ad paid by one of those
+    accounts, it's added on its own with the daily update and brings in its
+    last 93 days of spend. If chats from ads are already reaching you and the
+    sheet still looks the same the next day, those ads are paid by an account
+    you didn't give DarkFunnels: reconnect and tick it.
   </Accordion>
   <Accordion title="It says «No elegiste ninguna cuenta publicitaria» (you didn't choose any ad account)">
-    Your Facebook account doesn't have access to any ad account, or you didn't
-    accept the permission to read your ads. Connect with the Facebook account
-    that runs your ads and accept all the permissions.
+    It usually happens when you didn't tick any ad account in Meta or the
+    portfolio you chose has no ad accounts. Reconnect and tick at least one.
   </Accordion>
   <Accordion title="It says the connection link isn't valid, was already used or expired">
     Each connection attempt is valid for 10 minutes, only once, and for the same
@@ -503,11 +424,11 @@ we've already stored, write to us.
   <Accordion title="An ad shows no spend («—»)">
     It may be that it spent nothing in the period you have selected or, if you
     picked a country, that it had no delivery in that country. It may also be
-    that it's paid by another ad account that isn't connected yet (it's added on
-    its own with the daily update if the Facebook account you connected can see
-    it). Right after connecting, wait a few minutes: the spend is still being
-    brought in. Try a longer period; if it still shows «—» the next day, connect
-    with a Facebook account that can see that other account.
+    that it's paid by another ad account that isn't connected yet (if you gave it
+    to DarkFunnels when you connected, it's added on its own with the daily
+    update). Right after connecting, wait a few minutes: the spend is still
+    being brought in. Try a longer period; if it still shows «—» the next day,
+    reconnect and tick that other account.
   </Accordion>
   <Accordion title="The spend doesn't match Ads Manager">
     Check that the period is the same, that days follow your ad account's time
@@ -519,19 +440,18 @@ we've already stored, write to us.
     Meta's «Clicks (all)», not only link clicks.
   </Accordion>
   <Accordion title="I don't see Facebook's organic engagement">
-    In the table, the purple figure doesn't show up; in the detail sheet, the
-    Facebook part of **Desde que se publicó** tells you why. If it says *«Para
-    leerla falta el permiso de tus páginas.»*, click **Volver a conectar** and
-    accept the Pages permissions. If it says *«Todavía no la leemos…»* (*We
-    haven't read it yet…*), it shows up with the next update; if it's still the
-    same the day after, your Facebook account doesn't manage the Page that
-    publishes the ad: reconnect with one that does.
+    If the detail sheet says *«Meta todavía no nos deja leer la interacción
+    orgánica de Facebook.»*, that's normal: Meta doesn't share that data with us
+    yet, and reconnecting doesn't change it. Instagram's does show up. If it
+    says *«Todavía no la leemos…»* (*We haven't read it yet…*), it shows up with
+    the next update.
   </Accordion>
   <Accordion title="The button says «Reconectar Meta» (Reconnect Meta)">
-    Meta stopped accepting the connection: it expired or the permission was
-    removed. Click the button and repeat the steps. The spend we already brought
-    in isn't lost, and the spend for the days it was cut off comes in on its own
-    when you reconnect (up to 93 days back).
+    Meta stopped accepting the connection, for example because DarkFunnels was
+    removed from your portfolio's integrations. Click the button and repeat the
+    steps. The spend we already brought in isn't lost, and the spend for the
+    days it was cut off comes in on its own when you reconnect (up to 93 days
+    back).
   </Accordion>
   <Accordion title="The sheet says «La última actualización del gasto falló: …» (the last spend update failed)">
     What follows the colon is the error we got when updating: it may be Meta's
